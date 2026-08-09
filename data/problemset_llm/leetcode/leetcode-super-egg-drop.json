@@ -21,8 +21,7 @@
   "patterns": [
     "dynamic-programming",
     "dp-optimization",
-    "binary-search-answer",
-    "state-compression"
+    "binary-search-answer"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "dp-optimization": 0.85,
-      "binary-search-answer": 0.85,
-      "state-compression": 0.9
+      "binary-search-answer": 0.85
     }
   }
 }

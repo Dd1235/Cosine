@@ -19,7 +19,6 @@
   "patterns": [
     "fraction-representation",
     "dp-on-rationals",
-    "state-compression",
     "number-theory"
   ],
   "annotation": {
@@ -29,7 +28,6 @@
     "pattern_confidence": {
       "fraction-representation": 0.9,
       "dp-on-rationals": 0.85,
-      "state-compression": 0.7,
       "number-theory": 0.9
     }
   },

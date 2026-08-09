@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "dp-on-dag",
-    "state-compression",
     "graph-traversal"
   ],
   "annotation": {
@@ -28,7 +27,6 @@
     "generated_at_unix": 1785051064,
     "pattern_confidence": {
       "dp-on-dag": 0.85,
-      "state-compression": 0.7,
       "graph-traversal": 0.9
     }
   },

@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "tiling",
-    "state-compression"
+    "tiling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1785224811,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "tiling": 0.9,
-      "state-compression": 0.7
+      "tiling": 0.9
     }
   }
 }

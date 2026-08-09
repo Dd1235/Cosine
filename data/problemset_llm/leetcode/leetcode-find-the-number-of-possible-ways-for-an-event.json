@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "modular-arithmetic",
-    "dp-on-dag",
-    "state-compression"
+    "dp-on-dag"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777922975,
     "pattern_confidence": {
       "modular-arithmetic": 0.95,
-      "dp-on-dag": 0.7,
-      "state-compression": 0.65
+      "dp-on-dag": 0.7
     }
   }
 }

@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "dp-on-dag",
-    "shortest-path",
-    "state-compression"
+    "shortest-path"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1785237033,
     "pattern_confidence": {
       "dp-on-dag": 0.85,
-      "shortest-path": 0.9,
-      "state-compression": 0.6
+      "shortest-path": 0.9
     }
   }
 }

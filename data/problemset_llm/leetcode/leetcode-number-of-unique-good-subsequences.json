@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "state-compression",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -28,7 +27,6 @@
     "generated_at_unix": 1777923811,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "state-compression": 0.85,
       "modular-arithmetic": 0.9
     }
   }

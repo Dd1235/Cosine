@@ -1,0 +1,661 @@
+{
+ "label": "state-compression",
+ "why": "163 carriers; a 25-problem sample plus a full census of one stratum put the justified rate near 30%. The predictor is a co-label, not the judge or the difficulty: with a bitmask sibling it is usually right, with only generic `dynamic-programming` it was 0 for 10 and LeetCode's own bitmask tag agrees on 0 of 52. See experiments/15-label-precision-sample.md.",
+ "reviewed_at": "2026-08-09",
+ "kept": [
+  {
+   "id": "atcoder-abc114-c",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "atcoder-abc119-c",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "atcoder-abc180-e",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "atcoder-dp-o",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1031-b",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1152-f2",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1326-f2",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1340-b",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1423-j",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-1681-d",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "codeforces-401-d",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-534-f",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-543-c",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-8-c",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "codeforces-855-e",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "cses-1623",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "cses-1653",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "cses-1690",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "cses-2181",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "cses-3193",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-beautiful-arrangement",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-can-i-win",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-concatenated-divisibility",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-count-beautiful-numbers",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-count-paths-with-the-given-xor-value",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-count-special-integers",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-count-ways-to-choose-coprime-integers-from-rows",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-find-sum-of-array-product-of-magical-sequences",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-find-the-maximum-sequence-value-of-array",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-find-the-minimum-cost-array-permutation",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-frequencies-of-shortest-supersequences",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-longest-palindromic-path-in-graph",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-longest-strictly-increasing-subsequence-with-non-zero-bitwise-and",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-matchsticks-to-square",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximize-grid-happiness",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-and-sum-of-array",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-good-subtree-score",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-number-of-achievable-transfer-requests",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-maximum-number-of-groups-getting-fresh-donuts",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-number-of-moves-to-kill-all-pawns",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-product-of-subsequences-with-an-alternating-sum-equal-to-k",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-profit-from-valid-topological-order-in-dag",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-maximum-students-taking-exam",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-cost-to-connect-two-groups-of-points",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-cost-to-merge-sorted-lists",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-incompatibility",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-moves-to-clean-the-classroom",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-moves-to-spread-stones-over-grid",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-number-of-work-sessions-to-finish-the-tasks",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-removals-to-achieve-target-xor",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-time-to-transport-all-individuals",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-minimum-xor-sum-of-two-arrays",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-number-of-possible-sets-of-closing-branches",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-number-of-squareful-arrays",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-number-of-ways-to-paint-n-3-grid",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-number-of-ways-to-wear-different-hats-to-each-other",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-numbers-with-repeated-digits",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-painting-a-grid-with-three-different-colors",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-parallel-courses-ii",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-partition-array-for-maximum-xor-and-and",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-partition-equal-subset-sum",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-partition-to-k-equal-sum-subsets",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-poor-pigs",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-select-cells-in-grid-with-maximum-score",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-shortest-path-to-get-all-keys",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-shortest-path-visiting-all-nodes",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-smallest-sufficient-team",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-special-permutations",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-split-array-with-same-average",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-stickers-to-spell-word",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-tallest-billboard",
+   "why": "A: has a bitmask sibling"
+  },
+  {
+   "id": "leetcode-tiling-a-rectangle-with-the-fewest-squares",
+   "why": "C: hand-checked genuine"
+  },
+  {
+   "id": "leetcode-unique-paths-iii",
+   "why": "C: hand-checked genuine"
+  }
+ ],
+ "removed": [
+  {
+   "id": "atcoder-abc175-e",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "atcoder-arc074-c",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-1137-c",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-118-d",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-1182-a",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-1339-a",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-1415-e",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-1439-d",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-1882-c",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-31-e",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-343-a",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-505-c",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-575-b",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-576-d",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-653-b",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "codeforces-818-g",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "codeforces-894-e",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "cses-1159",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "cses-1729",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "cses-1746",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "cses-2220",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-best-time-to-buy-and-sell-stock-iii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-cat-and-mouse",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-check-if-there-is-a-valid-parentheses-string-path",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-cherry-pickup",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-cherry-pickup-ii",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-climbing-stairs",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-distinct-ways-to-form-target-from-two-strings",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-fancy-numbers-in-a-range",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-count-good-integers-in-a-range",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-count-k-reducible-numbers-less-than-n",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-count-no-zero-pairs-that-sum-to-n",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-count-number-of-balanced-permutations",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-number-of-special-subsequences",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-number-of-ways-to-place-houses",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-routes-to-climb-a-rectangular-grid",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-sequences-to-k",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-stepping-numbers-in-range",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-count-the-number-of-winning-sequences",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-count-vowels-permutation",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-decode-ways",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-decode-ways-ii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-decremental-string-concatenation",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-find-minimum-cost-to-remove-array-elements",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-find-number-of-ways-to-reach-the-k-th-stair",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-find-the-maximum-number-of-fruits-collected",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-find-the-number-of-possible-ways-for-an-event",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-freedom-trail",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-frog-jump",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-house-robber",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-interleaving-string",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-k-similar-strings",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-knight-probability-in-chessboard",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximize-subarray-gcd-score",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-amount-of-money-robot-can-earn",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-multiplication-score",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-points-tourist-can-earn",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-score-from-performing-multiplication-operations",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-score-using-exactly-k-pairs",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-strength-of-k-disjoint-subarrays",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-maximum-value-sum-by-placing-three-rooks-i",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-array-sum",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-cost-good-caption",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-cost-path-with-teleportations",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-cost-to-make-two-binary-strings-equal",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-minimum-distance-to-type-a-word-using-two-fingers",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-falling-path-sum-ii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-number-of-operations-to-satisfy-conditions",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-swaps-to-make-sequences-increasing",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-minimum-xor-path-in-a-grid",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-non-negative-integers-without-consecutive-ones",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-number-of-balanced-integers-in-a-range",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-number-of-music-playlists",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-number-of-stable-subsequences",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-number-of-unique-good-subsequences",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-number-of-ways-to-stay-in-the-same-place-after-some-steps",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-number-of-zigzag-arrays-i",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-number-of-zigzag-arrays-ii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-paint-house-iii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-paint-house-iv",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-permutations-iv",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-pizza-with-3n-slices",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-probability-of-a-two-boxes-having-the-same-number-of-distinct-balls",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-race-car",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-stone-game-iv",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-student-attendance-record-ii",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-super-egg-drop",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  },
+  {
+   "id": "leetcode-target-sum",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-valid-permutations-for-di-sequence",
+   "why": "C: hand-checked, no state to compress"
+  },
+  {
+   "id": "leetcode-visit-array-positions-to-maximize-score",
+   "why": "B: generic dp, no bitmask \u2014 0/10 sampled justified, LC's own bitmask tag 0/52"
+  }
+ ]
+}

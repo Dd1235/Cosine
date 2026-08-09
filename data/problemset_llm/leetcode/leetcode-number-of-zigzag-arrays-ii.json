@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "modular-arithmetic",
-    "state-compression"
+    "modular-arithmetic"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1777923853,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "modular-arithmetic": 0.9,
-      "state-compression": 0.85
+      "modular-arithmetic": 0.9
     }
   }
 }

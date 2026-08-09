@@ -19,16 +19,14 @@
     "matrix"
   ],
   "patterns": [
-    "dynamic-programming",
-    "state-compression"
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909499,
     "pattern_confidence": {
-      "dynamic-programming": 0.95,
-      "state-compression": 0.7
+      "dynamic-programming": 0.95
     }
   }
 }

@@ -24,7 +24,6 @@
   ],
   "patterns": [
     "topological-sort",
-    "state-compression",
     "game-dp",
     "memoization",
     "game-theory"
@@ -35,7 +34,6 @@
     "generated_at_unix": 1777922505,
     "pattern_confidence": {
       "topological-sort": 0.9,
-      "state-compression": 0.85,
       "game-dp": 0.95,
       "memoization": 0.9,
       "game-theory": 1

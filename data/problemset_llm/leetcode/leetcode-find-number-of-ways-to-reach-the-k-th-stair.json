@@ -21,7 +21,6 @@
     "memoization"
   ],
   "patterns": [
-    "state-compression",
     "dynamic-programming",
     "memoization"
   ],
@@ -30,7 +29,6 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922916,
     "pattern_confidence": {
-      "state-compression": 0.9,
       "dynamic-programming": 0.95,
       "memoization": 0.9
     }

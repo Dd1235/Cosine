@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "lexicographic-order",
-    "state-compression"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1777923508,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "lexicographic-order": 0.9,
-      "state-compression": 0.7
+      "lexicographic-order": 0.9
     }
   }
 }

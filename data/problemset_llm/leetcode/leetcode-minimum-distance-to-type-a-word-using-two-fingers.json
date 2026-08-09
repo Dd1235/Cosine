@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "state-compression",
     "manhattan-distance"
   ],
   "annotation": {
@@ -28,7 +27,6 @@
     "generated_at_unix": 1777923560,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "state-compression": 0.9,
       "manhattan-distance": 0.85
     }
   }
