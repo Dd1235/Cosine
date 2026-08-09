@@ -26,6 +26,19 @@ const MAX_CORRECTIONS = 2;
 // cost the paraphrase slice real nDCG. A correction to a term used twice is not
 // a correction, it is a coincidence.
 const MIN_TARGET_DF = 3;
+// …and a SHORT target needs more than that. `graf` corrected to `gray`, a word
+// three problems happen to contain, instead of failing honestly — at four
+// letters the vocabulary is dense enough that something is always one edit
+// away, so the target has to be a word this corpus actually leans on.
+const SHORT_TARGET_LENGTH = 5;
+const SHORT_TARGET_DF = 10;
+// Below this, a substitution is not a typo — it is a different word. One edit
+// in three characters changes a third of the token, and with several hundred
+// three-letter terms in the vocabulary SOMETHING is always adjacent: `rat`
+// became `sat`, `bat` became `bit`, `seg` became `set`. At this length the only
+// correction that carries any evidence is a TRUNCATION — you typed the start of
+// a longer word — which is what `tre` -> `tree` is, and what the others are not.
+const TRUNCATION_ONLY_BELOW = 4;
 
 // Damerau-Levenshtein with a cutoff: returns `cutoff + 1` as soon as the row
 // minimum exceeds the budget, so most candidates cost a few cells rather than
@@ -90,7 +103,13 @@ function correctTerms(terms, vocabulary) {
       // Cheap rejects first — length gap alone kills most of the vocabulary.
       if (Math.abs(candidate.length - term.length) > budget) continue;
       if (freqOf(vocabulary, candidate) < MIN_TARGET_DF) continue;
-      if (candidate[0] !== term[0] && candidate[candidate.length - 1] !== term[term.length - 1]) continue;
+      // The first character has to match. This is `prefix_length: 1`, the same
+      // thing Elasticsearch's fuzzy queries default to, and it rests on people
+      // rarely mistyping the first letter — while `rat`/`sat`, which the old
+      // first-OR-last test let through on the shared `t`, are not a typo at all.
+      if (candidate[0] !== term[0]) continue;
+      if (candidate.length <= SHORT_TARGET_LENGTH && freqOf(vocabulary, candidate) < SHORT_TARGET_DF) continue;
+      if (term.length < TRUNCATION_ONLY_BELOW && !candidate.startsWith(term)) continue;
       const d = editDistance(term, candidate, budget);
       if (d > budget) continue;
       if (d < bestDist) {
@@ -114,4 +133,7 @@ function correctTerms(terms, vocabulary) {
   return corrections;
 }
 
-module.exports = { correctTerms, editDistance, MIN_LENGTH };
+module.exports = {
+  correctTerms, editDistance,
+  MIN_LENGTH, MIN_TARGET_DF, SHORT_TARGET_DF, SHORT_TARGET_LENGTH, TRUNCATION_ONLY_BELOW,
+};
