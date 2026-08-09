@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-maximum-area-of-two-non-overlapping-square-submatrices",
+  "title": "Maximum Area of Two Non-Overlapping Square Submatrices",
+  "slug": "maximum-area-of-two-non-overlapping-square-submatrices",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/",
+  "source_topic": "LeetCode / Weekly Contest 514",
+  "difficulty": "Medium",
+  "acceptance_rate": 35.2,
+  "source_tags": [],
+  "statement": "Given a binary matrix, find the largest possible area of two non-overlapping square submatrices of equal size, each covering only cells with value 1.",
+  "tags": [
+    "array",
+    "matrix",
+    "geometry",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "2d-prefix-sum",
+    "maximum-square-submatrix",
+    "non-overlapping-selection",
+    "brute-force-with-optimization"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786254102,
+    "pattern_confidence": {
+      "2d-prefix-sum": 0.92,
+      "maximum-square-submatrix": 0.95,
+      "non-overlapping-selection": 0.9,
+      "brute-force-with-optimization": 0.85
+    }
+  }
+}

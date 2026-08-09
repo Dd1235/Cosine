@@ -78,7 +78,257 @@
    ],
    "id": "codeforces-2248-g",
    "first_seen": "2026-08-02"
+  },
+  {
+   "contest_id": 2254,
+   "index": "A",
+   "name": "Riptide",
+   "tags": [
+    "implementation",
+    "sortings"
+   ],
+   "id": "codeforces-2254-a",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "B",
+   "name": "Evanescent",
+   "tags": [
+    "implementation",
+    "strings",
+    "two pointers"
+   ],
+   "id": "codeforces-2254-b",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "C1",
+   "name": "Marenol (easy version)",
+   "tags": [
+    "greedy"
+   ],
+   "id": "codeforces-2254-c1",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "C2",
+   "name": "Marenol (hard version)",
+   "tags": [
+    "greedy",
+    "sortings"
+   ],
+   "id": "codeforces-2254-c2",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "D",
+   "name": "Silhouette",
+   "tags": [
+    "constructive algorithms",
+    "math",
+    "sortings"
+   ],
+   "id": "codeforces-2254-d",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "E",
+   "name": "Chronostasis",
+   "tags": [
+    "binary search",
+    "data structures",
+    "greedy"
+   ],
+   "id": "codeforces-2254-e",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "F",
+   "name": "Whiplash",
+   "tags": [
+    "bitmasks",
+    "constructive algorithms",
+    "math",
+    "sortings"
+   ],
+   "id": "codeforces-2254-f",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2254,
+   "index": "G",
+   "name": "Nightcrawler",
+   "tags": [
+    "data structures",
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "sortings",
+    "trees"
+   ],
+   "id": "codeforces-2254-g",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "A",
+   "name": "Boss Fight",
+   "tags": [
+    "data structures",
+    "greedy"
+   ],
+   "id": "codeforces-2252-a",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "B",
+   "name": "Always Changing",
+   "tags": [
+    "dp",
+    "greedy",
+    "math",
+    "strings"
+   ],
+   "id": "codeforces-2252-b",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "C",
+   "name": "Risky Tower",
+   "tags": [
+    "binary search",
+    "brute force",
+    "data structures",
+    "greedy",
+    "sortings"
+   ],
+   "id": "codeforces-2252-c",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "D",
+   "name": "Array Replacement",
+   "tags": [
+    "greedy",
+    "sortings"
+   ],
+   "id": "codeforces-2252-d",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "E",
+   "name": "Generational Triplets",
+   "tags": [
+    "bitmasks",
+    "combinatorics",
+    "dp",
+    "math"
+   ],
+   "id": "codeforces-2252-e",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2252,
+   "index": "F",
+   "name": "Spectral Components",
+   "tags": [
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "sortings",
+    "trees"
+   ],
+   "id": "codeforces-2252-f",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "A",
+   "name": "The Best Card",
+   "tags": [
+    "greedy",
+    "math",
+    "number theory"
+   ],
+   "id": "codeforces-2253-a",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "B",
+   "name": "Hypercarp and the Control Panel",
+   "tags": [
+    "brute force",
+    "data structures",
+    "two pointers"
+   ],
+   "id": "codeforces-2253-b",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "C",
+   "name": "Sum of Distinct Values in a Matrix",
+   "tags": [
+    "greedy",
+    "sortings",
+    "two pointers"
+   ],
+   "id": "codeforces-2253-c",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "D",
+   "name": "Hypercarp and Interdimensional Jumps",
+   "tags": [
+    "binary search",
+    "brute force",
+    "geometry",
+    "greedy",
+    "implementation",
+    "math"
+   ],
+   "id": "codeforces-2253-d",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "E",
+   "name": "Diameter Intersections",
+   "tags": [
+    "brute force",
+    "dfs and similar",
+    "fft",
+    "graphs",
+    "trees"
+   ],
+   "id": "codeforces-2253-e",
+   "first_seen": "2026-08-09"
+  },
+  {
+   "contest_id": 2253,
+   "index": "F",
+   "name": "4-beauty",
+   "tags": [
+    "bitmasks",
+    "dp",
+    "graphs",
+    "math"
+   ],
+   "id": "codeforces-2253-f",
+   "first_seen": "2026-08-09"
   }
  ],
- "count": 7
+ "count": 27
 }

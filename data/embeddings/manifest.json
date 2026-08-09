@@ -3,7 +3,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3430,
+  "count": 3434,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -674,6 +674,7 @@
     "leetcode-maximum-and-minimum-sums-of-at-most-size-k-subsequences",
     "leetcode-maximum-and-sum-of-array",
     "leetcode-maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts",
+    "leetcode-maximum-area-of-two-non-overlapping-square-submatrices",
     "leetcode-maximum-area-rectangle-with-point-constraints-i",
     "leetcode-maximum-area-rectangle-with-point-constraints-ii",
     "leetcode-maximum-balanced-subsequence-sum",
@@ -1046,6 +1047,7 @@
     "leetcode-minimum-total-cost-to-make-arrays-unequal",
     "leetcode-minimum-total-cost-to-process-all-elements",
     "leetcode-minimum-total-distance-traveled",
+    "leetcode-minimum-total-price-after-applying-discounts",
     "leetcode-minimum-total-space-wasted-with-k-resizing-operations",
     "leetcode-minimum-weighted-subgraph-with-the-required-paths-ii",
     "leetcode-minimum-weighted-subgraph-with-the-required-paths",
@@ -1181,6 +1183,7 @@
     "leetcode-path-sum-iii",
     "leetcode-path-with-maximum-probability",
     "leetcode-paths-in-matrix-whose-sum-is-divisible-by-k",
+    "leetcode-peaks-in-array-ii",
     "leetcode-peaks-in-array",
     "leetcode-perfect-rectangle",
     "leetcode-permutation-in-string",
@@ -1481,6 +1484,7 @@
     "leetcode-ways-to-express-an-integer-as-sum-of-powers",
     "leetcode-ways-to-split-array-into-good-subarrays",
     "leetcode-ways-to-split-array-into-three-subarrays",
+    "leetcode-weighted-sum-of-a-tree",
     "leetcode-widest-possible-fence",
     "leetcode-wiggle-sort-ii",
     "leetcode-wiggle-subsequence",
@@ -3438,7 +3442,7 @@
     "atcoder-dp-x",
     "atcoder-dp-y"
   ],
-  "corpusHash": "bcc66335e99f9fb150ea2507353b62b6d1162bec27ac4049288a7aa04811e977",
+  "corpusHash": "b4ac28839891ee3329e1eda03e2256cb9d5b4f12d0af1d0db7c9253f3fcd787c",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-08-02T12:45:40.260Z"
+  "createdAt": "2026-08-09T05:46:17.835Z"
 }

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/longest-string-chain/description/",
   "source_topic": "Formwise / DP Optimizations",
   "difficulty": "Medium",
-  "acceptance_rate": 63.3,
+  "acceptance_rate": 63.4,
   "source_tags": [
     "array",
     "hash-table",

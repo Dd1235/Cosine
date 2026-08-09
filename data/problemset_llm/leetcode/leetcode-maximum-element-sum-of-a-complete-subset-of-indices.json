@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-element-sum-of-a-complete-subset-of-indices/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 43.4,
+  "acceptance_rate": 42.2,
   "source_tags": [
     "array",
     "math",

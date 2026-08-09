@@ -28,6 +28,9 @@ const TYPES = new Set([
   "library_recall",
   "recall_set",
   "note_saved",
+  "library_notes",
+  "library_writeup",
+  "library_pick",
 ]);
 
 const clip = (v, n) => (typeof v === "string" && v ? v.slice(0, n) : undefined);
@@ -75,8 +78,11 @@ function cleanProps(type, raw = {}) {
     if (Number.isInteger(n) && n >= 0 && n <= 100000) p.days = n;
   } else if (type === "library_order") {
     p.oldest = raw.oldest === true;
-  } else if (type === "library_recall") {
+  } else if (type === "library_recall" || type === "library_notes") {
     p.value = clip(raw.value, 20);
+  } else if (type === "library_pick") {
+    const n = Number(raw.of);
+    if (Number.isInteger(n) && n >= 0 && n <= 100000) p.of = n;
   } else if (type === "recall_set") {
     p.problemId = clip(raw.problemId, 120);
     p.value = clip(raw.value, 20);
