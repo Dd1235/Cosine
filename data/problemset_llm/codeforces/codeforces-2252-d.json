@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2252-d",
+  "title": "Array Replacement",
+  "slug": "2252-d-codeforces-2252-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2252/D",
+  "source_topic": "Codeforces / Contest 2252",
+  "source_tags": [],
+  "statement": "Given an array, repeatedly replace an interior element with a linear combination of its neighbors if they have the same parity, to obtain the lexicographically smallest possible array.",
+  "tags": [
+    "array",
+    "greedy",
+    "parity"
+  ],
+  "patterns": [
+    "greedy",
+    "parity-segmentation",
+    "invariant-maintenance",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256862,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "parity-segmentation": 0.93,
+      "invariant-maintenance": 0.9,
+      "constructive-algorithm": 0.85
+    }
+  }
+}

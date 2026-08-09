@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2253-e",
+  "title": "Diameter Intersections",
+  "slug": "2253-e-codeforces-2253-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2253/E",
+  "source_topic": "Codeforces / Contest 2253",
+  "source_tags": [],
+  "statement": "Given a tree with an odd-length diameter, for each test case, find all possible values k such that there exist two diameters whose intersection contains exactly k edges.",
+  "tags": [
+    "tree",
+    "graph",
+    "combinatorics"
+  ],
+  "patterns": [
+    "tree-diameter",
+    "diameter-intersection-analysis",
+    "dfs",
+    "bfs",
+    "path-enumeration"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256979,
+    "pattern_confidence": {
+      "tree-diameter": 0.98,
+      "diameter-intersection-analysis": 0.95,
+      "dfs": 0.85,
+      "bfs": 0.85,
+      "path-enumeration": 0.8
+    }
+  }
+}

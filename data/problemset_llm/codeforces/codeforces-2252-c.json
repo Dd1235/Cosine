@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2252-c",
+  "title": "Risky Tower",
+  "slug": "2252-c-codeforces-2252-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2252/C",
+  "source_topic": "Codeforces / Contest 2252",
+  "source_tags": [],
+  "statement": "Given a grid representing a Jenga tower with destabilization factors for each piece and initial stability indices for each row, determine the minimum number of pieces to remove so that the tower collapses, either by reducing any row's stability to zero or by emptying a row.",
+  "tags": [
+    "array",
+    "greedy",
+    "prefix-sum",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "prefix-sum",
+    "row-wise-processing",
+    "min-removal-to-trigger-condition"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256859,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "prefix-sum": 0.9,
+      "row-wise-processing": 0.85,
+      "min-removal-to-trigger-condition": 0.92
+    }
+  }
+}

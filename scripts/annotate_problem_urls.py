@@ -528,6 +528,7 @@ def annotation_prompt(base: dict[str, Any]) -> list[dict[str, str]]:
         "Do not invent source_url, platform, difficulty, or rating; those are provided by the caller. "
         "Write a concise original statement summary, not a copied full statement. "
         "Tags should be broad domains/data structures. Patterns should be algorithmic techniques. "
+        "Include every technique that solves the problem, not just the intended solution. "
         "Prefer canonical hyphenated names where they fit, but include a specific phrase when it improves retrieval. "
         "Prefer 3-7 tags and 3-7 patterns. "
         "If the input is too thin to identify a subtle pattern, use source tags and title conservatively with lower confidence."
@@ -540,6 +541,7 @@ def annotation_prompt(base: dict[str, Any]) -> list[dict[str, str]]:
             "patterns must be lowercase algorithmic techniques or concise searchable phrases.",
             "Use advanced patterns when applicable: contribution-technique, euler-tour, tree-flattening, bitmask-dp, heavy-light-decomposition, dsu-rollback, convex-hull-trick, wqs-binary-search, slope-trick, line-sweep, max-flow, two-sat, suffix-automaton, etc.",
             "Prefer the most discriminative technique over generic labels. For example, use contribution-technique with monotonic-stack instead of only array/stack.",
+        "List EVERY technique that genuinely solves the problem, not only the intended one. A problem solvable by binary search and by two pointers must carry both, because someone will search for either. Use pattern_confidence to say how central each approach is, not whether it works.",
             "Do not force advanced patterns when the statement does not justify them.",
             "pattern_confidence must map every pattern string to a number from 0 to 1.",
             "Do not output source_url, platform, difficulty, rating, or similar_to.",

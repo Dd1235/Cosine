@@ -26,3 +26,38 @@ https://leetcode.com/problems/minimum-total-price-after-applying-discounts/
 https://leetcode.com/problems/weighted-sum-of-a-tree/
 https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/
 https://leetcode.com/problems/peaks-in-array-ii/
+
+# Codeforces / Contest 2248
+https://codeforces.com/problemset/problem/2248/A
+https://codeforces.com/problemset/problem/2248/B
+https://codeforces.com/problemset/problem/2248/C
+https://codeforces.com/problemset/problem/2248/D
+https://codeforces.com/problemset/problem/2248/E
+https://codeforces.com/problemset/problem/2248/F
+https://codeforces.com/problemset/problem/2248/G
+
+# Codeforces / Contest 2252
+https://codeforces.com/problemset/problem/2252/A
+https://codeforces.com/problemset/problem/2252/B
+https://codeforces.com/problemset/problem/2252/C
+https://codeforces.com/problemset/problem/2252/D
+https://codeforces.com/problemset/problem/2252/E
+https://codeforces.com/problemset/problem/2252/F
+
+# Codeforces / Contest 2253
+https://codeforces.com/problemset/problem/2253/A
+https://codeforces.com/problemset/problem/2253/B
+https://codeforces.com/problemset/problem/2253/C
+https://codeforces.com/problemset/problem/2253/D
+https://codeforces.com/problemset/problem/2253/E
+https://codeforces.com/problemset/problem/2253/F
+
+# Codeforces / Contest 2254
+https://codeforces.com/problemset/problem/2254/A
+https://codeforces.com/problemset/problem/2254/B
+https://codeforces.com/problemset/problem/2254/C1
+https://codeforces.com/problemset/problem/2254/C2
+https://codeforces.com/problemset/problem/2254/D
+https://codeforces.com/problemset/problem/2254/E
+https://codeforces.com/problemset/problem/2254/F
+https://codeforces.com/problemset/problem/2254/G

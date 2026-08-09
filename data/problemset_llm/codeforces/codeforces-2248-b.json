@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2248-b",
+  "title": "Merge to Match",
+  "slug": "2248-b-codeforces-2248-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/B",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [],
+  "statement": "Given two arrays of distinct integers, determine if array a can be transformed into array b using a specific operation any number of times, where each operation replaces any two elements of a with any integer not already present in a or b. Multiple test cases are given.",
+  "tags": [
+    "array",
+    "set",
+    "constructive-algorithm"
+  ],
+  "patterns": [
+    "parity-check",
+    "multiset-transformation",
+    "constructive-algorithm",
+    "set-difference"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256841,
+    "pattern_confidence": {
+      "parity-check": 0.95,
+      "multiset-transformation": 0.93,
+      "constructive-algorithm": 0.9,
+      "set-difference": 0.85
+    }
+  }
+}

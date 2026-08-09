@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2254-b",
+  "title": "Evanescent",
+  "slug": "2254-b-codeforces-2254-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/B",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [],
+  "statement": "Given a string, delete exactly one character (not the first or last) to minimize the length of its run-length compressed form, where consecutive identical characters are replaced by a single character.",
+  "tags": [
+    "string",
+    "greedy",
+    "implementation"
+  ],
+  "patterns": [
+    "run-length-encoding",
+    "greedy",
+    "adjacent-character-analysis",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256984,
+    "pattern_confidence": {
+      "run-length-encoding": 0.98,
+      "greedy": 0.92,
+      "adjacent-character-analysis": 0.9,
+      "brute-force": 0.7
+    }
+  }
+}

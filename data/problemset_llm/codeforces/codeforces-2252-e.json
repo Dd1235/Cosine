@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2252-e",
+  "title": "Generational Triplets",
+  "slug": "2252-e-codeforces-2252-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2252/E",
+  "source_topic": "Codeforces / Contest 2252",
+  "source_tags": [],
+  "statement": "Given n, count the number of ordered triplets (a, b, c) with 1 ≤ a < b < c ≤ n, such that (a, b, c) forms an arithmetic progression and a ⊕ b ⊕ c = 0. Output the count modulo 10^9+7 for multiple test cases, with n up to 10^18.",
+  "tags": [
+    "math",
+    "bit-manipulation",
+    "number-theory"
+  ],
+  "patterns": [
+    "arithmetic-progression",
+    "xor-properties",
+    "counting",
+    "formula-derivation",
+    "modular-arithmetic",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256864,
+    "pattern_confidence": {
+      "arithmetic-progression": 0.98,
+      "xor-properties": 0.97,
+      "counting": 0.95,
+      "formula-derivation": 0.93,
+      "modular-arithmetic": 0.9
+    }
+  }
+}

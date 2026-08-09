@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2254-d",
+  "title": "Silhouette",
+  "slug": "2254-d-codeforces-2254-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/D",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [],
+  "statement": "Given an array of shadow sums, reconstruct the lexicographically smallest array of positive integers such that each element's shadow is the sum of all strictly smaller elements. Output -1 if impossible.",
+  "tags": [
+    "array",
+    "sorting",
+    "greedy",
+    "constructive-algorithm"
+  ],
+  "patterns": [
+    "greedy",
+    "sorting",
+    "prefix-sum",
+    "constructive-algorithm",
+    "lexicographical-order"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256989,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "sorting": 0.95,
+      "prefix-sum": 0.9,
+      "constructive-algorithm": 0.93,
+      "lexicographical-order": 0.92
+    }
+  }
+}

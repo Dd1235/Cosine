@@ -306,15 +306,6 @@ if (libAgeRow) {
     syncUrl();
     reissueCurrentView();
   });
-  // Two filters nobody thinks to combine, as one chip: what you solved and
-  // never wrote up IS the revision backlog.
-  const writeupBtn = document.getElementById("lib-writeup");
-  if (writeupBtn) writeupBtn.addEventListener("click", () => {
-    libNotes = "no";
-    if (notesSel) notesSel.value = "no";
-    track("library_writeup", {});
-    runSearch(":done");
-  });
   const pickBtn = document.getElementById("lib-pick");
   if (pickBtn) pickBtn.addEventListener("click", pickOne);
 }
@@ -559,7 +550,7 @@ function setLibPath(path) {
     // The notes filter needs a sheet to know the answer from. Without one it
     // would silently mean "nothing", which is worse than not being offered.
     const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
-    for (const id of ["lib-notes", "lib-notes-label", "lib-writeup"]) {
+    for (const id of ["lib-notes", "lib-notes-label"]) {
       const el = document.getElementById(id);
       if (el) el.hidden = !knowsNotes;
     }
@@ -1199,6 +1190,11 @@ function renderSingle(data, q, append) {
   // decomposition" -> "sqrt decomposition"), which is shorter than the input
   // and shares no prefix with it — that slice produced a bare " · +".
   const expanded = describeExpansion(q, data.expandedQuery);
+  // Nothing in the corpus uses these words — what came back is the nearest by
+  // meaning, which is a weaker claim than a match and has to read as one.
+  const stretched = (data.noLiteralMatch || []).length
+    ? ` · nothing uses ${data.noLiteralMatch.map((w) => `"${w}"`).join(", ")} — nearest by meaning`
+    : "";
   // Say when a word was corrected. Silently searching for something the user
   // didn't type is the kind of helpfulness that reads as a bug.
   const fixed = (data.corrected || []).length
@@ -1214,10 +1210,10 @@ function renderSingle(data, q, append) {
     // Deliberately not "1-20 of 142": this is the top N by relevance, then
     // reordered. Saying "of 142" would imply a page 2 that cannot exist.
     setStatus(
-      `top ${data.sortWindow} of ${total} by ${modeName}, ${sortDir === "desc" ? "hardest" : "easiest"} first${lat}${expanded}${fixed}`
+      `top ${data.sortWindow} of ${total} by ${modeName}, ${sortDir === "desc" ? "hardest" : "easiest"} first${lat}${expanded}${fixed}${stretched}`
     );
   } else {
-    setStatus(`showing 1–${shown} of ${total} · ${modeName}${lat}${expanded}${fixed}`);
+    setStatus(`showing 1–${shown} of ${total} · ${modeName}${lat}${expanded}${fixed}${stretched}`);
   }
   renderHitsList(resultsEl, data.hits, { append, startIndex: currentOffset });
 }
@@ -1589,14 +1585,18 @@ const HELP_SECTIONS = [
   meaning   describe it in plain english. "thief robbing
             houses" finds House Robber; "check if brackets
             close in order" finds Valid Parentheses. Best when
-            you remember the story, not the words.
+            you remember the story, not the words. It will also
+            answer a word no problem contains — "rat" finds Cat
+            and Mouse — and says so, because "nearest by
+            meaning" is a weaker claim than a match.
 
   both      runs the two and blends the rankings. Use it when
             you are not sure.
 
   A problem's exact name goes to the top: "two sum" and "2 sum"
-  both land on Two Sum. A word that appears nowhere in the
-  corpus says so rather than guessing.
+  both land on Two Sum. In keyword mode a word that appears
+  nowhere in the corpus says so rather than guessing; a
+  keyboard mash gets nothing in either mode.
 
   Community names expand on their own: type "aliens trick" and
   the status line shows "+wqs binary search" — you get the

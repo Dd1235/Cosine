@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2248-d",
+  "title": "Good Pair Queries",
+  "slug": "2248-d-codeforces-2248-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/D",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [],
+  "statement": "Given two binary strings of equal length, answer multiple queries asking whether the corresponding substrings can both be reduced to empty by repeatedly deleting all occurrences of a mode character (appearing at least half the time) from both substrings simultaneously.",
+  "tags": [
+    "string",
+    "array",
+    "prefix-sum",
+    "query"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "range-query",
+    "mode-frequency-check",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256847,
+    "pattern_confidence": {
+      "prefix-sum": 0.95,
+      "range-query": 0.93,
+      "mode-frequency-check": 0.98,
+      "counting": 0.9
+    }
+  }
+}

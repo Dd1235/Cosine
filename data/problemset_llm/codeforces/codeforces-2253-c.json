@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2253-c",
+  "title": "Sum of Distinct Values in a Matrix",
+  "slug": "2253-c-codeforces-2253-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2253/C",
+  "source_topic": "Codeforces / Contest 2253",
+  "source_tags": [],
+  "statement": "Given a zero matrix and two arrays of possible row and column values, perform any number of row or column overwrite operations to maximize the sum of all distinct values present in the matrix.",
+  "tags": [
+    "array",
+    "matrix",
+    "greedy",
+    "set"
+  ],
+  "patterns": [
+    "greedy",
+    "set-union",
+    "distinct-values",
+    "matrix-operations"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256974,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "set-union": 0.95,
+      "distinct-values": 0.93,
+      "matrix-operations": 0.9
+    }
+  }
+}

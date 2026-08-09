@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2254-c2",
+  "title": "Marenol (hard version)",
+  "slug": "2254-c2-codeforces-2254-c2",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/C2",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [],
+  "statement": "Given two binary strings of equal length, determine the minimum number of allowed substring swaps (between 001↔100 and 011↔110) needed to transform the first string into the second, or report impossibility.",
+  "tags": [
+    "string",
+    "greedy",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "string-matching",
+    "substring-replacement",
+    "bfs"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256987,
+    "pattern_confidence": {
+      "greedy": 0.92,
+      "string-matching": 0.85,
+      "substring-replacement": 0.9,
+      "bfs": 0.7
+    }
+  }
+}

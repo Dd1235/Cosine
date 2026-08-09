@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2254-f",
+  "title": "Whiplash",
+  "slug": "2254-f-codeforces-2254-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/F",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [],
+  "statement": "Given two arrays of even length, determine if one can be transformed into the other using a specified operation any number of times for multiple test cases.",
+  "tags": [
+    "array",
+    "constructive-algorithm"
+  ],
+  "patterns": [
+    "parity-analysis",
+    "element-pairing",
+    "invariant-check",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786257069,
+    "pattern_confidence": {
+      "parity-analysis": 0.95,
+      "element-pairing": 0.9,
+      "invariant-check": 0.85,
+      "sorting": 0.7
+    }
+  }
+}

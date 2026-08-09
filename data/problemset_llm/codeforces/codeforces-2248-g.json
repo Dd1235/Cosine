@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2248-g",
+  "title": "No Balance Left",
+  "slug": "2248-g-codeforces-2248-g",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/G",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [],
+  "statement": "Given product prices and rebate offers, for each possible initial card balance up to s, determine if it's possible to reduce the balance to zero by making purchases and collecting rebates optimally.",
+  "tags": [
+    "array",
+    "number-theory",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "reachability-dp",
+    "coin-change",
+    "interval-query",
+    "greedy",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256854,
+    "pattern_confidence": {
+      "reachability-dp": 0.97,
+      "coin-change": 0.95,
+      "interval-query": 0.8,
+      "greedy": 0.7
+    }
+  }
+}

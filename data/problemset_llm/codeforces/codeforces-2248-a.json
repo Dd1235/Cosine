@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2248-a",
+  "title": "You Delete, I Delete",
+  "slug": "2248-a-codeforces-2248-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/A",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [],
+  "statement": "Given a binary string, Alice deletes one 0 to maximize the lexicographical order, then Bob deletes one 1 to minimize it; output the resulting string after both act optimally for multiple test cases.",
+  "tags": [
+    "string",
+    "game-theory",
+    "greedy"
+  ],
+  "patterns": [
+    "greedy",
+    "minimax",
+    "lexicographical-order",
+    "two-player-game"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256838,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "minimax": 0.93,
+      "lexicographical-order": 0.92,
+      "two-player-game": 0.9
+    }
+  }
+}
