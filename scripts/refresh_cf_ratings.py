@@ -29,11 +29,17 @@ import json
 import re
 import sys
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS = ROOT / "data" / "problemset_llm" / "codeforces"
 API = "https://codeforces.com/api/problemset.problems"
+# The standing worklist. Without a file, "which problems are still waiting for
+# a rating?" is a question you have to remember to ask — and a problem with no
+# difficulty is invisible to every difficulty filter, every sort, and `my
+# level`, so forgetting is expensive and silent.
+WAITING = ROOT / "data" / "unrated_problems.json"
 
 
 def live_problems() -> dict[tuple[int, str], dict]:
@@ -97,6 +103,18 @@ def main() -> int:
         print(f"  {line}")
     if still_missing:
         print(f"{len(still_missing)} still unrated by codeforces — run this again in a week")
+    if args.write:
+        # Rewritten every run, so it is a statement about now rather than a log
+        # that drifts. An empty list means nothing is waiting.
+        WAITING.write_text(json.dumps({
+            "note": "Codeforces problems with no rating yet. Ratings land days to weeks "
+                    "after a contest; re-run scripts/refresh_cf_ratings.py --write to collect them.",
+            "checked_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "count": len(still_missing),
+            "problems": sorted(still_missing),
+        }, indent=1) + "\n")
+        print(f"wrote {WAITING.relative_to(ROOT)} ({len(still_missing)} waiting)")
+
     if args.write and filled_tags:
         print("\nnext: python3 scripts/apply_source_tags.py --write && npm run embed && npm run validate")
     elif not args.write and (filled_rating or filled_tags):

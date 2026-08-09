@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "dfs",
-    "longest-path-in-tree"
+    "tree-diameter"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785217334,
     "pattern_confidence": {
       "dfs": 0.95,
-      "longest-path-in-tree": 0.9
+      "tree-diameter": 0.9
     }
   }
 }
