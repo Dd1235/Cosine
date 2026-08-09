@@ -5,7 +5,10 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/D",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "greedy",
+    "sortings"
+  ],
   "statement": "Given an array, repeatedly replace an interior element with a linear combination of its neighbors if they have the same parity, to obtain the lexicographically smallest possible array.",
   "tags": [
     "array",

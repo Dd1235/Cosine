@@ -5,7 +5,13 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/F",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "sortings",
+    "trees"
+  ],
   "statement": "Given a colored tree and a target component size for each color, for every color present, find a connected subtree of the specified size minimizing the sum of distances from all vertices of that color to the subtree.",
   "tags": [
     "tree",

@@ -5,7 +5,12 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/G",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "bitmasks",
+    "dp",
+    "math",
+    "number theory"
+  ],
   "statement": "Given product prices and rebate offers, for each possible initial card balance up to s, determine if it's possible to reduce the balance to zero by making purchases and collecting rebates optimally.",
   "tags": [
     "array",
@@ -29,5 +34,6 @@
       "interval-query": 0.8,
       "greedy": 0.7
     }
-  }
+  },
+  "difficulty": 3000
 }

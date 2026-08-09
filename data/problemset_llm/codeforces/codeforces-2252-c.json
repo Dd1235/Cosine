@@ -5,7 +5,13 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/C",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "data structures",
+    "greedy",
+    "sortings"
+  ],
   "statement": "Given a grid representing a Jenga tower with destabilization factors for each piece and initial stability indices for each row, determine the minimum number of pieces to remove so that the tower collapses, either by reducing any row's stability to zero or by emptying a row.",
   "tags": [
     "array",

@@ -5,7 +5,12 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/B",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "dp",
+    "greedy",
+    "math",
+    "strings"
+  ],
   "statement": "Given a binary string, delete characters (with deletions strictly alternating between 0 and 1) to obtain an alternating string with the minimum number of deletions, or determine if it is impossible.",
   "tags": [
     "string",

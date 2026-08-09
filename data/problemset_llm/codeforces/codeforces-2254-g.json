@@ -5,7 +5,14 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/G",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "data structures",
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "sortings",
+    "trees"
+  ],
   "statement": "Given a rooted tree with integer values on nodes, partition all nodes into exactly k disjoint subsets such that each subset forms a chain (all nodes on a root-to-leaf path), and maximize the sum of the maximum values in each subset for every k from 1 to n.",
   "tags": [
     "tree",

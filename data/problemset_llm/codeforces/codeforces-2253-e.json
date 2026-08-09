@@ -5,12 +5,19 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2253/E",
   "source_topic": "Codeforces / Contest 2253",
-  "source_tags": [],
+  "source_tags": [
+    "brute force",
+    "dfs and similar",
+    "fft",
+    "graphs",
+    "trees"
+  ],
   "statement": "Given a tree with an odd-length diameter, for each test case, find all possible values k such that there exist two diameters whose intersection contains exactly k edges.",
   "tags": [
     "tree",
     "graph",
-    "combinatorics"
+    "combinatorics",
+    "fft"
   ],
   "patterns": [
     "tree-diameter",

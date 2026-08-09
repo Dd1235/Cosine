@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/D",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "constructive algorithms",
+    "math",
+    "sortings"
+  ],
   "statement": "Given an array of shadow sums, reconstruct the lexicographically smallest array of positive integers such that each element's shadow is the sum of all strictly smaller elements. Output -1 if impossible.",
   "tags": [
     "array",

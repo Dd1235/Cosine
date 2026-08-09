@@ -5,7 +5,10 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/A",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "data structures",
+    "greedy"
+  ],
   "statement": "Given a sequence of spell cards with damage values, arrange them to maximize total damage dealt to a boss, where playing two cards of the same value consecutively activates a shield causing all subsequent cards to deal zero damage.",
   "tags": [
     "array",

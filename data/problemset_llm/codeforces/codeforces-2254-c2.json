@@ -5,7 +5,10 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/C2",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "greedy",
+    "sortings"
+  ],
   "statement": "Given two binary strings of equal length, determine the minimum number of allowed substring swaps (between 001↔100 and 011↔110) needed to transform the first string into the second, or report impossibility.",
   "tags": [
     "string",

@@ -5,7 +5,9 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/A",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "greedy"
+  ],
   "statement": "Given a binary string, Alice deletes one 0 to maximize the lexicographical order, then Bob deletes one 1 to minimize it; output the resulting string after both act optimally for multiple test cases.",
   "tags": [
     "string",
@@ -28,5 +30,6 @@
       "lexicographical-order": 0.92,
       "two-player-game": 0.9
     }
-  }
+  },
+  "difficulty": 800
 }

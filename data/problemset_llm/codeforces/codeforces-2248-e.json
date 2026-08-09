@@ -5,7 +5,13 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/E",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "greedy",
+    "math",
+    "two pointers"
+  ],
   "statement": "Given parameters n, m, d, and two arrays p (strictly increasing) and r, determine if there exists a binary array a such that a custom scoring function f(a) exceeds f(I(a)), where I(a) is an all-ones array of the same length. The function f(a) rewards runs of consecutive ones and resets counters based on n and p.",
   "tags": [
     "array",
@@ -28,5 +34,6 @@
       "case-analysis": 0.9,
       "constructive-algorithm": 0.85
     }
-  }
+  },
+  "difficulty": 1900
 }

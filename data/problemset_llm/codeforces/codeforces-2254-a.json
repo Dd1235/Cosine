@@ -5,7 +5,10 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/A",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "implementation",
+    "sortings"
+  ],
   "statement": "Given the starting token counts for Alice, Bob, and Charlie, determine how many rounds a game lasts before ending, based on specific rules involving their token counts.",
   "tags": [
     "simulation",

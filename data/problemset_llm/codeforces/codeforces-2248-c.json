@@ -5,7 +5,10 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/C",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "dp",
+    "greedy"
+  ],
   "statement": "Given an array of length 2n where each integer from 1 to n appears exactly twice, repeatedly remove subarrays between the two occurrences of a chosen value x (inclusive), scoring the square of the subarray's length each time, to maximize the total score after the array is emptied.",
   "tags": [
     "array",
@@ -29,5 +32,6 @@
       "memoization": 0.9,
       "greedy-choice": 0.7
     }
-  }
+  },
+  "difficulty": 1300
 }

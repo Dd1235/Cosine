@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/E",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "greedy"
+  ],
   "statement": "Given a shuffled array of first differences (with the first element as-is) of a hidden positive integer array, reconstruct the lexicographically smallest possible original array or report impossibility.",
   "tags": [
     "array",

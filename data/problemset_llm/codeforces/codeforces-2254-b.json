@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/B",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "implementation",
+    "strings",
+    "two pointers"
+  ],
   "statement": "Given a string, delete exactly one character (not the first or last) to minimize the length of its run-length compressed form, where consecutive identical characters are replaced by a single character.",
   "tags": [
     "string",

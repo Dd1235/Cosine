@@ -5,7 +5,12 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2253/F",
   "source_topic": "Codeforces / Contest 2253",
-  "source_tags": [],
+  "source_tags": [
+    "bitmasks",
+    "dp",
+    "graphs",
+    "math"
+  ],
   "statement": "Given the set {1,2,...,n} with removal costs, find the minimum total cost to remove numbers so that the maximum divisibility characteristic among all 4-term arithmetic progressions is decreased.",
   "tags": [
     "array",

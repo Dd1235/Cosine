@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2253/A",
   "source_topic": "Codeforces / Contest 2253",
-  "source_tags": [],
+  "source_tags": [
+    "greedy",
+    "math",
+    "number theory"
+  ],
   "statement": "Given n cards numbered 2 to n+1, determine if there exists a card that wins against every other card under a custom divisibility-based rule.",
   "tags": [
     "math",

@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/F",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "binary search",
+    "greedy",
+    "math"
+  ],
   "statement": "Given a matrix, you can repeatedly subtract 1 from any subrectangle. Find the minimum number of such operations needed to ensure at least k cells are 'peaks', where a peak's value is at least the sum of all other values in its row and column.",
   "tags": [
     "matrix",
@@ -31,5 +35,6 @@
       "peak-cell-condition": 0.9,
       "brute-force": 0.6
     }
-  }
+  },
+  "difficulty": 2500
 }

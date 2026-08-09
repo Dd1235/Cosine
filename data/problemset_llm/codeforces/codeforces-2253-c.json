@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2253/C",
   "source_topic": "Codeforces / Contest 2253",
-  "source_tags": [],
+  "source_tags": [
+    "greedy",
+    "sortings",
+    "two pointers"
+  ],
   "statement": "Given a zero matrix and two arrays of possible row and column values, perform any number of row or column overwrite operations to maximize the sum of all distinct values present in the matrix.",
   "tags": [
     "array",

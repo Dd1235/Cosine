@@ -5,7 +5,12 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2252/E",
   "source_topic": "Codeforces / Contest 2252",
-  "source_tags": [],
+  "source_tags": [
+    "bitmasks",
+    "combinatorics",
+    "dp",
+    "math"
+  ],
   "statement": "Given n, count the number of ordered triplets (a, b, c) with 1 ≤ a < b < c ≤ n, such that (a, b, c) forms an arithmetic progression and a ⊕ b ⊕ c = 0. Output the count modulo 10^9+7 for multiple test cases, with n up to 10^18.",
   "tags": [
     "math",

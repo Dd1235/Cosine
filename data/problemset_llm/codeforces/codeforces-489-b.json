@@ -34,5 +34,6 @@
       "two-pointers": 0.95,
       "greedy": 0.9
     }
-  }
+  },
+  "difficulty": 1200
 }

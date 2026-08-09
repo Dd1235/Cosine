@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2253/B",
   "source_topic": "Codeforces / Contest 2253",
-  "source_tags": [],
+  "source_tags": [
+    "brute force",
+    "data structures",
+    "two pointers"
+  ],
   "statement": "Given a sequence of colored modules, remove any number and optionally swap one pair of adjacent modules to maximize the length of the sequence with no two adjacent modules of the same color.",
   "tags": [
     "array",

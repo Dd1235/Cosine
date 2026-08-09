@@ -5,7 +5,11 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2248/D",
   "source_topic": "Codeforces / Contest 2248",
-  "source_tags": [],
+  "source_tags": [
+    "constructive algorithms",
+    "greedy",
+    "math"
+  ],
   "statement": "Given two binary strings of equal length, answer multiple queries asking whether the corresponding substrings can both be reduced to empty by repeatedly deleting all occurrences of a mode character (appearing at least half the time) from both substrings simultaneously.",
   "tags": [
     "string",
@@ -29,5 +33,6 @@
       "mode-frequency-check": 0.98,
       "counting": 0.9
     }
-  }
+  },
+  "difficulty": 1400
 }

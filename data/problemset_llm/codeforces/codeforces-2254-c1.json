@@ -5,7 +5,9 @@
   "platform": "codeforces",
   "source_url": "https://codeforces.com/problemset/problem/2254/C1",
   "source_topic": "Codeforces / Contest 2254",
-  "source_tags": [],
+  "source_tags": [
+    "greedy"
+  ],
   "statement": "Given two binary strings of equal length, determine if one can be transformed into the other using a finite number of allowed substring swaps: exchanging '001' with '100' and '110' with '011' in either direction.",
   "tags": [
     "string",

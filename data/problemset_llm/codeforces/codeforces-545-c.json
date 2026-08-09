@@ -32,5 +32,6 @@
       "dynamic-programming": 0.85,
       "interval-scheduling": 0.8
     }
-  }
+  },
+  "difficulty": 1500
 }
