@@ -547,6 +547,9 @@
     },
     "hitting-set": {
       "category": "graph"
+    },
+    "tree-centroid": {
+      "category": "tree"
     }
   },
   "aliases": {
@@ -727,7 +730,11 @@
     "compressed-tree": "virtual-tree",
     "set-cover": "hitting-set",
     "minimum-hitting-set": "hitting-set",
-    "center-of-tree": "tree-center"
+    "center-of-tree": "tree-center",
+    "centroid": "tree-centroid",
+    "center-of-mass-of-tree": "tree-centroid",
+    "diameter": "tree-diameter",
+    "longest-path-in-tree": "tree-diameter"
   },
   "groups": {
     "range-queries": {
@@ -805,9 +812,16 @@
         "euler-tour",
         "tree-dp",
         "subtree-dp",
+        "rerooting-dp",
         "centroid-decomposition",
+        "tree-centroid",
+        "tree-diameter",
+        "tree-center",
         "binary-lifting",
-        "small-to-large-merging",
+        "dsu-on-tree",
+        "tree-flattening",
+        "virtual-tree",
+        "tree-isomorphism",
         "tin-tout-ancestor-check"
       ]
     },

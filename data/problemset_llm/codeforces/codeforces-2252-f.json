@@ -23,7 +23,6 @@
     "tree-dp",
     "subtree-enumeration",
     "multi-source-bfs",
-    "component-selection",
     "brute-force",
     "dynamic-programming",
     "bfs",
@@ -31,7 +30,8 @@
     "lca",
     "rerooting-dp",
     "heap",
-    "virtual-tree"
+    "virtual-tree",
+    "tree-centroid"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -41,13 +41,13 @@
       "tree-dp": 0.95,
       "subtree-enumeration": 0.9,
       "multi-source-bfs": 0.85,
-      "component-selection": 0.8,
       "brute-force": 0.5,
       "greedy": 0.8,
       "lca": 0.75,
       "rerooting-dp": 0.7,
       "heap": 0.7,
-      "virtual-tree": 0.65
+      "virtual-tree": 0.65,
+      "tree-centroid": 0.8
     }
   }
 }
