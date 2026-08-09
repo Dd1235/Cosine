@@ -28,7 +28,7 @@
     "bitmask-dp",
     "backtracking",
     "state-compression",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -38,7 +38,7 @@
       "bitmask-dp": 0.95,
       "backtracking": 0.9,
       "state-compression": 0.9,
-      "graph-construction": 0.85
+      "graph-modeling": 0.85
     }
   }
 }

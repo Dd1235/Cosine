@@ -18,7 +18,7 @@
     "string"
   ],
   "patterns": [
-    "prime-checking",
+    "primality-test",
     "greedy",
     "backtracking"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785224349,
     "pattern_confidence": {
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "greedy": 0.7,
       "backtracking": 0.6
     }

@@ -14,8 +14,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "binary-search-answer",
-    "xor"
+    "binary-search-answer"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +22,7 @@
     "generated_at_unix": 1777951830,
     "pattern_confidence": {
       "bit-manipulation": 0.9,
-      "binary-search-answer": 0.85,
-      "xor": 0.8
+      "binary-search-answer": 0.85
     }
   }
 }

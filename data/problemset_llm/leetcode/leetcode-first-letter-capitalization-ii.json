@@ -6,14 +6,14 @@
   "source_url": "https://leetcode.com/problems/first-letter-capitalization-ii/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 41.0,
+  "acceptance_rate": 41,
   "source_tags": [
     "database"
   ],
   "statement": "Transform each word in a text column by capitalizing the first letter and lowercasing the rest, with special capitalization for hyphenated words where each part is capitalized.",
   "tags": [
     "string",
-    "parsing",
+    "expression-parsing",
     "text-processing"
   ],
   "patterns": [

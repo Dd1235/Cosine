@@ -24,7 +24,7 @@
   "patterns": [
     "string-concatenation",
     "string-to-integer-conversion",
-    "brute-force-enumeration",
+    "brute-force",
     "simulation"
   ],
   "annotation": {
@@ -34,7 +34,7 @@
     "pattern_confidence": {
       "string-concatenation": 0.97,
       "string-to-integer-conversion": 0.95,
-      "brute-force-enumeration": 0.9,
+      "brute-force": 0.9,
       "simulation": 0.88
     }
   }

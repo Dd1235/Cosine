@@ -17,7 +17,7 @@
   "patterns": [
     "two-pointers",
     "greedy",
-    "counting-inversions"
+    "inversion-count"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "pattern_confidence": {
       "two-pointers": 0.9,
       "greedy": 0.85,
-      "counting-inversions": 0.8
+      "inversion-count": 0.8
     }
   }
 }

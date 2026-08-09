@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "greedy",
-    "bitwise-or",
+    "bit-manipulation",
     "matrix-reconstruction"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785050165,
     "pattern_confidence": {
       "greedy": 0.9,
-      "bitwise-or": 0.85,
+      "bit-manipulation": 0.85,
       "matrix-reconstruction": 0.8
     }
   },

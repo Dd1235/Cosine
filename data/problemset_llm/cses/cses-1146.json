@@ -14,7 +14,7 @@
     "bit-manipulation"
   ],
   "patterns": [
-    "bit-counting",
+    "bit-manipulation",
     "divide-and-conquer",
     "prefix-sum"
   ],
@@ -23,7 +23,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951927,
     "pattern_confidence": {
-      "bit-counting": 0.98,
+      "bit-manipulation": 0.98,
       "divide-and-conquer": 0.85,
       "prefix-sum": 0.7
     }

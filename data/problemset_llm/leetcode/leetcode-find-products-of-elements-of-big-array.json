@@ -21,7 +21,7 @@
   "patterns": [
     "prefix-product",
     "modular-exponentiation",
-    "binary-representation"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "prefix-product": 0.95,
       "modular-exponentiation": 0.9,
-      "binary-representation": 0.85
+      "bit-manipulation": 0.85
     }
   }
 }

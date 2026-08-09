@@ -17,7 +17,7 @@
     "data-structures"
   ],
   "patterns": [
-    "prefix-processing",
+    "prefix-sum",
     "greedy",
     "fenwick-tree"
   ],
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050492,
     "pattern_confidence": {
-      "prefix-processing": 0.9,
+      "prefix-sum": 0.9,
       "greedy": 0.95,
       "fenwick-tree": 0.6
     }

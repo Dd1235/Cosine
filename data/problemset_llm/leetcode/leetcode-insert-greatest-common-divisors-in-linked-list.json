@@ -19,7 +19,7 @@
     "number-theory"
   ],
   "patterns": [
-    "gcd-computation",
+    "gcd",
     "linked-list-traversal"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785234650,
     "pattern_confidence": {
-      "gcd-computation": 0.95,
+      "gcd": 0.95,
       "linked-list-traversal": 0.9
     }
   }

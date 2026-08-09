@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "brute-force",
-    "expression-evaluation"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1785216755,
     "pattern_confidence": {
       "brute-force": 0.95,
-      "expression-evaluation": 0.9
+      "expression-parsing": 0.9
     }
   }
 }

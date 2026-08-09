@@ -20,7 +20,6 @@
   ],
   "patterns": [
     "interval-dp",
-    "top-down-dp",
     "memoization"
   ],
   "annotation": {
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777923976,
     "pattern_confidence": {
       "interval-dp": 0.98,
-      "top-down-dp": 0.95,
-      "memoization": 0.93
+      "memoization": 0.95
     }
   }
 }

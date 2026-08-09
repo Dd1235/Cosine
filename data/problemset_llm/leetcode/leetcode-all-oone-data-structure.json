@@ -17,12 +17,11 @@
   "tags": [
     "hash-table",
     "linked-list",
-    "design",
-    "doubly-linked-list"
+    "design"
   ],
   "patterns": [
     "hash-map",
-    "doubly-linked-list",
+    "linked-list",
     "constant-time-operations"
   ],
   "annotation": {
@@ -31,7 +30,7 @@
     "generated_at_unix": 1777922440,
     "pattern_confidence": {
       "hash-map": 0.95,
-      "doubly-linked-list": 0.9,
+      "linked-list": 0.9,
       "constant-time-operations": 0.9
     }
   }

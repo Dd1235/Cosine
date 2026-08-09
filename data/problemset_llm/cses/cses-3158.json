@@ -15,7 +15,7 @@
   "patterns": [
     "dijkstra",
     "bipartite-graph-modeling",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "dijkstra": 0.98,
       "bipartite-graph-modeling": 0.9,
-      "graph-construction": 0.85
+      "graph-modeling": 0.85
     }
   }
 }

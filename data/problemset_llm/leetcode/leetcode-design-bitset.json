@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "lazy-flip",
-    "bit-counting",
+    "bit-manipulation",
     "state-maintenance"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1784908782,
     "pattern_confidence": {
       "lazy-flip": 0.95,
-      "bit-counting": 0.9,
+      "bit-manipulation": 0.9,
       "state-maintenance": 0.85
     }
   }

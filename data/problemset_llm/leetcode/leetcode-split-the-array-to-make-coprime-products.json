@@ -21,18 +21,16 @@
     "hash-map"
   ],
   "patterns": [
-    "prefix-gcd",
-    "prefix-suffix-processing",
-    "gcd-computation"
+    "gcd",
+    "prefix-suffix-processing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777924105,
     "pattern_confidence": {
-      "prefix-gcd": 0.95,
-      "prefix-suffix-processing": 0.9,
-      "gcd-computation": 0.9
+      "gcd": 0.95,
+      "prefix-suffix-processing": 0.9
     }
   }
 }

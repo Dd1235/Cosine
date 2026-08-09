@@ -20,8 +20,8 @@
   ],
   "patterns": [
     "union-find",
-    "hash-set-lookup",
-    "linear-scan"
+    "hash-map",
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +29,8 @@
     "generated_at_unix": 1777921734,
     "pattern_confidence": {
       "union-find": 0.9,
-      "hash-set-lookup": 0.95,
-      "linear-scan": 0.85
+      "hash-map": 0.95,
+      "brute-force": 0.85
     }
   }
 }

@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "difference-array",
-    "prefix-sum",
-    "2d-prefix-sum"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1785216759,
     "pattern_confidence": {
       "difference-array": 0.9,
-      "prefix-sum": 0.85,
-      "2d-prefix-sum": 0.9
+      "prefix-sum": 0.9
     }
   }
 }

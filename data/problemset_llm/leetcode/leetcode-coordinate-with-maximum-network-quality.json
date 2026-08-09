@@ -18,8 +18,8 @@
     "brute-force"
   ],
   "patterns": [
-    "brute-force-enumeration",
-    "distance-calculation",
+    "brute-force",
+    "geometry",
     "floor-function"
   ],
   "annotation": {
@@ -27,8 +27,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909306,
     "pattern_confidence": {
-      "brute-force-enumeration": 0.95,
-      "distance-calculation": 0.9,
+      "brute-force": 0.95,
+      "geometry": 0.9,
       "floor-function": 0.7
     }
   }

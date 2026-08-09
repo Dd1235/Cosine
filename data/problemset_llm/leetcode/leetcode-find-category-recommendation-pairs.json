@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/find-category-recommendation-pairs/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 64.0,
+  "acceptance_rate": 64,
   "source_tags": [
     "database"
   ],
@@ -17,9 +17,8 @@
     "set"
   ],
   "patterns": [
-    "group-by",
+    "counting",
     "join",
-    "aggregation",
     "filtering"
   ],
   "annotation": {
@@ -27,9 +26,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922884,
     "pattern_confidence": {
-      "group-by": 0.95,
+      "counting": 0.95,
       "join": 0.9,
-      "aggregation": 0.9,
       "filtering": 0.85
     }
   }

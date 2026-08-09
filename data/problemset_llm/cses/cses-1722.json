@@ -13,7 +13,7 @@
     "matrix-exponentiation"
   ],
   "patterns": [
-    "fast-exponentiation",
+    "modular-exponentiation",
     "matrix-exponentiation",
     "modular-arithmetic"
   ],
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951700,
     "pattern_confidence": {
-      "fast-exponentiation": 0.95,
+      "modular-exponentiation": 0.95,
       "matrix-exponentiation": 0.98,
       "modular-arithmetic": 0.9
     }

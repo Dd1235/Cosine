@@ -25,7 +25,7 @@
     "dfs",
     "binary-lifting",
     "lca",
-    "distance-calculation"
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +35,7 @@
       "dfs": 0.95,
       "binary-lifting": 0.9,
       "lca": 0.9,
-      "distance-calculation": 0.85
+      "geometry": 0.85
     }
   },
   "source_topic": "Formwise / Trees"

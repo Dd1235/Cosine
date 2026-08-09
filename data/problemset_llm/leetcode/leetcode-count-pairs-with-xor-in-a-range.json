@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "trie",
-    "bitwise-xor",
+    "bit-manipulation",
     "prefix-trie",
     "counting-pairs"
   ],
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777922659,
     "pattern_confidence": {
       "trie": 0.95,
-      "bitwise-xor": 0.9,
+      "bit-manipulation": 0.9,
       "prefix-trie": 0.88,
       "counting-pairs": 0.85
     }

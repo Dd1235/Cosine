@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "strongly-connected-components",
-    "dag-dp",
+    "dp-on-dag",
     "topological-sort"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951525,
     "pattern_confidence": {
       "strongly-connected-components": 0.98,
-      "dag-dp": 0.95,
+      "dp-on-dag": 0.95,
       "topological-sort": 0.9
     }
   }

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/stone-game-iii/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 68.0,
+  "acceptance_rate": 68,
   "source_tags": [
     "array",
     "math",
@@ -22,7 +22,7 @@
   "patterns": [
     "dynamic-programming",
     "game-dp",
-    "optimal-strategy"
+    "game-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "game-dp": 0.95,
-      "optimal-strategy": 0.9
+      "game-theory": 0.9
     }
   }
 }

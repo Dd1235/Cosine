@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "string-hashing",
-    "hash-set",
+    "hash-map",
     "fixed-length-string-matching",
     "rolling-hash"
   ],
@@ -33,7 +33,7 @@
     "generated_at_unix": 1785050888,
     "pattern_confidence": {
       "string-hashing": 0.95,
-      "hash-set": 0.9,
+      "hash-map": 0.9,
       "fixed-length-string-matching": 0.85,
       "rolling-hash": 0.9
     }

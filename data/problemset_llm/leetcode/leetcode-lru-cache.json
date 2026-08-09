@@ -16,12 +16,12 @@
   "statement": "Implement a data structure for a Least Recently Used (LRU) cache supporting get and put operations in average O(1) time, evicting the least recently used item when capacity is exceeded.",
   "tags": [
     "hash-table",
-    "doubly-linked-list",
+    "linked-list",
     "design"
   ],
   "patterns": [
     "hash-map",
-    "doubly-linked-list",
+    "linked-list",
     "cache-eviction"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1784909985,
     "pattern_confidence": {
       "hash-map": 0.98,
-      "doubly-linked-list": 0.95,
+      "linked-list": 0.95,
       "cache-eviction": 0.9
     }
   }

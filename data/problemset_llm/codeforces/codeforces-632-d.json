@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "lcm-computation",
+    "gcd",
     "subsequence-enumeration",
     "number-theory"
   ],
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785050850,
     "pattern_confidence": {
       "dynamic-programming": 0.9,
-      "lcm-computation": 0.85,
+      "gcd": 0.85,
       "subsequence-enumeration": 0.8,
       "number-theory": 0.9
     }

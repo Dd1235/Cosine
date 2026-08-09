@@ -23,7 +23,7 @@
     "greedy"
   ],
   "patterns": [
-    "distance-calculation",
+    "geometry",
     "connected-components",
     "dfs",
     "greedy",
@@ -34,7 +34,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050832,
     "pattern_confidence": {
-      "distance-calculation": 0.9,
+      "geometry": 0.9,
       "connected-components": 0.95,
       "dfs": 0.9,
       "greedy": 0.85,

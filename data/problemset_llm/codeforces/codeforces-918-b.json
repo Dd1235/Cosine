@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "hash-map",
-    "string-parsing"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "generated_at_unix": 1785224791,
     "pattern_confidence": {
       "hash-map": 0.95,
-      "string-parsing": 0.9
+      "expression-parsing": 0.9
     }
   }
 }

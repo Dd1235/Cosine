@@ -18,14 +18,14 @@
   "statement": "Count the number of distinct contiguous subarrays of an integer array that contain at most k elements divisible by a given integer p.",
   "tags": [
     "array",
-    "hash-set",
+    "hash-map",
     "two-pointers",
     "trie"
   ],
   "patterns": [
     "two-pointers",
     "rolling-hash",
-    "substring-enumeration"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +34,7 @@
     "pattern_confidence": {
       "two-pointers": 0.9,
       "rolling-hash": 0.85,
-      "substring-enumeration": 0.8
+      "brute-force": 0.8
     }
   }
 }

@@ -15,7 +15,7 @@
   "patterns": [
     "grundy-numbers",
     "nim-game",
-    "combinatorial-game"
+    "game-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "grundy-numbers": 0.98,
       "nim-game": 0.95,
-      "combinatorial-game": 0.9
+      "game-theory": 0.9
     }
   }
 }

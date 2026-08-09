@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "greedy",
-    "bit-manipulation",
-    "binary-representation"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777923644,
     "pattern_confidence": {
       "greedy": 0.95,
-      "bit-manipulation": 0.85,
-      "binary-representation": 0.9
+      "bit-manipulation": 0.9
     }
   }
 }

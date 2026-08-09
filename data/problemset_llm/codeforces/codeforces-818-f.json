@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "bridges",
-    "graph-construction",
+    "graph-modeling",
     "binary-search"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785237110,
     "pattern_confidence": {
       "bridges": 0.9,
-      "graph-construction": 0.85,
+      "graph-modeling": 0.85,
       "binary-search": 0.7
     }
   }

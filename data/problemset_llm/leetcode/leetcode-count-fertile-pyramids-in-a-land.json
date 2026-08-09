@@ -19,7 +19,7 @@
     "matrix"
   ],
   "patterns": [
-    "dp-on-grid",
+    "grid-dp",
     "prefix-sum",
     "symmetry-based-dp"
   ],
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922604,
     "pattern_confidence": {
-      "dp-on-grid": 0.98,
+      "grid-dp": 0.98,
       "prefix-sum": 0.85,
       "symmetry-based-dp": 0.9
     }

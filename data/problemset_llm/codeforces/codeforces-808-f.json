@@ -20,8 +20,8 @@
   ],
   "patterns": [
     "binary-search",
-    "prime-checking",
-    "graph-construction",
+    "primality-test",
+    "graph-modeling",
     "maximum-independent-set"
   ],
   "annotation": {
@@ -30,8 +30,8 @@
     "generated_at_unix": 1785050856,
     "pattern_confidence": {
       "binary-search": 0.95,
-      "prime-checking": 0.9,
-      "graph-construction": 0.85,
+      "primality-test": 0.9,
+      "graph-modeling": 0.85,
       "maximum-independent-set": 0.8
     }
   },

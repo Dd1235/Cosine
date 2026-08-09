@@ -13,7 +13,7 @@
   ],
   "patterns": [
     "greedy",
-    "linear-scan"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -21,7 +21,7 @@
     "generated_at_unix": 1777951330,
     "pattern_confidence": {
       "greedy": 0.95,
-      "linear-scan": 0.9
+      "brute-force": 0.9
     }
   }
 }

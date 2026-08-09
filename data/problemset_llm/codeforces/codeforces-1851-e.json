@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "topological-sort",
-    "dag-dp",
+    "dp-on-dag",
     "shortest-path"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785050177,
     "pattern_confidence": {
       "topological-sort": 0.95,
-      "dag-dp": 0.9,
+      "dp-on-dag": 0.9,
       "shortest-path": 0.85
     }
   },

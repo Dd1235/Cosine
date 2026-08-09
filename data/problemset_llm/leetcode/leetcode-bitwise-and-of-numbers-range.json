@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/bitwise-and-of-numbers-range/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 49.0,
+  "acceptance_rate": 49,
   "source_tags": [
     "bit-manipulation"
   ],
@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "prefix-computation"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -25,7 +25,7 @@
     "generated_at_unix": 1784910119,
     "pattern_confidence": {
       "bit-manipulation": 0.98,
-      "prefix-computation": 0.7
+      "prefix-sum": 0.7
     }
   }
 }

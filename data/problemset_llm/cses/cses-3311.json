@@ -13,7 +13,7 @@
     "bipartite-graph"
   ],
   "patterns": [
-    "bipartite-check",
+    "bipartite-graph",
     "greedy",
     "coloring"
   ],
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951297,
     "pattern_confidence": {
-      "bipartite-check": 0.95,
+      "bipartite-graph": 0.95,
       "greedy": 0.9,
       "coloring": 0.9
     }

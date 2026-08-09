@@ -24,7 +24,7 @@
   ],
   "patterns": [
     "dfs",
-    "graph-construction",
+    "graph-modeling",
     "validation-check"
   ],
   "annotation": {
@@ -33,7 +33,7 @@
     "generated_at_unix": 1777923478,
     "pattern_confidence": {
       "dfs": 0.95,
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "validation-check": 0.85
     }
   }

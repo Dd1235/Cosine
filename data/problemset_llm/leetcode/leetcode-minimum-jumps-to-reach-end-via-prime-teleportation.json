@@ -23,8 +23,8 @@
   ],
   "patterns": [
     "bfs",
-    "prime-checking",
-    "graph-construction"
+    "primality-test",
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,8 +32,8 @@
     "generated_at_unix": 1784909680,
     "pattern_confidence": {
       "bfs": 0.98,
-      "prime-checking": 0.9,
-      "graph-construction": 0.85
+      "primality-test": 0.9,
+      "graph-modeling": 0.85
     }
   }
 }

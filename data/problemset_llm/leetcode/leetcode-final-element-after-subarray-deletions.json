@@ -20,7 +20,7 @@
     "dynamic-programming"
   ],
   "patterns": [
-    "minimax",
+    "game-theory",
     "interval-dp",
     "game-dp"
   ],
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909386,
     "pattern_confidence": {
-      "minimax": 0.98,
+      "game-theory": 0.98,
       "interval-dp": 0.95,
       "game-dp": 0.93
     }

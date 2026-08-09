@@ -19,7 +19,7 @@
     "max-flow"
   ],
   "patterns": [
-    "bit-counting",
+    "bit-manipulation",
     "dp-optimization",
     "greedy",
     "xor-basis"
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050609,
     "pattern_confidence": {
-      "bit-counting": 0.95,
+      "bit-manipulation": 0.95,
       "dp-optimization": 0.85,
       "greedy": 0.8,
       "xor-basis": 0.95

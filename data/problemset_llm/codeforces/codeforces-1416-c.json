@@ -26,7 +26,7 @@
     "trie"
   ],
   "patterns": [
-    "bitwise-xor",
+    "bit-manipulation",
     "divide-and-conquer",
     "greedy",
     "inversion-count",
@@ -37,7 +37,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050945,
     "pattern_confidence": {
-      "bitwise-xor": 0.95,
+      "bit-manipulation": 0.95,
       "divide-and-conquer": 0.9,
       "greedy": 0.85,
       "inversion-count": 0.9,

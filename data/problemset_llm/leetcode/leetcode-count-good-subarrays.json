@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "monotonic-stack",
-    "bitwise-or",
+    "bit-manipulation",
     "contribution-technique"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777922609,
     "pattern_confidence": {
       "monotonic-stack": 0.9,
-      "bitwise-or": 0.95,
+      "bit-manipulation": 0.95,
       "contribution-technique": 0.85
     }
   }

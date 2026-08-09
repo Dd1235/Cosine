@@ -17,7 +17,7 @@
     "math"
   ],
   "patterns": [
-    "angle-calculation",
+    "geometry",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -25,7 +25,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785217351,
     "pattern_confidence": {
-      "angle-calculation": 0.95,
+      "geometry": 0.95,
       "modular-arithmetic": 0.85
     }
   }

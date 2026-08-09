@@ -15,7 +15,7 @@
   "patterns": [
     "dynamic-programming",
     "matrix-exponentiation",
-    "fast-exponentiation"
+    "modular-exponentiation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.95,
       "matrix-exponentiation": 0.85,
-      "fast-exponentiation": 0.8
+      "modular-exponentiation": 0.8
     }
   }
 }

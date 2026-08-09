@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "floyd-warshall",
-    "dp-on-subsets",
+    "subset-dp",
     "reverse-deletion"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785230032,
     "pattern_confidence": {
       "floyd-warshall": 0.95,
-      "dp-on-subsets": 0.85,
+      "subset-dp": 0.85,
       "reverse-deletion": 0.8
     }
   }

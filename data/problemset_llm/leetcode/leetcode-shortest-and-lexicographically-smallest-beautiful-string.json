@@ -19,7 +19,7 @@
   "patterns": [
     "sliding-window",
     "prefix-sum",
-    "lexicographic-comparison"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "sliding-window": 0.95,
       "prefix-sum": 0.9,
-      "lexicographic-comparison": 0.85
+      "lexicographic-order": 0.85
     }
   }
 }

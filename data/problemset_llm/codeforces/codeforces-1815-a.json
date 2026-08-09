@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "greedy",
-    "parity-check",
+    "parity-argument",
     "adjacent-pair-operations"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785229924,
     "pattern_confidence": {
       "greedy": 0.9,
-      "parity-check": 0.85,
+      "parity-argument": 0.85,
       "adjacent-pair-operations": 0.8
     }
   }

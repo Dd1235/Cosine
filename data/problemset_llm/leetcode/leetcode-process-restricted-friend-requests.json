@@ -14,12 +14,10 @@
   "statement": "Given n people and restrictions on pairs that cannot be friends directly or indirectly, process a sequence of friend requests and determine which can be accepted without violating the restrictions.",
   "tags": [
     "graph",
-    "union-find",
-    "disjoint-set"
+    "union-find"
   ],
   "patterns": [
     "union-find",
-    "disjoint-set",
     "incremental-connectivity"
   ],
   "annotation": {
@@ -28,7 +26,6 @@
     "generated_at_unix": 1777923936,
     "pattern_confidence": {
       "union-find": 0.98,
-      "disjoint-set": 0.95,
       "incremental-connectivity": 0.9
     }
   }

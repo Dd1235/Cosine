@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-score-after-removals-on-a-tree/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 76.0,
+  "acceptance_rate": 76,
   "source_tags": [
     "array",
     "bit-manipulation",
@@ -17,7 +17,7 @@
   "tags": [
     "tree",
     "graph",
-    "xor",
+    "bit-manipulation",
     "dfs",
     "dynamic-programming"
   ],

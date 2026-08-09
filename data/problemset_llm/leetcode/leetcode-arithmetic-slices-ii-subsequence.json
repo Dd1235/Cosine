@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "dp-with-hashmap",
-    "subsequence-counting",
+    "counting",
     "difference-based-dp"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "generated_at_unix": 1777922456,
     "pattern_confidence": {
       "dp-with-hashmap": 0.98,
-      "subsequence-counting": 0.95,
+      "counting": 0.95,
       "difference-based-dp": 0.9
     }
   }

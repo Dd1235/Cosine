@@ -18,7 +18,7 @@
     "string"
   ],
   "patterns": [
-    "prime-checking",
+    "primality-test",
     "palindrome",
     "binary-search-answer"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908625,
     "pattern_confidence": {
-      "prime-checking": 0.95,
+      "primality-test": 0.95,
       "palindrome": 0.9,
       "binary-search-answer": 0.85
     }

@@ -21,7 +21,7 @@
     "matrix"
   ],
   "patterns": [
-    "dp-on-grid",
+    "grid-dp",
     "bitmask-dp",
     "state-compression"
   ],
@@ -30,7 +30,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909377,
     "pattern_confidence": {
-      "dp-on-grid": 0.98,
+      "grid-dp": 0.98,
       "bitmask-dp": 0.95,
       "state-compression": 0.9
     }

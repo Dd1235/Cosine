@@ -22,7 +22,7 @@
     "sorting",
     "prefix-sum",
     "constructive-algorithm",
-    "lexicographical-order"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
       "sorting": 0.95,
       "prefix-sum": 0.9,
       "constructive-algorithm": 0.93,
-      "lexicographical-order": 0.92
+      "lexicographic-order": 0.92
     }
   }
 }

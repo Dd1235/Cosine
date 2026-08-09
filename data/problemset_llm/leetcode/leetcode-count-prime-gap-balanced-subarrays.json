@@ -26,7 +26,7 @@
   "patterns": [
     "sliding-window",
     "monotonic-queue",
-    "prime-checking"
+    "primality-test"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +35,7 @@
     "pattern_confidence": {
       "sliding-window": 0.95,
       "monotonic-queue": 0.9,
-      "prime-checking": 0.85
+      "primality-test": 0.85
     }
   }
 }

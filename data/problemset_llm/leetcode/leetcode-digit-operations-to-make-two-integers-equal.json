@@ -24,7 +24,7 @@
   "patterns": [
     "shortest-path",
     "bfs",
-    "prime-checking"
+    "primality-test"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "shortest-path": 0.95,
       "bfs": 0.9,
-      "prime-checking": 0.85
+      "primality-test": 0.85
     }
   }
 }

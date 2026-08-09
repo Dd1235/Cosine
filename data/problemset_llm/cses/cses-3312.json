@@ -14,7 +14,7 @@
     "coloring"
   ],
   "patterns": [
-    "bipartite-check",
+    "bipartite-graph",
     "graph-coloring",
     "dfs"
   ],
@@ -23,7 +23,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777952191,
     "pattern_confidence": {
-      "bipartite-check": 0.95,
+      "bipartite-graph": 0.95,
       "graph-coloring": 0.9,
       "dfs": 0.85
     }

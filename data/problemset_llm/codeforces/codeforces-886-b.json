@@ -15,7 +15,7 @@
   ],
   "patterns": [
     "last-occurrence-tracking",
-    "linear-scan"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,7 +23,7 @@
     "generated_at_unix": 1785224898,
     "pattern_confidence": {
       "last-occurrence-tracking": 0.95,
-      "linear-scan": 0.9
+      "brute-force": 0.9
     }
   }
 }

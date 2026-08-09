@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "dfs",
-    "grouping",
+    "counting",
     "distance-sum",
     "subtree-contribution"
   ],
@@ -31,7 +31,7 @@
     "generated_at_unix": 1777924250,
     "pattern_confidence": {
       "dfs": 0.98,
-      "grouping": 0.9,
+      "counting": 0.9,
       "distance-sum": 0.85,
       "subtree-contribution": 0.8
     }

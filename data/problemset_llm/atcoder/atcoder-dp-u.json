@@ -14,8 +14,7 @@
   ],
   "patterns": [
     "bitmask-dp",
-    "subset-enumeration",
-    "dp-on-subsets"
+    "subset-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +22,7 @@
     "generated_at_unix": 1785047604,
     "pattern_confidence": {
       "bitmask-dp": 0.98,
-      "subset-enumeration": 0.95,
-      "dp-on-subsets": 0.93
+      "subset-dp": 0.95
     }
   }
 }

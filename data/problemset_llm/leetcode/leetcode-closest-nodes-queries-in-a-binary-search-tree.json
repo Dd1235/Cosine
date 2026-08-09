@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "binary-search",
-    "inorder-traversal",
+    "binary-tree-traversal",
     "binary-search-answer"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1784909702,
     "pattern_confidence": {
       "binary-search": 0.95,
-      "inorder-traversal": 0.9,
+      "binary-tree-traversal": 0.9,
       "binary-search-answer": 0.93
     }
   }

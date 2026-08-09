@@ -18,7 +18,7 @@
   "patterns": [
     "two-pointers",
     "in-place-rearrangement",
-    "lexicographical-order"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "two-pointers": 0.9,
       "in-place-rearrangement": 0.85,
-      "lexicographical-order": 0.8
+      "lexicographic-order": 0.8
     }
   }
 }

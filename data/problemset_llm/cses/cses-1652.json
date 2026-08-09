@@ -14,7 +14,6 @@
   ],
   "patterns": [
     "prefix-sum",
-    "2d-prefix-sum",
     "range-query"
   ],
   "annotation": {
@@ -23,7 +22,6 @@
     "generated_at_unix": 1777951564,
     "pattern_confidence": {
       "prefix-sum": 0.98,
-      "2d-prefix-sum": 0.97,
       "range-query": 0.9
     }
   }

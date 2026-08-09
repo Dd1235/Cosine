@@ -18,7 +18,7 @@
     "brute-force"
   ],
   "patterns": [
-    "substring-enumeration",
+    "brute-force",
     "validation-check",
     "counting"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050241,
     "pattern_confidence": {
-      "substring-enumeration": 0.9,
+      "brute-force": 0.9,
       "validation-check": 0.85,
       "counting": 0.8
     }

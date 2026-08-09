@@ -21,7 +21,7 @@
     "counting"
   ],
   "patterns": [
-    "string-parsing",
+    "expression-parsing",
     "hash-map",
     "counting"
   ],
@@ -30,7 +30,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908312,
     "pattern_confidence": {
-      "string-parsing": 0.95,
+      "expression-parsing": 0.95,
       "hash-map": 0.9,
       "counting": 0.88
     }

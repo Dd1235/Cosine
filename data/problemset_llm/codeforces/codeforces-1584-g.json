@@ -18,7 +18,6 @@
   ],
   "patterns": [
     "geometry",
-    "distance-check",
     "brute-force"
   ],
   "annotation": {
@@ -27,7 +26,6 @@
     "generated_at_unix": 1785236944,
     "pattern_confidence": {
       "geometry": 0.95,
-      "distance-check": 0.9,
       "brute-force": 0.7
     }
   }

@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "lexicographic-comparison",
+    "lexicographic-order",
     "greedy"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785216803,
     "pattern_confidence": {
       "bit-manipulation": 0.95,
-      "lexicographic-comparison": 0.9,
+      "lexicographic-order": 0.9,
       "greedy": 0.85
     }
   }

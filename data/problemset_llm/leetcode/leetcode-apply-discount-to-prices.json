@@ -13,11 +13,11 @@
   "statement": "Given a sentence with words that may represent prices prefixed by '$', apply a given percentage discount to each price and return the updated sentence with prices formatted to two decimal places.",
   "tags": [
     "string",
-    "parsing",
+    "expression-parsing",
     "math"
   ],
   "patterns": [
-    "string-parsing",
+    "expression-parsing",
     "formatting",
     "arithmetic"
   ],
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908857,
     "pattern_confidence": {
-      "string-parsing": 0.95,
+      "expression-parsing": 0.95,
       "formatting": 0.9,
       "arithmetic": 0.85
     }

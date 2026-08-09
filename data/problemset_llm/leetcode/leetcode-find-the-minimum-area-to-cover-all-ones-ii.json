@@ -19,7 +19,7 @@
     "brute-force"
   ],
   "patterns": [
-    "brute-force-enumeration",
+    "brute-force",
     "prefix-sum",
     "rectangle-area-calculation"
   ],
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922969,
     "pattern_confidence": {
-      "brute-force-enumeration": 0.9,
+      "brute-force": 0.9,
       "prefix-sum": 0.85,
       "rectangle-area-calculation": 0.8
     }

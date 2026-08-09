@@ -10,7 +10,6 @@
   "tags": [
     "graph",
     "union-find",
-    "disjoint-set",
     "offline-queries"
   ],
   "patterns": [

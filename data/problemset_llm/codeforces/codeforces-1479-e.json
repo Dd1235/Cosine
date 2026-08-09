@@ -26,7 +26,7 @@
     "expected-value-dp",
     "modular-arithmetic",
     "probability-dp",
-    "fast-exponentiation"
+    "modular-exponentiation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -36,7 +36,7 @@
       "expected-value-dp": 0.95,
       "modular-arithmetic": 0.9,
       "probability-dp": 0.9,
-      "fast-exponentiation": 0.7
+      "modular-exponentiation": 0.7
     }
   }
 }

@@ -19,7 +19,7 @@
   "patterns": [
     "binary-search",
     "digit-extraction",
-    "prefix-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "binary-search": 0.95,
       "digit-extraction": 0.9,
-      "prefix-counting": 0.85
+      "counting": 0.85
     }
   }
 }

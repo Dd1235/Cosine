@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "lca",
-    "distance-calculation",
+    "geometry",
     "tree-dp"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785051077,
     "pattern_confidence": {
       "lca": 0.9,
-      "distance-calculation": 0.85,
+      "geometry": 0.85,
       "tree-dp": 0.7
     }
   },

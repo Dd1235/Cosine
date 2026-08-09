@@ -18,7 +18,7 @@
     "counting"
   ],
   "patterns": [
-    "combinatorial-enumeration",
+    "combinatorics",
     "two-pointer",
     "sorting"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050320,
     "pattern_confidence": {
-      "combinatorial-enumeration": 0.95,
+      "combinatorics": 0.95,
       "two-pointer": 0.7,
       "sorting": 0.8
     }

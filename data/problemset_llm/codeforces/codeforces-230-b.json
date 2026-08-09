@@ -20,7 +20,7 @@
     "number-theory"
   ],
   "patterns": [
-    "prime-check",
+    "primality-test",
     "square-check",
     "sieve",
     "number-theory"
@@ -30,7 +30,7 @@
     "model": "gpt-4.1",
     "generated_at_unix": 1785673792,
     "pattern_confidence": {
-      "prime-check": 0.95,
+      "primality-test": 0.95,
       "square-check": 0.93,
       "sieve": 0.9
     }

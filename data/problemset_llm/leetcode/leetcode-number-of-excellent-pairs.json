@@ -20,7 +20,7 @@
     "hash-map"
   ],
   "patterns": [
-    "bit-counting",
+    "bit-manipulation",
     "two-pointers",
     "sorting"
   ],
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923773,
     "pattern_confidence": {
-      "bit-counting": 0.98,
+      "bit-manipulation": 0.98,
       "two-pointers": 0.85,
       "sorting": 0.8
     }

@@ -21,7 +21,7 @@
   "patterns": [
     "greedy",
     "sorting",
-    "grouping"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "sorting": 0.9,
-      "grouping": 0.85
+      "counting": 0.85
     }
   }
 }

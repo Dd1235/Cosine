@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "sliding-window",
-    "bitwise-or",
+    "bit-manipulation",
     "two-pointers"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1784910269,
     "pattern_confidence": {
       "sliding-window": 0.95,
-      "bitwise-or": 0.9,
+      "bit-manipulation": 0.9,
       "two-pointers": 0.85
     }
   }

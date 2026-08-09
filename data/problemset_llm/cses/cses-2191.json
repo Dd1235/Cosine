@@ -13,16 +13,16 @@
     "polygon"
   ],
   "patterns": [
-    "shoelace-formula",
-    "coordinate-geometry"
+    "polygon-area",
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951795,
     "pattern_confidence": {
-      "shoelace-formula": 0.98,
-      "coordinate-geometry": 0.9
+      "polygon-area": 0.98,
+      "geometry": 0.9
     }
   }
 }

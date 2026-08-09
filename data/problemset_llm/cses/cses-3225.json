@@ -15,7 +15,7 @@
   "patterns": [
     "suffix-array",
     "string-reconstruction",
-    "lexicographical-order"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "suffix-array": 0.98,
       "string-reconstruction": 0.9,
-      "lexicographical-order": 0.85
+      "lexicographic-order": 0.85
     }
   }
 }

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 71.0,
+  "acceptance_rate": 71,
   "source_tags": [
     "array",
     "breadth-first-search",
@@ -24,20 +24,18 @@
     "heap"
   ],
   "patterns": [
-    "0-1-bfs",
+    "zero-one-bfs",
     "dijkstra",
-    "heap",
-    "zero-one-bfs"
+    "heap"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923633,
     "pattern_confidence": {
-      "0-1-bfs": 0.98,
+      "zero-one-bfs": 0.98,
       "dijkstra": 0.9,
-      "heap": 0.85,
-      "zero-one-bfs": 0.9
+      "heap": 0.85
     }
   }
 }

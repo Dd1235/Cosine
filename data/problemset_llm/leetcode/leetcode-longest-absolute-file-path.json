@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "stack",
-    "parsing",
+    "expression-parsing",
     "dfs"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1784910192,
     "pattern_confidence": {
       "stack": 0.95,
-      "parsing": 0.9,
+      "expression-parsing": 0.9,
       "dfs": 0.7
     }
   }

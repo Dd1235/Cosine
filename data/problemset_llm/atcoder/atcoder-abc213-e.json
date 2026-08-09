@@ -14,9 +14,8 @@
   ],
   "patterns": [
     "bfs",
-    "0-1-bfs",
-    "state-graph-expansion",
-    "zero-one-bfs"
+    "zero-one-bfs",
+    "state-graph-expansion"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,9 +23,8 @@
     "generated_at_unix": 1785047400,
     "pattern_confidence": {
       "bfs": 0.95,
-      "0-1-bfs": 0.9,
-      "state-graph-expansion": 0.85,
-      "zero-one-bfs": 0.9
+      "zero-one-bfs": 0.9,
+      "state-graph-expansion": 0.85
     }
   },
   "difficulty": 1423

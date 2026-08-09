@@ -18,7 +18,7 @@
   "patterns": [
     "bit-count",
     "greedy",
-    "binary-representation"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "bit-count": 0.95,
       "greedy": 0.9,
-      "binary-representation": 0.9
+      "bit-manipulation": 0.9
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

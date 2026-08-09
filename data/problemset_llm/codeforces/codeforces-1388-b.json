@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "binary-representation",
+    "bit-manipulation",
     "string-manipulation"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785216700,
     "pattern_confidence": {
       "greedy": 0.9,
-      "binary-representation": 0.85,
+      "bit-manipulation": 0.85,
       "string-manipulation": 0.8
     }
   }

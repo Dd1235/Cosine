@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "divisibility",
-    "lcm-computation"
+    "gcd"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "generated_at_unix": 1785216905,
     "pattern_confidence": {
       "divisibility": 0.95,
-      "lcm-computation": 0.9
+      "gcd": 0.9
     }
   }
 }

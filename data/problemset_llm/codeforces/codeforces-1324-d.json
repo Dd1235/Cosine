@@ -21,7 +21,7 @@
   "patterns": [
     "sorting",
     "two-pointers",
-    "pair-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "sorting": 0.95,
       "two-pointers": 0.9,
-      "pair-counting": 0.85
+      "counting": 0.85
     }
   },
   "source_topic": "Formwise / Two Pointers"

@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "counting",
-    "frequency-analysis"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1784909560,
     "pattern_confidence": {
       "prefix-sum": 0.95,
-      "counting": 0.9,
-      "frequency-analysis": 0.85
+      "counting": 0.9
     }
   }
 }

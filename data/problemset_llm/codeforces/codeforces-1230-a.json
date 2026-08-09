@@ -18,7 +18,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "subset-enumeration",
+    "subset-dp",
     "bit-manipulation"
   ],
   "annotation": {
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785224258,
     "pattern_confidence": {
-      "subset-enumeration": 0.9,
+      "subset-dp": 0.9,
       "bit-manipulation": 0.85
     }
   }

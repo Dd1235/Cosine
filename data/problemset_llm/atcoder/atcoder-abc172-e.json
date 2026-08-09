@@ -13,18 +13,16 @@
     "modular-arithmetic"
   ],
   "patterns": [
-    "factorial-precomputation",
-    "modular-inverse",
-    "combinatorics"
+    "combinatorics",
+    "modular-inverse"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047491,
     "pattern_confidence": {
-      "factorial-precomputation": 0.95,
-      "modular-inverse": 0.9,
-      "combinatorics": 0.93
+      "combinatorics": 0.95,
+      "modular-inverse": 0.9
     }
   },
   "difficulty": 1880

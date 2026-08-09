@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/sum-of-gcd-of-formed-pairs/",
   "source_topic": "LeetCode / Number Theory (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 75.0,
+  "acceptance_rate": 75,
   "source_tags": [
     "array",
     "math",
@@ -24,20 +24,18 @@
     "two-pointers"
   ],
   "patterns": [
-    "prefix-gcd",
+    "gcd",
     "two-pointers",
-    "sorting",
-    "gcd-computation"
+    "sorting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785234841,
     "pattern_confidence": {
-      "prefix-gcd": 0.9,
+      "gcd": 0.9,
       "two-pointers": 0.85,
-      "sorting": 0.95,
-      "gcd-computation": 0.9
+      "sorting": 0.95
     }
   }
 }

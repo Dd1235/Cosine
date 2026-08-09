@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "bfs",
-    "graph-construction",
+    "graph-modeling",
     "hash-map"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1777922495,
     "pattern_confidence": {
       "bfs": 0.98,
-      "graph-construction": 0.95,
+      "graph-modeling": 0.95,
       "hash-map": 0.9
     }
   }

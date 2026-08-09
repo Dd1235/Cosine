@@ -14,8 +14,8 @@
   ],
   "patterns": [
     "nim",
-    "xor",
-    "combinatorial-game"
+    "bit-manipulation",
+    "game-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +23,8 @@
     "generated_at_unix": 1777951739,
     "pattern_confidence": {
       "nim": 0.99,
-      "xor": 0.95,
-      "combinatorial-game": 0.9
+      "bit-manipulation": 0.95,
+      "game-theory": 0.9
     }
   }
 }

@@ -20,7 +20,7 @@
     "geometry",
     "combinatorics",
     "circle-geometry",
-    "pair-counting",
+    "counting",
     "rotating-calipers"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
       "geometry": 0.95,
       "combinatorics": 0.9,
       "circle-geometry": 0.85,
-      "pair-counting": 0.8,
+      "counting": 0.8,
       "rotating-calipers": 0.9
     }
   }

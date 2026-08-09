@@ -15,7 +15,7 @@
   "patterns": [
     "nim-game",
     "grundy-numbers",
-    "xor"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "nim-game": 0.98,
       "grundy-numbers": 0.95,
-      "xor": 0.9
+      "bit-manipulation": 0.9
     }
   }
 }

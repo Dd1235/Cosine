@@ -19,16 +19,16 @@
     "number-theory"
   ],
   "patterns": [
-    "gcd-lcm-properties",
-    "prefix-computation"
+    "gcd",
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909417,
     "pattern_confidence": {
-      "gcd-lcm-properties": 0.95,
-      "prefix-computation": 0.85
+      "gcd": 0.95,
+      "prefix-sum": 0.85
     }
   }
 }

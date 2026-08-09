@@ -24,7 +24,7 @@
     "dynamic-programming",
     "suffix-automaton",
     "string-nesting",
-    "substring-enumeration"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +34,7 @@
       "dynamic-programming": 0.95,
       "suffix-automaton": 0.9,
       "string-nesting": 0.85,
-      "substring-enumeration": 0.8
+      "brute-force": 0.8
     }
   }
 }

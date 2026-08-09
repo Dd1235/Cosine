@@ -20,7 +20,7 @@
   "patterns": [
     "tree-dp",
     "greedy",
-    "all-pairs-shortest-path"
+    "floyd-warshall"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "tree-dp": 0.9,
       "greedy": 0.85,
-      "all-pairs-shortest-path": 0.8
+      "floyd-warshall": 0.8
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

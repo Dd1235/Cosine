@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "fenwick-tree",
-    "2d-prefix-sum",
+    "prefix-sum",
     "point-update",
     "rectangle-sum-query"
   ],
@@ -24,7 +24,7 @@
     "generated_at_unix": 1777951600,
     "pattern_confidence": {
       "fenwick-tree": 0.95,
-      "2d-prefix-sum": 0.9,
+      "prefix-sum": 0.9,
       "point-update": 0.9,
       "rectangle-sum-query": 0.92
     }

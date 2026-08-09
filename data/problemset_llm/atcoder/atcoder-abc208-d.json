@@ -13,7 +13,6 @@
   ],
   "patterns": [
     "floyd-warshall",
-    "all-pairs-shortest-path",
     "shortest-path"
   ],
   "annotation": {
@@ -22,7 +21,6 @@
     "generated_at_unix": 1785047398,
     "pattern_confidence": {
       "floyd-warshall": 0.98,
-      "all-pairs-shortest-path": 0.95,
       "shortest-path": 0.9
     }
   },

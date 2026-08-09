@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "prefix-xor",
-    "binary-exponentiation",
+    "modular-exponentiation",
     "lucas-theorem"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951944,
     "pattern_confidence": {
       "prefix-xor": 0.95,
-      "binary-exponentiation": 0.7,
+      "modular-exponentiation": 0.7,
       "lucas-theorem": 0.9
     }
   }

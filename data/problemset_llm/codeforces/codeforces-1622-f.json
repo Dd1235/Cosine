@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "factorization",
-    "parity-check",
+    "parity-argument",
     "constructive-algorithm",
     "xor-basis"
   ],
@@ -32,7 +32,7 @@
     "generated_at_unix": 1785237006,
     "pattern_confidence": {
       "factorization": 0.9,
-      "parity-check": 0.85,
+      "parity-argument": 0.85,
       "constructive-algorithm": 0.8,
       "xor-basis": 0.9
     }

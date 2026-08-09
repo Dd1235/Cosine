@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "sliding-window",
-    "bitwise-or",
+    "bit-manipulation",
     "xor-accumulation"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951893,
     "pattern_confidence": {
       "sliding-window": 0.95,
-      "bitwise-or": 0.9,
+      "bit-manipulation": 0.9,
       "xor-accumulation": 0.85
     }
   }

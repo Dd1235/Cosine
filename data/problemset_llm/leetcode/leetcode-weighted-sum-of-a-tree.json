@@ -15,7 +15,7 @@
   ],
   "patterns": [
     "dfs",
-    "tree-traversal",
+    "binary-tree-traversal",
     "depth-computation"
   ],
   "annotation": {
@@ -24,7 +24,7 @@
     "generated_at_unix": 1786254099,
     "pattern_confidence": {
       "dfs": 0.97,
-      "tree-traversal": 0.95,
+      "binary-tree-traversal": 0.95,
       "depth-computation": 0.93
     }
   }

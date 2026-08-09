@@ -22,7 +22,7 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "dp-on-subsets"
+    "subset-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "bitmask-dp": 0.98,
       "state-compression": 0.95,
-      "dp-on-subsets": 0.9
+      "subset-dp": 0.9
     }
   }
 }

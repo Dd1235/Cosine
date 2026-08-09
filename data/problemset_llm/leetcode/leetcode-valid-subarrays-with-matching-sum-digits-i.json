@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "brute-force-enumeration"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "generated_at_unix": 1784731014,
     "pattern_confidence": {
       "prefix-sum": 0.95,
-      "brute-force-enumeration": 0.85
+      "brute-force": 0.85
     }
   }
 }

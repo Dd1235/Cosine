@@ -12,7 +12,7 @@
   "statement": "Given a nested simplified HTML-like table structure, count the number of cells in each table, including nested ones, where tables may have varying row and cell counts.",
   "tags": [
     "string",
-    "parsing",
+    "expression-parsing",
     "stack",
     "tree"
   ],

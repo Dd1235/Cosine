@@ -20,7 +20,7 @@
   "patterns": [
     "prefix-xor",
     "offline-queries",
-    "binary-trie"
+    "trie"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "prefix-xor": 0.95,
       "offline-queries": 0.85,
-      "binary-trie": 0.8
+      "trie": 0.8
     }
   }
 }

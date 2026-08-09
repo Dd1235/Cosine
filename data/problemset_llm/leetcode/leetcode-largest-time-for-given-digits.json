@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "backtracking",
-    "permutation-enumeration",
+    "brute-force",
     "pruning"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1784908947,
     "pattern_confidence": {
       "backtracking": 0.95,
-      "permutation-enumeration": 0.9,
+      "brute-force": 0.9,
       "pruning": 0.7
     }
   }

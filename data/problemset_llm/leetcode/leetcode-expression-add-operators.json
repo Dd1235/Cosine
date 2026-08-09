@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "backtracking",
-    "expression-evaluation",
+    "expression-parsing",
     "pruning"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1777922856,
     "pattern_confidence": {
       "backtracking": 0.98,
-      "expression-evaluation": 0.9,
+      "expression-parsing": 0.9,
       "pruning": 0.85
     }
   }

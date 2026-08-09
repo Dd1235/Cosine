@@ -23,7 +23,7 @@
     "dfs",
     "dynamic-programming",
     "game-theory",
-    "top-down-dp"
+    "memoization"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
       "dfs": 0.95,
       "dynamic-programming": 0.9,
       "game-theory": 0.95,
-      "top-down-dp": 0.85
+      "memoization": 0.85
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

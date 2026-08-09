@@ -12,7 +12,6 @@
     "modular-arithmetic"
   ],
   "patterns": [
-    "fast-exponentiation",
     "modular-exponentiation"
   ],
   "annotation": {
@@ -20,8 +19,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951653,
     "pattern_confidence": {
-      "fast-exponentiation": 0.98,
-      "modular-exponentiation": 0.97
+      "modular-exponentiation": 0.98
     }
   }
 }

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-cost-to-convert-string-i/",
   "source_topic": "LeetCode / Shortest Path (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 63.0,
+  "acceptance_rate": 63,
   "source_tags": [
     "array",
     "string",
@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "shortest-path",
-    "graph-construction",
+    "graph-modeling",
     "dijkstra"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785234934,
     "pattern_confidence": {
       "shortest-path": 0.95,
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "dijkstra": 0.9
     }
   }

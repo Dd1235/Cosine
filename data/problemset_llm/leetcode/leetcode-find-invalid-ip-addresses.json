@@ -14,10 +14,10 @@
   "tags": [
     "string",
     "hash-map",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
-    "string-parsing",
+    "expression-parsing",
     "hash-map",
     "group-by-aggregation"
   ],
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922894,
     "pattern_confidence": {
-      "string-parsing": 0.95,
+      "expression-parsing": 0.95,
       "hash-map": 0.9,
       "group-by-aggregation": 0.85
     }

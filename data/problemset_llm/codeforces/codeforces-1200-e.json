@@ -23,7 +23,6 @@
   ],
   "patterns": [
     "kmp",
-    "prefix-function",
     "string-concatenation"
   ],
   "annotation": {
@@ -32,7 +31,6 @@
     "generated_at_unix": 1785051116,
     "pattern_confidence": {
       "kmp": 0.9,
-      "prefix-function": 0.85,
       "string-concatenation": 0.8
     }
   },

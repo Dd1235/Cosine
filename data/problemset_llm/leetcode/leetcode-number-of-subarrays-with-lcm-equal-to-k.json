@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "two-pointers",
-    "lcm-computation",
+    "gcd",
     "prefix-product"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1784909826,
     "pattern_confidence": {
       "two-pointers": 0.9,
-      "lcm-computation": 0.95,
+      "gcd": 0.95,
       "prefix-product": 0.7
     }
   }

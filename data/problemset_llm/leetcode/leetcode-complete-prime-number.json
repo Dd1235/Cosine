@@ -21,7 +21,7 @@
   "patterns": [
     "prefix-enumeration",
     "suffix-enumeration",
-    "prime-checking"
+    "primality-test"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "prefix-enumeration": 0.9,
       "suffix-enumeration": 0.9,
-      "prime-checking": 0.95
+      "primality-test": 0.95
     }
   }
 }

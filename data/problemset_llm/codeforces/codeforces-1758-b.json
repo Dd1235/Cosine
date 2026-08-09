@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "constructive-algorithm",
-    "bitwise-xor",
+    "bit-manipulation",
     "number-theory"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785229836,
     "pattern_confidence": {
       "constructive-algorithm": 0.95,
-      "bitwise-xor": 0.9,
+      "bit-manipulation": 0.9,
       "number-theory": 0.7
     }
   }

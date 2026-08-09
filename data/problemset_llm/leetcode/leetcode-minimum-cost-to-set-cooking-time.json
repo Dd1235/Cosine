@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-cost-to-set-cooking-time/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 45.0,
+  "acceptance_rate": 45,
   "source_tags": [
     "math",
     "enumeration"
@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "brute-force",
-    "state-enumeration",
+    "subset-dp",
     "cost-calculation"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1784909446,
     "pattern_confidence": {
       "brute-force": 0.9,
-      "state-enumeration": 0.85,
+      "subset-dp": 0.85,
       "cost-calculation": 0.8
     }
   }

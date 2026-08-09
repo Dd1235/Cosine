@@ -16,7 +16,7 @@
     "implementation"
   ],
   "patterns": [
-    "linear-scan",
+    "brute-force",
     "state-machine"
   ],
   "annotation": {
@@ -24,7 +24,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785224895,
     "pattern_confidence": {
-      "linear-scan": 0.95,
+      "brute-force": 0.95,
       "state-machine": 0.9
     }
   }

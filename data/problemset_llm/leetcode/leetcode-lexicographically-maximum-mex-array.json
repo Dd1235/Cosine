@@ -23,7 +23,7 @@
   "patterns": [
     "greedy",
     "mex",
-    "prefix-processing"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "mex": 0.9,
-      "prefix-processing": 0.85
+      "prefix-sum": 0.85
     }
   }
 }

@@ -10,7 +10,7 @@
   "tags": [
     "graph",
     "shortest-path",
-    "all-pairs-shortest-path"
+    "floyd-warshall"
   ],
   "patterns": [
     "floyd-warshall",

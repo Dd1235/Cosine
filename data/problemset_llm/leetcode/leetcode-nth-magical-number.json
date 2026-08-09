@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/nth-magical-number/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 37.0,
+  "acceptance_rate": 37,
   "source_tags": [
     "math",
     "binary-search"
@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "gcd",
-    "lcm"
+    "gcd"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1777923754,
     "pattern_confidence": {
       "binary-search-answer": 0.95,
-      "gcd": 0.9,
-      "lcm": 0.9
+      "gcd": 0.9
     }
   }
 }

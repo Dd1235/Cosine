@@ -23,8 +23,8 @@
   "patterns": [
     "string-hashing",
     "two-pointers",
-    "substring-enumeration",
-    "prefix-function"
+    "brute-force",
+    "kmp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,8 +33,8 @@
     "pattern_confidence": {
       "string-hashing": 0.95,
       "two-pointers": 0.7,
-      "substring-enumeration": 0.85,
-      "prefix-function": 0.6
+      "brute-force": 0.85,
+      "kmp": 0.6
     }
   }
 }

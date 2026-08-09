@@ -17,7 +17,6 @@
     "memoization"
   ],
   "patterns": [
-    "top-down-dp",
     "memoization"
   ],
   "annotation": {
@@ -25,8 +24,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923603,
     "pattern_confidence": {
-      "top-down-dp": 0.98,
-      "memoization": 0.95
+      "memoization": 0.98
     }
   }
 }

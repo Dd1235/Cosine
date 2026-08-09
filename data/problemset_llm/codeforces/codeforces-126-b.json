@@ -23,9 +23,8 @@
   "patterns": [
     "binary-search",
     "string-hashing",
-    "prefix-function",
-    "z-function",
-    "kmp"
+    "kmp",
+    "z-function"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,9 +33,8 @@
     "pattern_confidence": {
       "binary-search": 0.9,
       "string-hashing": 0.85,
-      "prefix-function": 0.95,
-      "z-function": 0.9,
-      "kmp": 0.9
+      "kmp": 0.95,
+      "z-function": 0.9
     }
   },
   "source_topic": "Formwise / String"

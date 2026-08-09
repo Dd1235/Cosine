@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "bfs",
-    "graph-construction",
+    "graph-modeling",
     "neighbor-generation"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777924293,
     "pattern_confidence": {
       "bfs": 0.98,
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "neighbor-generation": 0.85
     }
   }

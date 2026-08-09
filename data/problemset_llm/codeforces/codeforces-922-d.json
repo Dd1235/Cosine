@@ -19,7 +19,7 @@
   "patterns": [
     "greedy",
     "sorting",
-    "subsequence-counting",
+    "counting",
     "exchange-argument"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "sorting": 0.9,
-      "subsequence-counting": 0.85,
+      "counting": 0.85,
       "exchange-argument": 0.9
     }
   },

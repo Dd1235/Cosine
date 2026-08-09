@@ -30,7 +30,6 @@
   ],
   "patterns": [
     "game-theory",
-    "combinatorial-game",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -39,7 +38,6 @@
     "generated_at_unix": 1785236852,
     "pattern_confidence": {
       "game-theory": 0.98,
-      "combinatorial-game": 0.95,
       "modular-arithmetic": 0.9
     }
   }

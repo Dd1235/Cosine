@@ -14,9 +14,8 @@
   ],
   "patterns": [
     "inclusion-exclusion",
-    "binomial-coefficient",
-    "modular-arithmetic",
     "combinatorics",
+    "modular-arithmetic",
     "number-theory"
   ],
   "annotation": {
@@ -25,7 +24,7 @@
     "generated_at_unix": 1785673622,
     "pattern_confidence": {
       "inclusion-exclusion": 0.97,
-      "binomial-coefficient": 0.98,
+      "combinatorics": 0.98,
       "modular-arithmetic": 0.95
     }
   },

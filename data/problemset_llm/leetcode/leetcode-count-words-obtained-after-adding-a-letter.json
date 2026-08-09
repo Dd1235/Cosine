@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "hash-set",
+    "hash-map",
     "string-transformation"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1784909654,
     "pattern_confidence": {
       "bit-manipulation": 0.9,
-      "hash-set": 0.95,
+      "hash-map": 0.95,
       "string-transformation": 0.85
     }
   }

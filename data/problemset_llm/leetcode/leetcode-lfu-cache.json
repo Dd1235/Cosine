@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/lfu-cache/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 50.0,
+  "acceptance_rate": 50,
   "source_tags": [
     "hash-table",
     "linked-list",
@@ -17,8 +17,7 @@
   "tags": [
     "hash-table",
     "linked-list",
-    "design",
-    "doubly-linked-list"
+    "design"
   ],
   "patterns": [
     "frequency-list",

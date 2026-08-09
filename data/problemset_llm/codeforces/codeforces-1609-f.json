@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "two-pointers",
-    "bit-counting",
+    "bit-manipulation",
     "contribution-technique"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1785237051,
     "pattern_confidence": {
       "two-pointers": 0.85,
-      "bit-counting": 0.95,
+      "bit-manipulation": 0.95,
       "contribution-technique": 0.7
     }
   }

@@ -21,8 +21,7 @@
   ],
   "patterns": [
     "rolling-hash",
-    "kmp",
-    "prefix-function"
+    "kmp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,8 +29,7 @@
     "generated_at_unix": 1777923169,
     "pattern_confidence": {
       "rolling-hash": 0.95,
-      "kmp": 0.9,
-      "prefix-function": 0.9
+      "kmp": 0.9
     }
   }
 }

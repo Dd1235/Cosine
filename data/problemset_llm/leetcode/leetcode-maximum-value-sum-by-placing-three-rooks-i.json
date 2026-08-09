@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-value-sum-by-placing-three-rooks-i/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 17.0,
+  "acceptance_rate": 17,
   "source_tags": [
     "array",
     "dynamic-programming",
@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "combinatorial-enumeration",
+    "combinatorics",
     "state-compression"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1777923456,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "combinatorial-enumeration": 0.9,
+      "combinatorics": 0.9,
       "state-compression": 0.85
     }
   }

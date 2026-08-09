@@ -16,8 +16,8 @@
   ],
   "patterns": [
     "greedy",
-    "minimax",
-    "lexicographical-order",
+    "game-theory",
+    "lexicographic-order",
     "two-player-game"
   ],
   "annotation": {
@@ -26,8 +26,8 @@
     "generated_at_unix": 1786256838,
     "pattern_confidence": {
       "greedy": 0.95,
-      "minimax": 0.93,
-      "lexicographical-order": 0.92,
+      "game-theory": 0.93,
+      "lexicographic-order": 0.92,
       "two-player-game": 0.9
     }
   },

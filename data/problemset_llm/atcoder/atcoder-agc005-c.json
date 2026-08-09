@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "diameter-characterization",
-    "graph-construction",
+    "graph-modeling",
     "distance-metrics"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1785047553,
     "pattern_confidence": {
       "diameter-characterization": 0.9,
-      "graph-construction": 0.85,
+      "graph-modeling": 0.85,
       "distance-metrics": 0.8
     }
   },

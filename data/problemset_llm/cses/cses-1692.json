@@ -15,7 +15,7 @@
   "patterns": [
     "eulerian-path",
     "de-bruijn-sequence",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "eulerian-path": 0.98,
       "de-bruijn-sequence": 0.95,
-      "graph-construction": 0.9
+      "graph-modeling": 0.9
     }
   }
 }

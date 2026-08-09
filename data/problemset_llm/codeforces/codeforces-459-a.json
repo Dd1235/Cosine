@@ -16,7 +16,7 @@
     "implementation"
   ],
   "patterns": [
-    "coordinate-geometry",
+    "geometry",
     "vector-operations"
   ],
   "annotation": {
@@ -24,7 +24,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785217330,
     "pattern_confidence": {
-      "coordinate-geometry": 0.95,
+      "geometry": 0.95,
       "vector-operations": 0.8
     }
   }

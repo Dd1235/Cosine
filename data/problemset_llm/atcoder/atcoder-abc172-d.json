@@ -12,9 +12,8 @@
     "number-theory"
   ],
   "patterns": [
-    "divisor-summation",
+    "divisor-enumeration",
     "multiplicative-functions",
-    "divisor-counting",
     "efficient-enumeration",
     "number-theory"
   ],
@@ -23,9 +22,8 @@
     "model": "gpt-4.1",
     "generated_at_unix": 1785673614,
     "pattern_confidence": {
-      "divisor-summation": 0.98,
+      "divisor-enumeration": 0.98,
       "multiplicative-functions": 0.92,
-      "divisor-counting": 0.9,
       "efficient-enumeration": 0.85
     }
   },

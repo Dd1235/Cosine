@@ -16,12 +16,12 @@
     "graph",
     "dfs",
     "union-find",
-    "bipartite-check"
+    "bipartite-graph"
   ],
   "patterns": [
     "dfs",
     "bridges",
-    "bipartite-check",
+    "bipartite-graph",
     "union-find"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "dfs": 0.9,
       "bridges": 0.85,
-      "bipartite-check": 0.95,
+      "bipartite-graph": 0.95,
       "union-find": 0.7
     }
   },

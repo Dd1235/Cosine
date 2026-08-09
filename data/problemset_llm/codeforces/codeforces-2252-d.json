@@ -13,7 +13,7 @@
   "tags": [
     "array",
     "greedy",
-    "parity"
+    "parity-argument"
   ],
   "patterns": [
     "greedy",

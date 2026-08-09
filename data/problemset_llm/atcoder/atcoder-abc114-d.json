@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "prime-factorization",
-    "divisor-counting",
+    "divisor-enumeration",
     "factorial-divisors",
     "brute-force",
     "number-theory"
@@ -25,7 +25,7 @@
     "generated_at_unix": 1785673603,
     "pattern_confidence": {
       "prime-factorization": 0.98,
-      "divisor-counting": 0.97,
+      "divisor-enumeration": 0.97,
       "factorial-divisors": 0.93,
       "brute-force": 0.85
     }

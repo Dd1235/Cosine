@@ -13,7 +13,6 @@
   ],
   "patterns": [
     "string-matching",
-    "prefix-function",
     "kmp"
   ],
   "annotation": {
@@ -22,8 +21,7 @@
     "generated_at_unix": 1777951744,
     "pattern_confidence": {
       "string-matching": 0.98,
-      "prefix-function": 0.9,
-      "kmp": 0.88
+      "kmp": 0.9
     }
   }
 }

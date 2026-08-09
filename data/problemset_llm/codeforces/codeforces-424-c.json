@@ -15,7 +15,7 @@
     "bit-manipulation"
   ],
   "patterns": [
-    "bitwise-xor",
+    "bit-manipulation",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785051128,
     "pattern_confidence": {
-      "bitwise-xor": 0.95,
+      "bit-manipulation": 0.95,
       "modular-arithmetic": 0.9
     }
   },

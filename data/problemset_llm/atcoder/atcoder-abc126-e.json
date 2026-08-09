@@ -10,7 +10,7 @@
   "tags": [
     "graph",
     "union-find",
-    "parity"
+    "parity-argument"
   ],
   "patterns": [
     "union-find",

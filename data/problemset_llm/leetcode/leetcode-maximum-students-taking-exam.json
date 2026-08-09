@@ -24,7 +24,7 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "dp-on-grid"
+    "grid-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "bitmask-dp": 0.98,
       "state-compression": 0.95,
-      "dp-on-grid": 0.9
+      "grid-dp": 0.9
     }
   }
 }

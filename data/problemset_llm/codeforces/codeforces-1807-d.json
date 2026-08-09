@@ -20,7 +20,7 @@
   "patterns": [
     "prefix-sum",
     "range-update",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "prefix-sum": 0.9,
       "range-update": 0.8,
-      "parity-check": 0.85
+      "parity-argument": 0.85
     }
   }
 }

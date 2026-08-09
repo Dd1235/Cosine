@@ -24,8 +24,8 @@
   "patterns": [
     "dfs",
     "bfs",
-    "distance-calculation",
-    "tree-traversal"
+    "geometry",
+    "binary-tree-traversal"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,8 +34,8 @@
     "pattern_confidence": {
       "dfs": 0.9,
       "bfs": 0.9,
-      "distance-calculation": 0.85,
-      "tree-traversal": 0.8
+      "geometry": 0.85,
+      "binary-tree-traversal": 0.8
     }
   },
   "source_topic": "Formwise / DP Level 2"

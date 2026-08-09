@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/sum-of-beautiful-subsequences/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 31.0,
+  "acceptance_rate": 31,
   "source_tags": [
     "array",
     "math",
@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "gcd-computation",
+    "gcd",
     "inclusion-exclusion",
     "prefix-sum"
   ],
@@ -33,7 +33,7 @@
     "generated_at_unix": 1777924167,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "gcd-computation": 0.9,
+      "gcd": 0.9,
       "inclusion-exclusion": 0.85,
       "prefix-sum": 0.8
     }

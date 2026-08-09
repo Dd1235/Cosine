@@ -13,7 +13,7 @@
     "sorting"
   ],
   "patterns": [
-    "dp-on-subsets",
+    "subset-dp",
     "sorting",
     "knapsack",
     "dp-optimization"
@@ -23,7 +23,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047573,
     "pattern_confidence": {
-      "dp-on-subsets": 0.95,
+      "subset-dp": 0.95,
       "sorting": 0.9,
       "knapsack": 0.85,
       "dp-optimization": 0.9

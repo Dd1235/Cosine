@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "backtracking",
-    "string-parsing",
+    "expression-parsing",
     "arithmetic-sequence-check"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1784908841,
     "pattern_confidence": {
       "backtracking": 0.98,
-      "string-parsing": 0.9,
+      "expression-parsing": 0.9,
       "arithmetic-sequence-check": 0.85
     }
   }

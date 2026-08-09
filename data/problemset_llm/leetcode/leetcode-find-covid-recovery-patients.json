@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "filtering",
-    "aggregation",
+    "counting",
     "window-functions"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "generated_at_unix": 1784909549,
     "pattern_confidence": {
       "filtering": 0.95,
-      "aggregation": 0.9,
+      "counting": 0.9,
       "window-functions": 0.85
     }
   }

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-valid-paths-in-a-tree/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 37.0,
+  "acceptance_rate": 37,
   "source_tags": [
     "math",
     "dynamic-programming",
@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "dfs",
-    "prime-checking",
+    "primality-test",
     "contribution-technique"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1777922736,
     "pattern_confidence": {
       "dfs": 0.95,
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "contribution-technique": 0.85
     }
   }

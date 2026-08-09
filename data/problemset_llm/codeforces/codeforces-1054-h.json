@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "chinese-remainder-theorem",
-    "fast-exponentiation",
+    "modular-exponentiation",
     "fft"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785236829,
     "pattern_confidence": {
       "chinese-remainder-theorem": 0.9,
-      "fast-exponentiation": 0.95,
+      "modular-exponentiation": 0.95,
       "fft": 0.85
     }
   }

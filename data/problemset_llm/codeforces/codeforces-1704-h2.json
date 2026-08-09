@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "counting",
-    "combinatorial-enumeration",
+    "combinatorics",
     "modular-arithmetic",
     "burnside-lemma"
   ],
@@ -31,7 +31,7 @@
     "generated_at_unix": 1785236903,
     "pattern_confidence": {
       "counting": 0.95,
-      "combinatorial-enumeration": 0.9,
+      "combinatorics": 0.9,
       "modular-arithmetic": 0.85,
       "burnside-lemma": 0.9
     }

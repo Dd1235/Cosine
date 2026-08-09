@@ -13,8 +13,8 @@
     "permutations"
   ],
   "patterns": [
-    "factorial-precomputation",
-    "lexicographical-order",
+    "combinatorics",
+    "lexicographic-order",
     "ranking-and-unranking"
   ],
   "annotation": {
@@ -22,8 +22,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951685,
     "pattern_confidence": {
-      "factorial-precomputation": 0.95,
-      "lexicographical-order": 0.9,
+      "combinatorics": 0.95,
+      "lexicographic-order": 0.9,
       "ranking-and-unranking": 0.9
     }
   }

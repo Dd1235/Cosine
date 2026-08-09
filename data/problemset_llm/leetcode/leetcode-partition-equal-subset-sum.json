@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "subset-sum",
-    "dp-on-subsets",
+    "subset-dp",
     "state-compression"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "generated_at_unix": 1777922390,
     "pattern_confidence": {
       "subset-sum": 0.98,
-      "dp-on-subsets": 0.95,
+      "subset-dp": 0.95,
       "state-compression": 0.85
     }
   }

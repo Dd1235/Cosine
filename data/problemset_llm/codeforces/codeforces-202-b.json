@@ -18,8 +18,8 @@
   ],
   "patterns": [
     "subsequence-search",
-    "inversion-counting",
-    "permutation-enumeration",
+    "inversion-count",
+    "brute-force",
     "dynamic-programming"
   ],
   "annotation": {
@@ -28,8 +28,8 @@
     "generated_at_unix": 1785050213,
     "pattern_confidence": {
       "subsequence-search": 0.95,
-      "inversion-counting": 0.9,
-      "permutation-enumeration": 0.85,
+      "inversion-count": 0.9,
+      "brute-force": 0.85,
       "dynamic-programming": 0.8
     }
   },

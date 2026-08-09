@@ -21,8 +21,7 @@
   ],
   "patterns": [
     "modular-exponentiation",
-    "fast-exponentiation",
-    "combinatorial-sum"
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,8 +29,7 @@
     "generated_at_unix": 1777924178,
     "pattern_confidence": {
       "modular-exponentiation": 0.95,
-      "fast-exponentiation": 0.9,
-      "combinatorial-sum": 0.85
+      "combinatorics": 0.85
     }
   }
 }

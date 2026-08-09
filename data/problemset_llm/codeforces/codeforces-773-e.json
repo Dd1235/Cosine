@@ -19,7 +19,7 @@
   "patterns": [
     "greedy",
     "sorting",
-    "prefix-computation"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "sorting": 0.9,
-      "prefix-computation": 0.85
+      "prefix-sum": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

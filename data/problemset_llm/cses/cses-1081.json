@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "counting-divisors",
-    "frequency-array",
+    "counting",
     "gcd"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951660,
     "pattern_confidence": {
       "counting-divisors": 0.95,
-      "frequency-array": 0.9,
+      "counting": 0.9,
       "gcd": 0.98
     }
   }

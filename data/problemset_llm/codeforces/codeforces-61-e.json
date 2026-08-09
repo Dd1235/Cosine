@@ -19,7 +19,7 @@
   "patterns": [
     "fenwick-tree",
     "coordinate-compression",
-    "counting-inversions",
+    "inversion-count",
     "contribution-technique",
     "merge-sort-tree",
     "sqrt-decomposition"
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "fenwick-tree": 0.9,
       "coordinate-compression": 0.85,
-      "counting-inversions": 0.9,
+      "inversion-count": 0.9,
       "contribution-technique": 0.8,
       "merge-sort-tree": 0.9,
       "sqrt-decomposition": 0.9

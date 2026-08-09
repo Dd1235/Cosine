@@ -17,7 +17,7 @@
     "implementation"
   ],
   "patterns": [
-    "parity-check",
+    "parity-argument",
     "greedy"
   ],
   "annotation": {
@@ -25,7 +25,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785217321,
     "pattern_confidence": {
-      "parity-check": 0.9,
+      "parity-argument": 0.9,
       "greedy": 0.7
     }
   }

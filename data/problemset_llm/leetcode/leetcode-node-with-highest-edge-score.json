@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "counting",
-    "hash-map",
-    "aggregation"
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1784910173,
     "pattern_confidence": {
       "counting": 0.9,
-      "hash-map": 0.85,
-      "aggregation": 0.8
+      "hash-map": 0.85
     }
   }
 }

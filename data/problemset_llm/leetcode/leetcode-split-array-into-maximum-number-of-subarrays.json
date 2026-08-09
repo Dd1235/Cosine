@@ -21,7 +21,7 @@
   "patterns": [
     "greedy",
     "bitwise-and",
-    "prefix-computation"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "bitwise-and": 0.9,
-      "prefix-computation": 0.7
+      "prefix-sum": 0.7
     }
   }
 }

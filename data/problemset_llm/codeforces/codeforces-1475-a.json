@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "divisor-check",
-    "parity-analysis"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1785224620,
     "pattern_confidence": {
       "divisor-check": 0.9,
-      "parity-analysis": 0.85
+      "parity-argument": 0.85
     }
   }
 }

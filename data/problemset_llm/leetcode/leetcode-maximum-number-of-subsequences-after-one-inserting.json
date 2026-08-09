@@ -23,7 +23,7 @@
   "patterns": [
     "prefix-sum",
     "greedy",
-    "subsequence-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "prefix-sum": 0.95,
       "greedy": 0.9,
-      "subsequence-counting": 0.92
+      "counting": 0.92
     }
   }
 }

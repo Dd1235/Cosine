@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "string-parsing",
+    "expression-parsing",
     "backtracking"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050085,
     "pattern_confidence": {
       "greedy": 0.9,
-      "string-parsing": 0.85,
+      "expression-parsing": 0.85,
       "backtracking": 0.6
     }
   },

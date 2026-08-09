@@ -14,7 +14,7 @@
     "data-structure"
   ],
   "patterns": [
-    "hash-set",
+    "hash-map",
     "simulation"
   ],
   "annotation": {
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047468,
     "pattern_confidence": {
-      "hash-set": 0.95,
+      "hash-map": 0.95,
       "simulation": 0.9
     }
   },

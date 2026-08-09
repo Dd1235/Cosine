@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "integer-coordinate-check",
-    "line-intersection",
+    "segment-intersection",
     "counting"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785224817,
     "pattern_confidence": {
       "integer-coordinate-check": 0.9,
-      "line-intersection": 0.85,
+      "segment-intersection": 0.85,
       "counting": 0.8
     }
   }

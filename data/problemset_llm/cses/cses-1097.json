@@ -15,7 +15,7 @@
   "patterns": [
     "interval-dp",
     "game-dp",
-    "optimal-strategy"
+    "game-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "interval-dp": 0.98,
       "game-dp": 0.95,
-      "optimal-strategy": 0.9
+      "game-theory": 0.9
     }
   }
 }

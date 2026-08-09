@@ -16,8 +16,8 @@
     "set"
   ],
   "patterns": [
-    "bitwise-or",
-    "prefix-processing",
+    "bit-manipulation",
+    "prefix-sum",
     "distinct-values"
   ],
   "annotation": {
@@ -25,8 +25,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785051152,
     "pattern_confidence": {
-      "bitwise-or": 0.95,
-      "prefix-processing": 0.85,
+      "bit-manipulation": 0.95,
+      "prefix-sum": 0.85,
       "distinct-values": 0.8
     }
   },

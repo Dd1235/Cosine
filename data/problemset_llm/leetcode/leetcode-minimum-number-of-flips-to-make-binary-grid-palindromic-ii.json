@@ -22,7 +22,7 @@
   "patterns": [
     "bit-manipulation",
     "greedy",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "bit-manipulation": 0.9,
       "greedy": 0.85,
-      "parity-check": 0.8
+      "parity-argument": 0.8
     }
   }
 }

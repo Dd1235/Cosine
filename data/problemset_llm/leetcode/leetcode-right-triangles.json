@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "counting",
-    "combinatorial-enumeration",
+    "combinatorics",
     "prefix-sum"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1784910116,
     "pattern_confidence": {
       "counting": 0.95,
-      "combinatorial-enumeration": 0.9,
+      "combinatorics": 0.9,
       "prefix-sum": 0.7
     }
   }

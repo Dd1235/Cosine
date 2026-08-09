@@ -9,8 +9,7 @@
   "statement": "Given users with friendship and blockship relations, determine for each user how many other users are friend candidates—those connected by friendship paths but not directly friends or blocked.",
   "tags": [
     "graph",
-    "union-find",
-    "disjoint-set"
+    "union-find"
   ],
   "patterns": [
     "union-find",

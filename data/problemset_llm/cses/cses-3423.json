@@ -13,7 +13,7 @@
     "construction"
   ],
   "patterns": [
-    "prime-checking",
+    "primality-test",
     "greedy",
     "constructive-algorithm"
   ],
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951959,
     "pattern_confidence": {
-      "prime-checking": 0.95,
+      "primality-test": 0.95,
       "greedy": 0.85,
       "constructive-algorithm": 0.9
     }

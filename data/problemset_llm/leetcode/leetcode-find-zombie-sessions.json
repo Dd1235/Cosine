@@ -11,7 +11,7 @@
   "statement": "Identify user sessions with duration over 30 minutes, at least 5 scroll events, a click-to-scroll ratio below 0.20, and no purchases, then return these 'zombie' sessions ordered by scroll count descending and session ID ascending.",
   "tags": [
     "array",
-    "aggregation",
+    "counting",
     "filtering"
   ],
   "patterns": [

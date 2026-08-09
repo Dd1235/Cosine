@@ -19,16 +19,14 @@
     "dynamic-programming"
   ],
   "patterns": [
-    "floyd-warshall",
-    "all-pairs-shortest-path"
+    "floyd-warshall"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785234927,
     "pattern_confidence": {
-      "floyd-warshall": 0.95,
-      "all-pairs-shortest-path": 0.9
+      "floyd-warshall": 0.95
     }
   }
 }

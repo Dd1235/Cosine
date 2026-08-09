@@ -24,7 +24,6 @@
   ],
   "patterns": [
     "memoization",
-    "top-down-dp",
     "trie-based-search"
   ],
   "annotation": {
@@ -33,7 +32,6 @@
     "generated_at_unix": 1777922388,
     "pattern_confidence": {
       "memoization": 0.95,
-      "top-down-dp": 0.9,
       "trie-based-search": 0.85
     }
   }

@@ -22,7 +22,6 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "xor",
     "counting",
     "rolling-hash",
     "xor-basis"
@@ -33,7 +32,6 @@
     "generated_at_unix": 1785237045,
     "pattern_confidence": {
       "bit-manipulation": 0.95,
-      "xor": 0.9,
       "counting": 0.85,
       "rolling-hash": 0.8,
       "xor-basis": 0.95

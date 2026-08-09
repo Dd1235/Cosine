@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "combinatorial-enumeration",
+    "combinatorics",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777922939,
     "pattern_confidence": {
       "digit-dp": 0.95,
-      "combinatorial-enumeration": 0.9,
+      "combinatorics": 0.9,
       "modular-arithmetic": 0.85
     }
   }

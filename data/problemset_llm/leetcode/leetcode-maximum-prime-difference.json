@@ -19,16 +19,16 @@
     "number-theory"
   ],
   "patterns": [
-    "prime-checking",
-    "linear-scan"
+    "primality-test",
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785234652,
     "pattern_confidence": {
-      "prime-checking": 0.95,
-      "linear-scan": 0.9
+      "primality-test": 0.95,
+      "brute-force": 0.9
     }
   }
 }

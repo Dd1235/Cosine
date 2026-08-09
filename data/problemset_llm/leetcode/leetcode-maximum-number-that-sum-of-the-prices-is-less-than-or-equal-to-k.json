@@ -23,7 +23,7 @@
   "patterns": [
     "binary-search-answer",
     "prefix-sum",
-    "bit-counting"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "binary-search-answer": 0.95,
       "prefix-sum": 0.85,
-      "bit-counting": 0.9
+      "bit-manipulation": 0.9
     }
   }
 }

@@ -24,7 +24,7 @@
   "patterns": [
     "dfs",
     "greedy",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "dfs": 0.95,
       "greedy": 0.85,
-      "parity-check": 0.8
+      "parity-argument": 0.8
     }
   }
 }

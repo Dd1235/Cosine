@@ -13,7 +13,7 @@
     "automaton"
   ],
   "patterns": [
-    "prefix-function",
+    "kmp",
     "dp-on-automaton",
     "modular-arithmetic"
   ],
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951759,
     "pattern_confidence": {
-      "prefix-function": 0.95,
+      "kmp": 0.95,
       "dp-on-automaton": 0.9,
       "modular-arithmetic": 0.85
     }

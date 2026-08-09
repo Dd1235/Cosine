@@ -25,7 +25,7 @@
     "coloring"
   ],
   "patterns": [
-    "prime-checking",
+    "primality-test",
     "graph-coloring",
     "greedy"
   ],
@@ -34,7 +34,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785230022,
     "pattern_confidence": {
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "graph-coloring": 0.95,
       "greedy": 0.85
     }

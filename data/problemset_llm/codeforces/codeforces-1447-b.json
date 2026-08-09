@@ -21,7 +21,7 @@
   "patterns": [
     "greedy",
     "sign-flipping",
-    "parity-analysis"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "sign-flipping": 0.9,
-      "parity-analysis": 0.85
+      "parity-argument": 0.85
     }
   }
 }
