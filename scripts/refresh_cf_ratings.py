@@ -52,6 +52,7 @@ def main() -> int:
 
     live = live_problems()
     filled_rating: list[str] = []
+    filled_titles: list[str] = []
     filled_tags: list[str] = []
     still_missing: list[str] = []
 
@@ -60,13 +61,20 @@ def main() -> int:
         m = re.match(r"codeforces-(\d+)-([a-z0-9]+)$", d.get("id", ""))
         if not m:
             continue
-        if d.get("difficulty") is not None and d.get("source_tags"):
+        needs_title = d.get("title") == d.get("id")
+        if d.get("difficulty") is not None and d.get("source_tags") and not needs_title:
             continue
         p = live.get((int(m.group(1)), m.group(2).upper()))
         if not p:
             continue
 
         changed = False
+        # A record whose title is its own id came from a statement fetched
+        # before the name was known. The API has it.
+        if needs_title and p.get("name"):
+            d["title"] = p["name"]
+            filled_titles.append(f"{d['id']} -> {p['name']}")
+            changed = True
         if d.get("difficulty") is None:
             if p.get("rating"):
                 d["difficulty"] = p["rating"]
@@ -82,7 +90,9 @@ def main() -> int:
             path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 
     verb = "filled" if args.write else "would fill"
-    print(f"{verb} {len(filled_rating)} rating(s), {len(filled_tags)} tag set(s)")
+    print(f"{verb} {len(filled_rating)} rating(s), {len(filled_tags)} tag set(s), {len(filled_titles)} title(s)")
+    for line in filled_titles[:10]:
+        print(f"  {line}")
     for line in filled_rating[:20]:
         print(f"  {line}")
     if still_missing:

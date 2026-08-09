@@ -12,27 +12,34 @@
     "math",
     "two pointers"
   ],
-  "statement": "Given parameters n, m, d, and two arrays p (strictly increasing) and r, determine if there exists a binary array a such that a custom scoring function f(a) exceeds f(I(a)), where I(a) is an all-ones array of the same length. The function f(a) rewards runs of consecutive ones and resets counters based on n and p.",
+  "statement": "Given parameters and reward rules for runs of ones in a binary array, determine if there exists a binary array whose custom scoring function exceeds that of the all-ones array of the same length.",
   "tags": [
     "array",
     "math",
-    "greedy"
+    "greedy",
+    "combinatorics"
   ],
   "patterns": [
     "run-length-analysis",
     "greedy",
     "case-analysis",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "prefix-sum",
+    "brute-force",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1",
-    "generated_at_unix": 1786256849,
+    "generated_at_unix": 1786259194,
     "pattern_confidence": {
-      "run-length-analysis": 0.97,
-      "greedy": 0.92,
+      "run-length-analysis": 0.98,
+      "greedy": 0.93,
       "case-analysis": 0.9,
-      "constructive-algorithm": 0.85
+      "constructive-algorithm": 0.85,
+      "prefix-sum": 0.85,
+      "brute-force": 0.8,
+      "binary-search": 0.65
     }
   },
   "difficulty": 1900

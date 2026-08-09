@@ -22,7 +22,10 @@
     "coin-change",
     "interval-query",
     "greedy",
-    "dynamic-programming"
+    "dynamic-programming",
+    "unbounded-knapsack",
+    "bfs",
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +35,10 @@
       "reachability-dp": 0.97,
       "coin-change": 0.95,
       "interval-query": 0.8,
-      "greedy": 0.7
+      "greedy": 0.7,
+      "unbounded-knapsack": 0.85,
+      "bfs": 0.65,
+      "bit-manipulation": 0.55
     }
   },
   "difficulty": 3000

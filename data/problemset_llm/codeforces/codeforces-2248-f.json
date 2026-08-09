@@ -22,7 +22,9 @@
     "difference-array",
     "rectangle-updates",
     "peak-cell-condition",
-    "brute-force"
+    "brute-force",
+    "sorting",
+    "binary-search-answer"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +35,9 @@
       "difference-array": 0.85,
       "rectangle-updates": 0.88,
       "peak-cell-condition": 0.9,
-      "brute-force": 0.6
+      "brute-force": 0.6,
+      "sorting": 0.9,
+      "binary-search-answer": 0.6
     }
   },
   "difficulty": 2500

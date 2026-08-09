@@ -66,10 +66,19 @@ def env_key() -> str:
 
 
 def problem_url(pid: str) -> str | None:
+    """The /contest/ form, not /problemset/.
+
+    They render the same problem, and Tavily's extractor treats them
+    differently: on the problemset page it drops <ul> content for some
+    problems, which silently removes the operation the whole problem is about.
+    2254F came through saying "You can perform the following operation:" with
+    nothing after it, and nothing in the indexed text mentioned XOR. The
+    contest URL keeps the list.
+    """
     m = re.match(r"^codeforces-(\d+)-([a-z0-9]+)$", pid)
     if not m:
         return None
-    return f"https://codeforces.com/problemset/problem/{m.group(1)}/{m.group(2).upper()}"
+    return f"https://codeforces.com/contest/{m.group(1)}/problem/{m.group(2).upper()}"
 
 
 def tavily_extract(urls: list[str], key: str) -> dict[str, str]:
@@ -166,6 +175,12 @@ def main() -> int:
             body = clean_statement(raw)
             if len(body) < MIN_STATEMENT:
                 print(f"    {pid}: only {len(body)} chars — looks like a challenge page, skipping")
+                continue
+            # No "time limit per test" means the extractor didn't find the
+            # statement block and we are looking at navigation. Keeping it
+            # would put a problem in the corpus that says nothing about itself.
+            if STATEMENT_MARKER not in body:
+                print(f"    {pid}: no statement marker — extraction was partial, skipping")
                 continue
             cid, index = pid.split("-")[1], pid.split("-")[2].upper()
             found[pid] = {

@@ -10,7 +10,7 @@
     "greedy",
     "math"
   ],
-  "statement": "Given two binary strings of equal length, answer multiple queries asking whether the corresponding substrings can both be reduced to empty by repeatedly deleting all occurrences of a mode character (appearing at least half the time) from both substrings simultaneously.",
+  "statement": "Given two binary strings of equal length, answer multiple queries asking whether corresponding substrings can be simultaneously reduced to empty by repeatedly deleting any set of positions where a chosen bit is a mode (majority) in both substrings.",
   "tags": [
     "string",
     "array",
@@ -19,19 +19,19 @@
   ],
   "patterns": [
     "prefix-sum",
-    "range-query",
-    "mode-frequency-check",
-    "counting"
+    "range-frequency-query",
+    "mode-checking",
+    "offline-queries"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1",
-    "generated_at_unix": 1786256847,
+    "generated_at_unix": 1786259192,
     "pattern_confidence": {
       "prefix-sum": 0.95,
-      "range-query": 0.93,
-      "mode-frequency-check": 0.98,
-      "counting": 0.9
+      "range-frequency-query": 0.93,
+      "mode-checking": 0.9,
+      "offline-queries": 0.7
     }
   },
   "difficulty": 1400

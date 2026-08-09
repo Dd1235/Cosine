@@ -25,7 +25,11 @@
     "interval-cover",
     "sieve",
     "min-cost-removal",
-    "number-theory"
+    "number-theory",
+    "dynamic-programming",
+    "bitmask-dp",
+    "hitting-set",
+    "sos-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -37,7 +41,11 @@
       "greedy": 0.93,
       "interval-cover": 0.85,
       "sieve": 0.8,
-      "min-cost-removal": 0.9
+      "min-cost-removal": 0.9,
+      "dynamic-programming": 0.9,
+      "bitmask-dp": 0.7,
+      "hitting-set": 0.65,
+      "sos-dp": 0.45
     }
   }
 }

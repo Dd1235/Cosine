@@ -23,7 +23,11 @@
     "counting",
     "formula-derivation",
     "modular-arithmetic",
-    "number-theory"
+    "number-theory",
+    "bit-manipulation",
+    "digit-dp",
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +38,11 @@
       "xor-properties": 0.97,
       "counting": 0.95,
       "formula-derivation": 0.93,
-      "modular-arithmetic": 0.9
+      "modular-arithmetic": 0.9,
+      "bit-manipulation": 0.85,
+      "digit-dp": 0.8,
+      "combinatorics": 0.6,
+      "dynamic-programming": 0.55
     }
   }
 }

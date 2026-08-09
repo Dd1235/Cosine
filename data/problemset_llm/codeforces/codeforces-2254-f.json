@@ -11,26 +11,31 @@
     "math",
     "sortings"
   ],
-  "statement": "Given two arrays of even length, determine if one can be transformed into the other using a specified operation any number of times for multiple test cases.",
+  "statement": "Given two arrays of even length, determine if one can be transformed into the other using any number of operations that XOR all but one element with the chosen element.",
   "tags": [
     "array",
-    "constructive-algorithm"
+    "bit-manipulation",
+    "math"
   ],
   "patterns": [
-    "parity-analysis",
-    "element-pairing",
+    "xor-invariance",
+    "linear-algebra-over-gf2",
+    "gaussian-elimination",
     "invariant-check",
-    "sorting"
+    "bit-manipulation",
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1",
-    "generated_at_unix": 1786257069,
+    "generated_at_unix": 1786259196,
     "pattern_confidence": {
-      "parity-analysis": 0.95,
-      "element-pairing": 0.9,
-      "invariant-check": 0.85,
-      "sorting": 0.7
+      "xor-invariance": 0.98,
+      "linear-algebra-over-gf2": 0.97,
+      "gaussian-elimination": 0.92,
+      "invariant-check": 0.9,
+      "bit-manipulation": 0.95,
+      "hash-map": 0.6
     }
   }
 }

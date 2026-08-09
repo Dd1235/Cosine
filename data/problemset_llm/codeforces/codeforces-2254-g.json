@@ -25,7 +25,12 @@
     "dfs",
     "subtree-dp",
     "greedy-partition",
-    "dynamic-programming"
+    "dynamic-programming",
+    "greedy",
+    "sorting",
+    "prefix-sum",
+    "exchange-argument",
+    "heap"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -36,7 +41,12 @@
       "chain-partitioning": 0.97,
       "dfs": 0.9,
       "subtree-dp": 0.92,
-      "greedy-partition": 0.85
+      "greedy-partition": 0.85,
+      "greedy": 0.9,
+      "sorting": 0.85,
+      "prefix-sum": 0.7,
+      "exchange-argument": 0.6,
+      "heap": 0.5
     }
   }
 }

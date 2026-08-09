@@ -22,7 +22,10 @@
     "permutation-reconstruction",
     "prefix-sum",
     "sorting",
-    "brute-force"
+    "brute-force",
+    "multiset",
+    "binary-search",
+    "constructive-algorithm"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +36,10 @@
       "permutation-reconstruction": 0.95,
       "prefix-sum": 0.93,
       "sorting": 0.85,
-      "brute-force": 0.5
+      "brute-force": 0.5,
+      "multiset": 0.8,
+      "binary-search": 0.7,
+      "constructive-algorithm": 0.5
     }
   }
 }
