@@ -17,7 +17,7 @@
   "patterns": [
     "triangle-congruence",
     "geometric-transformations",
-    "set-cover",
+    "hitting-set",
     "steiner-tree"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "triangle-congruence": 0.95,
       "geometric-transformations": 0.9,
-      "set-cover": 0.7,
+      "hitting-set": 0.7,
       "steiner-tree": 0.8
     }
   },

@@ -538,6 +538,15 @@
     },
     "derangement": {
       "category": "math"
+    },
+    "virtual-tree": {
+      "category": "tree"
+    },
+    "tree-center": {
+      "category": "tree"
+    },
+    "hitting-set": {
+      "category": "graph"
     }
   },
   "aliases": {
@@ -713,7 +722,12 @@
     "polynomial-interpolation": "lagrange-interpolation",
     "prim": "minimum-spanning-tree",
     "catalan-numbers": "combinatorics",
-    "branch-and-bound": "backtracking"
+    "branch-and-bound": "backtracking",
+    "auxiliary-tree": "virtual-tree",
+    "compressed-tree": "virtual-tree",
+    "set-cover": "hitting-set",
+    "minimum-hitting-set": "hitting-set",
+    "center-of-tree": "tree-center"
   },
   "groups": {
     "range-queries": {

@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2252-a",
+  "title": "Boss Fight",
+  "slug": "2252-a-codeforces-2252-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2252/A",
+  "source_topic": "Codeforces / Contest 2252",
+  "source_tags": [
+    "data structures",
+    "greedy"
+  ],
+  "statement": "Given a sequence of spell cards with damage values, arrange them to maximize total damage dealt to a boss, where playing two cards of the same value consecutively activates a shield causing all subsequent cards to deal zero damage.",
+  "tags": [
+    "array",
+    "greedy",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "sorting",
+    "counting",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256855,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "sorting": 0.9,
+      "counting": 0.85,
+      "simulation": 0.8
+    }
+  }
+}

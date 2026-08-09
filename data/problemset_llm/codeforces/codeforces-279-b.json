@@ -32,5 +32,6 @@
       "two-pointers": 0.93,
       "prefix-sum": 0.85
     }
-  }
+  },
+  "difficulty": 1400
 }

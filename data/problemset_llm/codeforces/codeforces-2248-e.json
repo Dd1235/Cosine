@@ -1,0 +1,46 @@
+{
+  "id": "codeforces-2248-e",
+  "title": "Excuse for Breaks",
+  "slug": "2248-e-codeforces-2248-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/E",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "greedy",
+    "math",
+    "two pointers"
+  ],
+  "statement": "Given parameters and reward rules for runs of ones in a binary array, determine if there exists a binary array whose custom scoring function exceeds that of the all-ones array of the same length.",
+  "tags": [
+    "array",
+    "math",
+    "greedy",
+    "combinatorics"
+  ],
+  "patterns": [
+    "run-length-analysis",
+    "greedy",
+    "case-analysis",
+    "constructive-algorithm",
+    "prefix-sum",
+    "brute-force",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786259194,
+    "pattern_confidence": {
+      "run-length-analysis": 0.98,
+      "greedy": 0.93,
+      "case-analysis": 0.9,
+      "constructive-algorithm": 0.85,
+      "prefix-sum": 0.85,
+      "brute-force": 0.8,
+      "binary-search": 0.65
+    }
+  },
+  "difficulty": 1900
+}

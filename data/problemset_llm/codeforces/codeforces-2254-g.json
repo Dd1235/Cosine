@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2254-g",
+  "title": "Nightcrawler",
+  "slug": "2254-g-codeforces-2254-g",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/G",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [
+    "data structures",
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "sortings",
+    "trees"
+  ],
+  "statement": "Given a rooted tree with integer values on nodes, partition all nodes into exactly k disjoint subsets such that each subset forms a chain (all nodes on a root-to-leaf path), and maximize the sum of the maximum values in each subset for every k from 1 to n.",
+  "tags": [
+    "tree",
+    "dynamic-programming",
+    "greedy"
+  ],
+  "patterns": [
+    "tree-dp",
+    "chain-partitioning",
+    "dfs",
+    "subtree-dp",
+    "greedy-partition",
+    "dynamic-programming",
+    "greedy",
+    "sorting",
+    "prefix-sum",
+    "exchange-argument",
+    "heap"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786257070,
+    "pattern_confidence": {
+      "tree-dp": 0.98,
+      "chain-partitioning": 0.97,
+      "dfs": 0.9,
+      "subtree-dp": 0.92,
+      "greedy-partition": 0.85,
+      "greedy": 0.9,
+      "sorting": 0.85,
+      "prefix-sum": 0.7,
+      "exchange-argument": 0.6,
+      "heap": 0.5
+    }
+  }
+}

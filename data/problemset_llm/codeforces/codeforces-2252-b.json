@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2252-b",
+  "title": "Always Changing",
+  "slug": "2252-b-codeforces-2252-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2252/B",
+  "source_topic": "Codeforces / Contest 2252",
+  "source_tags": [
+    "dp",
+    "greedy",
+    "math",
+    "strings"
+  ],
+  "statement": "Given a binary string, delete characters (with deletions strictly alternating between 0 and 1) to obtain an alternating string with the minimum number of deletions, or determine if it is impossible.",
+  "tags": [
+    "string",
+    "greedy",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "alternating-deletion",
+    "string-processing",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256857,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "alternating-deletion": 0.95,
+      "string-processing": 0.9,
+      "simulation": 0.85
+    }
+  }
+}

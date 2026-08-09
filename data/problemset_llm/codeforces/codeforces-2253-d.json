@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2253-d",
+  "title": "Hypercarp and Interdimensional Jumps",
+  "slug": "2253-d-codeforces-2253-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2253/D",
+  "source_topic": "Codeforces / Contest 2253",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "geometry",
+    "greedy",
+    "implementation",
+    "math"
+  ],
+  "statement": "Given a target point (x, y) in a grid, construct a sequence of moves, each incrementing either the x or y jump vector by 1, so that after any number of such moves, the ship's position remains within [0, x] × [0, y] and the final position is as close as possible to (x, y) in squared Euclidean distance.",
+  "tags": [
+    "greedy",
+    "geometry",
+    "simulation",
+    "string"
+  ],
+  "patterns": [
+    "greedy",
+    "coordinate-increment-sequence",
+    "simulation",
+    "minimizing-euclidean-distance",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256976,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "coordinate-increment-sequence": 0.95,
+      "simulation": 0.9,
+      "minimizing-euclidean-distance": 0.92
+    }
+  }
+}

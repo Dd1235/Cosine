@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2254-f",
+  "title": "Whiplash",
+  "slug": "2254-f-codeforces-2254-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/F",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [
+    "bitmasks",
+    "constructive algorithms",
+    "math",
+    "sortings"
+  ],
+  "statement": "Given two arrays of even length, determine if one can be transformed into the other using any number of operations that XOR all but one element with the chosen element.",
+  "tags": [
+    "array",
+    "bit-manipulation",
+    "math"
+  ],
+  "patterns": [
+    "xor-invariance",
+    "linear-algebra-over-gf2",
+    "gaussian-elimination",
+    "invariant-check",
+    "bit-manipulation",
+    "hash-map"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786259196,
+    "pattern_confidence": {
+      "xor-invariance": 0.98,
+      "linear-algebra-over-gf2": 0.97,
+      "gaussian-elimination": 0.92,
+      "invariant-check": 0.9,
+      "bit-manipulation": 0.95,
+      "hash-map": 0.6
+    }
+  }
+}

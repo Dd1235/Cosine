@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2253-b",
+  "title": "Hypercarp and the Control Panel",
+  "slug": "2253-b-codeforces-2253-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2253/B",
+  "source_topic": "Codeforces / Contest 2253",
+  "source_tags": [
+    "brute force",
+    "data structures",
+    "two pointers"
+  ],
+  "statement": "Given a sequence of colored modules, remove any number and optionally swap one pair of adjacent modules to maximize the length of the sequence with no two adjacent modules of the same color.",
+  "tags": [
+    "array",
+    "greedy",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "adjacent-swap",
+    "maximum-alternating-subsequence",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256973,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "adjacent-swap": 0.9,
+      "maximum-alternating-subsequence": 0.85,
+      "brute-force": 0.7
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "codeforces-2253-f",
+  "title": "4-beauty",
+  "slug": "2253-f-codeforces-2253-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2253/F",
+  "source_topic": "Codeforces / Contest 2253",
+  "source_tags": [
+    "bitmasks",
+    "dp",
+    "graphs",
+    "math"
+  ],
+  "statement": "Given the set {1,2,...,n} with removal costs, find the minimum total cost to remove numbers so that the maximum divisibility characteristic among all 4-term arithmetic progressions is decreased.",
+  "tags": [
+    "array",
+    "combinatorics",
+    "number-theory",
+    "greedy"
+  ],
+  "patterns": [
+    "arithmetic-progression-enumeration",
+    "divisibility-check",
+    "greedy",
+    "interval-cover",
+    "sieve",
+    "min-cost-removal",
+    "number-theory",
+    "dynamic-programming",
+    "bitmask-dp",
+    "hitting-set",
+    "sos-dp"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256981,
+    "pattern_confidence": {
+      "arithmetic-progression-enumeration": 0.98,
+      "divisibility-check": 0.95,
+      "greedy": 0.93,
+      "interval-cover": 0.85,
+      "sieve": 0.8,
+      "min-cost-removal": 0.9,
+      "dynamic-programming": 0.9,
+      "bitmask-dp": 0.7,
+      "hitting-set": 0.65,
+      "sos-dp": 0.45
+    }
+  }
+}

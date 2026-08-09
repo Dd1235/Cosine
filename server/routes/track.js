@@ -29,7 +29,6 @@ const TYPES = new Set([
   "recall_set",
   "note_saved",
   "library_notes",
-  "library_writeup",
   "library_pick",
 ]);
 

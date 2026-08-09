@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2248-d",
+  "title": "Good Pair Queries",
+  "slug": "2248-d-codeforces-2248-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/D",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [
+    "constructive algorithms",
+    "greedy",
+    "math"
+  ],
+  "statement": "Given two binary strings of equal length, answer multiple queries asking whether corresponding substrings can be simultaneously reduced to empty by repeatedly deleting any set of positions where a chosen bit is a mode (majority) in both substrings.",
+  "tags": [
+    "string",
+    "array",
+    "prefix-sum",
+    "query"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "range-frequency-query",
+    "mode-checking",
+    "offline-queries"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786259192,
+    "pattern_confidence": {
+      "prefix-sum": 0.95,
+      "range-frequency-query": 0.93,
+      "mode-checking": 0.9,
+      "offline-queries": 0.7
+    }
+  },
+  "difficulty": 1400
+}

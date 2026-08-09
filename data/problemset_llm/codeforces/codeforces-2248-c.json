@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2248-c",
+  "title": "Maximize the Score",
+  "slug": "2248-c-codeforces-2248-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2248/C",
+  "source_topic": "Codeforces / Contest 2248",
+  "source_tags": [
+    "dp",
+    "greedy"
+  ],
+  "statement": "Given an array of length 2n where each integer from 1 to n appears exactly twice, repeatedly remove subarrays between the two occurrences of a chosen value x (inclusive), scoring the square of the subarray's length each time, to maximize the total score after the array is emptied.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "intervals"
+  ],
+  "patterns": [
+    "interval-dp",
+    "recursion",
+    "memoization",
+    "greedy-choice",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256843,
+    "pattern_confidence": {
+      "interval-dp": 0.98,
+      "recursion": 0.9,
+      "memoization": 0.9,
+      "greedy-choice": 0.7
+    }
+  },
+  "difficulty": 1300
+}

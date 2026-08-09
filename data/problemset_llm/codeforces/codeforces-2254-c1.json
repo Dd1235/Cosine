@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2254-c1",
+  "title": "Marenol (easy version)",
+  "slug": "2254-c1-codeforces-2254-c1",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/C1",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [
+    "greedy"
+  ],
+  "statement": "Given two binary strings of equal length, determine if one can be transformed into the other using a finite number of allowed substring swaps: exchanging '001' with '100' and '110' with '011' in either direction.",
+  "tags": [
+    "string",
+    "simulation"
+  ],
+  "patterns": [
+    "substring-replacement",
+    "parity-invariant",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256985,
+    "pattern_confidence": {
+      "substring-replacement": 0.98,
+      "parity-invariant": 0.85,
+      "simulation": 0.9
+    }
+  }
+}

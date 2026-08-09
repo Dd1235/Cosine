@@ -34,5 +34,6 @@
       "dfs": 0.9,
       "greedy": 0.85
     }
-  }
+  },
+  "difficulty": 1700
 }

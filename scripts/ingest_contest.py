@@ -356,7 +356,16 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
     dropped = len(pend["problems"]) - len(live)
     print(f"{len(live)} queued problem(s) to re-check" + (f", {dropped} already ingested" if dropped else ""))
 
-    found = hf_lookup({p["id"] for p in live})
+    # The statement cache first. fetch_statements.py (Tavily) fills it for
+    # problems the dataset hasn't published yet, and a statement is a statement
+    # whatever fetched it — checking here is what lets the two paths compose
+    # instead of the Tavily one needing its own staging code.
+    cached = read_json(CF_STATEMENTS, {})
+    found = {p["id"]: cached[p["id"]] for p in live if p["id"] in cached}
+    if found:
+        print(f"  {len(found)} already in the statement cache")
+    missing = {p["id"] for p in live if p["id"] not in found}
+    found.update(hf_lookup(missing))
     if not dry_run:
         merge_statements(found)
         by_contest: dict[int, list[str]] = {}

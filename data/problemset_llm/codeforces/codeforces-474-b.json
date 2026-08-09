@@ -27,5 +27,6 @@
       "prefix-sum": 0.9,
       "binary-search-answer": 0.92
     }
-  }
+  },
+  "difficulty": 1200
 }

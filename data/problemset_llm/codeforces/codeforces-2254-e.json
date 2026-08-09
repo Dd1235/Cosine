@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2254-e",
+  "title": "Chronostasis",
+  "slug": "2254-e-codeforces-2254-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/E",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "greedy"
+  ],
+  "statement": "Given a shuffled array of first differences (with the first element as-is) of a hidden positive integer array, reconstruct the lexicographically smallest possible original array or report impossibility.",
+  "tags": [
+    "array",
+    "greedy",
+    "permutation",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "greedy",
+    "permutation-reconstruction",
+    "prefix-sum",
+    "sorting",
+    "brute-force",
+    "multiset",
+    "binary-search",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786257067,
+    "pattern_confidence": {
+      "greedy": 0.97,
+      "permutation-reconstruction": 0.95,
+      "prefix-sum": 0.93,
+      "sorting": 0.85,
+      "brute-force": 0.5,
+      "multiset": 0.8,
+      "binary-search": 0.7,
+      "constructive-algorithm": 0.5
+    }
+  }
+}

@@ -6,6 +6,7 @@ const db = require("../db");
 const { expandQuery } = require("../search/query_expand");
 const { correctTerms } = require("../search/spellfix");
 const { tokenize } = require("../search/tokenize");
+const { queryIsWordLike } = require("../search/wordlike");
 const {
   parseSelection, passesDifficulty, parseSort, sortByDifficulty, sortableJudge, SORTABLE_JUDGES,
 } = require("../search/difficulty");
@@ -180,7 +181,21 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
       queryTerms = tokenize(exp.query);
     }
     const unknownTerms = queryTerms.filter((t) => !VOCABULARY.has(t));
-    if (queryTerms.length && unknownTerms.length === queryTerms.length) {
+    const allUnknown = queryTerms.length > 0 && unknownTerms.length === queryTerms.length;
+    // A query made entirely of words the corpus has never seen means two
+    // different things to the two rankers. BM25 scores it zero — there is
+    // nothing to match, and saying so is the honest answer. The embedding
+    // ranker has a real vector for `rat` and puts Cat and Mouse at the top of
+    // it; refusing to ask was the bug.
+    //
+    // So the guard becomes ranker-aware, and dense answers whenever the query
+    // is shaped like words at all (see search/wordlike.js — a keyboard mash
+    // still gets nothing). The answer is marked, because "here are the nearest
+    // problems by meaning" and "here are problems about this" are different
+    // claims and the status line has to make that clear.
+    const semantic = ranker === "dense" || ranker === "hybrid";
+    const stretch = allUnknown && semantic && queryIsWordLike(queryTerms);
+    if (allUnknown && !stretch) {
       return res.json({
         query: q,
         ranker,
@@ -287,6 +302,9 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
         query: q,
         expandedQuery: exp.expanded ? exp.query : undefined,
         corrected: corrections.length ? corrections.map((c) => ({ from: c.from, to: c.to })) : undefined,
+        // "no problem uses these words; these are the nearest by meaning" is a
+        // weaker claim than a normal result set, and the client says so.
+        noLiteralMatch: stretch ? [...new Set(unknownTerms)].slice(0, 5) : undefined,
         ranker,
         latencyMs,
         offset,

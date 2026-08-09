@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2254-a",
+  "title": "Riptide",
+  "slug": "2254-a-codeforces-2254-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2254/A",
+  "source_topic": "Codeforces / Contest 2254",
+  "source_tags": [
+    "implementation",
+    "sortings"
+  ],
+  "statement": "Given the starting token counts for Alice, Bob, and Charlie, determine how many rounds a game lasts before ending, based on specific rules involving their token counts.",
+  "tags": [
+    "simulation",
+    "math"
+  ],
+  "patterns": [
+    "brute-force",
+    "simulation",
+    "case-analysis"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786256982,
+    "pattern_confidence": {
+      "brute-force": 0.9,
+      "simulation": 0.95,
+      "case-analysis": 0.85
+    }
+  }
+}
