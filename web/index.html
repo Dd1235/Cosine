@@ -209,6 +209,25 @@
             <option value="easy">easy</option>
             <option value="none">unrated</option>
           </select>
+          <!-- Notes live in the sheet and never reach the server, so this one
+               filters client-side — and hides itself when there is no sheet to
+               know the answer from. -->
+          <span class="lib-age-label lib-notes-label" id="lib-notes-label" hidden>notes:</span>
+          <select
+            class="filter-select lib-recall-select"
+            id="lib-notes"
+            aria-label="filter by whether you wrote a note"
+            title="filter by whether you wrote a solution note"
+            hidden
+          >
+            <option value="">any</option>
+            <option value="yes">written up</option>
+            <option value="no">no note</option>
+          </select>
+          <button type="button" class="lib-chip lib-preset" id="lib-writeup" hidden
+                  title="solved, and never written up — the actual revision backlog">to write up</button>
+          <button type="button" class="lib-chip lib-preset" id="lib-pick"
+                  title="open one of these at random">pick one</button>
           <!-- Sheet sync lives with the library because that's what it mirrors.
                Hidden until /api/rankers supplies a google client id. -->
           <span class="lib-sheet" id="lib-sheet" hidden>

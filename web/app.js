@@ -21,6 +21,7 @@ const libAgeRow = document.getElementById("lib-age-row");
 let libAged = null;
 let libOldest = false;
 let libRecall = null;   // "again" | "hard" | "none" (unrated) | null (any)
+let libNotes = null;    // "yes" | "no" | null — whether you wrote a note
 let googleClientId = null;       // from /api/rankers; sheet feature hidden while null
 let sheetSyncedThisSession = false;
 let sheetSyncing = false;    // one write at a time; the sync sends everything
@@ -58,6 +59,29 @@ const LIBRARY_COMMANDS = {
   "ls bookmarks": "bookmarked",
   "ls done": "done",
 };
+
+// A library view, plus anything typed after it. `:done graph` is `:done`
+// filtered to graph — the command used to be an exact map lookup, which meant
+// a single extra word dropped you out of your saved problems and into a corpus
+// search, exactly when your library got big enough to need searching.
+//
+// Every "am I in a library view?" check goes through this. There were nine of
+// them doing their own `LIBRARY_COMMANDS[q.toLowerCase()]`, and leaving any one
+// behind means that one stops recognising `:done graph` as the library.
+function libraryCommand(query) {
+  const q = (query || "").trim();
+  if (!q) return null;
+  const lower = q.toLowerCase();
+  // Longest key first: "ls bookmarks" has to win over a hypothetical "ls".
+  for (const key of LIBRARY_KEYS) {
+    if (lower === key) return { type: LIBRARY_COMMANDS[key], q: "" };
+    if (lower.startsWith(`${key} `)) {
+      return { type: LIBRARY_COMMANDS[key], q: q.slice(key.length).trim() };
+    }
+  }
+  return null;
+}
+const LIBRARY_KEYS = Object.keys(LIBRARY_COMMANDS).sort((a, b) => b.length - a.length);
 
 const compareEl = document.getElementById("compare-results");
 const judgeRow = document.getElementById("judge-row");
@@ -275,6 +299,24 @@ if (libAgeRow) {
     syncUrl();
     reissueCurrentView();
   });
+  const notesSel = document.getElementById("lib-notes");
+  if (notesSel) notesSel.addEventListener("change", () => {
+    libNotes = notesSel.value || null;
+    track("library_notes", { value: libNotes || "any" });
+    syncUrl();
+    reissueCurrentView();
+  });
+  // Two filters nobody thinks to combine, as one chip: what you solved and
+  // never wrote up IS the revision backlog.
+  const writeupBtn = document.getElementById("lib-writeup");
+  if (writeupBtn) writeupBtn.addEventListener("click", () => {
+    libNotes = "no";
+    if (notesSel) notesSel.value = "no";
+    track("library_writeup", {});
+    runSearch(":done");
+  });
+  const pickBtn = document.getElementById("lib-pick");
+  if (pickBtn) pickBtn.addEventListener("click", pickOne);
 }
 
 // Tab inside the search input cycles through library commands when the user is
@@ -378,7 +420,7 @@ async function doSheetSync({ quiet = false } = {}) {
         : `sheet: ${out.total} rows · ${out.added} added · ${out.updated} updated`);
     }
     // Notes may have arrived from the sheet; a library view should show them.
-    if (currentUser && LIBRARY_COMMANDS[(currentQuery || "").toLowerCase()]) reissueCurrentView();
+    if (currentUser && libraryCommand(currentQuery)) reissueCurrentView();
   } catch (err) {
     // A failure is worth saying once. Repeating it on every background sync
     // would turn one broken grant into a status line that never stops
@@ -514,6 +556,15 @@ function setLibPath(path) {
     if (oldest) oldest.classList.toggle("is-active", libOldest);
     const recallSelect = document.getElementById("lib-recall");
     if (recallSelect) recallSelect.value = libRecall || "";
+    // The notes filter needs a sheet to know the answer from. Without one it
+    // would silently mean "nothing", which is worse than not being offered.
+    const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
+    for (const id of ["lib-notes", "lib-notes-label", "lib-writeup"]) {
+      const el = document.getElementById(id);
+      if (el) el.hidden = !knowsNotes;
+    }
+    const notesSelect = document.getElementById("lib-notes");
+    if (notesSelect) notesSelect.value = libNotes || "";
   }
   // Highlight the matching chip so the bar reads like a state indicator.
   libChips.forEach((c) => {
@@ -580,6 +631,7 @@ function activeFacets() {
   if (currentUser && currentFilter !== "all") bits.push(currentFilter === "done" ? "done" : "not done");
   if (libAged) bits.push(`marked ${libAged >= 180 ? "6mo" : libAged >= 90 ? "3mo" : "1mo"}+ ago`);
   if (libRecall) bits.push(libRecall === "none" ? "unrated" : `recall ${libRecall}`);
+  if (libNotes) bits.push(libNotes === "yes" ? "written up" : "no note");
   return bits;
 }
 
@@ -750,7 +802,7 @@ function syncDifficultyControls() {
     const typed = (input.value.trim() || currentQuery || "").toLowerCase();
     // A ranking only exists for a real query. `:bookmarks` is a command, and the
     // library sorts the whole saved list — offering it a "top 20" would lie.
-    const searching = !!typed && !(currentUser && LIBRARY_COMMANDS[typed]);
+    const searching = !!typed && !(currentUser && libraryCommand(typed));
     groups.push(
       '<span class="difficulty-group sort-group"><span class="difficulty-label">sort</span>' +
         `<select class="filter-select" id="sort-select" aria-label="sort by difficulty">` +
@@ -891,7 +943,7 @@ function afterDifficultyChange() {
 // you back to search results.
 function reissueCurrentView() {
   const typed = input.value.trim();
-  if (currentUser && LIBRARY_COMMANDS[typed.toLowerCase()]) return runSearch(typed, { append: false });
+  if (currentUser && libraryCommand(typed)) return runSearch(typed, { append: false });
   if (typed || currentQuery) return runSearch(typed || currentQuery, { append: false });
   if (activePattern || activePlatforms.size) return runBrowse({ append: false });
   return undefined;
@@ -982,18 +1034,20 @@ async function runSearch(rawQuery, { append = false } = {}) {
   }
 
   // Shell-style library commands.
-  const libraryType = currentUser ? LIBRARY_COMMANDS[q.toLowerCase()] : null;
-  if (!libraryType && (libAged || libOldest || libRecall)) {
+  const lib = currentUser ? libraryCommand(q) : null;
+  const libraryType = lib && lib.type;
+  if (!libraryType && (libAged || libOldest || libRecall || libNotes)) {
     libAged = null;
     libOldest = false;
     libRecall = null;
+    libNotes = null;
   }
   // A leading colon means "command", and every real one has been matched by
   // now — so this is a typo or a half-typed command, not a question about
   // problems. Searching the corpus for ":bo" costs a round trip to say nothing.
   // Also stops the debounce firing a query per keystroke while someone types
   // ":bookmarks" one character at a time.
-  if (!currentUser && LIBRARY_COMMANDS[q.toLowerCase()]) {
+  if (!currentUser && libraryCommand(q)) {
     // It IS a command — it just needs somewhere to save things to. Calling it
     // "not a command" (as the branch below would) reads as a broken feature.
     //
@@ -1030,7 +1084,7 @@ async function runSearch(rawQuery, { append = false } = {}) {
       currentOffset = 0;
     }
     syncUrl();
-    return runLibrary(libraryType, q);
+    return runLibrary(libraryType, lib.q);
   }
 
   if (compareMode) return runCompare(q);
@@ -1224,8 +1278,9 @@ async function runLibrary(type, q) {
   currentRankerAnswered = "";
   hideFeedback();
   const facets = activeFacets();
-  setLibPath(`~/${type}${facets.length ? " " + facets.join(" ") : ""}`);
-  setStatus(`ls ~/${type}${facets.length ? " · " + facets.join(" · ") : ""}`);
+  const shown = q ? `"${q}"` : "";
+  setLibPath(`~/${type}${shown ? " " + shown : ""}${facets.length ? " " + facets.join(" ") : ""}`);
+  setStatus(`ls ~/${type}${shown ? " " + shown : ""}${facets.length ? " · " + facets.join(" · ") : ""}`);
   hideLoadMore();
 
   let data;
@@ -1240,7 +1295,8 @@ async function runLibrary(type, q) {
     const agedParam = libAged ? `&aged=${libAged}` : "";
     const orderParam = libOldest ? "&order=oldest" : "";
     const recallParam = libRecall ? `&recall=${encodeURIComponent(libRecall)}` : "";
-    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}`);
+    const qParam = q ? `&q=${encodeURIComponent(q)}` : "";
+    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}${qParam}`);
     data = await res.json();
   } catch (err) {
     if (issuedAt !== lastQueryAt) return;
@@ -1250,7 +1306,7 @@ async function runLibrary(type, q) {
   if (issuedAt !== lastQueryAt) return;
 
   // Adapt library items to the renderHitsList hit shape.
-  const hits = (data.items || []).map((it) => ({
+  const all = (data.items || []).map((it) => ({
     problem: it.problem,
     done: it.done,
     bookmarked: it.bookmarked,
@@ -1259,12 +1315,29 @@ async function runLibrary(type, q) {
     markedAt: it.markedAt,
   }));
 
+  // The notes filter runs HERE, not on the server, because the server has
+  // never seen a note and this design is the reason. `noteText` already merges
+  // the sheet's cached rows with anything typed here and not yet synced, so a
+  // note written thirty seconds ago counts.
+  const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
+  const hits = (libNotes && knowsNotes)
+    ? all.filter((h) => {
+        const has = !!cosineSheets.noteText(h.problem.id).trim();
+        return libNotes === "yes" ? has : !has;
+      })
+    : all;
+  // Say "18 of 62" when the client dropped rows the server counted — a total
+  // that silently disagrees with the one the server sent reads as a bug.
+  const dropped = all.length - hits.length;
+
   currentTotal = hits.length;
 
   if (hits.length === 0) {
     // An empty list under a filter is a filter result, not an empty library —
     // say which, or it reads as data loss.
-    const empty = facets.length
+    const empty = q
+      ? `ls: nothing in ~/${type} matches "${q}"${facets.length ? " · " + facets.join(" · ") : ""}`
+      : facets.length
       ? `ls: nothing in ~/${type} matches ${facets.join(" · ")}`
       : type === "bookmarked"
       ? "ls: ~/bookmarked is empty — star ☆ a problem to save it here"
@@ -1276,7 +1349,7 @@ async function runLibrary(type, q) {
     return;
   }
 
-  setStatus(`${hits.length} ${type === "all" ? "saved" : type}${facets.length ? " · " + facets.join(" · ") : ""}${orderNote()}`);
+  setStatus(`${hits.length}${dropped ? ` of ${all.length}` : ""} ${type === "all" ? "saved" : type}${shown ? ` matching ${shown}` : ""}${facets.length ? " · " + facets.join(" · ") : ""}${orderNote()}`);
   renderHitsList(resultsEl, hits, { append: false, startIndex: 0, libraryMode: true });
   // A backstop sync on the first library view, for the case where the silent
   // token resume landed after this page had already loaded. The normal path
@@ -1436,10 +1509,11 @@ function syncUrl() {
   if (sortDir) p.set("sort", `difficulty-${sortDir}`);
   // Library-only state, written only when a library view is open so a plain
   // search URL never carries stale revision filters.
-  if (currentUser && LIBRARY_COMMANDS[(currentQuery || "").toLowerCase()]) {
+  if (currentUser && libraryCommand(currentQuery)) {
     if (libAged) p.set("aged", String(libAged));
     if (libOldest) p.set("order", "oldest");
     if (libRecall) p.set("recall", libRecall);
+    if (libNotes) p.set("notes", libNotes);
   }
   if (activeRanker) p.set("ranker", activeRanker);
   if (currentUser && currentFilter !== "all") p.set("filter", currentFilter);
@@ -2307,7 +2381,7 @@ function buildRecall(hit) {
           markSheetDirty();
           // A recall filter may mean this row no longer belongs in the view.
           // Re-issue on the way out, never mid-cycle.
-          if (libRecall && currentUser && LIBRARY_COMMANDS[(currentQuery || "").toLowerCase()]) {
+          if (libRecall && currentUser && libraryCommand(currentQuery)) {
             reissueCurrentView();
           }
           return;
@@ -2365,7 +2439,26 @@ async function toggleFlag(hit, flag, btn) {
   // re-run so the listing and the total stay honest.
   if (currentFilter === "done" && flag === "done" && !next) reissueSearch();
   if (currentFilter === "notdone" && flag === "done" && next) reissueSearch();
-  if (currentUser && LIBRARY_COMMANDS[(currentQuery || "").toLowerCase()]) reissueSearch();
+  if (currentUser && libraryCommand(currentQuery)) reissueSearch();
+}
+
+// One of these, at random, opened. For the moment where you want to revise and
+// don't want to choose — and because it reads whatever is on screen, it
+// composes with every filter for free: `:done · again · 3mo+ · pick one`.
+function pickOne() {
+  const cards = [...resultsEl.querySelectorAll(".result")];
+  if (!cards.length) {
+    setStatus("nothing to pick from — widen the filters");
+    return;
+  }
+  const card = cards[Math.floor(Math.random() * cards.length)];
+  const header = card.querySelector(".result-header");
+  const detail = card.querySelector(".result-detail");
+  if (detail && detail.classList.contains("hidden") && header) header.click();
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  card.classList.add("picked");
+  setTimeout(() => card.classList.remove("picked"), 1600);
+  track("library_pick", { of: cards.length });
 }
 
 function reissueSearch() {
@@ -2682,6 +2775,8 @@ if ([30, 90, 180].includes(bootAged)) libAged = bootAged;
 if ((bootParams.get("order") || "").toLowerCase() === "oldest") libOldest = true;
 const bootRecall = (bootParams.get("recall") || "").trim().toLowerCase();
 if (["again", "hard", "medium", "easy", "none"].includes(bootRecall)) libRecall = bootRecall;
+const bootNotes = (bootParams.get("notes") || "").trim().toLowerCase();
+if (["yes", "no"].includes(bootNotes)) libNotes = bootNotes;
 const bootSort = (bootParams.get("sort") || "").trim().toLowerCase();
 if (bootSort === "difficulty-asc" || bootSort === "difficulty") sortDir = "asc";
 else if (bootSort === "difficulty-desc") sortDir = "desc";
@@ -2704,7 +2799,7 @@ for (const tok of (bootParams.get("difficulty") || "").toLowerCase().split(","))
 }
 syncJudgeControls();
 if (bootQ) input.value = bootQ;
-if (LIBRARY_COMMANDS[bootQ.toLowerCase()]) bootNeedsAuth = true;
+if (libraryCommand(bootQ)) bootNeedsAuth = true;
 if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) {
   applyPatternFilter(bootPattern);
 } else if (bootQ) {

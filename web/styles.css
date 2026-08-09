@@ -1483,6 +1483,16 @@ html[data-theme="light"] footer::after { content: ""; }
    unrated) took more of the bar than everything else in it put together, and
    on a phone this renders as the native picker instead of two wrapped lines. */
 .lib-recall-select { font-size: 0.76rem; padding-top: 0.1rem; padding-bottom: 0.1rem; }
+.lib-notes-label { margin-left: 0.5rem; }
+.lib-preset { margin-left: 0.3rem; }
+
+/* `pick one` chose this card. Long enough to find it after the scroll, short
+   enough not to become decoration. */
+.result.picked {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  transition: box-shadow 220ms ease, border-color 220ms ease;
+}
 
 /* The rating chip on a library card. One character, sized to match ☆ and ✓
    exactly — a word-width chip resized the action group every time a row was

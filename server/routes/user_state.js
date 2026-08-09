@@ -5,6 +5,8 @@ const { requireUser } = require("../auth/middleware");
 const {
   parseSelection, passesDifficulty, parseSort, sortByDifficulty, sortableJudge, SORTABLE_JUDGES,
 } = require("../search/difficulty");
+const { tokenize } = require("../search/tokenize");
+const plurals = require("../search/plurals");
 
 // Sets one of {done, bookmarked} flags to `value` for (user, problem_id) and
 // keeps the row while it still means something. Since 0008 that is "saved OR
@@ -93,6 +95,27 @@ function validProblemId(id) {
 function createUserStateRouter({ problems } = {}) {
   const router = express.Router();
   const problemsById = new Map((problems || []).map((p) => [p.id, p]));
+
+  // Searching inside your own saved problems. Not the ranker — a saved list has
+  // no relevance order to protect and forty results don't need one; this is
+  // "which of my problems match these words", answered by requiring every word
+  // to be present, the way a person means it when they type `:done graph`.
+  //
+  // Title, techniques and tags only, deliberately: the statement would match
+  // `array` on nearly everything, and this is a filter, not a search.
+  //
+  // Same tokenizer and the same plural fold as the real index, so `:done
+  // graphs` works for the reason `graphs` works.
+  const matchTokens = new Map();   // problem id -> Set<folded token>
+  {
+    const raw = (problems || []).map((p) =>
+      tokenize([p.title, ...(p.patterns || []), ...(p.tags || [])].join(" ")));
+    const fold = plurals.ENABLED ? plurals.pluralMapFromDocs(raw) : new Map();
+    (problems || []).forEach((p, i) => {
+      matchTokens.set(p.id, new Set(plurals.foldTokens(raw[i], fold)));
+    });
+    matchTokens.fold = (tokens) => plurals.foldTokens(tokens, fold);
+  }
 
   router.post("/done/:problemId", requireUser, async (req, res) => {
     if (!validProblemId(req.params.problemId)) return res.status(400).json({ error: "bad_problem_id" });
@@ -183,6 +206,9 @@ function createUserStateRouter({ problems } = {}) {
     const oldestFirst = (req.query.order || "").toString().toLowerCase() === "oldest";
     // "how did it go" — same whitelist discipline as every other facet here:
     // an unknown value is ignored, not a 400, so a stale link still works.
+    // Every word has to be there. An OR would return the whole library the
+    // moment one common word matched, which is not what a filter is for.
+    const queryTerms = matchTokens.fold(tokenize((req.query.q || "").toString()));
     const recallRaw = (req.query.recall || "").toString().toLowerCase();
     const recallWanted = RECALL_VALUES.has(recallRaw) ? recallRaw
       : recallRaw === "none" ? "none"
@@ -210,6 +236,10 @@ function createUserStateRouter({ problems } = {}) {
         if (!passesDifficulty(problem, bands)) continue;
         if (doneFilter === "done" && !row.done) continue;
         if (doneFilter === "notdone" && row.done) continue;
+        if (queryTerms.length) {
+          const words = matchTokens.get(problem.id);
+          if (!words || !queryTerms.every((t) => words.has(t))) continue;
+        }
         // The timestamp this VIEW is about. :done shows when you finished it,
         // :bookmarks when you saved it. The old shape (bookmarked_at first,
         // always) meant a problem that was both showed its bookmark age in
@@ -247,6 +277,7 @@ function createUserStateRouter({ problems } = {}) {
         total: ordered.length,
         sort: sortDir ? `difficulty-${sortDir}` : undefined,
         aged: aged || undefined,
+        q: queryTerms.length ? queryTerms.join(" ") : undefined,
         recall: recallWanted || undefined,
         order: oldestFirst ? "oldest" : undefined,
         platform: wanted.size ? [...wanted].sort() : undefined,

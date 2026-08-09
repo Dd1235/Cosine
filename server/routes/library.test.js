@@ -46,7 +46,10 @@ const DAY = 86400000;
 const daysAgo = (n) => new Date(Date.now() - n * DAY);
 
 const problems = [
-  { id: "p-old", title: "Old Done", platform: "codeforces", difficulty: 1500 },
+  // `patterns` and `tags` are searched alongside the title. This one carries
+  // `flag` while p-both's title carries "Flags" — the fold only merges words
+  // the corpus actually has, so both forms need to exist for it to fire.
+  { id: "p-old", title: "Old Done", platform: "codeforces", difficulty: 1500, patterns: ["flag"] },
   { id: "p-new", title: "New Done", platform: "codeforces", difficulty: 1600 },
   { id: "p-both", title: "Both Flags", platform: "leetcode", difficulty: "Hard" },
   { id: "p-book", title: "Bookmark Only", platform: "cses" },
@@ -228,6 +231,42 @@ const ids = (d) => d.items.map((it) => it.problem.id);
     assert.equal(res.status, 409, "rating an unsaved problem is a no-op, and says so");
     assert.deepEqual(await res.json(), { error: "not_saved" });
     UPDATE_ROWS = 1;
+  }
+
+  // Searching inside your own saved problems. Every word has to match, or a
+  // common one would hand back the whole library.
+  {
+    const d = await get("type=all&q=old");
+    assert.deepEqual(ids(d), ["p-old"], "matches the title");
+    assert.equal(d.q, "old", "and echoes what it searched for");
+
+    const two = await get("type=all&q=old%20done");
+    assert.deepEqual(ids(two), ["p-old"], "every word must be present");
+
+    const none = await get("type=all&q=old%20nonsense");
+    assert.deepEqual(ids(none), [], "a word nothing has empties the list");
+
+    const blank = await get("type=all&q=%20%20");
+    assert.equal(blank.total, 4, "an empty query is not a filter");
+    assert.equal(blank.q, undefined);
+  }
+
+  // The plural fold applies here for the same reason it applies to search:
+  // `:done graphs` and `:done graph` are the same request.
+  {
+    const singular = await get("type=all&q=flag");
+    const plural = await get("type=all&q=flags");
+    assert.deepEqual(new Set(ids(plural)), new Set(ids(singular)), "plural and singular agree");
+    assert.deepEqual(new Set(ids(singular)), new Set(["p-old", "p-both"]), "and both are found");
+    assert.equal(plural.q, "flag", "the echo shows the folded form");
+  }
+
+  // It stacks with the rest.
+  {
+    const d = await get("type=done&q=done&platform=codeforces&aged=90");
+    assert.deepEqual(ids(d), ["p-old"]);
+    assert.equal(d.aged, 90);
+    assert.equal(d.q, "done");
   }
 
   console.log("library route tests passed");
