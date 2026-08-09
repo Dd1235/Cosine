@@ -39,7 +39,9 @@ const ANCHOR_EASIES = new Set([
   "leetcode-valid-parentheses",
   "leetcode-binary-search",
 ]);
-const SLICES = new Set(["keyword", "paraphrase", "technique", "title"]);
+// `plural` (v7) restates existing queries with the other grammatical number
+// and inherits their judgements — it measures the plural fold, nothing else.
+const SLICES = new Set(["keyword", "paraphrase", "technique", "title", "plural"]);
 const MAX_LABELS = 12;
 const MAX_STATEMENT_CHARS = 600;
 
