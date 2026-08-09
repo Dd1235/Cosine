@@ -14,8 +14,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "dynamic-programming",
-    "state-compression"
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +22,7 @@
     "generated_at_unix": 1777951444,
     "pattern_confidence": {
       "digit-dp": 0.98,
-      "dynamic-programming": 0.95,
-      "state-compression": 0.85
+      "dynamic-programming": 0.95
     }
   }
 }

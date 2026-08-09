@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "dp-on-dag",
-    "state-compression"
+    "dp-on-dag"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777924279,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "dp-on-dag": 0.85,
-      "state-compression": 0.8
+      "dp-on-dag": 0.85
     }
   }
 }

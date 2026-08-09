@@ -20,8 +20,7 @@
   "patterns": [
     "dynamic-programming",
     "max-flow",
-    "subsequence",
-    "state-compression"
+    "subsequence"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,8 +29,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.95,
       "max-flow": 0.85,
-      "subsequence": 0.9,
-      "state-compression": 0.7
+      "subsequence": 0.9
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

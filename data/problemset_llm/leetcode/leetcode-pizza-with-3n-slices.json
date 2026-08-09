@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "dp-on-circular-array",
-    "interval-dp",
-    "state-compression"
+    "interval-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777923920,
     "pattern_confidence": {
       "dp-on-circular-array": 0.95,
-      "interval-dp": 0.9,
-      "state-compression": 0.7
+      "interval-dp": 0.9
     }
   }
 }

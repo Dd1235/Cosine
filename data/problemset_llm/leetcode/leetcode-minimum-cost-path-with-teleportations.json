@@ -20,8 +20,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "shortest-path",
-    "state-compression"
+    "shortest-path"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
     "generated_at_unix": 1777923510,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "shortest-path": 0.9,
-      "state-compression": 0.7
+      "shortest-path": 0.9
     }
   }
 }

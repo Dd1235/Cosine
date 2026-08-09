@@ -23,8 +23,7 @@
   "patterns": [
     "digit-dp",
     "bit-manipulation",
-    "modular-arithmetic",
-    "state-compression"
+    "modular-arithmetic"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,8 +32,7 @@
     "pattern_confidence": {
       "digit-dp": 0.95,
       "bit-manipulation": 0.9,
-      "modular-arithmetic": 0.85,
-      "state-compression": 0.8
+      "modular-arithmetic": 0.85
     }
   }
 }

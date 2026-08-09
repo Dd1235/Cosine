@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "monotonic-sequence-check",
-    "state-compression"
+    "monotonic-sequence-check"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1777922602,
     "pattern_confidence": {
       "digit-dp": 0.98,
-      "monotonic-sequence-check": 0.85,
-      "state-compression": 0.7
+      "monotonic-sequence-check": 0.85
     }
   }
 }

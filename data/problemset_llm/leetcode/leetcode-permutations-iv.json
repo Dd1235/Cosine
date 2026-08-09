@@ -22,7 +22,6 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "state-compression",
     "lexicographical-enumeration"
   ],
   "annotation": {
@@ -31,7 +30,6 @@
     "generated_at_unix": 1777923918,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "state-compression": 0.9,
       "lexicographical-enumeration": 0.85
     }
   }

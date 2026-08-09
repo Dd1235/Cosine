@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "cost-optimization",
-    "state-compression"
+    "cost-optimization"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1784909303,
     "pattern_confidence": {
       "greedy": 0.9,
-      "cost-optimization": 0.85,
-      "state-compression": 0.7
+      "cost-optimization": 0.85
     }
   }
 }

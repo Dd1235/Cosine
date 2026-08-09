@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "combinatorics",
-    "state-compression"
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1777922625,
     "pattern_confidence": {
       "digit-dp": 0.98,
-      "combinatorics": 0.85,
-      "state-compression": 0.7
+      "combinatorics": 0.85
     }
   }
 }

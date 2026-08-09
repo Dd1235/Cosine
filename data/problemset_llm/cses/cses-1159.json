@@ -14,8 +14,7 @@
   ],
   "patterns": [
     "bounded-knapsack",
-    "dynamic-programming",
-    "state-compression"
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +22,7 @@
     "generated_at_unix": 1777952212,
     "pattern_confidence": {
       "bounded-knapsack": 0.98,
-      "dynamic-programming": 0.95,
-      "state-compression": 0.85
+      "dynamic-programming": 0.95
     }
   }
 }

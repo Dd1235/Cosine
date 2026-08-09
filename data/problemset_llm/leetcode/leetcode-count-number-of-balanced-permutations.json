@@ -22,7 +22,6 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "state-compression",
     "modular-arithmetic",
     "inclusion-exclusion",
     "permutation-counting"
@@ -33,7 +32,6 @@
     "generated_at_unix": 1777922634,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "state-compression": 0.9,
       "modular-arithmetic": 0.85,
       "inclusion-exclusion": 0.8,
       "permutation-counting": 1

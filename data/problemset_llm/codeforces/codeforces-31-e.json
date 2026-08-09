@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "game-dp",
-    "state-compression"
+    "game-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1785051025,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "game-dp": 0.9,
-      "state-compression": 0.7
+      "game-dp": 0.9
     }
   },
   "source_topic": "Formwise / DP Level 1"

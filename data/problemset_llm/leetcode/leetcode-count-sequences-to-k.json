@@ -24,8 +24,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "memoization",
-    "state-compression"
+    "memoization"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,8 +32,7 @@
     "generated_at_unix": 1777922671,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "memoization": 0.9,
-      "state-compression": 0.7
+      "memoization": 0.9
     }
   }
 }

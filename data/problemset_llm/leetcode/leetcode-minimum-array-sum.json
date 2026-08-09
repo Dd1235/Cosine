@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "greedy",
-    "state-compression"
+    "greedy"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1784908732,
     "pattern_confidence": {
       "dynamic-programming": 0.9,
-      "greedy": 0.7,
-      "state-compression": 0.6
+      "greedy": 0.7
     }
   }
 }

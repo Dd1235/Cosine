@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "geometry",
-    "state-compression"
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "generated_at_unix": 1777922669,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "geometry": 0.9,
-      "state-compression": 0.7
+      "geometry": 0.9
     }
   }
 }

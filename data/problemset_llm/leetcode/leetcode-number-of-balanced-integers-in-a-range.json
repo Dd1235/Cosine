@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "prefix-sum",
-    "state-compression"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1777923758,
     "pattern_confidence": {
       "digit-dp": 0.98,
-      "prefix-sum": 0.85,
-      "state-compression": 0.75
+      "prefix-sum": 0.85
     }
   }
 }

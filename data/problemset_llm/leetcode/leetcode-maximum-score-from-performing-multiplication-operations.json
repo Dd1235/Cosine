@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "two-pointers",
-    "state-compression"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1777923391,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "two-pointers": 0.85,
-      "state-compression": 0.75
+      "two-pointers": 0.85
     }
   }
 }

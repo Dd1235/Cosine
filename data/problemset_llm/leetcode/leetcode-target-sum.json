@@ -21,7 +21,6 @@
   "patterns": [
     "subset-sum",
     "memoization",
-    "state-compression",
     "backtracking"
   ],
   "annotation": {
@@ -31,7 +30,6 @@
     "pattern_confidence": {
       "subset-sum": 0.95,
       "memoization": 0.9,
-      "state-compression": 0.85,
       "backtracking": 0.9
     }
   }

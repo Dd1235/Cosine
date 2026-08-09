@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "bit-manipulation",
-    "state-compression"
+    "bit-manipulation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "generated_at_unix": 1784909318,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "bit-manipulation": 0.85,
-      "state-compression": 0.8
+      "bit-manipulation": 0.85
     }
   }
 }

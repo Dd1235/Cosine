@@ -18,7 +18,6 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "state-compression",
     "interval-dp"
   ],
   "annotation": {
@@ -27,7 +26,6 @@
     "generated_at_unix": 1777923871,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "state-compression": 0.85,
       "interval-dp": 0.7
     }
   }

@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "two-dimensional-dp",
-    "state-compression"
+    "two-dimensional-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1784909671,
     "pattern_confidence": {
       "dynamic-programming": 0.99,
-      "two-dimensional-dp": 0.95,
-      "state-compression": 0.7
+      "two-dimensional-dp": 0.95
     }
   }
 }

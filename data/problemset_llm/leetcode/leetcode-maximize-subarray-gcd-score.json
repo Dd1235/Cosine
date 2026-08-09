@@ -23,8 +23,7 @@
   "patterns": [
     "dynamic-programming",
     "gcd",
-    "brute-force",
-    "state-compression"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,8 +32,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.9,
       "gcd": 0.95,
-      "brute-force": 0.85,
-      "state-compression": 0.8
+      "brute-force": 0.85
     }
   }
 }

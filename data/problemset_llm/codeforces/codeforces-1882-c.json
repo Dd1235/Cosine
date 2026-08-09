@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "dynamic-programming",
-    "state-compression"
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1785050114,
     "pattern_confidence": {
       "greedy": 0.8,
-      "dynamic-programming": 0.9,
-      "state-compression": 0.7
+      "dynamic-programming": 0.9
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

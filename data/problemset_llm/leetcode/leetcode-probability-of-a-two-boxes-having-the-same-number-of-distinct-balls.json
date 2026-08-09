@@ -26,7 +26,6 @@
   "patterns": [
     "backtracking",
     "dp-on-dag",
-    "state-compression",
     "combinatorics"
   ],
   "annotation": {
@@ -36,7 +35,6 @@
     "pattern_confidence": {
       "backtracking": 0.9,
       "dp-on-dag": 0.85,
-      "state-compression": 0.8,
       "combinatorics": 0.9
     }
   }

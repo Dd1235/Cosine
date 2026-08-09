@@ -14,7 +14,6 @@
   ],
   "patterns": [
     "dp-on-intervals",
-    "state-compression",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -23,7 +22,6 @@
     "generated_at_unix": 1785047564,
     "pattern_confidence": {
       "dp-on-intervals": 0.95,
-      "state-compression": 0.9,
       "modular-arithmetic": 0.85
     }
   },
