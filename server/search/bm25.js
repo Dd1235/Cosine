@@ -1,4 +1,5 @@
 const { tokenize, normalizeNumbers } = require("./tokenize");
+const plurals = require("./plurals");
 
 function problemText(p) {
   return [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
@@ -29,9 +30,17 @@ class Bm25Index {
     // whole query is a title and is invisible to every other query.
     this.byTitle = new Map();
 
+    // Two passes over the corpus text: one to learn the vocabulary, one to
+    // index it folded. `graphs` and `graph` have to be the same term in the
+    // postings AND in the query, or the plural keeps its own tiny document
+    // frequency and the enormous IDF that comes with it.
+    const rawDocTokens = problems.map((p) => tokenize(problemText(p)));
+    this.plural = plurals.ENABLED ? plurals.pluralMapFromDocs(rawDocTokens) : new Map();
+    this.fold = (tokens) => plurals.foldTokens(tokens, this.plural);
+
     let totalLen = 0;
     problems.forEach((p, docId) => {
-      const tokens = tokenize(problemText(p));
+      const tokens = this.fold(rawDocTokens[docId]);
       const counts = new Map();
       for (const tok of tokens) counts.set(tok, (counts.get(tok) || 0) + 1);
       this.docTermCounts.push(counts);
@@ -50,7 +59,7 @@ class Bm25Index {
     });
 
     problems.forEach((p, docId) => {
-      const words = normalizeNumbers(tokenize(p.title || ""));
+      const words = this.fold(normalizeNumbers(tokenize(p.title || "")));
       if (!words.length) return;
       // Two keys per title: spaced and unspaced. LeetCode writes "3Sum" as one
       // word, which tokenizes to a single term, so a user typing "3 sum" would
@@ -96,7 +105,7 @@ class Bm25Index {
   // exact-match bonus would never fire on an expanded query. Optional, so the
   // other rankers behind this interface are unaffected.
   search(query, k = 10, offset = 0, opts = {}) {
-    const queryTokens = tokenize(query);
+    const queryTokens = this.fold(tokenize(query));
     if (queryTokens.length === 0) return { hits: [], total: 0 };
     // Digits normalized on both sides, so "2 sum" is a known-item hit for the
     // problem titled "Two Sum" the same way "two sum" is.
@@ -105,7 +114,7 @@ class Bm25Index {
     // left alone to reach "3Sum", which is a single token. Trying both forms,
     // spaced and unspaced, covers every combination and costs four Map lookups.
     const rawTokens = tokenize(opts.raw || query);
-    const variants = [rawTokens, normalizeNumbers(rawTokens)];
+    const variants = [rawTokens, normalizeNumbers(rawTokens)].map((v) => this.fold(v));
     let exactTitle = null;
     for (const words of variants) {
       exactTitle = this.byTitle.get(words.join(" ")) || this.byTitle.get(words.join(""));

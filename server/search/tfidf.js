@@ -1,4 +1,5 @@
 const { tokenize } = require("./tokenize");
+const plurals = require("./plurals");
 
 function problemText(p) {
   return [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
@@ -14,8 +15,15 @@ class TfIdfIndex {
     this.df = new Map(); // term -> doc frequency
     this.postings = new Map(); // term -> Set<docId>
 
+    // Same two-pass build as Bm25Index: learn the vocabulary, then index it
+    // folded, so a plural shares its singular's postings and document
+    // frequency instead of carrying a rare term's IDF.
+    const rawDocTokens = problems.map((p) => tokenize(problemText(p)));
+    this.plural = plurals.ENABLED ? plurals.pluralMapFromDocs(rawDocTokens) : new Map();
+    this.fold = (tokens) => plurals.foldTokens(tokens, this.plural);
+
     problems.forEach((p, docId) => {
-      const tokens = tokenize(problemText(p));
+      const tokens = this.fold(rawDocTokens[docId]);
       const counts = new Map();
       for (const tok of tokens) {
         counts.set(tok, (counts.get(tok) || 0) + 1);
@@ -41,7 +49,7 @@ class TfIdfIndex {
   }
 
   search(query, k = 10, offset = 0) {
-    const queryTokens = tokenize(query);
+    const queryTokens = this.fold(tokenize(query));
     if (queryTokens.length === 0) return { hits: [], total: 0 };
 
     const scoreByDoc = new Map();
@@ -100,7 +108,7 @@ class TfIdfIndex {
   }
 
   explain(query) {
-    const queryTokens = tokenize(query);
+    const queryTokens = this.fold(tokenize(query));
     const perTerm = queryTokens.map((term) => {
       const idf = this.idf.get(term);
       const df = this.df.get(term) || 0;
