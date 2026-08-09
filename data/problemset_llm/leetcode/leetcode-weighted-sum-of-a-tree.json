@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-weighted-sum-of-a-tree",
+  "title": "Weighted Sum of a Tree",
+  "slug": "weighted-sum-of-a-tree",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/weighted-sum-of-a-tree/",
+  "source_topic": "LeetCode / Weekly Contest 514",
+  "difficulty": "Medium",
+  "acceptance_rate": 39.6,
+  "source_tags": [],
+  "statement": "Given a rooted tree described by a parent array and node values, compute the sum over all nodes of their value times (tree height minus node depth plus one).",
+  "tags": [
+    "tree",
+    "array"
+  ],
+  "patterns": [
+    "dfs",
+    "tree-traversal",
+    "depth-computation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786254099,
+    "pattern_confidence": {
+      "dfs": 0.97,
+      "tree-traversal": 0.95,
+      "depth-computation": 0.93
+    }
+  }
+}

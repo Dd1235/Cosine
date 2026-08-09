@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-minimum-total-price-after-applying-discounts",
+  "title": "Minimum Total Price After Applying Discounts",
+  "slug": "minimum-total-price-after-applying-discounts",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-total-price-after-applying-discounts/",
+  "source_topic": "LeetCode / Weekly Contest 514",
+  "difficulty": "Medium",
+  "acceptance_rate": 68.2,
+  "source_tags": [],
+  "statement": "Given arrays of item prices and discount percentages, assign at most one discount to each item (and vice versa) to minimize the total final price, where discounts reduce prices multiplicatively.",
+  "tags": [
+    "array",
+    "greedy",
+    "sorting"
+  ],
+  "patterns": [
+    "greedy-matching",
+    "sorting",
+    "hungarian-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786254096,
+    "pattern_confidence": {
+      "greedy-matching": 0.97,
+      "sorting": 0.95,
+      "hungarian-algorithm": 0.85
+    }
+  }
+}

@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-of-unfinished-tasks-after-each-shift/",
   "source_topic": "LeetCode / Weekly Contest 513",
   "difficulty": "Medium",
+  "acceptance_rate": 41.8,
   "source_tags": [],
   "statement": "Given arrays of task durations and shift times, simulate sequential task processing with carry-over and restart rules, and report the number of unfinished tasks after each shift.",
   "tags": [

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/find-the-number-of-subsequences-with-equal-gcd/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 66.7,
+  "acceptance_rate": 66.3,
   "source_tags": [
     "array",
     "math",

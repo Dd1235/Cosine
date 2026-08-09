@@ -20,3 +20,9 @@ https://codeforces.com/problemset/problem/1992/D
 https://codeforces.com/problemset/problem/1992/E
 https://codeforces.com/problemset/problem/1992/F
 https://codeforces.com/problemset/problem/1992/G
+
+# LeetCode / Weekly Contest 514
+https://leetcode.com/problems/minimum-total-price-after-applying-discounts/
+https://leetcode.com/problems/weighted-sum-of-a-tree/
+https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/
+https://leetcode.com/problems/peaks-in-array-ii/

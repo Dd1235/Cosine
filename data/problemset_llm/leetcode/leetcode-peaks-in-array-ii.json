@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-peaks-in-array-ii",
+  "title": "Peaks in Array II",
+  "slug": "peaks-in-array-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/peaks-in-array-ii/",
+  "source_topic": "LeetCode / Weekly Contest 514",
+  "difficulty": "Hard",
+  "acceptance_rate": 19.7,
+  "source_tags": [],
+  "statement": "Given an array, process range queries asking for the number of subarrays containing a peak (an element greater than its neighbors) and point updates changing array values.",
+  "tags": [
+    "array",
+    "range-query",
+    "data-structure"
+  ],
+  "patterns": [
+    "segment-tree",
+    "range-query-with-updates",
+    "peak-detection"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1786254105,
+    "pattern_confidence": {
+      "segment-tree": 0.93,
+      "range-query-with-updates": 0.95,
+      "peak-detection": 0.9
+    }
+  }
+}
