@@ -1717,6 +1717,25 @@ CORPUS
                medium / easy, or "unrated" for everything you
                never rated. See ":help saving".
 
+  notes        written up / no note. Appears once a sheet is
+               connected, because the note is in the sheet and
+               this is the only filter the server can't answer.
+
+  to write up  one chip for the two nobody combines: done, and
+               no note. What you solved and never explained to
+               yourself is the actual revision backlog.
+
+  pick one     opens one of whatever is on screen, at random.
+               Composes with everything above, so ":done" +
+               "again" + "3mo+" + pick one is a revision
+               session in four clicks.
+
+  A LIBRARY VIEW TAKES A QUERY. ":done graph" lists the graph
+  problems you have finished; ":bookmarks segment tree" the
+  ones you saved. It matches titles and technique labels, not
+  statements — a filter, not a search — and every word has to
+  be there. Plurals work the way they do everywhere else.
+
   These compose. ":bookmarks" with cf+atc selected and "not
   done" is your unfinished Codeforces and AtCoder saves.
   ":done" with "again" and "3mo+" is a revision queue.
@@ -1885,6 +1904,8 @@ CORPUS
   :bookmarks :b     starred problems              (signed in)
   :done :d          problems marked done          (signed in)
   :all :lib         everything saved              (signed in)
+  :done <words>     the saved problems that match, e.g.
+                    ":done graph" or ":bookmarks segment tree"
   Tab               cycle library views           (signed in)
 
 LINKS
