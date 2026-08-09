@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2252-e",
+  "title": "Generational Triplets",
+  "approach": "a+c = 2b with a^b^c = 0 forces b = a^c = 2*(a&c), so a&c has no two adjacent set bits and a,c merely split the bits of 2*(a&c); with n up to 1e18 the valid c are counted bit by bit against n.",
+  "techniques": [
+    {
+      "label": "bit-manipulation",
+      "confidence": 0.85,
+      "why": "the whole characterisation is about adjacent set bits"
+    },
+    {
+      "label": "digit-dp",
+      "confidence": 0.8,
+      "why": "counting bit by bit against the bound n"
+    },
+    {
+      "label": "combinatorics",
+      "confidence": 0.6,
+      "why": "splitting bits between a and c"
+    },
+    {
+      "label": "dynamic-programming",
+      "confidence": 0.55,
+      "why": "the digit DP itself"
+    }
+  ],
+  "verified": "characterisation matched an O(n^2) triple count for n = 3, 10, 15, 40, 100, 257",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

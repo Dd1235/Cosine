@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2252-f",
+  "title": "Spectral Components",
+  "approach": "Root each colour at its 1-median (sum-of-distances, via rerooting); each added vertex then cuts the cost by the count of that colour below it, and those counts decrease downward, so a heap-driven greedy of size k_c is optimal. Sum of m_c = n forces per-colour work on the compressed auxiliary tree.",
+  "techniques": [
+    {
+      "label": "tree-centroid",
+      "confidence": 0.8,
+      "why": "the 1-median of a colour class is its weighted centroid"
+    },
+    {
+      "label": "rerooting-dp",
+      "confidence": 0.7,
+      "why": "sum-of-distances for every root in one pass"
+    },
+    {
+      "label": "heap",
+      "confidence": 0.7,
+      "why": "the greedy pops the largest remaining saving"
+    },
+    {
+      "label": "virtual-tree",
+      "confidence": 0.65,
+      "why": "per-colour work on the compressed auxiliary tree"
+    },
+    {
+      "label": "lca",
+      "confidence": 0.75,
+      "why": "building that auxiliary tree"
+    },
+    {
+      "label": "greedy",
+      "confidence": 0.8,
+      "why": "the exchange argument on decreasing savings"
+    }
+  ],
+  "verified": "median+greedy checked against exhaustive enumeration of all connected k-subsets on 3 samples and 300 random trees, 0 mismatches",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

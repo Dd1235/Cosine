@@ -1,0 +1,25 @@
+{
+  "id": "codeforces-2254-e",
+  "title": "Chronostasis",
+  "approach": "Feasible iff sum(b) >= 1 — a_n is order-independent, which is the invariant — and then greedily take the smallest unused value >= 1 - prefix at each step.",
+  "techniques": [
+    {
+      "label": "multiset",
+      "confidence": 0.8,
+      "why": "smallest unused value >= x, repeatedly"
+    },
+    {
+      "label": "binary-search",
+      "confidence": 0.7,
+      "why": "that lookup is a lower_bound"
+    },
+    {
+      "label": "constructive-algorithm",
+      "confidence": 0.5,
+      "why": "the output is a construction"
+    }
+  ],
+  "verified": "matches all 8 samples exactly",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

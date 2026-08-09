@@ -1,0 +1,25 @@
+{
+  "id": "codeforces-2248-g",
+  "title": "No Balance Left",
+  "approach": "Payable amounts are the unbounded coin-reachability set over c; a balance H is solvable iff some payable x <= H leads to a solvable H - x + rebate(x). A rebate can exceed the spend, so the state graph has upward edges and cycles — the answer is a reachability closure from 0, not a one-pass DP.",
+  "techniques": [
+    {
+      "label": "unbounded-knapsack",
+      "confidence": 0.85,
+      "why": "the payable set is unbounded coin reachability"
+    },
+    {
+      "label": "bfs",
+      "confidence": 0.65,
+      "why": "the closure is a reachability search, not a DP order"
+    },
+    {
+      "label": "bit-manipulation",
+      "confidence": 0.55,
+      "why": "the bitset that makes the 125000-bound table fit"
+    }
+  ],
+  "verified": "fixpoint solver reproduced both sample outputs; needed 2-3 passes, which confirms the cycles",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

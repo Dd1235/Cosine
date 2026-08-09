@@ -1,0 +1,20 @@
+{
+  "id": "codeforces-2248-f",
+  "title": "Matrix Elimination",
+  "approach": "Peak <=> 3*v[x][y] >= rowsum(x)+colsum(y); a rectangle op moves that slack by a+b-3 inside, so for n,m >= 2 the whole-matrix op maximises every cell at once and the answer is the k-th smallest ceil(deficit/(n+m-3)).",
+  "techniques": [
+    {
+      "label": "sorting",
+      "confidence": 0.9,
+      "why": "the answer is the k-th smallest per-cell cost"
+    },
+    {
+      "label": "binary-search-answer",
+      "confidence": 0.6,
+      "why": "an alternative formulation binary-searches the op count"
+    }
+  ],
+  "verified": "checked against samples 1 and 6",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

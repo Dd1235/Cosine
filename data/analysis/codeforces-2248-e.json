@@ -1,0 +1,25 @@
+{
+  "id": "codeforces-2248-e",
+  "title": "Excuse for Breaks",
+  "approach": "A run of L ones is worth L*d + floor(L/n)*S + R(L mod n) with R the prefix sum of r over the thresholds p; whole blocks of n cancel on both sides of f(a) > f(I(a)), so the answer is YES iff two runs already beat one — swept over all O(m^2) threshold pairs.",
+  "techniques": [
+    {
+      "label": "prefix-sum",
+      "confidence": 0.85,
+      "why": "R(L mod n) is a prefix sum over the thresholds"
+    },
+    {
+      "label": "brute-force",
+      "confidence": 0.8,
+      "why": "the O(m^2) sweep over threshold pairs"
+    },
+    {
+      "label": "binary-search",
+      "confidence": 0.65,
+      "why": "locating the block boundary for a given length"
+    }
+  ],
+  "verified": "brute-forced over all binary arrays and 4000 random parameter sets, 0 mismatches",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}
