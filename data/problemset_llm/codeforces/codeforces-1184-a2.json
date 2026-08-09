@@ -17,7 +17,7 @@
     "number-theory"
   ],
   "patterns": [
-    "xor",
+    "bit-manipulation",
     "cyclic-shift",
     "brute-force"
   ],
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050434,
     "pattern_confidence": {
-      "xor": 0.95,
+      "bit-manipulation": 0.95,
       "cyclic-shift": 0.9,
       "brute-force": 0.7
     }

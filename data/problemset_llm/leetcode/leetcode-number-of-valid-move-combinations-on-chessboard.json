@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "backtracking",
-    "state-enumeration",
+    "subset-dp",
     "collision-detection",
     "simulation"
   ],
@@ -32,7 +32,7 @@
     "generated_at_unix": 1777923813,
     "pattern_confidence": {
       "backtracking": 0.95,
-      "state-enumeration": 0.9,
+      "subset-dp": 0.9,
       "collision-detection": 0.9,
       "simulation": 0.85
     }

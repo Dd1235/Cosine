@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/transpose-file/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 33.0,
+  "acceptance_rate": 33,
   "source_tags": [
     "shell"
   ],
@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "matrix-transpose",
-    "parsing"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -25,7 +25,7 @@
     "generated_at_unix": 1784908769,
     "pattern_confidence": {
       "matrix-transpose": 0.95,
-      "parsing": 0.85
+      "expression-parsing": 0.85
     }
   }
 }

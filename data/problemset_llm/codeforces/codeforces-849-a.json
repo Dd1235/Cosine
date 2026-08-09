@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "greedy",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -25,7 +25,7 @@
     "generated_at_unix": 1785216781,
     "pattern_confidence": {
       "greedy": 0.8,
-      "parity-check": 0.85
+      "parity-argument": 0.85
     }
   }
 }

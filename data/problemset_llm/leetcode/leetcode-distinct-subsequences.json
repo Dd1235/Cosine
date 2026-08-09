@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "subsequence-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1777922816,
     "pattern_confidence": {
       "dynamic-programming": 0.98,
-      "subsequence-counting": 0.95
+      "counting": 0.95
     }
   }
 }

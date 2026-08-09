@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "bitmask-dp",
-    "permutation-enumeration",
+    "brute-force",
     "inclusion-exclusion",
     "state-compression",
     "burnside-lemma"
@@ -31,7 +31,7 @@
     "generated_at_unix": 1785050598,
     "pattern_confidence": {
       "bitmask-dp": 0.95,
-      "permutation-enumeration": 0.9,
+      "brute-force": 0.9,
       "inclusion-exclusion": 0.85,
       "state-compression": 0.9,
       "burnside-lemma": 0.9

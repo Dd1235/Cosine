@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "union-find",
-    "bipartite-check",
+    "bipartite-graph",
     "conflict-detection"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1785050901,
     "pattern_confidence": {
       "union-find": 0.98,
-      "bipartite-check": 0.9,
+      "bipartite-graph": 0.9,
       "conflict-detection": 0.85
     }
   },

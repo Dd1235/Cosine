@@ -19,7 +19,7 @@
   "patterns": [
     "greedy",
     "reverse-iteration",
-    "set-operations"
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "greedy": 0.9,
       "reverse-iteration": 0.85,
-      "set-operations": 0.7
+      "hash-map": 0.7
     }
   }
 }

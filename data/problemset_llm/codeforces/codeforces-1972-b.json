@@ -18,7 +18,7 @@
   "patterns": [
     "combinatorial-game-theory",
     "game-state-analysis",
-    "optimal-strategy"
+    "game-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "combinatorial-game-theory": 0.95,
       "game-state-analysis": 0.9,
-      "optimal-strategy": 0.85
+      "game-theory": 0.85
     }
   }
 }

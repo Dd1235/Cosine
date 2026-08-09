@@ -24,7 +24,7 @@
   "patterns": [
     "bitmask-dp",
     "brute-force",
-    "distance-calculation"
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "bitmask-dp": 0.95,
       "brute-force": 0.9,
-      "distance-calculation": 0.85
+      "geometry": 0.85
     }
   }
 }

@@ -19,7 +19,7 @@
   "patterns": [
     "offline-queries",
     "mo-algorithm",
-    "frequency-array"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "offline-queries": 0.9,
       "mo-algorithm": 0.85,
-      "frequency-array": 0.8
+      "counting": 0.8
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

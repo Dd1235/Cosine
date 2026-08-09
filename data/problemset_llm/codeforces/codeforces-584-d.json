@@ -18,7 +18,7 @@
     "prime"
   ],
   "patterns": [
-    "prime-checking",
+    "primality-test",
     "brute-force",
     "greedy",
     "number-theory"
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785051137,
     "pattern_confidence": {
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "brute-force": 0.8,
       "greedy": 0.7,
       "number-theory": 0.9

@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "digit-dp",
-    "bit-counting",
+    "bit-manipulation",
     "modular-arithmetic",
     "state-compression"
   ],
@@ -32,7 +32,7 @@
     "generated_at_unix": 1777922620,
     "pattern_confidence": {
       "digit-dp": 0.95,
-      "bit-counting": 0.9,
+      "bit-manipulation": 0.9,
       "modular-arithmetic": 0.85,
       "state-compression": 0.8
     }

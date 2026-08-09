@@ -21,7 +21,7 @@
   "patterns": [
     "greedy",
     "counting",
-    "set-operations"
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "counting": 0.9,
-      "set-operations": 0.85
+      "hash-map": 0.85
     }
   }
 }

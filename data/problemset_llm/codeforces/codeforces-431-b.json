@@ -18,7 +18,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "permutation-enumeration",
+    "brute-force",
     "simulation",
     "greedy"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785217325,
     "pattern_confidence": {
-      "permutation-enumeration": 0.95,
+      "brute-force": 0.95,
       "simulation": 0.9,
       "greedy": 0.4
     }

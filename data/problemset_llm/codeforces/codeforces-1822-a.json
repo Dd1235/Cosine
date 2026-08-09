@@ -18,16 +18,14 @@
     "implementation"
   ],
   "patterns": [
-    "brute-force",
-    "linear-scan"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785224344,
     "pattern_confidence": {
-      "brute-force": 0.95,
-      "linear-scan": 0.9
+      "brute-force": 0.95
     }
   }
 }

@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "dfs",
-    "distance-check",
+    "geometry",
     "path-existence",
     "tin-tout-ancestor-check"
   ],
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785050880,
     "pattern_confidence": {
       "dfs": 0.9,
-      "distance-check": 0.85,
+      "geometry": 0.85,
       "path-existence": 0.8,
       "tin-tout-ancestor-check": 0.9
     }

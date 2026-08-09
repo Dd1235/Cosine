@@ -22,7 +22,7 @@
     "suffix-automaton",
     "modular-arithmetic",
     "offline-queries",
-    "lexicographic-comparison",
+    "lexicographic-order",
     "kmp"
   ],
   "annotation": {
@@ -33,7 +33,7 @@
       "suffix-automaton": 0.9,
       "modular-arithmetic": 0.8,
       "offline-queries": 0.7,
-      "lexicographic-comparison": 0.85,
+      "lexicographic-order": 0.85,
       "kmp": 0.9
     }
   },

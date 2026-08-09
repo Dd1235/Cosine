@@ -18,7 +18,7 @@
     "shortest-path"
   ],
   "patterns": [
-    "graph-construction",
+    "graph-modeling",
     "dijkstra",
     "geometry"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785236949,
     "pattern_confidence": {
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "dijkstra": 0.95,
       "geometry": 0.9
     }

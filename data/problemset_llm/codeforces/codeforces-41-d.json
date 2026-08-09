@@ -19,7 +19,7 @@
     "modular-arithmetic"
   ],
   "patterns": [
-    "dp-on-grid",
+    "grid-dp",
     "modular-dp",
     "path-reconstruction"
   ],
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785230046,
     "pattern_confidence": {
-      "dp-on-grid": 0.95,
+      "grid-dp": 0.95,
       "modular-dp": 0.9,
       "path-reconstruction": 0.85
     }

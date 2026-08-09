@@ -24,7 +24,7 @@
   "patterns": [
     "union-find",
     "set-intersection",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "union-find": 0.95,
       "set-intersection": 0.9,
-      "graph-construction": 0.9
+      "graph-modeling": 0.9
     }
   }
 }

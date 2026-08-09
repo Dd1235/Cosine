@@ -21,9 +21,8 @@
     "recursion"
   ],
   "patterns": [
-    "recursive-parsing",
+    "expression-parsing",
     "scope-management",
-    "stack-based-evaluation",
     "hash-map"
   ],
   "annotation": {
@@ -31,9 +30,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923895,
     "pattern_confidence": {
-      "recursive-parsing": 0.98,
+      "expression-parsing": 0.98,
       "scope-management": 0.95,
-      "stack-based-evaluation": 0.9,
       "hash-map": 0.85
     }
   }

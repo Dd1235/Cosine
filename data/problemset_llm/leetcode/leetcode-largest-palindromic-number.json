@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "greedy",
-    "counting",
-    "frequency-analysis"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "generated_at_unix": 1784909023,
     "pattern_confidence": {
       "greedy": 0.95,
-      "counting": 0.9,
-      "frequency-analysis": 0.88
+      "counting": 0.9
     }
   }
 }

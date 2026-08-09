@@ -1,0 +1,25 @@
+{
+  "id": "codeforces-2253-e",
+  "title": "Diameter Intersections",
+  "approach": "With an odd diameter the tree's center is an EDGE that every diameter contains, so a diameter is (depth-m path from c1) + edge + (depth-m path from c2) and every intersection is x+1+y over branch depths on each side; the answer is the sumset of the two branch-depth sets.",
+  "techniques": [
+    {
+      "label": "subtree-dp",
+      "confidence": 0.85,
+      "why": "branch depths per side"
+    },
+    {
+      "label": "tree-center",
+      "confidence": 0.7,
+      "why": "the center is an edge here, which is the whole observation"
+    },
+    {
+      "label": "tree-dp",
+      "confidence": 0.55,
+      "why": "the depth computation"
+    }
+  ],
+  "verified": "implementation reproduces all 5 sample outputs",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

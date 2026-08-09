@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "constructive-algorithm",
-    "prime-checking",
+    "primality-test",
     "grid-traversal"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1785229927,
     "pattern_confidence": {
       "constructive-algorithm": 0.95,
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "grid-traversal": 0.85
     }
   }

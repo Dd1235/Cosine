@@ -18,11 +18,11 @@
     "string",
     "stack",
     "hash-map",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "stack",
-    "parsing",
+    "expression-parsing",
     "hash-map"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1777923756,
     "pattern_confidence": {
       "stack": 0.98,
-      "parsing": 0.95,
+      "expression-parsing": 0.95,
       "hash-map": 0.9
     }
   }

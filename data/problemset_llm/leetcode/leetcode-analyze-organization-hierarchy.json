@@ -21,7 +21,7 @@
     "tree-dp",
     "dfs",
     "topological-sort",
-    "aggregation"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
       "tree-dp": 0.95,
       "dfs": 0.9,
       "topological-sort": 0.85,
-      "aggregation": 0.8
+      "counting": 0.8
     }
   }
 }

@@ -16,12 +16,12 @@
   "tags": [
     "string",
     "stack",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "dfs",
     "stack",
-    "recursive-parsing"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "dfs": 0.9,
       "stack": 0.95,
-      "recursive-parsing": 0.9
+      "expression-parsing": 0.9
     }
   }
 }

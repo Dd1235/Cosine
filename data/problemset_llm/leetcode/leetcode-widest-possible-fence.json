@@ -17,7 +17,6 @@
   "patterns": [
     "counting",
     "pair-sum-enumeration",
-    "frequency-analysis",
     "greedy"
   ],
   "annotation": {
@@ -27,7 +26,6 @@
     "pattern_confidence": {
       "counting": 0.95,
       "pair-sum-enumeration": 0.93,
-      "frequency-analysis": 0.9,
       "greedy": 0.85
     }
   }

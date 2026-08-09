@@ -15,11 +15,11 @@
   "tags": [
     "string",
     "two-pointers",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "two-pointers",
-    "string-parsing",
+    "expression-parsing",
     "integer-comparison"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1784909903,
     "pattern_confidence": {
       "two-pointers": 0.95,
-      "string-parsing": 0.9,
+      "expression-parsing": 0.9,
       "integer-comparison": 0.85
     }
   }

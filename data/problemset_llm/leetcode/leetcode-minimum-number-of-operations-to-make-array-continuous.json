@@ -17,13 +17,13 @@
   "tags": [
     "array",
     "binary-search",
-    "hash-set",
+    "hash-map",
     "sliding-window"
   ],
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "hash-set-lookup",
+    "hash-map",
     "sliding-window"
   ],
   "annotation": {
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "binary-search-answer": 0.95,
       "two-pointers": 0.9,
-      "hash-set-lookup": 0.85,
+      "hash-map": 0.85,
       "sliding-window": 0.88
     }
   }

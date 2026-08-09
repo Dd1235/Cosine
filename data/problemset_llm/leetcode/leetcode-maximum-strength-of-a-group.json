@@ -28,7 +28,7 @@
     "bitmask-dp",
     "backtracking",
     "greedy",
-    "subset-enumeration"
+    "subset-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -38,7 +38,7 @@
       "bitmask-dp": 0.9,
       "backtracking": 0.85,
       "greedy": 0.8,
-      "subset-enumeration": 0.88
+      "subset-dp": 0.88
     }
   }
 }

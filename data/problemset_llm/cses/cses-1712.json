@@ -10,11 +10,10 @@
   "tags": [
     "math",
     "modular-arithmetic",
-    "fast-exponentiation"
+    "modular-exponentiation"
   ],
   "patterns": [
     "modular-exponentiation",
-    "binary-exponentiation",
     "exponentiation-by-squaring"
   ],
   "annotation": {
@@ -23,7 +22,6 @@
     "generated_at_unix": 1777951656,
     "pattern_confidence": {
       "modular-exponentiation": 0.98,
-      "binary-exponentiation": 0.95,
       "exponentiation-by-squaring": 0.9
     }
   }

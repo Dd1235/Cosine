@@ -24,7 +24,7 @@
   ],
   "patterns": [
     "minimum-vertex-removal",
-    "bipartite-check",
+    "bipartite-graph",
     "divisibility-graph",
     "greedy"
   ],
@@ -34,7 +34,7 @@
     "generated_at_unix": 1785236977,
     "pattern_confidence": {
       "minimum-vertex-removal": 0.9,
-      "bipartite-check": 0.95,
+      "bipartite-graph": 0.95,
       "divisibility-graph": 0.85,
       "greedy": 0.7
     }

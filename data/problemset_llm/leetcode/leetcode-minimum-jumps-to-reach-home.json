@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-jumps-to-reach-home/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 31.0,
+  "acceptance_rate": 31,
   "source_tags": [
     "array",
     "hash-table",
@@ -17,7 +17,7 @@
     "graph",
     "bfs",
     "array",
-    "hash-set"
+    "hash-map"
   ],
   "patterns": [
     "bfs",

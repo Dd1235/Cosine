@@ -15,7 +15,7 @@
   "patterns": [
     "constructive-algorithm",
     "combinatorial-constraints",
-    "prime-checking"
+    "primality-test"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "constructive-algorithm": 0.95,
       "combinatorial-constraints": 0.9,
-      "prime-checking": 0.85
+      "primality-test": 0.85
     }
   },
   "difficulty": 1226

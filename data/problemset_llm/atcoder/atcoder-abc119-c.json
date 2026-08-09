@@ -17,7 +17,7 @@
     "bitmask-dp",
     "backtracking",
     "state-compression",
-    "subset-enumeration"
+    "subset-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
       "bitmask-dp": 0.95,
       "backtracking": 0.9,
       "state-compression": 0.85,
-      "subset-enumeration": 0.8
+      "subset-dp": 0.8
     }
   },
   "difficulty": 1346

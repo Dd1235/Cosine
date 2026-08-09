@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "dijkstra",
-    "graph-construction",
+    "graph-modeling",
     "manhattan-distance"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1784909589,
     "pattern_confidence": {
       "dijkstra": 0.98,
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "manhattan-distance": 0.85
     }
   }

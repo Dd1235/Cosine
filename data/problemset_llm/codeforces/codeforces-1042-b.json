@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "subset-enumeration",
-    "dp-on-subsets",
+    "subset-dp",
     "brute-force"
   ],
   "annotation": {
@@ -32,8 +31,7 @@
     "generated_at_unix": 1785216929,
     "pattern_confidence": {
       "bit-manipulation": 0.95,
-      "subset-enumeration": 0.9,
-      "dp-on-subsets": 0.85,
+      "subset-dp": 0.9,
       "brute-force": 0.8
     }
   }

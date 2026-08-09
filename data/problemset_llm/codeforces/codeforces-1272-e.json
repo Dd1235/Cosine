@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "bfs",
-    "graph-construction",
+    "graph-modeling",
     "multi-source-bfs"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785051058,
     "pattern_confidence": {
       "bfs": 0.95,
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "multi-source-bfs": 0.9
     }
   },

@@ -22,7 +22,7 @@
     "interactive"
   ],
   "patterns": [
-    "minimax",
+    "game-theory",
     "pruning",
     "guessing-strategy",
     "feedback-based-search"
@@ -32,7 +32,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923063,
     "pattern_confidence": {
-      "minimax": 0.9,
+      "game-theory": 0.9,
       "pruning": 0.85,
       "guessing-strategy": 0.95,
       "feedback-based-search": 0.9

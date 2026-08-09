@@ -16,7 +16,7 @@
   "patterns": [
     "tree-diameter",
     "two-pass-dfs",
-    "distance-calculation",
+    "geometry",
     "rerooting-dp"
   ],
   "annotation": {
@@ -26,7 +26,7 @@
     "pattern_confidence": {
       "tree-diameter": 0.98,
       "two-pass-dfs": 0.95,
-      "distance-calculation": 0.9,
+      "geometry": 0.9,
       "rerooting-dp": 1
     }
   }

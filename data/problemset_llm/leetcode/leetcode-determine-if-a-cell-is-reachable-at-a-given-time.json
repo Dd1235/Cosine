@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "manhattan-distance",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1784909012,
     "pattern_confidence": {
       "manhattan-distance": 0.9,
-      "parity-check": 0.85
+      "parity-argument": 0.85
     }
   }
 }

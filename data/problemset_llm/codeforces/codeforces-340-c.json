@@ -19,8 +19,8 @@
   ],
   "patterns": [
     "expected-value",
-    "permutation-enumeration",
-    "distance-calculation"
+    "brute-force",
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +28,8 @@
     "generated_at_unix": 1785050957,
     "pattern_confidence": {
       "expected-value": 0.95,
-      "permutation-enumeration": 0.9,
-      "distance-calculation": 0.85
+      "brute-force": 0.9,
+      "geometry": 0.85
     }
   },
   "source_topic": "Formwise / Math"

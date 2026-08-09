@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "gcd-computation",
+    "gcd",
     "brute-force",
     "state-compression"
   ],
@@ -32,7 +32,7 @@
     "generated_at_unix": 1777923257,
     "pattern_confidence": {
       "dynamic-programming": 0.9,
-      "gcd-computation": 0.95,
+      "gcd": 0.95,
       "brute-force": 0.85,
       "state-compression": 0.8
     }

@@ -23,7 +23,7 @@
   "patterns": [
     "dfs",
     "stack",
-    "parsing"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "dfs": 0.95,
       "stack": 0.85,
-      "parsing": 0.9
+      "expression-parsing": 0.9
     }
   }
 }

@@ -25,7 +25,7 @@
     "maximum-matching",
     "max-flow",
     "bipartite-matching",
-    "disjoint-set",
+    "union-find",
     "interval-constraints"
   ],
   "annotation": {
@@ -36,7 +36,7 @@
       "maximum-matching": 0.95,
       "max-flow": 0.9,
       "bipartite-matching": 0.85,
-      "disjoint-set": 0.7,
+      "union-find": 0.7,
       "interval-constraints": 0.75
     }
   },

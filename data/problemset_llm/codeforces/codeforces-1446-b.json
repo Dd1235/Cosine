@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "longest-common-subsequence",
-    "substring-enumeration",
+    "brute-force",
     "dp-on-substrings"
   ],
   "annotation": {
@@ -26,7 +26,7 @@
     "generated_at_unix": 1785051081,
     "pattern_confidence": {
       "longest-common-subsequence": 0.98,
-      "substring-enumeration": 0.85,
+      "brute-force": 0.85,
       "dp-on-substrings": 0.9
     }
   },

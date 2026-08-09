@@ -19,7 +19,7 @@
     "math"
   ],
   "patterns": [
-    "distance-check",
+    "geometry",
     "brute-force"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785234892,
     "pattern_confidence": {
-      "distance-check": 0.9,
+      "geometry": 0.9,
       "brute-force": 0.8
     }
   }

@@ -18,18 +18,18 @@
     "implementation"
   ],
   "patterns": [
-    "substring-enumeration",
+    "brute-force",
     "counting",
-    "lexicographic-comparison"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785216680,
     "pattern_confidence": {
-      "substring-enumeration": 0.9,
+      "brute-force": 0.9,
       "counting": 0.85,
-      "lexicographic-comparison": 0.8
+      "lexicographic-order": 0.8
     }
   }
 }

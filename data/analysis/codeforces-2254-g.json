@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2254-g",
+  "title": "Nightcrawler",
+  "approach": "-1 when k < #leaves. A vertex set can be the set of subset-maxima iff |S ∩ subtree(v)| <= leaves(v) for all v — a laminar matroid — so sort by value descending and keep each vertex that still has a free leaf slot below it; the rejected values in descending order are exactly the increments for k > L.",
+  "techniques": [
+    {
+      "label": "greedy",
+      "confidence": 0.9,
+      "why": "the matroid makes the descending greedy optimal"
+    },
+    {
+      "label": "sorting",
+      "confidence": 0.85,
+      "why": "by value descending"
+    },
+    {
+      "label": "prefix-sum",
+      "confidence": 0.7,
+      "why": "the increments for larger k"
+    },
+    {
+      "label": "exchange-argument",
+      "confidence": 0.6,
+      "why": "why the greedy is optimal"
+    },
+    {
+      "label": "heap",
+      "confidence": 0.5,
+      "why": "an alternative to the sort"
+    }
+  ],
+  "verified": "matched all 7 samples and 300 random trees against a brute-force partition enumerator",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

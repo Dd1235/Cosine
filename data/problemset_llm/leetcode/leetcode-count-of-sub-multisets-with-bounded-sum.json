@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "dp-on-subsets",
+    "subset-dp",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1777922655,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "dp-on-subsets": 0.95,
+      "subset-dp": 0.95,
       "modular-arithmetic": 0.85
     }
   }

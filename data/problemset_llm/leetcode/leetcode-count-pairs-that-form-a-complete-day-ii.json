@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-pairs-that-form-a-complete-day-ii/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 44.0,
+  "acceptance_rate": 44,
   "source_tags": [
     "array",
     "hash-table",
@@ -22,7 +22,7 @@
   "patterns": [
     "modular-arithmetic",
     "hash-map",
-    "pair-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "modular-arithmetic": 0.95,
       "hash-map": 0.9,
-      "pair-counting": 0.85
+      "counting": 0.85
     }
   }
 }

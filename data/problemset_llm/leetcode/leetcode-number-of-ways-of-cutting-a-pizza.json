@@ -23,7 +23,7 @@
   "patterns": [
     "prefix-sum",
     "memoization",
-    "dp-on-grid"
+    "grid-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "prefix-sum": 0.95,
       "memoization": 0.9,
-      "dp-on-grid": 0.9
+      "grid-dp": 0.9
     }
   }
 }

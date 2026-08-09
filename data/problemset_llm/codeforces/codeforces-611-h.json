@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "constructive-algorithm",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785236927,
     "pattern_confidence": {
       "constructive-algorithm": 0.95,
-      "graph-construction": 0.9
+      "graph-modeling": 0.9
     }
   }
 }

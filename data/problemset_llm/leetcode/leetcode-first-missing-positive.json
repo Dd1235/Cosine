@@ -18,7 +18,7 @@
   "patterns": [
     "index-mapping",
     "in-place-modification",
-    "linear-scan"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "index-mapping": 0.95,
       "in-place-modification": 0.9,
-      "linear-scan": 0.85
+      "brute-force": 0.85
     }
   }
 }

@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "hash-map",
-    "pair-counting",
+    "counting",
     "xor-distance"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1784908806,
     "pattern_confidence": {
       "hash-map": 0.95,
-      "pair-counting": 0.9,
+      "counting": 0.9,
       "xor-distance": 0.9
     }
   }

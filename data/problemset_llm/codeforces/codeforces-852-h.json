@@ -20,7 +20,7 @@
   "patterns": [
     "convex-hull",
     "convex-polygon-selection",
-    "dp-on-subsets",
+    "subset-dp",
     "rotating-calipers"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "convex-hull": 0.95,
       "convex-polygon-selection": 0.9,
-      "dp-on-subsets": 0.85,
+      "subset-dp": 0.85,
       "rotating-calipers": 0.95
     }
   }

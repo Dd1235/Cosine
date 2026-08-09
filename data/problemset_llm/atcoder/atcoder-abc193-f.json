@@ -16,7 +16,7 @@
   "patterns": [
     "bipartite-matching",
     "max-flow",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -25,7 +25,7 @@
     "pattern_confidence": {
       "bipartite-matching": 0.95,
       "max-flow": 0.9,
-      "graph-construction": 0.85
+      "graph-modeling": 0.85
     }
   },
   "difficulty": 2475

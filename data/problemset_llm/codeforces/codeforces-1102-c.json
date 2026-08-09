@@ -18,8 +18,7 @@
   ],
   "patterns": [
     "game-theory",
-    "greedy-strategy",
-    "optimal-play"
+    "greedy-strategy"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,8 +26,7 @@
     "generated_at_unix": 1785216936,
     "pattern_confidence": {
       "game-theory": 0.95,
-      "greedy-strategy": 0.85,
-      "optimal-play": 0.9
+      "greedy-strategy": 0.85
     }
   }
 }

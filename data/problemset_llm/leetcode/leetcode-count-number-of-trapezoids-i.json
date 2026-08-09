@@ -22,7 +22,7 @@
   "patterns": [
     "counting",
     "rolling-hash",
-    "combinatorial-enumeration"
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "counting": 0.95,
       "rolling-hash": 0.9,
-      "combinatorial-enumeration": 0.88
+      "combinatorics": 0.88
     }
   }
 }

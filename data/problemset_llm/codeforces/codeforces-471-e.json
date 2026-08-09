@@ -20,7 +20,7 @@
   "patterns": [
     "union-find",
     "maximum-spanning-tree",
-    "graph-construction",
+    "graph-modeling",
     "steiner-tree"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "union-find": 0.95,
       "maximum-spanning-tree": 0.9,
-      "graph-construction": 0.85,
+      "graph-modeling": 0.85,
       "steiner-tree": 0.95
     }
   },

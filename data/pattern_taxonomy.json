@@ -113,9 +113,6 @@
     "zero-one-bfs": {
       "category": "graph"
     },
-    "dag-dp": {
-      "category": "graph"
-    },
     "functional-graph": {
       "category": "graph"
     },
@@ -398,9 +395,6 @@
     "linear-recurrence": {
       "category": "math"
     },
-    "fast-exponentiation": {
-      "category": "math"
-    },
     "chinese-remainder-theorem": {
       "category": "math"
     },
@@ -550,6 +544,66 @@
     },
     "tree-centroid": {
       "category": "tree"
+    },
+    "lexicographic-order": {
+      "category": "string"
+    },
+    "graph-modeling": {
+      "category": "graph"
+    },
+    "interval-scheduling": {
+      "category": "greedy"
+    },
+    "parity-argument": {
+      "category": "math"
+    },
+    "primality-test": {
+      "category": "math"
+    },
+    "divisor-enumeration": {
+      "category": "math"
+    },
+    "polygon-area": {
+      "category": "geometry"
+    },
+    "point-in-polygon": {
+      "category": "geometry"
+    },
+    "segment-intersection": {
+      "category": "geometry"
+    },
+    "closest-pair": {
+      "category": "geometry"
+    },
+    "manhattan-distance": {
+      "category": "geometry"
+    },
+    "inversion-count": {
+      "category": "array"
+    },
+    "bipartite-graph": {
+      "category": "graph"
+    },
+    "reachability": {
+      "category": "graph"
+    },
+    "grid-dp": {
+      "category": "dp"
+    },
+    "two-heaps": {
+      "category": "data-structure"
+    },
+    "longest-common-subsequence": {
+      "category": "dp"
+    },
+    "linked-list": {
+      "category": "data-structure"
+    },
+    "binary-tree-traversal": {
+      "category": "tree"
+    },
+    "design": {
+      "category": "data-structure"
     }
   },
   "aliases": {
@@ -734,7 +788,116 @@
     "centroid": "tree-centroid",
     "center-of-mass-of-tree": "tree-centroid",
     "diameter": "tree-diameter",
-    "longest-path-in-tree": "tree-diameter"
+    "longest-path-in-tree": "tree-diameter",
+    "group-by": "counting",
+    "aggregation": "counting",
+    "frequency-array": "counting",
+    "frequency-analysis": "counting",
+    "pair-counting": "counting",
+    "prefix-counting": "counting",
+    "subsequence-counting": "counting",
+    "grouping": "counting",
+    "bit-counting": "bit-manipulation",
+    "bitwise-xor": "bit-manipulation",
+    "xor": "bit-manipulation",
+    "binary-representation": "bit-manipulation",
+    "xor-properties": "bit-manipulation",
+    "bitwise-or": "bit-manipulation",
+    "linear-scan": "brute-force",
+    "substring-enumeration": "brute-force",
+    "permutation-enumeration": "brute-force",
+    "brute-force-enumeration": "brute-force",
+    "digit-enumeration": "brute-force",
+    "prefix-processing": "prefix-sum",
+    "prefix-computation": "prefix-sum",
+    "2d-prefix-sum": "prefix-sum",
+    "prefix-frequency": "prefix-sum",
+    "string-parsing": "expression-parsing",
+    "parsing": "expression-parsing",
+    "expression-evaluation": "expression-parsing",
+    "stack-based-evaluation": "expression-parsing",
+    "recursive-parsing": "expression-parsing",
+    "dp-on-subsets": "subset-dp",
+    "subset-enumeration": "subset-dp",
+    "state-enumeration": "subset-dp",
+    "combinatorial-enumeration": "combinatorics",
+    "factorial-precomputation": "combinatorics",
+    "binomial-coefficient": "combinatorics",
+    "combinatorial-sum": "combinatorics",
+    "hash-set": "hash-map",
+    "hash-set-lookup": "hash-map",
+    "set-operations": "hash-map",
+    "gcd-computation": "gcd",
+    "lcm": "gcd",
+    "gcd-lcm-properties": "gcd",
+    "prefix-gcd": "gcd",
+    "lcm-computation": "gcd",
+    "prefix-function": "kmp",
+    "kmp-algorithm": "kmp",
+    "knuth-morris-pratt": "kmp",
+    "minimax": "game-theory",
+    "optimal-strategy": "game-theory",
+    "combinatorial-game": "game-theory",
+    "optimal-play": "game-theory",
+    "distance-calculation": "geometry",
+    "distance-check": "geometry",
+    "coordinate-geometry": "geometry",
+    "angle-calculation": "geometry",
+    "0-1-bfs": "zero-one-bfs",
+    "disjoint-set": "union-find",
+    "all-pairs-shortest-path": "floyd-warshall",
+    "binary-exponentiation": "modular-exponentiation",
+    "hierholzer-algorithm": "eulerian-path",
+    "binary-trie": "trie",
+    "top-down-dp": "memoization",
+    "lexicographically-smallest": "lexicographic-order",
+    "lexicographical-order": "lexicographic-order",
+    "lexicographic-comparison": "lexicographic-order",
+    "lexicographical-comparison": "lexicographic-order",
+    "graph-construction": "graph-modeling",
+    "graph-building": "graph-modeling",
+    "modeling-as-graph": "graph-modeling",
+    "activity-selection": "interval-scheduling",
+    "interval-selection": "interval-scheduling",
+    "non-overlapping-intervals": "interval-scheduling",
+    "parity-check": "parity-argument",
+    "parity-analysis": "parity-argument",
+    "parity": "parity-argument",
+    "prime-checking": "primality-test",
+    "primality-check": "primality-test",
+    "prime-check": "primality-test",
+    "divisor-counting": "divisor-enumeration",
+    "divisor-sum": "divisor-enumeration",
+    "divisor-summation": "divisor-enumeration",
+    "shoelace-formula": "polygon-area",
+    "polygon-area-calculation": "polygon-area",
+    "ray-casting": "point-in-polygon",
+    "line-intersection": "segment-intersection",
+    "closest-pair-of-points": "closest-pair",
+    "taxicab-distance": "manhattan-distance",
+    "counting-inversions": "inversion-count",
+    "inversion-counting": "inversion-count",
+    "bipartite-check": "bipartite-graph",
+    "bipartite-coloring": "bipartite-graph",
+    "two-coloring": "bipartite-graph",
+    "reachability-analysis": "reachability",
+    "reachability-dp": "reachability",
+    "grid-dynamic-programming": "grid-dp",
+    "dp-on-grid": "grid-dp",
+    "two-heap": "two-heaps",
+    "median-maintenance": "two-heaps",
+    "lcs": "longest-common-subsequence",
+    "doubly-linked-list": "linked-list",
+    "singly-linked-list": "linked-list",
+    "tree-traversal": "binary-tree-traversal",
+    "inorder-traversal": "binary-tree-traversal",
+    "preorder-traversal": "binary-tree-traversal",
+    "postorder-traversal": "binary-tree-traversal",
+    "data-structure-design": "design",
+    "class-design": "design",
+    "api-design": "design",
+    "dag-dp": "dp-on-dag",
+    "fast-exponentiation": "modular-exponentiation"
   },
   "groups": {
     "range-queries": {
@@ -774,14 +937,19 @@
       ],
       "members": [
         "kmp",
+        "z-function",
+        "string-matching",
+        "string-hashing",
+        "rolling-hash",
         "suffix-array",
         "suffix-automaton",
         "aho-corasick",
         "manacher",
+        "palindrome",
+        "palindrome-dp",
         "trie",
-        "rabin-karp",
-        "lyndon-factorization",
-        "booth-algorithm"
+        "expression-parsing",
+        "lexicographic-order"
       ]
     },
     "shortest-path": {
@@ -840,7 +1008,10 @@
         "mobius-inversion",
         "lucas-theorem",
         "sieve",
-        "prime-factorization"
+        "prime-factorization",
+        "modular-exponentiation",
+        "primality-test",
+        "divisor-enumeration"
       ]
     },
     "dp-optimization": {
@@ -851,16 +1022,14 @@
         "optimized dp"
       ],
       "members": [
+        "dp-optimization",
         "convex-hull-trick",
+        "divide-and-conquer-dp",
         "knuth-optimization",
         "slope-trick",
         "wqs-binary-search",
         "monotonic-queue-optimization",
-        "sos-dp",
-        "li-chao-tree",
-        "divide-and-conquer-dp",
-        "bitmask-dp",
-        "digit-dp"
+        "state-compression"
       ]
     },
     "flows-and-matching": {
@@ -876,8 +1045,9 @@
         "max-flow",
         "min-cut",
         "bipartite-matching",
-        "dinic",
-        "edmonds-karp"
+        "min-cost-flow",
+        "hungarian-algorithm",
+        "hall-theorem"
       ]
     },
     "data-structures": {
@@ -889,17 +1059,24 @@
       "members": [
         "segment-tree",
         "fenwick-tree",
-        "trie",
+        "sparse-table",
         "ordered-set",
         "multiset",
         "heap",
-        "monotonic-stack",
-        "monotonic-queue",
+        "trie",
         "union-find",
-        "sparse-table",
-        "stack",
-        "queue",
-        "deque"
+        "lazy-propagation",
+        "sqrt-decomposition",
+        "mo-algorithm",
+        "persistent-segment-tree",
+        "merge-sort-tree",
+        "li-chao-tree",
+        "link-cut-tree",
+        "implicit-treap",
+        "cartesian-tree",
+        "linked-list",
+        "two-heaps",
+        "design"
       ]
     },
     "geometry": {
@@ -909,9 +1086,18 @@
         "computational geometry"
       ],
       "members": [
+        "geometry",
         "convex-hull",
         "rotating-calipers",
-        "line-sweep"
+        "line-sweep",
+        "orientation-test",
+        "rectangle-union-area",
+        "interval-union",
+        "polygon-area",
+        "point-in-polygon",
+        "segment-intersection",
+        "closest-pair",
+        "manhattan-distance"
       ]
     },
     "graph-traversal": {
@@ -922,14 +1108,17 @@
         "search on graphs"
       ],
       "members": [
-        "dfs",
         "bfs",
+        "dfs",
+        "multi-source-bfs",
+        "zero-one-bfs",
+        "grid-traversal",
+        "cycle-detection",
         "topological-sort",
-        "flood-fill",
-        "connected-components",
-        "bridges",
-        "articulation-points",
-        "strongly-connected-components"
+        "tarjan",
+        "reachability",
+        "bipartite-graph",
+        "graph-modeling"
       ]
     },
     "hashing": {
@@ -955,13 +1144,10 @@
         "combinatorics",
         "inclusion-exclusion",
         "stars-and-bars",
-        "binomial-coefficient",
         "permutation-counting",
-        "pigeonhole-principle",
-        "catalan-numbers",
+        "counting",
         "modular-inverse",
-        "lucas-theorem",
-        "counting"
+        "lucas-theorem"
       ]
     }
   },

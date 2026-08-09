@@ -21,7 +21,7 @@
   "patterns": [
     "knapsack",
     "divisor-graph",
-    "dp-on-subsets"
+    "subset-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "knapsack": 0.95,
       "divisor-graph": 0.85,
-      "dp-on-subsets": 0.8
+      "subset-dp": 0.8
     }
   }
 }

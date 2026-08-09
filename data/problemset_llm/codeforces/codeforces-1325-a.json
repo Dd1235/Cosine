@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "constructive-algorithm",
-    "gcd-lcm-properties",
+    "gcd",
     "number-theory"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785673798,
     "pattern_confidence": {
       "constructive-algorithm": 0.95,
-      "gcd-lcm-properties": 0.9
+      "gcd": 0.9
     }
   }
 }

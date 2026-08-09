@@ -17,8 +17,7 @@
   ],
   "patterns": [
     "string-overlap",
-    "prefix-function",
-    "kmp-algorithm"
+    "kmp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,8 +25,7 @@
     "generated_at_unix": 1785050060,
     "pattern_confidence": {
       "string-overlap": 0.95,
-      "prefix-function": 0.9,
-      "kmp-algorithm": 0.85
+      "kmp": 0.9
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

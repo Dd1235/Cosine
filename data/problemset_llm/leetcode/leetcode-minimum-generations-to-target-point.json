@@ -22,7 +22,7 @@
   "patterns": [
     "bfs",
     "state-space-search",
-    "hash-set"
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "bfs": 0.9,
       "state-space-search": 0.85,
-      "hash-set": 0.8
+      "hash-map": 0.8
     }
   }
 }

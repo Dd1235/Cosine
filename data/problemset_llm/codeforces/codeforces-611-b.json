@@ -19,8 +19,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "brute-force",
-    "binary-representation"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,8 +27,7 @@
     "generated_at_unix": 1785050196,
     "pattern_confidence": {
       "bit-manipulation": 0.9,
-      "brute-force": 0.8,
-      "binary-representation": 0.85
+      "brute-force": 0.8
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

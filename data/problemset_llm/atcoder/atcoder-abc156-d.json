@@ -14,7 +14,6 @@
   "patterns": [
     "inclusion-exclusion",
     "modular-arithmetic",
-    "binomial-coefficient",
     "combinatorics",
     "number-theory"
   ],
@@ -25,7 +24,7 @@
     "pattern_confidence": {
       "inclusion-exclusion": 0.97,
       "modular-arithmetic": 0.95,
-      "binomial-coefficient": 0.93
+      "combinatorics": 0.93
     }
   },
   "difficulty": 1014

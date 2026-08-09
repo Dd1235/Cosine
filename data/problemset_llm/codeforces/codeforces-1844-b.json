@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "mex",
-    "prime-checking",
+    "primality-test",
     "constructive-algorithm"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785216732,
     "pattern_confidence": {
       "mex": 0.95,
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "constructive-algorithm": 0.85
     }
   }

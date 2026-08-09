@@ -22,7 +22,7 @@
     "hash-map"
   ],
   "patterns": [
-    "interval-selection",
+    "interval-scheduling",
     "greedy",
     "dynamic-programming",
     "character-frequency"
@@ -32,7 +32,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908442,
     "pattern_confidence": {
-      "interval-selection": 0.9,
+      "interval-scheduling": 0.9,
       "greedy": 0.85,
       "dynamic-programming": 0.8,
       "character-frequency": 0.75

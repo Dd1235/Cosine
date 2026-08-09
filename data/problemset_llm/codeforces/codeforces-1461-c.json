@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "probability-dp",
-    "prefix-processing"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050183,
     "pattern_confidence": {
       "probability-dp": 0.95,
-      "prefix-processing": 0.7
+      "prefix-sum": 0.7
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

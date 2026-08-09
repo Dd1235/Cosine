@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "sorting",
-    "linear-scan"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1785216888,
     "pattern_confidence": {
       "sorting": 0.95,
-      "linear-scan": 0.85
+      "brute-force": 0.85
     }
   }
 }

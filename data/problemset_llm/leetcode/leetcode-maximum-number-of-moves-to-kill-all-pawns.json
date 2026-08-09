@@ -25,7 +25,7 @@
   "patterns": [
     "bfs",
     "bitmask-dp",
-    "minimax",
+    "game-theory",
     "state-compression"
   ],
   "annotation": {
@@ -35,7 +35,7 @@
     "pattern_confidence": {
       "bfs": 0.95,
       "bitmask-dp": 0.9,
-      "minimax": 0.9,
+      "game-theory": 0.9,
       "state-compression": 0.85
     }
   }

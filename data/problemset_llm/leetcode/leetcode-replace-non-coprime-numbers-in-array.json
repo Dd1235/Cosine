@@ -23,7 +23,6 @@
   "patterns": [
     "stack",
     "gcd",
-    "lcm",
     "greedy"
   ],
   "annotation": {
@@ -33,7 +32,6 @@
     "pattern_confidence": {
       "stack": 0.95,
       "gcd": 0.98,
-      "lcm": 0.97,
       "greedy": 0.85
     }
   }

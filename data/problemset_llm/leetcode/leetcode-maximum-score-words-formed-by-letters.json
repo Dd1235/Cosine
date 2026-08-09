@@ -28,7 +28,7 @@
   "patterns": [
     "bitmask-dp",
     "backtracking",
-    "subset-enumeration",
+    "subset-dp",
     "counting"
   ],
   "annotation": {
@@ -38,7 +38,7 @@
     "pattern_confidence": {
       "bitmask-dp": 0.95,
       "backtracking": 0.9,
-      "subset-enumeration": 0.85,
+      "subset-dp": 0.85,
       "counting": 0.8
     }
   }

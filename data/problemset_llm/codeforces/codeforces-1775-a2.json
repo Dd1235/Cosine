@@ -18,7 +18,7 @@
     "greedy"
   ],
   "patterns": [
-    "lexicographic-comparison",
+    "lexicographic-order",
     "constructive-algorithm",
     "greedy"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785224648,
     "pattern_confidence": {
-      "lexicographic-comparison": 0.9,
+      "lexicographic-order": 0.9,
       "constructive-algorithm": 0.85,
       "greedy": 0.8
     }

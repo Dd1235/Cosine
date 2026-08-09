@@ -21,7 +21,7 @@
   "patterns": [
     "brute-force",
     "probability-dp",
-    "combinatorial-enumeration"
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "brute-force": 0.9,
       "probability-dp": 0.7,
-      "combinatorial-enumeration": 0.8
+      "combinatorics": 0.8
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

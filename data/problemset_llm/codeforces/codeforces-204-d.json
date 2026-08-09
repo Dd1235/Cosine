@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "prefix-computation",
+    "prefix-sum",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -26,7 +26,7 @@
     "generated_at_unix": 1785050477,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "prefix-computation": 0.85,
+      "prefix-sum": 0.85,
       "modular-arithmetic": 0.9
     }
   },

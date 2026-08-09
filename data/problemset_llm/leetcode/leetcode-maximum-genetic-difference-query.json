@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "dfs",
-    "binary-trie",
+    "trie",
     "offline-queries"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1777923322,
     "pattern_confidence": {
       "dfs": 0.95,
-      "binary-trie": 0.97,
+      "trie": 0.97,
       "offline-queries": 0.85
     }
   }

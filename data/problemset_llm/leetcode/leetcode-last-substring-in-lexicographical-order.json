@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "two-pointers",
-    "lexicographical-comparison"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
     "generated_at_unix": 1777923124,
     "pattern_confidence": {
       "two-pointers": 0.95,
-      "lexicographical-comparison": 0.9
+      "lexicographic-order": 0.9
     }
   }
 }

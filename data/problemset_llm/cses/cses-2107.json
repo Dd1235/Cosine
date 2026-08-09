@@ -9,13 +9,12 @@
   "statement": "Given a string, compute the Z-function array where each element represents the length of the longest substring starting at that position matching the prefix, and the prefix-function (pi) array where each element represents the length of the longest prefix ending at that position.",
   "tags": [
     "string",
-    "prefix-function",
+    "kmp",
     "z-function"
   ],
   "patterns": [
     "z-function",
     "kmp",
-    "prefix-function",
     "string-processing"
   ],
   "annotation": {
@@ -25,7 +24,6 @@
     "pattern_confidence": {
       "z-function": 0.98,
       "kmp": 0.97,
-      "prefix-function": 0.95,
       "string-processing": 0.9
     }
   }

@@ -16,7 +16,7 @@
   ],
   "patterns": [
     "greedy",
-    "prefix-processing",
+    "prefix-sum",
     "simulation"
   ],
   "annotation": {
@@ -25,7 +25,7 @@
     "generated_at_unix": 1785224846,
     "pattern_confidence": {
       "greedy": 0.9,
-      "prefix-processing": 0.85,
+      "prefix-sum": 0.85,
       "simulation": 0.7
     }
   }

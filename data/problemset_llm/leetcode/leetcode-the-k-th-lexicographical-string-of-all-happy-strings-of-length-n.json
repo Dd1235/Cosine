@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "backtracking",
-    "lexicographical-order",
+    "lexicographic-order",
     "counting"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785047372,
     "pattern_confidence": {
       "backtracking": 0.95,
-      "lexicographical-order": 0.9,
+      "lexicographic-order": 0.9,
       "counting": 0.85
     }
   }

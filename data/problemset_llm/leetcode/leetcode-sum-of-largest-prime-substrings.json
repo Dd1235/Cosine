@@ -22,8 +22,8 @@
     "hash-map"
   ],
   "patterns": [
-    "prime-checking",
-    "substring-enumeration",
+    "primality-test",
+    "brute-force",
     "unique-element-collection"
   ],
   "annotation": {
@@ -31,8 +31,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909131,
     "pattern_confidence": {
-      "prime-checking": 0.95,
-      "substring-enumeration": 0.9,
+      "primality-test": 0.95,
+      "brute-force": 0.9,
       "unique-element-collection": 0.85
     }
   }

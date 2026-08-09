@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/kth-smallest-path-xor-sum/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 29.0,
+  "acceptance_rate": 29,
   "source_tags": [
     "array",
     "tree",
@@ -16,7 +16,7 @@
   "statement": "Given a rooted tree with values on nodes, compute the XOR of values along the path from the root to each node, then for queries on subtrees, find the k-th smallest distinct XOR value in that subtree or return -1 if it does not exist.",
   "tags": [
     "tree",
-    "xor",
+    "bit-manipulation",
     "queries",
     "ordered-set"
   ],

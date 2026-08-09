@@ -25,8 +25,7 @@
   ],
   "patterns": [
     "eulerian-path",
-    "hierholzer-algorithm",
-    "lexicographical-order",
+    "lexicographic-order",
     "heap"
   ],
   "annotation": {
@@ -35,8 +34,7 @@
     "generated_at_unix": 1777923964,
     "pattern_confidence": {
       "eulerian-path": 0.98,
-      "hierholzer-algorithm": 0.95,
-      "lexicographical-order": 0.9,
+      "lexicographic-order": 0.9,
       "heap": 0.85
     }
   }

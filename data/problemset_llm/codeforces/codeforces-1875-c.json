@@ -22,7 +22,6 @@
   "patterns": [
     "greedy",
     "bit-manipulation",
-    "binary-representation",
     "division-and-conquer"
   ],
   "annotation": {
@@ -31,8 +30,7 @@
     "generated_at_unix": 1785050130,
     "pattern_confidence": {
       "greedy": 0.9,
-      "bit-manipulation": 0.7,
-      "binary-representation": 0.8,
+      "bit-manipulation": 0.8,
       "division-and-conquer": 0.6
     }
   },

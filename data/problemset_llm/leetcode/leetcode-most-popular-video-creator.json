@@ -23,8 +23,8 @@
   ],
   "patterns": [
     "hash-map",
-    "aggregation",
-    "lexicographic-comparison"
+    "counting",
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,8 +32,8 @@
     "generated_at_unix": 1784909759,
     "pattern_confidence": {
       "hash-map": 0.98,
-      "aggregation": 0.9,
-      "lexicographic-comparison": 0.85
+      "counting": 0.9,
+      "lexicographic-order": 0.85
     }
   }
 }

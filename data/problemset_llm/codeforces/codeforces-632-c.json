@@ -19,7 +19,7 @@
   "patterns": [
     "custom-sort",
     "greedy",
-    "lexicographical-order"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "custom-sort": 0.98,
       "greedy": 0.93,
-      "lexicographical-order": 0.95
+      "lexicographic-order": 0.95
     }
   }
 }

@@ -18,7 +18,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "bit-counting",
+    "bit-manipulation",
     "dp-on-binary-representation",
     "modular-arithmetic"
   ],
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050962,
     "pattern_confidence": {
-      "bit-counting": 0.95,
+      "bit-manipulation": 0.95,
       "dp-on-binary-representation": 0.9,
       "modular-arithmetic": 0.85
     }

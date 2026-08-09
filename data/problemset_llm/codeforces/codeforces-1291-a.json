@@ -22,7 +22,7 @@
   "patterns": [
     "greedy",
     "digit-sum",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "digit-sum": 0.9,
-      "parity-check": 0.85
+      "parity-argument": 0.85
     }
   }
 }

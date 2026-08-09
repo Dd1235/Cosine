@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 44.0,
+  "acceptance_rate": 44,
   "source_tags": [
     "string",
     "greedy"
@@ -20,7 +20,7 @@
   "patterns": [
     "greedy",
     "counting",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "counting": 0.9,
-      "parity-check": 0.85
+      "parity-argument": 0.85
     }
   }
 }

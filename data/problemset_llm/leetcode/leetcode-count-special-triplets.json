@@ -21,7 +21,7 @@
   "patterns": [
     "hash-map",
     "two-pass-counting",
-    "prefix-frequency"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "hash-map": 0.95,
       "two-pass-counting": 0.9,
-      "prefix-frequency": 0.85
+      "prefix-sum": 0.85
     }
   }
 }

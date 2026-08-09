@@ -18,18 +18,16 @@
     "implementation"
   ],
   "patterns": [
-    "digit-enumeration",
-    "greedy",
-    "brute-force"
+    "brute-force",
+    "greedy"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785216672,
     "pattern_confidence": {
-      "digit-enumeration": 0.9,
-      "greedy": 0.7,
-      "brute-force": 0.8
+      "brute-force": 0.9,
+      "greedy": 0.7
     }
   }
 }

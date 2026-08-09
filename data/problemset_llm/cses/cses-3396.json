@@ -15,7 +15,7 @@
   "patterns": [
     "binary-search-answer",
     "miller-rabin-primality-test",
-    "fast-exponentiation"
+    "modular-exponentiation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "binary-search-answer": 0.9,
       "miller-rabin-primality-test": 0.95,
-      "fast-exponentiation": 0.9
+      "modular-exponentiation": 0.9
     }
   }
 }

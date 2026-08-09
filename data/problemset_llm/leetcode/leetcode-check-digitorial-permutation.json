@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/check-digitorial-permutation/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 47.0,
+  "acceptance_rate": 47,
   "source_tags": [
     "math",
     "counting"
@@ -19,8 +19,8 @@
     "counting"
   ],
   "patterns": [
-    "permutation-enumeration",
-    "factorial-precomputation",
+    "brute-force",
+    "combinatorics",
     "digit-manipulation"
   ],
   "annotation": {
@@ -28,8 +28,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909914,
     "pattern_confidence": {
-      "permutation-enumeration": 0.9,
-      "factorial-precomputation": 0.85,
+      "brute-force": 0.9,
+      "combinatorics": 0.85,
       "digit-manipulation": 0.8
     }
   }

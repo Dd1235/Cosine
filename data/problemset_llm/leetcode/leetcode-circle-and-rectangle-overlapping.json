@@ -17,16 +17,14 @@
     "math"
   ],
   "patterns": [
-    "geometry",
-    "distance-check"
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784910274,
     "pattern_confidence": {
-      "geometry": 0.98,
-      "distance-check": 0.85
+      "geometry": 0.98
     }
   }
 }

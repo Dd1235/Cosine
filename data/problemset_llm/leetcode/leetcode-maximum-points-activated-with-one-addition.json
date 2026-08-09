@@ -21,7 +21,7 @@
   "patterns": [
     "union-find",
     "connected-components",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "union-find": 0.98,
       "connected-components": 0.95,
-      "graph-construction": 0.9
+      "graph-modeling": 0.9
     }
   }
 }

@@ -20,7 +20,7 @@
   "patterns": [
     "binary-search",
     "simulation",
-    "angle-calculation"
+    "geometry"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "binary-search": 0.9,
       "simulation": 0.85,
-      "angle-calculation": 0.8
+      "geometry": 0.8
     }
   }
 }

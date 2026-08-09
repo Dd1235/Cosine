@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "sorting",
-    "grouping",
+    "counting",
     "binary-search"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785216832,
     "pattern_confidence": {
       "sorting": 0.95,
-      "grouping": 0.85,
+      "counting": 0.85,
       "binary-search": 0.6
     }
   }

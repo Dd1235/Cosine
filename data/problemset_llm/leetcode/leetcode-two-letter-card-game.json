@@ -22,7 +22,7 @@
     "counting"
   ],
   "patterns": [
-    "graph-construction",
+    "graph-modeling",
     "maximum-matching",
     "string-difference",
     "greedy"
@@ -32,7 +32,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908419,
     "pattern_confidence": {
-      "graph-construction": 0.95,
+      "graph-modeling": 0.95,
       "maximum-matching": 0.9,
       "string-difference": 0.85,
       "greedy": 0.7

@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "state-enumeration",
+    "subset-dp",
     "combinatorial-analysis"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1784910289,
     "pattern_confidence": {
       "bit-manipulation": 0.95,
-      "state-enumeration": 0.9,
+      "subset-dp": 0.9,
       "combinatorial-analysis": 0.85
     }
   }

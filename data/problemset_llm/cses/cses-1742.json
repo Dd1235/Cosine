@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "simulation",
-    "hash-set-lookup",
+    "hash-map",
     "coordinate-tracking"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951825,
     "pattern_confidence": {
       "simulation": 0.98,
-      "hash-set-lookup": 0.95,
+      "hash-map": 0.95,
       "coordinate-tracking": 0.9
     }
   }

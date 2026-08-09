@@ -1,0 +1,20 @@
+{
+  "id": "codeforces-2254-f",
+  "title": "Whiplash",
+  "approach": "Writing a_j = c_j ^ g turns one operation into a swap of g with c_i, so {a_1..a_n, 0} is an invariant multiset reachable in any permutation; n even forces g = xor(a) ^ xor(b) uniquely, and the rest is a multiset equality test.",
+  "techniques": [
+    {
+      "label": "bit-manipulation",
+      "confidence": 0.95,
+      "why": "the operation is XOR and the invariant is an xor"
+    },
+    {
+      "label": "hash-map",
+      "confidence": 0.6,
+      "why": "the multiset equality test"
+    }
+  ],
+  "verified": "cross-checked against exhaustive BFS over 65,792 (a,b) pairs — zero mismatches",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-09"
+}

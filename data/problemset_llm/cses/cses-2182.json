@@ -14,8 +14,7 @@
   ],
   "patterns": [
     "modular-exponentiation",
-    "prime-factorization",
-    "fast-exponentiation"
+    "prime-factorization"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,8 +22,7 @@
     "generated_at_unix": 1777951667,
     "pattern_confidence": {
       "modular-exponentiation": 0.98,
-      "prime-factorization": 0.95,
-      "fast-exponentiation": 0.9
+      "prime-factorization": 0.95
     }
   }
 }

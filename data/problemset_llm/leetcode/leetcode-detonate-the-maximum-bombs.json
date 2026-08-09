@@ -23,7 +23,7 @@
     "bfs"
   ],
   "patterns": [
-    "graph-construction",
+    "graph-modeling",
     "dfs",
     "bfs",
     "reachability"
@@ -33,7 +33,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784910272,
     "pattern_confidence": {
-      "graph-construction": 0.95,
+      "graph-modeling": 0.95,
       "dfs": 0.9,
       "bfs": 0.9,
       "reachability": 0.85

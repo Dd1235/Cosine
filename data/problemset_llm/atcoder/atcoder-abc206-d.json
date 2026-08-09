@@ -15,7 +15,7 @@
   "patterns": [
     "union-find",
     "greedy",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "union-find": 0.95,
       "greedy": 0.85,
-      "graph-construction": 0.8
+      "graph-modeling": 0.8
     }
   },
   "difficulty": 879

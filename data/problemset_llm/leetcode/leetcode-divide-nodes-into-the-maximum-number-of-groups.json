@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "bfs",
-    "bipartite-check",
+    "bipartite-graph",
     "connected-components"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777922826,
     "pattern_confidence": {
       "bfs": 0.95,
-      "bipartite-check": 0.9,
+      "bipartite-graph": 0.9,
       "connected-components": 0.85
     }
   }

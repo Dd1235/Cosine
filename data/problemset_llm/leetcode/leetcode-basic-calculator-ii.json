@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "stack",
-    "expression-evaluation",
+    "expression-parsing",
     "operator-precedence"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1784909922,
     "pattern_confidence": {
       "stack": 0.98,
-      "expression-evaluation": 0.95,
+      "expression-parsing": 0.95,
       "operator-precedence": 0.9
     }
   }

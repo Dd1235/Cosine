@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "prefix-xor",
-    "parity-check",
+    "parity-argument",
     "number-of-divisors-property"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1785050308,
     "pattern_confidence": {
       "prefix-xor": 0.95,
-      "parity-check": 0.85,
+      "parity-argument": 0.85,
       "number-of-divisors-property": 0.7
     }
   },

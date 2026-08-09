@@ -16,7 +16,7 @@
     "dynamic-programming"
   ],
   "patterns": [
-    "2d-prefix-sum",
+    "prefix-sum",
     "maximum-square-submatrix",
     "non-overlapping-selection",
     "brute-force-with-optimization"
@@ -26,7 +26,7 @@
     "model": "gpt-4.1",
     "generated_at_unix": 1786254102,
     "pattern_confidence": {
-      "2d-prefix-sum": 0.92,
+      "prefix-sum": 0.92,
       "maximum-square-submatrix": 0.95,
       "non-overlapping-selection": 0.9,
       "brute-force-with-optimization": 0.85

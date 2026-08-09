@@ -16,7 +16,7 @@
     "data-structure"
   ],
   "patterns": [
-    "prefix-gcd",
+    "gcd",
     "segment-tree",
     "binary-search-answer"
   ],
@@ -25,7 +25,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923050,
     "pattern_confidence": {
-      "prefix-gcd": 0.9,
+      "gcd": 0.9,
       "segment-tree": 0.85,
       "binary-search-answer": 0.7
     }

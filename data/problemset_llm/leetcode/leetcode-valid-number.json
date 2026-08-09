@@ -13,7 +13,7 @@
   "statement": "Determine whether a given string represents a valid number according to specific rules for integers, decimals, optional signs, and optional exponent notation.",
   "tags": [
     "string",
-    "parsing",
+    "expression-parsing",
     "finite-automaton"
   ],
   "patterns": [

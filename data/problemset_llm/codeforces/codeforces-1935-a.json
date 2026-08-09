@@ -21,7 +21,7 @@
   "patterns": [
     "string-reversal",
     "constructive-algorithm",
-    "lexicographic-comparison"
+    "lexicographic-order"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "string-reversal": 0.95,
       "constructive-algorithm": 0.9,
-      "lexicographic-comparison": 0.85
+      "lexicographic-order": 0.85
     }
   }
 }

@@ -21,7 +21,7 @@
     "trie"
   ],
   "patterns": [
-    "binary-trie",
+    "trie",
     "xor-maximization",
     "dynamic-insertion-deletion"
   ],
@@ -30,7 +30,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050975,
     "pattern_confidence": {
-      "binary-trie": 0.95,
+      "trie": 0.95,
       "xor-maximization": 0.9,
       "dynamic-insertion-deletion": 0.85
     }

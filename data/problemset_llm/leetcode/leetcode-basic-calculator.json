@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "stack",
-    "recursive-parsing",
-    "expression-evaluation"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "generated_at_unix": 1777922462,
     "pattern_confidence": {
       "stack": 0.95,
-      "recursive-parsing": 0.9,
-      "expression-evaluation": 0.9
+      "expression-parsing": 0.9
     }
   }
 }

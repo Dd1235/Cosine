@@ -17,16 +17,14 @@
     "number-theory"
   ],
   "patterns": [
-    "brute-force",
-    "digit-enumeration"
+    "brute-force"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785216690,
     "pattern_confidence": {
-      "brute-force": 0.8,
-      "digit-enumeration": 0.7
+      "brute-force": 0.8
     }
   }
 }

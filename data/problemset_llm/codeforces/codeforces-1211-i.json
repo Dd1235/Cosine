@@ -13,13 +13,11 @@
   "statement": "Given a graph with vertices representing integers from 0 to 15, where edges exist between vertices whose values differ in exactly one bit, reconstruct any sequence of integers that produces the given graph under these rules.",
   "tags": [
     "graph",
-    "bit-manipulation",
-    "xor"
+    "bit-manipulation"
   ],
   "patterns": [
     "bit-manipulation",
-    "graph-construction",
-    "xor-properties",
+    "graph-modeling",
     "gray-code"
   ],
   "annotation": {
@@ -28,8 +26,7 @@
     "generated_at_unix": 1785050603,
     "pattern_confidence": {
       "bit-manipulation": 0.9,
-      "graph-construction": 0.85,
-      "xor-properties": 0.8,
+      "graph-modeling": 0.85,
       "gray-code": 0.95
     }
   },

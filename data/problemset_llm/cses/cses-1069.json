@@ -12,7 +12,7 @@
     "array"
   ],
   "patterns": [
-    "linear-scan",
+    "brute-force",
     "two-pointers"
   ],
   "annotation": {
@@ -20,7 +20,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951247,
     "pattern_confidence": {
-      "linear-scan": 0.98,
+      "brute-force": 0.98,
       "two-pointers": 0.85
     }
   }

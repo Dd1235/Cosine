@@ -14,20 +14,18 @@
     "math"
   ],
   "patterns": [
-    "combinatorial-enumeration",
-    "lexicographical-order",
-    "dp-with-memoization",
-    "combinatorics"
+    "combinatorics",
+    "lexicographic-order",
+    "dp-with-memoization"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047489,
     "pattern_confidence": {
-      "combinatorial-enumeration": 0.95,
-      "lexicographical-order": 0.9,
-      "dp-with-memoization": 0.85,
-      "combinatorics": 0.9
+      "combinatorics": 0.95,
+      "lexicographic-order": 0.9,
+      "dp-with-memoization": 0.85
     }
   },
   "difficulty": 966

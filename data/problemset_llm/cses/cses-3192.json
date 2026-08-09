@@ -13,7 +13,7 @@
   ],
   "patterns": [
     "basis-of-vector-space",
-    "binary-trie",
+    "trie",
     "prefix-xor"
   ],
   "annotation": {
@@ -22,7 +22,7 @@
     "generated_at_unix": 1777951935,
     "pattern_confidence": {
       "basis-of-vector-space": 0.95,
-      "binary-trie": 0.85,
+      "trie": 0.85,
       "prefix-xor": 0.8
     }
   }

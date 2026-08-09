@@ -9,24 +9,20 @@
   "statement": "Given a string, find all lengths of prefixes that can generate the entire string by repeated concatenation (periods).",
   "tags": [
     "string",
-    "prefix-function",
+    "kmp",
     "string-matching"
   ],
   "patterns": [
-    "prefix-function",
-    "knuth-morris-pratt",
-    "string-period",
-    "kmp"
+    "kmp",
+    "string-period"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951749,
     "pattern_confidence": {
-      "prefix-function": 0.98,
-      "knuth-morris-pratt": 0.95,
-      "string-period": 0.9,
-      "kmp": 0.9
+      "kmp": 0.98,
+      "string-period": 0.9
     }
   }
 }

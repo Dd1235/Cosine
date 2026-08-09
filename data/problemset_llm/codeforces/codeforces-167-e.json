@@ -27,7 +27,7 @@
     "inclusion-exclusion",
     "counting",
     "perfect-matching",
-    "parity-check",
+    "parity-argument",
     "hafnian"
   ],
   "annotation": {
@@ -40,7 +40,7 @@
       "inclusion-exclusion": 0.85,
       "counting": 0.9,
       "perfect-matching": 0.9,
-      "parity-check": 0.85,
+      "parity-argument": 0.85,
       "hafnian": 0.95
     }
   }

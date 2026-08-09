@@ -20,8 +20,8 @@
   ],
   "patterns": [
     "dp-on-string",
-    "lexicographic-comparison",
-    "prefix-computation"
+    "lexicographic-order",
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +29,8 @@
     "generated_at_unix": 1777923843,
     "pattern_confidence": {
       "dp-on-string": 0.98,
-      "lexicographic-comparison": 0.9,
-      "prefix-computation": 0.85
+      "lexicographic-order": 0.9,
+      "prefix-sum": 0.85
     }
   }
 }

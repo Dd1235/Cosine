@@ -19,7 +19,6 @@
   "patterns": [
     "brute-force",
     "modular-arithmetic",
-    "digit-enumeration",
     "combinatorics"
   ],
   "annotation": {
@@ -27,9 +26,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050766,
     "pattern_confidence": {
-      "brute-force": 0.8,
+      "brute-force": 0.85,
       "modular-arithmetic": 0.9,
-      "digit-enumeration": 0.85,
       "combinatorics": 0.9
     }
   },

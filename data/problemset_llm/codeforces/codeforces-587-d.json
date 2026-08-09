@@ -22,7 +22,7 @@
     "two-sat",
     "binary-search",
     "maximum-matching",
-    "graph-construction",
+    "graph-modeling",
     "wqs-binary-search"
   ],
   "annotation": {
@@ -33,7 +33,7 @@
       "two-sat": 0.95,
       "binary-search": 0.9,
       "maximum-matching": 0.85,
-      "graph-construction": 0.8,
+      "graph-modeling": 0.8,
       "wqs-binary-search": 0.95
     }
   }

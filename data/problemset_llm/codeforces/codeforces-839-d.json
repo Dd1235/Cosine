@@ -20,7 +20,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "gcd-computation",
+    "gcd",
     "dp-on-subsequences",
     "modular-arithmetic",
     "inclusion-exclusion"
@@ -30,7 +30,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050404,
     "pattern_confidence": {
-      "gcd-computation": 0.95,
+      "gcd": 0.95,
       "dp-on-subsequences": 0.9,
       "modular-arithmetic": 0.85,
       "inclusion-exclusion": 0.8

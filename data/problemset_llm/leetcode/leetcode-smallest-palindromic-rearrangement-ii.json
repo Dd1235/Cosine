@@ -24,7 +24,7 @@
   "patterns": [
     "lexicographic-enumeration",
     "combinatorial-ranking",
-    "prefix-counting"
+    "counting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "lexicographic-enumeration": 0.95,
       "combinatorial-ranking": 0.9,
-      "prefix-counting": 0.85
+      "counting": 0.85
     }
   }
 }

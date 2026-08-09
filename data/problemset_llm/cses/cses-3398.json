@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "cycle-decomposition",
-    "lcm",
+    "gcd",
     "modular-arithmetic"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1777951687,
     "pattern_confidence": {
       "cycle-decomposition": 0.98,
-      "lcm": 0.95,
+      "gcd": 0.95,
       "modular-arithmetic": 0.9
     }
   }

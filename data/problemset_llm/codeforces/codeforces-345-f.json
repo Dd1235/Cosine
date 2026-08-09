@@ -13,7 +13,7 @@
   "tags": [
     "string",
     "hash-map",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "case-insensitive-comparison",

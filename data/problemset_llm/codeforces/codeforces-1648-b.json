@@ -21,7 +21,7 @@
   "patterns": [
     "brute-force",
     "constructive-algorithm",
-    "hash-set"
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "brute-force": 0.9,
       "constructive-algorithm": 0.85,
-      "hash-set": 0.8
+      "hash-map": 0.8
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

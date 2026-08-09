@@ -21,7 +21,6 @@
   ],
   "patterns": [
     "eulerian-path",
-    "hierholzer-algorithm",
     "dfs"
   ],
   "annotation": {
@@ -30,7 +29,6 @@
     "generated_at_unix": 1777924273,
     "pattern_confidence": {
       "eulerian-path": 0.98,
-      "hierholzer-algorithm": 0.95,
       "dfs": 0.9
     }
   }

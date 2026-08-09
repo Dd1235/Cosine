@@ -13,14 +13,13 @@
   "statement": "Given tables of movies, users, and movie ratings with timestamps, find the user who rated the most movies (lexicographically smallest if tie) and the movie with the highest average rating in February 2020 (lexicographically smallest if tie).",
   "tags": [
     "database",
-    "aggregation",
+    "counting",
     "string",
     "sorting"
   ],
   "patterns": [
-    "group-by",
-    "aggregation",
-    "lexicographical-order",
+    "counting",
+    "lexicographic-order",
     "filtering"
   ],
   "annotation": {
@@ -28,9 +27,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909626,
     "pattern_confidence": {
-      "group-by": 0.95,
-      "aggregation": 0.95,
-      "lexicographical-order": 0.9,
+      "counting": 0.95,
+      "lexicographic-order": 0.9,
       "filtering": 0.9
     }
   }

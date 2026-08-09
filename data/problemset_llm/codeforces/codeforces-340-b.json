@@ -17,7 +17,7 @@
   ],
   "patterns": [
     "brute-force",
-    "polygon-area-calculation"
+    "polygon-area"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -25,7 +25,7 @@
     "generated_at_unix": 1785050508,
     "pattern_confidence": {
       "brute-force": 0.9,
-      "polygon-area-calculation": 0.85
+      "polygon-area": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

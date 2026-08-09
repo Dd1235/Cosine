@@ -19,7 +19,7 @@
     "counting"
   ],
   "patterns": [
-    "divisor-counting",
+    "divisor-enumeration",
     "range-query",
     "sieve"
   ],
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908615,
     "pattern_confidence": {
-      "divisor-counting": 0.95,
+      "divisor-enumeration": 0.95,
       "range-query": 0.7,
       "sieve": 0.6
     }

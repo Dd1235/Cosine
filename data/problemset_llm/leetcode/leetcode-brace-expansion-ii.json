@@ -20,13 +20,12 @@
     "string",
     "stack",
     "backtracking",
-    "hash-set"
+    "hash-map"
   ],
   "patterns": [
     "expression-parsing",
     "set-union",
-    "cartesian-product",
-    "stack-based-evaluation"
+    "cartesian-product"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,8 +34,7 @@
     "pattern_confidence": {
       "expression-parsing": 0.98,
       "set-union": 0.95,
-      "cartesian-product": 0.93,
-      "stack-based-evaluation": 0.9
+      "cartesian-product": 0.93
     }
   }
 }

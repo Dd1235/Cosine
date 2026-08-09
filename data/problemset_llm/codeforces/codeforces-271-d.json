@@ -20,7 +20,7 @@
   "patterns": [
     "sliding-window",
     "two-pointers",
-    "hash-set",
+    "hash-map",
     "trie"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "sliding-window": 0.9,
       "two-pointers": 0.85,
-      "hash-set": 0.8,
+      "hash-map": 0.8,
       "trie": 0.9
     }
   },

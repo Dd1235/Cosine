@@ -17,7 +17,7 @@
     "arithmetic"
   ],
   "patterns": [
-    "parsing",
+    "expression-parsing",
     "simulation"
   ],
   "annotation": {
@@ -25,7 +25,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050035,
     "pattern_confidence": {
-      "parsing": 0.9,
+      "expression-parsing": 0.9,
       "simulation": 0.7
     }
   },

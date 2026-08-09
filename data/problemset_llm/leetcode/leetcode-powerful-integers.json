@@ -19,16 +19,16 @@
     "hash-map"
   ],
   "patterns": [
-    "brute-force-enumeration",
-    "hash-set"
+    "brute-force",
+    "hash-map"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909692,
     "pattern_confidence": {
-      "brute-force-enumeration": 0.95,
-      "hash-set": 0.9
+      "brute-force": 0.95,
+      "hash-map": 0.9
     }
   }
 }

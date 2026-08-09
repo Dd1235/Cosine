@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "expression-evaluation"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "generated_at_unix": 1785224335,
     "pattern_confidence": {
       "greedy": 0.85,
-      "expression-evaluation": 0.7
+      "expression-parsing": 0.7
     }
   }
 }

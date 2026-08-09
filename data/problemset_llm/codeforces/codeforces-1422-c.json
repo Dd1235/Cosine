@@ -20,7 +20,7 @@
   "patterns": [
     "prefix-sum",
     "modular-arithmetic",
-    "combinatorial-sum"
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "prefix-sum": 0.9,
       "modular-arithmetic": 0.95,
-      "combinatorial-sum": 0.85
+      "combinatorics": 0.85
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

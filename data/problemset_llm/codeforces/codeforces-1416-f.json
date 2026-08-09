@@ -22,7 +22,7 @@
     "bipartite-matching"
   ],
   "patterns": [
-    "graph-construction",
+    "graph-modeling",
     "strongly-connected-components",
     "greedy",
     "dfs"
@@ -32,7 +32,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050653,
     "pattern_confidence": {
-      "graph-construction": 0.9,
+      "graph-modeling": 0.9,
       "strongly-connected-components": 0.85,
       "greedy": 0.7,
       "dfs": 0.8

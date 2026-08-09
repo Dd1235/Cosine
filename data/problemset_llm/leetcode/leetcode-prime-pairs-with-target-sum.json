@@ -23,7 +23,7 @@
   "patterns": [
     "sieve",
     "two-pointers",
-    "prime-checking"
+    "primality-test"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "sieve": 0.95,
       "two-pointers": 0.9,
-      "prime-checking": 0.9
+      "primality-test": 0.9
     }
   }
 }

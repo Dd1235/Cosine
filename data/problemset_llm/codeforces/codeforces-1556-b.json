@@ -18,7 +18,7 @@
   "patterns": [
     "greedy",
     "counting",
-    "parity-check"
+    "parity-argument"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +27,7 @@
     "pattern_confidence": {
       "greedy": 0.9,
       "counting": 0.8,
-      "parity-check": 0.7
+      "parity-argument": 0.7
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

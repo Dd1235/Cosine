@@ -14,7 +14,7 @@
   ],
   "patterns": [
     "interval-dp",
-    "minimax",
+    "game-theory",
     "game-dp"
   ],
   "annotation": {
@@ -23,7 +23,7 @@
     "generated_at_unix": 1785047450,
     "pattern_confidence": {
       "interval-dp": 0.98,
-      "minimax": 0.95,
+      "game-theory": 0.95,
       "game-dp": 0.93
     }
   }

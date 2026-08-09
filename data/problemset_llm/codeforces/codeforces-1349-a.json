@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "gcd",
-    "lcm",
     "pairwise-computation"
   ],
   "annotation": {
@@ -28,7 +27,6 @@
     "generated_at_unix": 1785050205,
     "pattern_confidence": {
       "gcd": 0.95,
-      "lcm": 0.95,
       "pairwise-computation": 0.8
     }
   },

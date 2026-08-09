@@ -16,7 +16,7 @@
     "constructive-algorithm"
   ],
   "patterns": [
-    "xor-properties",
+    "bit-manipulation",
     "constructive-algorithm"
   ],
   "annotation": {
@@ -24,7 +24,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050359,
     "pattern_confidence": {
-      "xor-properties": 0.95,
+      "bit-manipulation": 0.95,
       "constructive-algorithm": 0.9
     }
   },

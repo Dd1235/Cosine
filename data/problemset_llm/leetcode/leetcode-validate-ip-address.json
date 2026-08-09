@@ -13,7 +13,7 @@
   "statement": "Determine whether a given string is a valid IPv4 address, a valid IPv6 address, or neither based on specific formatting and value rules.",
   "tags": [
     "string",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "string-validation",

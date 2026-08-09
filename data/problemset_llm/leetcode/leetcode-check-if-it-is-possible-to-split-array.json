@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "prefix-sum",
-    "top-down-dp",
     "memoization"
   ],
   "annotation": {
@@ -28,8 +27,7 @@
     "generated_at_unix": 1784908869,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "top-down-dp": 0.85,
-      "memoization": 0.8
+      "memoization": 0.85
     }
   }
 }

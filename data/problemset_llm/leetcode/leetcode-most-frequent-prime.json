@@ -25,7 +25,7 @@
   ],
   "patterns": [
     "directional-enumeration",
-    "prime-checking",
+    "primality-test",
     "counting"
   ],
   "annotation": {
@@ -34,7 +34,7 @@
     "generated_at_unix": 1784909824,
     "pattern_confidence": {
       "directional-enumeration": 0.95,
-      "prime-checking": 0.9,
+      "primality-test": 0.9,
       "counting": 0.85
     }
   }

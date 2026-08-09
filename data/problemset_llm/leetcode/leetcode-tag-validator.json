@@ -15,11 +15,11 @@
   "tags": [
     "string",
     "stack",
-    "parsing"
+    "expression-parsing"
   ],
   "patterns": [
     "stack",
-    "parsing",
+    "expression-parsing",
     "tag-matching"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1777924208,
     "pattern_confidence": {
       "stack": 0.98,
-      "parsing": 0.95,
+      "expression-parsing": 0.95,
       "tag-matching": 0.9
     }
   }

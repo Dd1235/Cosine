@@ -19,7 +19,6 @@
   ],
   "patterns": [
     "lexicographic-enumeration",
-    "digit-enumeration",
     "brute-force"
   ],
   "annotation": {
@@ -28,8 +27,7 @@
     "generated_at_unix": 1785050305,
     "pattern_confidence": {
       "lexicographic-enumeration": 0.9,
-      "digit-enumeration": 0.85,
-      "brute-force": 0.8
+      "brute-force": 0.85
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

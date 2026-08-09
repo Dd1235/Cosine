@@ -18,7 +18,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "minimax",
+    "game-theory",
     "game-tree-search",
     "state-space-exploration",
     "memoization"
@@ -28,7 +28,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050391,
     "pattern_confidence": {
-      "minimax": 0.95,
+      "game-theory": 0.95,
       "game-tree-search": 0.9,
       "state-space-exploration": 0.85,
       "memoization": 0.7

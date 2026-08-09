@@ -12,24 +12,22 @@
   "tags": [
     "database",
     "sql",
-    "aggregation",
+    "counting",
     "date-time"
   ],
   "patterns": [
-    "group-by",
+    "counting",
     "window-functions",
-    "filtering",
-    "aggregation"
+    "filtering"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784909908,
     "pattern_confidence": {
-      "group-by": 0.95,
+      "counting": 0.95,
       "window-functions": 0.9,
-      "filtering": 0.85,
-      "aggregation": 0.9
+      "filtering": 0.85
     }
   }
 }

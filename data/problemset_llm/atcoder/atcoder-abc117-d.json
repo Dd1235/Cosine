@@ -13,9 +13,8 @@
     "greedy"
   ],
   "patterns": [
-    "bitwise-xor",
-    "greedy",
     "bit-manipulation",
+    "greedy",
     "contribution-technique"
   ],
   "annotation": {
@@ -23,9 +22,8 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047425,
     "pattern_confidence": {
-      "bitwise-xor": 0.98,
+      "bit-manipulation": 0.98,
       "greedy": 0.85,
-      "bit-manipulation": 0.8,
       "contribution-technique": 0.9
     }
   },

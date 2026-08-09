@@ -11,12 +11,12 @@
   "statement": "Identify customers who have made at least three orders, with at least 60% during specified peak hours, have rated at least half their orders, and have an average rating of at least 4.0, then return them ordered by average rating and customer ID.",
   "tags": [
     "database",
-    "aggregation",
+    "counting",
     "filtering",
     "datetime"
   ],
   "patterns": [
-    "group-by",
+    "counting",
     "conditional-aggregation",
     "filtering",
     "sorting"
@@ -26,7 +26,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908845,
     "pattern_confidence": {
-      "group-by": 0.98,
+      "counting": 0.98,
       "conditional-aggregation": 0.95,
       "filtering": 0.9,
       "sorting": 0.85

@@ -12,7 +12,7 @@
   "statement": "Given a string representing a simplified arithmetic expression, answer queries that ask whether a substring is a valid sub-expression and, if so, compute its value modulo 10^9+7 respecting operator precedence.",
   "tags": [
     "string",
-    "parsing",
+    "expression-parsing",
     "data-structure"
   ],
   "patterns": [

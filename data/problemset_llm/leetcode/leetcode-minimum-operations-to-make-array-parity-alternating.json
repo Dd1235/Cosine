@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "parity-check",
+    "parity-argument",
     "minimization"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1784908432,
     "pattern_confidence": {
       "greedy": 0.95,
-      "parity-check": 0.9,
+      "parity-argument": 0.9,
       "minimization": 0.85
     }
   }

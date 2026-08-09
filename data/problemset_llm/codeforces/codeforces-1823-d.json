@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "palindromic-substrings",
-    "prefix-processing",
+    "prefix-sum",
     "constructive-algorithm"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785050253,
     "pattern_confidence": {
       "palindromic-substrings": 0.95,
-      "prefix-processing": 0.85,
+      "prefix-sum": 0.85,
       "constructive-algorithm": 0.9
     }
   },

@@ -22,8 +22,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "expression-parsing",
-    "stack-based-evaluation"
+    "expression-parsing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,8 +30,7 @@
     "generated_at_unix": 1777923513,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "expression-parsing": 0.9,
-      "stack-based-evaluation": 0.85
+      "expression-parsing": 0.9
     }
   }
 }

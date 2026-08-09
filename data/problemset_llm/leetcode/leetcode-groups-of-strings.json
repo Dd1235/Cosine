@@ -24,7 +24,7 @@
   "patterns": [
     "bitmask-representation",
     "union-find",
-    "graph-construction"
+    "graph-modeling"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "bitmask-representation": 0.95,
       "union-find": 0.98,
-      "graph-construction": 0.9
+      "graph-modeling": 0.9
     }
   }
 }

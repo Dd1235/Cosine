@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "trie",
-    "prefix-counting",
+    "counting",
     "prefix-sum"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1777924185,
     "pattern_confidence": {
       "trie": 0.98,
-      "prefix-counting": 0.95,
+      "counting": 0.95,
       "prefix-sum": 0.85
     }
   }

@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "mex",
-    "bitwise-xor",
+    "bit-manipulation",
     "binary-search"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785051118,
     "pattern_confidence": {
       "mex": 0.95,
-      "bitwise-xor": 0.9,
+      "bit-manipulation": 0.9,
       "binary-search": 0.6
     }
   },

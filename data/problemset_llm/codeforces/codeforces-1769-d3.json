@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "game-tree-search",
-    "minimax",
+    "game-theory",
     "state-space-enumeration",
     "memoization"
   ],
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785050419,
     "pattern_confidence": {
       "game-tree-search": 0.95,
-      "minimax": 0.9,
+      "game-theory": 0.9,
       "state-space-enumeration": 0.85,
       "memoization": 0.8
     }

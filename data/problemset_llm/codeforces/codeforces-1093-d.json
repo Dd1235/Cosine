@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "dfs",
-    "bipartite-check",
+    "bipartite-graph",
     "modular-exponentiation"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785229985,
     "pattern_confidence": {
       "dfs": 0.95,
-      "bipartite-check": 0.98,
+      "bipartite-graph": 0.98,
       "modular-exponentiation": 0.9
     }
   }

@@ -19,7 +19,7 @@
   "patterns": [
     "dynamic-programming",
     "linear-recurrence",
-    "fast-exponentiation"
+    "modular-exponentiation"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "dynamic-programming": 0.9,
       "linear-recurrence": 0.7,
-      "fast-exponentiation": 0.6
+      "modular-exponentiation": 0.6
     }
   }
 }

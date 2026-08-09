@@ -17,18 +17,18 @@
     "graph"
   ],
   "patterns": [
-    "parity-check",
-    "graph-construction",
-    "bipartite-check"
+    "parity-argument",
+    "graph-modeling",
+    "bipartite-graph"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784910265,
     "pattern_confidence": {
-      "parity-check": 0.95,
-      "graph-construction": 0.85,
-      "bipartite-check": 0.8
+      "parity-argument": 0.95,
+      "graph-modeling": 0.85,
+      "bipartite-graph": 0.8
     }
   }
 }
