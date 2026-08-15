@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2042-d",
+  "title": "Recommendations",
+  "approach": "The predictors of i are the segments containing [l_i, r_i], and their intersection is [max l_j, min r_j] over those j — so the answer is (l_i - maxL) + (minR - r_i). Both extremes come from one sorted sweep each: sort by l ascending, r descending and every earlier segment already satisfies l_j <= l_i, so the smallest r_j >= r_i in a multiset of seen r's is minR; sort by r descending, l ascending and the largest l_j <= l_i in a multiset of seen l's is maxL. Two edge cases print 0: a duplicate segment (it is its own predictor, so the intersection is exactly [l, r]) and a user with no predictor at all.",
+  "techniques": [
+    {
+      "label": "line-sweep",
+      "confidence": 0.9,
+      "why": "each answer is computed from the segments already seen in a sorted order — the sweep IS the algorithm"
+    },
+    {
+      "label": "ordered-set",
+      "confidence": 0.9,
+      "why": "the multiset of seen endpoints, queried with lower_bound/upper_bound"
+    },
+    {
+      "label": "sorting",
+      "confidence": 0.95,
+      "why": "two different orders, (l asc, r desc) and (r desc, l asc), each making one containment condition automatic"
+    },
+    {
+      "label": "binary-search",
+      "confidence": 0.85,
+      "why": "lower_bound/upper_bound inside the multiset — plain binary search over a sorted container, NOT binary search on the answer"
+    },
+    {
+      "label": "two-pointers",
+      "confidence": 0.5,
+      "why": "Codeforces tags a two-pointer variant; the sorted sweep can be walked with pointers instead of a multiset"
+    }
+  ],
+  "verified": "not independently verified — the approach is the solution the maintainer supplied, read against the statement",
+  "reviewed_by": "human",
+  "reviewed_at": "2026-08-09"
+}

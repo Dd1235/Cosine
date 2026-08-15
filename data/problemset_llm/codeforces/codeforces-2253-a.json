@@ -30,5 +30,6 @@
       "case-analysis": 0.9,
       "brute-force": 0.7
     }
-  }
+  },
+  "difficulty": 800
 }

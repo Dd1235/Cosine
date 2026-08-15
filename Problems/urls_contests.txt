@@ -61,3 +61,6 @@ https://codeforces.com/problemset/problem/2254/D
 https://codeforces.com/problemset/problem/2254/E
 https://codeforces.com/problemset/problem/2254/F
 https://codeforces.com/problemset/problem/2254/G
+
+# Codeforces / Contest 2042
+https://codeforces.com/problemset/problem/2042/D

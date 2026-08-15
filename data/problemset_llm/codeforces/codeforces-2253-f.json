@@ -47,5 +47,6 @@
       "hitting-set": 0.65,
       "sos-dp": 0.45
     }
-  }
+  },
+  "difficulty": 2600
 }

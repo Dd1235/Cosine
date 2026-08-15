@@ -49,5 +49,6 @@
       "virtual-tree": 0.65,
       "tree-centroid": 0.8
     }
-  }
+  },
+  "difficulty": 2600
 }

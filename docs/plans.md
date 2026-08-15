@@ -93,15 +93,13 @@ only the uncertain ones. Problem-first is the expensive mistake — see §5.
 
 **Recurring, cheap, easy to forget.** `data/unrated_problems.json` is the
 worklist; `python3 scripts/refresh_cf_ratings.py --write` collects whatever has
-landed and rewrites the file.
+landed and rewrites it.
 
-20 problems are waiting as of 2026-08-09 (contests 2252/2253/2254). A problem
-with no rating is invisible to every difficulty filter, every sort and
-`my level` — so this is not cosmetic, it just fails quietly.
-
-Worth running weekly, alongside the contest ingest.
-
----
+Last run 2026-08-09: **all 20 waiting problems got their rating** (contests
+2252/2253/2254, 800 through 2600) and the queue is now empty. A problem with no
+rating is invisible to every difficulty filter, every sort and `my level`, so
+this fails quietly rather than loudly — worth running weekly alongside the
+contest ingest.
 
 ## 4. Contest ingest cadence
 

@@ -31,5 +31,6 @@
       "counting": 0.85,
       "simulation": 0.8
     }
-  }
+  },
+  "difficulty": 800
 }

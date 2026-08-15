@@ -31,5 +31,6 @@
       "invariant-maintenance": 0.9,
       "constructive-algorithm": 0.85
     }
-  }
+  },
+  "difficulty": 1700
 }
