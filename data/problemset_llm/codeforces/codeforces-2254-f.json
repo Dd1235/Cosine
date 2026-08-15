@@ -37,5 +37,6 @@
       "bit-manipulation": 0.95,
       "hash-map": 0.6
     }
-  }
+  },
+  "difficulty": 1900
 }

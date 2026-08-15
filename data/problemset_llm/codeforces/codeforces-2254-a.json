@@ -28,5 +28,6 @@
       "simulation": 0.95,
       "case-analysis": 0.85
     }
-  }
+  },
+  "difficulty": 800
 }

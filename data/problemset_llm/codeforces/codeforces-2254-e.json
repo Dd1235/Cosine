@@ -41,5 +41,6 @@
       "binary-search": 0.7,
       "constructive-algorithm": 0.5
     }
-  }
+  },
+  "difficulty": 1500
 }

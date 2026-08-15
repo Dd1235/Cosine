@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2042-d",
+  "title": "Recommendations",
+  "slug": "2042-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2042/D",
+  "source_topic": "Codeforces / Contest 2042",
+  "source_tags": [
+    "data structures",
+    "implementation",
+    "sortings",
+    "two pointers"
+  ],
+  "statement": "Each of n users likes a contiguous segment of tracks [l, r]. User j is a predictor for user i if j's segment contains i's segment. A track is strongly recommended for user i if every predictor likes it but user i does not. For each user, count the strongly recommended tracks — the intersection of all predictors' segments minus the user's own, or 0 when the user has no predictor.",
+  "tags": [
+    "interval",
+    "sorting",
+    "data-structure",
+    "geometry"
+  ],
+  "patterns": [
+    "sorting",
+    "line-sweep",
+    "ordered-set",
+    "multiset",
+    "binary-search",
+    "offline-queries",
+    "interval-union",
+    "two-pointers"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "human",
+    "generated_at_unix": 1786000000,
+    "pattern_confidence": {
+      "sorting": 0.95,
+      "line-sweep": 0.9,
+      "ordered-set": 0.9,
+      "multiset": 0.9,
+      "binary-search": 0.85,
+      "offline-queries": 0.75,
+      "interval-union": 0.6,
+      "two-pointers": 0.5
+    }
+  },
+  "difficulty": 1900
+}

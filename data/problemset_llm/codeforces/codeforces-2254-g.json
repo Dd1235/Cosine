@@ -48,5 +48,6 @@
       "exchange-argument": 0.6,
       "heap": 0.5
     }
-  }
+  },
+  "difficulty": 2200
 }

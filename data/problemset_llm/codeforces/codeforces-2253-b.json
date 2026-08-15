@@ -32,5 +32,6 @@
       "maximum-alternating-subsequence": 0.85,
       "brute-force": 0.7
     }
-  }
+  },
+  "difficulty": 1100
 }

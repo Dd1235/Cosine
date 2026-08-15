@@ -31,5 +31,6 @@
       "substring-replacement": 0.9,
       "bfs": 0.7
     }
-  }
+  },
+  "difficulty": 1200
 }

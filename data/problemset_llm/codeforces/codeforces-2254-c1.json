@@ -27,5 +27,6 @@
       "parity-invariant": 0.85,
       "simulation": 0.9
     }
-  }
+  },
+  "difficulty": 1000
 }

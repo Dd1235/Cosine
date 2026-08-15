@@ -33,5 +33,6 @@
       "string-processing": 0.9,
       "simulation": 0.85
     }
-  }
+  },
+  "difficulty": 1100
 }

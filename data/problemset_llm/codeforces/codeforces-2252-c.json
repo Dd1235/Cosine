@@ -35,5 +35,6 @@
       "row-wise-processing": 0.85,
       "min-removal-to-trigger-condition": 0.92
     }
-  }
+  },
+  "difficulty": 1400
 }

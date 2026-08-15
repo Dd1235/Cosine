@@ -33,5 +33,6 @@
       "distinct-values": 0.93,
       "matrix-operations": 0.9
     }
-  }
+  },
+  "difficulty": 1500
 }

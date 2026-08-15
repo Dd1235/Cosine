@@ -37,5 +37,6 @@
       "simulation": 0.9,
       "minimizing-euclidean-distance": 0.92
     }
-  }
+  },
+  "difficulty": 1800
 }
