@@ -103,10 +103,17 @@ contest ingest.
 
 ## 4. Contest ingest cadence
 
-**There is a skill for this now: `.claude/skills/add-contest/SKILL.md`.** Ask
-any session "add weekly contest 516" (or point codex at the file — it reads as a
-standalone brief). It covers all three judges, the Codeforces statement
-workaround, the two label traps, and the embed-in-the-same-commit rule.
+**Two skills cover this now**, both readable as standalone briefs so codex or
+another session can run them from a clone:
+
+- `.claude/skills/add-contest/SKILL.md` — a whole contest. Q1 skipping, the
+  pending queue, per-judge staging.
+- `.claude/skills/add-problem/SKILL.md` — one or a few problems, by URL or by
+  name, including the "here's my solution, no API calls" path and CSES, which
+  belongs to no contest.
+
+Both carry the Codeforces statement workaround, the two label traps, and the
+embed-in-the-same-commit rule.
 
 LeetCode weeklies are Sundays, biweeklies alternate Saturdays.
 
