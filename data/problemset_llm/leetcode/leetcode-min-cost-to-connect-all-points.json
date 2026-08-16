@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
   "source_topic": "LeetCode / Minimum Spanning Tree (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 71.5,
+  "acceptance_rate": 71.6,
   "source_tags": [
     "array",
     "union-find",

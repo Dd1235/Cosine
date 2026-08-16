@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/non-overlapping-intervals/",
   "source_topic": "LeetCode / Intervals and Geometry",
   "difficulty": "Medium",
-  "acceptance_rate": 57.5,
+  "acceptance_rate": 57.6,
   "source_tags": [
     "array",
     "dynamic-programming",

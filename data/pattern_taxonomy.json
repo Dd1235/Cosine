@@ -897,7 +897,13 @@
     "class-design": "design",
     "api-design": "design",
     "dag-dp": "dp-on-dag",
-    "fast-exponentiation": "modular-exponentiation"
+    "fast-exponentiation": "modular-exponentiation",
+    "tsp": "hamiltonian-dp",
+    "traveling-salesman": "hamiltonian-dp",
+    "traveling-salesman-problem": "hamiltonian-dp",
+    "travelling-salesman": "hamiltonian-dp",
+    "travelling-salesman-problem": "hamiltonian-dp",
+    "held-karp": "hamiltonian-dp"
   },
   "groups": {
     "range-queries": {

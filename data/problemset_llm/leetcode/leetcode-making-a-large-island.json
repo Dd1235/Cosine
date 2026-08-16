@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/making-a-large-island/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 57.0,
+  "acceptance_rate": 57.1,
   "source_tags": [
     "array",
     "depth-first-search",

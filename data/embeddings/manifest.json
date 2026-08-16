@@ -3,7 +3,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3462,
+  "count": 3468,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -314,6 +314,8 @@
     "leetcode-earliest-second-to-mark-indices-ii",
     "leetcode-eat-pizzas",
     "leetcode-edit-distance",
+    "leetcode-elevator-requests-ii",
+    "leetcode-elevator-requests-iii",
     "leetcode-elimination-game",
     "leetcode-encode-and-decode-tinyurl",
     "leetcode-encrypt-and-decrypt-strings",
@@ -523,6 +525,7 @@
     "leetcode-k-inverse-pairs-array",
     "leetcode-k-radius-subarray-averages",
     "leetcode-k-similar-strings",
+    "leetcode-k-th-digit-in-infinite-string",
     "leetcode-k-th-nearest-obstacle-queries",
     "leetcode-k-th-smallest-in-lexicographical-order",
     "leetcode-k-th-smallest-remaining-even-integer-in-subarray-queries",
@@ -701,6 +704,7 @@
     "leetcode-maximum-frequency-of-an-element-after-performing-operations-ii",
     "leetcode-maximum-frequency-stack",
     "leetcode-maximum-fruits-harvested-after-at-most-k-steps",
+    "leetcode-maximum-gap-between-stations",
     "leetcode-maximum-gap",
     "leetcode-maximum-genetic-difference-query",
     "leetcode-maximum-good-people-based-on-statements",
@@ -853,6 +857,7 @@
     "leetcode-minimize-the-maximum-adjacent-element-difference",
     "leetcode-minimize-the-maximum-edge-weight-of-graph",
     "leetcode-minimize-the-maximum-of-two-arrays",
+    "leetcode-minimize-the-maximum-waiting-time-at-synchronized-traffic-lights",
     "leetcode-minimize-the-total-price-of-the-trips",
     "leetcode-minimum-absolute-difference-between-elements-with-constraint",
     "leetcode-minimum-absolute-difference-queries",
@@ -982,6 +987,7 @@
     "leetcode-minimum-operations-to-exceed-threshold-value-ii",
     "leetcode-minimum-operations-to-form-subsequence-with-target-sum",
     "leetcode-minimum-operations-to-halve-array-sum",
+    "leetcode-minimum-operations-to-make-a-rotated-palindrome-i",
     "leetcode-minimum-operations-to-make-a-special-number",
     "leetcode-minimum-operations-to-make-a-subsequence",
     "leetcode-minimum-operations-to-make-all-array-elements-equal",
@@ -3470,7 +3476,7 @@
     "atcoder-dp-x",
     "atcoder-dp-y"
   ],
-  "corpusHash": "afa0c29b71b1011d9b9d8b50c5150ece951819f6b969caf42c7c3d699ad6d825",
+  "corpusHash": "2295fe44986b7d83a0a6088a4e779754bdf01950f468c53ea570746e87d0a169",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-08-15T10:50:24.200Z"
+  "createdAt": "2026-08-16T18:59:12.613Z"
 }

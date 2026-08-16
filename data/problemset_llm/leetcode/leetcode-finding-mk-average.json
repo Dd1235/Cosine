@@ -19,7 +19,8 @@
     "data-structure",
     "queue",
     "ordered-set",
-    "heap"
+    "heap",
+    "design"
   ],
   "patterns": [
     "sliding-window",

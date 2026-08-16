@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/booking-concert-tickets-in-groups/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 20.0,
+  "acceptance_rate": 20.1,
   "source_tags": [
     "binary-search",
     "design",
@@ -18,7 +18,8 @@
     "array",
     "segment-tree",
     "fenwick-tree",
-    "data-structure"
+    "data-structure",
+    "design"
   ],
   "patterns": [
     "segment-tree",

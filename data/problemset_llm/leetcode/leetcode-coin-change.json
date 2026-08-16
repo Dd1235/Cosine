@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/coin-change/",
   "source_topic": "LeetCode / Dynamic Programming",
   "difficulty": "Medium",
-  "acceptance_rate": 48.9,
+  "acceptance_rate": 49.0,
   "source_tags": [
     "array",
     "dynamic-programming",

@@ -14,7 +14,8 @@
   "statement": "Simulate a robot moving on a bounded grid starting at (0,0) facing East, turning 90 degrees counterclockwise when hitting boundaries, and track its position and direction after a sequence of step commands.",
   "tags": [
     "simulation",
-    "geometry"
+    "geometry",
+    "design"
   ],
   "patterns": [
     "simulation",

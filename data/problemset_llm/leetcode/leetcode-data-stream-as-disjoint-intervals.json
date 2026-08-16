@@ -19,7 +19,8 @@
   "tags": [
     "data-structure",
     "ordered-set",
-    "intervals"
+    "intervals",
+    "design"
   ],
   "patterns": [
     "binary-search",

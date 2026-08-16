@@ -17,7 +17,8 @@
     "data-structure",
     "interval",
     "ordered-set",
-    "segment-tree"
+    "segment-tree",
+    "design"
   ],
   "patterns": [
     "interval-union",

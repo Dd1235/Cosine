@@ -17,7 +17,8 @@
   "tags": [
     "array",
     "prefix-sum",
-    "binary-search"
+    "binary-search",
+    "design"
   ],
   "patterns": [
     "prefix-sum",

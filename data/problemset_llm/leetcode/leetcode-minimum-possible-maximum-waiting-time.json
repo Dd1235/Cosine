@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-possible-maximum-waiting-time/",
   "source_topic": "LeetCode / Biweekly Contest 188",
   "difficulty": "Hard",
-  "acceptance_rate": 28.5,
+  "acceptance_rate": 29.0,
   "source_tags": [],
   "statement": "Given demands for cars and two fuel dispensers with limited fuel, assign cars to dispensers in order to maximize the number of cars served and minimize the maximum waiting time among them.",
   "tags": [

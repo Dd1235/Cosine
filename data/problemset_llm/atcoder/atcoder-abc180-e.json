@@ -15,7 +15,7 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "traveling-salesman-problem"
+    "hamiltonian-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "bitmask-dp": 0.98,
       "state-compression": 0.95,
-      "traveling-salesman-problem": 0.97
+      "hamiltonian-dp": 0.97
     }
   },
   "difficulty": 1256

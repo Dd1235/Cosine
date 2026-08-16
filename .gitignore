@@ -3,6 +3,12 @@ node_modules
 !.gitignore
 !.env.example
 !.dockerignore
+# The skill travels with the repo so another session — or a clone — can
+# run it. Everything else under .claude is local state.
+!.claude
+.claude/*
+!.claude/skills
+!.claude/skills/**
 docs/implementation
 __pycache__/
 data/formwise.xlsx

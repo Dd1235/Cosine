@@ -64,3 +64,13 @@ https://codeforces.com/problemset/problem/2254/G
 
 # Codeforces / Contest 2042
 https://codeforces.com/problemset/problem/2042/D
+
+# LeetCode / Biweekly Contest 189
+https://leetcode.com/problems/minimum-operations-to-make-a-rotated-palindrome-i/
+https://leetcode.com/problems/k-th-digit-in-infinite-string/
+https://leetcode.com/problems/elevator-requests-ii/
+
+# LeetCode / Weekly Contest 515
+https://leetcode.com/problems/minimize-the-maximum-waiting-time-at-synchronized-traffic-lights/
+https://leetcode.com/problems/maximum-gap-between-stations/
+https://leetcode.com/problems/elevator-requests-iii/

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/",
   "source_topic": "LeetCode / Weekly Contest 514",
   "difficulty": "Medium",
-  "acceptance_rate": 35.2,
+  "acceptance_rate": 40.5,
   "source_tags": [],
   "statement": "Given a binary matrix, find the largest possible area of two non-overlapping square submatrices of equal size, each covering only cells with value 1.",
   "tags": [

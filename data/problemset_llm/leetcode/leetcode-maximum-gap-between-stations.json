@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-maximum-gap-between-stations",
+  "title": "Maximum Gap Between Stations",
+  "slug": "maximum-gap-between-stations",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximum-gap-between-stations/",
+  "source_topic": "LeetCode / Weekly Contest 515",
+  "source_tags": [],
+  "statement": "Given a string skill of worker skills and a string station of station skills, every worker must be given a distinct station carrying the same letter, and the chosen station indices must strictly increase in worker order - so the assignment is exactly an embedding of skill as a subsequence of station. The gap of an assignment is the largest difference between the station indices of two consecutive workers, and is 0 when there is only one worker. Return the maximum gap achievable over all valid assignments.",
+  "tags": [
+    "string",
+    "greedy",
+    "two-pointers"
+  ],
+  "patterns": [
+    "greedy",
+    "two-pointers",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1786924800,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "two-pointers": 0.85,
+      "binary-search": 0.55
+    }
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 53.3
+}

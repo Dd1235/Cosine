@@ -1,0 +1,50 @@
+{
+  "id": "leetcode-elevator-requests-ii",
+  "title": "Elevator Requests II",
+  "approach": "The elevator cannot pass a floor without fulfilling it, so the set of served requests is always a contiguous run of the sorted floors containing start, and the elevator stands at one of its two ends. Sort the requested floors together with start and run an interval DP over dp[i][j][e] = min penalty once exactly pts[i..j] is served with the car at the left (e=0) or right (e=1) end, extending to i-1 or j+1. The clock never enters the state: total penalty = sum over seconds of the number of still-unfulfilled requests, so walking a distance dist while rem = m - (#requests inside [i,j]) are outstanding contributes exactly dist*rem. O(m^2) states, m <= 1500.",
+  "techniques": [
+    {
+      "label": "interval-dp",
+      "confidence": 0.95,
+      "why": "states are contiguous intervals of the sorted floors grown outward from start, with the endpoint the car sits on"
+    },
+    {
+      "label": "dynamic-programming",
+      "confidence": 0.92,
+      "why": "family label for interval-dp; both the specific and the family name are real queries"
+    },
+    {
+      "label": "contribution-technique",
+      "confidence": 0.78,
+      "why": "sum-of-times is re-expressed as distance x (number still unfulfilled), which is what removes absolute time from the state"
+    },
+    {
+      "label": "sorting",
+      "confidence": 0.8,
+      "why": "floors must be sorted before the interval structure exists"
+    },
+    {
+      "label": "bitmask-dp",
+      "confidence": 0.02,
+      "why": "REJECTED: m <= 1500 makes 2^m impossible. This is the trap that separates II from Elevator Requests III (<= 16 requests), which really is bitmask-dp"
+    },
+    {
+      "label": "state-compression",
+      "confidence": 0.02,
+      "why": "REJECTED: no set is packed into an integer; the DP merely has two-dimensional states"
+    },
+    {
+      "label": "greedy",
+      "confidence": 0.05,
+      "why": "REJECTED: nearest-first is not optimal -- example 1 (start 4, requests [1,5]) needs the short side first, but example 3 shows the choice depends on how many requests lie behind each side"
+    },
+    {
+      "label": "coordinate-compression",
+      "confidence": 0.35,
+      "why": "borderline, left out of patterns: floors up to 1e9 are indexed by sorted rank, but that is an artefact of sorting rather than a compression step"
+    }
+  ],
+  "verified": "python3 brute force. Checked against two independent ground truths: (a) all-permutations of the fulfilment order with the clock as cumulative walked distance, on 4000 random cases with n <= 14, m <= 7, plus 1500 sparse cases with floors up to 1e6 and n = 1e9; (b) a second-by-second BFS over (floor, served-mask) that lets the car move up/down/stay and accrues one penalty per outstanding request per second, assuming nothing about visiting order, on 600 random cases. All agree. Statement examples reproduced exactly: 6, 10, 22. m=1500 runs in 0.6s.",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-17"
+}

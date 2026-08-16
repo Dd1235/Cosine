@@ -18,7 +18,8 @@
     "data-structure",
     "math",
     "modular-arithmetic",
-    "segment-tree"
+    "segment-tree",
+    "design"
   ],
   "patterns": [
     "lazy-propagation",

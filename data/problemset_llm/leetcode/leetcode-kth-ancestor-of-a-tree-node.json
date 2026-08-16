@@ -20,7 +20,8 @@
   "tags": [
     "tree",
     "binary-lifting",
-    "dynamic-programming"
+    "dynamic-programming",
+    "design"
   ],
   "patterns": [
     "binary-lifting",

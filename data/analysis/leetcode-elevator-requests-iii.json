@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-elevator-requests-iii",
+  "title": "Elevator Requests III",
+  "approach": "requests.length <= 16 with n up to 1e9 means the floors are irrelevant and the order of fulfilment is the state: Held-Karp over subsets, dp[mask][i] = earliest time the set mask is done with request i fulfilled last, transitioning dp[mask | 1<<j][j] = max(dp[mask][i] + |floor_i - floor_j|, arrival_j) - the max is the idle-until-arrival wait. Answer is min over i of dp[full][i]; O(2^k * k^2) = ~16.7M.",
+  "techniques": [
+    {
+      "label": "bitmask-dp",
+      "confidence": 0.95,
+      "why": "k <= 16 and the state is the subset of already-fulfilled requests packed into an integer"
+    },
+    {
+      "label": "hamiltonian-dp",
+      "confidence": 0.8,
+      "why": "it is literally a TSP-path / Held-Karp DP - visit all k nodes once, cost |floor_i - floor_j|, with an arrival-time release date per node"
+    },
+    {
+      "label": "dynamic-programming",
+      "confidence": 0.9,
+      "why": "family label so the obvious query still finds it; with_families would append it anyway"
+    },
+    {
+      "label": "state-compression",
+      "confidence": 0.35,
+      "why": "REJECTED as redundant - it is true in the strict sense (a visited SET is packed into an integer, not merely 'the dp has states'), but bitmask-dp already names that exact thing, and this is the pairing the v76 audit stripped from 90 problems as filler"
+    },
+    {
+      "label": "interval-scheduling",
+      "confidence": 0.2,
+      "why": "REJECTED - release times look schedule-ish, but there is no greedy order: sorting by arrival loses to travel distance and vice versa, which is why the subset DP is needed at all"
+    }
+  ],
+  "verified": "python3, two independent brute forces. (1) permutation brute force over all k! fulfilment orders. (2) a ground-truth BFS over (time, floor, mask) that steps one second at a time with up/down/stay and assumes NO ordering structure whatsoever - this is what proves the permutation model is complete, i.e. that passing a floor en route or coming back later is already covered by some order. All three agreed on the 3 samples (9, 7, 8) and on 3000 random cases (n<=7, k<=5, arrivals 0..12), 0 mismatches.",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-17"
+}
