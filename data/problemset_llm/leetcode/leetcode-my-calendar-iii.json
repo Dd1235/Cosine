@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/my-calendar-iii/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 72.1,
+  "acceptance_rate": 72.2,
   "source_tags": [
     "binary-search",
     "design",
@@ -19,7 +19,8 @@
     "data-structure",
     "segment-tree",
     "ordered-set",
-    "intervals"
+    "intervals",
+    "design"
   ],
   "patterns": [
     "line-sweep",

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 43,
+  "acceptance_rate": 43.1,
   "source_tags": [
     "dynamic-programming"
   ],

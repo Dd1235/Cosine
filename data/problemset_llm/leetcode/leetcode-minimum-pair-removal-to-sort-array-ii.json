@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-pair-removal-to-sort-array-ii/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 38.9,
+  "acceptance_rate": 38.8,
   "source_tags": [
     "array",
     "hash-table",
@@ -22,7 +22,8 @@
     "heap",
     "greedy",
     "simulation",
-    "ordered-set"
+    "ordered-set",
+    "linked-list"
   ],
   "patterns": [
     "heap",

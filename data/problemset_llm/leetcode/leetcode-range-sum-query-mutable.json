@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/range-sum-query-mutable/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 43.5,
+  "acceptance_rate": 43.6,
   "source_tags": [
     "array",
     "divide-and-conquer",
@@ -19,7 +19,8 @@
     "array",
     "data-structure",
     "segment-tree",
-    "fenwick-tree"
+    "fenwick-tree",
+    "design"
   ],
   "patterns": [
     "segment-tree",

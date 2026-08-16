@@ -1,0 +1,34 @@
+{
+  "id": "leetcode-minimum-operations-to-make-a-rotated-palindrome-i",
+  "title": "Minimum Operations to Make a Rotated Palindrome I",
+  "slug": "minimum-operations-to-make-a-rotated-palindrome-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-make-a-rotated-palindrome-i/",
+  "source_topic": "LeetCode / Biweekly Contest 189",
+  "source_tags": [],
+  "statement": "You are given a lowercase string and may repeatedly apply either of two operations, each costing one move: increment a chosen character to the next letter of the alphabet, wrapping from z back to a, or left-rotate the whole string by moving its first character to the end. Both operations may be used any number of times, including zero, and in any order. Return the minimum total number of operations required to make the string a palindrome.",
+  "tags": [
+    "string",
+    "math",
+    "brute-force"
+  ],
+  "patterns": [
+    "brute-force",
+    "palindrome",
+    "modular-arithmetic",
+    "two-pointers"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1786924800,
+    "pattern_confidence": {
+      "brute-force": 0.92,
+      "palindrome": 0.9,
+      "modular-arithmetic": 0.82,
+      "two-pointers": 0.6
+    }
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 63.5
+}

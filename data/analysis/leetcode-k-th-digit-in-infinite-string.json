@@ -1,0 +1,40 @@
+{
+  "id": "leetcode-k-th-digit-in-infinite-string",
+  "title": "K-th Digit in Infinite String",
+  "approach": "Key observation: every number in block b (b >= 1) spans 10b..10b+9, which all share the same leading digits, so they all have d = len(str(10*b)) digits and the block is exactly 10*d characters long -- reversed in place when b is odd, which changes the order but never the length. Block 0 is the special case, contributing only 1..9 (9 digits). Blocks sharing a given d are exactly b in [10^(d-2), 10^(d-1)-1], i.e. 9*10^(d-2) blocks totalling 90*d*10^(d-2) digits, so subtract whole d-groups from k in O(log k), then land on block b = 10^(d-2) + off/(10d), pick the number at index off/d within it (counting backwards if b is odd), and read digit off%d.",
+  "techniques": [
+    {
+      "label": "counting",
+      "confidence": 0.88,
+      "why": "the whole solution is counting digits per block and per digit-length group to locate k without materialising the string"
+    },
+    {
+      "label": "binary-search",
+      "confidence": 0.7,
+      "why": "genuine alternative route: lower_bound for the smallest block index B with prefix_len(B) >= k on the monotone closed-form prefix length; implemented and cross-checked"
+    },
+    {
+      "label": "binary-search-answer",
+      "confidence": 0.05,
+      "why": "REJECTED: the binary search is a lower_bound on a monotone prefix-length function over block indices, not a feasibility predicate over the answer space (the answer is a digit)"
+    },
+    {
+      "label": "digit-dp",
+      "confidence": 0.02,
+      "why": "REJECTED: 'digits' appear but there is no DP over digit positions with tight/loose state; it is direct positional arithmetic"
+    },
+    {
+      "label": "simulation",
+      "confidence": 0.02,
+      "why": "REJECTED: k up to 1e15 is precisely what rules simulation out"
+    },
+    {
+      "label": "prefix-sum",
+      "confidence": 0.4,
+      "why": "borderline, left out of patterns: the cumulative block length is a prefix sum, but it is evaluated in closed form rather than stored as an array"
+    }
+  ],
+  "verified": "python3 brute force. Built the string literally off the statement and compared every k from 1 to 300000 against the O(log k) formula -- all match. Independently implemented the binary-search-on-prefix-length variant and cross-checked it against the built string for k <= 20000 and against the group-skip method on 4000 random k up to 1e15 plus the boundaries 1, 9, 10, 1e15. Statement examples reproduced: k=4 -> 4, k=15 -> 7, k=11 -> 9, and the prefix string matches \"123456789\" + \"19181716151413121110\" + \"2021...\". k=10^15 -> 2.",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-17"
+}

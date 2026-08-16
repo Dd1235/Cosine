@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-integers-in-intervals/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 36.1,
+  "acceptance_rate": 36.2,
   "source_tags": [
     "design",
     "segment-tree",
@@ -17,7 +17,8 @@
     "data-structure",
     "interval",
     "ordered-set",
-    "segment-tree"
+    "segment-tree",
+    "design"
   ],
   "patterns": [
     "interval-union",

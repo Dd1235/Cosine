@@ -17,7 +17,8 @@
   "tags": [
     "hash-map",
     "string",
-    "binary-search"
+    "binary-search",
+    "design"
   ],
   "patterns": [
     "binary-search",

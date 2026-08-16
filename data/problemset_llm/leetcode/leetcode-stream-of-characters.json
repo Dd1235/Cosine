@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/stream-of-characters/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 52.7,
+  "acceptance_rate": 52.8,
   "source_tags": [
     "array",
     "string",
@@ -19,7 +19,8 @@
     "string",
     "trie",
     "data-structure",
-    "stream"
+    "stream",
+    "design"
   ],
   "patterns": [
     "trie",

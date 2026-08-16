@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/longest-subsequence-with-non-zero-bitwise-xor/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 37.6,
+  "acceptance_rate": 55.2,
   "source_tags": [
     "array",
     "bit-manipulation"

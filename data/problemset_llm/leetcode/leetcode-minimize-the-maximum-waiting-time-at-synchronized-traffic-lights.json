@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-minimize-the-maximum-waiting-time-at-synchronized-traffic-lights",
+  "title": "Minimize the Maximum Waiting Time at Synchronized Traffic Lights",
+  "slug": "minimize-the-maximum-waiting-time-at-synchronized-traffic-lights",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimize-the-maximum-waiting-time-at-synchronized-traffic-lights/",
+  "source_topic": "LeetCode / Weekly Contest 515",
+  "source_tags": [],
+  "statement": "Every traffic light shares one synchronized cycle of period seconds, and light i is green for the first lights[i] seconds of each cycle. A car arriving at time t and assigned to light i waits 0 seconds if t % period is below that light's green duration, and period - (t % period) seconds otherwise. Cars never block one another and any number of them may be assigned to the same light. Return the smallest possible value of the largest waiting time over all cars.",
+  "tags": [
+    "array",
+    "math",
+    "greedy"
+  ],
+  "patterns": [
+    "greedy",
+    "modular-arithmetic"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1786924800,
+    "pattern_confidence": {
+      "greedy": 0.88,
+      "modular-arithmetic": 0.72
+    }
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 63.0
+}

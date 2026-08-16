@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximize-total-cost-of-alternating-subarrays/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 30.0,
+  "acceptance_rate": 29.8,
   "source_tags": [
     "array",
     "dynamic-programming"

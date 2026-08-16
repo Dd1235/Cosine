@@ -1,0 +1,40 @@
+{
+  "id": "leetcode-minimum-operations-to-make-a-rotated-palindrome-i",
+  "title": "Minimum Operations to Make a Rotated Palindrome I",
+  "approach": "Rotations only permute and increments only add, so the two commute and any solution is 'rotate left r times, then increment': cost = r + palcost(rot_r(s)), and only r in [0, n-1] can be optimal. For a fixed rotation the mirrored pairs are independent, and a pair (a,b) costs the CYCLIC distance min((b-a)%26, (a-b)%26) -- meeting at any third letter x costs (x-a)%26 + (x-b)%26, which is 26-d for x below b and d at x=b, so raising one side to the other is always optimal. Try all n rotations: O(n^2), trivial at n <= 2000.",
+  "techniques": [
+    {
+      "label": "brute-force",
+      "confidence": 0.92,
+      "why": "n <= 2000 invites enumerating all n rotations and scoring each in O(n)"
+    },
+    {
+      "label": "palindrome",
+      "confidence": 0.9,
+      "why": "the target condition; cost decomposes over the (i, n-1-i) mirrored pairs"
+    },
+    {
+      "label": "modular-arithmetic",
+      "confidence": 0.82,
+      "why": "increments wrap z->a, so a pair costs the mod-26 cyclic distance min(d, 26-d), not |a-b|"
+    },
+    {
+      "label": "two-pointers",
+      "confidence": 0.6,
+      "why": "each rotation is scored by walking inward from both ends; standard palindrome pairing"
+    },
+    {
+      "label": "greedy",
+      "confidence": 0.45,
+      "why": "REJECTED from patterns: per-pair 'raise the cheaper side' is a closed form over independent subproblems, not an exchange-argument greedy; too weak to earn the label"
+    },
+    {
+      "label": "booth-algorithm",
+      "confidence": 0.05,
+      "why": "REJECTED: rotations appear, but we need the cost of every rotation, not the lexicographically minimal one"
+    }
+  ],
+  "verified": "python3 brute force. Exhaustive over all 676 length-2 strings and random length-3/4 strings against a true BFS on the real operation graph (every increment and rotation an edge of weight 1, stop at the first palindrome) -- the BFS assumes nothing about the structure of an optimal solution. Also checked n=5..25 against a semi-brute force that enumerates rotation x independently chosen meeting letter per pair. Statement examples reproduced: \"abc\" -> 2 (rotate to \"bca\", then a->b), \"yb\" -> 3. n=2000 runs in 0.33s.",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-17"
+}

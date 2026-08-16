@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-maximum-gap-between-stations",
+  "title": "Maximum Gap Between Stations",
+  "approach": "A valid assignment is an embedding of skill as a subsequence of station, so worker i can legally sit anywhere in [earliest[i], latest[i]] where earliest is the leftmost greedy forward match and latest the rightmost greedy backward match. Any single gap can be widened independently: pin workers 0..i-1 to the leftmost prefix match and workers i..n-1 to the rightmost suffix match, which is always valid since earliest[i-1] <= latest[i-1] < latest[i], so the answer is max over i of latest[i] - earliest[i-1], in O(n + m).",
+  "techniques": [
+    {
+      "label": "greedy",
+      "confidence": 0.9,
+      "why": "leftmost-prefix / rightmost-suffix matching gives the per-worker index bounds, and the two halves splice into a valid assignment"
+    },
+    {
+      "label": "two-pointers",
+      "confidence": 0.85,
+      "why": "both bound arrays are the classic subsequence-match scan, one index over skill and one over station, forwards then backwards"
+    },
+    {
+      "label": "binary-search",
+      "confidence": 0.55,
+      "why": "genuine alternative implementation: bucket station indices per letter and bisect for the next/previous occurrence instead of scanning; coded it and it matched the two-pointer version on every test. Plain lower_bound on a sorted list, NOT binary-search-answer"
+    },
+    {
+      "label": "prefix-suffix-analysis",
+      "confidence": 0.4,
+      "why": "REJECTED - descriptive of the two bound arrays but non-canonical, and the corpus already carries seven near-duplicate one-off spellings of it (prefix-suffix-check/-processing/-manipulation/-traversal/-partition). The word 'subsequence' is carried in the indexed statement text instead"
+    }
+  ],
+  "verified": "python3 brute force over all C(m,n) strictly increasing index tuples, keeping the valid ones and maximising the gap: matched all 3 samples (3, 2, 4) and agreed with BOTH the two-pointer and the bisect implementation on 5000 random cases (alphabet abc, m<=9, skill drawn as a random subsequence of station so validity is guaranteed), 0 mismatches.",
+  "reviewed_by": "claude-agent",
+  "reviewed_at": "2026-08-17"
+}

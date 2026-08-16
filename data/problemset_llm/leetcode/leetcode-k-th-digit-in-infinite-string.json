@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-k-th-digit-in-infinite-string",
+  "title": "K-th Digit in Infinite String",
+  "slug": "k-th-digit-in-infinite-string",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/k-th-digit-in-infinite-string/",
+  "source_topic": "LeetCode / Biweekly Contest 189",
+  "source_tags": [],
+  "statement": "An infinite string is built by concatenating the decimal representations of the positive integers in blocks, where block b holds the positive integers from 10*b through 10*b + 9. Even-numbered blocks are appended in increasing order and odd-numbered blocks in decreasing order, so the string runs 1 through 9, then 19 down to 10, then 20 up to 29, then 39 down to 30, and so on. Given k as large as 10^15, return the k-th digit of this string, counting from 1.",
+  "tags": [
+    "math",
+    "string",
+    "counting"
+  ],
+  "patterns": [
+    "counting",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1786924800,
+    "pattern_confidence": {
+      "counting": 0.88,
+      "binary-search": 0.7
+    }
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 34.3
+}

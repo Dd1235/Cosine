@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-elevator-requests-iii",
+  "title": "Elevator Requests III",
+  "slug": "elevator-requests-iii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/elevator-requests-iii/",
+  "source_topic": "LeetCode / Weekly Contest 515",
+  "source_tags": [],
+  "statement": "An elevator begins at floor start at time 0 in a building of n floors and each second may move one floor up, one floor down, or stay where it is. A request [arrival, floor] is satisfied the instant the elevator stands on that floor at any time at or after its arrival time, so the elevator may need to idle on a floor until the request appears. With at most 16 requests, return the earliest time by which all of them have been satisfied.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "bit-manipulation"
+  ],
+  "patterns": [
+    "bitmask-dp",
+    "hamiltonian-dp",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1786924800,
+    "pattern_confidence": {
+      "bitmask-dp": 0.95,
+      "hamiltonian-dp": 0.8,
+      "dynamic-programming": 0.9
+    }
+  },
+  "difficulty": "Hard",
+  "acceptance_rate": 40.5
+}

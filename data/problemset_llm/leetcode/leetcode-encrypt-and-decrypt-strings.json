@@ -19,7 +19,8 @@
     "string",
     "hash-map",
     "trie",
-    "backtracking"
+    "backtracking",
+    "design"
   ],
   "patterns": [
     "hash-map",

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/largest-sum-of-averages/",
   "source_topic": "LeetCode / DP Optimization",
   "difficulty": "Medium",
-  "acceptance_rate": 55.3,
+  "acceptance_rate": 55.4,
   "source_tags": [
     "array",
     "dynamic-programming",

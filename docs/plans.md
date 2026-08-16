@@ -103,9 +103,21 @@ contest ingest.
 
 ## 4. Contest ingest cadence
 
-`scripts/ingest_contest.py <url>` then `scripts/fetch_statements.py` for
-Codeforces (the dataset lags; Tavily doesn't). LeetCode weeklies are Sundays,
-biweeklies alternate Saturdays.
+**There is a skill for this now: `.claude/skills/add-contest/SKILL.md`.** Ask
+any session "add weekly contest 516" (or point codex at the file — it reads as a
+standalone brief). It covers all three judges, the Codeforces statement
+workaround, the two label traps, and the embed-in-the-same-commit rule.
+
+LeetCode weeklies are Sundays, biweeklies alternate Saturdays.
+
+**Hard problems go to an agent, not the cheap model.** Measured on biweekly 189
+and weekly 515: six problems, every solution verified against a brute force or a
+BFS ground truth, every label canonical, and both audit traps avoided on
+problems where they were live — `binary-search-answer` rejected on a
+"minimise the maximum" problem after checking the feasibility test was trivial,
+and `bitmask-dp` correctly split between Elevator Requests II (interval DP,
+m ≤ 1500) and III (Held-Karp, ≤ 16 requests), a near-miss pair a careless
+annotator would label identically.
 
 Open: a GitHub Action that opens a PR weekly rather than this being a thing
 someone remembers to do. Blocked on nothing except deciding the annotation step
