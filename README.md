@@ -235,6 +235,11 @@ It stages, prints the next commands (annotate → embed → validate), and never
 
 Codeforces statements come from [Tavily](https://tavily.com)'s extract endpoint (`scripts/fetch_statements.py`), because codeforces.com 403s a script and the mirrors serve a JavaScript challenge. Use the `/contest/<id>/problem/<index>` URL, not `/problemset/...` — the extractor drops `<ul>` content on the latter for some problems, which silently removed the *operation* from a problem whose whole point was the operation. Ratings arrive weeks after a contest, so `scripts/refresh_cf_ratings.py` goes back for them.
 
+Both paths are written down as skills — `.claude/skills/add-contest/` and
+`.claude/skills/add-problem/` — so "add weekly contest 516" or "add this
+problem" is one sentence to any session, and they carry the parts that are only
+obvious after you've hit them.
+
 A list of problem *names* works too — write the URLs into a `Problems/urls_*.txt` file and run `annotate_problem_urls.py --urls <file>`. Names resolve against the cached Codeforces problemset and kenkoooo's AtCoder task list; dedupe runs on the **URL**, never the title, because `Chocolate` is three different Codeforces problems. Most recent batch: [experiments/12](experiments/12-math-and-dsu-growth.md), 33 number-theory / combinatorics / DSU problems, no benchmark regression.
 
 Two things worth knowing:
