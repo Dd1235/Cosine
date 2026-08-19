@@ -16,7 +16,8 @@
   ],
   "patterns": [
     "digit-dp",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -16,7 +16,8 @@
     "dfs",
     "subtree-dp",
     "path-counting",
-    "centroid-decomposition"
+    "centroid-decomposition",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

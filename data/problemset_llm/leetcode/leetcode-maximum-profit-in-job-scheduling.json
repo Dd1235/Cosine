@@ -24,7 +24,8 @@
     "binary-search",
     "dp-on-dag",
     "sorting",
-    "line-sweep"
+    "line-sweep",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

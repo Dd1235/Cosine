@@ -16,7 +16,8 @@
   "patterns": [
     "divide-and-conquer",
     "memoization",
-    "prefix-sum"
+    "prefix-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

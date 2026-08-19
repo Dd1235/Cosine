@@ -20,7 +20,7 @@
     "trie"
   ],
   "patterns": [
-    "prefix-tree",
+    "trie",
     "greedy",
     "prefix-free-set"
   ],
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050919,
     "pattern_confidence": {
-      "prefix-tree": 0.9,
+      "trie": 0.9,
       "greedy": 0.85,
       "prefix-free-set": 0.95
     }

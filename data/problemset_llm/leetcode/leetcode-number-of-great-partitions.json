@@ -20,7 +20,8 @@
   "patterns": [
     "prefix-sum",
     "dynamic-programming",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

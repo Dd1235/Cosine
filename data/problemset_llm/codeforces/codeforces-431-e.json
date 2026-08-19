@@ -21,7 +21,8 @@
   ],
   "patterns": [
     "binary-search",
-    "simulation"
+    "simulation",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "generated_at_unix": 1785237109,
     "pattern_confidence": {
       "binary-search": 0.85,
-      "simulation": 0.7
+      "simulation": 0.7,
+      "segment-tree": 0.8
     }
   }
 }

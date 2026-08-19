@@ -19,7 +19,9 @@
   "patterns": [
     "modular-arithmetic",
     "game-dp",
-    "lexicographic-ordering"
+    "lexicographic-ordering",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

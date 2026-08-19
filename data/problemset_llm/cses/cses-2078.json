@@ -16,7 +16,8 @@
     "connected-components",
     "parity-argument",
     "modular-arithmetic",
-    "kirchhoff-theorem"
+    "kirchhoff-theorem",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

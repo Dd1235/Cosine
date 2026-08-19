@@ -24,7 +24,8 @@
     "dfs",
     "binary-search",
     "tree-dp",
-    "prefix-sum"
+    "prefix-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

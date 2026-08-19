@@ -20,7 +20,8 @@
   "patterns": [
     "dp-with-substring-avoidance",
     "longest-common-subsequence",
-    "string-matching"
+    "string-matching",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

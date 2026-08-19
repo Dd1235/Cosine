@@ -21,7 +21,8 @@
   "patterns": [
     "brute-force",
     "modular-arithmetic",
-    "digit-checking"
+    "digit-checking",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

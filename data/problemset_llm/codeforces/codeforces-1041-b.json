@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "gcd",
-    "integer-ratio-check"
+    "integer-ratio-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

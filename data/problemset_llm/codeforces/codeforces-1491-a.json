@@ -23,7 +23,8 @@
     "prefix-sum",
     "point-update",
     "order-statistics",
-    "sqrt-decomposition"
+    "sqrt-decomposition",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

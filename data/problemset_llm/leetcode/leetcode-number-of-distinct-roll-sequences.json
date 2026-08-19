@@ -20,7 +20,9 @@
   "patterns": [
     "dp-with-state-compression",
     "gcd-constraints",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -19,7 +19,8 @@
   "patterns": [
     "dynamic-programming",
     "gcd",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

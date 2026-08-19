@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "cost-optimization"
+    "cost-optimization",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

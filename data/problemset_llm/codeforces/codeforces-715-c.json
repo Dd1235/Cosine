@@ -24,7 +24,8 @@
     "dsu-on-tree",
     "modular-arithmetic",
     "divide-and-conquer",
-    "centroid-decomposition"
+    "centroid-decomposition",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

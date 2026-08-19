@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "divisor-enumeration",
-    "sorting"
+    "sorting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

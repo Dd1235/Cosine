@@ -28,7 +28,8 @@
     "divide-and-conquer",
     "combinatorics",
     "modular-arithmetic",
-    "kmp"
+    "kmp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

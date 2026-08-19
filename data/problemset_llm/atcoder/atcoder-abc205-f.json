@@ -9,13 +9,13 @@
   "statement": "Given a grid and N pieces each with allowed row and column ranges, place as many pieces as possible on distinct rows and columns within their allowed ranges.",
   "tags": [
     "graph",
-    "bipartite-matching",
-    "maximum-matching"
+    "bipartite-matching"
   ],
   "patterns": [
     "bipartite-matching",
     "hungarian-algorithm",
-    "dfs-based-augmenting-path"
+    "dfs-based-augmenting-path",
+    "dfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

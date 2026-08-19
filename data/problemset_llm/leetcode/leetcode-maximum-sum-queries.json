@@ -28,7 +28,8 @@
     "coordinate-compression",
     "segment-tree",
     "binary-search-answer",
-    "monotonic-stack"
+    "monotonic-stack",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

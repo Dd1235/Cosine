@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "dp-on-circular-array",
-    "interval-dp"
+    "interval-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -27,7 +27,8 @@
     "sorting",
     "greedy",
     "modular-arithmetic",
-    "combinatorics"
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "memoization",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

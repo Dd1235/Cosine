@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "prefix-sum",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

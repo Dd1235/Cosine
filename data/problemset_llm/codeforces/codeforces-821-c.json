@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "greedy",
-    "stack-simulation"
+    "stack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050876,
     "pattern_confidence": {
       "greedy": 0.9,
-      "stack-simulation": 0.85
+      "stack": 0.85
     }
   },
   "source_topic": "Formwise / STL"

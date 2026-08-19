@@ -22,7 +22,9 @@
     "greatest-common-divisor",
     "dp-on-divisors",
     "binary-search",
-    "greedy"
+    "greedy",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

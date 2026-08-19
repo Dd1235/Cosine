@@ -24,7 +24,8 @@
   "patterns": [
     "dfs",
     "memoization",
-    "tree-dp"
+    "tree-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

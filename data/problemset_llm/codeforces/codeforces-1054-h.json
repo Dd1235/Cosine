@@ -22,7 +22,8 @@
   "patterns": [
     "chinese-remainder-theorem",
     "modular-exponentiation",
-    "fft"
+    "fft",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

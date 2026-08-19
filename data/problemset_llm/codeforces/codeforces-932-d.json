@@ -22,7 +22,8 @@
   "patterns": [
     "binary-lifting",
     "binary-search",
-    "dp-on-tree"
+    "dp-on-tree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

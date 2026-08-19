@@ -19,7 +19,8 @@
   "patterns": [
     "dynamic-programming",
     "sliding-window-maximum",
-    "prefix-max"
+    "prefix-max",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +29,8 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "sliding-window-maximum": 0.85,
-      "prefix-max": 0.7
+      "prefix-max": 0.7,
+      "partition-dp": 0.97
     }
   }
 }

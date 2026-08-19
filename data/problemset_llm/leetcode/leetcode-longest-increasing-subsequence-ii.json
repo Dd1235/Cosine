@@ -29,7 +29,8 @@
     "segment-tree",
     "fenwick-tree",
     "monotonic-queue",
-    "binary-search"
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

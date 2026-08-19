@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "dsu-rollback",
-    "offline-queries"
+    "offline-queries",
+    "union-find"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

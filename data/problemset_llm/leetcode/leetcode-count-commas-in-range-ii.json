@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-commas-in-range-ii/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 41.0,
+  "acceptance_rate": 41,
   "source_tags": [
     "math"
   ],
@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "prefix-sum",
-    "digit-dp"
+    "digit-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

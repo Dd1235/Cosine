@@ -15,7 +15,8 @@
   "patterns": [
     "pick-s-theorem",
     "gcd-for-boundary-points",
-    "polygon-area"
+    "polygon-area",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

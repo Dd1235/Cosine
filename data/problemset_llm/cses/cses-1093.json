@@ -15,7 +15,8 @@
     "subset-sum",
     "modular-arithmetic",
     "dynamic-programming",
-    "dp-optimization"
+    "dp-optimization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

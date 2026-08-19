@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/reverse-pairs/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 35.0,
+  "acceptance_rate": 35,
   "source_tags": [
     "array",
     "binary-search",
@@ -27,7 +27,8 @@
   "patterns": [
     "merge-sort",
     "divide-and-conquer",
-    "fenwick-tree"
+    "fenwick-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

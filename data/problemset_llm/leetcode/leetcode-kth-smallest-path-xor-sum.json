@@ -24,7 +24,8 @@
     "dfs",
     "binary-search-answer",
     "offline-queries",
-    "order-statistics"
+    "order-statistics",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

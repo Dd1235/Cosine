@@ -16,7 +16,8 @@
     "modular-arithmetic",
     "factorials",
     "counting",
-    "multinomial-coefficient"
+    "multinomial-coefficient",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

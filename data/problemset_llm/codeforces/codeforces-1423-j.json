@@ -21,7 +21,8 @@
   "patterns": [
     "digit-dp",
     "state-compression",
-    "bitmask-dp"
+    "bitmask-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

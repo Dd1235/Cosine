@@ -25,7 +25,8 @@
   "patterns": [
     "monotonic-stack",
     "histogram-based-dp",
-    "row-wise-accumulation"
+    "row-wise-accumulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

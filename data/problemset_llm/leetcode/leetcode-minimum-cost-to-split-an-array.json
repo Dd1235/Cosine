@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-cost-to-split-an-array/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 45.0,
+  "acceptance_rate": 45,
   "source_tags": [
     "array",
     "hash-table",
@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "prefix-frequency-count",
-    "sliding-window"
+    "sliding-window",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "prefix-frequency-count": 0.85,
-      "sliding-window": 0.7
+      "sliding-window": 0.7,
+      "partition-dp": 0.9
     }
   }
 }

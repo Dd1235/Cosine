@@ -24,7 +24,9 @@
     "binary-search-answer",
     "two-pointers",
     "bit-manipulation",
-    "xor-basis"
+    "xor-basis",
+    "trie",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +36,8 @@
       "binary-search-answer": 0.95,
       "two-pointers": 0.8,
       "bit-manipulation": 0.9,
-      "xor-basis": 0.95
+      "xor-basis": 0.95,
+      "trie": 0.75
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

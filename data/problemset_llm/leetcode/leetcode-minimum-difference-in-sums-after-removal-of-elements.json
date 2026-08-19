@@ -22,7 +22,8 @@
     "prefix-sum",
     "greedy",
     "two-heaps",
-    "dp-on-prefix-suffix"
+    "dp-on-prefix-suffix",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

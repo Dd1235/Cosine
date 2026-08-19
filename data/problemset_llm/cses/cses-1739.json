@@ -16,7 +16,8 @@
     "fenwick-tree",
     "prefix-sum",
     "point-update",
-    "rectangle-sum-query"
+    "rectangle-sum-query",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

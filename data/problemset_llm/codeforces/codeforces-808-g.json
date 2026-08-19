@@ -18,7 +18,8 @@
   "patterns": [
     "kmp",
     "string-matching",
-    "dp-on-strings"
+    "dp-on-strings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

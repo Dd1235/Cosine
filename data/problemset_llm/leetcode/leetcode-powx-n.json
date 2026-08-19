@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "modular-exponentiation",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

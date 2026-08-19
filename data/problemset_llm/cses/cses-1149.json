@@ -15,7 +15,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,8 @@
   "patterns": [
     "digit-dp",
     "state-compression",
-    "counting"
+    "counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

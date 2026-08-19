@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/can-convert-string-in-k-moves/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 38.0,
+  "acceptance_rate": 38,
   "source_tags": [
     "hash-table",
     "string"
@@ -20,7 +20,8 @@
   "patterns": [
     "greedy",
     "modular-arithmetic",
-    "counting"
+    "counting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

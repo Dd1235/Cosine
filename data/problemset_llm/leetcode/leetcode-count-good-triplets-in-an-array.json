@@ -27,7 +27,8 @@
     "coordinate-compression",
     "fenwick-tree",
     "merge-sort-tree",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -24,7 +24,8 @@
   "patterns": [
     "greedy",
     "modular-arithmetic",
-    "sorting"
+    "sorting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -16,7 +16,9 @@
   ],
   "patterns": [
     "counting",
-    "brute-force"
+    "brute-force",
+    "fenwick-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +26,8 @@
     "generated_at_unix": 1785050384,
     "pattern_confidence": {
       "counting": 0.9,
-      "brute-force": 0.7
+      "brute-force": 0.7,
+      "fenwick-tree": 0.85
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

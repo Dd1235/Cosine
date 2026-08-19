@@ -27,7 +27,7 @@
     "greedy",
     "inversion-count",
     "sorting",
-    "two-pointer"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -38,7 +38,7 @@
       "greedy": 0.85,
       "inversion-count": 0.9,
       "sorting": 0.8,
-      "two-pointer": 0.6
+      "two-pointers": 0.6
     }
   }
 }

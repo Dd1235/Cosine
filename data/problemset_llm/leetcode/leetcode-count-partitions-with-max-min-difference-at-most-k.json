@@ -26,7 +26,8 @@
     "partition-dp",
     "monotonic-queue-optimization",
     "monotonic-queue",
-    "sliding-window"
+    "sliding-window",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

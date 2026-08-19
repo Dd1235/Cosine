@@ -25,7 +25,7 @@
     "sorting",
     "binary-search",
     "dynamic-programming",
-    "two-pointer"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +35,7 @@
       "sorting": 0.98,
       "binary-search": 0.95,
       "dynamic-programming": 0.9,
-      "two-pointer": 0.7
+      "two-pointers": 0.7
     }
   }
 }

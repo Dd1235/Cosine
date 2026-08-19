@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 54.0,
+  "acceptance_rate": 54,
   "source_tags": [
     "array",
     "string",
@@ -26,7 +26,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "longest-path"
+    "longest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

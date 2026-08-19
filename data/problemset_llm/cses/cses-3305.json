@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "interactive-query"
+    "interactive-query",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

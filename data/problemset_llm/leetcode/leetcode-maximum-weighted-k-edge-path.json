@@ -21,7 +21,8 @@
   "patterns": [
     "dp-on-dag",
     "path-length-restriction",
-    "max-sum-path"
+    "max-sum-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

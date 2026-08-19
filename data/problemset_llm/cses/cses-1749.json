@@ -15,7 +15,8 @@
   "patterns": [
     "fenwick-tree",
     "order-statistics",
-    "merge-sort-tree"
+    "merge-sort-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

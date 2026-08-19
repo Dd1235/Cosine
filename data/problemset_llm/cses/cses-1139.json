@@ -15,7 +15,7 @@
   "patterns": [
     "dfs",
     "dsu-on-tree",
-    "subtree-query"
+    "tree-flattening"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "dfs": 0.98,
       "dsu-on-tree": 0.95,
-      "subtree-query": 0.9
+      "tree-flattening": 0.9
     }
   }
 }

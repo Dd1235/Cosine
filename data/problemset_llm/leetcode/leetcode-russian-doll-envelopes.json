@@ -24,7 +24,8 @@
     "longest-increasing-subsequence",
     "binary-search",
     "sorting",
-    "dp-optimization"
+    "dp-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

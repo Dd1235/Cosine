@@ -19,7 +19,7 @@
   "patterns": [
     "heap",
     "k-way-merge",
-    "two-pointer"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +28,7 @@
     "pattern_confidence": {
       "heap": 0.98,
       "k-way-merge": 0.9,
-      "two-pointer": 0.7
+      "two-pointers": 0.7
     }
   }
 }

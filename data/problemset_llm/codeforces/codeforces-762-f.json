@@ -21,7 +21,8 @@
   "patterns": [
     "tree-isomorphism",
     "dp-on-trees",
-    "rooted-tree-canonical-form"
+    "rooted-tree-canonical-form",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

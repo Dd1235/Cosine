@@ -22,7 +22,9 @@
   "patterns": [
     "bitmask-dp",
     "binary-search-answer",
-    "greedy"
+    "greedy",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

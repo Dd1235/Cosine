@@ -22,7 +22,8 @@
     "backtracking",
     "digit-dp",
     "palindrome-dp",
-    "bit-manipulation"
+    "bit-manipulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

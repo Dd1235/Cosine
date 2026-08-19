@@ -22,7 +22,8 @@
   "patterns": [
     "binary-search",
     "dp-on-dag",
-    "sorting"
+    "sorting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

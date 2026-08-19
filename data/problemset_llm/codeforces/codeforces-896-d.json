@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "chinese-remainder-theorem"
+    "chinese-remainder-theorem",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

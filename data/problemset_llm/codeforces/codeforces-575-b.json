@@ -21,7 +21,9 @@
   "patterns": [
     "dfs",
     "dp-on-tree",
-    "shortest-path"
+    "shortest-path",
+    "lca",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +32,8 @@
     "pattern_confidence": {
       "dfs": 0.9,
       "dp-on-tree": 0.85,
-      "shortest-path": 0.8
+      "shortest-path": 0.8,
+      "lca": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

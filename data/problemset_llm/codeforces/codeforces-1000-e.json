@@ -23,7 +23,9 @@
     "dfs",
     "cut-edge",
     "critical-edge",
-    "articulation-points"
+    "articulation-points",
+    "tree-diameter",
+    "bridge-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +36,9 @@
       "dfs": 0.9,
       "cut-edge": 0.85,
       "critical-edge": 0.8,
-      "articulation-points": 0.9
+      "articulation-points": 0.9,
+      "tree-diameter": 0.9,
+      "bridge-tree": 0.9
     }
   },
   "source_topic": "Formwise / Graph Level 2"

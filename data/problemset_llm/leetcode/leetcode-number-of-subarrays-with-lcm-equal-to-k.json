@@ -21,7 +21,8 @@
   "patterns": [
     "two-pointers",
     "gcd",
-    "prefix-product"
+    "prefix-product",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

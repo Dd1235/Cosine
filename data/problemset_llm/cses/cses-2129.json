@@ -16,7 +16,8 @@
     "hungarian-algorithm",
     "minimum-weight-perfect-matching",
     "bipartite-matching",
-    "subset-dp"
+    "subset-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

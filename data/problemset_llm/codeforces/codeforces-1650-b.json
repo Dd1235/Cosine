@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "modular-arithmetic",
-    "floor-division"
+    "floor-division",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "linear-diophantine-equation",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

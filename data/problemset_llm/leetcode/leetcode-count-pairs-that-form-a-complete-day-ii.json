@@ -22,7 +22,8 @@
   "patterns": [
     "modular-arithmetic",
     "hash-map",
-    "counting"
+    "counting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

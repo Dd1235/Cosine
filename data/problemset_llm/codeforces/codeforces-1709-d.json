@@ -22,7 +22,8 @@
   "patterns": [
     "binary-search",
     "greedy",
-    "simulation"
+    "simulation",
+    "sparse-table"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "binary-search": 0.85,
       "greedy": 0.8,
-      "simulation": 0.7
+      "simulation": 0.7,
+      "sparse-table": 0.85
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

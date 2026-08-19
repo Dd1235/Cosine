@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "alternating-sum",
-    "partitioning",
+    "partition-dp",
     "greedy",
     "dynamic-programming"
   ],
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785050161,
     "pattern_confidence": {
       "alternating-sum": 0.9,
-      "partitioning": 0.85,
+      "partition-dp": 0.85,
       "greedy": 0.8,
       "dynamic-programming": 0.7
     }

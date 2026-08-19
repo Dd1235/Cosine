@@ -27,7 +27,8 @@
   "patterns": [
     "bitmask-dp",
     "backtracking",
-    "counting"
+    "counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

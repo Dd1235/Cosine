@@ -24,7 +24,8 @@
     "tree-dp",
     "dfs",
     "independent-set",
-    "path-frequency-count"
+    "path-frequency-count",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

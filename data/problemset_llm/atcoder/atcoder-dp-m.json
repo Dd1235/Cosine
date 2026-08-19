@@ -16,7 +16,9 @@
     "prefix-sum",
     "dp-on-dag",
     "modular-dp",
-    "dp-optimization"
+    "dp-optimization",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

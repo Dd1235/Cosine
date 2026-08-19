@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "prefix-sum",
-    "dynamic-programming"
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

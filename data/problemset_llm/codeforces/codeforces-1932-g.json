@@ -23,7 +23,8 @@
     "shortest-path",
     "modular-leveling",
     "state-expansion",
-    "bfs"
+    "bfs",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

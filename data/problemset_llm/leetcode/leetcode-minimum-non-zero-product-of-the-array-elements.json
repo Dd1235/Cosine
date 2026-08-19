@@ -21,7 +21,8 @@
   "patterns": [
     "modular-arithmetic",
     "bit-manipulation",
-    "greedy"
+    "greedy",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,8 @@
     "longest-increasing-subsequence",
     "dp-on-dag",
     "topological-sort",
-    "dp-optimization"
+    "dp-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

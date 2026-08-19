@@ -21,7 +21,8 @@
   "patterns": [
     "dp-on-string",
     "lexicographic-order",
-    "prefix-sum"
+    "prefix-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

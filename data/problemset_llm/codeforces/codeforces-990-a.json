@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "modular-arithmetic",
-    "greedy"
+    "greedy",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

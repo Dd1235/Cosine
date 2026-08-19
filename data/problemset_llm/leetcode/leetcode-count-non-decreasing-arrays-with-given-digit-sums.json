@@ -21,7 +21,8 @@
   "patterns": [
     "digit-sum-precomputation",
     "dp-on-sequences",
-    "prefix-sum"
+    "prefix-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

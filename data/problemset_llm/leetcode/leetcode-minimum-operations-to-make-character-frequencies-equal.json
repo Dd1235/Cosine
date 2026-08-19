@@ -24,7 +24,8 @@
   "patterns": [
     "binary-search-answer",
     "frequency-enumeration",
-    "dynamic-programming"
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

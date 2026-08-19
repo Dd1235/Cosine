@@ -22,7 +22,8 @@
     "meet-in-the-middle",
     "tree-dp",
     "dfs",
-    "tree-isomorphism"
+    "tree-isomorphism",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

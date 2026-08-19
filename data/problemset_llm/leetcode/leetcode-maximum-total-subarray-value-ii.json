@@ -24,7 +24,8 @@
     "binary-search-answer",
     "segment-tree",
     "greedy",
-    "heap"
+    "heap",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -15,7 +15,8 @@
   "patterns": [
     "modular-inverse",
     "modular-exponentiation",
-    "precomputation"
+    "precomputation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

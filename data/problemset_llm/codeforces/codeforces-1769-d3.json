@@ -21,7 +21,8 @@
     "game-tree-search",
     "game-theory",
     "state-space-enumeration",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

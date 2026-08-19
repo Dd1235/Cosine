@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-time-to-complete-trips/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 40.0,
+  "acceptance_rate": 40,
   "source_tags": [
     "array",
     "binary-search"
@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "prefix-sum"
+    "prefix-sum",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

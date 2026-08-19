@@ -13,7 +13,8 @@
   ],
   "patterns": [
     "josephus-formula",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

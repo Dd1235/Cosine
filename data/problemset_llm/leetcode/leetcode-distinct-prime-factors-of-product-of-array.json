@@ -22,7 +22,8 @@
   ],
   "patterns": [
     "prime-factorization",
-    "hash-map"
+    "hash-map",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

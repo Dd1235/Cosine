@@ -19,7 +19,9 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "gcd"
+    "gcd",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   ],
   "patterns": [
     "gcd",
-    "prefix-suffix-processing"
+    "prefix-suffix-processing",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

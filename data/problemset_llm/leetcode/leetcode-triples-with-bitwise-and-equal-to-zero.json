@@ -23,7 +23,8 @@
     "submask-enumeration",
     "bit-manipulation",
     "hash-map",
-    "counting"
+    "counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

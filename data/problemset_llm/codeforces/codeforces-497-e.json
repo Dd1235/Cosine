@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-exponentiation",
-    "digit-dp"
+    "digit-dp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

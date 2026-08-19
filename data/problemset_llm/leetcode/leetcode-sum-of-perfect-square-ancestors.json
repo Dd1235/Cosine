@@ -27,7 +27,8 @@
     "dfs",
     "prime-factorization",
     "hash-map",
-    "prefix-product"
+    "prefix-product",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

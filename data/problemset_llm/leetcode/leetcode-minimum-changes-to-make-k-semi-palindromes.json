@@ -21,7 +21,9 @@
   "patterns": [
     "dynamic-programming",
     "divisor-enumeration",
-    "palindrome-checking"
+    "palindrome-checking",
+    "partition-dp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +32,8 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "divisor-enumeration": 0.9,
-      "palindrome-checking": 0.85
+      "palindrome-checking": 0.85,
+      "partition-dp": 0.95
     }
   }
 }

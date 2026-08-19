@@ -25,7 +25,8 @@
   "patterns": [
     "greedy",
     "binary-search",
-    "prime-sieve"
+    "sieve",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +35,7 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "binary-search": 0.7,
-      "prime-sieve": 0.8
+      "sieve": 0.8
     }
   }
 }

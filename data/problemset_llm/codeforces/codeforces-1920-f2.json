@@ -28,7 +28,8 @@
     "binary-search",
     "union-find",
     "tree-dp",
-    "wqs-binary-search"
+    "wqs-binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

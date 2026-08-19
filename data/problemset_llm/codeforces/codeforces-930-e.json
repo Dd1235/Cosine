@@ -20,7 +20,9 @@
   "patterns": [
     "inclusion-exclusion",
     "dynamic-programming",
-    "interval-covering"
+    "interval-covering",
+    "coordinate-compression",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +31,8 @@
     "pattern_confidence": {
       "inclusion-exclusion": 0.95,
       "dynamic-programming": 0.9,
-      "interval-covering": 0.85
+      "interval-covering": 0.85,
+      "coordinate-compression": 0.78
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

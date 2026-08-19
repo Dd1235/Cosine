@@ -23,7 +23,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "divisibility"
+    "divisibility",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

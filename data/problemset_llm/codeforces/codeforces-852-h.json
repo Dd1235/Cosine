@@ -21,7 +21,8 @@
     "convex-hull",
     "convex-polygon-selection",
     "subset-dp",
-    "rotating-calipers"
+    "rotating-calipers",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

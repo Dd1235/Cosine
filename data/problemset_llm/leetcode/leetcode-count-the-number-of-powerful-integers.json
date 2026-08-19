@@ -22,7 +22,8 @@
   "patterns": [
     "digit-dp",
     "suffix-check",
-    "range-query"
+    "range-query",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -25,7 +25,8 @@
     "dfs",
     "tree-dp",
     "heap",
-    "max-product-subtree"
+    "max-product-subtree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

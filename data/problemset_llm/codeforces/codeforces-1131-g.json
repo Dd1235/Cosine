@@ -21,7 +21,8 @@
   "patterns": [
     "interval-dp",
     "greedy",
-    "chain-reaction-simulation"
+    "chain-reaction-simulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

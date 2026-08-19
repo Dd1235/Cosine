@@ -20,7 +20,9 @@
   "patterns": [
     "centroid-decomposition",
     "two-constraints-pair-counting",
-    "distance-limited-pairs"
+    "distance-limited-pairs",
+    "fenwick-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +31,8 @@
     "pattern_confidence": {
       "centroid-decomposition": 0.95,
       "two-constraints-pair-counting": 0.9,
-      "distance-limited-pairs": 0.85
+      "distance-limited-pairs": 0.85,
+      "fenwick-tree": 0.72
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

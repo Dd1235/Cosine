@@ -19,7 +19,8 @@
     "dynamic-programming",
     "interval-dp",
     "expression-parsing",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

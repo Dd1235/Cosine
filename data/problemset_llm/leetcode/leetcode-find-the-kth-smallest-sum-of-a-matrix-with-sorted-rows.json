@@ -23,7 +23,8 @@
   "patterns": [
     "binary-search-answer",
     "heap",
-    "merge-k-sorted-lists"
+    "merge-k-sorted-lists",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

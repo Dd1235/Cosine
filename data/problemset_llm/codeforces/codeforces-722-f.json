@@ -25,7 +25,8 @@
   "patterns": [
     "two-pointers",
     "modular-arithmetic",
-    "simulation"
+    "simulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -13,15 +13,17 @@
     "intervals"
   ],
   "patterns": [
-    "dp-on-intervals",
-    "modular-arithmetic"
+    "interval-dp",
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785047564,
     "pattern_confidence": {
-      "dp-on-intervals": 0.95,
+      "interval-dp": 0.95,
       "modular-arithmetic": 0.85
     }
   },

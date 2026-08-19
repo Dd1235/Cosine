@@ -14,7 +14,8 @@
   "patterns": [
     "sliding-window",
     "fenwick-tree",
-    "order-statistics"
+    "order-statistics",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

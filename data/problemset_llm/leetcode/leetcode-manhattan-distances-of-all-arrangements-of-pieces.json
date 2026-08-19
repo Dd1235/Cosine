@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 36.0,
+  "acceptance_rate": 36,
   "source_tags": [
     "math",
     "combinatorics"
@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "combinatorics",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

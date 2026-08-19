@@ -24,7 +24,8 @@
     "tree-dp",
     "knapsack",
     "dfs",
-    "budgeted-optimization"
+    "budgeted-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

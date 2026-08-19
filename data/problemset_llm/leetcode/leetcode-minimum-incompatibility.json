@@ -25,7 +25,8 @@
     "bitmask-dp",
     "state-compression",
     "backtracking",
-    "pruning"
+    "pruning",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

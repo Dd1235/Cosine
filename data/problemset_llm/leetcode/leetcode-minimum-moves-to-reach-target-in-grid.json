@@ -18,7 +18,8 @@
   "patterns": [
     "greedy",
     "reverse-simulation",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

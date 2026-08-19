@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-number-of-k-divisible-components/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 74.0,
+  "acceptance_rate": 74,
   "source_tags": [
     "tree",
     "depth-first-search"
@@ -20,7 +20,9 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -24,7 +24,10 @@
     "union-find",
     "offline-queries",
     "dynamic-connectivity",
-    "link-cut-tree"
+    "link-cut-tree",
+    "segment-tree",
+    "tree-flattening",
+    "kruskal-reconstruction-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +37,10 @@
       "union-find": 0.95,
       "offline-queries": 0.85,
       "dynamic-connectivity": 0.9,
-      "link-cut-tree": 0.95
+      "link-cut-tree": 0.95,
+      "segment-tree": 0.8,
+      "tree-flattening": 0.8,
+      "kruskal-reconstruction-tree": 0.9
     }
   },
   "source_topic": "Formwise / Graph Level 2"

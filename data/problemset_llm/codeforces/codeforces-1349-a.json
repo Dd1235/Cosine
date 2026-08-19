@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "gcd",
-    "pairwise-computation"
+    "pairwise-computation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

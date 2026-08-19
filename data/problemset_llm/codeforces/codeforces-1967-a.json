@@ -25,7 +25,8 @@
     "greedy",
     "binary-search",
     "sorting",
-    "permutation-counting"
+    "permutation-counting",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
   "patterns": [
     "dijkstra",
     "counting-paths",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,9 @@
     "inclusion-exclusion",
     "modular-arithmetic",
     "dynamic-programming",
-    "gcd"
+    "gcd",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

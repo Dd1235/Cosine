@@ -20,7 +20,8 @@
   "patterns": [
     "brute-force",
     "subset-dp",
-    "cost-calculation"
+    "cost-calculation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

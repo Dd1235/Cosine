@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "dynamic-programming"
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

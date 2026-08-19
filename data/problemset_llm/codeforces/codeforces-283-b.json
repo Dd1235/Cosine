@@ -23,7 +23,8 @@
     "dfs",
     "cycle-detection",
     "memoization",
-    "simulation"
+    "simulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

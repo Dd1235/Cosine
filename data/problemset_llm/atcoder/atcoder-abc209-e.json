@@ -16,7 +16,8 @@
     "dfs",
     "cycle-detection",
     "game-dp",
-    "topological-sort"
+    "topological-sort",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

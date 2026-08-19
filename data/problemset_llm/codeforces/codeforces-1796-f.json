@@ -21,7 +21,8 @@
     "brute-force",
     "string-concatenation",
     "ratio-check",
-    "digit-dp"
+    "digit-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

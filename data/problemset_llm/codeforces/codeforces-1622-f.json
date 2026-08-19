@@ -24,7 +24,8 @@
     "factorization",
     "parity-argument",
     "constructive-algorithm",
-    "xor-basis"
+    "xor-basis",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

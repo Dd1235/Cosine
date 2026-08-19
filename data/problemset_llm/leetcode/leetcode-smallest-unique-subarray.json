@@ -24,7 +24,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "rolling-hash"
+    "rolling-hash",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

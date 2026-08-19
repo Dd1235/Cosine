@@ -19,7 +19,8 @@
   "patterns": [
     "longest-common-subsequence",
     "dp-on-strings",
-    "palindrome-dp"
+    "palindrome-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

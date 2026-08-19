@@ -24,7 +24,8 @@
   "patterns": [
     "cycle-detection",
     "string-rotation",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

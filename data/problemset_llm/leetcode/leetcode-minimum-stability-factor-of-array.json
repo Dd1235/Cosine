@@ -25,7 +25,8 @@
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "number-theory"
+    "number-theory",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

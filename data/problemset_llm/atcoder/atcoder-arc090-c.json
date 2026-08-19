@@ -16,7 +16,9 @@
     "dijkstra",
     "dp-on-dag",
     "counting-paths",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

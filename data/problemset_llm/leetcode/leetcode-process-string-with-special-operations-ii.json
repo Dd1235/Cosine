@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "string-processing"
+    "string-processing",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

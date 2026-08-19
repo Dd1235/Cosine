@@ -21,7 +21,8 @@
   ],
   "patterns": [
     "constructive-algorithm",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

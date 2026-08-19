@@ -24,7 +24,8 @@
   "patterns": [
     "string-dp",
     "string-hashing",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

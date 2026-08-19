@@ -16,7 +16,8 @@
   "patterns": [
     "divide-and-conquer",
     "memoization",
-    "recursion"
+    "recursion",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

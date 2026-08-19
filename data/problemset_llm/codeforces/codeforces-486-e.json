@@ -23,7 +23,8 @@
   "patterns": [
     "longest-increasing-subsequence",
     "counting-lis",
-    "dp-on-sequences"
+    "dp-on-sequences",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

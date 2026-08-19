@@ -27,7 +27,8 @@
     "bfs",
     "state-space-search",
     "shortest-path",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

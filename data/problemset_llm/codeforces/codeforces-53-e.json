@@ -20,7 +20,8 @@
   "patterns": [
     "bitmask-dp",
     "kirchhoff-theorem",
-    "combinatorial-dp"
+    "combinatorial-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

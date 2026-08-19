@@ -21,7 +21,8 @@
   "patterns": [
     "reflection-simulation",
     "least-common-multiple",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

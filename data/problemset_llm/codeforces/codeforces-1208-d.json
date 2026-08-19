@@ -23,7 +23,8 @@
   "patterns": [
     "fenwick-tree",
     "greedy",
-    "prefix-sum"
+    "prefix-sum",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

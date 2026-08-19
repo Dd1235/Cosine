@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "dfs",
-    "tree-dp"
+    "tree-dp",
+    "rerooting-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "dynamic-programming": 0.95,
       "dfs": 0.9,
-      "tree-dp": 0.9
+      "tree-dp": 0.9,
+      "rerooting-dp": 0.94
     }
   }
 }

@@ -22,7 +22,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "edge-reversal"
+    "edge-reversal",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

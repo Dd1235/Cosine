@@ -20,7 +20,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "simulation"
+    "simulation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

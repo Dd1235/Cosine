@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/string-transformation/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 27.0,
+  "acceptance_rate": 27,
   "source_tags": [
     "math",
     "string",
@@ -23,7 +23,8 @@
   "patterns": [
     "string-rotation",
     "modular-arithmetic",
-    "dynamic-programming"
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

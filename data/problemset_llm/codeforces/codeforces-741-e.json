@@ -23,7 +23,8 @@
     "modular-arithmetic",
     "offline-queries",
     "lexicographic-order",
-    "kmp"
+    "kmp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

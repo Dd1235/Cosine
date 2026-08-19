@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "brute-force",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

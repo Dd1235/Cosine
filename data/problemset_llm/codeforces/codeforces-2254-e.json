@@ -23,7 +23,7 @@
     "prefix-sum",
     "sorting",
     "brute-force",
-    "multiset",
+    "ordered-set",
     "binary-search",
     "constructive-algorithm"
   ],
@@ -37,7 +37,7 @@
       "prefix-sum": 0.93,
       "sorting": 0.85,
       "brute-force": 0.5,
-      "multiset": 0.8,
+      "ordered-set": 0.8,
       "binary-search": 0.7,
       "constructive-algorithm": 0.5
     }

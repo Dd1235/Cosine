@@ -22,7 +22,8 @@
   "patterns": [
     "union-find",
     "divide-and-conquer",
-    "offline-queries"
+    "offline-queries",
+    "dsu-rollback"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "union-find": 0.9,
       "divide-and-conquer": 0.7,
-      "offline-queries": 0.6
+      "offline-queries": 0.6,
+      "dsu-rollback": 0.85
     }
   },
   "source_topic": "Formwise / Graph Level 2"

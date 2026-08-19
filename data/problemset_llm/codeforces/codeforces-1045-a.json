@@ -22,22 +22,22 @@
     "trees"
   ],
   "patterns": [
-    "maximum-matching",
-    "max-flow",
     "bipartite-matching",
+    "max-flow",
     "union-find",
-    "interval-constraints"
+    "interval-constraints",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050712,
     "pattern_confidence": {
-      "maximum-matching": 0.95,
+      "bipartite-matching": 0.95,
       "max-flow": 0.9,
-      "bipartite-matching": 0.85,
       "union-find": 0.7,
-      "interval-constraints": 0.75
+      "interval-constraints": 0.75,
+      "segment-tree": 0.78
     }
   },
   "source_topic": "Formwise / Graph Level 2"

@@ -21,7 +21,8 @@
   "patterns": [
     "divide-and-conquer-dp",
     "prefix-sum",
-    "interval-dp"
+    "interval-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

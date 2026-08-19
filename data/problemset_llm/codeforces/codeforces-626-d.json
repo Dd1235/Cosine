@@ -21,7 +21,8 @@
   "patterns": [
     "brute-force",
     "probability-dp",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

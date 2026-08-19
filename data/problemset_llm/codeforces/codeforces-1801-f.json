@@ -24,7 +24,7 @@
     "meet-in-the-middle",
     "binary-search",
     "dynamic-programming",
-    "integer-partition"
+    "unbounded-knapsack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +34,7 @@
       "meet-in-the-middle": 0.9,
       "binary-search": 0.7,
       "dynamic-programming": 0.8,
-      "integer-partition": 0.6
+      "unbounded-knapsack": 0.6
     }
   }
 }

@@ -16,7 +16,8 @@
   "patterns": [
     "counting",
     "divisor-check",
-    "sieve-like-enumeration"
+    "sieve-like-enumeration",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

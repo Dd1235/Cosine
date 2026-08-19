@@ -18,15 +18,16 @@
     "prime"
   ],
   "patterns": [
-    "prime-sieve",
-    "digit-reversal"
+    "sieve",
+    "digit-reversal",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784908324,
     "pattern_confidence": {
-      "prime-sieve": 0.95,
+      "sieve": 0.95,
       "digit-reversal": 0.9
     }
   }

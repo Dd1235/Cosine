@@ -20,7 +20,7 @@
   "patterns": [
     "kmp",
     "segment-tree",
-    "range-minimum-query",
+    "sparse-table",
     "string-matching"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "pattern_confidence": {
       "kmp": 0.95,
       "segment-tree": 0.9,
-      "range-minimum-query": 0.9,
+      "sparse-table": 0.9,
       "string-matching": 0.85
     }
   },

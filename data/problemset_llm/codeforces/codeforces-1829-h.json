@@ -24,7 +24,9 @@
   "patterns": [
     "bitmask-dp",
     "counting",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
   "patterns": [
     "multiple-pointer-dp",
     "merge-k-sorted-lists",
-    "heap"
+    "heap",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
     "euler-tour",
     "fenwick-tree",
     "range-update",
-    "distance-limited-subtree-query"
+    "distance-limited-subtree-query",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -28,7 +28,8 @@
     "string-partition",
     "rolling-hash",
     "modular-arithmetic",
-    "aho-corasick"
+    "aho-corasick",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

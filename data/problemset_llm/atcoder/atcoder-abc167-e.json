@@ -16,7 +16,9 @@
   "patterns": [
     "dp-on-sequences",
     "combinatorics",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

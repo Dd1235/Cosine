@@ -22,7 +22,8 @@
   ],
   "patterns": [
     "bfs",
-    "gcd-based-graph-construction"
+    "gcd-based-graph-construction",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

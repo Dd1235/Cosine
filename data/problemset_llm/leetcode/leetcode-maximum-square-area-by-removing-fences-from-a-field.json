@@ -21,7 +21,8 @@
   "patterns": [
     "sorting",
     "binary-search-answer",
-    "prefix-differences"
+    "prefix-differences",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "constructive-algorithm",
     "factorization",
-    "grid-construction"
+    "grid-construction",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

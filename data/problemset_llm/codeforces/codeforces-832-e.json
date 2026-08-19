@@ -19,7 +19,8 @@
   "patterns": [
     "modular-arithmetic",
     "combinatorics",
-    "string-transformation"
+    "string-transformation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

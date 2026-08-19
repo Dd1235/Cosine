@@ -21,7 +21,8 @@
   "patterns": [
     "subset-sum",
     "memoization",
-    "backtracking"
+    "backtracking",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

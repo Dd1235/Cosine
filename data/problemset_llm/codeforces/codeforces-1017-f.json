@@ -18,18 +18,19 @@
     "modular-arithmetic"
   ],
   "patterns": [
-    "prime-sieve",
+    "sieve",
     "prefix-sum",
     "polynomial-evaluation",
     "meissel-lehmer-prime-counting",
-    "prime-factorization"
+    "prime-factorization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050681,
     "pattern_confidence": {
-      "prime-sieve": 0.9,
+      "sieve": 0.9,
       "prefix-sum": 0.85,
       "polynomial-evaluation": 0.8,
       "meissel-lehmer-prime-counting": 0.9,

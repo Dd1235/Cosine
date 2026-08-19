@@ -24,7 +24,8 @@
     "divisor-enumeration",
     "cyclic-rotation",
     "subarray-partitioning",
-    "sorting-check"
+    "sorting-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

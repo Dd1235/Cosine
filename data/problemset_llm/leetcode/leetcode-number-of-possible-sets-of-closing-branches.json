@@ -25,7 +25,8 @@
     "bitmask-dp",
     "floyd-warshall",
     "shortest-path",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

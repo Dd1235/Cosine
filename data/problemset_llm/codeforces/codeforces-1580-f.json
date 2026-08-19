@@ -22,7 +22,8 @@
     "fft",
     "circular-constraints",
     "modular-arithmetic",
-    "matrix-exponentiation"
+    "matrix-exponentiation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

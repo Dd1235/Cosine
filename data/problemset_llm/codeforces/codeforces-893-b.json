@@ -20,7 +20,8 @@
   "patterns": [
     "brute-force",
     "divisor-enumeration",
-    "bit-manipulation"
+    "bit-manipulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

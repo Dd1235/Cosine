@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "graph-modeling",
-    "maximum-matching",
+    "bipartite-matching",
     "string-difference",
     "greedy"
   ],
@@ -33,7 +33,7 @@
     "generated_at_unix": 1784908419,
     "pattern_confidence": {
       "graph-modeling": 0.95,
-      "maximum-matching": 0.9,
+      "bipartite-matching": 0.9,
       "string-difference": 0.85,
       "greedy": 0.7
     }

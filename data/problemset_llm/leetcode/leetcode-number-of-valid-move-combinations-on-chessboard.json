@@ -24,7 +24,8 @@
     "backtracking",
     "subset-dp",
     "collision-detection",
-    "simulation"
+    "simulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

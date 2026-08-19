@@ -19,7 +19,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "combinatorial-optimization"
+    "combinatorial-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

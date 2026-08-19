@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/stone-game-v/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 43.0,
+  "acceptance_rate": 43,
   "source_tags": [
     "array",
     "math",
@@ -23,7 +23,8 @@
   "patterns": [
     "prefix-sum",
     "interval-dp",
-    "game-dp"
+    "game-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

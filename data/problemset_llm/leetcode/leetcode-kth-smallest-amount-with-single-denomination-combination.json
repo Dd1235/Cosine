@@ -23,7 +23,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "multiples-enumeration"
+    "multiples-enumeration",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

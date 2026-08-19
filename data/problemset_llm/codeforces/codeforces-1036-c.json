@@ -19,7 +19,8 @@
   "patterns": [
     "digit-dp",
     "counting",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -26,7 +26,8 @@
   "patterns": [
     "gcd",
     "two-pointers",
-    "sorting"
+    "sorting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

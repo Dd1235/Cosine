@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "dp-on-graphs",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

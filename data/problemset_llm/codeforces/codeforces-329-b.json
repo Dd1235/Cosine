@@ -23,7 +23,8 @@
     "multi-source-bfs",
     "game-theory",
     "shortest-path",
-    "simulation"
+    "simulation",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -24,7 +24,8 @@
   "patterns": [
     "union-find",
     "gcd",
-    "connected-components"
+    "connected-components",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

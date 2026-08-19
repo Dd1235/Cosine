@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 68.0,
+  "acceptance_rate": 68,
   "source_tags": [
     "array",
     "bit-manipulation",
@@ -22,7 +22,8 @@
   "patterns": [
     "binary-search-answer",
     "union-find",
-    "bitmasking"
+    "bitmasking",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

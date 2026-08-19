@@ -24,7 +24,8 @@
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "hash-map"
+    "hash-map",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -26,7 +26,8 @@
     "modified-dijkstra",
     "dp-on-graphs",
     "heap",
-    "bounded-shortest-path"
+    "bounded-shortest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

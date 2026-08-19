@@ -20,7 +20,9 @@
   "patterns": [
     "lexicographic-order",
     "permutation-counting",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

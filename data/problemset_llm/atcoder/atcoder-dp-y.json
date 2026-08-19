@@ -15,7 +15,10 @@
   "patterns": [
     "dp-on-dag",
     "inclusion-exclusion",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

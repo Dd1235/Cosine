@@ -20,7 +20,8 @@
   "patterns": [
     "greedy",
     "sorting",
-    "modular-indexing"
+    "modular-indexing",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

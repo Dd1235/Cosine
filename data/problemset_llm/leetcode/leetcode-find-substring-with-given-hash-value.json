@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/find-substring-with-given-hash-value/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 27.0,
+  "acceptance_rate": 27,
   "source_tags": [
     "string",
     "sliding-window",
@@ -23,7 +23,8 @@
     "rolling-hash",
     "sliding-window",
     "modular-arithmetic",
-    "rabin-karp"
+    "rabin-karp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

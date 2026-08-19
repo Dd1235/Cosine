@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "multi-source-bfs",
-    "shortest-path"
+    "shortest-path",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "divisor-enumeration",
     "gcd",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

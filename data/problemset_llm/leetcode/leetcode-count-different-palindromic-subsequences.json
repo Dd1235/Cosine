@@ -17,16 +17,18 @@
     "dynamic-programming"
   ],
   "patterns": [
-    "dp-on-intervals",
+    "interval-dp",
     "counting-distinct-subsequences",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922595,
     "pattern_confidence": {
-      "dp-on-intervals": 0.98,
+      "interval-dp": 0.98,
       "counting-distinct-subsequences": 0.95,
       "modular-arithmetic": 0.9
     }

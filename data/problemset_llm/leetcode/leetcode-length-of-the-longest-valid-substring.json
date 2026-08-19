@@ -23,7 +23,7 @@
   "patterns": [
     "sliding-window",
     "hash-map",
-    "substring-search"
+    "string-matching"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "sliding-window": 0.95,
       "hash-map": 0.9,
-      "substring-search": 0.88
+      "string-matching": 0.88
     }
   }
 }

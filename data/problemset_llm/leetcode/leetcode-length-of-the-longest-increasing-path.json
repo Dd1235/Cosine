@@ -21,7 +21,8 @@
   "patterns": [
     "longest-increasing-subsequence",
     "coordinate-compression",
-    "dp-on-dag"
+    "dp-on-dag",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

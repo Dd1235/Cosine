@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "modular-arithmetic",
-    "bit-manipulation"
+    "bit-manipulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

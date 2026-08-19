@@ -20,7 +20,8 @@
   "patterns": [
     "dynamic-programming",
     "symmetry-check",
-    "prime-validation"
+    "prime-validation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

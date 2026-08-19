@@ -1,0 +1,192 @@
+{
+ "why": "LeetCode's own categoryTitle says these are not Algorithms problems. A SQL problem in a DSA corpus answers searches it has nothing to do with, and drags SQL vocabulary (order-by, window-functions, join) into the technique index.",
+ "reviewed_at": "2026-08-19",
+ "removed": [
+  {
+   "id": "leetcode-analyze-organization-hierarchy",
+   "category": "Database",
+   "title": "Analyze Organization Hierarchy",
+   "url": "https://leetcode.com/problems/analyze-organization-hierarchy/"
+  },
+  {
+   "id": "leetcode-check-if-object-instance-of-class",
+   "category": "JavaScript",
+   "title": "Check if Object Instance of Class",
+   "url": "https://leetcode.com/problems/check-if-object-instance-of-class/"
+  },
+  {
+   "id": "leetcode-consecutive-numbers",
+   "category": "Database",
+   "title": "Consecutive Numbers",
+   "url": "https://leetcode.com/problems/consecutive-numbers/"
+  },
+  {
+   "id": "leetcode-department-top-three-salaries",
+   "category": "Database",
+   "title": "Department Top Three Salaries",
+   "url": "https://leetcode.com/problems/department-top-three-salaries/"
+  },
+  {
+   "id": "leetcode-design-cancellable-function",
+   "category": "JavaScript",
+   "title": "Design Cancellable Function",
+   "url": "https://leetcode.com/problems/design-cancellable-function/"
+  },
+  {
+   "id": "leetcode-find-books-with-polarized-opinions",
+   "category": "Database",
+   "title": "Find Books with Polarized Opinions",
+   "url": "https://leetcode.com/problems/find-books-with-polarized-opinions/"
+  },
+  {
+   "id": "leetcode-find-category-recommendation-pairs",
+   "category": "Database",
+   "title": "Find Category Recommendation Pairs",
+   "url": "https://leetcode.com/problems/find-category-recommendation-pairs/"
+  },
+  {
+   "id": "leetcode-find-churn-risk-customers",
+   "category": "Database",
+   "title": "Find Churn Risk Customers",
+   "url": "https://leetcode.com/problems/find-churn-risk-customers/"
+  },
+  {
+   "id": "leetcode-find-covid-recovery-patients",
+   "category": "Database",
+   "title": "Find COVID Recovery Patients",
+   "url": "https://leetcode.com/problems/find-covid-recovery-patients/"
+  },
+  {
+   "id": "leetcode-find-drivers-with-improved-fuel-efficiency",
+   "category": "Database",
+   "title": "Find Drivers with Improved Fuel Efficiency",
+   "url": "https://leetcode.com/problems/find-drivers-with-improved-fuel-efficiency/"
+  },
+  {
+   "id": "leetcode-find-golden-hour-customers",
+   "category": "Database",
+   "title": "Find Golden Hour Customers",
+   "url": "https://leetcode.com/problems/find-golden-hour-customers/"
+  },
+  {
+   "id": "leetcode-find-invalid-ip-addresses",
+   "category": "Database",
+   "title": "Find Invalid IP Addresses",
+   "url": "https://leetcode.com/problems/find-invalid-ip-addresses/"
+  },
+  {
+   "id": "leetcode-find-overbooked-employees",
+   "category": "Database",
+   "title": "Find Overbooked Employees",
+   "url": "https://leetcode.com/problems/find-overbooked-employees/"
+  },
+  {
+   "id": "leetcode-find-stores-with-inventory-imbalance",
+   "category": "Database",
+   "title": "Find Stores with Inventory Imbalance",
+   "url": "https://leetcode.com/problems/find-stores-with-inventory-imbalance/"
+  },
+  {
+   "id": "leetcode-find-students-who-improved",
+   "category": "Database",
+   "title": "Find Students Who Improved",
+   "url": "https://leetcode.com/problems/find-students-who-improved/"
+  },
+  {
+   "id": "leetcode-find-students-with-study-spiral-pattern",
+   "category": "Database",
+   "title": "Find Students with Study Spiral Pattern",
+   "url": "https://leetcode.com/problems/find-students-with-study-spiral-pattern/"
+  },
+  {
+   "id": "leetcode-find-users-with-persistent-behavior-patterns",
+   "category": "Database",
+   "title": "Find Users with Persistent Behavior Patterns",
+   "url": "https://leetcode.com/problems/find-users-with-persistent-behavior-patterns/"
+  },
+  {
+   "id": "leetcode-find-zombie-sessions",
+   "category": "Database",
+   "title": "Find Zombie Sessions",
+   "url": "https://leetcode.com/problems/find-zombie-sessions/"
+  },
+  {
+   "id": "leetcode-first-letter-capitalization-ii",
+   "category": "Database",
+   "title": "First Letter Capitalization II",
+   "url": "https://leetcode.com/problems/first-letter-capitalization-ii/"
+  },
+  {
+   "id": "leetcode-game-play-analysis-iv",
+   "category": "Database",
+   "title": "Game Play Analysis IV",
+   "url": "https://leetcode.com/problems/game-play-analysis-iv/"
+  },
+  {
+   "id": "leetcode-human-traffic-of-stadium",
+   "category": "Database",
+   "title": "Human Traffic of Stadium",
+   "url": "https://leetcode.com/problems/human-traffic-of-stadium/"
+  },
+  {
+   "id": "leetcode-managers-with-at-least-5-direct-reports",
+   "category": "Database",
+   "title": "Managers with at Least 5 Direct Reports",
+   "url": "https://leetcode.com/problems/managers-with-at-least-5-direct-reports/"
+  },
+  {
+   "id": "leetcode-memoize-ii",
+   "category": "JavaScript",
+   "title": "Memoize II",
+   "url": "https://leetcode.com/problems/memoize-ii/"
+  },
+  {
+   "id": "leetcode-most-common-course-pairs",
+   "category": "Database",
+   "title": "Most Common Course Pairs",
+   "url": "https://leetcode.com/problems/most-common-course-pairs/"
+  },
+  {
+   "id": "leetcode-movie-rating",
+   "category": "Database",
+   "title": "Movie Rating",
+   "url": "https://leetcode.com/problems/movie-rating/"
+  },
+  {
+   "id": "leetcode-nth-highest-salary",
+   "category": "Database",
+   "title": "Nth Highest Salary",
+   "url": "https://leetcode.com/problems/nth-highest-salary/"
+  },
+  {
+   "id": "leetcode-product-sales-analysis-iii",
+   "category": "Database",
+   "title": "Product Sales Analysis III",
+   "url": "https://leetcode.com/problems/product-sales-analysis-iii/"
+  },
+  {
+   "id": "leetcode-second-highest-salary",
+   "category": "Database",
+   "title": "Second Highest Salary",
+   "url": "https://leetcode.com/problems/second-highest-salary/"
+  },
+  {
+   "id": "leetcode-transpose-file",
+   "category": "Shell",
+   "title": "Transpose File",
+   "url": "https://leetcode.com/problems/transpose-file/"
+  },
+  {
+   "id": "leetcode-trips-and-users",
+   "category": "Database",
+   "title": "Trips and Users",
+   "url": "https://leetcode.com/problems/trips-and-users/"
+  },
+  {
+   "id": "leetcode-word-frequency",
+   "category": "Shell",
+   "title": "Word Frequency",
+   "url": "https://leetcode.com/problems/word-frequency/"
+  }
+ ]
+}

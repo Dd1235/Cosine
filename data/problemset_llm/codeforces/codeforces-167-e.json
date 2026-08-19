@@ -28,7 +28,8 @@
     "counting",
     "perfect-matching",
     "parity-argument",
-    "hafnian"
+    "hafnian",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

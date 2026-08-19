@@ -24,7 +24,8 @@
   "patterns": [
     "line-sweep",
     "binary-search-answer",
-    "heap"
+    "heap",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

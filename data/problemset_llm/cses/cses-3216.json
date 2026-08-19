@@ -15,7 +15,8 @@
   "patterns": [
     "modular-arithmetic",
     "simulation",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

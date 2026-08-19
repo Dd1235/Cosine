@@ -21,7 +21,8 @@
   "patterns": [
     "backtracking",
     "factorization",
-    "search-space-pruning"
+    "search-space-pruning",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

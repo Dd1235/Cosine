@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "longest-palindromic-subsequence",
-    "dp-on-strings"
+    "dp-on-strings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

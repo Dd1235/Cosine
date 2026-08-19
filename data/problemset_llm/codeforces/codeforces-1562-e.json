@@ -21,7 +21,8 @@
   "patterns": [
     "longest-increasing-subsequence",
     "suffix-array",
-    "dp-on-strings"
+    "dp-on-strings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

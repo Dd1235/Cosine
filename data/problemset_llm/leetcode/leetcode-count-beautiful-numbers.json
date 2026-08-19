@@ -19,7 +19,9 @@
   "patterns": [
     "digit-dp",
     "modular-arithmetic",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

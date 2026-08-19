@@ -22,7 +22,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "bottom-up-traversal"
+    "bottom-up-traversal",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

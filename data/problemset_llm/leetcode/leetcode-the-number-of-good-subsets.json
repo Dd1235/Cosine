@@ -29,7 +29,9 @@
     "prime-factorization",
     "counting",
     "modular-arithmetic",
-    "sos-dp"
+    "sos-dp",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

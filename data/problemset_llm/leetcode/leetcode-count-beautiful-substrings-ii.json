@@ -23,7 +23,8 @@
   "patterns": [
     "prefix-sum",
     "modular-arithmetic",
-    "two-pointers"
+    "two-pointers",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

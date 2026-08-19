@@ -20,7 +20,8 @@
   "patterns": [
     "bitmask-dp",
     "expression-minimization",
-    "lexicographic-ordering"
+    "lexicographic-ordering",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

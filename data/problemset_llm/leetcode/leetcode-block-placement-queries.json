@@ -25,7 +25,8 @@
     "binary-search-answer",
     "segment-tree",
     "coordinate-compression",
-    "line-sweep"
+    "line-sweep",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

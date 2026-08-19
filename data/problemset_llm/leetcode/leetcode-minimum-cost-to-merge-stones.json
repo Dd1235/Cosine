@@ -22,7 +22,8 @@
     "interval-dp",
     "prefix-sum",
     "dp-optimization",
-    "matrix-chain-multiplication"
+    "matrix-chain-multiplication",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

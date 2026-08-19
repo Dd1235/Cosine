@@ -22,7 +22,7 @@
   "patterns": [
     "brute-force",
     "diagonal-sums",
-    "prefix-sums"
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "brute-force": 0.9,
       "diagonal-sums": 0.85,
-      "prefix-sums": 0.7
+      "prefix-sum": 0.7
     }
   }
 }

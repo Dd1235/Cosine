@@ -25,7 +25,8 @@
   "patterns": [
     "interactive",
     "binary-search",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

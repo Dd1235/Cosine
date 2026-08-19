@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "union-find",
-    "maximum-spanning-tree",
+    "minimum-spanning-tree",
     "graph-modeling",
     "steiner-tree"
   ],
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785050610,
     "pattern_confidence": {
       "union-find": 0.95,
-      "maximum-spanning-tree": 0.9,
+      "minimum-spanning-tree": 0.9,
       "graph-modeling": 0.85,
       "steiner-tree": 0.95
     }

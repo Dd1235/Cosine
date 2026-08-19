@@ -21,7 +21,8 @@
     "dynamic-programming",
     "greedy",
     "sliding-window",
-    "two-pointers"
+    "two-pointers",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
       "dynamic-programming": 0.95,
       "greedy": 0.7,
       "sliding-window": 0.6,
-      "two-pointers": 0.6
+      "two-pointers": 0.6,
+      "partition-dp": 0.85
     }
   },
   "source_topic": "Formwise / DP Optimizations"

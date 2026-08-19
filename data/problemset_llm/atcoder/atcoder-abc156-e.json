@@ -15,7 +15,8 @@
   "patterns": [
     "stars-and-bars",
     "modular-exponentiation",
-    "combinatorics"
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -24,7 +24,8 @@
   "patterns": [
     "zero-one-bfs",
     "graph-traversal",
-    "shortest-path"
+    "shortest-path",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

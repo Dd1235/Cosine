@@ -26,7 +26,10 @@
     "connected-components",
     "grid-dfs",
     "grid-bfs",
-    "binary-search-answer"
+    "binary-search-answer",
+    "dfs",
+    "bfs",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

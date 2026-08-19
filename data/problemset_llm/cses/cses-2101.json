@@ -15,7 +15,8 @@
   "patterns": [
     "union-find",
     "offline-queries",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

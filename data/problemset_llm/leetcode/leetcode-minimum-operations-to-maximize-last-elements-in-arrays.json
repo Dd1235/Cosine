@@ -20,7 +20,7 @@
   "patterns": [
     "greedy",
     "brute-force",
-    "two-pointer"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "greedy": 0.9,
       "brute-force": 0.85,
-      "two-pointer": 0.6
+      "two-pointers": 0.6
     }
   }
 }

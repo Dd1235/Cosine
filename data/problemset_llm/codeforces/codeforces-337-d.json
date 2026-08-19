@@ -25,7 +25,8 @@
     "dfs",
     "bfs",
     "geometry",
-    "binary-tree-traversal"
+    "binary-tree-traversal",
+    "tree-diameter"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +36,8 @@
       "dfs": 0.9,
       "bfs": 0.9,
       "geometry": 0.85,
-      "binary-tree-traversal": 0.8
+      "binary-tree-traversal": 0.8,
+      "tree-diameter": 0.7
     }
   },
   "source_topic": "Formwise / DP Level 2"

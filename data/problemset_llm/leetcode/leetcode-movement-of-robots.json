@@ -22,7 +22,8 @@
   "patterns": [
     "prefix-sum",
     "collision-simulation",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

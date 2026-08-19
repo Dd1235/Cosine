@@ -18,7 +18,9 @@
   "patterns": [
     "gcd",
     "segment-tree",
-    "binary-search-answer"
+    "binary-search-answer",
+    "number-theory",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

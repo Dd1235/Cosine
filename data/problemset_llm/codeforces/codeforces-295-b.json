@@ -22,7 +22,8 @@
   "patterns": [
     "floyd-warshall",
     "subset-dp",
-    "reverse-deletion"
+    "reverse-deletion",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

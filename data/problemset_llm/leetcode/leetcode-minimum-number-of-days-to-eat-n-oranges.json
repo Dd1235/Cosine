@@ -17,7 +17,8 @@
     "memoization"
   ],
   "patterns": [
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "palindrome-construction"
+    "palindrome-construction",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

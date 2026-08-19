@@ -20,7 +20,9 @@
   "patterns": [
     "digit-dp",
     "modular-arithmetic",
-    "counting"
+    "counting",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

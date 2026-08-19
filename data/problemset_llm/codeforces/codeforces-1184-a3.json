@@ -21,7 +21,8 @@
   "patterns": [
     "string-hashing",
     "collision-finding",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

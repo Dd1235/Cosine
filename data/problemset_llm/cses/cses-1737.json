@@ -15,7 +15,8 @@
   "patterns": [
     "persistent-segment-tree",
     "range-sum-query",
-    "point-update"
+    "point-update",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

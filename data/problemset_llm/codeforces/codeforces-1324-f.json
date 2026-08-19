@@ -20,7 +20,9 @@
   ],
   "patterns": [
     "tree-dp",
-    "dfs"
+    "dfs",
+    "rerooting-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +30,8 @@
     "generated_at_unix": 1785050917,
     "pattern_confidence": {
       "tree-dp": 0.95,
-      "dfs": 0.9
+      "dfs": 0.9,
+      "rerooting-dp": 0.97
     }
   },
   "source_topic": "Formwise / Trees"

@@ -29,7 +29,8 @@
     "memoization",
     "game-dp",
     "state-space-search",
-    "grundy-numbers"
+    "grundy-numbers",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

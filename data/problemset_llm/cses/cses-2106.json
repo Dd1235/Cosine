@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "suffix-array",
-    "longest-common-prefix"
+    "longest-common-prefix",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

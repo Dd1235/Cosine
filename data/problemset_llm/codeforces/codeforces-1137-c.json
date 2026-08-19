@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "dp-on-dag",
-    "graph-traversal"
+    "graph-traversal",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

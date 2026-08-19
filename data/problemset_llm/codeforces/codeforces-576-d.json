@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "dp-on-dag",
-    "shortest-path"
+    "shortest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

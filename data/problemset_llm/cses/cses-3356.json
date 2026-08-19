@@ -16,7 +16,8 @@
     "offline-queries",
     "binary-search-answer",
     "segment-tree",
-    "fenwick-tree"
+    "fenwick-tree",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
     "dfs",
     "tree-dp",
     "shortest-path",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

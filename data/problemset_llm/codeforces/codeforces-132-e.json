@@ -22,7 +22,8 @@
     "bit-manipulation",
     "dp-optimization",
     "greedy",
-    "xor-basis"
+    "xor-basis",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

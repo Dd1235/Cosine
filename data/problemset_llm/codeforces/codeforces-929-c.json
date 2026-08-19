@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "combinatorics",
-    "two-pointer",
+    "two-pointers",
     "sorting"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050320,
     "pattern_confidence": {
       "combinatorics": 0.95,
-      "two-pointer": 0.7,
+      "two-pointers": 0.7,
       "sorting": 0.8
     }
   },

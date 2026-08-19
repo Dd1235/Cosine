@@ -24,7 +24,8 @@
     "topological-sort",
     "cycle-detection",
     "memoization",
-    "functional-graph"
+    "functional-graph",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
   "patterns": [
     "greedy",
     "modular-arithmetic",
-    "difference-array"
+    "difference-array",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

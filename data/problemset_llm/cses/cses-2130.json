@@ -15,7 +15,9 @@
   "patterns": [
     "binary-search-answer",
     "dp-on-dag",
-    "topological-sort"
+    "topological-sort",
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

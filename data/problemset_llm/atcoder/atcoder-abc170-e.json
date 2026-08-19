@@ -13,7 +13,7 @@
   ],
   "patterns": [
     "lazy-deletion",
-    "multiset",
+    "ordered-set",
     "heap"
   ],
   "annotation": {
@@ -22,7 +22,7 @@
     "generated_at_unix": 1785047484,
     "pattern_confidence": {
       "lazy-deletion": 0.95,
-      "multiset": 0.9,
+      "ordered-set": 0.9,
       "heap": 0.9
     }
   },

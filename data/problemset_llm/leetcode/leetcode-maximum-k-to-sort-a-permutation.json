@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search-answer",
     "union-find",
-    "bit-manipulation"
+    "bit-manipulation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

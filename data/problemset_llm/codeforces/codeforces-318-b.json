@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "two-pointers",
-    "substring-search",
+    "string-matching",
     "string-scanning"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050109,
     "pattern_confidence": {
       "two-pointers": 0.9,
-      "substring-search": 0.85,
+      "string-matching": 0.85,
       "string-scanning": 0.8
     }
   },

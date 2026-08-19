@@ -23,7 +23,8 @@
   "patterns": [
     "coordinate-compression",
     "fenwick-tree",
-    "offline-queries"
+    "offline-queries",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

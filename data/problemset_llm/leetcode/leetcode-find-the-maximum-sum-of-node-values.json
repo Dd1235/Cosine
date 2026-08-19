@@ -25,7 +25,8 @@
   "patterns": [
     "xor-manipulation",
     "tree-dp",
-    "bitmask-dp"
+    "bitmask-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

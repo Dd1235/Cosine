@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "multi-source-bfs",
-    "grid-traversal"
+    "grid-traversal",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

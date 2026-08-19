@@ -20,7 +20,8 @@
   "patterns": [
     "binary-search",
     "sorting",
-    "greedy"
+    "greedy",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "pattern_confidence": {
       "binary-search": 0.85,
       "sorting": 0.9,
-      "greedy": 0.9
+      "greedy": 0.9,
+      "segment-tree": 0.72
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

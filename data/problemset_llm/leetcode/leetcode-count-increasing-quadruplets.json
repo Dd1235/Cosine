@@ -25,7 +25,8 @@
     "contribution-technique",
     "fenwick-tree",
     "prefix-sum",
-    "brute-force"
+    "brute-force",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

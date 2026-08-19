@@ -23,7 +23,8 @@
   "patterns": [
     "backtracking",
     "memoization",
-    "digit-dp"
+    "digit-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

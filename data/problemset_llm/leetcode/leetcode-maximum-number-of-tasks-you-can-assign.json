@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 50.0,
+  "acceptance_rate": 50,
   "source_tags": [
     "array",
     "two-pointers",
@@ -31,7 +31,8 @@
     "greedy",
     "two-pointers",
     "monotonic-queue",
-    "sorting"
+    "sorting",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

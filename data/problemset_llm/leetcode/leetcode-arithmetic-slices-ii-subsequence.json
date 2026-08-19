@@ -19,7 +19,8 @@
   "patterns": [
     "dp-with-hashmap",
     "counting",
-    "difference-based-dp"
+    "difference-based-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -19,7 +19,8 @@
   "patterns": [
     "lexicographic-enumeration",
     "permutation-decomposition",
-    "dp-on-permutations"
+    "dp-on-permutations",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

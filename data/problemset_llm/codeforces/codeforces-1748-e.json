@@ -26,7 +26,9 @@
   "patterns": [
     "divide-and-conquer-dp",
     "dynamic-programming",
-    "binary-search"
+    "binary-search",
+    "cartesian-tree",
+    "tree-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +37,9 @@
     "pattern_confidence": {
       "divide-and-conquer-dp": 0.9,
       "dynamic-programming": 0.85,
-      "binary-search": 0.6
+      "binary-search": 0.6,
+      "cartesian-tree": 0.9,
+      "tree-dp": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

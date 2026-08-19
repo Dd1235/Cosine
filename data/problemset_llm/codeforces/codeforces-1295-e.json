@@ -19,7 +19,9 @@
   "patterns": [
     "prefix-suffix-partition",
     "cost-minimization",
-    "dp-on-prefix-suffix"
+    "dp-on-prefix-suffix",
+    "segment-tree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +30,8 @@
     "pattern_confidence": {
       "prefix-suffix-partition": 0.95,
       "cost-minimization": 0.9,
-      "dp-on-prefix-suffix": 0.85
+      "dp-on-prefix-suffix": 0.85,
+      "segment-tree": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

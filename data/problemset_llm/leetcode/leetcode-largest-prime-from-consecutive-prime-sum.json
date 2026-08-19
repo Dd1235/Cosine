@@ -20,8 +20,9 @@
   ],
   "patterns": [
     "prefix-sum",
-    "prime-sieve",
-    "binary-search"
+    "sieve",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,7 @@
     "generated_at_unix": 1784909270,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "prime-sieve": 0.95,
+      "sieve": 0.95,
       "binary-search": 0.85
     }
   }

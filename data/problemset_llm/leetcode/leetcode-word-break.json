@@ -24,7 +24,8 @@
   ],
   "patterns": [
     "memoization",
-    "trie-based-search"
+    "trie-based-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

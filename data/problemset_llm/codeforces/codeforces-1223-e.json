@@ -20,7 +20,8 @@
   "patterns": [
     "tree-dp",
     "greedy",
-    "coloring"
+    "coloring",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

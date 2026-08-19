@@ -20,7 +20,8 @@
   "patterns": [
     "hash-map",
     "set-intersection",
-    "pair-finding"
+    "pair-finding",
+    "sqrt-decomposition"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "pattern_confidence": {
       "hash-map": 0.95,
       "set-intersection": 0.9,
-      "pair-finding": 0.85
+      "pair-finding": 0.85,
+      "sqrt-decomposition": 0.7
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

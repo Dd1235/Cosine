@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 51.0,
+  "acceptance_rate": 51,
   "source_tags": [
     "array",
     "dynamic-programming"
@@ -19,7 +19,8 @@
   "patterns": [
     "dynamic-programming",
     "state-machine-dp",
-    "wqs-binary-search"
+    "wqs-binary-search",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

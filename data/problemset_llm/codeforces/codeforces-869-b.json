@@ -19,7 +19,8 @@
   "patterns": [
     "factorial",
     "modular-arithmetic",
-    "last-digit"
+    "last-digit",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

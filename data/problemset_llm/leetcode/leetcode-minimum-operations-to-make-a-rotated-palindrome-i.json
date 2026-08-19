@@ -16,7 +16,8 @@
     "brute-force",
     "palindrome",
     "modular-arithmetic",
-    "two-pointers"
+    "two-pointers",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

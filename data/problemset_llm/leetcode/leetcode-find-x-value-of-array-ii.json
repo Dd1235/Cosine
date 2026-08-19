@@ -22,7 +22,8 @@
     "prefix-product",
     "modular-arithmetic",
     "segment-tree",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -19,7 +19,8 @@
   "patterns": [
     "bitmask-dp",
     "greedy",
-    "rectangle-rotation"
+    "rectangle-rotation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

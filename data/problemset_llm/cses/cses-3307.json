@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "multi-source-bfs",
-    "manhattan-distance"
+    "manhattan-distance",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

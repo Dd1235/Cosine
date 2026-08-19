@@ -14,8 +14,9 @@
   ],
   "patterns": [
     "tree-dp",
-    "maximum-matching",
-    "dfs"
+    "bipartite-matching",
+    "dfs",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -23,7 +24,7 @@
     "generated_at_unix": 1777951613,
     "pattern_confidence": {
       "tree-dp": 0.98,
-      "maximum-matching": 0.95,
+      "bipartite-matching": 0.95,
       "dfs": 0.9
     }
   }

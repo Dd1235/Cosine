@@ -21,7 +21,8 @@
   "patterns": [
     "greedy",
     "modular-exponentiation",
-    "prime-factorization"
+    "prime-factorization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

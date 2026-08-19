@@ -16,7 +16,8 @@
     "binary-search-answer",
     "dijkstra",
     "waiting-time-optimization",
-    "shortest-path"
+    "shortest-path",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

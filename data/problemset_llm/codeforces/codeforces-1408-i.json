@@ -22,7 +22,8 @@
     "modular-arithmetic",
     "bitmask-dp",
     "expected-value-dp",
-    "xor-basis"
+    "xor-basis",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

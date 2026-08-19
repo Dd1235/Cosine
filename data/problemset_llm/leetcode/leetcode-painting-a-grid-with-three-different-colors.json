@@ -19,7 +19,8 @@
   "patterns": [
     "dp-on-dag",
     "state-compression",
-    "matrix-exponentiation"
+    "matrix-exponentiation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

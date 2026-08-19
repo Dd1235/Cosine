@@ -23,7 +23,7 @@
   "patterns": [
     "dfs",
     "dsu-on-tree",
-    "subtree-query",
+    "tree-flattening",
     "union-find"
   ],
   "annotation": {
@@ -33,7 +33,7 @@
     "pattern_confidence": {
       "dfs": 0.95,
       "dsu-on-tree": 0.9,
-      "subtree-query": 0.85,
+      "tree-flattening": 0.85,
       "union-find": 0.9
     }
   },

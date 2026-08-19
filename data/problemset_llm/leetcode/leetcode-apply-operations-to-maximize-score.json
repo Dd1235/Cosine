@@ -31,7 +31,8 @@
     "greedy",
     "sorting",
     "prime-factorization",
-    "contribution-technique"
+    "contribution-technique",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

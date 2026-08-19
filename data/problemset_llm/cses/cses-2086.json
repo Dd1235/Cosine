@@ -15,7 +15,8 @@
   "patterns": [
     "prefix-sum",
     "interval-dp",
-    "dp-optimization"
+    "dp-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

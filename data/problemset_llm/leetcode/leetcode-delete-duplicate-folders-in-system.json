@@ -24,7 +24,8 @@
   "patterns": [
     "tree-dfs",
     "hash-map",
-    "subtree-hashing"
+    "subtree-hashing",
+    "dfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

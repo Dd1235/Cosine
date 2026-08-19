@@ -23,7 +23,8 @@
   "patterns": [
     "inversion-count",
     "modular-arithmetic",
-    "combinatorial-formula"
+    "combinatorial-formula",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

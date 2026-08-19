@@ -16,7 +16,8 @@
   "patterns": [
     "sorting",
     "two-pointers",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

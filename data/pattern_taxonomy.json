@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "notes": "Single source of truth for the pattern vocabulary. scripts/annotate_problem_urls.py feeds `canonical` keys to the LLM as allowed examples and maps aliases on output; scripts/validate_corpus.js warns on non-canonical patterns; scripts/normalize_patterns.js rewrites aliases to canonical across the corpus. Aliases must point at an existing canonical key.\n\n`groups` are umbrella terms: what people type when they don't want one technique but a family of them (\"range queries\", \"dp optimization\"). They are NOT canonical labels and are never applied to a problem — no problem is tagged `range-queries`. They exist because the taxonomy is all leaves: every member here is a real label, but nothing in the vocabulary said what they have in common, so looking up \"range queries\" found nothing at all.\n\n`consumingAliases` name a technique whose own words point somewhere else — \"square root decomposition\" is not about square roots, \"small to large merging\" is not about large things. For those the matched span is REPLACED by the canonical words instead of having them appended, so the misleading terms stop being scored. Everything else stays append-only: dropping the words of \"sum over subsets\" cost recall, because `subsets` is a term the relevant problems genuinely contain.",
+  "notes": "Single source of truth for the pattern vocabulary. scripts/annotate_problem_urls.py feeds `canonical` keys to the LLM as allowed examples and maps aliases on output; scripts/validate_corpus.js warns on non-canonical patterns; scripts/normalize_patterns.js rewrites aliases to canonical across the corpus. Aliases must point at an existing canonical key.\n\n`groups` are umbrella terms: what people type when they don't want one technique but a family of them (\"range queries\", \"dp optimization\"). They are NOT canonical labels and are never applied to a problem — no problem is tagged `range-queries`. They exist because the taxonomy is all leaves: every member here is a real label, but nothing in the vocabulary said what they have in common, so looking up \"range queries\" found nothing at all.\n\n`consumingAliases` name a technique whose own words point somewhere else — \"square root decomposition\" is not about square roots, \"small to large merging\" is not about large things. For those the matched span is REPLACED by the canonical words instead of having them appended, so the misleading terms stop being scored. Everything else stays append-only: dropping the words of \"sum over subsets\" cost recall, because `subsets` is a term the relevant problems genuinely contain.\n\n`families` say which broad label a specific one implies: a problem labelled `digit-dp` is dynamic programming and a person searching that term should find it. `match` is a regex over the label name, not the statement. Applied at ingest by annotate_problem_urls.py and across the whole corpus by scripts/apply_families.js — it lived only in the former for a while, which is how 1,029 problems ended up missing a family label their own labels implied.",
   "canonical": {
     "two-pointers": {
       "category": "array"
@@ -294,9 +294,6 @@
       "category": "data-structure"
     },
     "ordered-set": {
-      "category": "data-structure"
-    },
-    "multiset": {
       "category": "data-structure"
     },
     "deque": {
@@ -604,6 +601,12 @@
     },
     "design": {
       "category": "data-structure"
+    },
+    "bridge-tree": {
+      "category": "graph"
+    },
+    "kruskal-reconstruction-tree": {
+      "category": "graph"
     }
   },
   "aliases": {
@@ -903,8 +906,96 @@
     "traveling-salesman-problem": "hamiltonian-dp",
     "travelling-salesman": "hamiltonian-dp",
     "travelling-salesman-problem": "hamiltonian-dp",
-    "held-karp": "hamiltonian-dp"
+    "held-karp": "hamiltonian-dp",
+    "0-1-knapsack": "knapsack",
+    "01-knapsack": "knapsack",
+    "zero-one-knapsack": "knapsack",
+    "0/1-knapsack": "knapsack",
+    "knapsack-dp": "knapsack",
+    "budgeted-knapsack": "knapsack",
+    "knapsack-problem": "knapsack",
+    "complete-knapsack": "unbounded-knapsack",
+    "multiple-knapsack": "bounded-knapsack",
+    "rerooting": "rerooting-dp",
+    "reroot": "rerooting-dp",
+    "reroot-technique": "rerooting-dp",
+    "all-roots-dp": "rerooting-dp",
+    "sum-of-distances": "rerooting-dp",
+    "sparse-tables": "sparse-table",
+    "range-minimum-query": "sparse-table",
+    "rmq": "sparse-table",
+    "two-pointer": "two-pointers",
+    "prime-sieve": "sieve",
+    "sieve-of-eratosthenes": "sieve",
+    "eratosthenes": "sieve",
+    "dp-on-intervals": "interval-dp",
+    "interval-dp-optimization": "interval-dp",
+    "substring-search": "string-matching",
+    "substring-matching": "string-matching",
+    "maximum-matching": "bipartite-matching",
+    "prefix-tree": "trie",
+    "prefix-trie": "trie",
+    "stack-simulation": "stack",
+    "maximum-spanning-tree": "minimum-spanning-tree",
+    "path-compression": "union-find",
+    "disjoint-sets": "union-find",
+    "subtree-query": "tree-flattening",
+    "subtree-queries": "tree-flattening",
+    "euler-tour-technique": "euler-tour",
+    "sorted-multiset": "ordered-set",
+    "multiset": "ordered-set",
+    "hld": "heavy-light-decomposition",
+    "heavy-light": "heavy-light-decomposition",
+    "two-edge-connected-components": "bridge-tree",
+    "bridge-forest": "bridge-tree",
+    "kruskal-tree": "kruskal-reconstruction-tree",
+    "reachability-tree": "kruskal-reconstruction-tree",
+    "prefix-sums": "prefix-sum",
+    "prefix-difference": "difference-array",
+    "partitioning": "partition-dp",
+    "array-partitioning": "partition-dp",
+    "integer-partition": "unbounded-knapsack",
+    "count-inversions": "inversion-count"
   },
+  "families": [
+    {
+      "match": "(^|-)dp($|-)|dynamic-programming|memoi[sz]ation",
+      "family": "dynamic-programming"
+    },
+    {
+      "match": "(^|-)bfs($|-)|breadth-first",
+      "family": "bfs"
+    },
+    {
+      "match": "(^|-)dfs($|-)|depth-first",
+      "family": "dfs"
+    },
+    {
+      "match": "binary-search",
+      "family": "binary-search"
+    },
+    {
+      "match": "(^|-)(segment-tree|fenwick-tree)($|-)",
+      "family": "segment-tree"
+    },
+    {
+      "match": "two-pointer",
+      "family": "two-pointers"
+    },
+    {
+      "match": "stars-and-bars|binomial|permutation-counting|combination-counting|catalan|pigeonhole|inclusion-exclusion|counting-ways",
+      "family": "combinatorics"
+    },
+    {
+      "match": "(^|-)(gcd|lcm)($|-)|divisor|(^|-)primes?($|-)|prime-|sieve|modular|modulo|totient|coprime|factorization|euclid",
+      "family": "number-theory"
+    },
+    {
+      "match": "disjoint-set|(^|-)dsu($|-)(?!on-tree)",
+      "family": "union-find",
+      "note": "excludes dsu-on-tree, which is small-to-large merging, not disjoint-set union"
+    }
+  ],
   "groups": {
     "range-queries": {
       "label": "range query",
@@ -996,7 +1087,9 @@
         "tree-flattening",
         "virtual-tree",
         "tree-isomorphism",
-        "tin-tout-ancestor-check"
+        "tin-tout-ancestor-check",
+        "bridge-tree",
+        "kruskal-reconstruction-tree"
       ]
     },
     "number-theory": {
@@ -1067,7 +1160,6 @@
         "fenwick-tree",
         "sparse-table",
         "ordered-set",
-        "multiset",
         "heap",
         "trie",
         "union-find",

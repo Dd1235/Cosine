@@ -26,7 +26,8 @@
     "binary-search-answer",
     "union-find",
     "greedy",
-    "minimum-spanning-tree"
+    "minimum-spanning-tree",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

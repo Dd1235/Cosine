@@ -21,7 +21,8 @@
   "patterns": [
     "prefix-sum",
     "modular-exponentiation",
-    "prime-modulo"
+    "prime-modulo",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "greedy",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,5 +27,5 @@
     }
   },
   "difficulty": "Medium",
-  "acceptance_rate": 63.0
+  "acceptance_rate": 63
 }

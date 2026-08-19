@@ -15,7 +15,8 @@
   "patterns": [
     "dp-on-dag",
     "matrix-exponentiation",
-    "shortest-path"
+    "shortest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

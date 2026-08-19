@@ -23,7 +23,8 @@
   "patterns": [
     "gcd",
     "sorting",
-    "greedy"
+    "greedy",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

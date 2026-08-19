@@ -15,7 +15,8 @@
   "patterns": [
     "prefix-xor",
     "modular-exponentiation",
-    "lucas-theorem"
+    "lucas-theorem",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "distance-counting"
+    "distance-counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

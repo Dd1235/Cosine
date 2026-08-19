@@ -24,7 +24,9 @@
   "patterns": [
     "binary-search-answer",
     "bitmask-dp",
-    "backtracking"
+    "backtracking",
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

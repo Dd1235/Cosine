@@ -22,7 +22,9 @@
   "patterns": [
     "aho-corasick",
     "dp-on-dag",
-    "string-matching"
+    "string-matching",
+    "matrix-exponentiation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +33,8 @@
     "pattern_confidence": {
       "aho-corasick": 0.98,
       "dp-on-dag": 0.9,
-      "string-matching": 0.85
+      "string-matching": 0.85,
+      "matrix-exponentiation": 0.9
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

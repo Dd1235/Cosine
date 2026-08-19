@@ -23,7 +23,8 @@
     "counting",
     "combinatorics",
     "modular-arithmetic",
-    "burnside-lemma"
+    "burnside-lemma",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

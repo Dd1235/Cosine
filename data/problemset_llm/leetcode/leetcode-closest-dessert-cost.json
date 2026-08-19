@@ -21,7 +21,8 @@
   "patterns": [
     "backtracking",
     "subset-dp",
-    "state-space-search"
+    "state-space-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

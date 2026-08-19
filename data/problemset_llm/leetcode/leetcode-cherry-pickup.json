@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "dp-on-dag",
-    "grid-dp"
+    "grid-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

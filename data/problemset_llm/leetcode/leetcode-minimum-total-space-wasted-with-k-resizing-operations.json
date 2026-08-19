@@ -22,7 +22,8 @@
     "dynamic-programming",
     "partition-dp",
     "prefix-sum",
-    "wqs-binary-search"
+    "wqs-binary-search",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

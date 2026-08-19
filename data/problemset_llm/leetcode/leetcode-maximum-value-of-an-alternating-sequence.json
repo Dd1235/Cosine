@@ -17,7 +17,8 @@
   "patterns": [
     "binary-search-answer",
     "dynamic-programming",
-    "greedy"
+    "greedy",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

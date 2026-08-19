@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-beautiful-substrings-i/",
   "source_topic": "LeetCode / Number Theory (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 61.0,
+  "acceptance_rate": 61,
   "source_tags": [
     "hash-table",
     "math",
@@ -25,7 +25,8 @@
   "patterns": [
     "prefix-sum",
     "modular-arithmetic",
-    "two-pointers"
+    "two-pointers",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

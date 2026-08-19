@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "manhattan-distance",
-    "nearest-neighbor-search"
+    "nearest-neighbor-search",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

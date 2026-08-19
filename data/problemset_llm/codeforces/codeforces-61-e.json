@@ -22,7 +22,8 @@
     "inversion-count",
     "contribution-technique",
     "merge-sort-tree",
-    "sqrt-decomposition"
+    "sqrt-decomposition",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

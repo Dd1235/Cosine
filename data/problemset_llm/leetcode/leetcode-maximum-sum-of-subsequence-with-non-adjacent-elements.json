@@ -22,7 +22,8 @@
   "patterns": [
     "dp-on-sequences",
     "segment-tree",
-    "range-update-and-query"
+    "range-update-and-query",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

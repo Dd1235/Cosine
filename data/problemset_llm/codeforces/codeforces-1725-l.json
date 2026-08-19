@@ -16,7 +16,9 @@
   ],
   "patterns": [
     "greedy",
-    "simulation"
+    "simulation",
+    "inversion-count",
+    "prefix-sum"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +26,9 @@
     "generated_at_unix": 1785050465,
     "pattern_confidence": {
       "greedy": 0.85,
-      "simulation": 0.8
+      "simulation": 0.8,
+      "inversion-count": 0.85,
+      "prefix-sum": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

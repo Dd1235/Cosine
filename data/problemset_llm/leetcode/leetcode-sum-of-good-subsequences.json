@@ -21,7 +21,9 @@
   "patterns": [
     "dp-on-array",
     "modular-arithmetic",
-    "counting"
+    "counting",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

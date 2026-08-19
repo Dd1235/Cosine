@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-number-of-non-overlapping-palindrome-substrings/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 45.0,
+  "acceptance_rate": 45,
   "source_tags": [
     "two-pointers",
     "string",
@@ -23,7 +23,8 @@
     "palindrome",
     "interval-dp",
     "greedy-selection",
-    "manacher"
+    "manacher",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
     "event-simulation",
     "continuous-movement",
     "collision-detection",
-    "line-sweep"
+    "line-sweep",
+    "heavy-light-decomposition"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +35,8 @@
       "event-simulation": 0.85,
       "continuous-movement": 0.8,
       "collision-detection": 0.8,
-      "line-sweep": 0.9
+      "line-sweep": 0.9,
+      "heavy-light-decomposition": 0.85
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

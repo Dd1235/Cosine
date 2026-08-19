@@ -24,7 +24,9 @@
   "patterns": [
     "expected-value-dp",
     "modular-inverse",
-    "combinatorial-probability"
+    "combinatorial-probability",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

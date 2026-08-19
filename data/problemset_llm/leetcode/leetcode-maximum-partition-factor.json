@@ -25,7 +25,8 @@
     "binary-search-answer",
     "union-find",
     "connected-components",
-    "dfs"
+    "dfs",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

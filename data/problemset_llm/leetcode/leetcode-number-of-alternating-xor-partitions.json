@@ -22,7 +22,9 @@
   "patterns": [
     "prefix-xor",
     "dynamic-programming",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "partition-dp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +33,8 @@
     "pattern_confidence": {
       "prefix-xor": 0.95,
       "dynamic-programming": 0.9,
-      "modular-arithmetic": 0.85
+      "modular-arithmetic": 0.85,
+      "partition-dp": 0.9
     }
   }
 }

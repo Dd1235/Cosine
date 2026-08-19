@@ -28,7 +28,8 @@
     "rolling-hash",
     "suffix-array",
     "suffix-automaton",
-    "rabin-karp"
+    "rabin-karp",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -25,7 +25,8 @@
     "dfs",
     "memoization",
     "backtracking",
-    "state-space-search"
+    "state-space-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

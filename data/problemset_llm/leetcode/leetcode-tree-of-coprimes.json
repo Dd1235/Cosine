@@ -25,7 +25,8 @@
     "dfs",
     "gcd",
     "ancestor-query",
-    "tin-tout-ancestor-check"
+    "tin-tout-ancestor-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

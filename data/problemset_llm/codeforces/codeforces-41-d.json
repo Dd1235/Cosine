@@ -21,7 +21,9 @@
   "patterns": [
     "grid-dp",
     "modular-dp",
-    "path-reconstruction"
+    "path-reconstruction",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

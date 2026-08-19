@@ -15,7 +15,8 @@
   "patterns": [
     "floyd-warshall",
     "binary-search-answer",
-    "graph-transformation"
+    "graph-transformation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

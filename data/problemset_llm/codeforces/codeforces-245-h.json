@@ -20,7 +20,8 @@
   "patterns": [
     "palindrome-dp",
     "prefix-hashing",
-    "range-query"
+    "range-query",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -24,7 +24,8 @@
   "patterns": [
     "prefix-xor",
     "parity-argument",
-    "number-of-divisors-property"
+    "number-of-divisors-property",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

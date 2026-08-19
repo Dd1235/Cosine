@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "prime-factorization",
-    "greedy-coloring"
+    "greedy-coloring",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

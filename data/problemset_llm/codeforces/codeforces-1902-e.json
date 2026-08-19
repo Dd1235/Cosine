@@ -21,7 +21,8 @@
   "patterns": [
     "string-processing",
     "two-pointers",
-    "prefix-sums"
+    "prefix-sum",
+    "trie"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +31,8 @@
     "pattern_confidence": {
       "string-processing": 0.9,
       "two-pointers": 0.7,
-      "prefix-sums": 0.6
+      "prefix-sum": 0.6,
+      "trie": 0.85
     }
   },
   "source_topic": "Formwise / Trie"

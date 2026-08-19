@@ -29,7 +29,8 @@
     "expression-parsing",
     "dp-on-dag",
     "memoization",
-    "stack-based-parsing"
+    "stack-based-parsing",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

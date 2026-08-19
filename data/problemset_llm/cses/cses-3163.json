@@ -17,7 +17,8 @@
     "coordinate-compression",
     "fenwick-tree",
     "binary-search",
-    "mo-algorithm"
+    "mo-algorithm",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
