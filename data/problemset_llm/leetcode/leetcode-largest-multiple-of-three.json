@@ -26,7 +26,9 @@
     "greedy",
     "sorting",
     "modular-arithmetic",
-    "digit-dp"
+    "digit-dp",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

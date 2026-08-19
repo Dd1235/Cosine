@@ -20,7 +20,8 @@
     "prefix-suffix-partition",
     "cost-minimization",
     "dp-on-prefix-suffix",
-    "segment-tree"
+    "segment-tree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

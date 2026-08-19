@@ -25,7 +25,8 @@
     "bfs",
     "bitmask-dp",
     "state-compression",
-    "shortest-path"
+    "shortest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

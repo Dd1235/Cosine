@@ -17,7 +17,8 @@
     "inclusion-exclusion",
     "dynamic-programming",
     "multiples-enumeration",
-    "mobius-inversion"
+    "mobius-inversion",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

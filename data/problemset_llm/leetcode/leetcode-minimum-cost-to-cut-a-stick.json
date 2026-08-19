@@ -21,7 +21,8 @@
   "patterns": [
     "interval-dp",
     "sorting",
-    "matrix-chain-multiplication"
+    "matrix-chain-multiplication",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

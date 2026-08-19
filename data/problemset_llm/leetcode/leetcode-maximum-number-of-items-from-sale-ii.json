@@ -23,7 +23,8 @@
   "patterns": [
     "greedy",
     "divisor-graph",
-    "knapsack"
+    "knapsack",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

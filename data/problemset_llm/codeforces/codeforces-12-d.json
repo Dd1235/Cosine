@@ -19,7 +19,8 @@
   "patterns": [
     "sorting",
     "coordinate-compression",
-    "fenwick-tree"
+    "fenwick-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

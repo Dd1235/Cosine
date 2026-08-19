@@ -19,7 +19,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "cost-calculation"
+    "cost-calculation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

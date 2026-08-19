@@ -25,7 +25,9 @@
     "dynamic-programming",
     "gcd",
     "inclusion-exclusion",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

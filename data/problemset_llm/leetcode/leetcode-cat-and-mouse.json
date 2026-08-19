@@ -26,7 +26,8 @@
     "topological-sort",
     "game-dp",
     "memoization",
-    "game-theory"
+    "game-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "prefix-sum"
+    "prefix-sum",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

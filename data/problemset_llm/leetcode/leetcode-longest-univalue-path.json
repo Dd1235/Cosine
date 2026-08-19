@@ -21,7 +21,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "path-finding"
+    "path-finding",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
   "patterns": [
     "interval-scheduling",
     "interval-dp",
-    "binary-search"
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

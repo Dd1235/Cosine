@@ -19,7 +19,8 @@
   "patterns": [
     "modular-multiplication",
     "range-update",
-    "step-interval-processing"
+    "step-interval-processing",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

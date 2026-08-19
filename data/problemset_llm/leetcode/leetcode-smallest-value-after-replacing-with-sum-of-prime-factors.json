@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "prime-factorization",
-    "simulation"
+    "simulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

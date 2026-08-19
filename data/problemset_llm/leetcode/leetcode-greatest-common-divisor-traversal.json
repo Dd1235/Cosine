@@ -24,7 +24,8 @@
     "union-find",
     "gcd",
     "connectivity-check",
-    "dfs"
+    "dfs",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

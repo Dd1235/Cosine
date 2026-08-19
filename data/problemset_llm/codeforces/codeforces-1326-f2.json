@@ -23,7 +23,9 @@
     "brute-force",
     "inclusion-exclusion",
     "state-compression",
-    "burnside-lemma"
+    "burnside-lemma",
+    "dynamic-programming",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
     "binary-search",
     "max-flow",
     "modular-arithmetic",
-    "feasibility-check"
+    "feasibility-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -17,7 +17,8 @@
   "patterns": [
     "modular-arithmetic",
     "coin-change",
-    "base-conversion"
+    "base-conversion",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

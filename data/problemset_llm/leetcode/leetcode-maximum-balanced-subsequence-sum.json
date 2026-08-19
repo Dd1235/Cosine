@@ -25,7 +25,8 @@
     "binary-search-answer",
     "dynamic-programming",
     "fenwick-tree",
-    "segment-tree"
+    "segment-tree",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -21,7 +21,8 @@
     "modular-arithmetic",
     "digit-manipulation",
     "pairwise-sum",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

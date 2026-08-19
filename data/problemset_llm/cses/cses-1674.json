@@ -15,7 +15,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "subtree-size"
+    "subtree-size",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

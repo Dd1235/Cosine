@@ -26,7 +26,8 @@
     "modular-arithmetic",
     "prefix-max",
     "counting",
-    "burnside-lemma"
+    "burnside-lemma",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

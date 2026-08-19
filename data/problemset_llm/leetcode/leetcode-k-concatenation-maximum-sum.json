@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/k-concatenation-maximum-sum/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 26.0,
+  "acceptance_rate": 26,
   "source_tags": [
     "array",
     "dynamic-programming"
@@ -20,7 +20,8 @@
   "patterns": [
     "kadane",
     "prefix-sum",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

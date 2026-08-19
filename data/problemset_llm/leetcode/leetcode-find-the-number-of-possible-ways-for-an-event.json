@@ -20,7 +20,9 @@
   ],
   "patterns": [
     "modular-arithmetic",
-    "dp-on-dag"
+    "dp-on-dag",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
     "dfs",
     "tree-dp",
     "game-dp",
-    "connected-components"
+    "connected-components",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

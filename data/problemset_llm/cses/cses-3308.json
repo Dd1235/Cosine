@@ -15,7 +15,8 @@
   "patterns": [
     "backtracking",
     "bitmask-dp",
-    "graph-coloring"
+    "graph-coloring",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

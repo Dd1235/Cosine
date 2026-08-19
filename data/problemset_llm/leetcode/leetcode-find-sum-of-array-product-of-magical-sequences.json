@@ -26,7 +26,9 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

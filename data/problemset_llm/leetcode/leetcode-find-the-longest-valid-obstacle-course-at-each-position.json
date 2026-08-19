@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search",
     "fenwick-tree",
-    "longest-non-decreasing-subsequence"
+    "longest-non-decreasing-subsequence",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,8 @@
   "patterns": [
     "two-pointers",
     "greedy",
-    "interval-dp"
+    "interval-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

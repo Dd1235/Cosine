@@ -18,7 +18,8 @@
     "sorting",
     "modular-arithmetic",
     "greedy",
-    "exchange-argument"
+    "exchange-argument",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

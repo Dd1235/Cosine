@@ -15,7 +15,8 @@
   "patterns": [
     "interval-dp",
     "game-dp",
-    "game-theory"
+    "game-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

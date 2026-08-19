@@ -27,7 +27,8 @@
     "tree-dp",
     "dfs",
     "disjoint-paths",
-    "max-product"
+    "max-product",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

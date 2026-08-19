@@ -25,7 +25,8 @@
   "patterns": [
     "bitmask-dp",
     "memoization",
-    "recursion"
+    "recursion",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

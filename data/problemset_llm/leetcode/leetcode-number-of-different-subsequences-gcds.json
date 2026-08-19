@@ -23,7 +23,8 @@
   "patterns": [
     "gcd",
     "brute-force",
-    "divisor-enumeration"
+    "divisor-enumeration",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

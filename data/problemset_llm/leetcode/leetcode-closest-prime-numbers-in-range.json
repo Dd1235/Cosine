@@ -20,7 +20,8 @@
   "patterns": [
     "sieve",
     "two-pointers",
-    "primality-test"
+    "primality-test",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

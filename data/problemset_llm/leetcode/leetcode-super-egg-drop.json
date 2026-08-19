@@ -21,7 +21,8 @@
   "patterns": [
     "dynamic-programming",
     "dp-optimization",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

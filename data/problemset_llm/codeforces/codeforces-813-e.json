@@ -22,7 +22,8 @@
     "binary-search",
     "two-pointers",
     "counting",
-    "persistent-segment-tree"
+    "persistent-segment-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

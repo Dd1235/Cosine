@@ -19,7 +19,8 @@
   "patterns": [
     "fraction-representation",
     "dp-on-rationals",
-    "number-theory"
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

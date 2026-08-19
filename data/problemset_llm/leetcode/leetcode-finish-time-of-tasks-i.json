@@ -15,7 +15,8 @@
   ],
   "patterns": [
     "tree-dp",
-    "post-order-traversal"
+    "post-order-traversal",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

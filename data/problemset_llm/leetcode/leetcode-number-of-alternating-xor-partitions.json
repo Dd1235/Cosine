@@ -23,7 +23,8 @@
     "prefix-xor",
     "dynamic-programming",
     "modular-arithmetic",
-    "partition-dp"
+    "partition-dp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

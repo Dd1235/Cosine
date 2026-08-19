@@ -20,7 +20,8 @@
   "patterns": [
     "dp-on-dag",
     "divide-and-conquer",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

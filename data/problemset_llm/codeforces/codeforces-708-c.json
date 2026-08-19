@@ -28,7 +28,8 @@
     "greedy",
     "centroid-decomposition",
     "tin-tout-ancestor-check",
-    "rerooting-dp"
+    "rerooting-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

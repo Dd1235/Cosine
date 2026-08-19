@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "factorial-trailing-zeroes"
+    "factorial-trailing-zeroes",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

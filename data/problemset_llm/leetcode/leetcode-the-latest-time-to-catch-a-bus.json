@@ -23,7 +23,8 @@
     "sorting",
     "greedy",
     "binary-search-answer",
-    "line-sweep"
+    "line-sweep",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

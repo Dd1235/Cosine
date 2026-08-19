@@ -27,7 +27,8 @@
     "bit-manipulation",
     "prefix-and",
     "binary-search-answer",
-    "partition-dp"
+    "partition-dp",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

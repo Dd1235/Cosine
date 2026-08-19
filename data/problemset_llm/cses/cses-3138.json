@@ -13,7 +13,8 @@
   ],
   "patterns": [
     "palindrome-dp",
-    "manacher"
+    "manacher",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

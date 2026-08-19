@@ -24,7 +24,8 @@
     "greedy",
     "circular-distance",
     "minimum-maximum-matching",
-    "hungarian-algorithm"
+    "hungarian-algorithm",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

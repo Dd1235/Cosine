@@ -16,7 +16,8 @@
   "patterns": [
     "bitmask-dp",
     "interval-dp",
-    "bitwise-manipulation"
+    "bitwise-manipulation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

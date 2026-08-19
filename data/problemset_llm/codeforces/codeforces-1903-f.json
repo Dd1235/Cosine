@@ -25,7 +25,8 @@
     "binary-search-answer",
     "vertex-cover",
     "wqs-binary-search",
-    "segment-tree"
+    "segment-tree",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

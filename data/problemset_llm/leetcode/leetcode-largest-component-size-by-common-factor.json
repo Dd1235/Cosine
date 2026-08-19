@@ -24,7 +24,8 @@
   "patterns": [
     "union-find",
     "prime-factorization",
-    "graph-modeling"
+    "graph-modeling",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

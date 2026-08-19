@@ -26,7 +26,8 @@
   "patterns": [
     "backtracking",
     "dp-on-dag",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

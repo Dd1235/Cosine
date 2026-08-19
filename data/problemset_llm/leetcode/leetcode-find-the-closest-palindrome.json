@@ -20,7 +20,9 @@
   "patterns": [
     "constructive-algorithm",
     "binary-search-answer",
-    "palindrome-dp"
+    "palindrome-dp",
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

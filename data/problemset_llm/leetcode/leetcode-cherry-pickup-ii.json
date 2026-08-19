@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "dp-with-multiple-states",
-    "grid-dp"
+    "grid-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

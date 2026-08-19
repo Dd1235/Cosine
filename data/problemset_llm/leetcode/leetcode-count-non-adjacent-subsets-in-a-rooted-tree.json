@@ -22,7 +22,9 @@
   "patterns": [
     "tree-dp",
     "modular-dp",
-    "subset-dp"
+    "subset-dp",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

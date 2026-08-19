@@ -20,7 +20,8 @@
   "patterns": [
     "catalan-number",
     "balanced-parentheses",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

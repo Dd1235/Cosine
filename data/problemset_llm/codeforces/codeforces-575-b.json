@@ -22,7 +22,8 @@
     "dfs",
     "dp-on-tree",
     "shortest-path",
-    "lca"
+    "lca",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -16,7 +16,8 @@
     "dynamic-programming",
     "prefix-sum",
     "stars-and-bars",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

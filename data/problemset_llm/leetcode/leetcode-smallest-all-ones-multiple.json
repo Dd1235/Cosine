@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/smallest-all-ones-multiple/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 47.0,
+  "acceptance_rate": 47,
   "source_tags": [
     "hash-table",
     "math"
@@ -20,7 +20,8 @@
   "patterns": [
     "modular-arithmetic",
     "remainder-cycle-detection",
-    "bfs"
+    "bfs",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

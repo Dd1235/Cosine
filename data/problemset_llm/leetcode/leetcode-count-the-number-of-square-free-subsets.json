@@ -26,7 +26,8 @@
     "bitmask-dp",
     "dynamic-programming",
     "modular-arithmetic",
-    "prime-factorization"
+    "prime-factorization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

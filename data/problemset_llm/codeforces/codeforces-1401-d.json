@@ -29,7 +29,9 @@
     "prime-factorization",
     "tree-dp",
     "greedy",
-    "sorting"
+    "sorting",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "topological-sort",
     "dp-on-dag",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

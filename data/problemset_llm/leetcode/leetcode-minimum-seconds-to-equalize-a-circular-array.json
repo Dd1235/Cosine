@@ -20,7 +20,8 @@
   "patterns": [
     "multi-source-bfs",
     "circular-array",
-    "shortest-path"
+    "shortest-path",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "counting"
+    "counting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

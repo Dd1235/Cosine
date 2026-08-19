@@ -25,7 +25,8 @@
     "binary-search-answer",
     "reachability-check",
     "degree-constraint",
-    "pruning"
+    "pruning",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

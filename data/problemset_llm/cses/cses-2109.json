@@ -16,7 +16,8 @@
     "suffix-array",
     "binary-search-answer",
     "prefix-sum",
-    "suffix-automaton"
+    "suffix-automaton",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

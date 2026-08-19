@@ -23,7 +23,8 @@
     "dsu-on-tree",
     "contribution-technique",
     "tree-dp",
-    "union-find"
+    "union-find",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

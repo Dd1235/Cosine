@@ -15,7 +15,8 @@
   "patterns": [
     "tree-dp",
     "bipartite-matching",
-    "dfs"
+    "dfs",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

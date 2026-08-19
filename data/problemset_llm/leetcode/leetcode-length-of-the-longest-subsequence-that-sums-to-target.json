@@ -19,7 +19,8 @@
   "patterns": [
     "subset-dp",
     "longest-subsequence",
-    "sum-target"
+    "sum-target",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

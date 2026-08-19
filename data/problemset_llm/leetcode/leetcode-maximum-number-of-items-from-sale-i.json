@@ -21,7 +21,9 @@
   "patterns": [
     "knapsack",
     "divisor-graph",
-    "subset-dp"
+    "subset-dp",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -19,7 +19,8 @@
   "patterns": [
     "sliding-window",
     "modular-arithmetic",
-    "brute-force"
+    "brute-force",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

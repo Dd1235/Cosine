@@ -22,7 +22,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

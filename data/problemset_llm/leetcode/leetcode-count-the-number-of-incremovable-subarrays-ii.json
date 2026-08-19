@@ -21,7 +21,8 @@
   "patterns": [
     "two-pointers",
     "binary-search-answer",
-    "prefix-sum"
+    "prefix-sum",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

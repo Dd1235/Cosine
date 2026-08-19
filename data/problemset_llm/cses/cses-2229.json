@@ -14,7 +14,8 @@
   "patterns": [
     "dp-on-dag",
     "prefix-sum",
-    "counting"
+    "counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

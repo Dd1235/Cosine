@@ -23,7 +23,9 @@
     "tree-dp",
     "lca",
     "distance-constraints",
-    "binary-search-answer"
+    "binary-search-answer",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

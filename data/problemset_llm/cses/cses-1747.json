@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "longest-bitonic-subsequence",
-    "inversion-count"
+    "inversion-count",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

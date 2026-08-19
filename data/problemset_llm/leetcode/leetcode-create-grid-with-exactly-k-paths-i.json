@@ -17,7 +17,8 @@
   "patterns": [
     "counting-paths",
     "grid-dp",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

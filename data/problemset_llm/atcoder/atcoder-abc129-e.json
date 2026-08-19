@@ -15,7 +15,9 @@
   "patterns": [
     "digit-dp",
     "bit-manipulation",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

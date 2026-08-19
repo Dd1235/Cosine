@@ -23,7 +23,8 @@
     "gcd",
     "state-space-search",
     "bfs",
-    "dfs"
+    "dfs",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

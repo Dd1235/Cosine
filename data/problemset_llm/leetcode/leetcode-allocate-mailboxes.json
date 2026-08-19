@@ -24,7 +24,8 @@
     "partition-dp",
     "divide-and-conquer-dp",
     "prefix-sum",
-    "sorting"
+    "sorting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

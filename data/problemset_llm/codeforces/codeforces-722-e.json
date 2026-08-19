@@ -19,7 +19,8 @@
   "patterns": [
     "grid-dp",
     "expected-value-dp",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -26,7 +26,8 @@
     "dfs",
     "tree-dp",
     "string-hashing",
-    "palindrome"
+    "palindrome",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

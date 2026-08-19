@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "digit-dp",
-    "monotonic-sequence-check"
+    "monotonic-sequence-check",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

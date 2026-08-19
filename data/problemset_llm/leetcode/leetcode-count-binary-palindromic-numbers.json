@@ -20,7 +20,9 @@
   "patterns": [
     "digit-dp",
     "binary-search-answer",
-    "bit-manipulation"
+    "bit-manipulation",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

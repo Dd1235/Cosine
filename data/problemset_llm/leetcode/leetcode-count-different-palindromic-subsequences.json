@@ -19,7 +19,9 @@
   "patterns": [
     "interval-dp",
     "counting-distinct-subsequences",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

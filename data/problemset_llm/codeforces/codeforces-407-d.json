@@ -21,7 +21,8 @@
     "sliding-window",
     "two-pointers",
     "hash-map",
-    "dp-on-rows"
+    "dp-on-rows",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -25,7 +25,8 @@
   "patterns": [
     "binary-search-answer",
     "union-find",
-    "grid-traversal"
+    "grid-traversal",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

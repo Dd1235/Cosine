@@ -25,7 +25,8 @@
   "patterns": [
     "modular-arithmetic",
     "game-theory",
-    "greedy"
+    "greedy",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

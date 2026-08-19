@@ -22,7 +22,8 @@
   "patterns": [
     "topological-sort",
     "dp-on-dag",
-    "longest-path-in-dag"
+    "longest-path-in-dag",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

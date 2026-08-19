@@ -23,7 +23,9 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

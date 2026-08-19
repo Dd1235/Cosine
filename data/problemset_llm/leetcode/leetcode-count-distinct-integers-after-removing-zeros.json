@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "digit-dp",
-    "counting"
+    "counting",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

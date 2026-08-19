@@ -21,7 +21,9 @@
   "patterns": [
     "stars-and-bars",
     "modular-exponentiation",
-    "dynamic-programming"
+    "dynamic-programming",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
     "string-matching",
     "string-reversal",
     "dp-on-strings",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

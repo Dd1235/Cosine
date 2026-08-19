@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "sieve",
-    "digit-reversal"
+    "digit-reversal",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

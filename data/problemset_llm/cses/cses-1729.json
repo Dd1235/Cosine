@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "grundy-numbers",
-    "game-dp"
+    "game-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

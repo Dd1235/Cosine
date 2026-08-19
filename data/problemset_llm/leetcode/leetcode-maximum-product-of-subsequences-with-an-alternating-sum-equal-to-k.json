@@ -21,7 +21,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "dp-with-product-constraints"
+    "dp-with-product-constraints",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

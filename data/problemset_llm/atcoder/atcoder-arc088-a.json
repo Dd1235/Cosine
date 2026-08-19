@@ -15,7 +15,8 @@
   "patterns": [
     "greedy",
     "binary-search-answer",
-    "multiplicative-sequence"
+    "multiplicative-sequence",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

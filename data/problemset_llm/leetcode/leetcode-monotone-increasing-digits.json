@@ -20,7 +20,8 @@
   "patterns": [
     "greedy",
     "digit-dp",
-    "monotone-sequence"
+    "monotone-sequence",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

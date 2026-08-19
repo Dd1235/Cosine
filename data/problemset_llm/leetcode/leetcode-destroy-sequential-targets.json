@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "modulo-bucketing",
-    "counting"
+    "counting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

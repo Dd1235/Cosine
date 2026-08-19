@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "bit-manipulation",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,9 @@
     "modular-arithmetic",
     "counting",
     "dp-on-sums",
-    "fft"
+    "fft",
+    "number-theory",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

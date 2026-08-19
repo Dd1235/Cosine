@@ -21,7 +21,8 @@
   "patterns": [
     "divisor-enumeration",
     "range-query",
-    "sieve"
+    "sieve",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

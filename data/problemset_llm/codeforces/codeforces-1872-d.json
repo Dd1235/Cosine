@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "greedy",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

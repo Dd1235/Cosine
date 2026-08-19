@@ -22,7 +22,8 @@
   "patterns": [
     "modular-exponentiation",
     "congruence-equation",
-    "counting"
+    "counting",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

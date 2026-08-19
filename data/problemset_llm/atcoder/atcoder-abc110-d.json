@@ -15,7 +15,9 @@
   "patterns": [
     "prime-factorization",
     "stars-and-bars",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

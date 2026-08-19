@@ -23,7 +23,8 @@
     "modular-arithmetic",
     "two-pointers",
     "prefix-sum",
-    "dynamic-programming"
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

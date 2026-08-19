@@ -25,7 +25,8 @@
   "patterns": [
     "prefix-sum",
     "binary-search-answer",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

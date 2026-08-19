@@ -24,7 +24,8 @@
     "two-pointers",
     "binary-search",
     "greedy",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

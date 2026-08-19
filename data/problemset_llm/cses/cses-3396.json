@@ -15,7 +15,9 @@
   "patterns": [
     "binary-search-answer",
     "miller-rabin-primality-test",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

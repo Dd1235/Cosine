@@ -24,7 +24,8 @@
   "patterns": [
     "tree-dp",
     "bottom-up-dp",
-    "greedy"
+    "greedy",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

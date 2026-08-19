@@ -22,7 +22,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "lexicographic-order"
+    "lexicographic-order",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -15,7 +15,8 @@
   "patterns": [
     "counting-divisors",
     "counting",
-    "gcd"
+    "gcd",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

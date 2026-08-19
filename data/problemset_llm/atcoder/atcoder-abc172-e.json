@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "combinatorics",
-    "modular-inverse"
+    "modular-inverse",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

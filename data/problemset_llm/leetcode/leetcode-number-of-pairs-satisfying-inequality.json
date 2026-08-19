@@ -27,7 +27,8 @@
   "patterns": [
     "divide-and-conquer",
     "fenwick-tree",
-    "merge-sort"
+    "merge-sort",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,9 @@
     "digit-dp",
     "segment-tree",
     "modular-arithmetic",
-    "fft"
+    "fft",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -25,7 +25,8 @@
     "bitmask-dp",
     "state-compression",
     "dfs",
-    "palindrome"
+    "palindrome",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -31,7 +31,8 @@
     "binary-search-answer",
     "two-pointers",
     "degree-constrained-graph",
-    "dynamic-graph"
+    "dynamic-graph",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -28,7 +28,8 @@
     "dp-on-strings",
     "rolling-hash",
     "backtracking",
-    "trie"
+    "trie",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "gcd",
-    "sequence-matching"
+    "sequence-matching",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

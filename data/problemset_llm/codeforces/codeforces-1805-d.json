@@ -28,7 +28,8 @@
     "dfs",
     "greedy",
     "dp-on-trees",
-    "tree-diameter"
+    "tree-diameter",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

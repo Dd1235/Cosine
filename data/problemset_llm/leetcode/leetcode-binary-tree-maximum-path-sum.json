@@ -23,7 +23,8 @@
   "patterns": [
     "tree-dp",
     "dfs",
-    "path-sum"
+    "path-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

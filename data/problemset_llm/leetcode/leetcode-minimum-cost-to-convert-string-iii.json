@@ -16,7 +16,8 @@
   "patterns": [
     "interval-dp",
     "string-matching",
-    "dp-on-substrings"
+    "dp-on-substrings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

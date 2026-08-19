@@ -16,7 +16,9 @@
   "patterns": [
     "inclusion-exclusion",
     "sieve",
-    "gcd-based-counting"
+    "gcd-based-counting",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

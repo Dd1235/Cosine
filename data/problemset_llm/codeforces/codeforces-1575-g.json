@@ -18,7 +18,8 @@
   "patterns": [
     "gcd",
     "modular-arithmetic",
-    "double-summation"
+    "double-summation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

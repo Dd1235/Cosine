@@ -22,7 +22,8 @@
   "patterns": [
     "prefix-sum",
     "sliding-window",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

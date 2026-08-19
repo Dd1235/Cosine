@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "digit-dp",
-    "brute-force"
+    "brute-force",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

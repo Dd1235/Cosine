@@ -20,7 +20,8 @@
   "patterns": [
     "constructive-algorithm",
     "game-dp",
-    "string-reversal"
+    "string-reversal",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -14,7 +14,8 @@
   "patterns": [
     "bipartite-matching",
     "hungarian-algorithm",
-    "dfs-based-augmenting-path"
+    "dfs-based-augmenting-path",
+    "dfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

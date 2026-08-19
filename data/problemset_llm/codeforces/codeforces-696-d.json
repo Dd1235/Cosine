@@ -23,7 +23,8 @@
     "aho-corasick",
     "dp-on-dag",
     "string-matching",
-    "matrix-exponentiation"
+    "matrix-exponentiation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

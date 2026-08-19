@@ -23,7 +23,8 @@
     "segment-tree",
     "modular-exponentiation",
     "prime-factorization",
-    "sqrt-decomposition"
+    "sqrt-decomposition",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

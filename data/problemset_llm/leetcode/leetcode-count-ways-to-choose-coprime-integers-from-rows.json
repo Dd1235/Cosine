@@ -28,7 +28,9 @@
     "gcd",
     "modular-arithmetic",
     "state-compression",
-    "mobius-inversion"
+    "mobius-inversion",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

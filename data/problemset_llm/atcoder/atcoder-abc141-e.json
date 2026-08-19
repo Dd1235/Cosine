@@ -13,7 +13,8 @@
   ],
   "patterns": [
     "longest-repeated-substring",
-    "dp-on-strings"
+    "dp-on-strings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "bitmask-dp",
     "sliding-window",
-    "prefix-xor"
+    "prefix-xor",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

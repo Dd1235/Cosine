@@ -24,7 +24,9 @@
     "dp-on-dag",
     "combinatorics",
     "modular-arithmetic",
-    "stars-and-bars"
+    "stars-and-bars",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

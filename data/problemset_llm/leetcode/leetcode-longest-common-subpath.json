@@ -27,7 +27,8 @@
     "rolling-hash",
     "hash-function",
     "string-matching",
-    "rabin-karp"
+    "rabin-karp",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

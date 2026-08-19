@@ -19,7 +19,8 @@
   "patterns": [
     "modular-arithmetic",
     "logarithmic-computation",
-    "digit-manipulation"
+    "digit-manipulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -25,7 +25,8 @@
     "combinatorics",
     "modular-arithmetic",
     "permutation-counting",
-    "binary-search"
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

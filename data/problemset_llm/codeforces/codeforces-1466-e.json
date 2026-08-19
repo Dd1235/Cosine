@@ -20,7 +20,8 @@
   "patterns": [
     "bit-manipulation",
     "modular-arithmetic",
-    "brute-force-optimization"
+    "brute-force-optimization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

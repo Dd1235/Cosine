@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "digit-frequency-count"
+    "digit-frequency-count",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

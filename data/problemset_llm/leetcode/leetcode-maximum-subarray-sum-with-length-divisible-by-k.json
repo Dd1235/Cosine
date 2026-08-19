@@ -21,7 +21,8 @@
   "patterns": [
     "prefix-sum",
     "modular-arithmetic",
-    "hash-map"
+    "hash-map",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

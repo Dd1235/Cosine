@@ -17,7 +17,8 @@
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "sliding-window"
+    "sliding-window",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

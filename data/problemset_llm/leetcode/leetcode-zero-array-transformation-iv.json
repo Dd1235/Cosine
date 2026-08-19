@@ -19,7 +19,8 @@
   "patterns": [
     "binary-search-answer",
     "difference-array",
-    "prefix-sum"
+    "prefix-sum",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

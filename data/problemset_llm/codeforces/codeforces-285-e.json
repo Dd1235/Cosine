@@ -21,7 +21,8 @@
     "dynamic-programming",
     "counting",
     "modular-arithmetic",
-    "derangement"
+    "derangement",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

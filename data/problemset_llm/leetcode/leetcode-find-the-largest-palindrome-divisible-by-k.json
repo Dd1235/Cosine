@@ -24,7 +24,9 @@
   "patterns": [
     "binary-search-answer",
     "palindrome-construction",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

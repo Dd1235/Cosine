@@ -26,7 +26,9 @@
     "bitmask-dp",
     "state-compression",
     "binary-search-answer",
-    "shortest-path"
+    "shortest-path",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

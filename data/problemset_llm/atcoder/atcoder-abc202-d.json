@@ -16,7 +16,8 @@
   "patterns": [
     "combinatorics",
     "lexicographic-order",
-    "dp-with-memoization"
+    "dp-with-memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

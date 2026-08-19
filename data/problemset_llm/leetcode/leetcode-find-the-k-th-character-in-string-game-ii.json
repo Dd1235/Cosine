@@ -21,7 +21,9 @@
   "patterns": [
     "divide-and-conquer",
     "binary-search-answer",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

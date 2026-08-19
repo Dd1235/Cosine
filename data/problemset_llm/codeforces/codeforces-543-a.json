@@ -19,7 +19,8 @@
     "dynamic-programming",
     "modular-arithmetic",
     "counting",
-    "dp-optimization"
+    "dp-optimization",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,9 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "binary-search",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

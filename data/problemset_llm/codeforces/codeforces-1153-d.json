@@ -22,7 +22,8 @@
   "patterns": [
     "dfs",
     "tree-dp",
-    "binary-search"
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

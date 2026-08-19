@@ -21,7 +21,8 @@
   "patterns": [
     "fenwick-tree",
     "ordered-set",
-    "dynamic-interval-updates"
+    "dynamic-interval-updates",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

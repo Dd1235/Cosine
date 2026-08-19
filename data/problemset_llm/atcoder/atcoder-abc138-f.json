@@ -17,7 +17,9 @@
     "digit-dp",
     "modular-arithmetic",
     "bitmask-dp",
-    "xor-basis"
+    "xor-basis",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

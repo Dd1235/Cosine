@@ -22,7 +22,8 @@
   "patterns": [
     "bitmask-dp",
     "topological-sort",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

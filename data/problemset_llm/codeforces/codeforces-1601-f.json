@@ -22,7 +22,8 @@
   "patterns": [
     "modular-arithmetic",
     "lexicographic-ordering",
-    "prefix-sum"
+    "prefix-sum",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

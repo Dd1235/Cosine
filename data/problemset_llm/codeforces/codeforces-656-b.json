@@ -19,7 +19,9 @@
   "patterns": [
     "modular-arithmetic",
     "counting",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

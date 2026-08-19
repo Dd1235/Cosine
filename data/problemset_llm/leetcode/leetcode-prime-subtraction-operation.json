@@ -25,7 +25,8 @@
   "patterns": [
     "greedy",
     "binary-search",
-    "sieve"
+    "sieve",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

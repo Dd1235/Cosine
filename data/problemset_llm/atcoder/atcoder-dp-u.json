@@ -14,7 +14,8 @@
   ],
   "patterns": [
     "bitmask-dp",
-    "subset-dp"
+    "subset-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

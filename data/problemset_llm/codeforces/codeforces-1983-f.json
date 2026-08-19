@@ -25,7 +25,8 @@
     "two-pointers",
     "bit-manipulation",
     "xor-basis",
-    "trie"
+    "trie",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

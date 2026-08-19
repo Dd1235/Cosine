@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "greedy",
-    "divisor-check"
+    "divisor-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

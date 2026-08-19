@@ -15,7 +15,8 @@
   "patterns": [
     "line-sweep",
     "binary-search-answer",
-    "segment-evaluation"
+    "segment-evaluation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

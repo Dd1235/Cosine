@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "divisor-check",
-    "parity-argument"
+    "parity-argument",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

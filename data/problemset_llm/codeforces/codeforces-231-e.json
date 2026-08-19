@@ -25,7 +25,8 @@
     "dynamic-programming",
     "cycle-decomposition",
     "modular-arithmetic",
-    "lca"
+    "lca",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

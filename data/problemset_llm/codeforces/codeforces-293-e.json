@@ -21,7 +21,8 @@
     "centroid-decomposition",
     "two-constraints-pair-counting",
     "distance-limited-pairs",
-    "fenwick-tree"
+    "fenwick-tree",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

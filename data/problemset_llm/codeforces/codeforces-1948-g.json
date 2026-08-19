@@ -27,7 +27,8 @@
     "bipartite-matching",
     "graph-matching",
     "union-find",
-    "wqs-binary-search"
+    "wqs-binary-search",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

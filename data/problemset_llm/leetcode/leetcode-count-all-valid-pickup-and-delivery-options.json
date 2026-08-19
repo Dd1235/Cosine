@@ -22,7 +22,9 @@
     "dynamic-programming",
     "counting",
     "modular-arithmetic",
-    "permutation-counting"
+    "permutation-counting",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

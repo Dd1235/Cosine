@@ -26,7 +26,8 @@
     "dfs",
     "greedy",
     "distance-limited-coverage",
-    "multi-source-bfs"
+    "multi-source-bfs",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

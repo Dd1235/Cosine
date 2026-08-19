@@ -21,7 +21,8 @@
     "binary-search-answer",
     "bfs",
     "shortest-path",
-    "zero-one-bfs"
+    "zero-one-bfs",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

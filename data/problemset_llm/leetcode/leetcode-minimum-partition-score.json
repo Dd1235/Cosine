@@ -27,7 +27,9 @@
     "prefix-sum",
     "interval-dp",
     "wqs-binary-search",
-    "partition-dp"
+    "partition-dp",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

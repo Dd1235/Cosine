@@ -24,7 +24,8 @@
     "binary-search-answer",
     "greedy",
     "bit-manipulation",
-    "sorting"
+    "sorting",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

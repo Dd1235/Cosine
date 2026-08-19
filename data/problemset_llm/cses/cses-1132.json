@@ -17,7 +17,9 @@
     "tree-diameter",
     "two-pass-dfs",
     "geometry",
-    "rerooting-dp"
+    "rerooting-dp",
+    "dfs",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

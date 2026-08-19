@@ -19,7 +19,8 @@
   "patterns": [
     "expected-value-dp",
     "probability-dp",
-    "independent-processes"
+    "independent-processes",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

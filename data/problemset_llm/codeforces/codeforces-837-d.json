@@ -19,7 +19,9 @@
   "patterns": [
     "bitmask-dp",
     "subset-dp",
-    "prime-factorization"
+    "prime-factorization",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

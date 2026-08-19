@@ -15,7 +15,8 @@
   "patterns": [
     "burnside-lemma",
     "modular-arithmetic",
-    "group-theory"
+    "group-theory",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
   "patterns": [
     "prefix-sum",
     "brute-force",
-    "binary-search-answer"
+    "binary-search-answer",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

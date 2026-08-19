@@ -20,7 +20,8 @@
   "patterns": [
     "constructive-algorithm",
     "game-dp",
-    "grundy-numbers"
+    "grundy-numbers",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

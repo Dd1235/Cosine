@@ -26,7 +26,8 @@
   "patterns": [
     "zero-one-bfs",
     "dijkstra",
-    "heap"
+    "heap",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

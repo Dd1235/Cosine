@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-k-to-reduce-array-within-limit/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 41.0,
+  "acceptance_rate": 41,
   "source_tags": [
     "array",
     "binary-search"
@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "greedy"
+    "greedy",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

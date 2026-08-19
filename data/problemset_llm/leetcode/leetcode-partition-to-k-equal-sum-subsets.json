@@ -27,7 +27,8 @@
     "bitmask-dp",
     "backtracking",
     "memoization",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

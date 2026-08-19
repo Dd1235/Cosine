@@ -24,7 +24,8 @@
   "patterns": [
     "bitmask-dp",
     "meet-in-the-middle",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

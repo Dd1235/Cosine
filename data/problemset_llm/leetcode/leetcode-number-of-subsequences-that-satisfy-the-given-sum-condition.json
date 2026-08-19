@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 49.0,
+  "acceptance_rate": 49,
   "source_tags": [
     "array",
     "two-pointers",
@@ -24,7 +24,8 @@
     "two-pointers",
     "sorting",
     "modular-arithmetic",
-    "prefix-powers-of-two"
+    "prefix-powers-of-two",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

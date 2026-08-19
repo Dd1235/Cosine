@@ -19,7 +19,8 @@
   "patterns": [
     "subset-sum",
     "subset-dp",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

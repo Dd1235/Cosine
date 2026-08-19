@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/number-of-effective-subsequences/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 33.0,
+  "acceptance_rate": 33,
   "source_tags": [
     "array",
     "math",
@@ -24,7 +24,10 @@
   "patterns": [
     "bitmask-dp",
     "inclusion-exclusion",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

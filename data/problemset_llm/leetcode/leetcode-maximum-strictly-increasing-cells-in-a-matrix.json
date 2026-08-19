@@ -30,7 +30,9 @@
     "topological-sort",
     "dp-on-dag",
     "coordinate-compression",
-    "binary-search-answer"
+    "binary-search-answer",
+    "dynamic-programming",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "prefix-or"
+    "prefix-or",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

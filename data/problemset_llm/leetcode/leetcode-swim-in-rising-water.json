@@ -26,7 +26,8 @@
   "patterns": [
     "binary-search-answer",
     "union-find",
-    "bfs"
+    "bfs",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
     "greedy",
     "sorting",
     "binary-search-answer",
-    "exchange-argument"
+    "exchange-argument",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

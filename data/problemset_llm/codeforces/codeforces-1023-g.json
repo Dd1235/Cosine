@@ -22,7 +22,8 @@
   "patterns": [
     "max-flow",
     "tree-dp",
-    "dsu-on-tree"
+    "dsu-on-tree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

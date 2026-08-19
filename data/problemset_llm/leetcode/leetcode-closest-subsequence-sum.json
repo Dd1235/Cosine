@@ -25,7 +25,8 @@
   "patterns": [
     "meet-in-the-middle",
     "bitmask-dp",
-    "binary-search"
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

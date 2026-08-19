@@ -13,7 +13,8 @@
   ],
   "patterns": [
     "gcd",
-    "diophantine-equation"
+    "diophantine-equation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

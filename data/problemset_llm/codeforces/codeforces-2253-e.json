@@ -27,7 +27,8 @@
     "path-enumeration",
     "subtree-dp",
     "tree-center",
-    "tree-dp"
+    "tree-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

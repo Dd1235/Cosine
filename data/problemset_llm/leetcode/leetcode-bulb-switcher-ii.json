@@ -22,7 +22,8 @@
   "patterns": [
     "bit-manipulation",
     "subset-dp",
-    "combinatorial-analysis"
+    "combinatorial-analysis",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

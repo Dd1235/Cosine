@@ -21,7 +21,8 @@
     "dfs",
     "shortest-path",
     "state-space-search",
-    "zero-one-bfs"
+    "zero-one-bfs",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

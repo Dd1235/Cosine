@@ -24,7 +24,8 @@
   "patterns": [
     "tree-dp",
     "dfs",
-    "bst-validation"
+    "bst-validation",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

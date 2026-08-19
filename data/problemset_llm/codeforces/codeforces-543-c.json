@@ -19,7 +19,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "minimum-cost-assignment"
+    "minimum-cost-assignment",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

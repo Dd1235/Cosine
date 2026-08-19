@@ -25,7 +25,8 @@
   "patterns": [
     "sieve",
     "prefix-sum",
-    "offline-queries"
+    "offline-queries",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

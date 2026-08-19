@@ -20,7 +20,8 @@
   "patterns": [
     "tree-dp",
     "greedy",
-    "floyd-warshall"
+    "floyd-warshall",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

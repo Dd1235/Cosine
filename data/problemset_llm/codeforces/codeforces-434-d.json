@@ -22,7 +22,8 @@
     "convex-quadratic-optimization",
     "graph-constraints",
     "dp-on-graphs",
-    "bellman-ford"
+    "bellman-ford",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

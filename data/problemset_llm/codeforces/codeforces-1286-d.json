@@ -26,7 +26,8 @@
     "expected-value-dp",
     "event-simulation",
     "line-sweep",
-    "segment-tree"
+    "segment-tree",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

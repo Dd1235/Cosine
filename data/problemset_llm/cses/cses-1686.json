@@ -15,7 +15,8 @@
   "patterns": [
     "strongly-connected-components",
     "dp-on-dag",
-    "topological-sort"
+    "topological-sort",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

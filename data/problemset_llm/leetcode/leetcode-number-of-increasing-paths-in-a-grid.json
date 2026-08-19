@@ -28,7 +28,8 @@
     "dfs",
     "topological-sort",
     "dp-on-dag",
-    "memoization"
+    "memoization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

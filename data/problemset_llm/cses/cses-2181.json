@@ -14,7 +14,8 @@
   "patterns": [
     "dp-on-dag",
     "state-compression",
-    "profile-dp"
+    "profile-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

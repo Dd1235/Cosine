@@ -19,7 +19,8 @@
   "patterns": [
     "interval-dp",
     "palindrome-dp",
-    "preprocessing"
+    "preprocessing",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

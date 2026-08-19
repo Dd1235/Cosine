@@ -29,7 +29,8 @@
     "dfs",
     "topological-sort",
     "combinatorics",
-    "multinomial-coefficient"
+    "multinomial-coefficient",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

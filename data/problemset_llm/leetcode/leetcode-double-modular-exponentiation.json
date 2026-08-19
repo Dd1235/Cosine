@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/double-modular-exponentiation/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 48.0,
+  "acceptance_rate": 48,
   "source_tags": [
     "array",
     "math",
@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "modular-exponentiation",
-    "simulation"
+    "simulation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

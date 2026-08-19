@@ -23,7 +23,10 @@
     "gcd",
     "dp-on-subsequences",
     "modular-arithmetic",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "number-theory",
+    "dynamic-programming",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

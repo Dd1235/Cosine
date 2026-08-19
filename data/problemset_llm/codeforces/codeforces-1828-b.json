@@ -20,7 +20,8 @@
   "patterns": [
     "constructive-algorithm",
     "gcd",
-    "cycle-decomposition"
+    "cycle-decomposition",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

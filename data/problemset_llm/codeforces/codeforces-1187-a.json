@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "pigeonhole-principle",
-    "case-analysis"
+    "case-analysis",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

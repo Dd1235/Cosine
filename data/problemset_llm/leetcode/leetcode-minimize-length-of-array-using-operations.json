@@ -23,7 +23,8 @@
   "patterns": [
     "greedy",
     "modular-arithmetic",
-    "math"
+    "math",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

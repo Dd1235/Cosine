@@ -27,7 +27,8 @@
     "constructive-algorithm",
     "dynamic-programming",
     "brute-force",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

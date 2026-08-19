@@ -21,7 +21,8 @@
     "maximum-independent-set",
     "bubble-sort-simulation",
     "dp-on-graphs",
-    "longest-increasing-subsequence"
+    "longest-increasing-subsequence",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

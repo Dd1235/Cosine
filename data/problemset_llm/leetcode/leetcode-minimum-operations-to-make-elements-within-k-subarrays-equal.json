@@ -25,7 +25,9 @@
   "patterns": [
     "binary-search-answer",
     "prefix-sum",
-    "dp-on-subarrays"
+    "dp-on-subarrays",
+    "binary-search",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

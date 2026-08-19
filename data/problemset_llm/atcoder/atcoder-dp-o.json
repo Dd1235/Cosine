@@ -15,7 +15,8 @@
   "patterns": [
     "bitmask-dp",
     "state-compression",
-    "perfect-matching-count"
+    "perfect-matching-count",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -20,7 +20,9 @@
   "patterns": [
     "bounded-knapsack",
     "dp-on-dag",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

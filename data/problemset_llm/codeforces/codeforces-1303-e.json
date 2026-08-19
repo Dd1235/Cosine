@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "two-subsequence-construction",
-    "dp-on-subsequences"
+    "dp-on-subsequences",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

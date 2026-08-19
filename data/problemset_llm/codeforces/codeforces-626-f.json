@@ -19,7 +19,8 @@
     "interval-dp",
     "prefix-sum",
     "sorting",
-    "dp-optimization"
+    "dp-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

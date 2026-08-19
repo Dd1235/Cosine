@@ -21,7 +21,8 @@
   "patterns": [
     "modified-bfs",
     "state-space-search",
-    "shortest-path-with-waiting"
+    "shortest-path-with-waiting",
+    "bfs"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

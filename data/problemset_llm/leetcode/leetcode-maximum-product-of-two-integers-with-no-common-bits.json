@@ -21,7 +21,8 @@
   "patterns": [
     "bit-manipulation",
     "bitmask-dp",
-    "maximum-pair-product"
+    "maximum-pair-product",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

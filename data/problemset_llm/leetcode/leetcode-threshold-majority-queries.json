@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/threshold-majority-queries/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 22.0,
+  "acceptance_rate": 22,
   "source_tags": [
     "array",
     "hash-table",
@@ -26,7 +26,8 @@
     "binary-search-answer",
     "prefix-sum",
     "hash-map",
-    "offline-queries"
+    "offline-queries",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

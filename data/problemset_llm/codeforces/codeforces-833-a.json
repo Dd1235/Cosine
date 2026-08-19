@@ -17,7 +17,8 @@
   ],
   "patterns": [
     "prime-factorization",
-    "exponent-analysis"
+    "exponent-analysis",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

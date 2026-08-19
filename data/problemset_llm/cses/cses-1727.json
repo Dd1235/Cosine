@@ -15,7 +15,9 @@
   "patterns": [
     "expected-value-dp",
     "probability-dp",
-    "inclusion-exclusion"
+    "inclusion-exclusion",
+    "dynamic-programming",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

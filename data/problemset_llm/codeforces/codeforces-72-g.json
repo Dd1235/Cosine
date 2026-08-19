@@ -19,7 +19,8 @@
   "patterns": [
     "dynamic-programming",
     "linear-recurrence",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

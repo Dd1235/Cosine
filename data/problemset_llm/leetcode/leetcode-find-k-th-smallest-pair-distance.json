@@ -22,7 +22,8 @@
   "patterns": [
     "binary-search-answer",
     "two-pointers",
-    "sorting"
+    "sorting",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

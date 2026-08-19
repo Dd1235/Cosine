@@ -185,16 +185,33 @@ runs with an API key in CI.
 
 ---
 
-## 4b. The family sweep, and why it is measured separately
+## 4b. The family sweep, measured on its own
 
-`scripts/apply_families.js` is written and dry-runs clean: **1,156 labels
-across 1,027 problems**. It is not applied in the same step as anything else
-because it takes `number-theory` from 40 carriers to 434 — an 11x change in
-that term's IDF — and only 4 of the 81 benchmark queries touch a family term at
-all, so the benchmark can detect a regression on `binary-search` and
-`segment-tree` and cannot see one on `number-theory` or
-`dynamic-programming`. It gets its own embed and its own bench run so any
-movement is attributable to it.
+**Applied: 1,152 labels across 1,023 problems** (`scripts/apply_families.js`),
+in its own commit with its own embed and bench run — it takes `number-theory`
+from 40 carriers to 434, an 11x change in that term's IDF, and only 4 of the 81
+benchmark queries touch a family term at all. The benchmark can see a
+regression on `binary-search` and `segment-tree` and is blind to one on
+`number-theory` or `dynamic-programming`, so isolating it was the only way to
+attribute anything.
+
+Measured: **bm25 flat** (nDCG −0.001, Recall@100 −0.012). Four slices crossed
+the 0.02 gate — three gains (dense/title +0.046, hybrid/paraphrase +0.038,
+hybrid/plural +0.021) and one loss (hybrid/title −0.046, on a ranker that is
+not served). tfidf/title Recall@100 +0.125.
+
+The one honest cost: bm25's whole −0.049 technique-slice recall is **two
+near-duplicate queries** ("sum over subsets dp bitmask" and "… bitmask dp
+transform") losing the same single problem —
+`leetcode-count-number-of-maximum-bitwise-or-subsets` slipped from inside the
+top 100 to rank 107. It carries `submask-enumeration, bit-manipulation,
+backtracking`, gained nothing from the sweep, and was simply outranked on the
+query's `dp` token by ~400 problems that did. Dilution working exactly as
+predicted, at the size predicted.
+
+What the benchmark cannot show is the point of the change: `number theory` now
+returns 1,625 matches led by *Counting Divisors* and *Odd Divisor*, where the
+label sat on 40 problems before.
 
 Writing it found a bug in the rules themselves: `dsu-on-tree` matched the DSU
 rule and would have handed `union-find` to five problems that never call

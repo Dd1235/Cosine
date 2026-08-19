@@ -15,7 +15,8 @@
   "patterns": [
     "greedy",
     "binary-search-answer",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

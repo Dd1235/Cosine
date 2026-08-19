@@ -15,7 +15,9 @@
   "patterns": [
     "gcd",
     "inclusion-exclusion",
-    "sieve"
+    "sieve",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

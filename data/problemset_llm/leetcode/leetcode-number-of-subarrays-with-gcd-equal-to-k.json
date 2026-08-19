@@ -21,7 +21,8 @@
   "patterns": [
     "gcd",
     "two-pointers",
-    "sliding-window"
+    "sliding-window",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

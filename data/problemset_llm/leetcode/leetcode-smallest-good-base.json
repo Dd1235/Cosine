@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "exponentiation"
+    "exponentiation",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -23,7 +23,8 @@
   "patterns": [
     "dfs",
     "expected-value-dp",
-    "tree-dp"
+    "tree-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

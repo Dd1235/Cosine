@@ -13,7 +13,8 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "greedy"
+    "greedy",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

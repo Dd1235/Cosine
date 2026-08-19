@@ -17,7 +17,8 @@
   "patterns": [
     "bit-manipulation",
     "connected-subgraph-check",
-    "parity-dp"
+    "parity-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

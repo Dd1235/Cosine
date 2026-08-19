@@ -21,7 +21,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "mex"
+    "mex",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -16,7 +16,8 @@
     "merge-k-sorted-lists",
     "binary-search-answer",
     "two-pointers",
-    "meet-in-the-middle"
+    "meet-in-the-middle",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

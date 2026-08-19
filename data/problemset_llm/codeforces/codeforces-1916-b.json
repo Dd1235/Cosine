@@ -20,7 +20,8 @@
   ],
   "patterns": [
     "divisor-properties",
-    "constructive-algorithm"
+    "constructive-algorithm",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

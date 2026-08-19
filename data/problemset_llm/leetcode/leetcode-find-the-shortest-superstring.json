@@ -23,7 +23,8 @@
   "patterns": [
     "bitmask-dp",
     "dp-on-dag",
-    "string-overlap"
+    "string-overlap",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

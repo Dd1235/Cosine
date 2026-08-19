@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "dfs",
-    "greedy"
+    "greedy",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

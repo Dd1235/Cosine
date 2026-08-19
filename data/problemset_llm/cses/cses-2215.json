@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "longest-monotone-subsequence"
+    "longest-monotone-subsequence",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

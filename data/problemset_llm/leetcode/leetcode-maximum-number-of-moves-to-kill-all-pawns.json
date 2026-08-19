@@ -26,7 +26,8 @@
     "bfs",
     "bitmask-dp",
     "game-theory",
-    "state-compression"
+    "state-compression",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

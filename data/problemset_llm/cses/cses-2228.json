@@ -15,7 +15,9 @@
   "patterns": [
     "inclusion-exclusion",
     "dynamic-programming",
-    "modular-exponentiation"
+    "modular-exponentiation",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

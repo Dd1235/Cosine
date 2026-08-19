@@ -21,7 +21,8 @@
     "inclusion-exclusion",
     "dynamic-programming",
     "interval-covering",
-    "coordinate-compression"
+    "coordinate-compression",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

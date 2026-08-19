@@ -15,7 +15,8 @@
   "patterns": [
     "binary-search-answer",
     "dynamic-programming",
-    "counting-subsequences"
+    "counting-subsequences",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -16,7 +16,8 @@
     "prefix-sum",
     "fast-zeta-transform",
     "mobius-inversion",
-    "sos-dp"
+    "sos-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

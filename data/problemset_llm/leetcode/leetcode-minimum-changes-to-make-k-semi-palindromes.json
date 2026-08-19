@@ -22,7 +22,8 @@
     "dynamic-programming",
     "divisor-enumeration",
     "palindrome-checking",
-    "partition-dp"
+    "partition-dp",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

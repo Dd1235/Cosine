@@ -20,7 +20,8 @@
   "patterns": [
     "digit-dp",
     "state-compression",
-    "backtracking"
+    "backtracking",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

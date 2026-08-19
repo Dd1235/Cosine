@@ -15,7 +15,9 @@
   "patterns": [
     "catalan-number",
     "modular-arithmetic",
-    "dynamic-programming"
+    "dynamic-programming",
+    "combinatorics",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

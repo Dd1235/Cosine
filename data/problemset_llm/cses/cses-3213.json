@@ -15,7 +15,8 @@
   "patterns": [
     "bfs",
     "state-space-search",
-    "gcd-check"
+    "gcd-check",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -18,7 +18,8 @@
     "negative-cycle-detection",
     "dp-on-dag",
     "longest-path-in-weighted-graph",
-    "shortest-path"
+    "shortest-path",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

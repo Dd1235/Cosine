@@ -27,7 +27,8 @@
     "probability-dp",
     "tree-dp",
     "matrix-rank",
-    "kirchhoff-theorem"
+    "kirchhoff-theorem",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

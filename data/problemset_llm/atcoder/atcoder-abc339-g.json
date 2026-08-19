@@ -17,7 +17,9 @@
     "binary-search-answer",
     "fenwick-tree",
     "coordinate-compression",
-    "sqrt-decomposition"
+    "sqrt-decomposition",
+    "binary-search",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

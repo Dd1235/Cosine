@@ -16,7 +16,9 @@
     "bitmask-dp",
     "fast-zeta-transform",
     "inclusion-exclusion",
-    "sos-dp"
+    "sos-dp",
+    "dynamic-programming",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

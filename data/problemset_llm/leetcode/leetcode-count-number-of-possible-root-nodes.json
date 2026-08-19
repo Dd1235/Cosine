@@ -24,7 +24,8 @@
   "patterns": [
     "dfs",
     "rerooting-dp",
-    "hash-map"
+    "hash-map",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

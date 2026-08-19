@@ -19,7 +19,8 @@
   "patterns": [
     "dynamic-programming",
     "counting-subsequences",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

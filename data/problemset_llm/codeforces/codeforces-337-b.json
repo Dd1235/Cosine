@@ -20,7 +20,8 @@
   "patterns": [
     "ratio-scaling",
     "gcd",
-    "fraction-reduction"
+    "fraction-reduction",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

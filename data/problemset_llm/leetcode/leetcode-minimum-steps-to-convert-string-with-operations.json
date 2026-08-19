@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-steps-to-convert-string-with-operations/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 42.0,
+  "acceptance_rate": 42,
   "source_tags": [
     "string",
     "dynamic-programming"
@@ -19,7 +19,8 @@
   "patterns": [
     "interval-dp",
     "string-transformation",
-    "substring-partitioning"
+    "substring-partitioning",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

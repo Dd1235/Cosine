@@ -25,7 +25,9 @@
     "meet-in-the-middle",
     "bitmask-dp",
     "modular-arithmetic",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

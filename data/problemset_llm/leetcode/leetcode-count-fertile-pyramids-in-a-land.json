@@ -21,7 +21,8 @@
   "patterns": [
     "grid-dp",
     "prefix-sum",
-    "symmetry-based-dp"
+    "symmetry-based-dp",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

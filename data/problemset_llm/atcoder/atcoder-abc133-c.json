@@ -15,7 +15,8 @@
     "modular-arithmetic",
     "brute-force",
     "pigeonhole-principle",
-    "number-theory"
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

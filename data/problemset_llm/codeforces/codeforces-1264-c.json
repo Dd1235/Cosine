@@ -21,7 +21,9 @@
     "expected-value-dp",
     "segment-tree",
     "modular-inverse",
-    "sqrt-decomposition"
+    "sqrt-decomposition",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

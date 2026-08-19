@@ -21,7 +21,8 @@
   "patterns": [
     "digit-dp",
     "greedy",
-    "brute-force"
+    "brute-force",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

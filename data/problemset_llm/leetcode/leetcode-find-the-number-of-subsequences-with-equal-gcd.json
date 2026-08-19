@@ -23,7 +23,10 @@
   "patterns": [
     "dp-on-divisors",
     "inclusion-exclusion",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "dynamic-programming",
+    "number-theory",
+    "combinatorics"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

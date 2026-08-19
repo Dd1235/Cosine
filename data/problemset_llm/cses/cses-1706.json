@@ -15,7 +15,8 @@
   "patterns": [
     "connected-components",
     "bitset-dp",
-    "subset-sum"
+    "subset-sum",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

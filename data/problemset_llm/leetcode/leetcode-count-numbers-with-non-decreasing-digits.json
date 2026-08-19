@@ -22,7 +22,9 @@
   "patterns": [
     "digit-dp",
     "modular-arithmetic",
-    "base-conversion"
+    "base-conversion",
+    "dynamic-programming",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

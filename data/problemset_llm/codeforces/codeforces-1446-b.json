@@ -18,7 +18,8 @@
   "patterns": [
     "longest-common-subsequence",
     "brute-force",
-    "dp-on-substrings"
+    "dp-on-substrings",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

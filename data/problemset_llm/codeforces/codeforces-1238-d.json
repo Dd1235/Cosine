@@ -22,7 +22,8 @@
   "patterns": [
     "palindrome-dp",
     "binary-search",
-    "combinatorics"
+    "combinatorics",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

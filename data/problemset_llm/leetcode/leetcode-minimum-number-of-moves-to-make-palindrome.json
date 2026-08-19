@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 53.0,
+  "acceptance_rate": 53,
   "source_tags": [
     "two-pointers",
     "string",
@@ -24,7 +24,8 @@
     "greedy",
     "two-pointers",
     "fenwick-tree",
-    "inversion-count"
+    "inversion-count",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

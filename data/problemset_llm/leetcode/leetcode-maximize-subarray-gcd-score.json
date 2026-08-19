@@ -23,7 +23,8 @@
   "patterns": [
     "dynamic-programming",
     "gcd",
-    "brute-force"
+    "brute-force",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -22,7 +22,8 @@
   "patterns": [
     "dynamic-programming",
     "modular-arithmetic",
-    "divisor-sequence"
+    "divisor-sequence",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

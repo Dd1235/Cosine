@@ -21,7 +21,8 @@
   "patterns": [
     "prefix-sum",
     "sieve",
-    "binary-search"
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

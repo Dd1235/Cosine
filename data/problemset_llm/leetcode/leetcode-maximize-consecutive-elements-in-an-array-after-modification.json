@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search-answer",
     "greedy",
-    "two-pointers"
+    "two-pointers",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

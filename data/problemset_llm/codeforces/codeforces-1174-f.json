@@ -26,7 +26,8 @@
     "distance-query",
     "tin-tout-ancestor-check",
     "interactive",
-    "heavy-light-decomposition"
+    "heavy-light-decomposition",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

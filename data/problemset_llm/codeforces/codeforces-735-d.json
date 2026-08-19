@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "divisor-enumeration",
-    "greedy"
+    "greedy",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

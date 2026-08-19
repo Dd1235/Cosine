@@ -20,7 +20,8 @@
     "interval-dp",
     "greedy",
     "binary-search",
-    "monotonic-queue-optimization"
+    "monotonic-queue-optimization",
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

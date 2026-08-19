@@ -24,7 +24,8 @@
     "binary-search-answer",
     "union-find",
     "greedy",
-    "sorting"
+    "sorting",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-operations-to-equalize-subarrays/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 21.0,
+  "acceptance_rate": 21,
   "source_tags": [
     "array",
     "math",
@@ -22,7 +22,9 @@
   "patterns": [
     "prefix-sum",
     "binary-search-answer",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "binary-search",
+    "number-theory"
   ],
   "annotation": {
     "version": "problem-patterns-v1",

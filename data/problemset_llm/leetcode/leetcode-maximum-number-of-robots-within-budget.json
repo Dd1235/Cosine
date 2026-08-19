@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-number-of-robots-within-budget/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 39.0,
+  "acceptance_rate": 39,
   "source_tags": [
     "array",
     "binary-search",
@@ -28,7 +28,8 @@
     "binary-search-answer",
     "sliding-window",
     "monotonic-queue",
-    "prefix-sum"
+    "prefix-sum",
+    "binary-search"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
