@@ -26,7 +26,7 @@
     "interactive"
   ],
   "patterns": [
-    "maximum-matching",
+    "bipartite-matching",
     "max-flow",
     "dfs",
     "online-queries",
@@ -38,7 +38,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785236985,
     "pattern_confidence": {
-      "maximum-matching": 0.98,
+      "bipartite-matching": 0.98,
       "max-flow": 0.9,
       "dfs": 0.85,
       "online-queries": 0.8,

@@ -13,7 +13,7 @@
     "array"
   ],
   "patterns": [
-    "0-1-knapsack",
+    "knapsack",
     "dynamic-programming",
     "dp-optimization"
   ],
@@ -22,7 +22,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951404,
     "pattern_confidence": {
-      "0-1-knapsack": 0.98,
+      "knapsack": 0.98,
       "dynamic-programming": 0.95,
       "dp-optimization": 0.9
     }

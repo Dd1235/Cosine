@@ -20,7 +20,8 @@
     "range-update",
     "lca",
     "binary-lifting",
-    "link-cut-tree"
+    "link-cut-tree",
+    "sqrt-decomposition"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +31,8 @@
       "range-update": 0.9,
       "lca": 0.95,
       "binary-lifting": 0.85,
-      "link-cut-tree": 0.95
+      "link-cut-tree": 0.95,
+      "sqrt-decomposition": 0.78
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

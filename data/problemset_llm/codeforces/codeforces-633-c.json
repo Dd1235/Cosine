@@ -27,7 +27,8 @@
     "string-reconstruction",
     "dp-on-strings",
     "rolling-hash",
-    "backtracking"
+    "backtracking",
+    "trie"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -37,7 +38,8 @@
       "string-reconstruction": 0.95,
       "dp-on-strings": 0.9,
       "rolling-hash": 0.85,
-      "backtracking": 0.7
+      "backtracking": 0.7,
+      "trie": 0.72
     }
   },
   "source_topic": "Formwise / Trie"

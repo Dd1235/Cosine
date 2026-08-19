@@ -23,7 +23,8 @@
     "greedy",
     "prefix-sum",
     "sorting",
-    "contribution-technique"
+    "contribution-technique",
+    "difference-array"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +34,8 @@
       "greedy": 0.95,
       "prefix-sum": 0.9,
       "sorting": 0.9,
-      "contribution-technique": 0.85
+      "contribution-technique": 0.85,
+      "difference-array": 0.82
     }
   },
   "source_topic": "Formwise / Greedy And Sweepline"

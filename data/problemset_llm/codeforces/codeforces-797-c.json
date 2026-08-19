@@ -20,8 +20,9 @@
   ],
   "patterns": [
     "greedy",
-    "two-pointer",
-    "simulation"
+    "two-pointers",
+    "simulation",
+    "stack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +30,9 @@
     "generated_at_unix": 1785050889,
     "pattern_confidence": {
       "greedy": 0.95,
-      "two-pointer": 0.7,
-      "simulation": 0.85
+      "two-pointers": 0.7,
+      "simulation": 0.85,
+      "stack": 0.82
     }
   },
   "source_topic": "Formwise / STL"

@@ -24,7 +24,8 @@
     "dfs",
     "dynamic-programming",
     "cycle-decomposition",
-    "modular-arithmetic"
+    "modular-arithmetic",
+    "lca"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +35,8 @@
       "dfs": 0.95,
       "dynamic-programming": 0.9,
       "cycle-decomposition": 0.85,
-      "modular-arithmetic": 0.8
+      "modular-arithmetic": 0.8,
+      "lca": 0.85
     }
   },
   "source_topic": "Formwise / Graph Level 2"

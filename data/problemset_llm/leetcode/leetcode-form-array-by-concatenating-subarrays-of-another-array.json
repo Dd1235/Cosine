@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/form-array-by-concatenating-subarrays-of-another-array/",
   "source_topic": "LeetCode / String Matching (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 55.0,
+  "acceptance_rate": 55,
   "source_tags": [
     "array",
     "two-pointers",
@@ -22,7 +22,7 @@
   "patterns": [
     "two-pointers",
     "greedy",
-    "substring-search"
+    "string-matching"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +31,7 @@
     "pattern_confidence": {
       "two-pointers": 0.9,
       "greedy": 0.85,
-      "substring-search": 0.9
+      "string-matching": 0.9
     }
   }
 }

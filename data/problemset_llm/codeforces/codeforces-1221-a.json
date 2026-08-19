@@ -16,7 +16,7 @@
   "tags": [
     "math",
     "greedy",
-    "multiset"
+    "ordered-set"
   ],
   "patterns": [
     "greedy",

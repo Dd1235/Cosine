@@ -20,7 +20,8 @@
     "dynamic-programming",
     "circular-array",
     "range-query",
-    "prefix-min-max"
+    "prefix-min-max",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +31,8 @@
       "dynamic-programming": 0.95,
       "circular-array": 0.9,
       "range-query": 0.85,
-      "prefix-min-max": 0.8
+      "prefix-min-max": 0.8,
+      "partition-dp": 0.85
     }
   }
 }

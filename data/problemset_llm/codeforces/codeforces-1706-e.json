@@ -27,7 +27,9 @@
     "union-find",
     "binary-search",
     "offline-queries",
-    "divide-and-conquer"
+    "divide-and-conquer",
+    "sparse-table",
+    "kruskal-reconstruction-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -37,7 +39,9 @@
       "union-find": 0.95,
       "binary-search": 0.9,
       "offline-queries": 0.85,
-      "divide-and-conquer": 0.8
+      "divide-and-conquer": 0.8,
+      "sparse-table": 0.88,
+      "kruskal-reconstruction-tree": 0.9
     }
   },
   "source_topic": "Formwise / Graph Level 2"

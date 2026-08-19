@@ -26,7 +26,7 @@
     "binary-search-answer",
     "rolling-hash",
     "hash-function",
-    "substring-search",
+    "string-matching",
     "rabin-karp"
   ],
   "annotation": {
@@ -37,7 +37,7 @@
       "binary-search-answer": 0.95,
       "rolling-hash": 0.93,
       "hash-function": 0.9,
-      "substring-search": 0.88,
+      "string-matching": 0.88,
       "rabin-karp": 0.9
     }
   }

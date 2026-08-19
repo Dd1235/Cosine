@@ -15,7 +15,7 @@
   "patterns": [
     "gcd",
     "inclusion-exclusion",
-    "prime-sieve"
+    "sieve"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "gcd": 0.98,
       "inclusion-exclusion": 0.9,
-      "prime-sieve": 0.85
+      "sieve": 0.85
     }
   }
 }

@@ -21,7 +21,8 @@
   "patterns": [
     "binary-search",
     "two-pointers",
-    "counting"
+    "counting",
+    "persistent-segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +31,8 @@
     "pattern_confidence": {
       "binary-search": 0.9,
       "two-pointers": 0.85,
-      "counting": 0.8
+      "counting": 0.8,
+      "persistent-segment-tree": 0.82
     }
   },
   "source_topic": "Formwise / Segment Trees"

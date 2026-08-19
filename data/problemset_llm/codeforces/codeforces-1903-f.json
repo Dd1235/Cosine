@@ -24,7 +24,8 @@
     "two-sat",
     "binary-search-answer",
     "vertex-cover",
-    "wqs-binary-search"
+    "wqs-binary-search",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +35,8 @@
       "two-sat": 0.95,
       "binary-search-answer": 0.9,
       "vertex-cover": 0.85,
-      "wqs-binary-search": 0.95
+      "wqs-binary-search": 0.95,
+      "segment-tree": 0.78
     }
   }
 }

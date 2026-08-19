@@ -19,7 +19,8 @@
   "patterns": [
     "ordered-set",
     "coordinate-compression",
-    "binary-search"
+    "binary-search",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +29,8 @@
     "pattern_confidence": {
       "ordered-set": 0.95,
       "coordinate-compression": 0.85,
-      "binary-search": 0.8
+      "binary-search": 0.8,
+      "segment-tree": 0.85
     }
   },
   "source_topic": "Formwise / Segment Trees"

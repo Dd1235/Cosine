@@ -26,7 +26,8 @@
     "strongly-connected-components",
     "union-find",
     "cycle-detection",
-    "greedy"
+    "greedy",
+    "functional-graph"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -36,7 +37,8 @@
       "strongly-connected-components": 0.95,
       "union-find": 0.9,
       "cycle-detection": 0.85,
-      "greedy": 0.8
+      "greedy": 0.8,
+      "functional-graph": 0.82
     }
   },
   "source_topic": "Codeforces / rating 2000-2400"

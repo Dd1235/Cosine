@@ -21,7 +21,6 @@
   ],
   "patterns": [
     "union-find",
-    "path-compression",
     "simulation",
     "overflow-handling"
   ],
@@ -31,7 +30,6 @@
     "generated_at_unix": 1785673810,
     "pattern_confidence": {
       "union-find": 0.92,
-      "path-compression": 0.9,
       "simulation": 0.88,
       "overflow-handling": 0.85
     }

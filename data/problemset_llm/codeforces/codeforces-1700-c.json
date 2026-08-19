@@ -19,7 +19,7 @@
   ],
   "patterns": [
     "greedy",
-    "prefix-difference",
+    "difference-array",
     "range-update"
   ],
   "annotation": {
@@ -28,7 +28,7 @@
     "generated_at_unix": 1785050259,
     "pattern_confidence": {
       "greedy": 0.95,
-      "prefix-difference": 0.85,
+      "difference-array": 0.85,
       "range-update": 0.8
     }
   },

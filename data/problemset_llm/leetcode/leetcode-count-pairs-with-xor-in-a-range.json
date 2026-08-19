@@ -21,7 +21,6 @@
   "patterns": [
     "trie",
     "bit-manipulation",
-    "prefix-trie",
     "counting-pairs"
   ],
   "annotation": {
@@ -31,7 +30,6 @@
     "pattern_confidence": {
       "trie": 0.95,
       "bit-manipulation": 0.9,
-      "prefix-trie": 0.88,
       "counting-pairs": 0.85
     }
   }

@@ -9,8 +9,7 @@
   "statement": "Given a grid and N pieces each with allowed row and column ranges, place as many pieces as possible on distinct rows and columns within their allowed ranges.",
   "tags": [
     "graph",
-    "bipartite-matching",
-    "maximum-matching"
+    "bipartite-matching"
   ],
   "patterns": [
     "bipartite-matching",

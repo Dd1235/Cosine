@@ -23,7 +23,7 @@
   "patterns": [
     "greedy",
     "divisor-graph",
-    "budgeted-knapsack"
+    "knapsack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "greedy": 0.9,
       "divisor-graph": 0.85,
-      "budgeted-knapsack": 0.8
+      "knapsack": 0.8
     }
   }
 }

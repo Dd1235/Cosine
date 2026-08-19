@@ -15,7 +15,8 @@
   "patterns": [
     "dynamic-programming",
     "prefix-sum",
-    "hash-map"
+    "hash-map",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +25,8 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98,
       "prefix-sum": 0.85,
-      "hash-map": 0.9
+      "hash-map": 0.9,
+      "partition-dp": 0.9
     }
   }
 }

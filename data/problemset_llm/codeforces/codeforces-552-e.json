@@ -22,7 +22,7 @@
     "expression-parsing"
   ],
   "patterns": [
-    "dp-on-intervals",
+    "interval-dp",
     "greedy",
     "brute-force"
   ],
@@ -31,7 +31,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050429,
     "pattern_confidence": {
-      "dp-on-intervals": 0.9,
+      "interval-dp": 0.9,
       "greedy": 0.7,
       "brute-force": 0.6
     }

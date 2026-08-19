@@ -20,7 +20,7 @@
   "patterns": [
     "brute-force",
     "greedy",
-    "integer-partition"
+    "unbounded-knapsack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "brute-force": 0.9,
       "greedy": 0.7,
-      "integer-partition": 0.6
+      "unbounded-knapsack": 0.6
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

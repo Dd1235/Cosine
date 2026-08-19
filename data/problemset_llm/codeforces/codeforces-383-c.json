@@ -20,7 +20,8 @@
   "patterns": [
     "dfs",
     "difference-array-on-tree",
-    "tree-flattening"
+    "tree-flattening",
+    "fenwick-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "pattern_confidence": {
       "dfs": 0.9,
       "difference-array-on-tree": 0.85,
-      "tree-flattening": 0.8
+      "tree-flattening": 0.8,
+      "fenwick-tree": 0.85
     }
   },
   "source_topic": "Formwise / Trees"

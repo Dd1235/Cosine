@@ -74,20 +74,73 @@ One label at a time. Ids listed explicitly in the commit and in
 a co-occurrence rule that looked obviously right would have deleted nine
 textbook uses.
 
-## 2. Per-label audits, aimed by the taxonomy report
+## 2. Per-label audits — done, and one of them was wrong
 
-The audit's items 3 and 9 need re-annotation over named candidates rather than
-new vocabulary:
+Six label-first audits ran over mechanically generated candidate sets, every
+proposed label then attacked by a second agent whose job was to refute it.
 
-| Label | Uses today | Candidates to check | Expected |
-| --- | ---: | --- | ---: |
-| `sparse-table` | 1 in 3,461 | 166 CF `data structures` + 10 LC `binary-indexed-tree` misses | 20–40 |
-| tree techniques | 56% of 224 tree problems | the 60 CF `trees` misses, starting with rated 2400+ | 30–60 |
+| Label | Candidates | Adds | What the batch actually showed |
+| --- | ---: | ---: | --- |
+| `sparse-table` | 207 | **3** | the estimate below was wrong — see the note |
+| tree techniques | 62 | 21 | half the CF `trees` tag is tries and Fenwicks, not graph trees |
+| `partition-dp` | 27 | 12 | real gap; "partition" in a statement is ~50% noise |
+| `rerooting-dp` | 17 | 3 | 14 of 17 are subtree-only, exactly as predicted |
+| knapsack | 16 | 0 | the cue found partition DPs, which is how §2's `partition-dp` row exists |
 
-Both are label-first, not problem-first: screen candidates cheaply, adjudicate
-only the uncertain ones. Problem-first is the expensive mistake — see §5.
+**The `sparse-table` estimate of 20–40 was wrong, and the reason is worth
+keeping.** Three agents worked 207 candidates independently and all three
+concluded the same thing: Codeforces' `data structures` tag is close to
+orthogonal to this label. It sits on stack simulation, sort-with-a-set and
+prefix sums as readily as on range structures — so it selects precisely the
+population sparse-table is not. The corpus really does contain about five such
+problems. **The cue to use next time is the technique's precondition, not a
+judge tag: range min/max/gcd/AND over an array that is never updated.**
+
+A judge tag is a cheap candidate generator and a bad one. The cues that worked
+(`rerooting-dp`, `partition-dp`) described the *shape of the solution*; the ones
+that failed (`sparse-table`, tree techniques) described a topic.
+
+### What the audits found that was worth more than their own verdicts
+
+Both are fixed, and both were found independently by more than one agent:
+
+- **The family map only ran at ingest.** `FAMILY_PATTERNS` lived as compiled
+  regexes inside `annotate_problem_urls.py`, so no sweep could reach it: 1,029
+  problems of 3,468 were missing a family label their own labels implied, and
+  `number-theory` sat on 40 problems while 394 carried a number-theory
+  technique. The rules are now `families` in the taxonomy, shared with
+  `scripts/apply_families.js`.
+- **Off-vocabulary labels are dead weight** — 1,217 distinct names over 1,959
+  label slots, 912 of them used exactly once, none reachable by any query. The
+  definitional ones are aliased now; the rest need the ingest-side vocabulary
+  constraint in §5.
 
 ---
+
+## 2b. The benchmark under-rewards recall work, by construction
+
+Found while gating v80, and it will affect every future labelling pass.
+
+Relevant sets in `bench/queries.json` are **frozen lists of ids**. When a pass
+adds a *correct* label, the newly-labelled problem starts ranking for that
+technique — and nDCG counts it as noise, because it is not on the list. So
+correct recall work reads as a regression.
+
+Both of v80's largest bm25 moves are this and nothing else:
+
+| query | move | what actually happened |
+| --- | ---: | --- |
+| `sqrt decomposition` | −0.078 | CF 1468-M *Similar Sets* took rank 6. It is a textbook sqrt-decomposition problem; the audit gave it the label it was missing |
+| `interval dp balloon burst minimum cost` | −0.173 | six problems gained `interval-dp` when `dp-on-intervals` was aliased. All six are interval DPs |
+
+bm25's whole −0.011 on the technique slice is these. Nothing got worse.
+
+**Do not fix this by editing relevant sets alongside a change they judge** —
+that is grading your own work. The honest version is a separate pass that
+re-derives the relevant set for each *technique* query from the label it names,
+reviewed on its own, with the ranking held fixed. Until then, read a
+technique-slice drop after a labelling pass as a question, not a verdict, and
+check what took the displaced slot before believing it.
 
 ## 3. Codeforces ratings that haven't been published yet
 
@@ -132,14 +185,35 @@ runs with an API key in CI.
 
 ---
 
+## 4b. The family sweep, and why it is measured separately
+
+`scripts/apply_families.js` is written and dry-runs clean: **1,156 labels
+across 1,027 problems**. It is not applied in the same step as anything else
+because it takes `number-theory` from 40 carriers to 434 — an 11x change in
+that term's IDF — and only 4 of the 81 benchmark queries touch a family term at
+all, so the benchmark can detect a regression on `binary-search` and
+`segment-tree` and cannot see one on `number-theory` or
+`dynamic-programming`. It gets its own embed and its own bench run so any
+movement is attributable to it.
+
+Writing it found a bug in the rules themselves: `dsu-on-tree` matched the DSU
+rule and would have handed `union-find` to five problems that never call
+`union()`. The taxonomy's own `consumingAliases` already records that the name
+is a misnomer; the rule now has a negative lookahead and says why.
+
 ## 5. Two smaller things the samples turned up
 
 - **Constrain the contest annotator's vocabulary.** `gpt-4.1` is not *worse*
   than mini — its labels are rarely false — but it emits off-vocabulary labels
   at 32.8% vs mini's 18.7% (z=6.5), and they are problem restatements
-  (`peak-cell-condition`). Corpus-wide, 916 label names are used exactly once:
-  9% of the index that can never match a query. The fix is a vocabulary
-  constraint on the ingest path, not a model swap. Affects 77 problems.
+  (`peak-cell-condition`). Corpus-wide, **1,217 distinct off-vocabulary names
+  sit on 1,959 label slots and 912 of them are used exactly once** — none
+  reachable by any query. The v80 audits aliased the definitional ones
+  (`prefix-tree`, `substring-search`, `two-pointer`, `prime-sieve`, and 20
+  more), which is the tail this can reach; the rest need the fix at ingest,
+  which is a vocabulary constraint, not a model swap. Affects 77 problems.
+  One agent found a problem where **all five labels were off-vocabulary**
+  (`codeforces-1870-h`) — effectively unlabelled while looking labelled.
 - **`atcoder-abc159-f`'s statement summary is factually wrong** — it describes a
   value condition the real problem doesn't have. Statements are indexed, so a
   wrong summary is a retrieval bug. Worth a sweep for others like it.
@@ -151,6 +225,22 @@ runs with an API key in CI.
 - **Auditing the corpus problem by problem.** Measured: 4.6 minutes and 24k
   tokens per problem, with verification. 3,461 problems is ~266 agent-hours and
   ~84M tokens. Audit by *label* over candidate sets instead.
+
+### The next label pass should be driven by starved labels, not by text cues
+
+Both skeptics landed on the same idea independently, and it beats the cue-based
+selection this round used. **53 canonical labels have fewer than five carriers**
+— `cartesian-tree` 2, `functional-graph` 4, `heavy-light-decomposition` 6,
+`z-function` 5, `slope-trick` 2, `submask-enumeration` 2 — and a label with two
+carriers answers essentially no query. That list is a finite worklist with an
+obvious stopping point, where "find problems that look like X" is neither.
+
+Two labels had **zero** carriers when they were added this round
+(`bridge-tree`, `kruskal-reconstruction-tree`) — added precisely because two
+audits hit them as walls: the agent found the technique, went looking for the
+label, and had to pass. A canonical label nothing carries is a promise the
+index cannot keep, so both were given their evidenced carriers in the same
+commit.
 - **A `source` column for auto-bookmarked problems**, until an importer exists
   that needs it. Migrations 0007 and 0008 were both additive and took minutes.
 - **Stemming beyond plurals.** Porter also produces `matrices`→`matric` and

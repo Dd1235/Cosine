@@ -19,7 +19,7 @@
     "number-theory"
   ],
   "patterns": [
-    "prime-sieve",
+    "sieve",
     "prefix-sum"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1784910187,
     "pattern_confidence": {
-      "prime-sieve": 0.95,
+      "sieve": 0.95,
       "prefix-sum": 0.9
     }
   }

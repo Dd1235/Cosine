@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "string-repetition",
-    "substring-search",
+    "string-matching",
     "rolling-hash"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "generated_at_unix": 1784909284,
     "pattern_confidence": {
       "string-repetition": 0.95,
-      "substring-search": 0.9,
+      "string-matching": 0.9,
       "rolling-hash": 0.7
     }
   }

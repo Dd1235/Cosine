@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "prime-sieve",
+    "sieve",
     "binary-search"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1784909270,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "prime-sieve": 0.95,
+      "sieve": 0.95,
       "binary-search": 0.85
     }
   }

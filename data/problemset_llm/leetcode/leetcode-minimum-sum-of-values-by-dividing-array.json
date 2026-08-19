@@ -26,7 +26,8 @@
     "dynamic-programming",
     "bit-manipulation",
     "prefix-and",
-    "binary-search-answer"
+    "binary-search-answer",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -36,7 +37,8 @@
       "dynamic-programming": 0.95,
       "bit-manipulation": 0.85,
       "prefix-and": 0.8,
-      "binary-search-answer": 0.7
+      "binary-search-answer": 0.7,
+      "partition-dp": 0.92
     }
   }
 }

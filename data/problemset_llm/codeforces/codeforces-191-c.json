@@ -21,7 +21,8 @@
   "patterns": [
     "dfs",
     "tree-paths",
-    "edge-contribution"
+    "edge-contribution",
+    "lca"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -30,7 +31,8 @@
     "pattern_confidence": {
       "dfs": 0.95,
       "tree-paths": 0.9,
-      "edge-contribution": 0.85
+      "edge-contribution": 0.85,
+      "lca": 0.9
     }
   },
   "source_topic": "Formwise / Trees"

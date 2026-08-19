@@ -21,7 +21,7 @@
   "patterns": [
     "two-sat",
     "binary-search",
-    "maximum-matching",
+    "bipartite-matching",
     "graph-modeling",
     "wqs-binary-search"
   ],
@@ -32,7 +32,7 @@
     "pattern_confidence": {
       "two-sat": 0.95,
       "binary-search": 0.9,
-      "maximum-matching": 0.85,
+      "bipartite-matching": 0.85,
       "graph-modeling": 0.8,
       "wqs-binary-search": 0.95
     }

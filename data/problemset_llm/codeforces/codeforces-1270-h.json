@@ -19,7 +19,8 @@
   "patterns": [
     "union-find",
     "offline-queries",
-    "dynamic-connectivity"
+    "dynamic-connectivity",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -28,7 +29,8 @@
     "pattern_confidence": {
       "union-find": 0.95,
       "offline-queries": 0.7,
-      "dynamic-connectivity": 0.85
+      "dynamic-connectivity": 0.85,
+      "segment-tree": 0.72
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

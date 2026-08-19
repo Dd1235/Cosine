@@ -22,7 +22,7 @@
   ],
   "patterns": [
     "interval-scheduling",
-    "dp-on-intervals",
+    "interval-dp",
     "binary-search"
   ],
   "annotation": {
@@ -31,7 +31,7 @@
     "generated_at_unix": 1784715340,
     "pattern_confidence": {
       "interval-scheduling": 0.95,
-      "dp-on-intervals": 0.93,
+      "interval-dp": 0.93,
       "binary-search": 0.85
     }
   }

@@ -19,7 +19,8 @@
   ],
   "patterns": [
     "greedy",
-    "simulation"
+    "simulation",
+    "stack"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -27,7 +28,8 @@
     "generated_at_unix": 1785050276,
     "pattern_confidence": {
       "greedy": 0.9,
-      "simulation": 0.85
+      "simulation": 0.85,
+      "stack": 0.82
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

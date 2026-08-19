@@ -22,20 +22,18 @@
     "design"
   ],
   "patterns": [
-    "prefix-trie",
+    "trie",
     "suffix-trie",
-    "combined-key-hashing",
-    "trie"
+    "combined-key-hashing"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777923928,
     "pattern_confidence": {
-      "prefix-trie": 0.95,
+      "trie": 0.95,
       "suffix-trie": 0.95,
-      "combined-key-hashing": 0.9,
-      "trie": 0.9
+      "combined-key-hashing": 0.9
     }
   }
 }

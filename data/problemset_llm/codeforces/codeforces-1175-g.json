@@ -23,7 +23,8 @@
     "divide-and-conquer-dp",
     "dynamic-programming",
     "two-pointers",
-    "convex-hull-trick"
+    "convex-hull-trick",
+    "partition-dp"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -33,7 +34,8 @@
       "divide-and-conquer-dp": 0.95,
       "dynamic-programming": 0.9,
       "two-pointers": 0.6,
-      "convex-hull-trick": 0.95
+      "convex-hull-trick": 0.95,
+      "partition-dp": 0.95
     }
   },
   "source_topic": "Codeforces / rating 2500-3500"

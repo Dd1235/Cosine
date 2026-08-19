@@ -20,7 +20,8 @@
   "patterns": [
     "greedy",
     "stack",
-    "simulation"
+    "simulation",
+    "heap"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "stack": 0.85,
-      "simulation": 0.8
+      "simulation": 0.8,
+      "heap": 0.9
     }
   }
 }

@@ -28,7 +28,9 @@
     "suffix-automaton",
     "dfs",
     "rolling-hash",
-    "string-matching"
+    "string-matching",
+    "tree-flattening",
+    "aho-corasick"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -38,7 +40,9 @@
       "suffix-automaton": 0.95,
       "dfs": 0.85,
       "rolling-hash": 0.9,
-      "string-matching": 0.9
+      "string-matching": 0.9,
+      "tree-flattening": 0.8,
+      "aho-corasick": 0.78
     }
   }
 }

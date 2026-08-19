@@ -1,0 +1,214 @@
+{
+ "why": "Found while auditing for MISSING labels (v80). Neither list was acted on: removals need their own pass with their own rules (docs/plans.md \u00a71), and a downgraded claim is not evidence of a wrong existing label. Every `wrong_labels` entry was checked to be present in the corpus at the time of writing.",
+ "reviewed_at": "2026-08-19",
+ "wrong_labels": [
+  {
+   "id": "codeforces-1983-f",
+   "label": "xor-basis",
+   "why": "no basis in the solution"
+  },
+  {
+   "id": "codeforces-1903-f",
+   "label": "wqs-binary-search",
+   "why": "not a wqs problem"
+  },
+  {
+   "id": "codeforces-1748-e",
+   "label": "divide-and-conquer-dp",
+   "why": "that is monotone opt; this is a cartesian-tree dp"
+  },
+  {
+   "id": "codeforces-915-f",
+   "label": "dsu-on-tree",
+   "why": "plain Kruskal DSU, no small-to-large merging"
+  },
+  {
+   "id": "codeforces-708-c",
+   "label": "centroid-decomposition",
+   "why": "rerooting dp; the statement merely says centroid"
+  },
+  {
+   "id": "codeforces-1270-h",
+   "label": "union-find",
+   "why": "no DSU in the solution"
+  },
+  {
+   "id": "codeforces-337-d",
+   "label": "geometry",
+   "why": "no geometry"
+  },
+  {
+   "id": "codeforces-1805-d",
+   "label": "geometry",
+   "why": "no geometry"
+  },
+  {
+   "id": "codeforces-1207-g",
+   "label": "suffix-automaton",
+   "why": "aho-corasick"
+  },
+  {
+   "id": "codeforces-1437-g",
+   "label": "suffix-automaton",
+   "why": "aho-corasick"
+  },
+  {
+   "id": "codeforces-1800-c2",
+   "label": "stack",
+   "why": "needs a max-heap; LIFO gives a wrong answer"
+  },
+  {
+   "id": "codeforces-555-e",
+   "label": "two-sat",
+   "why": "no 2-SAT in any standard solution"
+  },
+  {
+   "id": "codeforces-1416-d",
+   "label": "link-cut-tree",
+   "why": "kruskal reconstruction tree, not LCT"
+  },
+  {
+   "id": "codeforces-1351-c",
+   "label": "rolling-hash",
+   "why": "a hash set of visited segments"
+  },
+  {
+   "id": "codeforces-337-d",
+   "label": "binary-tree-traversal",
+   "why": "no binary tree"
+  },
+  {
+   "id": "codeforces-1037-d",
+   "label": "binary-tree-traversal",
+   "why": "no binary tree"
+  }
+ ],
+ "downgraded_claims": [
+  {
+   "id": "codeforces-1335-f",
+   "label": "binary-lifting",
+   "verdict": "weak",
+   "why": "True as one implementation: doubling the cell->cell map ~20 times gives each cell's eventual position. But it is a device for 'iterate the map many times', and the corpus already carries cycle-detection/SCC, which is the alternative implementation of the same step. The structural fact the corpus is missing is that this is a functional graph.",
+   "better_label": "functional-graph"
+  },
+  {
+   "id": "codeforces-431-e",
+   "label": "coordinate-compression",
+   "verdict": "weak",
+   "why": "Factually fine (verified h_i, x <= 1e9 on the real statement), but compression is only what lets you index a value-keyed segment tree; a dynamic/implicit segment tree over 0..1e9 removes it entirely. The actual missing label is the value-indexed segment tree with a descend-to-find-the-level query \u2014 the corpus has neither segment-tree nor any data-structure label here.",
+   "better_label": "segment-tree"
+  },
+  {
+   "id": "codeforces-1207-g",
+   "label": "euler-tour",
+   "verdict": "weak",
+   "why": "True \u2014 tin/tout on the suffix-link tree is how 'visited states below the terminal node' becomes one BIT range sum. But it is the standard companion of Aho-Corasick counting rather than the idea; aho-corasick (the other claim on this row) is the label that actually fixes this entry.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-1416-d",
+   "label": "euler-tour",
+   "verdict": "weak",
+   "why": "The mechanism is described correctly, but the Euler tour is the last step of the real construction: reverse the deletions to build the Kruskal reconstruction tree, at which point a component is a subtree. The corpus has kruskal-reconstruction-tree in the taxonomy with ZERO problems using it \u2014 that is the label this problem is missing.",
+   "better_label": "kruskal-reconstruction-tree"
+  },
+  {
+   "id": "codeforces-466-e",
+   "label": "euler-tour",
+   "verdict": "weak",
+   "why": "Accurate, but the tour is used only for an ancestor predicate (is x between the originating vertex and the DSU top boss at that time), never for a range query. The taxonomy has a label that names exactly this use, and it is already applied to 9 problems.",
+   "better_label": "tin-tout-ancestor-check"
+  },
+  {
+   "id": "codeforces-1313-e",
+   "label": "fenwick-tree",
+   "verdict": "weak",
+   "why": "The BIT is genuinely needed (sliding window over j, threshold on pref[i]+suf[j]), but all the difficulty is the reduction: z-functions on both sides plus turning the overlap condition into a window on j-i. The aggregation is interchangeable machinery, and the corpus's real hole here is the string label \u2014 it says kmp and string-hashing, not z-function.",
+   "better_label": "z-function"
+  },
+  {
+   "id": "codeforces-436-e",
+   "label": "heap",
+   "verdict": "weak",
+   "why": "True \u2014 the accepted greedy runs several priority queues of candidate deltas (add a_i, upgrade b_i-a_i, swap b_j-a_i, downgrade). But the heaps are how the regret/exchange greedy is implemented; the idea is the exchange argument that every added star takes the cheapest reversible move. A heap searcher lands on a 2600 greedy where the container teaches them nothing.",
+   "better_label": "exchange-argument"
+  },
+  {
+   "id": "codeforces-965-e",
+   "label": "heap",
+   "verdict": "weak",
+   "why": "The container is incidental \u2014 a multiset works identically; what makes the algorithm correct and fast is the small-to-large merge plus the 'pop the deepest, re-add at this depth' greedy. The other claim on this problem names that properly.",
+   "better_label": "dsu-on-tree"
+  },
+  {
+   "id": "codeforces-555-e",
+   "label": "lca",
+   "verdict": "weak",
+   "why": "The up/down difference counters split at the LCA are described correctly, but they are the second half of the solution \u2014 the problem's identity is bridges plus the bridge tree (inside a 2-edge-connected component any orientation works). Adding lca while the corpus has no bridge label at all fixes the smaller gap; note bridge-tree and bridges are canonical but carry ZERO problems today.",
+   "better_label": "bridge-tree"
+  },
+  {
+   "id": "codeforces-1131-g",
+   "label": "monotonic-stack",
+   "verdict": "weak",
+   "why": "True: the leftward chain-reaction reach is a next-greater-style stack sweep, and a second stack carries the right-push candidates. But it is supporting machinery inside a 2700 prefix DP; someone searching monotonic-stack to learn or drill the pattern gets no return here.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-961-e",
+   "label": "offline-queries",
+   "verdict": "refuted",
+   "why": "The problem has no queries. It asks for a single count of pairs (x,y); sorting the sweep order is just a sweep, not reordering user queries to answer them out of order. I checked the corpus's 59 offline-queries problems and every one has an actual query list (Tree and Queries, Bipartite Checking, Zip-line...), so this would be the odd one out and would dilute the label.",
+   "better_label": "fenwick-tree"
+  },
+  {
+   "id": "codeforces-1474-c",
+   "label": "ordered-set",
+   "verdict": "weak",
+   "why": "Factually fine (n <= 1000 so O(n^2 log n) is comfortable), but the insight is that the first removed pair must contain the global maximum, so you brute-force the partner. The multiset is a replaceable container \u2014 sorting descending with a pointer plus a value->count hash map does the same job without an ordered structure.",
+   "better_label": "brute-force"
+  },
+  {
+   "id": "leetcode-maximize-total-cost-of-alternating-subarrays",
+   "label": "partition-dp",
+   "verdict": "weak",
+   "why": "No piece-count dimension and no cut enumeration anywhere in the accepted solution - it is dp[i][0/1] 'extend or start here' in O(n), which is a linear state machine that happens to describe a split. A partition-dp searcher wants dp[i][j] over cut points and would learn nothing here.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-1648-b",
+   "label": "prefix-sum",
+   "verdict": "weak",
+   "why": "The idea is the harmonic sweep over (y, multiple k) with the check 'does any element lie in [k*y, k*y+y-1]'; prefix sums over the value-count array are one line of scaffolding under it. A prefix-sum searcher would get a number-theory counting problem where prefix sums are incidental.",
+   "better_label": "divisor-enumeration"
+  },
+  {
+   "id": "codeforces-793-g",
+   "label": "segment-tree",
+   "verdict": "weak",
+   "why": "True but one ingredient of three at 3400: the crux is the divide-and-conquer decomposition of the free area into O(n log^2 n) rectangles (already carried), on top of which the segment-tree edge compression is the standard follow-through. Least representative segment-tree problem in this batch for anyone searching the term.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-813-f",
+   "label": "segment-tree",
+   "verdict": "weak",
+   "why": "This is a segment tree over the time axis - a divide-and-conquer recursion skeleton for offline dynamic connectivity - not a range-query structure, and the idea is already named by dsu-rollback + offline-queries. Someone searching 'segment tree' would be looking for the other kind.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-1619-e",
+   "label": "stack",
+   "verdict": "weak",
+   "why": "The algorithm is greedy counting over v = 0..n; the stack of spare duplicates is a container choice that works only because v is scanned in increasing order - a sorted pool or a pointer does the same job. True, but not what a 'stack' searcher is practising.",
+   "better_label": null
+  },
+  {
+   "id": "codeforces-1118-f1",
+   "label": "subtree-dp",
+   "verdict": "weak",
+   "why": "One DFS aggregating (red, blue) counts per subtree, then a local test per edge - correct, but this is subtree counting rather than a DP, and dfs is already carried. Harmless, marginal; the interesting label here would be whatever names the two-sided colour condition, and the taxonomy has none.",
+   "better_label": null
+  }
+ ]
+}

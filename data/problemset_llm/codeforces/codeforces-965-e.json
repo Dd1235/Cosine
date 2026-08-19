@@ -25,7 +25,8 @@
     "trie",
     "prefix-uniqueness",
     "greedy",
-    "dp-on-tree"
+    "dp-on-tree",
+    "dsu-on-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +36,8 @@
       "trie": 0.95,
       "prefix-uniqueness": 0.9,
       "greedy": 0.85,
-      "dp-on-tree": 0.8
+      "dp-on-tree": 0.8,
+      "dsu-on-tree": 0.8
     }
   },
   "source_topic": "Formwise / Trie"

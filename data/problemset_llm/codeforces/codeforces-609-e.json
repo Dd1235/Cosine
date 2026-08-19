@@ -26,7 +26,9 @@
     "kruskal",
     "union-find",
     "dfs",
-    "cycle-detection"
+    "cycle-detection",
+    "minimum-spanning-tree",
+    "binary-lifting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -36,7 +38,9 @@
       "kruskal": 0.95,
       "union-find": 0.9,
       "dfs": 0.7,
-      "cycle-detection": 0.7
+      "cycle-detection": 0.7,
+      "minimum-spanning-tree": 0.95,
+      "binary-lifting": 0.9
     }
   }
 }

@@ -22,7 +22,8 @@
   "patterns": [
     "greedy",
     "two-pointers",
-    "simulation"
+    "simulation",
+    "linked-list"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "greedy": 0.95,
       "two-pointers": 0.85,
-      "simulation": 0.9
+      "simulation": 0.9,
+      "linked-list": 0.7
     }
   },
   "source_topic": "Formwise / STL"

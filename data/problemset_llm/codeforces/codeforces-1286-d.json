@@ -25,7 +25,8 @@
   "patterns": [
     "expected-value-dp",
     "event-simulation",
-    "line-sweep"
+    "line-sweep",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -34,7 +35,8 @@
     "pattern_confidence": {
       "expected-value-dp": 0.85,
       "event-simulation": 0.8,
-      "line-sweep": 0.7
+      "line-sweep": 0.7,
+      "segment-tree": 0.8
     }
   }
 }

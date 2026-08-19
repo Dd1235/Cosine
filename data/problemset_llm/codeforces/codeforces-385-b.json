@@ -21,7 +21,7 @@
     "implementation"
   ],
   "patterns": [
-    "substring-search",
+    "string-matching",
     "brute-force"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785217323,
     "pattern_confidence": {
-      "substring-search": 0.9,
+      "string-matching": 0.9,
       "brute-force": 0.8
     }
   }

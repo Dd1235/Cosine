@@ -15,7 +15,7 @@
   "tags": [
     "grid",
     "flow",
-    "maximum-matching",
+    "bipartite-matching",
     "combinatorics"
   ],
   "patterns": [

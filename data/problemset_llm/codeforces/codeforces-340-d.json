@@ -20,7 +20,8 @@
   "patterns": [
     "maximum-independent-set",
     "bubble-sort-simulation",
-    "dp-on-graphs"
+    "dp-on-graphs",
+    "longest-increasing-subsequence"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +30,8 @@
     "pattern_confidence": {
       "maximum-independent-set": 0.95,
       "bubble-sort-simulation": 0.85,
-      "dp-on-graphs": 0.8
+      "dp-on-graphs": 0.8,
+      "longest-increasing-subsequence": 0.92
     }
   },
   "source_topic": "Codeforces / rating 1300-1500"

@@ -18,7 +18,8 @@
   ],
   "patterns": [
     "greedy",
-    "inversion-count"
+    "inversion-count",
+    "fenwick-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +27,8 @@
     "generated_at_unix": 1785050375,
     "pattern_confidence": {
       "greedy": 0.95,
-      "inversion-count": 0.9
+      "inversion-count": 0.9,
+      "fenwick-tree": 0.7
     }
   },
   "source_topic": "Codeforces / rating 1600-1900"

@@ -22,7 +22,8 @@
   "patterns": [
     "dsu-on-tree",
     "contribution-technique",
-    "tree-dp"
+    "tree-dp",
+    "union-find"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -31,7 +32,8 @@
     "pattern_confidence": {
       "dsu-on-tree": 0.95,
       "contribution-technique": 0.9,
-      "tree-dp": 0.85
+      "tree-dp": 0.85,
+      "union-find": 0.9
     }
   },
   "source_topic": "Formwise / Trees"

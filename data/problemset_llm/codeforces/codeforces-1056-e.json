@@ -20,7 +20,7 @@
   ],
   "patterns": [
     "string-hashing",
-    "two-pointer",
+    "two-pointers",
     "brute-force"
   ],
   "annotation": {
@@ -29,7 +29,7 @@
     "generated_at_unix": 1785051039,
     "pattern_confidence": {
       "string-hashing": 0.9,
-      "two-pointer": 0.7,
+      "two-pointers": 0.7,
       "brute-force": 0.8
     }
   },

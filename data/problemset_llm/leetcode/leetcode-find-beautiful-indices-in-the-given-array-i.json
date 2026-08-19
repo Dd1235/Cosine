@@ -26,7 +26,7 @@
   "patterns": [
     "rolling-hash",
     "two-pointers",
-    "substring-search"
+    "string-matching"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -35,7 +35,7 @@
     "pattern_confidence": {
       "rolling-hash": 0.95,
       "two-pointers": 0.85,
-      "substring-search": 0.9
+      "string-matching": 0.9
     }
   }
 }

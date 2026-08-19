@@ -24,7 +24,7 @@
   ],
   "patterns": [
     "minimum-spanning-tree",
-    "maximum-matching",
+    "bipartite-matching",
     "graph-matching",
     "union-find",
     "wqs-binary-search"
@@ -35,7 +35,7 @@
     "generated_at_unix": 1785236987,
     "pattern_confidence": {
       "minimum-spanning-tree": 0.95,
-      "maximum-matching": 0.9,
+      "bipartite-matching": 0.9,
       "graph-matching": 0.85,
       "union-find": 0.7,
       "wqs-binary-search": 0.9

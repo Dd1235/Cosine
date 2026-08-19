@@ -23,7 +23,7 @@
     "dfs",
     "bit-manipulation",
     "palindrome",
-    "subtree-query",
+    "tree-flattening",
     "union-find",
     "dsu-on-tree"
   ],
@@ -35,7 +35,7 @@
       "dfs": 0.95,
       "bit-manipulation": 0.9,
       "palindrome": 0.85,
-      "subtree-query": 0.9,
+      "tree-flattening": 0.9,
       "union-find": 0.9,
       "dsu-on-tree": 0.95
     }

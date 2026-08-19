@@ -18,8 +18,7 @@
     "euler-tour",
     "tree-flattening",
     "fenwick-tree",
-    "segment-tree",
-    "subtree-query"
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,8 +28,7 @@
       "euler-tour": 0.98,
       "tree-flattening": 0.97,
       "fenwick-tree": 0.95,
-      "segment-tree": 0.9,
-      "subtree-query": 0.96
+      "segment-tree": 0.9
     }
   }
 }

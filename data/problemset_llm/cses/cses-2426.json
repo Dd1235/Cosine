@@ -15,7 +15,7 @@
   "patterns": [
     "sorting",
     "greedy-selection",
-    "two-pointer"
+    "two-pointers"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "sorting": 0.95,
       "greedy-selection": 0.9,
-      "two-pointer": 0.7
+      "two-pointers": 0.7
     }
   }
 }

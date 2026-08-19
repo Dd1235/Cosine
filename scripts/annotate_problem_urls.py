@@ -46,14 +46,18 @@ SSL_CONTEXT = None
 PATTERN_TAXONOMY = ROOT / "data" / "pattern_taxonomy.json"
 
 
-def _load_taxonomy() -> tuple[list[str], dict[str, str]]:
+def _load_taxonomy() -> tuple[list[str], dict[str, str], list[dict]]:
     data = json.loads(PATTERN_TAXONOMY.read_text())
-    return list(data["canonical"].keys()), dict(data.get("aliases", {}))
+    return (
+        list(data["canonical"].keys()),
+        dict(data.get("aliases", {})),
+        list(data.get("families", [])),
+    )
 
 
 # Canonical pattern vocabulary + alias map shared with the Node validator and
 # normalizer (data/pattern_taxonomy.json is the single source of truth).
-CANONICAL_PATTERNS, PATTERN_ALIASES = _load_taxonomy()
+CANONICAL_PATTERNS, PATTERN_ALIASES, PATTERN_FAMILIES = _load_taxonomy()
 
 PROMPT_EXAMPLES = [
     {
@@ -344,6 +348,7 @@ def leetcode_metadata(item: UrlItem) -> dict[str, Any]:
             titleSlug
             difficulty
             content
+            categoryTitle
             topicTags { name slug }
           }
         }
@@ -355,6 +360,18 @@ def leetcode_metadata(item: UrlItem) -> dict[str, Any]:
         q = (data.get("data") or {}).get("question") or {}
     except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
         q = {}
+
+    # LeetCode's problemset is three catalogues sharing one URL shape:
+    # Algorithms, Database, Shell. A `Database` problem is answered with a
+    # recursive CTE, so annotating it produces DSA labels for an algorithm
+    # nobody writes — Analyze Organization Hierarchy carried tree-dp, dfs and
+    # topological-sort until a sweep of this field found it. The caller treats
+    # the raise as a skip, and it happens before the model call, so a refusal
+    # is free. Same shape as the `time limit per test` marker check in
+    # fetch_statements.py: refuse the record rather than write a bad one.
+    category = q.get("categoryTitle")
+    if category and category != "Algorithms":
+        raise RuntimeError(f"{slug}: LeetCode categoryTitle is {category!r}, not Algorithms")
 
     content = q.get("content") or ""
     source_text = html_to_text(content) if content else ""
@@ -615,21 +632,12 @@ def canonical_label(raw: str) -> str:
 #
 # Same lesson as the umbrella groups in the taxonomy: the specific name and the
 # family name are both real queries, and only one of them was being indexed.
+# Read from the taxonomy rather than kept here: these implications are part of
+# the vocabulary, and while they lived in this file nothing else could apply
+# them — so every problem annotated before they existed never got one.
+# scripts/apply_families.js reads the same list to sweep the whole corpus.
 FAMILY_PATTERNS: list[tuple[Any, str]] = [
-    (re.compile(r"(^|-)dp($|-)|dynamic-programming|memoi[sz]ation"), "dynamic-programming"),
-    (re.compile(r"(^|-)bfs($|-)|breadth-first"), "bfs"),
-    (re.compile(r"(^|-)dfs($|-)|depth-first"), "dfs"),
-    (re.compile(r"binary-search"), "binary-search"),
-    (re.compile(r"(^|-)(segment-tree|fenwick-tree)($|-)"), "segment-tree"),
-    (re.compile(r"two-pointer"), "two-pointers"),
-    # The model names the specific trick — "stars-and-bars", "euler-totient" —
-    # and nobody searches for those until they already know the answer. The
-    # family name is the query a person types while still looking for it.
-    (re.compile(r"stars-and-bars|binomial|permutation-counting|combination-counting"
-                r"|catalan|pigeonhole|inclusion-exclusion|counting-ways"), "combinatorics"),
-    (re.compile(r"(^|-)(gcd|lcm)($|-)|divisor|(^|-)primes?($|-)|prime-|sieve|modular|modulo"
-                r"|totient|coprime|factorization|euclid"), "number-theory"),
-    (re.compile(r"disjoint-set|(^|-)dsu($|-)"), "union-find"),
+    (re.compile(e["match"]), e["family"]) for e in PATTERN_FAMILIES
 ]
 
 

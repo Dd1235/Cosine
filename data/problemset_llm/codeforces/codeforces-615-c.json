@@ -19,7 +19,7 @@
     "greedy"
   ],
   "patterns": [
-    "substring-matching",
+    "string-matching",
     "string-reversal",
     "dp-on-strings",
     "greedy"
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1785050445,
     "pattern_confidence": {
-      "substring-matching": 0.9,
+      "string-matching": 0.9,
       "string-reversal": 0.85,
       "dp-on-strings": 0.8,
       "greedy": 0.75

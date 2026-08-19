@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "brute-force",
-    "substring-search",
+    "string-matching",
     "wildcard-matching"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1785229872,
     "pattern_confidence": {
       "brute-force": 0.9,
-      "substring-search": 0.85,
+      "string-matching": 0.85,
       "wildcard-matching": 0.8
     }
   }

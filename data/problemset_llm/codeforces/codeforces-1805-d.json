@@ -27,7 +27,8 @@
     "connected-components",
     "dfs",
     "greedy",
-    "dp-on-trees"
+    "dp-on-trees",
+    "tree-diameter"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -38,7 +39,8 @@
       "connected-components": 0.95,
       "dfs": 0.9,
       "greedy": 0.85,
-      "dp-on-trees": 0.8
+      "dp-on-trees": 0.8,
+      "tree-diameter": 0.85
     }
   },
   "source_topic": "Formwise / Trees"
