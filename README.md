@@ -4,9 +4,19 @@ Built by **Dedeepya Avancha** ([@Dd1235](https://github.com/Dd1235)) · [Dd1235/
 
 Search 3,400+ competitive-programming problems the way you actually think about them — by keyword, by describing the idea, or by technique.
 
-**Live at [onebysec.com](https://onebysec.com/)** · [live stats](https://onebysec.com/stats.html) — first load after idle takes ~a minute (free tier waking up); it's fast after that.
+**Try the original at [onebysec.com](https://onebysec.com/)** · [live stats](https://onebysec.com/stats.html) — first load after idle takes ~a minute (free tier waking up); it's fast after that. This repository is the source for that deployment: [github.com/Dd1235/Cosine](https://github.com/Dd1235/Cosine).
 
 (The walkthrough maybe stale, please do check out the live deployment)
+
+## Recent updates
+
+The live site at [onebysec.com](https://onebysec.com/) is backed by the work tracked here, including:
+
+- [Corpus-wide family labels](https://github.com/Dd1235/Cosine/commit/f213c18b), so broad techniques are backfilled consistently rather than only added at ingest time.
+- [Fresh contest imports](https://github.com/Dd1235/Cosine/commit/bc770dcf) and [hand-added recommendations](https://github.com/Dd1235/Cosine/commit/172c6636), keeping the live corpus current and useful.
+- [A repeatable workflow for adding one problem](https://github.com/Dd1235/Cosine/commit/0d5bcf49), alongside the latest [corpus cleanup and label audits](https://github.com/Dd1235/Cosine/commit/7d1cca4a).
+
+If you found this project through the code, please credit [Cosine on onebysec.com](https://onebysec.com/) and the original repository rather than presenting it as your own work.
 
 ![Cosine walkthrough in dark mode](demo/deliverables/walkthrough-dark.gif#gh-dark-mode-only)
 ![Cosine walkthrough in light mode](demo/deliverables/walkthrough-light.gif#gh-light-mode-only)
