@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-find-all-numbers-disappeared-in-an-array-ii",
+  "title": "Find All Numbers Disappeared in an Array II",
+  "slug": "find-all-numbers-disappeared-in-an-array-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array-ii/",
+  "source_topic": "LeetCode / Weekly Contest 516",
+  "source_tags": [],
+  "statement": "The problem asks for all integers absent from an array within an inclusive range [lower, upper], grouping consecutive missing values into the minimum number of contiguous ranges and returning them in increasing order. The array may contain duplicates, values outside the queried range, and up to 100,000 elements, while all values and bounds are at most 100,000.",
+  "tags": [
+    "array",
+    "sorting"
+  ],
+  "patterns": [
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1787550809,
+    "pattern_confidence": {
+      "sorting": 0.99
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 52.8
+}

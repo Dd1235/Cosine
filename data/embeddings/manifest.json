@@ -3,7 +3,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3437,
+  "count": 3440,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -335,6 +335,7 @@
     "leetcode-find-a-value-of-a-mysterious-function-closest-to-target",
     "leetcode-find-all-good-indices",
     "leetcode-find-all-good-strings",
+    "leetcode-find-all-numbers-disappeared-in-an-array-ii",
     "leetcode-find-all-people-with-secret",
     "leetcode-find-all-possible-stable-binary-arrays-ii",
     "leetcode-find-array-given-subset-sums",
@@ -587,6 +588,7 @@
     "leetcode-longest-special-path",
     "leetcode-longest-strictly-increasing-subsequence-with-non-zero-bitwise-and",
     "leetcode-longest-string-chain",
+    "leetcode-longest-subarray-with-at-most-k-distinct-prime-factors",
     "leetcode-longest-subsequence-repeated-k-times",
     "leetcode-longest-subsequence-with-decreasing-adjacent-difference",
     "leetcode-longest-subsequence-with-non-zero-bitwise-xor",
@@ -1439,6 +1441,7 @@
     "leetcode-utf-8-validation",
     "leetcode-valid-arrangement-of-pairs",
     "leetcode-valid-binary-strings-with-cost-limit",
+    "leetcode-valid-k-unique-subarrays-i",
     "leetcode-valid-number",
     "leetcode-valid-parentheses",
     "leetcode-valid-parenthesis-string",
@@ -3445,7 +3448,7 @@
     "atcoder-dp-x",
     "atcoder-dp-y"
   ],
-  "corpusHash": "bc0639617e89df9a90fae94359728127a6449285a968bd109efc45fc5bb01fb7",
+  "corpusHash": "d145af73365af868acd5781d343468ed90176e7662ff1200ebc1c026c2cafc4e",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-08-19T04:14:23.609Z"
+  "createdAt": "2026-08-24T06:01:21.425Z"
 }

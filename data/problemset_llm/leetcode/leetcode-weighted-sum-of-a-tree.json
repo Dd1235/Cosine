@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/weighted-sum-of-a-tree/",
   "source_topic": "LeetCode / Weekly Contest 514",
   "difficulty": "Medium",
-  "acceptance_rate": 41.8,
+  "acceptance_rate": 41.9,
   "source_tags": [],
   "statement": "Given a rooted tree described by a parent array and node values, compute the sum over all nodes of their value times (tree height minus node depth plus one).",
   "tags": [

@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-inversion-count-in-subarrays-of-fixed-length/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 43.0,
+  "acceptance_rate": 43.1,
   "source_tags": [
     "array",
     "segment-tree",

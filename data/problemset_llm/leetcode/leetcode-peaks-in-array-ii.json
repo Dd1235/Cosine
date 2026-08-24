@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/peaks-in-array-ii/",
   "source_topic": "LeetCode / Weekly Contest 514",
   "difficulty": "Hard",
-  "acceptance_rate": 27.3,
+  "acceptance_rate": 27.7,
   "source_tags": [],
   "statement": "Given an array, process range queries asking for the number of subarrays containing a peak (an element greater than its neighbors) and point updates changing array values.",
   "tags": [

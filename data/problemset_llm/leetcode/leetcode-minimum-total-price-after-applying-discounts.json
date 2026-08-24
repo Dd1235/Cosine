@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-total-price-after-applying-discounts/",
   "source_topic": "LeetCode / Weekly Contest 514",
   "difficulty": "Medium",
-  "acceptance_rate": 71.6,
+  "acceptance_rate": 71.8,
   "source_tags": [],
   "statement": "Given arrays of item prices and discount percentages, assign at most one discount to each item (and vice versa) to minimize the total final price, where discounts reduce prices multiplicatively.",
   "tags": [

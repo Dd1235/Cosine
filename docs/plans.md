@@ -117,6 +117,44 @@ Both are fixed, and both were found independently by more than one agent:
 
 ---
 
+## 2a. Dense embeddings depend on batch composition — the artifact is not reproducible
+
+**This invalidates every dense/hybrid benchmark comparison across a corpus size
+change**, and it is why v80's "three gated gains, one gated loss" on those
+rankers should not be believed.
+
+`scripts/embed_corpus.js` embeds in batches of 32 in corpus load order, and
+`extractor(texts, …)` pads each batch to its own longest member. So a document's
+vector depends on which 31 others share its batch. Measured directly: the same
+problem embedded alone versus batched with the corpus's longest statement
+differs by **cosine 4.0e-3**.
+
+That is 28x the margin that decides real rankings. Adding weekly 516's three
+problems flipped `longest stretch of characters with no repeats` from rank 1 to
+rank 2 — between two documents separated by **0.000142** — and moved
+dense/paraphrase −0.036 and hybrid/paraphrase −0.046 through the 0.02 gate,
+along with several queries that have nothing to do with the new problems.
+
+Proven, not inferred: holding the three records out and re-embedding reproduces
+the previous benchmark **exactly**, and two consecutive embed+bench runs on an
+unchanged corpus are byte-identical. So the pipeline is deterministic for a
+fixed corpus and unstable across insertions — the worst combination, because it
+looks reliable right up until you change something.
+
+`embed_corpus.js`'s own header claims the committed artifact means "dev/CI/prod
+all score against bit-identical doc vectors". True for a frozen corpus; false
+the moment one problem is added.
+
+**The fix** is to make each document's embedding independent of its neighbours:
+pass `padding: "max_length", truncation: true` so every sequence is padded
+identically, or embed with `BATCH_SIZE = 1`. Both cost time (embed is ~16s
+today) and both require a one-off re-embed and a re-baselined benchmark, so it
+is its own change, not a rider on a corpus edit.
+
+Until then: **gate on bm25 and tfidf**, which are deterministic from text and
+did not move at all. Treat a dense or hybrid slice move under ~0.05 as noise
+unless the corpus size was unchanged.
+
 ## 2b. The benchmark under-rewards recall work, by construction
 
 Found while gating v80, and it will affect every future labelling pass.

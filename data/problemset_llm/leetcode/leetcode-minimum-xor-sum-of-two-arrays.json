@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-xor-sum-of-two-arrays/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 51.9,
+  "acceptance_rate": 52.0,
   "source_tags": [
     "array",
     "dynamic-programming",

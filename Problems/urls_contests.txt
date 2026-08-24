@@ -74,3 +74,8 @@ https://leetcode.com/problems/elevator-requests-ii/
 https://leetcode.com/problems/minimize-the-maximum-waiting-time-at-synchronized-traffic-lights/
 https://leetcode.com/problems/maximum-gap-between-stations/
 https://leetcode.com/problems/elevator-requests-iii/
+
+# LeetCode / Weekly Contest 516
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array-ii/
+https://leetcode.com/problems/longest-subarray-with-at-most-k-distinct-prime-factors/
+https://leetcode.com/problems/valid-k-unique-subarrays-i/

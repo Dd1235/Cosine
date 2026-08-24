@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 63.7,
+  "acceptance_rate": 63.8,
   "source_tags": [
     "array",
     "greedy",

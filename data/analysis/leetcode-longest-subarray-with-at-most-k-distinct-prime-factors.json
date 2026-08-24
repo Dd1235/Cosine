@@ -1,0 +1,27 @@
+{
+ "id": "leetcode-longest-subarray-with-at-most-k-distinct-prime-factors",
+ "source": "LeetCode Weekly Contest 516",
+ "solution": "Factor every number into its distinct prime factors using a smallest-prime-factor sieve. Maintain a sliding window with two pointers and counts of how many elements contribute each prime; expand the right endpoint and move the left endpoint while the union contains more than k primes. Every valid window ending at the right endpoint is no longer than the maintained window, so recording its maximum length yields the optimum. The complexity is O(M log log M + nF) time and O(M + P) space, where M is the maximum value, F is the total number of distinct prime factors processed, and P is the number of tracked primes.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "sliding-window",
+   "two-pointers",
+   "sieve"
+  ],
+  "dropped": [
+   {
+    "label": "binary-search-answer",
+    "why": "The direct linear sliding-window solution is the intended technique; binary-searching the length is an unnecessary alternative and the feasibility test is not the core idea."
+   }
+  ],
+  "added": [
+   {
+    "label": "prime-factorization",
+    "why": "Factoring every array value into its distinct prime factors is an essential part of the solution, enabled by the SPF sieve.",
+    "confidence": 1.0
+   }
+  ]
+ },
+ "notes": "Binary-search-answer is a genuine alternative: feasibility for a fixed length can be checked with a fixed-size sliding window, and feasibility is monotone in the length."
+}

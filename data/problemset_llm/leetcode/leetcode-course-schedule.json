@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/course-schedule/",
   "source_topic": "LeetCode / Graphs",
   "difficulty": "Medium",
-  "acceptance_rate": 52.0,
+  "acceptance_rate": 52.1,
   "source_tags": [
     "depth-first-search",
     "breadth-first-search",

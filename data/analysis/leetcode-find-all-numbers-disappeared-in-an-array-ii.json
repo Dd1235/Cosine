@@ -1,0 +1,14 @@
+{
+ "id": "leetcode-find-all-numbers-disappeared-in-an-array-ii",
+ "source": "LeetCode Weekly Contest 516",
+ "solution": "Sort nums and scan its values that lie within [lower, upper], maintaining the smallest candidate missing value. For each distinct value x, if x is greater than the candidate, emit [candidate, x-1], then advance the candidate to x+1; duplicates and out-of-range values are ignored. After the scan, emit any remaining range through upper. Sorting costs O(n log n) time, the scan costs O(n), and the extra space is O(1) aside from the output.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "sorting"
+  ],
+  "dropped": [],
+  "added": []
+ },
+ "notes": "A hash-set plus range scan is another valid approach, but hash-map is not a precise central label for the intended sorted-gap solution."
+}

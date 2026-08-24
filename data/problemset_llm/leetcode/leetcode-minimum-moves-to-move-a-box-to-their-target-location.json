@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-moves-to-move-a-box-to-their-target-location/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 50.0,
+  "acceptance_rate": 50.1,
   "source_tags": [
     "array",
     "breadth-first-search",

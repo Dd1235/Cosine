@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/edit-distance/",
   "source_topic": "LeetCode / Dynamic Programming",
   "difficulty": "Medium",
-  "acceptance_rate": 61.1,
+  "acceptance_rate": 61.2,
   "source_tags": [
     "string",
     "dynamic-programming"
