@@ -3,6 +3,13 @@ node_modules
 !.gitignore
 !.env.example
 !.dockerignore
+# The skills travel with the repo so another session — or a clone — can run
+# them. Everything else under .claude is local state. Without these four lines
+# the blanket `.*` above swallows them, and `git add -A` skips them in silence.
+!.claude
+.claude/*
+!.claude/skills
+!.claude/skills/**
 .c
 docs/implementation
 __pycache__/
