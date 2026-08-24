@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/widest-possible-fence/",
   "source_topic": "LeetCode / Biweekly Contest 188",
   "difficulty": "Medium",
-  "acceptance_rate": 16.6,
+  "acceptance_rate": 16.8,
   "source_tags": [],
   "statement": "Given an array of plank heights, each usable once, and the option to combine two distinct planks into one of summed height, find the largest number of planks of equal height that can be formed.",
   "tags": [

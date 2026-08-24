@@ -1,0 +1,37 @@
+{
+  "id": "leetcode-longest-subarray-with-at-most-k-distinct-prime-factors",
+  "title": "Longest Subarray With at Most K Distinct Prime Factors",
+  "slug": "longest-subarray-with-at-most-k-distinct-prime-factors",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/longest-subarray-with-at-most-k-distinct-prime-factors/",
+  "source_topic": "LeetCode / Weekly Contest 516",
+  "source_tags": [],
+  "statement": "The problem asks for the length of the longest contiguous subarray whose elements collectively contain at most k distinct prime factors. Each number contributes its set of distinct prime divisors, and the union across the subarray determines validity. The array may contain up to 100,000 values, each at most 100,000, so efficient factorization and dynamic maintenance of the prime-factor union are required.",
+  "tags": [
+    "array",
+    "number-theory",
+    "prime-factorization"
+  ],
+  "patterns": [
+    "sliding-window",
+    "two-pointers",
+    "sieve",
+    "prime-factorization",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1787550809,
+    "pattern_confidence": {
+      "sliding-window": 0.99,
+      "two-pointers": 0.99,
+      "sieve": 0.95,
+      "prime-factorization": 1.0,
+      "number-theory": 0.7
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 57.1
+}

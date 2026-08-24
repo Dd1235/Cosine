@@ -1,0 +1,33 @@
+{
+  "id": "leetcode-valid-k-unique-subarrays-i",
+  "title": "Valid K-Unique Subarrays I",
+  "slug": "valid-k-unique-subarrays-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/valid-k-unique-subarrays-i/",
+  "source_topic": "LeetCode / Weekly Contest 516",
+  "source_tags": [],
+  "statement": "The problem asks whether each queried subarray contains exactly k distinct numbers while every distinct number occurs an even number of times. It provides an integer array, a fixed target k, and up to 100,000 arbitrary range queries, requiring a boolean result for each interval. The large input sizes make efficient offline range-query processing necessary.",
+  "tags": [
+    "array",
+    "range-query",
+    "hash-map"
+  ],
+  "patterns": [
+    "mo-algorithm",
+    "offline-queries",
+    "parity-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1787550809,
+    "pattern_confidence": {
+      "mo-algorithm": 0.99,
+      "offline-queries": 0.93,
+      "parity-argument": 0.95
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Hard",
+  "acceptance_rate": 8.9
+}

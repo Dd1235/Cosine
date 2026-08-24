@@ -1,0 +1,21 @@
+{
+ "id": "leetcode-valid-k-unique-subarrays-i",
+ "source": "LeetCode Weekly Contest 516",
+ "solution": "Process the queries offline with Mo's algorithm, ordering them by blocks of the left endpoint and then by right endpoint. Maintain the current interval's frequency for each value, its number of distinct values, and the number of values having odd frequency; adding or removing an endpoint updates these counters in O(1). A query is valid exactly when the distinct count is k and the odd-frequency count is zero. The total complexity is O((n + q) sqrt(n)) time and O(n + q) space.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "mo-algorithm",
+   "offline-queries"
+  ],
+  "dropped": [],
+  "added": [
+   {
+    "label": "parity-argument",
+    "why": "Validity depends on every frequency being even, and maintaining the count of values with odd frequency is a central parity invariant in the Mo-state updates.",
+    "confidence": 0.95
+   }
+  ]
+ },
+ "notes": ""
+}

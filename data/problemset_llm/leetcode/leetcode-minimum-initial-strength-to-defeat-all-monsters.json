@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-initial-strength-to-defeat-all-monsters/",
   "source_topic": "LeetCode / Biweekly Contest 188",
   "difficulty": "Medium",
-  "acceptance_rate": 50.3,
+  "acceptance_rate": 50.1,
   "source_tags": [],
   "statement": "Given an array of monster strengths and overlapping boost intervals, determine the minimum initial strength needed to defeat all monsters in order, where boosts temporarily help only for the current monster and strength decreases after each fight.",
   "tags": [
