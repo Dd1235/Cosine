@@ -1,0 +1,24 @@
+{
+ "id": "leetcode-minimum-operations-to-form-subset-sum-ii",
+ "source": "LeetCode Weekly Contest 517",
+ "solution": "Any operation sequence for one value can be normalized to some number of halvings followed by doublings, because every adjacent double-then-half pair cancels. Enumerate every positive value floor(x / 2^a) * 2^b that is at most sum, assigning it cost a + b. Then use a multiple-choice 0/1 knapsack DP where dp[t] stores the minimum cost to obtain subset sum t, processing each original element once. This is correct because the enumeration covers every useful reachable value and the DP considers exactly the possible subset choices; its complexity is O(n \u00b7 sum \u00b7 log(max(nums)) \u00b7 log(sum)) time and O(sum) space. It produces 3, 2, and -1 for the three worked examples.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "dynamic-programming",
+   "subset-sum"
+  ],
+  "dropped": [
+   {
+    "label": "knapsack",
+    "why": "Despite multiple choices per item, the objective is minimum cost for an exact target, so subset-sum is the applicable label under the supplied definition."
+   }
+  ],
+  "added": []
+ },
+ "notes": "The vocabulary has no multiple-choice-knapsack label, so knapsack is the closest available pattern.",
+ "vocabulary_gaps_reported": [
+  "multiple-choice-subset-sum",
+  "operation-sequence-normalization"
+ ]
+}

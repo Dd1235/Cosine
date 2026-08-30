@@ -1,0 +1,33 @@
+{
+  "id": "leetcode-minimum-operations-to-form-subset-sum-ii",
+  "title": "Minimum Operations to Form Subset Sum II",
+  "slug": "minimum-operations-to-form-subset-sum-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-form-subset-sum-ii/",
+  "source_topic": "LeetCode / Weekly Contest 517",
+  "source_tags": [],
+  "statement": "The problem gives an array of at most 100 positive integers, where each element may be doubled or replaced by its floored half any number of times. It asks for the minimum total operations needed to choose a subset of transformed values summing exactly to sum, with sum at most 5000, or report impossibility. Operations on different elements may be performed in any order.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "knapsack",
+    "subset-sum",
+    "bit-manipulation"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "subset-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1788073970,
+    "pattern_confidence": {
+      "dynamic-programming": 0.99,
+      "subset-sum": 0.96
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Hard",
+  "acceptance_rate": 43.4
+}

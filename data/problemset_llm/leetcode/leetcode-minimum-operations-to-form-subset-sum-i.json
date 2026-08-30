@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-minimum-operations-to-form-subset-sum-i",
+  "title": "Minimum Operations to Form Subset Sum I",
+  "slug": "minimum-operations-to-form-subset-sum-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-form-subset-sum-i/",
+  "source_topic": "LeetCode / Weekly Contest 517",
+  "source_tags": [],
+  "statement": "Given an array of positive integers and a target sum, the problem asks for the minimum total number of operations needed to transform elements, using doubling and floor-halving with all doublings before halvings per element, so that some subset sums exactly to the target, or report impossibility. The constraints are n <= 100, nums[i] <= 500, and target <= 5000.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "knapsack",
+    "optimization"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "subset-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1788073970,
+    "pattern_confidence": {
+      "dynamic-programming": 0.99,
+      "subset-sum": 0.99
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 51.1
+}

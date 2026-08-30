@@ -1,0 +1,22 @@
+{
+ "id": "leetcode-lexicographically-largest-string-after-pair-transformations",
+ "source": "LeetCode Biweekly Contest 190",
+ "solution": "Assign weight 2^k to the letter whose alphabet offset is k; every transformation preserves total weight. Therefore, lexicographic optimality chooses the largest permitted power of two for each successive character, using powers from 2^25 (z) down to 1. Iterating downward, append the quotient copies of each power and retain the remainder; each block can be independently reduced, and induction proves maximality. The complexity is O(26n + total output length) time and O(1) auxiliary space besides the returned strings.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "greedy",
+   "bit-manipulation"
+  ],
+  "dropped": [],
+  "added": [
+   {
+    "label": "lexicographic-order",
+    "why": "The construction is explicitly optimizing the resulting string lexicographically.",
+    "confidence": 0.98
+   }
+  ]
+ },
+ "notes": "",
+ "vocabulary_gaps_reported": []
+}

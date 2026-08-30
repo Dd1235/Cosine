@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/path-with-maximum-probability/",
   "source_topic": "LeetCode / Shortest Path (gap fill)",
   "difficulty": "Medium",
-  "acceptance_rate": 65.7,
+  "acceptance_rate": 65.8,
   "source_tags": [
     "array",
     "graph",

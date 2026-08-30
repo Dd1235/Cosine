@@ -1,0 +1,16 @@
+{
+ "id": "leetcode-minimum-bishop-moves-to-reach-target",
+ "source": "LeetCode Biweekly Contest 190",
+ "solution": "A bishop preserves the color of its square, so the target is reachable exactly when sr + sc and tr + tc have the same parity. If the squares lie on the same diagonal, the answer is 1. Otherwise, any two same-colored squares on this 8 x 8 board can be connected through an intermediate square using two diagonal moves, so the answer is 2. The algorithm runs in O(1) time and O(1) space.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "parity-argument",
+   "geometry"
+  ],
+  "dropped": [],
+  "added": []
+ },
+ "notes": "",
+ "vocabulary_gaps_reported": []
+}

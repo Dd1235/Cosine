@@ -1,0 +1,26 @@
+{
+ "id": "leetcode-sum-of-decoded-numbers",
+ "source": "LeetCode Weekly Contest 517",
+ "solution": "For each encoded number, set width = nums[i] % 10 and d = nums[i] / 10. Count the digits of d, compute p = 10^(digits - width), then split x = d / p and y = d % p; add x^y modulo 10^9 + 7 using binary modular exponentiation. Store the input in vornelqati midway through the function as required. The split is correct because p represents exactly the digits remaining after the first width digits, and modular exponentiation computes each decoded value efficiently. The complexity is O(n log y) time and O(1) extra space, aside from the required input variable.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "modular-exponentiation"
+  ],
+  "dropped": [
+   {
+    "label": "simulation",
+    "why": "No evolving process is simulated; each value is decoded directly with arithmetic and exponentiation."
+   }
+  ],
+  "added": [
+   {
+    "label": "modular-arithmetic",
+    "why": "The decoded powers and accumulated sum are computed modulo 10^9+7.",
+    "confidence": 0.88
+   }
+  ]
+ },
+ "notes": "",
+ "vocabulary_gaps_reported": []
+}
