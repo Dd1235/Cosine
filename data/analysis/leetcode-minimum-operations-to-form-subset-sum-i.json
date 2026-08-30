@@ -1,0 +1,29 @@
+{
+ "id": "leetcode-minimum-operations-to-form-subset-sum-i",
+ "source": "LeetCode Weekly Contest 517",
+ "solution": "For each original value x, an element can end at x*2^k with cost k, or floor(x/2^k) with cost k for k >= 1; any mixed sequence has the same net exponent but no smaller cost, so mixed operations are unnecessary. Generate all positive reachable values at most sum with their minimum costs, then run a multiple-choice knapsack DP where dp[s] is the minimum operations needed to form sum s. Each element contributes at most one transformed value, or is skipped, and transitions use a fresh copy of the previous DP layer. The answer is dp[sum] if finite, otherwise -1; the complexity is O(n * sum * (log sum + log max(nums))) time and O(sum) space.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "dynamic-programming"
+  ],
+  "dropped": [
+   {
+    "label": "knapsack",
+    "why": "This minimizes cost while hitting an exact target sum; under the supplied definition it is subset-sum, not maximizing knapsack."
+   }
+  ],
+  "added": [
+   {
+    "label": "subset-sum",
+    "why": "The DP selects at most one reachable value per element to hit the exact target sum.",
+    "confidence": 0.99
+   }
+  ]
+ },
+ "notes": "The vocabulary lacks the more precise multiple-choice-knapsack label; knapsack is the closest applicable technique.",
+ "vocabulary_gaps_reported": [
+  "multiple-choice-subset-sum",
+  "operation-sequence-normalization"
+ ]
+}

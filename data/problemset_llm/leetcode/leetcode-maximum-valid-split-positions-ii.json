@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-maximum-valid-split-positions-ii",
+  "title": "Maximum Valid Split Positions II",
+  "slug": "maximum-valid-split-positions-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximum-valid-split-positions-ii/",
+  "source_topic": "LeetCode / Biweekly Contest 190",
+  "source_tags": [],
+  "statement": "The problem asks for the maximum number of split positions having equal left and right gcds after removing at most one element from an integer array. Both sides of every counted split must be nonempty. The hard version allows n up to 100,000 and values up to 1,000,000,000, requiring an efficient near-linear solution instead of checking every removal and split pair.",
+  "tags": [
+    "array",
+    "math",
+    "number-theory",
+    "range-query"
+  ],
+  "patterns": [
+    "gcd",
+    "binary-search",
+    "sparse-table",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1788073970,
+    "pattern_confidence": {
+      "gcd": 0.99,
+      "binary-search": 0.97,
+      "sparse-table": 0.94,
+      "number-theory": 0.7
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Hard",
+  "acceptance_rate": 25.9
+}

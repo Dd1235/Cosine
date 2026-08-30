@@ -1,0 +1,34 @@
+{
+  "id": "leetcode-lexicographically-largest-string-after-pair-transformations",
+  "title": "Lexicographically Largest String After Pair Transformations",
+  "slug": "lexicographically-largest-string-after-pair-transformations",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/lexicographically-largest-string-after-pair-transformations/",
+  "source_topic": "LeetCode / Biweekly Contest 190",
+  "source_tags": [],
+  "statement": "The problem asks for the lexicographically largest string obtainable from a run of x lowercase a characters, where adjacent equal letters may repeatedly merge into the next letter. It returns one result per value in an array of up to 10^5 entries, with each x at most 10^8, making a binary-decomposition approach necessary.",
+  "tags": [
+    "string",
+    "math",
+    "greedy",
+    "bit-manipulation"
+  ],
+  "patterns": [
+    "greedy",
+    "bit-manipulation",
+    "lexicographic-order"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1788073970,
+    "pattern_confidence": {
+      "greedy": 0.98,
+      "bit-manipulation": 0.96,
+      "lexicographic-order": 0.98
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 39.8
+}

@@ -1,0 +1,16 @@
+{
+ "id": "leetcode-maximum-valid-split-positions-i",
+ "source": "LeetCode Biweekly Contest 190",
+ "solution": "Enumerate every choice of removing no element or one index. For each choice, scan the resulting array while maintaining the gcd of the prefix and suffix, counting boundaries where they are equal. Take the maximum count over all choices; this is correct because every permitted resulting array is examined and each split is evaluated exactly. The complexity is O(n^2 log V) time and O(n) space, where V is the maximum element.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "brute-force",
+   "gcd"
+  ],
+  "dropped": [],
+  "added": []
+ },
+ "notes": "",
+ "vocabulary_gaps_reported": []
+}

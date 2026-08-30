@@ -79,3 +79,14 @@ https://leetcode.com/problems/elevator-requests-iii/
 https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array-ii/
 https://leetcode.com/problems/longest-subarray-with-at-most-k-distinct-prime-factors/
 https://leetcode.com/problems/valid-k-unique-subarrays-i/
+
+# LeetCode / Biweekly Contest 190
+https://leetcode.com/problems/minimum-bishop-moves-to-reach-target/
+https://leetcode.com/problems/maximum-valid-split-positions-i/
+https://leetcode.com/problems/lexicographically-largest-string-after-pair-transformations/
+https://leetcode.com/problems/maximum-valid-split-positions-ii/
+
+# LeetCode / Weekly Contest 517
+https://leetcode.com/problems/sum-of-decoded-numbers/
+https://leetcode.com/problems/minimum-operations-to-form-subset-sum-i/
+https://leetcode.com/problems/minimum-operations-to-form-subset-sum-ii/

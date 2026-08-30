@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/random-flip-matrix/",
   "source_topic": "LeetCode / Medium Hardest (generated)",
   "difficulty": "Medium",
-  "acceptance_rate": 46.7,
+  "acceptance_rate": 46.8,
   "source_tags": [
     "hash-table",
     "math",

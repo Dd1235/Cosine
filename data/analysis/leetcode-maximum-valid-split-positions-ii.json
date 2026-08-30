@@ -1,0 +1,17 @@
+{
+ "id": "leetcode-maximum-valid-split-positions-ii",
+ "source": "LeetCode Biweekly Contest 190",
+ "solution": "Precompute prefix and suffix gcds together with a sparse table for O(1) range-gcd queries. For each possible removed index j, count splits on each side of the removed element using the corresponding prefix, suffix, and interior range gcds, assigning the boundary across the removed element to exactly one side. As the original boundary k advances, the left-side gcd is nonincreasing while the right-side gcd is nondecreasing, so equalities form one contiguous interval found with binary searches. Include the no-removal score and take the maximum; the complexity is O(n log n) time and O(n log n) space. The method produces 2, 1, and 0 for the three samples.",
+ "annotator": "codex gpt-5.6-luna, high reasoning",
+ "skeptic": {
+  "kept": [
+   "gcd",
+   "binary-search",
+   "sparse-table"
+  ],
+  "dropped": [],
+  "added": []
+ },
+ "notes": "",
+ "vocabulary_gaps_reported": []
+}

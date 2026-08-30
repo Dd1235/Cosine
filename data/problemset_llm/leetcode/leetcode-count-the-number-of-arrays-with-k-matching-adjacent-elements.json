@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-the-number-of-arrays-with-k-matching-adjacent-elements/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 58.2,
+  "acceptance_rate": 57.8,
   "source_tags": [
     "math",
     "combinatorics"

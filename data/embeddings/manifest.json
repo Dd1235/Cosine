@@ -3,7 +3,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3440,
+  "count": 3447,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -542,6 +542,7 @@
     "leetcode-length-of-the-longest-increasing-path",
     "leetcode-length-of-the-longest-subsequence-that-sums-to-target",
     "leetcode-length-of-the-longest-valid-substring",
+    "leetcode-lexicographically-largest-string-after-pair-transformations",
     "leetcode-lexicographically-maximum-mex-array",
     "leetcode-lexicographically-smallest-beautiful-string",
     "leetcode-lexicographically-smallest-generated-string",
@@ -799,6 +800,8 @@
     "leetcode-maximum-total-value",
     "leetcode-maximum-trailing-zeros-in-a-cornered-path",
     "leetcode-maximum-valid-pair-sum",
+    "leetcode-maximum-valid-split-positions-i",
+    "leetcode-maximum-valid-split-positions-ii",
     "leetcode-maximum-value-after-insertion",
     "leetcode-maximum-value-at-a-given-index-in-a-bounded-array",
     "leetcode-maximum-value-of-an-alternating-sequence",
@@ -852,6 +855,7 @@
     "leetcode-minimum-array-length-after-pair-removals",
     "leetcode-minimum-array-sum",
     "leetcode-minimum-average-difference",
+    "leetcode-minimum-bishop-moves-to-reach-target",
     "leetcode-minimum-bitwise-or-from-grid",
     "leetcode-minimum-changes-to-make-k-semi-palindromes",
     "leetcode-minimum-cost-for-cutting-cake-ii",
@@ -965,6 +969,8 @@
     "leetcode-minimum-operations-to-equalize-subarrays",
     "leetcode-minimum-operations-to-exceed-threshold-value-ii",
     "leetcode-minimum-operations-to-form-subsequence-with-target-sum",
+    "leetcode-minimum-operations-to-form-subset-sum-i",
+    "leetcode-minimum-operations-to-form-subset-sum-ii",
     "leetcode-minimum-operations-to-halve-array-sum",
     "leetcode-minimum-operations-to-make-a-rotated-palindrome-i",
     "leetcode-minimum-operations-to-make-a-special-number",
@@ -1359,6 +1365,7 @@
     "leetcode-sum-game",
     "leetcode-sum-of-absolute-differences-in-a-sorted-array",
     "leetcode-sum-of-beautiful-subsequences",
+    "leetcode-sum-of-decoded-numbers",
     "leetcode-sum-of-digit-differences-of-all-pairs",
     "leetcode-sum-of-distances-in-tree",
     "leetcode-sum-of-distances",
@@ -3448,7 +3455,7 @@
     "atcoder-dp-x",
     "atcoder-dp-y"
   ],
-  "corpusHash": "d145af73365af868acd5781d343468ed90176e7662ff1200ebc1c026c2cafc4e",
+  "corpusHash": "98c1c2e995cf750586d6afccbe9f8ca963560267e1752491d3463ab46ddb4cdb",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-08-24T06:01:21.425Z"
+  "createdAt": "2026-08-30T07:13:45.563Z"
 }

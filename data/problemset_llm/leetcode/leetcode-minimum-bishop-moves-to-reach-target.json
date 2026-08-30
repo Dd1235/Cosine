@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-minimum-bishop-moves-to-reach-target",
+  "title": "Minimum Bishop Moves to Reach Target",
+  "slug": "minimum-bishop-moves-to-reach-target",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-bishop-moves-to-reach-target/",
+  "source_topic": "LeetCode / Biweekly Contest 190",
+  "source_tags": [],
+  "statement": "The problem asks for the minimum number of unrestricted diagonal moves needed for a bishop to travel from a source square to a target square on an 8 x 8 chessboard with 1-indexed coordinates. It must return one move for a shared diagonal, two when an intermediate square is needed, or negative one when square colors differ and the target is unreachable.",
+  "tags": [
+    "math",
+    "geometry",
+    "grid",
+    "chess"
+  ],
+  "patterns": [
+    "parity-argument",
+    "geometry"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-gpt-5.6-luna",
+    "generated_at_unix": 1788073970,
+    "pattern_confidence": {
+      "parity-argument": 0.99,
+      "geometry": 0.95
+    },
+    "reviewed_by": "codex-gpt-5.6-luna skeptic pass"
+  },
+  "difficulty": "Medium",
+  "acceptance_rate": 65.4
+}
