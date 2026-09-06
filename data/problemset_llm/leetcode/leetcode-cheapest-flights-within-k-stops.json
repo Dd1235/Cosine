@@ -23,10 +23,9 @@
     "heap"
   ],
   "patterns": [
-    "modified-dijkstra",
+    "layered-graph",
     "dp-on-graphs",
     "heap",
-    "bounded-shortest-path",
     "dynamic-programming"
   ],
   "annotation": {
@@ -34,10 +33,9 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922409,
     "pattern_confidence": {
-      "modified-dijkstra": 0.95,
+      "layered-graph": 0.95,
       "dp-on-graphs": 0.9,
-      "heap": 0.9,
-      "bounded-shortest-path": 0.85
+      "heap": 0.9
     }
   }
 }

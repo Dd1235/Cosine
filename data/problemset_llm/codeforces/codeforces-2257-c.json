@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2257-c",
+  "title": "Spying on the Beaver",
+  "slug": "2257-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2257/C",
+  "source_topic": "Codeforces / Contest 2257",
+  "source_tags": [
+    "constructive algorithms",
+    "dfs and similar",
+    "dsu",
+    "graphs",
+    "trees"
+  ],
+  "statement": "A rooted tree with up to a hundred thousand vertices contains m marked destination vertices. A traveller walks from the root to one of them, and cameras placed on edges report every edge he crosses, so the observed camera set must pin down the destination uniquely. Report the minimum number of cameras and the edges carrying them, given that the total vertex count over all tests is bounded.",
+  "tags": [
+    "tree",
+    "graph",
+    "greedy",
+    "union-find"
+  ],
+  "patterns": [
+    "greedy",
+    "tree-dp",
+    "constructive-algorithm",
+    "dfs",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "greedy": 0.85,
+      "tree-dp": 0.8,
+      "constructive-algorithm": 0.75,
+      "dfs": 0.65,
+      "dynamic-programming": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 1200
+}

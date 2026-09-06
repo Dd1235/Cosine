@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2257-e",
+  "title": "Busy Beaver",
+  "slug": "2257-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2257/E",
+  "source_topic": "Codeforces / Contest 2257",
+  "source_tags": [
+    "brute force",
+    "data structures",
+    "divide and conquer",
+    "dp",
+    "greedy",
+    "implementation",
+    "sortings"
+  ],
+  "statement": "A company starts with a fixed budget and n construction projects; each floor of a project costs a given amount and immediately returns a possibly smaller amount, floors of one project must be built in order, projects may be paused and interleaved freely, and the budget may never go negative. The task is the greatest number of floors achievable in a single project, and the smallest index attaining it.",
+  "tags": [
+    "greedy",
+    "data-structures",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "greedy",
+    "heap",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "heap": 0.85,
+      "prefix-sum": 0.8
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 2000
+}

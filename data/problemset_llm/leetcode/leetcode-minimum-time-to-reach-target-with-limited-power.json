@@ -23,7 +23,7 @@
   ],
   "patterns": [
     "dijkstra",
-    "state-augmentation",
+    "layered-graph",
     "heap"
   ],
   "annotation": {
@@ -32,7 +32,7 @@
     "generated_at_unix": 1784730998,
     "pattern_confidence": {
       "dijkstra": 0.98,
-      "state-augmentation": 0.9,
+      "layered-graph": 0.9,
       "heap": 0.85
     }
   }

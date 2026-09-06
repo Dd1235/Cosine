@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2255-a",
+  "title": "Hot Potatoes at the Fairy Warehouse",
+  "slug": "2255-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/A",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "games",
+    "greedy",
+    "implementation"
+  ],
+  "statement": "Two teams occupy alternating seats around a circle of 2n positions, and some seats start with a potato. Over k rounds every holder simultaneously either keeps its potato or passes it clockwise, which is allowed only when the next seat is empty. Holders at the end are eliminated and each team scores the eliminations on the other side; with k up to a billion, report both scores under optimal play.",
+  "tags": [
+    "game-theory",
+    "greedy",
+    "string"
+  ],
+  "patterns": [
+    "game-theory",
+    "parity-argument",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "game-theory": 0.93,
+      "parity-argument": 0.8,
+      "greedy": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 1200
+}

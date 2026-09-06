@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2258-b1",
+ "source": "Codeforces Contest 2258 problem B1",
+ "solution": "Fix the length T that the sold carrots should have. With a single operation, using cut value x = T is optimal: every carrot with a_i > T then contributes a piece of exactly T, and two of them when a_i = 2T, while any x != T can only create a T-piece from carrots of length exactly T + x, a set contained in the carrots of length >= T that x = T already serves. So the answer is max over T of (#{i : a_i >= T} + #{i : a_i = 2T}). Build a frequency array over values 1..m, take its suffix sums, and scan T = 1..m, giving O(n + m) per test case. The formula reproduces all six sample answers (6, 6, 2, 7, 4, 3).",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Easy version: with k = 1 the answer collapses to a closed form per candidate length T, so the work is a linear scan over T with suffix counts of a value histogram, and nothing about repeated cutting is needed. That is the real difference from B2, which needs the powers-of-two bound on how many equal pieces k operations can produce. Rating is None (contest too new); index B1 with an O(n+m) counting scan reads ~1100-1300."
+}

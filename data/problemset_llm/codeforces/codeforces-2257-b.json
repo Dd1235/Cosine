@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2257-b",
+  "title": "Gigantomachy",
+  "slug": "2257-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2257/B",
+  "source_topic": "Codeforces / Contest 2257",
+  "source_tags": [
+    "math"
+  ],
+  "statement": "Two giants each stand on the first mountain of their own non-increasing range of at most one hundred mountains, with heights up to a billion. They alternate turns, each lowering by one the mountain the opponent stands on, and a giant steps forward whenever the next mountain is taller than his damaged one, losing when his mountain reaches zero with none ahead. Determine the winner.",
+  "tags": [
+    "math",
+    "game-theory"
+  ],
+  "patterns": [
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "counting": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 800
+}

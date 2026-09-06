@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2259-b",
+  "title": "Minus Two",
+  "slug": "2259-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/B",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "math",
+    "number theory"
+  ],
+  "statement": "An array of up to two hundred thousand positive integers, each as large as one billion, may be transformed repeatedly by an operation that simultaneously replaces every element with the absolute value of that element minus two. Over all numbers of applications of this operation, including none at all, the task is to determine the largest frequency that any single value can attain in the array.",
+  "tags": [
+    "array",
+    "math",
+    "number-theory"
+  ],
+  "patterns": [
+    "parity-argument",
+    "counting",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "parity-argument": 0.92,
+      "counting": 0.78,
+      "number-theory": 0.62
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

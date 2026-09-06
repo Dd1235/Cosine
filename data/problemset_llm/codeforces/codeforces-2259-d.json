@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2259-d",
+  "title": "MEX Multiset",
+  "slug": "2259-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/D",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "constructive algorithms",
+    "greedy"
+  ],
+  "statement": "Given an array of up to 2*10^5 non-negative integers, every element must be placed into exactly one of three initially empty multisets. The task is to decide whether the three multisets can be formed so that the sum of their MEX values is at least twice the largest of the three MEX values, and if so to output any assignment of the elements to the multisets that achieves this.",
+  "tags": [
+    "array",
+    "constructive-algorithm",
+    "greedy",
+    "math"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "mex",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "mex": 0.95,
+      "greedy": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

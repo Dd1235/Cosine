@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2257-b",
+ "source": "Codeforces Contest 2257 problem B",
+ "solution": "A giant leaves mountain i only once its damaged height falls strictly below a_{i+1}, which costs a_i - a_{i+1} + 1 boulders, and the final mountain costs a_n more. The sum telescopes, so defeating a giant takes exactly a_1 + n - 1 boulders no matter what the interior heights are. The giants alternate with the first one throwing first, so giant 1 wins iff b_1 + m - 1 <= a_1 + n - 1, i.e. only the tallest mountain and the mountain count matter. O(n + m) per test, which is just the input read; confirmed against a literal turn-by-turn simulation on the six samples and on 3000 random small cases.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2257-b",
+   "label": "game-theory",
+   "verdict": "drop",
+   "why": "Every one of the 35 existing carriers has a player making a choice - even the greedy ones. Here throws, jumps and resignation are all forced, so there is no strategy to analyse; the content is a telescoping count (a_1 + n - 1 boulders) and the winner is a two-line comparison. CF tags it math only. Domain recall survives via the tags field, which already carries game-theory."
+  }
+ ],
+ "notes": "Neither player ever chooses anything: throws, jumps and resignation are all forced, so this is a closed-form math problem and not Sprague-Grundy analysis (the judge tags it 'math' only, not 'games'). The vocabulary has no plain 'math'/'observation' label; 'counting' stands for the telescoping boulder count, and 'game-theory' is kept only as the domain label for a two-player alternating-turn winner question, at low confidence. Deliberately no 'simulation': heights reach 1e9, so nothing can be stepped through move by move."
+}

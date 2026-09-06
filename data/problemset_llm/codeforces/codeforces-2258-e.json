@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2258-e",
+  "title": "DivMEX",
+  "slug": "2258-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/E",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "data structures",
+    "math",
+    "number theory"
+  ],
+  "statement": "Given an array of up to 200000 positive integers, each at most n, the value of a subarray is the smallest positive integer that does not divide the least common multiple of its elements. The task is to report, in increasing order, every value achieved by at least one of the quadratically many subarrays, with the sum of n over all test cases at most 200000.",
+  "tags": [
+    "number-theory",
+    "math",
+    "data-structures",
+    "segment-tree",
+    "array"
+  ],
+  "patterns": [
+    "number-theory",
+    "sieve",
+    "segment-tree",
+    "prime-factorization",
+    "lazy-propagation",
+    "mex"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "number-theory": 0.95,
+      "sieve": 0.8,
+      "segment-tree": 0.78,
+      "prime-factorization": 0.75,
+      "lazy-propagation": 0.65,
+      "mex": 0.6
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

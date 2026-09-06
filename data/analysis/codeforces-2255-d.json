@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2255-d",
+ "source": "Codeforces Contest 2255 problem D",
+ "solution": "Unrolling the halvings turns the process into a coin-covering problem: if a value is divided T times, adding 1 before the division on the steps where its index is not chosen, it ends at floor((a_i + E_i) / 2^T) where E_i is the sum of 2^(t-1) over the steps t at which i was not chosen. Since the full sum of 2^(t-1) over all T steps is 2^T - 1, the requirement a_i + E_i < 2^T is exactly C_i >= a_i, where C_i is the sum of 2^(t-1) over the steps assigned to i. So the question becomes: can the T distinct coins 1, 2, 4, ..., 2^(T-1) be handed out, one per step, so that every element receives a total of at least a_i? Feasibility is monotone in T (doubling every coin of a T-solution and dropping in the spare coin 1 gives a T+1 solution), and since every element needs at least one coin while T = n + 30 already gives each of the n elements a distinct coin above 10^9, the answer lies in [n, n+30] and can be binary searched. To test one T, give the largest remaining coin to the largest remaining demand and subtract, using a max-heap: an exchange argument works because each coin exceeds the sum of all smaller ones, so if the top coin sits in some other bag the two whole bags can be swapped. This is O(n log n) per feasibility test, O(n log n log 30) overall. Confirmed against BFS brute force exhaustively for n <= 3 with values up to 12 and on 4000 random cases, plus all five samples.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2255-d",
+   "label": "binary-search-answer",
+   "verdict": "keep",
+   "why": "It clears the strict bar on the affirmative side: the entire problem is the feasibility predicate ('can the coins 1,2,...,2^(T-1) cover every demand a_i?'), and monotonicity needs its own doubling proof rather than being obvious. The narrow range does not make the search decorative either - 31 linear probes at O(n log n) with a heap is ~2e8 heap operations against a 2s limit, while binary search needs 5. A searcher practising parametric search would be glad to land here."
+  }
+ ],
+ "notes": "I kept 'binary-search-answer' deliberately but at reduced confidence. It is a real fit by the strict reading \u2014 the feasibility test (can the coins 1..2^(T-1) cover all demands?) is the whole content of the problem and is non-trivial, and the answer really is monotone in T \u2014 but the candidate range is only [n, n+30], so a plain linear scan over 31 values is equally natural and a solver could avoid the binary search entirely. The core reduction, 'T operations are equivalent to distributing the distinct powers of two 2^0..2^(T-1) among the elements so that each element's share covers its value', has no dedicated label in the vocabulary; 'bit-manipulation' plus 'greedy' is the closest pair. 'exchange-argument' is listed because it is how the top-coin-to-top-demand greedy is proved, not merely as scaffolding, but it is the weakest of the five."
+}

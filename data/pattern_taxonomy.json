@@ -607,6 +607,12 @@
     },
     "kruskal-reconstruction-tree": {
       "category": "graph"
+    },
+    "layered-graph": {
+      "category": "graph"
+    },
+    "kadane": {
+      "category": "array"
     }
   },
   "aliases": {
@@ -955,7 +961,23 @@
     "partitioning": "partition-dp",
     "array-partitioning": "partition-dp",
     "integer-partition": "unbounded-knapsack",
-    "count-inversions": "inversion-count"
+    "count-inversions": "inversion-count",
+    "state-augmentation": "layered-graph",
+    "layered-dijkstra": "layered-graph",
+    "bounded-shortest-path": "layered-graph",
+    "modified-dijkstra": "layered-graph",
+    "directional-dp": "layered-graph",
+    "layered-bfs": "layered-graph",
+    "state-expanded-graph": "layered-graph",
+    "graph-layering": "layered-graph",
+    "kadane-s-algorithm": "kadane",
+    "kadanes-algorithm": "kadane",
+    "kadane-algorithm": "kadane",
+    "maximum-subarray-sum": "kadane",
+    "maximum-subarray": "kadane",
+    "max-subarray-sum": "kadane",
+    "maximum-sum-subarray": "kadane",
+    "range-maximum-subarray-sum": "kadane"
   },
   "families": [
     {
@@ -1061,7 +1083,8 @@
         "bellman-ford",
         "floyd-warshall",
         "bfs",
-        "zero-one-bfs"
+        "zero-one-bfs",
+        "layered-graph"
       ]
     },
     "tree-algorithms": {

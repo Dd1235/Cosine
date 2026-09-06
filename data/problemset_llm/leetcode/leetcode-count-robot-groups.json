@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-count-robot-groups",
+  "title": "Count Robot Groups",
+  "slug": "count-robot-groups",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-robot-groups/",
+  "source_topic": "LeetCode / Weekly Contest 518",
+  "source_tags": [],
+  "statement": "Robots occupy strictly increasing integer positions on a line, each moving right at its own constant speed. Whenever the gap between two adjacent robots or groups becomes at most a given distance they merge permanently, and the merged group adopts the position and speed of its rightmost member. The task is to count the groups remaining once no further merges are possible, with up to 100000 robots.",
+  "tags": [
+    "array",
+    "greedy",
+    "stack",
+    "simulation"
+  ],
+  "patterns": [
+    "greedy",
+    "monotonic-stack"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788696814,
+    "pattern_confidence": {
+      "greedy": 0.93,
+      "monotonic-stack": 0.6
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": "Medium"
+}

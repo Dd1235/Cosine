@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2256-b",
+  "title": "Domino Tiles",
+  "slug": "2256-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2256/B",
+  "source_topic": "Codeforces / Contest 2256",
+  "source_tags": [
+    "implementation",
+    "math"
+  ],
+  "statement": "A row of tiles is given as a string of zeros, ones and question marks, up to two hundred thousand characters long. Every adjacent pair forms a domino whose weight is the sum of its two tiles, and a completion is valid when consecutive dominoes always have different weights. The task is to count the valid replacements of every question mark, modulo 998244353.",
+  "tags": [
+    "string",
+    "combinatorics",
+    "implementation"
+  ],
+  "patterns": [
+    "counting",
+    "parity-argument",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "counting": 0.85,
+      "parity-argument": 0.68,
+      "dynamic-programming": 0.65
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 1000
+}

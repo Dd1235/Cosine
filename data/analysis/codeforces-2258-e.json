@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2258-e",
+ "source": "Codeforces Contest 2258 problem E",
+ "solution": "The smallest positive non-divisor of a number is always a prime power, because if every prime power smaller than x divides L and x is not a prime power then all of x's maximal prime powers divide L and hence so does x. So a candidate x = p^e is attainable exactly when some subarray contains no multiple of p^e yet contains, for every prime power q^k < x, at least one multiple of q^k. For a fixed p^e the candidate subarrays are the maximal gaps between the positions holding multiples of p^e, and because the last-occurrence function is monotone in the right endpoint it is enough to test each gap at its right end. Sweep the prime powers in increasing order maintaining g(r) = the minimum over the prime powers already processed of the last position <= r holding a multiple of that prime power; each newly inserted prime power contributes a step function, applied as range chmin on a segment tree with point queries, and x belongs to the answer iff some gap [L,R] satisfies g(R) >= L. Every a_i <= n has only O(log n) prime-power divisors, so the total number of multiple-positions and hence of gaps over all candidates is O(n log n) and the sweep runs in O(n log^2 n); it can stop as soon as some required prime power is absent from the array, which caps the candidates at roughly the prime powers up to n. An implementation of this matches brute force on 4000 random arrays and on all three samples.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2258-e",
+   "label": "mex",
+   "verdict": "keep",
+   "why": "The proposer undersold it: f(l,r) is literally the mex of the divisor set of the subarray lcm, and the solution is driven by the mex characterisation - x is achievable iff every smaller candidate is present and x itself is absent. The corpus already labels mex over a derived set (codeforces-1554-c Mikasa is mex of {n xor i}), so a mex searcher gets a genuine mex-over-all-subarrays problem, not a stranger."
+  }
+ ],
+ "notes": "Rating is None (contest too new); judge tags are data structures / math / number theory, consistent with the prime-power characterisation plus a range-chmin segment tree. `mex` is the weakest of the six: the quantity is a divisibility analogue of a mex (smallest missing), not a mex over a set of integers, but the reasoning is mex-shaped and the problem is titled DivMEX, so I kept it at 0.6 -- drop it if the corpus reserves that label for set-mex only. `sieve` covers both listing the candidate prime powers and the smallest-prime-factor table used to get each a_i's prime-power divisors; there is no separate label for `prime-power` enumeration in the vocabulary. Verified against brute force on 4000 random arrays."
+}

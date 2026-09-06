@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2259-h",
+  "title": "Treasure Map Destruction (Counting Version)",
+  "slug": "2259-h",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/H",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "2-sat",
+    "combinatorics",
+    "dfs and similar",
+    "dp",
+    "graphs",
+    "math"
+  ],
+  "statement": "Treasure is buried on an unknown non-empty subset of n islands arranged in a line, and the map recorded for each island the number of steps to the nearest treasure island. Some map entries were erased and replaced by -1. Given the damaged map, the task is to count modulo 1000000007 the distinct treasure sets consistent with every surviving entry, with n up to 2*10^5.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "combinatorics",
+    "counting",
+    "two-sat"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "combinatorics",
+    "difference-array",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "dynamic-programming": 0.92,
+      "combinatorics": 0.8,
+      "difference-array": 0.85,
+      "counting": 0.85
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

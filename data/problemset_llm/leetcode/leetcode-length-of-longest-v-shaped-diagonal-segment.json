@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "dynamic-programming",
-    "directional-dp",
+    "layered-graph",
     "state-machine"
   ],
   "annotation": {
@@ -30,7 +30,7 @@
     "generated_at_unix": 1777923129,
     "pattern_confidence": {
       "dynamic-programming": 0.95,
-      "directional-dp": 0.9,
+      "layered-graph": 0.9,
       "state-machine": 0.85
     }
   }

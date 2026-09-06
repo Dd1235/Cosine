@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2255-b",
+  "title": "A Ribbon for Tomorrow",
+  "slug": "2255-b",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/B",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "combinatorics",
+    "math"
+  ],
+  "statement": "Given a binary string of up to a million characters, one may repeatedly pick two positions holding the same character and reverse the substring they bound, any number of times. The task is to count, modulo 998244353, how many distinct strings are reachable. The million-character limit forces a closed-form count over the run-length structure rather than any search of reachable states.",
+  "tags": [
+    "combinatorics",
+    "math",
+    "string"
+  ],
+  "patterns": [
+    "combinatorics",
+    "stars-and-bars",
+    "modular-arithmetic",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "combinatorics": 0.92,
+      "stars-and-bars": 0.85,
+      "modular-arithmetic": 0.65,
+      "number-theory": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 1600
+}

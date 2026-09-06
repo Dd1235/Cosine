@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-count-good-cyclic-rotations",
+  "title": "Count Good Cyclic Rotations",
+  "slug": "count-good-cyclic-rotations",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-good-cyclic-rotations/",
+  "source_topic": "LeetCode / Weekly Contest 518",
+  "source_tags": [],
+  "statement": "Given an integer array of even length n up to 10^5 with positive values, consider all n cyclic rotations formed by moving a prefix of the array to the end. A rotation is called good when the sum of its first n/2 elements is strictly greater than the sum of its last n/2 elements. The task is to return how many of the n rotations are good.",
+  "tags": [
+    "array",
+    "sliding-window",
+    "prefix-sum",
+    "math"
+  ],
+  "patterns": [
+    "sliding-window",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788696814,
+    "pattern_confidence": {
+      "sliding-window": 0.95,
+      "prefix-sum": 0.88
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": "Medium"
+}

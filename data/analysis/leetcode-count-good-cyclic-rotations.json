@@ -1,0 +1,20 @@
+{
+ "id": "leetcode-count-good-cyclic-rotations",
+ "source": "LeetCode Weekly Contest 518",
+ "solution": "Let S be the total sum, which is invariant under rotation. The rotation by k has first half equal to the cyclic window nums[k..k+n/2-1], so if that window sums to w the second half sums to S - w, and the rotation is good exactly when w > S - w, i.e. 2w > S. The problem therefore reduces to counting how many of the n cyclic windows of fixed length n/2 satisfy 2w > S. Slide the window once around the array, updating w by adding nums[(k+n/2) mod n] and subtracting nums[k] (equivalently, take prefix sums over the array concatenated with itself), and increment a counter whenever 2w > S. This is O(n) time and O(1) extra space, which is required since n can be 10^5 and recomputing each half would be O(n^2); sums reach 10^14 so 64-bit accumulators are needed.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic": {
+  "kept": [
+   "sliding-window",
+   "prefix-sum"
+  ],
+  "dropped": [
+   {
+    "label": "two-pointers",
+    "why": "The window has FIXED length n/2 and both endpoints advance in lockstep, one step per rotation. There is no independent pointer motion, no shrink condition, no opposing ends - none of the decisions a two-pointers searcher is practising. The proposer's own justification ('a natural two-pointer framing, though sliding-window is the precise name') concedes the point, and 0.5 is below the rubric's own 0.6 floor. Corpus convention is split (k-radius-subarray-averages, a fixed window, carries sliding-window + prefix-sum and no two-pointers), so the split does not license it; two-pointers already has 349 carriers and does not need a 350th where the technique is absent."
+   }
+  ],
+  "added": []
+ },
+ "notes": "Verified against both samples ([1,2,3,4,5,6] -> 3, [1,2,1,2] -> 0) and against a brute force on 3000 random small arrays. The key observation is that the second half's sum is S minus the first half's, so the good condition collapses to 2*window > S; no comparison of two separate sums is ever needed. 'two-pointers' is included at lower confidence because the fixed-length cyclic window over a doubled array is a natural two-pointer framing, though sliding-window is the precise name. Considered and rejected: 'counting' (the answer is a count but no counting argument is used) and 'brute-force' (O(n * n/2) = 5*10^9 is too slow at n = 10^5)."
+}

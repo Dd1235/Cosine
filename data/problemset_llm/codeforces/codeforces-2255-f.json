@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2255-f",
+  "title": "Who Will Witness the End?",
+  "slug": "2255-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/F",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "fft",
+    "math"
+  ],
+  "statement": "Given n labeled integers placed around a circle, the weight of an arrangement is the product over each pair of neighbours of their sum; two arrangements are the same only when one is a rotation of the other, and reflections count as distinct. The task is to add the weights of all distinct circular arrangements modulo 998244353, for n up to 200000, so the factorially many arrangements cannot be enumerated.",
+  "tags": [
+    "math",
+    "combinatorics",
+    "fft"
+  ],
+  "patterns": [
+    "combinatorics",
+    "fft",
+    "permutation-counting",
+    "divide-and-conquer"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "combinatorics": 0.95,
+      "fft": 0.9,
+      "permutation-counting": 0.85,
+      "divide-and-conquer": 0.8
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 3100
+}

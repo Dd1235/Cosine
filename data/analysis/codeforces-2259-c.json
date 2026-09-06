@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2259-c",
+ "source": "Codeforces Contest 2259 problem C",
+ "solution": "A subarray from i to j can be made scoring exactly when both endpoints are 1 or -1 and no fixed 1 lies strictly inside, since every -1 inside may be set to 0. So the candidate windows are: each pair of consecutive fixed 1s; the first fixed 1 paired with the leftmost -1 before it; the last fixed 1 paired with the rightmost -1 after it; and, if there is no fixed 1 at all, the leftmost -1 paired with the rightmost -1. A single 1 or a lone -1 yields score 1, and an array of only zeros yields 0. Take the longest candidate, set its two endpoints to 1 and every other -1 to 0; the result is optimal because every pair of 1s in the output is itself one of the enumerated candidates, so no longer window can appear. One left-to-right pass, O(n). Verified exhaustively against brute force over all -1 assignments for n <= 9 and against all ten samples.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Matches the judge tags exactly. 'greedy' is the widest-gap choice over the positions of the fixed 1s; 'constructive-algorithm' is required because the output is an assignment, not a number. Considered and rejected two-pointers - the scan walks consecutive fixed-1 positions rather than moving a window - and prefix-sum, which is not needed since gaps between consecutive fixed 1s contain no other fixed 1 by definition. Rating is None (contest not yet rated)."
+}

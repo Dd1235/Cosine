@@ -16,7 +16,7 @@
     "segment-tree",
     "range-query",
     "point-update",
-    "maximum-subarray-sum"
+    "kadane"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -26,7 +26,7 @@
       "segment-tree": 0.98,
       "range-query": 0.95,
       "point-update": 0.9,
-      "maximum-subarray-sum": 0.97
+      "kadane": 0.97
     }
   }
 }

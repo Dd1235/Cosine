@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2259-a",
+ "source": "Codeforces Contest 2259 problem A",
+ "solution": "The farms are disjoint fixed blocks of k consecutive fields, so the choice made inside one farm never constrains another and each farm can be handled independently. Within a farm, if any field has s_i = 0 a school is built there for free; only when all k characters of the block are 1 is a penalty forced, and one school suffices, so that farm costs exactly 1. Hence the answer is simply the number of length-k blocks consisting entirely of ones. Scanning the string in strides of k gives O(n) per test case, trivial at n <= 20. Reproduces all six sample answers.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Judge tags add 'brute force' and 'two pointers'; neither describes the intended solution. The blocks are fixed and disjoint, so nothing slides and nothing is enumerated - it is one independent check per block - so those two were deliberately not labelled. 'greedy' is the per-farm cheapest-field choice, which is optimal because the farms are independent; 'counting' is that the answer literally equals the number of all-ones blocks. Rating is None (contest not yet rated); index A of a Div. 3, and the n <= 20 bound confirms no algorithmic machinery is intended."
+}

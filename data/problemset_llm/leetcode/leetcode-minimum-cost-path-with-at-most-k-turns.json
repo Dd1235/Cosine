@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-minimum-cost-path-with-at-most-k-turns",
+  "title": "Minimum Cost Path With At Most K Turns",
+  "slug": "minimum-cost-path-with-at-most-k-turns",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-cost-path-with-at-most-k-turns/",
+  "source_topic": "LeetCode / Weekly Contest 518",
+  "source_tags": [],
+  "statement": "Given an m by n grid of non-negative visit costs, a walker starts at the top-left cell and must reach the bottom-right cell, stepping up, down, left or right; each visit to a cell adds its value again. At most k direction changes are allowed, with k below min(m, n) on a grid of at most 75 by 75. The answer is the minimum total cost, or -1 if unreachable.",
+  "tags": [
+    "array",
+    "matrix",
+    "grid",
+    "dynamic-programming",
+    "shortest-path",
+    "graph"
+  ],
+  "patterns": [
+    "grid-dp",
+    "layered-graph",
+    "graph-modeling",
+    "dynamic-programming",
+    "shortest-path",
+    "dijkstra"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788696814,
+    "pattern_confidence": {
+      "grid-dp": 0.95,
+      "graph-modeling": 0.88,
+      "dynamic-programming": 0.9,
+      "shortest-path": 0.8,
+      "dijkstra": 0.62,
+      "layered-graph": 0.9
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": "Hard"
+}

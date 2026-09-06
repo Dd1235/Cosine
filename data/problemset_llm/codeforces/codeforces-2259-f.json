@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2259-f",
+  "title": "Binary Bubble Sort Inversions",
+  "slug": "2259-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/F",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "data structures",
+    "math",
+    "two pointers"
+  ],
+  "statement": "Given a binary array of length n and a binary string of the same length, each character selects one operation applied in order: a forward bubble-sort pass, sweeping left to right and swapping adjacent out-of-order pairs, or a reverse bubble pass sweeping right to left. The task is to report the number of inversions of the array before any operation and after each one, with n up to 5*10^5.",
+  "tags": [
+    "array",
+    "two-pointers",
+    "prefix-sum",
+    "sorting"
+  ],
+  "patterns": [
+    "two-pointers",
+    "inversion-count",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "two-pointers": 0.92,
+      "inversion-count": 0.8,
+      "prefix-sum": 0.82
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

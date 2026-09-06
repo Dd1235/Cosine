@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2255-d",
+  "title": "How Long Until Nothing Remains?",
+  "slug": "2255-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/D",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "binary search",
+    "bitmasks",
+    "data structures",
+    "greedy",
+    "math",
+    "sortings"
+  ],
+  "statement": "Given n positive integers, one operation chooses an index, replaces that entry by its floor half, and simultaneously replaces every other entry by its ceiling half. The task is to compute the minimum number of operations needed to make all entries zero, over as many as two hundred thousand values each up to a billion, so a direct simulation of the process is impossible.",
+  "tags": [
+    "array",
+    "greedy",
+    "bit-manipulation",
+    "binary-search",
+    "heap"
+  ],
+  "patterns": [
+    "greedy",
+    "bit-manipulation",
+    "heap",
+    "binary-search-answer",
+    "exchange-argument",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "bit-manipulation": 0.88,
+      "heap": 0.85,
+      "binary-search-answer": 0.72,
+      "exchange-argument": 0.65,
+      "binary-search": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 2300
+}

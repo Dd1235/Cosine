@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2257-a",
+ "source": "Codeforces Contest 2257 problem A",
+ "solution": "Every character of an abbreviation must be the uppercase first letter of some word already in the set, and an abbreviation's own first letter is one of its characters, so creating it never makes available a first letter that was not available before. The set of usable letters is therefore frozen at the start: the uppercase first letters of the n given words, and the creation order is irrelevant. The answer is YES exactly when every character of every abbreviation belongs to that set. O(total input length) per test; checked against all four samples and against an iterative closure simulation, which agrees.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Genuinely a one-observation problem: the achievable letter set never grows, so the whole task is a set-membership scan over all characters. The vocabulary has no 'implementation'/'direct-computation'/'set' label, so 'brute-force' stands for that linear scan (matching the judge's own 'brute force' tag) and 'hash-map' for the letter-membership set (a 26-slot boolean array in practice). Deliberately omitted greedy/constructive-algorithm/topological-sort: the natural 'form whatever you can, repeat' closure collapses to a single test and none of those techniques does any work here."
+}

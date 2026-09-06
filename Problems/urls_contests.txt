@@ -90,3 +90,53 @@ https://leetcode.com/problems/maximum-valid-split-positions-ii/
 https://leetcode.com/problems/sum-of-decoded-numbers/
 https://leetcode.com/problems/minimum-operations-to-form-subset-sum-i/
 https://leetcode.com/problems/minimum-operations-to-form-subset-sum-ii/
+
+# LeetCode / Weekly Contest 518
+https://leetcode.com/problems/count-good-cyclic-rotations/
+https://leetcode.com/problems/count-robot-groups/
+https://leetcode.com/problems/minimum-cost-path-with-at-most-k-turns/
+
+# Codeforces / Contest 2255
+https://codeforces.com/contest/2255/problem/A
+https://codeforces.com/contest/2255/problem/B
+https://codeforces.com/contest/2255/problem/C
+https://codeforces.com/contest/2255/problem/D
+https://codeforces.com/contest/2255/problem/E1
+https://codeforces.com/contest/2255/problem/E2
+https://codeforces.com/contest/2255/problem/F
+
+# Codeforces / Contest 2256
+https://codeforces.com/contest/2256/problem/A
+https://codeforces.com/contest/2256/problem/B
+https://codeforces.com/contest/2256/problem/C
+https://codeforces.com/contest/2256/problem/D
+https://codeforces.com/contest/2256/problem/E
+https://codeforces.com/contest/2256/problem/F
+
+# Codeforces / Contest 2257
+https://codeforces.com/contest/2257/problem/A
+https://codeforces.com/contest/2257/problem/B
+https://codeforces.com/contest/2257/problem/C
+https://codeforces.com/contest/2257/problem/D
+https://codeforces.com/contest/2257/problem/E
+https://codeforces.com/contest/2257/problem/F1
+https://codeforces.com/contest/2257/problem/F2
+
+# Codeforces / Contest 2258
+https://codeforces.com/contest/2258/problem/A
+https://codeforces.com/contest/2258/problem/B1
+https://codeforces.com/contest/2258/problem/B2
+https://codeforces.com/contest/2258/problem/C
+https://codeforces.com/contest/2258/problem/D
+https://codeforces.com/contest/2258/problem/E
+https://codeforces.com/contest/2258/problem/F
+
+# Codeforces / Contest 2259
+https://codeforces.com/contest/2259/problem/A
+https://codeforces.com/contest/2259/problem/B
+https://codeforces.com/contest/2259/problem/C
+https://codeforces.com/contest/2259/problem/D
+https://codeforces.com/contest/2259/problem/E
+https://codeforces.com/contest/2259/problem/F
+https://codeforces.com/contest/2259/problem/G
+https://codeforces.com/contest/2259/problem/H

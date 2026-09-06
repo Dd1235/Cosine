@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2259-g",
+  "title": "Index Removal",
+  "slug": "2259-g",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/G",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "math"
+  ],
+  "statement": "An array is called good when it is non-decreasing and every adjacent difference is at most k. Given a good array of length n, the task is to answer independently for every index: after that element is deleted, what is the minimum total number of unit decrements applied to the remaining elements needed to make the array good again. Constraints reach n up to 2*10^5 with values up to 10^9.",
+  "tags": [
+    "array",
+    "greedy",
+    "binary-search",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "binary-search",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "prefix-sum": 0.9,
+      "binary-search": 0.85,
+      "greedy": 0.85
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}
