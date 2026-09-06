@@ -15,7 +15,7 @@
   "patterns": [
     "segment-tree",
     "prefix-sum",
-    "range-maximum-subarray-sum"
+    "kadane"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -24,7 +24,7 @@
     "pattern_confidence": {
       "segment-tree": 0.98,
       "prefix-sum": 0.85,
-      "range-maximum-subarray-sum": 0.95
+      "kadane": 0.95
     }
   }
 }

@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2257-f1",
+ "source": "Codeforces Contest 2257 problem F1",
+ "solution": "Charge each platform for its internal jumps: if the beaver lands on platform i exactly m times, m-1 of those jumps start and end on i, costing s_i each. Track the last landing at or before each platform boundary; the next landing is at most x cells further, so that landing is P_i - a for an offset a in [0,x), giving an x-state DP. Crossing platform i from offset a to offset b costs (ceil((d_i+a-b)/x)-1)*s_i when b<d_i, and is free only via the single skip entry b=d_i+a when the platform is short enough to be cleared in one jump, so each platform is an x-by-x (min,+) matrix; the answer for [l,r] is a start vector for platform l pushed through the matrices of l+1..r, read at b=0. Hold the matrices in a segment tree: O(n*x^3) build, O(x^3 log n) per point update and per query, O(n*x^2) memory, which at x<=5 is about 1.2e8 min-plus operations and ~200 MB and is exactly what the unusual 1024 MB limit is sized for. I checked this against a cell-by-cell shortest-path brute force on 4000 random cases and reproduced all five sample outputs.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2257-f1",
+   "label": "dp-on-dag",
+   "verdict": "drop",
+   "why": "Applying the parallel ruling: the DAG is a left-to-right line of cells, the most degenerate DAG there is, and there is no topological order to compute - the order is the platform index. If a path graph earns the label then every linear DP earns it. What is actually being done is a (min,+) matrix product held in a segment tree, which segment-tree + dynamic-programming already say."
+  }
+ ],
+ "notes": "Vocabulary gap: there is no label for a (min,+)/tropical matrix product or for 'segment tree of DP transition matrices', which is the whole problem. matrix-exponentiation is deliberately NOT in patterns because in this corpus its 14 carriers are all repeated-squaring of a fixed matrix (Fibonacci, Graph Paths, Count Vowels Permutation); here the matrices differ per platform and are only composed left to right. This follows the corpus precedent for the same genre: 1380-F and 1919-F2 are both CF-tagged 'matrices' and carry segment-tree + dynamic-programming as patterns, with matrix-exponentiation kept in tags only, which is what I did. Statement is complete and unmangled."
+}

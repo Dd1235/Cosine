@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2257-c",
+ "source": "Codeforces Contest 2257 problem C",
+ "solution": "Two dams are distinguishable exactly when some camera sits on the path between them, since the symmetric difference of their two root paths is precisely that path. So a camera set works iff deleting those edges leaves at most one dam per component; c deletions make c+1 components, so at least m-1 cameras are needed. A bottom-up pass computes cnt[v], the number of dams still attached inside v's subtree capped at one: add the marked flag of v and the children whose count is one, and while the total exceeds one, cut such a child edge and record it. This always ends with m-1 cuts, and since p_i < i a plain reverse index loop is a valid post-order, giving O(n) per test. The greedy matched the brute-force optimum and produced a valid placement on 2000 random trees, and reproduces all four sample answers.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "The minimum is always exactly m-1; the work is producing a valid placement, hence the constructive label. The judge lists 'dsu', but union-find is not needed at all - a capped subtree count suffices - so it is not labelled. 'dfs' is kept at lower confidence because a subtree traversal is the natural implementation even though p_i < i lets you replace it with a reverse loop. Extraction artifact: in the supplied file the four sample output lines are concatenated onto one line ('0 2 2 3 1 3 2 2 5'); the statement itself is intact and the lines parse as 0 / 2 2 3 / 1 3 / 2 2 5."
+}

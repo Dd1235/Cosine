@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2256-a",
+ "source": "Codeforces Contest 2256 problem A",
+ "solution": "Sort the three values so that a <= b <= c. Replacing the largest with a+b gives (a, b, a+b) whose range is b, whereas replacing a or b raises the maximum to b+c or a+c and never helps; moreover (a, b, a+b) reproduces the same situation under the rule, so further operations cannot improve it. The answer is therefore min(c-a, b): either leave the numbers alone or collapse the largest once. This is O(1) per test after ordering three integers. A breadth-first search over every triple with entries 0..12 and up to six operations agrees with the formula everywhere, and all six samples match.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Kept to two labels on purpose: this is a one-line observation, answer = min(max-min, median), and nothing else is used. Verified exhaustively for all triples 0..12 with depth-6 search. The vocabulary has no plain 'math' or 'case-analysis' pattern, which is what this problem really is (CF tags it math + sortings); greedy stands in for the dominant-single-move argument and sorting only for identifying min/median/max. Explicitly did NOT add brute-force, constructive-algorithm or number-theory \u2014 none is used."
+}

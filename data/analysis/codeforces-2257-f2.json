@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2257-f2",
+ "source": "Codeforces Contest 2257 problem F2",
+ "solution": "Same reduction as F1: state is the offset a in [0,x) of the last landing at or before a platform boundary, platform i is the x-by-x (min,+) matrix M(a,b) = (ceil((d_i+a-b)/x)-1)*s_i for b<d_i plus the free skip entry b=d_i+a, and a query is a start vector pushed through matrices l+1..r read at b=0. What x<=10 forbids is paying x^3 per platform: a segment tree with one matrix per platform is ~1e9 min-plus merge operations and ~800 MB, against 3 seconds and 1024 MB. The way out is that a platform matrix is a Toeplitz staircase - as a ranges over a window of x consecutive integers, ceil((d_i+a-b)/x) takes only two values, on two contiguous ranges of a - so applying a vector to a platform costs O(x) with one prefix and one suffix minimum instead of O(x^2), and never needs the matrix materialised. Give the segment tree leaves that cover blocks of about x platforms, each block matrix built by x vector sweeps in O(B*x^2); the tree then does only n/B cubic merges, for O(n*x^2) build, O(n*x) memory, O(x^3 log(n/B)) per query and update. I verified the DP and the O(x) staircase transition against a cell-by-cell brute force (4000 random cases, plus 20000 randomised transition checks) and reproduced all five sample outputs.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2257-f2",
+   "label": "dp-on-dag",
+   "verdict": "drop",
+   "why": "Same ruling as F1 - identical DP and identical line-shaped state graph; the versions differ only in how the transition is sped up. F2 keeps segment-tree, dynamic-programming and dp-optimization, which is where its real content is."
+  }
+ ],
+ "notes": "The two versions share one DP and one matrix formulation; the honest difference is that F1 affords a cubic-per-platform merge and F2 does not, so F2 alone carries dp-optimization (speed the transition itself, using the two-level staircase structure of a platform matrix and prefix/suffix minima, exactly the sense in which the corpus uses that label). I checked the other plausible distinction and it is not there: neither a single platform matrix nor a product of them satisfies the quadrangle inequality in either orientation (measured on ~9000 random products), so there is no Monge/SMAWK O(x^2) merge - the gain has to come from the staircase and from blocked leaves. I did not label the blocking sqrt-decomposition: block size is ~x, not ~sqrt(n), and a solver searching that term would find a stranger; it is a memory-and-constant fix, not the idea. Same vocabulary gap as F1: no slug for (min,+) matrix product, and matrix-exponentiation is reserved in this corpus for repeated squaring so it stays in tags only. The extracted statement has doubled LaTeX ('x$x$') throughout but no content is missing."
+}

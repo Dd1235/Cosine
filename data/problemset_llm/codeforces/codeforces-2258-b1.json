@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2258-b1",
+  "title": "Carrot Chopdown (Easy Version)",
+  "slug": "2258-b1",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/B1",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "brute force",
+    "games",
+    "math"
+  ],
+  "statement": "A machine operation chooses a positive integer x and any set of carrots, and every chosen carrot longer than x is split into pieces of length x and the remainder. Given up to 200000 carrots with lengths bounded by m, this easy version allows exactly one operation, and asks for the largest number of resulting pieces that can all share one common length.",
+  "tags": [
+    "array",
+    "math",
+    "counting",
+    "brute-force"
+  ],
+  "patterns": [
+    "brute-force",
+    "prefix-sum",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "brute-force": 0.86,
+      "prefix-sum": 0.8,
+      "counting": 0.72
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

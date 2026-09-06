@@ -1,0 +1,42 @@
+{
+  "id": "codeforces-2258-d",
+  "title": "Magic Tiles",
+  "slug": "2258-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/D",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "dp",
+    "greedy",
+    "implementation"
+  ],
+  "statement": "A grid with 10^18 rows and two columns has its black cells given as up to 3000 maximal black segments per column. At most one cell may be chosen in each row, and each maximal run of chosen cells within a column scores an astronomically growing function of its length, so one long run outweighs any number of shorter ones. Report the run lengths of an optimal choice.",
+  "tags": [
+    "greedy",
+    "dynamic-programming",
+    "intervals",
+    "constructive-algorithm",
+    "implementation"
+  ],
+  "patterns": [
+    "greedy",
+    "constructive-algorithm",
+    "interval-union",
+    "divide-and-conquer",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "constructive-algorithm": 0.78,
+      "interval-union": 0.75,
+      "divide-and-conquer": 0.7,
+      "dynamic-programming": 0.68
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

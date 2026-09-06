@@ -1,6 +1,22 @@
 {
  "note": "Codeforces problems with no rating yet. Ratings land days to weeks after a contest; re-run scripts/refresh_cf_ratings.py --write to collect them.",
- "checked_at": "2026-08-15",
- "count": 0,
- "problems": []
+ "checked_at": "2026-09-06",
+ "count": 15,
+ "problems": [
+  "codeforces-2258-a",
+  "codeforces-2258-b1",
+  "codeforces-2258-b2",
+  "codeforces-2258-c",
+  "codeforces-2258-d",
+  "codeforces-2258-e",
+  "codeforces-2258-f",
+  "codeforces-2259-a",
+  "codeforces-2259-b",
+  "codeforces-2259-c",
+  "codeforces-2259-d",
+  "codeforces-2259-e",
+  "codeforces-2259-f",
+  "codeforces-2259-g",
+  "codeforces-2259-h"
+ ]
 }

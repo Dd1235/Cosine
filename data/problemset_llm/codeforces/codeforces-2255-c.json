@@ -1,0 +1,46 @@
+{
+  "id": "codeforces-2255-c",
+  "title": "Even If the World Turns",
+  "slug": "2255-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/C",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "communication",
+    "constructive algorithms",
+    "expression parsing",
+    "greedy",
+    "interactive",
+    "math",
+    "number theory"
+  ],
+  "statement": "In this run-twice communication task the first player sees an n by n black-and-white grid together with a marked target cell, and may swap the colors of any two cells; the number of black cells is coprime with n. The jury then cyclically shifts, rotates, reflects and possibly inverts the colors of the grid, and the second player, given only the resulting grid, must report the target cell's new position.",
+  "tags": [
+    "interactive",
+    "constructive-algorithm",
+    "number-theory",
+    "grid",
+    "expression-parsing"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "modular-arithmetic",
+    "modular-inverse",
+    "number-theory",
+    "interactive"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "modular-arithmetic": 0.92,
+      "modular-inverse": 0.85,
+      "number-theory": 0.8,
+      "interactive": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 2100
+}

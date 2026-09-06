@@ -13,16 +13,14 @@
     "dijkstra"
   ],
   "patterns": [
-    "modified-dijkstra",
-    "state-augmentation"
+    "layered-graph"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777951479,
     "pattern_confidence": {
-      "modified-dijkstra": 0.95,
-      "state-augmentation": 0.9
+      "layered-graph": 0.95
     }
   }
 }

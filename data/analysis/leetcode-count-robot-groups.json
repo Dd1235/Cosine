@@ -1,0 +1,20 @@
+{
+ "id": "leetcode-count-robot-groups",
+ "source": "LeetCode Weekly Contest 518",
+ "solution": "A group's whole trajectory is the trajectory of its rightmost robot, so joining from the left never perturbs the group ahead, and every merge after t=0 requires the left group to be strictly faster than the right one \u2014 meaning the leader speeds a group takes on over time are strictly decreasing, and the smallest is the speed of the final group's rightmost robot. So scan right to left keeping the current group's leftmost index l and its leader speed vr: robot i joins that group iff position[l] - position[i] <= distance (they touch at t=0) or speed[i] > vr (it closes the gap forever and, since the leader only ever gets slower, still catches after any forward jump); otherwise it opens a new group with vr = speed[i]. Both branches keep vr equal to the final leader's speed, so a single left-facing pass suffices. If speed[i] <= vr then speed[i] is at most every leader speed the group ahead will ever have, the gap is non-decreasing on every segment and merges only jump it forward, so robot i can never catch up. Counting the groups opened gives the answer in O(n) time and O(1) extra space; no stack pops are needed because group leader speeds are already non-decreasing left to right.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic": {
+  "kept": [
+   "greedy",
+   "monotonic-stack"
+  ],
+  "dropped": [
+   {
+    "label": "stack",
+    "why": "Plain `stack` in this corpus means a literal LIFO used as the data structure: 40 carriers, and they are bracket matching, expression parsing and explicit collision/merge stacks (valid-parentheses, basic-calculator, asteroid-collision, replace-non-coprime-numbers-in-array). It co-occurs with monotonic-stack only twice in 3,447 records, so it is not a redundant-but-harmless parent - applying it here drops a car-fleet scan into the bracket-matching cluster. No family rule implies it from monotonic-stack either, so it is a standalone false positive. 0.5, below the rubric floor, on a solution whose author says it never pushes or pops."
+   }
+  ],
+  "added": []
+ },
+ "notes": "Car-fleet variant (LC 853 family) with a distance threshold instead of a finish line, and the fleet takes the leading (rightmost) robot's speed, so the correct scan direction is right to left. The distance threshold only ever matters at t=0: once gaps exceed it they shrink only when the left group is strictly faster, so the merge test is 'adjacent at t=0 OR faster than the group ahead's final leader'. Deliberately NOT labelled binary-search-answer or simulation: there is no monotone predicate to search and an event simulation is O(n^2), which n <= 1e5 forbids. monotonic-stack/stack are listed because the canonical car-fleet formulation pushes group leaders onto a stack and that is how people search for this problem, though the pass here never pops and needs only O(1) state. No vocabulary term is missing; a 'car-fleet' or 'merge-scan' slug does not exist and greedy is the honest closest label. Verified against all three samples and 20000 random cases against an exact-rational continuous-time simulator."
+}

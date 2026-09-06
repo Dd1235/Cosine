@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2259-d",
+ "source": "Codeforces Contest 2259 problem D",
+ "solution": "Writing the three MEX values in sorted order x <= y <= z, the requirement x+y+z >= 2z is exactly x+y >= z, so the two smaller MEX values must together cover the largest. Only a multiset that contains a 0 can have a nonzero MEX, so the verdict depends solely on how many zeros the array contains. If there is no zero, every MEX is 0 and any assignment works; if there are at least two zeros, put one zero in A, all remaining zeros in B and every nonzero element in C, giving MEX values 1, 1 and 0 with 2 >= 2. If there is exactly one zero, only the multiset holding it can have positive MEX m >= 1 while the other two have MEX 0, forcing m >= 2m, which is impossible, so the answer is NO. The whole test is one count of zeros plus an O(n) construction. Checked against a 3^n brute force on 30000 random small arrays with no disagreement.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Unrated (contest too new); Div. 3 D, but the intended solution collapses to a one-line criterion: YES iff the number of zeros is not exactly 1. The real work is the case analysis on the zero count, and the vocabulary has no label for 'case analysis' / 'casework'; 'greedy' is the closest fit for the construction itself and is also a judge tag, but the construction is direct rather than genuinely greedy, hence its lower confidence. 'binary-search-answer' deliberately not used. Statement extracted cleanly, though LaTeX is duplicated as both rendered and source text throughout."
+}

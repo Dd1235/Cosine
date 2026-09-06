@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2256-a",
+  "title": "Three Numbers on the Blackboard",
+  "slug": "2256-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2256/A",
+  "source_topic": "Codeforces / Contest 2256",
+  "source_tags": [
+    "math",
+    "sortings"
+  ],
+  "statement": "Three non-negative integers are written on a board, each at most a billion. In one move a player replaces any one of them with the sum of the other two, repeating as often as desired. The goal is to report the smallest achievable range, the largest of the three minus the smallest, for each of up to a hundred independent test cases.",
+  "tags": [
+    "math",
+    "greedy",
+    "sorting"
+  ],
+  "patterns": [
+    "greedy",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "greedy": 0.78,
+      "sorting": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 800
+}

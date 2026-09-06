@@ -6,7 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximum-score-of-spliced-array/",
   "source_topic": "LeetCode / Hard (generated)",
   "difficulty": "Hard",
-  "acceptance_rate": 59.0,
+  "acceptance_rate": 59,
   "source_tags": [
     "array",
     "dynamic-programming"
@@ -20,7 +20,7 @@
   "patterns": [
     "prefix-sum",
     "sliding-window",
-    "maximum-subarray"
+    "kadane"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
@@ -29,7 +29,7 @@
     "pattern_confidence": {
       "prefix-sum": 0.95,
       "sliding-window": 0.85,
-      "maximum-subarray": 0.9
+      "kadane": 0.9
     }
   }
 }

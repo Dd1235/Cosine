@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2258-a",
+  "title": "Odd Eraser",
+  "slug": "2258-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/A",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "math"
+  ],
+  "statement": "Given an array of at most 100 positive integers, one operation selects an odd number of increasing positions and erases the element at the middle position, which amounts to erasing any element that is currently neither the first nor the last. Repeating this any number of times, the task is to maximize the greatest common divisor of the elements that remain in the array.",
+  "tags": [
+    "array",
+    "math",
+    "gcd",
+    "observation"
+  ],
+  "patterns": [
+    "gcd",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "gcd": 0.95,
+      "number-theory": 0.82
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2258-c",
+  "title": "Far Cities",
+  "slug": "2258-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/C",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "interactive",
+    "trees",
+    "two pointers"
+  ],
+  "statement": "A tree on up to 1000 vertices is hidden, and the only available query names two vertices and an integer d and answers whether the distance between those vertices is at least d. Within at most 3n such yes/no comparisons against a fixed, non-adaptive tree, the solver must report the length of the tree's diameter together with a pair of vertices that realizes it.",
+  "tags": [
+    "tree",
+    "graph",
+    "interactive",
+    "two-pointers"
+  ],
+  "patterns": [
+    "tree-diameter",
+    "interactive",
+    "two-pointers"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "tree-diameter": 0.95,
+      "interactive": 0.95,
+      "two-pointers": 0.66
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

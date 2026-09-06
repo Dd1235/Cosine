@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2259-e",
+  "title": "Treasure Map Destruction (Constructive Version)",
+  "slug": "2259-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2259/E",
+  "source_topic": "Codeforces / Contest 2259",
+  "source_tags": [
+    "2-sat",
+    "constructive algorithms",
+    "greedy"
+  ],
+  "statement": "Treasure was buried on a nonempty subset of n islands arranged in a line, and for every island the distance to the nearest treasure island was recorded; some recorded entries were later destroyed and replaced by -1. Given the damaged array of up to 2*10^5 entries, the task is to output any nonempty set of treasure islands consistent with every surviving distance, or report that no such set exists.",
+  "tags": [
+    "array",
+    "constructive-algorithm",
+    "greedy",
+    "two-sat"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "greedy",
+    "two-sat",
+    "difference-array"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "greedy": 0.9,
+      "two-sat": 0.75,
+      "difference-array": 0.65
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2257-d",
+  "title": "Bermuda Rectangle",
+  "slug": "2257-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2257/D",
+  "source_topic": "Codeforces / Contest 2257",
+  "source_tags": [
+    "binary search",
+    "implementation",
+    "math",
+    "number theory",
+    "two pointers"
+  ],
+  "statement": "A rectangle with integer sides and area S, up to ten to the fourteenth, has its lower-left corner at the origin, but which factorisation of S it uses is unknown. Each of up to three hundred thousand queries gives x and y and asks how many cells of the x by y grid at the origin lie inside at least one such rectangle.",
+  "tags": [
+    "math",
+    "number-theory",
+    "implementation"
+  ],
+  "patterns": [
+    "divisor-enumeration",
+    "prefix-sum",
+    "binary-search",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "divisor-enumeration": 0.9,
+      "prefix-sum": 0.85,
+      "binary-search": 0.8,
+      "number-theory": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 1600
+}

@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2257-a",
+  "title": "Creating Abbreviations",
+  "slug": "2257-a",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2257/A",
+  "source_topic": "Codeforces / Contest 2257",
+  "source_tags": [
+    "brute force",
+    "strings"
+  ],
+  "statement": "A set initially holds n lowercase words. Repeatedly, a new word is built by concatenating the first letters of any sequence of words already in the set, and that uppercase abbreviation joins the set for later use. Given the initial words and m abbreviations listed in unknown order, decide whether some creation order produces all of them; total string length is at most 50000.",
+  "tags": [
+    "string",
+    "implementation"
+  ],
+  "patterns": [
+    "brute-force",
+    "hash-map"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "brute-force": 0.7,
+      "hash-map": 0.62
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 800
+}

@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2258-a",
+ "source": "Codeforces Contest 2258 problem A",
+ "solution": "Choosing 2k+1 increasing indices and deleting the middle one is exactly the power to delete any element that currently has at least one element on each side, so the endpoints of the array can never be removed while every interior element can be removed one at a time. Hence the surviving array always contains a_1 and a_n and may contain any subset of the interior, and since extra elements can only shrink a gcd, keeping just the two endpoints is optimal. The answer is gcd(a_1, a_n) for n >= 2 and a_1 for n = 1, in O(log a) per test case. This reproduces all four samples, e.g. gcd(55, 55555) = 5 and gcd(1000000, 1000000000) = 1000000.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "The whole problem is the observation that the operation removes exactly the non-endpoint elements, so only a_1 and a_n are forced to survive; there is no search or construction to label. Deliberately kept to two patterns rather than decorating with greedy/constructive-algorithm, neither of which describes what is done. Rating is None (contest too new); index A plus n <= 100 with a closed-form answer puts it at the ~800 level."
+}

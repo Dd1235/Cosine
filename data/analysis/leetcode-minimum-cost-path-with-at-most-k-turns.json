@@ -1,0 +1,23 @@
+{
+ "id": "leetcode-minimum-cost-path-with-at-most-k-turns",
+ "source": "LeetCode Weekly Contest 518",
+ "solution": "Expand each cell into states (row, col, direction of the last move, turns used) and find the cheapest cost per state. Within one turn-budget layer a move must continue in the same direction, which is strictly monotone along one axis, and a direction change only ever moves to the next layer, so the whole state graph is a DAG and no priority queue is needed: for t = 0..k, carry every state forward from layer t-1 (turning to any of the four directions costs one layer), then sweep each direction in its own axis order accumulating grid values; the answer is the best value at the bottom-right corner over all directions and layers, or -1. Non-monotone moves genuinely matter here: because cells may cost 0, an optimal path can move left or up and even revisit cells, so the usual right/down-only staircase reduction is wrong (a 7x6 all-zero-route case with k = 5 needs a left segment, where right/down-only returns 1 instead of 0). Dijkstra over the same 4*m*n*(k+1) states is equally correct since every edge weight grid[i][j] is non-negative, just heavier than the layered sweep. Complexity is O(4*m*n*k) time and O(m*n) memory per layer, about 1.7M states at m = n = 75, k = 74. Verified against all three samples and against an independent Dijkstra reference on 6500 random grids, including zero-heavy ones.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic": {
+  "kept": [
+   "grid-dp",
+   "graph-modeling",
+   "dynamic-programming",
+   "shortest-path",
+   "dijkstra"
+  ],
+  "dropped": [
+   {
+    "label": "dp-on-dag",
+    "why": "The DAG here is the DP's own state graph, and EVERY dynamic program has an acyclic state graph - that is what makes it a dynamic program. If 'my states are acyclic' earns the label, all 847 dynamic-programming carriers earn it and the label stops discriminating. This is structurally the same failure as binary-search-answer's 277 carriers: a property of the solution being restated as a technique. The corpus's defensible dp-on-dag carriers pair it with topological-sort over a graph the problem actually hands you (cses coin-collector, cses game-routes, parallel-courses-iii, reachable-nodes); the ones that do not - cherry-pickup, atcoder dp-t, dp-m, number-of-ways-to-earn-points (a knapsack) - are exactly the noise this would join. The proposer's 0.55 is below their own floor and their note already offers the drop."
+   }
+  ],
+  "added": []
+ },
+ "notes": "The trap is monotonicity: with zero-cost cells the optimum can require left/up moves and cell revisits, so a right/down-only staircase DP is wrong even though it passes the three samples and all small random grids up to 4x4. Counterexample found by stress test: grid=[[0,0,0,3,0,0],[4,5,0,0,0,0],[0,0,0,1,0,3],[0,0,2,0,4,2],[2,0,0,0,0,0],[4,4,0,2,0,0],[0,0,0,5,4,0]], k=5 -> true answer 0 (path R,R,D,D,L,D,D,R,R,R,R,D,D uses a left segment), right/down-only gives 1. Explicitly NOT binary-search-answer. The vocabulary has no slug for the central idea of a layered/state-expanded shortest path over (cell, direction, budget) -- 'graph-modeling' is the closest; other corpus entries use non-vocabulary slugs like 'directional-dp', 'state-space-search' and 'grid-graph' for this shape, which would fit well if they were added. 'dp-on-dag' is included because the acyclicity of the turn-layered state graph is what makes the plain sweep valid instead of Dijkstra; drop it if the label is reserved for explicit DAG problems."
+}

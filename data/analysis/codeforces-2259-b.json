@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2259-b",
+ "source": "Codeforces Contest 2259 problem B",
+ "solution": "The map x -> |x - 2| preserves parity, so odd and even elements can never become equal. An odd element decreases by 2 each step until it reaches 1 and is then fixed forever, so after enough operations every odd element equals 1. An even element decreases to 0 and then oscillates 0, 2, 0, 2, ...; its phase is set by the parity of a_i / 2, that is by a_i mod 4, so two even elements coincide in the limit exactly when they agree mod 4 and never coincide otherwise. No intermediate time can do better, because before bottoming out all elements keep their pairwise differences, so equal values there are only duplicates of the same input value. The answer is therefore max(count of odds, count of a_i = 0 mod 4, count of a_i = 2 mod 4), in O(n). Checked against brute-force simulation on random arrays and on all five samples.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "The whole problem is the invariant: parity is preserved, and among evens the residue mod 4 is preserved, giving exactly three merge classes. 'number-theory' is the judge's tag and is only marginally apt - the reasoning is residue classes mod 4 rather than divisors or primes; 'modular-arithmetic' was the alternative and is about equally defensible. No label for simulation: the answer is closed-form, the operation is never actually iterated. Rating is None (contest not yet rated)."
+}

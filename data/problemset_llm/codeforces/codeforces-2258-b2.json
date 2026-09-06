@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2258-b2",
+  "title": "Carrot Chopdown (Hard Version)",
+  "slug": "2258-b2",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/B2",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "brute force",
+    "greedy",
+    "implementation",
+    "math"
+  ],
+  "statement": "A machine operation chooses a positive integer x and any set of carrots, and every chosen carrot longer than x is split into pieces of length x and the remainder. Given up to 200000 carrots with lengths bounded by m, this hard version asks, independently for every k from 1 to m, the largest number of resulting pieces that can all share one common length after exactly k operations.",
+  "tags": [
+    "array",
+    "math",
+    "counting",
+    "greedy",
+    "brute-force"
+  ],
+  "patterns": [
+    "brute-force",
+    "prefix-sum",
+    "counting",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "brute-force": 0.82,
+      "prefix-sum": 0.78,
+      "counting": 0.72,
+      "greedy": 0.63
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

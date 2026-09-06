@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2258-f",
+  "title": "Plus Minus Tree",
+  "slug": "2258-f",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2258/F",
+  "source_topic": "Codeforces / Contest 2258",
+  "source_tags": [
+    "data structures",
+    "dfs and similar",
+    "dp",
+    "graphs",
+    "greedy",
+    "trees"
+  ],
+  "statement": "A rooted tree of up to 200000 vertices gives each vertex a weight of minus one, zero or plus one, and every zero must be replaced by minus one or plus one. The cost of a vertex is the absolute value of the sum of final weights over its subtree, and the total cost sums that over all vertices. Minimize the total cost.",
+  "tags": [
+    "tree",
+    "dynamic-programming",
+    "data-structures",
+    "greedy",
+    "dfs"
+  ],
+  "patterns": [
+    "slope-trick",
+    "tree-dp",
+    "subtree-dp",
+    "dynamic-programming",
+    "heap"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "slope-trick": 0.9,
+      "tree-dp": 0.9,
+      "subtree-dp": 0.85,
+      "dynamic-programming": 0.85,
+      "heap": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": null
+}

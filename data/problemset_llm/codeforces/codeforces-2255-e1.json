@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2255-e1",
+  "title": "What Will Remain at the End? (Easy Version)",
+  "slug": "2255-e1",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/2255/E1",
+  "source_topic": "Codeforces / Contest 2255",
+  "source_tags": [
+    "brute force",
+    "data structures"
+  ],
+  "statement": "An array of n cells, each holding -1, 0, or 1, evolves through q versions under range operations that assign a constant, negate a range, or clamp a range to zero from below. Each query names a cell and asks for the maximum sum of a non-empty contiguous block of that cell's values over all earlier versions; queries are encoded with the previous answer, forcing online processing.",
+  "tags": [
+    "array",
+    "data-structures",
+    "segment-tree"
+  ],
+  "patterns": [
+    "segment-tree",
+    "lazy-propagation",
+    "brute-force",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788697254,
+    "pattern_confidence": {
+      "segment-tree": 0.96,
+      "lazy-propagation": 0.93,
+      "brute-force": 0.72,
+      "dynamic-programming": 0.66
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 2900
+}

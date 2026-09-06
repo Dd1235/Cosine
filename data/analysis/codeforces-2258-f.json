@@ -1,0 +1,15 @@
+{
+ "id": "codeforces-2258-f",
+ "source": "Codeforces Contest 2258 problem F",
+ "solution": "Let f_v(s) be the minimum cost inside the subtree of v given that its subtree sum equals s; the achievable s all share the parity of the subtree size, and f_v is convex on that lattice, so it can be represented by its multiset of slopes. Combining the children of v is a min-plus convolution, which on convex functions is just the union of their slope multisets; a vertex whose weight is fixed at a shifts the domain by a, while a zero vertex takes the pointwise minimum of the shifts by -1 and +1, which (parities being fixed) merely widens the flat minimum by inserting one zero slope; then adding |s| is the standard absolute-value kink at the origin. This is slope trick on a tree: keep the two heaps of a slope-trick state at every vertex and combine children with mergeable heaps or small-to-large merging, giving O(n log n), and read the answer as the minimum of f_1. I checked the whole formulation against exhaustive search over all plus/minus assignments on 3000 random trees and on both samples; note that the natural bottom-up greedy of pushing each subtree sum as close to zero as possible is wrong, failing on about 30 percent of those random trees.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [
+  {
+   "id": "codeforces-2258-f",
+   "label": "dsu-on-tree",
+   "verdict": "drop",
+   "why": "Do not add. All 9 carriers are Sack-style subtree-multiset queries; here small-to-large is merely one optional way to merge two slope-trick heaps, and the canonical route (leftist or pairing mergeable heap) is not small-to-large at all. Adding it would put a convex tree DP in front of people looking for the Sack technique; the existing heap label already covers the merging machinery."
+  }
+ ],
+ "notes": "Rating is None (contest too new); judge tags are data structures / dfs and similar / dp / graphs / greedy / trees, which fits convex subtree DP carried by mergeable heaps. NOT rerooting-dp: the answer is a single number for the fixed root, no per-vertex recomputation. On dsu-on-tree: one common implementation does merge the children's slope heaps small-to-large, which is literally small-to-large merging of subtree multisets, so the label is arguably earned; I left it off (it would sit near 0.6) because a leftist/pairing mergeable heap is the more canonical write-up and dsu-on-tree normally denotes subtree-query counting -- add it if the corpus wants small-to-large recall. `dp-optimization` would also be defensible for the convexity trick but slope-trick already names it precisely. I verified convexity of f_v empirically on 3000 random trees (never violated) and matched brute force exactly."
+}

@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2257-d",
+ "source": "Codeforces Contest 2257 problem D",
+ "solution": "A cell (i,j) is covered iff some divisor a of S has a > i and S/a > j, so writing d(i) for the smallest divisor of S exceeding i, column i is covered up to height f(i) = S/d(i). f is non-increasing and constant on each gap between consecutive divisors, so it is a step function with as many blocks as S has divisors. A query (x,y) asks for the sum over i < x of min(y, f(i)): enumerate the divisors by trial division to sqrt(S), build the blocks with prefix sums of their lengths and of their f-weighted lengths, then binary search for the block containing x and for the block where f first drops below y, splitting the sum into a y-capped prefix and an f-summed suffix. That is O(sqrt(S) + q log d(S)) per test, within the guaranteed bound on the sum of sqrt(S). Verified on all eight sample queries and against brute force for small S.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "The per-test budget is set by the guarantee that the summed sqrt(S) is at most 1e7, which is what makes trial-division factorisation affordable. The binary search is an ordinary search over the sorted divisor blocks, not binary-search-on-answer. The judge's 'two pointers' tag corresponds to an offline variant that sorts the queries and sweeps the same blocks; a legitimate alternative, but it does no work the block prefix sums do not, so it is not labelled."
+}

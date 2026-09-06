@@ -1,0 +1,8 @@
+{
+ "id": "codeforces-2256-b",
+ "source": "Codeforces Contest 2256 problem B",
+ "solution": "The two dominoes sharing tile i+1 weigh s_i + s_{i+1} and s_{i+1} + s_{i+2}, so they differ exactly when s_i != s_{i+2}; the entire validity condition collapses to 'positions two apart must differ'. That decouples the row into its odd-index and its even-index subsequence, each of which must strictly alternate and is therefore determined completely by its first tile. For each of the two chains, count how many of the two possible starting values are consistent with the fixed characters in it (0, 1 or 2), and multiply the two counts. The whole thing is O(n) with n up to 2e5, and since the product never exceeds 4 the stated modulus never actually applies. Exhaustive enumeration of all strings over {0,1,?} of length up to 12 matches this count.",
+ "annotator": "claude agent, verified against a brute force",
+ "skeptic_rulings": [],
+ "notes": "Verified by exhaustive enumeration over all {0,1,?} strings of length <= 12. parity-argument is the closest vocabulary label for the decisive step, which is splitting the row by index parity into two independent alternating chains after reducing the domino condition to s_i != s_{i+2}; if the vocabulary ever gains an 'index-parity-split' or 'invariant' label this is a better fit. dynamic-programming is listed at modest confidence because a 4-state O(n) dp over (s_i, s_{i+1}) genuinely solves the problem and is what many contestants write, even though the intended solution is the two-chain count. Deliberately NOT labelled modular-arithmetic or combinatorics: the answer is at most 4, so the modulus is decorative and no binomials appear."
+}
