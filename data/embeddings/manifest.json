@@ -3,7 +3,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3481,
+  "count": 3482,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -2731,6 +2731,7 @@
     "codeforces-1996-c",
     "codeforces-1996-d",
     "codeforces-1997-d",
+    "codeforces-1998-d",
     "codeforces-2-b",
     "codeforces-200-a",
     "codeforces-200-e",
@@ -3489,7 +3490,7 @@
     "atcoder-dp-x",
     "atcoder-dp-y"
   ],
-  "corpusHash": "06afc6d656c978b9a9bb290a501efe8f9320cc7bbe6d2f9a007db71d1ffa89ad",
+  "corpusHash": "537bf4e8850edafc5732fb4a5d949175f8fdfb68d7825e299efcb31aa3021015",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-06T12:25:44.075Z"
+  "createdAt": "2026-09-08T03:34:34.317Z"
 }
