@@ -7,3 +7,4 @@ node_modules
 docs/implementation
 __pycache__/
 data/formwise.xlsx
+CLAUDE.md

@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-1998-d",
+  "title": "Determine Winning Islands in Race",
+  "slug": "1998-d",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/1998/D",
+  "source_topic": "Codeforces / Contest 1998",
+  "source_tags": [
+    "data structures",
+    "dp",
+    "graphs",
+    "greedy",
+    "shortest paths"
+  ],
+  "statement": "Two cows race across n islands joined by one-way main bridges from each island to the next, plus m extra one-way bridges only the second cow may use. Islands collapse behind a departing cow, eliminating anyone stranded. The first cow starts on island s and moves first; with n and m up to 2*10^5, determine for every start s whether she reaches island n first under optimal play.",
+  "tags": [
+    "graph",
+    "shortest-path",
+    "dynamic-programming",
+    "game-theory",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "shortest-path",
+    "difference-array",
+    "dp-on-dag",
+    "game-theory",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-agent",
+    "generated_at_unix": 1788838452,
+    "pattern_confidence": {
+      "shortest-path": 0.9,
+      "difference-array": 0.85,
+      "dp-on-dag": 0.82,
+      "game-theory": 0.7,
+      "dynamic-programming": 0.7
+    },
+    "reviewed_by": "claude-agent skeptic pass"
+  },
+  "difficulty": 2100
+}
