@@ -66,7 +66,7 @@ async function main() {
       // test on the fused-set pagination bug. This is a serving decision.
       void HybridIndex;
       const s = dense.stats();
-      console.log(`dense ranker ready (${s.model}, ${s.dims}d, ${s.dtype}, ${s.count} vectors) — registered dense + hybrid`);
+      console.log(`dense ranker ready (${s.model}, ${s.dims}d, ${s.dtype}, ${s.count} vectors) — registered dense`);
     }
   }
 

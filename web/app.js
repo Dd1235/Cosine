@@ -641,7 +641,7 @@ function renderCollectionControls(loaded = true) {
   if (loaded) {
     select.innerHTML = '<option value="">add a collection…</option>' + collections
       .filter(c => !activeCollections.has(c.id))
-      .map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)} · ${c.count || 0} problems</option>`).join('');
+      .map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)} · ${c.count || 0}${c.unavailableCount ? `/${(c.count || 0) + c.unavailableCount}` : ""} problems</option>`).join('');
   }
   chips.innerHTML = '';
   for (const id of activeCollections) {
@@ -684,7 +684,7 @@ function renderCollectionControls(loaded = true) {
     if (!collection) continue;
     const details = document.createElement('details');
     const summary = document.createElement('summary');
-    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problems · resources`;
+    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problem${collection.count === 1 ? "" : "s"}${collection.unavailableCount ? ` · ${collection.unavailableCount} not yet indexed` : ""} · resources`;
     details.appendChild(summary);
     const list = document.createElement('ul');
     for (const resource of collection.resources || []) {
@@ -983,7 +983,7 @@ function syncDifficultyControls() {
           (b) =>
             `<button type="button" class="judge-chip difficulty-chip${activeTiers.has(b.id) ? " active" : ""}"` +
             ` data-tier="${escapeHtml(b.id)}"${b.count ? "" : " disabled"}>` +
-            `${escapeHtml(b.label)}<span class="chip-count">${b.count}</span></button>`
+            `${escapeHtml(b.judge === "cses" ? b.label.replace(/\s*\(estimate\)$/i, "") : b.label)}<span class="chip-count">${b.count}</span></button>`
         )
         .join("");
     } else {
@@ -1000,7 +1000,7 @@ function syncDifficultyControls() {
         ` aria-label="${escapeHtml(judge)} maximum rating">${opts(cur.max)}</select>`;
     }
     groups.push(
-      `<span class="difficulty-group"><span class="difficulty-label">${escapeHtml(short)}</span>${body}</span>`
+      `<span class="difficulty-group"><span class="difficulty-label">${escapeHtml(judge === "cses" ? "cses estimates" : short)}</span>${body}</span>`
     );
     if (acceptanceHtml && acc && judge === acc.judge) groups.push(acceptanceHtml);
   }
