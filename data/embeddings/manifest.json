@@ -14,7 +14,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3506,
+  "count": 3507,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -1947,6 +1947,7 @@
     "codeforces-106179-b",
     "codeforces-106179-c",
     "codeforces-106179-d",
+    "codeforces-106179-e",
     "codeforces-1062-a",
     "codeforces-1062-c",
     "codeforces-1063-f",
@@ -3525,7 +3526,7 @@
     "codechef-productneg",
     "kattis-billboards"
   ],
-  "corpusHash": "d4b1efc6bfb014904294a27f29283ba31ae6f0a722e2a41228277369d8f43b08",
+  "corpusHash": "ab6359946f46cb8ee24d720608e5565cd1a534ee5a84f7def55e26c1ec6b429e",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-11T07:12:05.363Z"
+  "createdAt": "2026-09-11T07:21:07.305Z"
 }

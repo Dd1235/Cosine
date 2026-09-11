@@ -1,12 +1,13 @@
 {
  "note": "Codeforces problems with no rating yet. Ratings land days to weeks after a contest; re-run scripts/refresh_cf_ratings.py --write to collect them.",
  "checked_at": "2026-09-11",
- "count": 11,
+ "count": 12,
  "problems": [
   "codeforces-106179-a",
   "codeforces-106179-b",
   "codeforces-106179-c",
   "codeforces-106179-d",
+  "codeforces-106179-e",
   "codeforces-2260-a",
   "codeforces-2260-b",
   "codeforces-2260-c",

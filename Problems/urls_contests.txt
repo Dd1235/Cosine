@@ -212,3 +212,6 @@ https://www.codechef.com/problems/JUMP12
 
 # ICPC / World Finals 2024
 https://icpc.kattis.com/problems/billboards
+
+# ICPC India Prelims 2025–26
+https://codeforces.com/gym/106179/problem/E
