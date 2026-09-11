@@ -8,3 +8,4 @@ docs/implementation
 __pycache__/
 data/formwise.xlsx
 CLAUDE.md
+PROJECT_CONTEXT.local.md
