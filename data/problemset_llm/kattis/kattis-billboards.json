@@ -1,0 +1,29 @@
+{
+  "id": "kattis-billboards",
+  "title": "Billboards",
+  "slug": "billboards",
+  "platform": "kattis",
+  "source_url": "https://icpc.kattis.com/problems/billboards",
+  "source_topic": "ICPC / World Finals 2024",
+  "source_tags": [],
+  "statement": "Partition a billboard into contiguous sections, one per sponsor, so every sponsor receives at least 1/n of its own total value. Each valuation is a nonnegative piecewise-linear function; there are at most 5000 sponsors and 500000 total breakpoints.",
+  "tags": [],
+  "patterns": [
+    "greedy",
+    "geometry",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "geometry": 0.9,
+      "binary-search": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/external-review.json"
+  },
+  "difficulty": null
+}

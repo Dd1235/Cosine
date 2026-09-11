@@ -1,0 +1,408 @@
+{
+  "reviewer": "codex-independent-skeptic-cses-evidence",
+  "status": "18-approved-one-new-provisional-one-unresolved",
+  "problems": [
+    {
+      "id": "codeforces-2260-a",
+      "title": "Monocarp's Contest",
+      "patterns": [
+        "counting",
+        "greedy"
+      ],
+      "solution": "Count zeroes. If fewer than two, impossible; otherwise each endpoint equal to one needs exactly one swap with an interior zero. Answer a[0]+a[-1]. O(n), O(1) auxiliary. Samples 0,-1,1,2.",
+      "statement_summary": "Given up to 50 binary problem difficulties, swap any pair to make the first and last entries zero. Find the minimum swaps or report impossibility.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/A",
+        "statement_sha256": "82e2868462911e7bf2bc35b87d7dca16048fe29138bf145403519f7438f5c481",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4"
+      }
+    },
+    {
+      "id": "codeforces-2260-b",
+      "title": "Monocarp and Projects",
+      "patterns": [
+        "number-theory",
+        "simulation"
+      ],
+      "solution": "Let d=y-x. (y+i) mod (x+i)=d mod (x+i). Once x+i>d it is d permanently. Enumerate at most y initial months, then add remaining*d. O(min(k,y)) per case, total y<=1e6. A quotient-block summation is an alternative O(sqrt(d)); not required. Samples directly reproduced by sum.",
+      "statement_summary": "For k up to 10^12 months, employees x+i share y+i projects evenly and the remainder is assigned to their manager. Compute the total remainder, with total initial project counts at most 10^6.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/B",
+        "statement_sha256": "030053c95ee911aa827294b95bcc632b1caff0539a5665e9ecbfd54e583cb62c",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4"
+      }
+    },
+    {
+      "id": "codeforces-2260-c",
+      "title": "Maximize XOR, Minimize Operations",
+      "patterns": [
+        "bit-manipulation",
+        "greedy"
+      ],
+      "solution": "Sum s=x+y is invariant and XOR <=s, attained exactly when resulting numbers have disjoint set bits. Maximize final x<=original x among submasks of s, greedily taking high bits; remaining original x is the move count. O(log(x+y)). Samples (4,3),(5,0),(10,4).",
+      "statement_summary": "Transfer one unit from nonnegative x to y per operation, with initial values below 2^29. Maximize their bitwise XOR and, among maximum-XOR outcomes, minimize the number of transfers.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/C",
+        "statement_sha256": "9594e947d9409dd7a0c5d60718e1c63fb3bed87e4686dd0458bf12b066a5e37a",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4",
+        "cache_warning": "Cached source contains irrelevant AI-directed prose; ignored during review. Remove from corpus-facing statement before embedding."
+      }
+    },
+    {
+      "id": "codeforces-2260-d",
+      "title": "Signs of Prefix Sums",
+      "patterns": [
+        "dynamic-programming",
+        "prefix-sum"
+      ],
+      "solution": "Track attainable prefix sums in [-3,3], sign restricted by current character; forbid equal successive sums; dp minimizes maximum jump. Start sum0. Signs can be realized in this bounded range whenever feasible; optimal maximum jump at most3. O(49n), rolling O(7). Official solution uses same bounded states. Samples 1,-1,2,3,2,2.",
+      "statement_summary": "Given up to 300000 signs of successive prefix sums, construct an integer array with no zero elements and minimize its largest absolute element. Report impossibility if the sign string cannot arise.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/D",
+        "statement_sha256": "ed5b22b28a8a7e23467680ce8c1a82d22ad3e7bc8af5d6d98db7d343a123e43d",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4",
+        "cache_warning": "Cached source contains irrelevant AI-directed prose; ignored during review. Remove from corpus-facing statement before embedding."
+      }
+    },
+    {
+      "id": "codeforces-2260-e",
+      "title": "Cyclic Balance",
+      "patterns": [
+        "prefix-sum",
+        "binary-search-answer"
+      ],
+      "solution": "Prefix counts give cyclic pair counts a=00,b=11,d=01+10. For target count k of each pair, breaking surplus identical pairs needs max(0,a-k)+max(0,b-k) new 01/10 pairs. Feasible iff this plus d/2<=k. Binary search minimum k>=ceil(length/4); answer4k-length. Singleton answer3. O(n+q log n). Also piecewise-linear inequality admits constant-time case analysis. Samples4,3,2,0,4,2,7.",
+      "statement_summary": "Answer up to 300000 substring queries on a binary string. For each substring, find the fewest inserted characters needed so its cyclic adjacent-pair counts for 00, 01, 10 and 11 are equal.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/E",
+        "statement_sha256": "a5321e27d7211958d58a838314ffea7181ae3ab39bc3d446b50a63be8f0fc4ca",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4"
+      }
+    },
+    {
+      "id": "codeforces-2260-f",
+      "title": "Edge Three-Coloring",
+      "patterns": [
+        "cycle-detection",
+        "dfs",
+        "bit-manipulation",
+        "brute-force"
+      ],
+      "solution": "Nested monochromatic connectivity forces color3 to connect the full connected graph. A color1 edge plus its color2 path gives a cycle whose removal leaves connected color3. Conversely a nonseparating cycle can be split one edge color1/rest color2 with complement color3. Enumerate nonzero cycle-space vectors from at most m-n+1<=10 fundamental cycles of a DFS tree, XOR edge membership, and check complement connectivity. Nonzero even subgraph contains cycle; if removing whole subgraph connected, removing just a cycle also connected. O(2^k*k*n) simple parent-path implementation, O(n+m) workspace. Official samples YES,NO,NO,YES.",
+      "statement_summary": "Color all edges of a connected graph using all three colors so connectivity in a lower color implies connectivity in each higher color. Decide feasibility for n at most 3000 and m at most n+9.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/F",
+        "statement_sha256": "5560b459ad190de75e1795a4a39a70427e86900c2208c4a936982448fd2d4c2c",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4"
+      }
+    },
+    {
+      "id": "codeforces-2260-g",
+      "title": "Sortable Permutations",
+      "patterns": [
+        "inclusion-exclusion",
+        "prime-factorization",
+        "sieve",
+        "combinatorics",
+        "permutation-counting"
+      ],
+      "solution": "Use inclusion-exclusion over prime deletion events: any composite deletion event implies each prime divisor event. Squarefree intersection index d carries Mobius sign. For each adjacent position i enumerate squarefree divisors d of i(i+1); group edges by d. Intersections retain n-floor(n/d) constrained positions; base ways n!/(n-floor(n/d))!, multiplied by binomial interleavings of odd/even retained chains in consecutive exceptional-edge blocks. Sum -mu(d)*(ways(d)-1), add identity once. Official reference code 156529 specifies block construction. Complexity O(E log E+n log n), E=sum_i 2^omega(i(i+1)), memory O(E+n).",
+      "statement_summary": "Count permutations of n up to 200000 for which deleting positions divisible by some integer x at least two leaves a strictly increasing sequence. Return the count modulo 998244353.",
+      "source_evidence": [
+        "https://codeforces.com/blog/entry/156529"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2260/problem/G",
+        "statement_sha256": "152ae0dd145268c8aede7c61d8d10ed7293235066d710c7c328a12ac53b4c127",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "official_reference": "https://codeforces.com/blog/entry/156529",
+        "local_reference_sha256": "52056b8bef8e425846039656334a37691580b2bc6ca923c80ced9689ae6963f4",
+        "oracle": "scripts/research/verify_cf2260_g.py: official-reference transcription matches exhaustive statement-based permutation enumeration for every n=1..8, including official samples1,4,135."
+      }
+    },
+    {
+      "id": "codeforces-2132-e",
+      "title": "Arithmetics Competition",
+      "patterns": [
+        "sorting",
+        "prefix-sum",
+        "greedy"
+      ],
+      "solution": "Sort each pool descending. Merge once; for each z record unconstrained optimal number k of pool A in top z (fixed tie ordering). Concavity of prefixA[k]+prefixB[z-k] makes constrained optimum clamp(k,max(0,z-y),min(x,z)). Answer with prefix sums O(1) per query after O((n+m)log(n+m)) preprocessing. Binary search adjacent gain also works O(log n) query. First-case answers0,70,64,39,57.",
+      "statement_summary": "Two card pools contain up to 200000 values each. Answer up to 100000 queries asking for the maximum sum of exactly z cards, with separate upper limits x and y on how many may be chosen from each pool.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2132/problem/E"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2132/problem/E",
+        "statement_sha256": "1b35c78374ba2158cb839fb06cae5894c6b09f6e204099f83127f54b9a7b5809",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-2093-g",
+      "title": "Shorten the Array",
+      "patterns": [
+        "trie",
+        "bit-manipulation"
+      ],
+      "solution": "For each right endpoint query a binary trie of earlier values for maximum index with XOR>=k. Trie nodes store max index; traverse bits respecting threshold prefix, collecting max index for branches already greater. Minimum i-j+1; k0 answer1. O(n log maxA), n<=2e5. Samples1,2,-1,4,2,-1.",
+      "statement_summary": "Find the shortest contiguous subarray containing a pair whose XOR is at least k. There are up to 200000 elements with values and threshold at most 10^9; return -1 if no qualifying pair exists.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2093/problem/G"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2093/problem/G",
+        "statement_sha256": "693fc362cd21eb51e1caa566ed25ac79d3c98ccad789df77fe20cf4c8ca872da",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-700-c",
+      "title": "Break Up",
+      "patterns": [
+        "bridges",
+        "dfs"
+      ],
+      "solution": "If s and t are initially disconnected, output cost0 with zero edges. Otherwise Find any s-t path. Every cut hits it; enumerate deleting each path edge. If still connected, run lowlink DFS ignoring that edge and choose cheapest bridge whose subtree separates t from s; also test one-edge cuts. Keep global minimum. Use edge IDs for multiedges. O(n(n+m)), n<=1000,m<=30000. Samples8,9,1,-1.",
+      "statement_summary": "In an undirected weighted multigraph with at most 1000 vertices and 30000 edges, remove at most two edges to disconnect specified vertices s and t while minimizing total removal cost. Output the chosen edge IDs or impossibility.",
+      "source_evidence": [
+        "https://codeforces.com/contest/700/problem/C"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/700/problem/C",
+        "statement_sha256": "beeed5c62b2dda8d9cdf18139223ae4d495571eb6b15812ea5e1d604733dd257",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json.",
+        "correction": "Explicit zero-edge case added; lowlink must identify parent by edge ID because parallel edges and loops are permitted."
+      }
+    },
+    {
+      "id": "codeforces-2006-a",
+      "title": "Iris and Game on the Tree",
+      "patterns": [
+        "game-theory",
+        "parity-argument",
+        "counting"
+      ],
+      "solution": "Path count10-count01 telescopes to rootBit-leafBit. Count fixed zero/one leaves, unknown leaves q, and unknown internal nonroot vertices t. Known root: oppositeLeaves+ceil(q/2). Unknown root: if zeros!=ones answer max(zeros,ones)+floor(q/2); equal answer zeros+floor((q+(t%2))/2). Internal unknowns are tempo moves only. O(n). Samples2,1,1,2,1,0.",
+      "statement_summary": "Two players alternately replace unknown binary labels in a rooted tree, maximizing or minimizing the number of leaves whose root path has unequal counts of 10 and 01. Determine the minimax score for up to 100000 vertices.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2006/problem/A"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2006/problem/A",
+        "statement_sha256": "3150fbcd6494e21c50c2c1b4cb9d0c1aca4870b30833456eb6d951cf1ff1538e",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-2018-c",
+      "title": "Tree Pruning",
+      "patterns": [
+        "dfs",
+        "difference-array",
+        "prefix-sum"
+      ],
+      "solution": "Root DFS computes depth[u] and deepest descendant depth mx[u]. Vertex retained for target leaf depth d iff depth[u]<=d<=mx[u]. Add one over this interval in a difference array; maximize number retained over d and return n-max. O(n) time and space with iterative DFS. Samples2,2,5.",
+      "statement_summary": "Repeatedly remove non-root leaves from a tree of up to 500000 vertices. Find the minimum deletions so all remaining leaves have equal distance from the root.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2018/problem/C"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2018/problem/C",
+        "statement_sha256": "01e904055a36024c85e28ef04e1b1ec790cf3d3f3b6685d054023097199ed997",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-2041-d",
+      "title": "Drunken Maze",
+      "patterns": [
+        "bfs",
+        "shortest-path",
+        "grid-traversal",
+        "layered-graph"
+      ],
+      "solution": "BFS over (cell,lastDirection,runLength1..3), with initial sentinel. Each valid step updates direction/run and disallows fourth repeated direction. Unit edge costs; answer min distance at target over states. O(nm) time/space constant12, grid<=200000. Samples15,14,-1.",
+      "statement_summary": "Find a shortest path through a walled grid with at most 200000 cells, allowing four-directional moves but no more than three consecutive steps in the same direction. Return -1 when the target is unreachable.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2041/problem/D"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2041/problem/D",
+        "statement_sha256": "de794bcb57e517bf199b6040ae8f57a00f3d9c2dd071ea3bd642ab26620fb949",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-2044-g2",
+      "title": "Medium Demon Problem (hard version)",
+      "patterns": [
+        "functional-graph",
+        "topological-sort",
+        "subtree-dp"
+      ],
+      "solution": "Peel indegree-zero nodes in functional graph. Start mass[u]=1; add mass[u] to successor when peeled. Each off-cycle node sends continuously for its in-tree size then empties, so last transient is maximum accumulated mass at a peeled node. Answer maxMass+2 (2 if pure cycles). O(n). Samples2,2,5,5,5.",
+      "statement_summary": "Each of up to 200000 vertices starts with one item and simultaneously sends one item to its fixed successor each year whenever nonempty. Multiple items may accumulate. Find the first year whose pre-transfer item counts equal the previous year.",
+      "source_evidence": [
+        "https://codeforces.com/contest/2044/problem/G2"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/contest/2044/problem/G2",
+        "statement_sha256": "45a075bcd8943e548479048c4e64f10de74cf38e7f89597be482412e60d253f6",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-106179-a",
+      "title": "How many?",
+      "patterns": [
+        "counting"
+      ],
+      "solution": "Exactly three participants per team: output3n. O(1). Sample1->3.",
+      "statement_summary": "A college contest has n teams, each with exactly three participants. Compute the total number of participants for 1 <= n <= 1000.",
+      "source_evidence": [
+        "https://codeforces.com/gym/106179/problem/A"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/gym/106179/problem/A",
+        "statement_sha256": "01ba3b4a18123dc72ce2a817bb8653e69113543e0a60ff3c1972355c4c8377be",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-106179-b",
+      "title": "Pseudo Palindrome",
+      "patterns": [
+        "sorting",
+        "greedy"
+      ],
+      "solution": "Sort. Greedily pair adjacent numbers when difference<=d, otherwise leave this number unpaired. Pairing smallest eligible adjacent values maximizes number of pairs by exchange argument; require floor(n/2) pairs, allowing one unpaired center when odd. O(n log n). SamplesYES,NO,YES.",
+      "statement_summary": "Rearrange up to 2000 integers so every pair in mirror positions differs by at most d. Determine feasibility, allowing the middle element to pair with itself when the length is odd.",
+      "source_evidence": [
+        "https://codeforces.com/gym/106179/problem/B"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/gym/106179/problem/B",
+        "statement_sha256": "4193fdc046ed15d0082d8719397c1c5e07756a8aa3f0f084d060cc23a338562f",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-106179-c",
+      "title": "XOR LCM",
+      "patterns": [
+        "constructive-algorithm",
+        "bit-manipulation",
+        "number-theory"
+      ],
+      "solution": "Choose power K=2^24>c, a=c*K, b=c*(K+1). Both multiples of c, a low bits zero, b low bits c. Thus a XOR c=a+c=b and b XOR c=a, matching LCM sum a+b. Bounds b<=1e7*(2^24+1)<1e17. O(1). Valid for c1,2,7 even though nonunique output differs.",
+      "statement_summary": "For each positive c at most 10^7, construct positive a and b at most 10^17 whose XOR-with-c sum equals lcm(a,c)+lcm(b,c). Up to 200000 independent test cases are given.",
+      "source_evidence": [
+        "https://codeforces.com/gym/106179/problem/C"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/gym/106179/problem/C",
+        "statement_sha256": "ab4e6de283eb09a7e66221678044cbb959fff47c79c8205029cb42596870251c",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    },
+    {
+      "id": "codeforces-106179-d",
+      "title": "Make Empty",
+      "patterns": [
+        "constructive-algorithm"
+      ],
+      "solution": "Partition positions into first/second n/2 and values into low/high n/2. Counts lowLeft=highRight and highLeft=lowRight. Thus two valid subsequences lowLeft+highRight and highLeft+lowRight cover all; one operation possible iff entire halves separated in value. O(n). Samples1,1,2.",
+      "statement_summary": "Remove an even-length permutation in as few operations as possible. An operation removes an even subsequence whose first half values are all smaller or all larger than its second half values. Output the removed subsequences for n up to 200000.",
+      "source_evidence": [
+        "https://codeforces.com/gym/106179/problem/D"
+      ],
+      "status": "approved",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/gym/106179/problem/D",
+        "statement_sha256": "66d993bed16cf439a5f884b573e39fb1c458faa7b4679009e9d2d58970457d69",
+        "basis": "Independent full-statement and constraints review of first-pass solution; canonical labels checked against data/pattern_taxonomy.json."
+      }
+    }
+  ],
+  "reviewed_at": "2026-09-11T07:09:11.636088+00:00",
+  "new_proposals": [
+    {
+      "id": "codeforces-106179-e",
+      "title": "Counting Is Fun",
+      "status": "derived_needs_independent_review",
+      "patterns": [
+        "dfs",
+        "combinatorics",
+        "counting"
+      ],
+      "statement_summary": "Label the edges of a rooted tree with a permutation of1..n-1. Starting and ending at the root, visit all vertices while edge label x is forbidden; incrementing x from its initial value1 costs one. Count labelings whose minimum traversal cost equals c, modulo998244353, for total n at most200000.",
+      "solution": "Let m=n-1 and depth(v) be distance from root. Define A(c)=2^(c-1)*(m-c)!*sum_{v!=root,depth(v)>=c} C(depth(v)-1,c-1), with A(m+1)=0. Answer A(c)-A(c+1) modulo998244353. Interpretation: f>=c exactly when edges labeled1..c lie on an ancestor chain and their depths, read in label order, strictly rise then strictly fall. For each chosen chain of c edges there are2^(c-1) such orders; choose its deepest endpoint v and c-1 ancestors, then freely label all remaining edges. Precompute factorials and inverse factorials once; iterative DFS and two linear sums cost O(n), O(n) memory per case.",
+      "review_evidence": {
+        "statement_url": "https://codeforces.com/gym/106179/problem/E",
+        "statement_sha256": "8a4c9e97959420b2bb6045c00600240bcf271d25692f14bf43e895b34dc33d0b",
+        "basis": "Original solution derivation from actual full statement; no official editorial found. Requires independent proof review before corpus insertion.",
+        "oracle": "scripts/research/verify_gym106179_e.py exact0-1 BFS over vertex, visited-mask and x:1930 labeled trees, then30 exhaustive small-tree histograms all agree. Trees up to7 nodes; finite evidence is not a general proof.",
+        "proof_sketch": "While the forbidden edge separates the root-side explored region from an unvisited subtree, useful progress descends toward that subtree. After reaching the deepest outstanding barrier, return barriers can only occur in strictly decreasing depth order. A branch change or an increase after a decrease permits completing the tour without crossing the new forbidden edge. Thus a prefix that continues to force increments has one descent-then-return chain. Choosing which of the c-1 ancestors precede the deepest edge uniquely determines its increasing-then-decreasing order. This traversal characterization needs a second reviewer."
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "codeforces-106179-f",
+      "title": "Non Unique",
+      "status": "solution_not_verified",
+      "statement_url": "https://codeforces.com/gym/106179/problem/F",
+      "statement_sha256": "f7f1a3a5a4ac8c57852781bbae85861a57a0895b7d06e46faf1028b81232b1d6",
+      "reason": "Read full statement and constraints. Adjacent swapping changes the earlier-greater count only for the smaller swapped element, but an efficient count of minimum-length operation sequences was not established. Do not infer labels or publish a guessed solution."
+    }
+  ]
+}

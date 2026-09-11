@@ -1,0 +1,62 @@
+{
+  "reviewer": "root-first-pass",
+  "status": "awaiting-independent-skeptic",
+  "problems": [
+    {
+      "id": "codechef-amat",
+      "patterns": [
+        "constructive-algorithm"
+      ],
+      "solution": "Each diagonal entry equals twice its original element; output B[i][i]/2. The input guarantees consistency and positive integral solutions. O(N^2) input time, O(N) stored answer.",
+      "statement_summary": "Reconstruct a positive integer array of length at most 10 from its pairwise-sum matrix, where entry (i,j) equals A[i]+A[j]."
+    },
+    {
+      "id": "codechef-productneg",
+      "patterns": [
+        "game-theory",
+        "parity-argument"
+      ],
+      "solution": "Each legal move removes an odd number of negative entries, toggling the parity of their count. A move exists exactly while any negative remains, so the number of moves has fixed parity equal to the original negative count. Odd count wins; deleting any single negative is a winning first move. O(N).",
+      "statement_summary": "Two players alternately delete a contiguous subarray with product -1 from an array of up to 200000 values in {-1,1}. Determine the winner and a winning first deletion when one exists."
+    },
+    {
+      "id": "codechef-makezero7",
+      "patterns": [
+        "constructive-algorithm",
+        "parity-argument",
+        "greedy"
+      ],
+      "solution": "Absolute subtraction preserves pairwise parity differences, hence mixed parity requires at least one paid modulo. Repeatedly subtract the ceiling of the midpoint of current min/max in absolute value until all entries coincide or the range is {0,1}; each step halves the maximum spread. Equal entries are zeroed with one free subtraction. For {0,1}, apply absolute subtraction by 3, modulo 3, then absolute subtraction by 1 twice: {0,1}->{3,2}->{0,2}->{1}->{0}. N>=3 permits X=3. At most ceil(log2 N)+4<=14 operations, O(N log N). Same-parity inputs cannot end in mixed {0,1}, so cost zero; otherwise cost one.",
+      "statement_summary": "Turn an array of N values in [1,N], with N at most 1000, into zeroes using free absolute subtraction by a common value and paid common-modulus operations. Minimize paid operations and output at most 15 operations."
+    },
+    {
+      "id": "codechef-expprod2",
+      "patterns": [
+        "dynamic-programming",
+        "modular-arithmetic"
+      ],
+      "solution": "Maintain S=sum of prefix products and W=sum of last-value times prefix product. Appending x gives fnew=f*(last+x), hence Snew=M*W+s1*S and Wnew=s1*W+s2*S, where s1=sum x and s2=sum x^2. Initialize S=M,W=s1 at length one. Closed-form power sums modulo prime and O(N) transitions satisfy total N<=200000.",
+      "statement_summary": "Sum the product of adjacent pair sums over every length-N array with entries in [1,M], modulo 998244353. Total N is at most 200000 and M may be 10^9."
+    },
+    {
+      "id": "codechef-jump12",
+      "patterns": [
+        "dynamic-programming",
+        "difference-array",
+        "prefix-sum"
+      ],
+      "solution": "Shortest path DP is dp[i]=A[i]+min(dp[i-1],dp[i-2]), so delta[i]=A[i]-max(delta[i-1],0). Delta is in [1-M,M]. Store count per delta; each old delta contributes its count to an interval of M new deltas, updated with a difference array in O(M). Maintain sum of dp over prefixes: Tnew=M*Told+countOld*s1-M*sum(count[d]*max(d,0)). Initialize length2 with count[d]=M for d=1..M, T=2*M*s1. Sum N<=400, M<=400 permits O(NM).",
+      "statement_summary": "Sum minimum path costs across all length-N arrays of values in [1,M]. A path starts at index 1, ends at N, and advances one or two positions, paying each visited value. N and M are at most 400."
+    },
+    {
+      "id": "kattis-billboards",
+      "patterns": [
+        "greedy",
+        "geometry",
+        "binary-search"
+      ],
+      "solution": "At each current left boundary, find for each remaining sponsor its earliest cut accumulating 1/n of its original total integral; assign the interval ending at the earliest of these cuts to that sponsor. Every other sponsor loses at most 1/n of its own original value, so the invariant guarantees all remaining shares fit. Compute integrals by trapezoid prefix sums, binary-search the segment containing target cumulative integral, solve its monotone quadratic (stable root/linear case). Last sponsor gets the remainder. O(totalSegments+n^2 log(maxSegments)), O(totalSegments), suitable n<=5000 totalSegments<=500000 and 12s native limit.",
+      "statement_summary": "Partition a billboard into contiguous sections, one per sponsor, so every sponsor receives at least 1/n of its own total value. Each valuation is a nonnegative piecewise-linear function; there are at most 5000 sponsors and 500000 total breakpoints."
+    }
+  ]
+}

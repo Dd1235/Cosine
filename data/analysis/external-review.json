@@ -1,0 +1,104 @@
+{
+  "reviewer": "independent-agent-b",
+  "reviewer_id": "independent-agent-b",
+  "status": "approved_with_minor_clarifications",
+  "problems": [
+    {
+      "id": "codechef-amat",
+      "patterns": [
+        "constructive-algorithm"
+      ],
+      "solution": "Each diagonal entry equals twice its original element; output B[i][i]/2. The input guarantees consistency and positive integral solutions. O(N^2) input time, O(N) stored answer.",
+      "statement_summary": "Reconstruct a positive integer array of length at most 10 from its pairwise-sum matrix, where entry (i,j) equals A[i]+A[j].",
+      "independent_band": 1,
+      "review_rationale": "The diagonal fixes the array uniquely as B[i][i]/2, so no matrix reconstruction search or general number theory is required. The consistency guarantee removes validation concerns.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "4b1b48be8f47176a80919cbb6d4fccd732affeb32e399ea6db72fa247f5d7ff2"
+    },
+    {
+      "id": "codechef-productneg",
+      "patterns": [
+        "game-theory",
+        "parity-argument"
+      ],
+      "solution": "Each legal move removes an odd number of negative entries, toggling the parity of their count. A move exists exactly while any negative remains, so the number of moves has fixed parity equal to the original negative count. Odd count wins; deleting any single negative is a winning first move. O(N).",
+      "statement_summary": "Two players alternately delete a contiguous subarray with product -1 from an array of up to 200000 values in {-1,1}. Determine the winner and a winning first deletion when one exists.",
+      "independent_band": 2,
+      "review_rationale": "Every move removes an odd number of negatives and therefore flips their count parity. Terminal arrays have zero negatives; all plays have the same move-count parity. A single negative is always a legal move and leaves a losing even-parity state when Alice wins.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "163adba4a3ed9546e38e7c02f82056eb97cda8133124ba1892ea3051bfe58e2c"
+    },
+    {
+      "id": "codechef-makezero7",
+      "patterns": [
+        "constructive-algorithm",
+        "parity-argument",
+        "greedy"
+      ],
+      "solution": "Absolute subtraction preserves pairwise parity differences, so mixed parity requires at least one paid modulo. Repeatedly apply X=ceil((min+max)/2) while the values are not all equal and are not exactly {0,1}. Each step halves the magnitude bound. If all values coincide at positive c, apply X=c once; if all are already zero, stop without an invalid X=0 operation. For {0,1}, apply absolute subtraction by 3, modulo 3, then absolute subtraction by 1 twice: {0,1}->{3,2}->{0,2}->{1}->{0}. N>=3 makes every parameter legal. At most ceil(log2 N)+4<=14 operations suffice, O(N log N) time. Same-parity arrays cost zero; mixed parity arrays cost one.",
+      "statement_summary": "Turn an array of N values in [1,N], with N at most 1000, into zeroes using free absolute subtraction by a common value and paid common-modulus operations. Minimize paid operations and output at most 15 operations.",
+      "independent_band": 3,
+      "review_rationale": "Free absolute subtraction flips or preserves all parities together, preserving whether both parity classes occur. Midpoint contraction brings maximum magnitude below two in at most ceil(log2 N) steps; the four-operation modulo gadget handles the mixed case. Exhaustive multiset checks for N=3..8 and full ranges through N=1000 confirmed optimal cost, legal parameters and move bound.",
+      "status": "approved",
+      "issues": [
+        "Minor implementation clarification corrected: an already all-zero state must terminate instead of attempting the forbidden free-operation parameter X=0."
+      ],
+      "source_text_sha256": "a8fed844646be5311f5a1060898396da201797e99f9dba397a7a8d84c827410d"
+    },
+    {
+      "id": "codechef-expprod2",
+      "patterns": [
+        "dynamic-programming",
+        "modular-arithmetic"
+      ],
+      "solution": "Maintain S=sum of prefix products and W=sum of last-value times prefix product. Appending x gives fnew=f*(last+x), hence Snew=M*W+s1*S and Wnew=s1*W+s2*S, where s1=sum x and s2=sum x^2. Initialize S=M,W=s1 at length one. Closed-form power sums modulo prime and O(N) transitions satisfy total N<=200000.",
+      "statement_summary": "Sum the product of adjacent pair sums over every length-N array with entries in [1,M], modulo 998244353. Total N is at most 200000 and M may be 10^9.",
+      "independent_band": 3,
+      "review_rationale": "Appending a value closes on the zeroth and first weighted moments of the old last element, giving precisely the stated two-state linear recurrence. Brute-force comparison passed all N=2..6 and M=1..4; simultaneous updates are necessary.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "bde419cb20e8768830b737c90d6a01d4e5e23d4b895d1da19ad54f12cf5e77bf"
+    },
+    {
+      "id": "codechef-jump12",
+      "patterns": [
+        "dynamic-programming",
+        "difference-array",
+        "prefix-sum"
+      ],
+      "solution": "Shortest path DP is dp[i]=A[i]+min(dp[i-1],dp[i-2]), so delta[i]=A[i]-max(delta[i-1],0). Delta is in [1-M,M]. Store count per delta; each old delta contributes its count to an interval of M new deltas, updated with a difference array in O(M). Maintain sum of dp over prefixes: Tnew=M*Told+countOld*s1-M*sum(count[d]*max(d,0)). Initialize length2 with count[d]=M for d=1..M, T=2*M*s1. Sum N<=400, M<=400 permits O(NM).",
+      "statement_summary": "Sum minimum path costs across all length-N arrays of values in [1,M]. A path starts at index 1, ends at N, and advances one or two positions, paying each visited value. N and M are at most 400.",
+      "independent_band": 4,
+      "review_rationale": "The adjacent-DP difference is bounded independently of path length, and each old difference produces a contiguous interval of new differences. Difference-array aggregation and a separate total-cost moment yield O(NM) rather than enumerating arrays or cost values. Brute-force comparison passed all N=2..6 and M=1..4.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "e95f82fd516a81c020d70051773adf6d1c64303b99e223a36b8435862e3374d0"
+    },
+    {
+      "id": "kattis-billboards",
+      "patterns": [
+        "greedy",
+        "geometry",
+        "binary-search"
+      ],
+      "solution": "At each current left boundary, compute each remaining sponsor's earliest cut accumulating 1/n of its original total integral. Assign the interval ending at the earliest cut to that sponsor. Every other sponsor loses at most 1/n of its own original total value, so the remaining-value invariant guarantees completion; give the final sponsor the remainder. Precompute trapezoid prefix integrals, locate the current/target segments by binary search, and invert the monotone quadratic within the target segment using a stable root and explicit constant-slope/zero-area handling. O(totalSegments+n^2 log(maxSegments)) time and O(totalSegments) space. Positive total valuation gives positive-width quotas; adequate floating precision is required for the 1e-8 value tolerance.",
+      "statement_summary": "Partition a billboard into contiguous sections, one per sponsor, so every sponsor receives at least 1/n of its own total value. Each valuation is a nonnegative piecewise-linear function; there are at most 5000 sponsors and 500000 total breakpoints.",
+      "independent_band": 4,
+      "review_rationale": "The earliest quota cut removes no more than one original quota according to each unchosen sponsor. Inductively enough value remains for every unchosen sponsor, so a solution always exists. Prefix trapezoid integration plus monotone inverse evaluation is feasible; zero-slope/zero-area segments and stable quadratic evaluation need explicit handling.",
+      "status": "approved",
+      "issues": [
+        "Removed the unverified 12-second runtime-limit assertion because it is absent from the supplied full source text. The algorithmic feasibility and fairness proof are otherwise sound."
+      ],
+      "source_text_sha256": "6949a63b14639077294eb96c081f548ded0072e4d0b5fe3db9cdaff8b3f5a4f3"
+    }
+  ],
+  "validation": [
+    "Read all six complete staged source_text statements and constraints.",
+    "Independently checked algorithms and invariants; no substantive algorithm errors found.",
+    "EXPPROD2 and JUMP12 brute-force checked for every N=2..6, M=1..4.",
+    "MAKEZERO7 exhaustively checked multisets for N=3..8 and full value ranges through N=1000.",
+    "Canonical pattern names retained as constructive-algorithm and parity-argument; no generic math or parity identifiers."
+  ]
+}

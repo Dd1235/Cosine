@@ -1,0 +1,12 @@
+{
+  "id": "codechef-amat",
+  "platform": "codechef",
+  "title": "A Matrix Problem",
+  "slug": "amat",
+  "source_url": "https://www.codechef.com/problems/AMAT",
+  "source_topic": "IICPC Codefest",
+  "source_text": "There was an array $A$ of size $N$ with positive integers. You calculated a matrix $B$ of size $N \\times N$ such that $B_{(i, j)} = A_i + A_j$. Now, unfortunately you have forgotten the array $A$, but you still have the matrix $B$ with you. Can you figure out the original array $A$? Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - Each test case consists of multiple lines of input. - The first line of each test case contains a single integer $N$ - the size of the array $A$. - The $i$-th of the next $N$ lines contains $N$ integers each - $B_{(i, 1)}, B_{(i, 2)}, \\ldots, B_{(i, N)}$. Output For each test case, output $N$ integers - $A_1, A_2, A_3, \\ldots, A_N$ ($1 \\le A_i \\le 10^9$), a possible array $A$ from which the matrix $B$ could be constructed. If multiple answers are possible, all will be accepted. Constraints - $1 \\le T \\le 100$ - $1 \\le N \\le 10$ - There exists at least one valid array $A$ satisfying $1 \\le A_i \\le 10^9$. Sample Input 2 3 10 8 6 8 6 4 6 4 2 1 2000000000 Sample Output 5 3 1 1000000000",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

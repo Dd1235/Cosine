@@ -1,0 +1,12 @@
+{
+  "id": "codechef-cyclicxor",
+  "platform": "codechef",
+  "title": "Cyclic XOR Problem",
+  "slug": "cyclicxor",
+  "source_url": "https://www.codechef.com/problems/CYCLICXOR",
+  "source_topic": "IICPC Codefest",
+  "source_text": "For a $0$-indexed permutation $P$ of the integers $[1, N]$, define $f(P)$ as: $$\\max(P[i] \\oplus P[(i + 1) \\mod N])$$, over all $0 \\le i < N$. Here, $\\oplus$ represents the Bitwise XOR operator. Over all $N!$ permutations $P$ of the integers $[1, N]$, what is the minimum value of $f(P)$ and how many permutations $P$ exist which achieve this minima. Since the answers may be large, print it modulo $998244353$. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - The first and only line of each test case contains a single integer $N$. Output For each test case, output $2$ integers - minimum possible value of $f(P)$ and the number of permutations that achieve it modulo $998244353$. Constraints - $1 \\le T \\le 10^3$ - $2 \\le N \\le 2 \\cdot 10^5$ - The sum of $N$ over all test cases does not exceed $2 \\cdot 10^5$ Sample Input 7 2 3 4 6 8 11 17 Sample Output 3 2 3 6 6 8 4 12 10 1920 8 15840 18 586857844",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

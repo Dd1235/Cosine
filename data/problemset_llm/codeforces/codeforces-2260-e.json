@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2260-e",
+  "title": "Cyclic Balance",
+  "slug": "2260-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2260/problem/E",
+  "source_topic": "Codeforces / Contest 2260",
+  "source_tags": [
+    "binary search",
+    "constructive algorithms",
+    "dp",
+    "math"
+  ],
+  "statement": "Answer up to 300000 substring queries on a binary string. For each substring, find the fewest inserted characters needed so its cyclic adjacent-pair counts for 00, 01, 10 and 11 are equal.",
+  "tags": [],
+  "patterns": [
+    "prefix-sum",
+    "binary-search-answer",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "prefix-sum": 0.9,
+      "binary-search-answer": 0.9,
+      "binary-search": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/competition-refresh-review.json"
+  },
+  "difficulty": null
+}

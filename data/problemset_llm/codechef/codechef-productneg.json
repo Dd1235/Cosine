@@ -1,0 +1,27 @@
+{
+  "id": "codechef-productneg",
+  "title": "Product Negative",
+  "slug": "productneg",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PRODUCTNEG",
+  "source_topic": "IICPC Codefest",
+  "source_tags": [],
+  "statement": "Two players alternately delete a contiguous subarray with product -1 from an array of up to 200000 values in {-1,1}. Determine the winner and a winning first deletion when one exists.",
+  "tags": [],
+  "patterns": [
+    "game-theory",
+    "parity-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "game-theory": 0.9,
+      "parity-argument": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/external-review.json"
+  },
+  "difficulty": null
+}

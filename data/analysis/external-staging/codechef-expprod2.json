@@ -1,0 +1,12 @@
+{
+  "id": "codechef-expprod2",
+  "platform": "codechef",
+  "title": "Expected Product 2",
+  "slug": "expprod2",
+  "source_url": "https://www.codechef.com/problems/EXPPROD2",
+  "source_topic": "IICPC Codefest",
+  "source_text": "For an array $A$ of length $N$, define $f(A)$ as $\\prod_{i = 1}^{N - 1}(A_i + A_{i + 1})$. Given integers $N$ and $M$, find the sum of $f(A)$ over all $M^N$ arrays satisfying: - $|A| = N$ - $1 \\le A_i \\le M$ Since the answer may be large, print it modulo $998244353$. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - The first and only line of each test case contains $2$ integers - $N$ and $M$. Output For each test case, output on a new line the sum of $f(A)$ over all $M^N$ arrays modulo $998244353$. Constraints - $1 \\le T \\le 10^4$ - $2 \\le N \\le 2 \\cdot 10^5$ - $1 \\le M \\le 10^9$ - The sum of $N$ over all test cases does not exceed $2 \\cdot 10^5$. Sample Input 6 2 1 2 2 3 3 3 6 5 4 190000 1000000000 Sample Output 2 12 450 11214 737600 515998929",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

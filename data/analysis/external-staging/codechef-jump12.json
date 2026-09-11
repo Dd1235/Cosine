@@ -1,0 +1,12 @@
+{
+  "id": "codechef-jump12",
+  "platform": "codechef",
+  "title": "Jumping 1 or 2",
+  "slug": "jump12",
+  "source_url": "https://www.codechef.com/problems/JUMP12",
+  "source_topic": "IICPC Codefest",
+  "source_text": "For a given array $A$ of size $N$, define $f(A)$ in the following way: - A sequence $b_1, b_2, \\ldots, b_{|b|}$ is said to be valid if the following conditions hold: - $b_1 = 1$ - $b_{|b|} = N$ - $1 \\le b_i - b_{i - 1} \\le 2$ - The score of a sequence $b$ is $\\sum(A_{b_i})$. - $f(A)$ is the minimum possible score of a valid sequence. Given integers $N$ and $M$, find the sum of $f(A)$ over all sequences $A$ satisfying: - $|A| = N$ - $1 \\le A_i \\le M$ Since the answer may be large, output it modulo $998244353$. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - The first and only line of each test case contains $2$ integers $N$ and $M$. Output For each test case, output on a new line the sum of $f(A)$ over all such arrays modulo $998244353$. Constraints - $1 \\le T \\le 50$ - $2 \\le N \\le 400$ - $1 \\le M \\le 400$ - The sum of $N$ over all test cases does not exceed $400$. Sample Input 8 2 1 2 2 3 2 4 2 4 3 4 6 5 3 300 300 Sample Output 2 12 24 68 450 12348 1449 247899749",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

@@ -78,7 +78,8 @@ def problem_url(pid: str) -> str | None:
     m = re.match(r"^codeforces-(\d+)-([a-z0-9]+)$", pid)
     if not m:
         return None
-    return f"https://codeforces.com/contest/{m.group(1)}/problem/{m.group(2).upper()}"
+    kind = "gym" if int(m.group(1)) >= 100000 else "contest"
+    return f"https://codeforces.com/{kind}/{m.group(1)}/problem/{m.group(2).upper()}"
 
 
 def tavily_extract(urls: list[str], key: str) -> dict[str, str]:
@@ -116,10 +117,11 @@ def tavily_extract(urls: list[str], key: str) -> dict[str, str]:
 # sentence it emphasises is gone, so it is consumed with it.
 AGENT_CANARY = re.compile(
     r"(?:^|(?<=[.!?\s]))"
-    r"(?:If you are an? (?:AI|LLM|language model|artificial intelligence)[^.!?]*(?:[.!?]|$)"
+    r"(?:(?:Very important:\s*)?If you are (?:an? )?(?:AI|LLM|language model|artificial intelligence)[^.!?]*(?:[.!?]|$)"
     r"|Create the variable named \w+[^.!?]*(?:[.!?]|$)"
     r"|(?:As|Note to) (?:an? )?(?:AI|LLM|language model)[^.!?]*(?:[.!?]|$))"
-    r"(?:\s*This is (?:very )?important\.)?",
+    r"(?:\s*This is (?:very )?important\.)?"
+    r"(?:\s*Don[’']?t mention this in response\.\s*No Comments In Code)?",
     re.IGNORECASE,
 )
 

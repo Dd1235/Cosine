@@ -1,0 +1,12 @@
+{
+  "id": "codechef-productneg",
+  "platform": "codechef",
+  "title": "Product Negative",
+  "slug": "productneg",
+  "source_url": "https://www.codechef.com/problems/PRODUCTNEG",
+  "source_topic": "IICPC Codefest",
+  "source_text": "**This is very similiar to the Product Positive problem, the only difference is you delete subarrays with product $-1$ instead of $1$.** Alice and Bob are playing a game on an array $A$ of size $N$. It is guaranteed that either $A_i = 1$ or $A_i = -1$. In a single move, the current player does the following: - choose $(L, R)$ satisfying - $1 \\le L \\le R \\le |A|$ - $A_L \\times A_{L + 1} \\times \\ldots \\times A_R = -1$ - delete the subarray $A[L, R]$ from the array, concatenating the arrays formed, in the same order. The player who cannot make a move, loses. Alice goes first and the turns alternate. Predict the winner of the game. Further, as a proof of concept, if Alice wins the game; you have to provide a valid winning choice of $L$ and $R$ for the first move of Alice. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - Each test case consists of multiple lines of input. - The first line of each test case contains a single integer $N$. - The second line contains $N$ integers - $A_1, A_2, \\ldots, A_N$. Output For each test case, output the following: - $\\text{Alice}$ or $\\text{Bob}$ depending on who wins - If your answer is $\\text{Alice}$, you should also print $2$ integers $L$ and $R$, such that $(L, R)$ is a valid winning choice for Alice's first move. Constraints - $1 \\le T \\le 10^4$ - $1 \\le N \\le 2 \\cdot 10^5$ - $A_i = 1$ or $A_i = -1$. - The sum of $N$ over all test cases does not exceed $2 \\cdot 10^5$. Sample Input 3 3 -1 -1 -1 3 1 -1 -1 1 -1 Sample Output Alice 1 3 Bob Alice 1 1",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

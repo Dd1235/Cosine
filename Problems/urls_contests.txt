@@ -140,3 +140,75 @@ https://codeforces.com/contest/2259/problem/E
 https://codeforces.com/contest/2259/problem/F
 https://codeforces.com/contest/2259/problem/G
 https://codeforces.com/contest/2259/problem/H
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/A
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/B
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/C
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/D
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/E
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/F
+
+# Codeforces / Contest 2260
+https://codeforces.com/contest/2260/problem/G
+
+# Codeforces / Contest 2132
+https://codeforces.com/contest/2132/problem/E
+
+# Codeforces / Contest 2093
+https://codeforces.com/contest/2093/problem/G
+
+# Codeforces / Contest 700
+https://codeforces.com/contest/700/problem/C
+
+# Codeforces / Contest 2006
+https://codeforces.com/contest/2006/problem/A
+
+# Codeforces / Contest 2018
+https://codeforces.com/contest/2018/problem/C
+
+# Codeforces / Contest 2041
+https://codeforces.com/contest/2041/problem/D
+
+# Codeforces / Contest 2044
+https://codeforces.com/contest/2044/problem/G2
+
+# ICPC India Prelims 2025–26
+https://codeforces.com/gym/106179/problem/A
+
+# ICPC India Prelims 2025–26
+https://codeforces.com/gym/106179/problem/B
+
+# ICPC India Prelims 2025–26
+https://codeforces.com/gym/106179/problem/C
+
+# ICPC India Prelims 2025–26
+https://codeforces.com/gym/106179/problem/D
+
+# IICPC Codefest
+https://www.codechef.com/problems/AMAT
+
+# IICPC Codefest
+https://www.codechef.com/problems/PRODUCTNEG
+
+# IICPC Codefest
+https://www.codechef.com/problems/MAKEZERO7
+
+# IICPC Codefest
+https://www.codechef.com/problems/EXPPROD2
+
+# IICPC Codefest
+https://www.codechef.com/problems/JUMP12
+
+# ICPC / World Finals 2024
+https://icpc.kattis.com/problems/billboards
