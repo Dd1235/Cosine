@@ -1,0 +1,8 @@
+{
+  "id": "cses-1653",
+  "title": "Elevator Rides",
+  "source_url": "https://cses.fi/problemset/task/1653",
+  "observed_at": "2026-09-11T06:53:19.827428+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n people who want to get to the top of a building which has only one elevator. You know the weight of each person and the maximum allowed weight in the elevator. What is the minimum number of elevator rides?\n\nInput\n\nThe first input line has two integers n and x: the number of people and the maximum allowed weight in the elevator.\n\nThe second line has n integers w_1,w_2,\\dots,w_n: the weight of each person.\n\nOutput\n\nPrint one integer: the minimum number of rides.\n\nConstraints\n\n\n1 \\le n \\le 20\n\n1 \\le x \\le 10^9\n\n1 \\le w_i \\le x\n\n\nExample\n\nInput:\n\n4 10\n4 8 6 1\n\n\nOutput:\n\n2",
+  "statement_sha256": "4baa7cfa028073613144f0782b7d39f3efd95fb9968688725d02e5db334492dd"
+}

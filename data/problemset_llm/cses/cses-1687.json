@@ -23,5 +23,18 @@
       "binary-lifting": 0.98,
       "ancestor-query": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1687",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "05672277306495c6ab91a006298c0ecc1ba30499bd3ced2bbf5968bc2a89fa3a",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

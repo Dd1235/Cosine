@@ -22,5 +22,18 @@
       "orientation-test": 0.98,
       "line-segment-intersection": 0.97
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2190",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "788826c9b5cce77c9be39048b78d4045cc5c125b87752ff8836aed78a07324c0",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

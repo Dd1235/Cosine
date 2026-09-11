@@ -1,0 +1,8 @@
+{
+  "id": "cses-3308",
+  "title": "Graph Coloring",
+  "source_url": "https://cses.fi/problemset/task/3308",
+  "observed_at": "2026-09-11T06:54:46.325449+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a simple graph with n nodes and m edges. Your task is to use the minimum possible number of colors to color each node such that no edge connects two nodes of the same color.\n\nInput\n\nThe first line has two integers n and m: the number of nodes and edges. The nodes are numbered 1, 2,\\dots, n.\n\nThen there are m lines describing the edges. Each line has two integers a and b: there is an edge connecting nodes a and b.\n\nOutput\n\nFirst, print an integer k: the minimum number of colors.\n\nAfter this, print n integers c_1, c_2,\\dots, c_n: the colors of the nodes. The colors should satisfy 1 \\le c_i \\le k.\n\nYou may print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 16\n\n0 \\le m \\le \\frac{n(n-1)}{2}\n\n\nExample\n\nInput:\n\n4 4\n1 2\n2 3\n3 4\n4 1\n\n\nOutput:\n\n2\n1 2 1 2",
+  "statement_sha256": "3d4c4deae189225766cc63e3a04ffe0d294f6fff0637b5908ed9d0dfce59057f"
+}

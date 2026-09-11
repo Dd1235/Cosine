@@ -23,5 +23,18 @@
       "dynamic-programming": 0.98,
       "rectangle-partitioning": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1744",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "717479a3476e57a1c6f4a3b97762aff8cbe394ea048f6d8f8c992c19617a162d",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

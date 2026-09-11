@@ -1,0 +1,8 @@
+{
+  "id": "cses-1628",
+  "title": "Meet in the Middle",
+  "source_url": "https://cses.fi/problemset/task/1628",
+  "observed_at": "2026-09-11T06:53:45.469676+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n numbers. In how many ways can you choose a subset of the numbers with sum x?\n\nInput\n\nThe first input line has two numbers n and x: the array size and the required sum.\n\nThe second line has n integers t_1,t_2,\\dots,t_n: the numbers in the array.\n\nOutput\n\nPrint the number of ways you can create the sum x.\n\nConstraints\n\n\n1 \\le n \\le 40\n\n1 \\le x \\le 10^9\n\n1 \\le t_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 5\n1 2 3 2\n\n\nOutput:\n\n3",
+  "statement_sha256": "5e25920e6a6aaa5f8f61a93c74d9d75d673f943a631bd9a85d58b5b69f61f3c6"
+}

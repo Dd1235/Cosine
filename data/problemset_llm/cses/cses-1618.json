@@ -23,5 +23,18 @@
       "factor-counting": 0.95,
       "division-based-counting": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1618",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "276ca521f0e12a5c217a667d9bbcc0a4cdd54d79966d8783211918616cb21973",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

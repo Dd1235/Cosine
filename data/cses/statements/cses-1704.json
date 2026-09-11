@@ -1,0 +1,8 @@
+{
+  "id": "cses-1704",
+  "title": "Network Renovation",
+  "source_url": "https://cses.fi/problemset/task/1704",
+  "observed_at": "2026-09-11T06:54:46.864402+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nSyrj\u00e4l\u00e4's network consists of n computers and n-1 connections between them. It is possible to send data between any two computers.\n\nHowever, if any connection breaks down, it will no longer be possible to send data between some computers. Your task is to add the minimum number of new connections in such a way that you can still send data between any two computers even if any single connection breaks down.\n\nInput\n\nThe first input line has an integer n: the number of computers. The computers are numbered 1,2,\\dots,n.\n\nAfter this, there are n-1 lines describing the connections. Each line has two integers a and b: there is a connection between computers a and b.\n\nOutput\n\nFirst print an integer k: the minimum number of new connections. After this, print k lines describing the connections. You can print any valid solution.\n\nConstraints\n\n\n3 \\le n \\le 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n2\n2 4\n4 5",
+  "statement_sha256": "9150ee2c99865070764eab229f67b60846d270672552cb8d9f2b4d424373e578"
+}

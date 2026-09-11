@@ -1,0 +1,8 @@
+{
+  "id": "cses-3219",
+  "title": "Sliding Window Mex",
+  "source_url": "https://cses.fi/problemset/task/3219",
+  "observed_at": "2026-09-11T06:53:50.402848+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the mex of each window of k elements, from left to right.\n\nThe mex is the smallest nonnegative integer that does not appear in the array. For example, the mex for [3,1,4,3,0,5] is 2.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the mex values.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n1 2 1 0 5 1 1 0\n\n\nOutput:\n\n0 3 2 2 0 2",
+  "statement_sha256": "52d5812ae971c8ce58faf5e707035166e8b0456e2d513f6b8ec61f6f26721b26"
+}

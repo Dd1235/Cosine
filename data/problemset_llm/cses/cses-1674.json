@@ -27,5 +27,18 @@
       "tree-dp": 0.95,
       "subtree-size": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1674",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "303ec243aad4aaf22a061ec534e665d5507136e408c259d25ba8151f439db89a",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

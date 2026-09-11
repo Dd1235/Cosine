@@ -1,0 +1,8 @@
+{
+  "id": "cses-1740",
+  "title": "Intersection Points",
+  "source_url": "https://cses.fi/problemset/task/1740",
+  "observed_at": "2026-09-11T06:53:44.421853+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n horizontal and vertical line segments, your task is to calculate the number of their intersection points.\n\nYou can assume that no parallel line segments intersect, and no endpoint of a line segment is an intersection point.\n\nInput\n\nThe first line has an integer n: the number of line segments.\n\nThen there are n lines describing the line segments. Each line has four integers: x_1, y_1, x_2 and y_2: a line segment begins at point (x_1,y_1) and ends at point (x_2,y_2).\n\nOutput\n\nPrint the number of intersection points.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n-10^6 \\le x_1 \\le x_2 \\le 10^6\n\n-10^6 \\le y_1 \\le y_2 \\le 10^6\n\n(x_1,y_1) \\neq (x_2,y_2)\n\n\nExample\n\nInput:\n\n3\n2 3 7 3\n3 1 3 5\n6 2 6 6\n\n\nOutput:\n\n2",
+  "statement_sha256": "a296c3eaf84a799aafac4ad3d97adcb0a730be35c3aef1c7621d3b128397b021"
+}

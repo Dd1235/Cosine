@@ -31,5 +31,18 @@
       "modular-arithmetic": 0.85,
       "prefix-sum": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3161",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "7c71ba4aae9cb81a4605202b695a53366f34377884659bf3aa5d2a06e27212b0",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

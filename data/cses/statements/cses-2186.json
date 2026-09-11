@@ -1,0 +1,8 @@
+{
+  "id": "cses-2186",
+  "title": "Special Substrings",
+  "source_url": "https://cses.fi/problemset/task/2186",
+  "observed_at": "2026-09-11T06:54:52.271645+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA substring is called special if every character that appears in the string appears the same number of times in the substring.\n\nYour task is to count the number of special substrings in a given string.\n\nInput\n\nThe only input line has a string of length n. Every character is between a...z.\n\nOutput\n\nPrint one integer: the number of special substrings.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\nabccabab\n\n\nOutput:\n\n5\n\n\nExplanation: The special substrings are abc, cab, abccab, bccaba and ccabab.",
+  "statement_sha256": "7b962bc7a7b0b597aa73c98a175f4ca8a47583658d195a06231987cbcebcfa14"
+}

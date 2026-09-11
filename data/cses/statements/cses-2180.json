@@ -1,0 +1,8 @@
+{
+  "id": "cses-2180",
+  "title": "Coin Arrangement",
+  "source_url": "https://cses.fi/problemset/task/2180",
+  "observed_at": "2026-09-11T06:54:57.869363+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a 2 \\times n grid whose each cell contains some number of coins. The total number of coins is 2n.\n\nYour task is to arrange the coins so that each cell contains exactly one coin. On each move you can choose any coin and move it one step left, right, up or down.\n\nWhat is the minimum number of moves if you act optimally?\n\nInput\n\nThe first input line has an integer n: the width of the grid.\n\nAfter this, there are two lines that describe the grid. Each line has n integers: the number of coins in each cell.\n\nOutput\n\nPrint one integer: the minimum number of moves.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\n4\n0 1 0 1\n2 0 1 3\n\n\nOutput:\n\n5",
+  "statement_sha256": "28712dad51dbdaff0c19ab7f0c92ae480d75582492e91afb88cb68dc2b1b4add"
+}

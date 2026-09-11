@@ -1,0 +1,8 @@
+{
+  "id": "cses-1706",
+  "title": "School Excursion",
+  "source_url": "https://cses.fi/problemset/task/1706",
+  "observed_at": "2026-09-11T06:54:56.795166+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA group of n children are coming to Helsinki. There are two possible attractions: a child can visit either Korkeasaari (zoo) or Linnanm\u00e4ki (amusement park).\n\nThere are m pairs of children who want to visit the same attraction. Your task is to find all possible alternatives for the number of children that will visit Korkeasaari. The children's wishes have to be taken into account.\n\nInput\n\nThe first input line has two integers n and m: the number of children and their wishes. The children are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the children's wishes. Each line has two integers a and b: children a and b want to visit the same attraction.\n\nOutput\n\nPrint a bit string of length n where a one-bit at index i indicates that it is possible that exactly i children visit Korkeasaari (the bit string is to be considered one-indexed).\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n0 \\le m \\le 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n1 2\n2 3\n1 5\n\n\nOutput:\n\n10011\n\n\nExplanation: The number of children visiting Korkeasaari can be 1, 4 or 5.",
+  "statement_sha256": "0275efaafb8a6c89d9a3b805856af08b54adb41492c9fe719ab503227da635ee"
+}

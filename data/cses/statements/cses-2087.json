@@ -1,0 +1,8 @@
+{
+  "id": "cses-2087",
+  "title": "Houses and Schools",
+  "source_url": "https://cses.fi/problemset/task/2087",
+  "observed_at": "2026-09-11T06:53:48.090413+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n houses on a street, numbered 1,2,\\dots,n. The distance of houses a and b is |a-b|. You know the number of children in each house.\n\nYour task is to establish k schools in such a way that each school is in some house. Then, each child goes to the nearest school. What is the minimum total walking distance of the children if you act optimally?\n\nInput\n\nThe first input line has two integers n and k: the number of houses and the number of schools. The houses are numbered 1,2\\dots,n.\n\nAfter this, there are n integers c_1,c_2,\\dots,c_n: the number of children in each house.\n\nOutput\n\nPrint the minimum total distance.\n\nConstraints\n\n\n1 \\le k \\le n \\le 3000\n\n1 \\le c_i \\le 10^9\n\n\nExample\n\nInput:\n\n6 2\n2 7 1 4 6 4\n\n\nOutput:\n\n11\n\n\nExplanation: Houses 2 and 5 will have schools.",
+  "statement_sha256": "20b50be9b9323b692fea4a3febf9479bfadb802ee1a733f56ff75c701c21d644"
+}

@@ -26,5 +26,18 @@
       "suffix-automaton": 0.9,
       "string-hashing": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2105",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "97590ae8fdf2a421d2cfe4b060d4c3e5bfbdc152f883190a3e96386dd825c489",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

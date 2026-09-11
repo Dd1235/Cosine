@@ -27,5 +27,24 @@
       "two-pointers": 0.7,
       "prefix-sum": 0.75
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3109",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_b.json"
+    ],
+    "statement_sha256": "4a91d742a79dc419b297309eb18d75e9f5094b18ea64e81ed9fed851259a8200",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_b.json"
+    }
   }
 }

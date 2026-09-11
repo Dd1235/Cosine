@@ -26,5 +26,18 @@
       "hash-map": 0.95,
       "coordinate-tracking": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1742",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "231fd194e59d9b1bace1606295ad3d2a7b3cda17f81dc0ff0f66bb6232300487",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

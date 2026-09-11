@@ -1,0 +1,8 @@
+{
+  "id": "cses-2110",
+  "title": "Substring Distribution",
+  "source_url": "https://cses.fi/problemset/task/2110",
+  "observed_at": "2026-09-11T06:53:42.849009+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string of length n. For every integer between 1 \\ldots n you need to print the number of distinct substrings of that length.\n\nInput\n\nThe only input line has a string of length n that consists of characters a\u2013z.\n\nOutput\n\nFor each integer between 1 \\ldots n print the number of distinct substrings of that length.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\nabab\n\n\nOutput:\n\n2 2 2 1",
+  "statement_sha256": "f8b14bf277cc924555ca8a4fd4e1ca5ee067020471d7f788d9d9bf07eef3b9fa"
+}

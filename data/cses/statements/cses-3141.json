@@ -1,0 +1,8 @@
+{
+  "id": "cses-3141",
+  "title": "And Subset Count",
+  "source_url": "https://cses.fi/problemset/task/3141",
+  "observed_at": "2026-09-11T06:54:41.078882+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the number of non-empty subsets whose elements' bitwise and is equal to k for each k = 0, 1,\\dots, n.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers a_1, a_2,\\dots, a_n: the contents of the array.\n\nOutput\n\nPrint n + 1 integers as specified above modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a_i \\le n\n\n\nExample\n\nInput:\n\n4\n3 1 3 4\n\n\nOutput:\n\n7 4 0 3 1",
+  "statement_sha256": "82847a982d824b4afe4f1b4e9544e69849259ffe1753dcb24e4cde18c583def3"
+}

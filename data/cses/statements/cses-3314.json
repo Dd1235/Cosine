@@ -1,0 +1,8 @@
+{
+  "id": "cses-3314",
+  "title": "Mountain Range",
+  "source_url": "https://cses.fi/problemset/task/3314",
+  "observed_at": "2026-09-11T06:53:19.281305+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n mountains in a row, each with a specific height. You begin your hang gliding route from some mountain.\n\nYou can glide from mountain a to mountain b if mountain a is taller than mountain b and all mountains between a and b.\n\nWhat is the maximum number of mountains you can visit on your route?\n\nInput\n\nThe first line has an integer n: the number of mountains.\n\nThe next line has n integers h_1, h_2,\\dots, h_n: the heights of the mountains.\n\nOutput:\n\nPrint one integer: the maximum number of mountains.\n\nConstraints\n\n\n1\\le n \\le 2 \\cdot 10^5\n\n1\\le h_i \\le 10^9\n\n\nExample\n\nInput:\n\n10\n20 15 17 35 25 40 12 19 13 12\n\n\nOutput:\n\n5",
+  "statement_sha256": "62e4d4e570f5266b0671efaf75e8946aedde60bd73e096bfd7619ea7d95d0371"
+}

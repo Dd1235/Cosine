@@ -23,5 +23,18 @@
       "union-find": 0.99,
       "incremental-connectivity": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1676",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5845777d7cd66ffc54fdf6d549f6954232f59dbaf7f4dc3ecd7decd091ec4402",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

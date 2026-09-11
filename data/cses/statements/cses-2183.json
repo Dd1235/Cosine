@@ -1,0 +1,8 @@
+{
+  "id": "cses-2183",
+  "title": "Missing Coin Sum",
+  "source_url": "https://cses.fi/problemset/task/2183",
+  "observed_at": "2026-09-11T06:53:13.008481+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins with positive integer values. What is the smallest sum you cannot create using a subset of the coins?\n\nInput\n\nThe first line has an integer n: the number of coins.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the value of each coin.\n\nOutput\n\nPrint one integer: the smallest coin sum.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 9 1 2 7\n\n\nOutput:\n\n6",
+  "statement_sha256": "54da1b7151b9ff48a3826ccd20876f07a8c9cbdbd4acc48019a5c003c554ec06"
+}

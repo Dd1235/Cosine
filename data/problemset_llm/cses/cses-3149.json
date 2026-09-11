@@ -29,5 +29,24 @@
       "distance-queries": 0.88,
       "steiner-tree": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3149",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_b.json"
+    ],
+    "statement_sha256": "da5d7ad0df0659ab20c7033d3de73f7203b86d2222f08ce9543ef80f5076819b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_b.json"
+    }
   }
 }

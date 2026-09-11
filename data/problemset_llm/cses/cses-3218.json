@@ -26,5 +26,24 @@
       "shortest-path": 0.9,
       "infinite-grid": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3218",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_b.json"
+    ],
+    "statement_sha256": "f06abdb2b4503e738c04914cf02d9751903b47692d5a08540fc6822cfef9dbed",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 4,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_b.json"
+    }
   }
 }

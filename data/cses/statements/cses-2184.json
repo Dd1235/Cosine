@@ -1,0 +1,8 @@
+{
+  "id": "cses-2184",
+  "title": "Missing Coin Sum Queries",
+  "source_url": "https://cses.fi/problemset/task/2184",
+  "observed_at": "2026-09-11T06:53:29.967220+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins with positive integer values. The coins are numbered 1,2,\\dots,n.\n\nYour task is to process q queries of the form: \"if you can use coins a \\dots b, what is the smallest sum you cannot produce?\"\n\nInput\n\nThe first input line has two integers n and q: the number of coins and queries.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the value of each coin.\n\nFinally, there are q lines that describe the queries. Each line has two values a and b: you can use coins a \\dots b.\n\nOutput\n\nPrint the answer for each query.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 3\n2 9 1 2 7\n2 4\n4 4\n1 5\n\n\nOutput:\n\n4\n1\n6\n\n\nExplanation: First you can use coins [9,1,2], then coins [2] and finally coins [2,9,1,2,7].",
+  "statement_sha256": "f37b6f342dd6a6c87affe47a6aec2f576f7ef934e65f1109cd21585ea1c2373f"
+}

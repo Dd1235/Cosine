@@ -25,5 +25,18 @@
       "trie": 0.85,
       "prefix-xor": 0.8
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3192",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f4fce9fb36acf289b9fe8c1d466911418f345570db23d15919ba4d46bcff1493",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1672",
+  "title": "Shortest Routes II",
+  "source_url": "https://cses.fi/problemset/task/1672",
+  "observed_at": "2026-09-11T06:53:21.877213+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads between them. Your task is to process q queries where you have to determine the length of the shortest route between two given cities.\n\nInput\n\nThe first input line has three integers n, m and q: the number of cities, roads, and queries.\n\nThen, there are m lines describing the roads. Each line has three integers a, b and c: there is a road between cities a and b whose length is c. All roads are two-way roads.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b: determine the length of the shortest route between cities a and b.\n\nOutput\n\nPrint the length of the shortest route for each query. If there is no route, print -1 instead.\n\nConstraints\n\n\n1 \\le n \\le 500\n\n1 \\le m \\le n^2\n\n1 \\le q \\le 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n4 3 5\n1 2 5\n1 3 9\n2 3 3\n1 2\n2 1\n1 3\n1 4\n3 2\n\n\nOutput:\n\n5\n5\n8\n-1\n3",
+  "statement_sha256": "990a4ead326e61ec22a6fe380b46d5c949cc3c432d959373c89895f59a683773"
+}

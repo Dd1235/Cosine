@@ -1,0 +1,8 @@
+{
+  "id": "cses-2169",
+  "title": "Nested Ranges Count",
+  "source_url": "https://cses.fi/problemset/task/2169",
+  "observed_at": "2026-09-11T06:53:14.048408+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n ranges, your task is to count for each range how many other ranges it contains and how many other ranges contain it.\n\nRange [a,b] contains range [c,d] if a \\le c and d \\le b.\n\nInput\n\nThe first input line has an integer n: the number of ranges.\n\nAfter this, there are n lines that describe the ranges. Each line has two integers x and y: the range is [x,y].\n\nYou may assume that no range appears more than once in the input.\n\nOutput\n\nFirst print a line that describes for each range (in the input order) how many other ranges it contains.\n\nThen print a line that describes for each range (in the input order) how many other ranges contain it.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x < y \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 6\n2 4\n4 8\n3 6\n\n\nOutput:\n\n2 0 0 0\n0 1 0 1",
+  "statement_sha256": "7ee8c8112e2e68a4becf2617614cdb15538923ddd7f9b7e25117a551dd5f8c4c"
+}

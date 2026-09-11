@@ -1,0 +1,8 @@
+{
+  "id": "cses-1629",
+  "title": "Movie Festival",
+  "source_url": "https://cses.fi/problemset/task/1629",
+  "observed_at": "2026-09-11T06:53:12.443293+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nIn a movie festival n movies will be shown. You know the starting and ending time of each movie. What is the maximum number of movies you can watch entirely?\n\nInput\n\nThe first input line has an integer n: the number of movies.\n\nAfter this, there are n lines that describe the movies. Each line has two integers a and b: the starting and ending times of a movie.\n\nOutput\n\nPrint one integer: the maximum number of movies.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a < b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 5\n4 9\n5 8\n\n\nOutput:\n\n2",
+  "statement_sha256": "18e8d05381a208c7cc2332e2f67224c3706e87f2c1aeb71a9f24c5d1b8c8c8c3"
+}

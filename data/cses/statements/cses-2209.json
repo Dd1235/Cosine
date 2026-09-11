@@ -1,0 +1,8 @@
+{
+  "id": "cses-2209",
+  "title": "Counting Necklaces",
+  "source_url": "https://cses.fi/problemset/task/2209",
+  "observed_at": "2026-09-11T06:53:36.032778+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of different necklaces that consist of n pearls and each pearl has m possible colors.\n\nTwo necklaces are considered to be different if it is not possible to rotate one of them so that they look the same.\n\nInput\n\nThe only input line has two numbers n and m: the number of pearls and colors.\n\nOutput\n\nPrint one integer: the number of different necklaces modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n,m \\le 10^6\n\n\nExample\n\nInput:\n\n4 3\n\n\nOutput:\n\n24",
+  "statement_sha256": "6343adaf78a1a2d2b7bb445dcd8b55c5b51ced690f32095e84eba9122003974f"
+}

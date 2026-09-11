@@ -29,5 +29,18 @@
       "counting": 0.9,
       "permutation-counting": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3400",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "fa16398fd8a92e219b511aaf8ce5b367d563bb19c9be0ffc4836abd3a052d9da",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

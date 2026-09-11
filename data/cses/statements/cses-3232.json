@@ -1,0 +1,8 @@
+{
+  "id": "cses-3232",
+  "title": "Tournament Graph Distribution",
+  "source_url": "https://cses.fi/problemset/task/3232",
+  "observed_at": "2026-09-11T06:54:49.981814+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA tournament graph is a directed graph where a single directed edge exists between every pair of nodes.\n\nGiven n, your task is to calculate for each k = 1 \\dots n the number of tournament graphs that have n nodes and k strongly connected components.\n\nInput\n\nThe only line has an integer n: the number of nodes.\n\nOutput\n\nPrint n lines: for each k=1 \\dots n the number of graphs modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 500\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n2\n0\n6",
+  "statement_sha256": "5501ff8bc4562721e52ac3b188053d802dcd94e2120cec1aa002b51f2991914a"
+}

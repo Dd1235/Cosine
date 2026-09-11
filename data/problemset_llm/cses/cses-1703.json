@@ -26,5 +26,18 @@
       "strongly-connected-components": 0.9,
       "dominator-tree": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1703",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "cd35effaaadbe1a8a34c686d2490747232c9e614d4704ab0c88a513cc23f7193",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

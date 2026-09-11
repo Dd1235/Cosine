@@ -1,0 +1,8 @@
+{
+  "id": "cses-3114",
+  "title": "Tree Coin Collecting I",
+  "source_url": "https://cses.fi/problemset/task/3114",
+  "observed_at": "2026-09-11T06:54:45.300656+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree with n nodes. Some nodes contain a coin.\n\nYour task is to answer q queries of the form: what is the shortest length of a path from node a to node b that visits a node with a coin?\n\nInput\n\nThe first line contains two integers n and q: the number of nodes and queries. The nodes are numbered 1, 2, \\dots, n.\n\nThe second line contains n integers c_1, c_2,\\dots, c_n. If c_i = 1, node i has a coin. If c_i = 0, node i doesn't have a coin. You can assume at least one node has a coin.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nFinally, there are q lines describing the queries. Each line contains two integers a and b: the start and end nodes.\n\nOutput\n\nPrint q integers: the answers to the queries.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le a, b \\le n\n\n\nExample\n\nInput:\n\n5 4\n1 0 0 1 0\n2 4\n2 3\n1 3\n3 5\n1 5\n3 2\n4 4\n5 5\n\n\nOutput:\n\n2\n3\n0\n4",
+  "statement_sha256": "db43326805f6512efee717e51483c07eec3ee395d5f944851c6d722a02e927b7"
+}

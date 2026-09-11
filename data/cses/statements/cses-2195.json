@@ -1,0 +1,8 @@
+{
+  "id": "cses-2195",
+  "title": "Convex Hull",
+  "source_url": "https://cses.fi/problemset/task/2195",
+  "observed_at": "2026-09-11T06:53:43.956382+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a set of n points in the two-dimensional plane, your task is to determine the convex hull of the points.\n\nInput\n\nThe first input line has an integer n: the number of points.\n\nAfter this, there are n lines that describe the points. Each line has two integers x and y: the coordinates of a point.\n\nYou may assume that each point is distinct, and the area of the hull is positive.\n\nOutput\n\nFirst print an integer k: the number of points in the convex hull.\n\nAfter this, print k lines that describe the points. You can print the points in any order. Print all points that lie on the convex hull.\n\nConstraints\n\n\n3 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le x, y \\le 10^9\n\n\nExample\n\nInput:\n\n6\n2 1\n2 5\n3 3\n4 3\n4 4\n6 3\n\n\nOutput:\n\n4\n2 1\n2 5\n4 4\n6 3",
+  "statement_sha256": "0b10c0dff2cb51a1e873fa17d75f09b8046736617bf895f6be6ed691d6ac092c"
+}

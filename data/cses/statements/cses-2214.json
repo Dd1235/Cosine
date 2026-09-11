@@ -1,0 +1,8 @@
+{
+  "id": "cses-2214",
+  "title": "Inverse Inversions",
+  "source_url": "https://cses.fi/problemset/task/2214",
+  "observed_at": "2026-09-11T06:54:41.568005+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to create a permutation of numbers 1,2,\\dots,n that has exactly k inversions.\n\nAn inversion is a pair (a,b) where a<b and p_a>p_b where p_i denotes the number at position i in the permutation.\n\nInput\n\nThe only input line has two integers n and k.\n\nOutput\n\nPrint a line that contains the permutation. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n0 \\le k \\le \\frac{n(n-1)}{2}\n\n\nExample\n\nInput:\n\n5 4\n\n\nOutput:\n\n1 5 2 4 3",
+  "statement_sha256": "7e4e1696de2cddb8851f4e39eb20f1da558bccfa1148eb839b7a237cb66f422a"
+}

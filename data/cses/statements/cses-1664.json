@@ -1,0 +1,8 @@
+{
+  "id": "cses-1664",
+  "title": "Movie Festival Queries",
+  "source_url": "https://cses.fi/problemset/task/1664",
+  "observed_at": "2026-09-11T06:53:29.267462+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nIn a movie festival, n movies will be shown. You know the starting and ending time of each movie.\n\nYour task is to process q queries of the form: if you arrive and leave the festival at specific times, what is the maximum number of movies you can watch?\n\nYou can watch two movies if the first movie ends before or exactly when the second movie starts. You can start the first movie exactly when you arrive and leave exactly when the last movie ends.\n\nInput\n\nThe first input line has two integers n and q: the number of movies and queries.\n\nAfter this, there are n lines describing the movies. Each line has two integers a and b: the starting and ending time of a movie.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b: your arrival and leaving time.\n\nOutput\n\nPrint the maximum number of movies for each query.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le a < b \\le 10^6\n\n\nExample\n\nInput:\n\n4 3\n2 5\n6 10\n4 7\n9 10\n5 9\n2 10\n7 10\n\n\nOutput:\n\n0\n2\n1",
+  "statement_sha256": "42a6dbc43dfc2d18e5e104d524483bdb100febed5db2531d18d5e5c1783a3bbb"
+}

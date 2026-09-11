@@ -1,0 +1,8 @@
+{
+  "id": "cses-3190",
+  "title": "Distinct Values Splits",
+  "source_url": "https://cses.fi/problemset/task/3190",
+  "observed_at": "2026-09-11T06:54:51.007006+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to count the number of ways to split the array into continuous segments such that all segments consists of distinct values.\n\nInput\n\nThe first line has an integers n: the size of the array.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the answer to the problem modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 2 1 3\n\n\nOutput:\n\n6\n\n\nExplanation: There are six valid splits:\n\n\n[1], [2], [1], [3]\n\n[1], [2], [1, 3]\n\n[1], [2, 1], [3]\n\n[1], [2, 1, 3]\n\n[1, 2], [1], [3]\n\n[1, 2], [1, 3]",
+  "statement_sha256": "d8d11a5c58395255e11b33d202416d67db1fb6743b1e9d7cdb4d6d36618805a7"
+}

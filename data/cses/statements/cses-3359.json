@@ -1,0 +1,8 @@
+{
+  "id": "cses-3359",
+  "title": "Minimal Grid Path",
+  "source_url": "https://cses.fi/problemset/task/3359",
+  "observed_at": "2026-09-11T06:53:18.759825+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an n \\times n grid whose each square contains a letter.\n\nYou should move from the upper-left square to the lower-right square. You can only move right or down.\n\nWhat is the lexicographically minimal string you can construct?\n\nInput\n\nThe first line has an integer n: the size of the grid.\n\nAfter this, there are n lines that describe the grid. Each line has n letters between A and Z.\n\nOutput\n\nPrint the lexicographically minimal string.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n\nExample\n\nInput:\n\n4\nAACA\nBABC\nABDA\nAACA\n\n\nOutput:\n\nAAABACA",
+  "statement_sha256": "0216e35f85e47631ced5f9a94a49373e4c726bd21bfde85c2c32376b383bb210"
+}

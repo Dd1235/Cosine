@@ -1,0 +1,8 @@
+{
+  "id": "cses-1091",
+  "title": "Concert Tickets",
+  "source_url": "https://cses.fi/problemset/task/1091",
+  "observed_at": "2026-09-11T06:53:11.622147+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n concert tickets available, each with a certain price. Then, m customers arrive, one after another.\n\nEach customer announces the maximum price they are willing to pay for a ticket, and after this, they will get a ticket with the nearest possible price such that it does not exceed the maximum price.\n\nInput\n\nThe first input line contains integers n and m: the number of tickets and the number of customers.\n\nThe next line contains n integers h_1,h_2,\\ldots,h_n: the price of each ticket.\n\nThe last line contains m integers t_1,t_2,\\ldots,t_m: the maximum price for each customer in the order they arrive.\n\nOutput\n\nPrint, for each customer, the price that they will pay for their ticket. After this, the ticket cannot be purchased again.\n\nIf a customer cannot get any ticket, print -1.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le h_i, t_i \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n5 3 7 8 5\n4 8 3\n\n\nOutput:\n\n3\n8\n-1",
+  "statement_sha256": "935310d626df0d91a29026abb2fc81289f30c1b5966dcb6242ef71c455a30033"
+}

@@ -27,5 +27,18 @@
       "modular-exponentiation": 0.7,
       "lucas-theorem": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3195",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "a3f4cf567511f6c521caf5cc30b8f0e9581be75b9a73b484ce4e501f8730174d",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

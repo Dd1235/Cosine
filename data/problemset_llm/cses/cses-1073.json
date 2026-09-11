@@ -26,5 +26,18 @@
       "binary-search": 0.95,
       "patience-sorting": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1073",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "ad164f852f191a2e646eabdd2cf0dadf01b05450adf908606a2d693dd70a39d2",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -26,5 +26,18 @@
       "lca": 0.94,
       "dfs": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1135",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "349f8fefca501ed912dfc9fe1e853a28c6ccf74df8d5e473c14161b026dcb3bd",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

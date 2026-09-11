@@ -1,0 +1,553 @@
+{
+  "reviewer": "independent_evaluator_c",
+  "method": "Blind assessment from the complete statement and constraints in data/cses/blinded_pilot_inputs.json only. No assessor judgments, statistics, proposed scores, corpus labels, external statements or editorials consulted. Bands are algorithmic prerequisites/insight/composition/implementation judgments, not solve-rate estimates. Unresolved=true marks a missing complete proof/construction or material unverified runtime issue; such records are provisional and are not claimed as definitive ground truth.",
+  "rubric": {
+    "1": "Foundation: direct simulation/basic observation",
+    "2": "Standard: one standard technique",
+    "3": "Intermediate: nontrivial insight or combination",
+    "4": "Advanced: specialized technique or substantial composition",
+    "5": "Expert: demanding optimization/proof/implementation"
+  },
+  "judgments": [
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1068",
+      "band": 1,
+      "rationale": "Directly simulate the stated even/odd operation, outputting every state; use 64-bit values because intermediates can exceed the input bound. No algorithmic reduction required.",
+      "complexity": "O(L) time for L emitted values; O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1070",
+      "band": 1,
+      "rationale": "For n>=4 output evens followed by odds; within groups gaps are two and the boundary is safe. Handle n=1 and impossible n=2,3 separately. A small constructive observation.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1095",
+      "band": 2,
+      "rationale": "Binary modular exponentiation handles 200000 exponents up to 10^9; initialize the accumulator to one, covering exponent zero including 0^0. One standard algorithm.",
+      "complexity": "O(t log B) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1133",
+      "band": 3,
+      "rationale": "Compute subtree sizes and one root distance sum, then reroot across parent-child edges using ans[child]=ans[parent]+n-2*size[child]. Requires a tree DP invariant and two traversals for n=200000.",
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1160",
+      "band": 3,
+      "rationale": "Decompose the functional graph into cycles and incoming trees. Record cycle component, entry, cycle index and depth; binary lifting checks tree ancestors and reaches cycle entries. Distinguish tree destinations, cycle destinations and disconnected components.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1194",
+      "band": 3,
+      "rationale": "First multi-source BFS computes earliest monster arrival. A second BFS for the player only enters cells strictly earlier than monsters and records parents for an escape path. The adversarial timing reduction and reconstruction combine standard graph techniques.",
+      "complexity": "O(nm) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1625",
+      "band": 4,
+      "rationale": "Backtrack self-avoiding paths with fixed directions, reject premature arrival at the destination, and prune states where blocked opposite neighbors and open other neighbors split the remaining grid. The 48-step all-wildcard case makes effective geometric pruning essential; no polynomial worst-case bound is claimed.",
+      "complexity": "Exponential search, loose O(3^48) bound; O(49) search state. Practical feasibility depends on pruning.",
+      "confidence": "medium",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1632",
+      "band": 3,
+      "rationale": "Sort movies by finishing time and assign each accepted movie to the member with latest finishing time at most its start, using a multiset. The exchange argument for this choice is the extra step beyond single-person scheduling.",
+      "complexity": "O(n log n) time, O(k+n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1644",
+      "band": 3,
+      "rationale": "For right endpoint r maximize prefix[r] minus the minimum prefix among indices r-b through r-a. Maintain this moving minimum with a deque; negative values rule out a positive-only two-pointer argument.",
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1646",
+      "band": 2,
+      "rationale": "Build 64-bit prefix sums; each inclusive query is prefix[b]-prefix[a-1]. A direct standard prefix-sum application at n,q<=200000.",
+      "complexity": "O(n+q) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1673",
+      "band": 3,
+      "rationale": "Use longest-path Bellman-Ford from node 1 and detect relaxations on iteration n that can reach n; reverse reachability prevents unrelated positive cycles from producing false unbounded answers. n*m<=12.5 million permits this.",
+      "complexity": "O(nm) time, O(n+m) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1684",
+      "band": 3,
+      "rationale": "Translate each pair of wishes into a 2-SAT clause, build the implication graph, find SCCs, reject a variable sharing its component with its negation and assign in SCC order. Specialized prerequisite but otherwise a direct 2-SAT application.",
+      "complexity": "O(n+m) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1685",
+      "band": 5,
+      "rationale": "SCC condensation reduces the optimal count to max(number of sources,number of sinks), except an already strongly connected graph. Producing a minimum-size augmentation requires a carefully ordered reachable source-sink pairing; arbitrary source/sink cycling is invalid. I have not completed a proved near-linear construction for the 100000-node bound, so this is a provisional difficulty judgment.",
+      "complexity": "SCC stage O(n+m); full constructive complexity unresolved",
+      "confidence": "low",
+      "unresolved": true
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1692",
+      "band": 3,
+      "rationale": "Use (n-1)-bit strings as vertices and n-bit strings as edges, then print an Euler tour with the initial prefix. The 2^n+n-1 length meets the substring-count lower bound. Requires the non-obvious Eulerian graph reduction.",
+      "complexity": "O(2^n+n) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1705",
+      "band": 4,
+      "rationale": "Build vertex-biconnected components and their block-cut tree. A forbidden articulation disconnects a and b exactly when its node lies on their block-cut-tree path; LCA distances answer this, with explicit a=c or b=c handling.",
+      "complexity": "O((n+m) log(n+m)+q log(n+m)) time and O((n+m) log(n+m)) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1711",
+      "band": 4,
+      "rationale": "Give every teleporter unit capacity, compute max flow, then decompose positive integral flow into source-sink paths, avoiding stray flow cycles. The output requirement adds nontrivial reconstruction to the max-flow reduction; m<=1000 permits augmenting-path flow.",
+      "complexity": "O(mF) flow plus O(mF) extraction, F<=m; O(n+m) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1732",
+      "band": 2,
+      "rationale": "Compute the prefix function or Z array and report proper prefix lengths matching the suffix. This is a direct application of a standard linear string-matching primitive at length one million.",
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1741",
+      "band": 4,
+      "rationale": "Sweep vertical rectangle edges and maintain the covered y-length in a coordinate-compressed segment tree using coverage counts and child lengths. Multiply covered length by each x gap. Overlaps and elementary interval lengths make this more than a basic range-sum tree.",
+      "complexity": "O(n log n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1748",
+      "band": 3,
+      "rationale": "Compress values and process left to right, setting ways[i]=1+sum of earlier ways at strictly smaller values. A Fenwick tree stores modular sums; equal values must not enter the query.",
+      "complexity": "O(n log n) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2081",
+      "band": 4,
+      "rationale": "Centroid-decompose the tree. For each centroid count pairs of depths whose sums are in the target interval, subtracting pairs inside each child subtree. Depth-frequency prefix sums allow each decomposition level to be processed linearly, giving a scalable alternative to quadratic pair counting.",
+      "complexity": "O(n log n) time with linear depth-frequency pair counting per component; O(n) auxiliary space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2087",
+      "band": 4,
+      "rationale": "Each school serves a contiguous interval optimally at its weighted median. Precompute interval weighted-median costs in O(n^2) using monotone median pointers and prefix moments, then partition into k intervals using divide-and-conquer DP optimization from the Monge cost. This requires both the median reduction and optimization proof.",
+      "complexity": "O(n^2+k n log n) time, O(n^2+n) space; implementation constants matter at n=3000",
+      "confidence": "medium",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2109",
+      "band": 4,
+      "rationale": "Build a suffix automaton, propagate occurrence counts through suffix links, and DP total substring multiplicity reachable along transitions. Walk transitions in alphabet order, subtracting whole multiplicity blocks; at each state its occurrence count accounts for copies of the current string.",
+      "complexity": "O(26n) time and space using fixed alphabet transitions",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2133",
+      "band": 4,
+      "rationale": "Convert every edge lifetime into an interval of event times. Put intervals in a segment tree over time and traverse it with rollback union-find while reporting component counts at leaves. Deletions require the offline transformation and reversible data structure.",
+      "complexity": "O((m+k) log k log n) time with rollback DSU; O(n+(m+k) log k) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2134",
+      "band": 4,
+      "rationale": "Heavy-light decomposition maps each path to logarithmically many array segments; a max segment tree supports point changes and segment queries. Substantial composition and tree indexing for n,q<=200000.",
+      "complexity": "O(n+q log^2 n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2138",
+      "band": 3,
+      "rationale": "Process the DAG in reverse topological order, unioning successor reachability bitsets and including each vertex itself. Scalar counts double-count overlaps, while bit parallelism makes 50000-bit sets feasible within 512 MB.",
+      "complexity": "O((n+m) ceil(n/64)) word operations; O(n^2/8) bytes, about 313 MB at maximum n",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2169",
+      "band": 3,
+      "rationale": "Sort intervals by left endpoint increasing and right endpoint decreasing, then make two Fenwick sweeps on compressed right endpoints to count containing and contained intervals. The tie ordering is essential; duplicate intervals are excluded by the statement.",
+      "complexity": "O(n log n) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2181",
+      "band": 3,
+      "rationale": "Profile DP across columns tracks which of the at most ten cells are occupied by horizontal dominoes. Generate valid next masks by filling uncovered cells vertically or horizontally and reuse transitions across 1000 columns.",
+      "complexity": "O(m*3^n) conservative time bound, O(3^n+2^n) precomputed-transition space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2183",
+      "band": 2,
+      "rationale": "After sorting, maintain that every sum in [0,S] is achievable. A coin above S+1 exposes the first gap; otherwise extend S by the coin. The short greedy coverage invariant is the main observation.",
+      "complexity": "O(n log n) time, O(n) storage",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2184",
+      "band": 4,
+      "rationale": "Build persistent value-segment trees over array prefixes storing coin sums. For each range repeatedly set S to the sum of coins at most S+1 until it stops changing; then S+1 is the missing sum. Positive values force geometric progress over successive expansions, but nested logarithms and persistent-memory constants require care at 200000 queries.",
+      "complexity": "O(n log A+q log Smax log A) time, O(n log A) space, A<=10^9",
+      "confidence": "medium",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2189",
+      "band": 2,
+      "rationale": "Evaluate the sign of the cross product of p2-p1 and p3-p1 using wide integer arithmetic. A direct orientation primitive without a larger geometry algorithm.",
+      "complexity": "O(t) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2217",
+      "band": 3,
+      "rationale": "The round count is one plus the number of inversions between positions of consecutive values. Swapping x and y changes only pairs indexed by x-1,x,y-1,y; deduplicate these before subtracting and restoring contributions.",
+      "complexity": "O(n+m) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2220",
+      "band": 3,
+      "rationale": "Digit DP counts values up to a bound using position, last digit, tightness and a not-started state. Subtract counts up to a-1; zero and leading zeroes need explicit treatment for bounds up to 10^18.",
+      "complexity": "O(D*10^2) time, O(D*10) space for D<=19",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2413",
+      "band": 3,
+      "rationale": "Track two width-two frontier types: the top row joined into one block or split into two. Enumerating extension choices gives joined_next=2*joined+split and split_next=joined+4*split, both initialized to one. Deriving the small state space is the key insight.",
+      "complexity": "O(max n+t) time, O(max n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2418",
+      "band": 5,
+      "rationale": "This asks for Hamiltonian paths with arbitrary fixed endpoints in rectangles up to 50 by 50. Bipartite parity is necessary but insufficient in narrow grids; a full solution needs exceptional-case classification plus a robust decomposition/construction. I have not derived a complete algorithm and do not treat backtracking as feasible.",
+      "complexity": "Full worst-case feasible construction unresolved",
+      "confidence": "low",
+      "unresolved": true
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2423",
+      "band": 5,
+      "rationale": "Area divisible by three is necessary and 2-by-3 blocks solve many even-side cases, but odd-side rectangles and impossible narrow cases require additional proved templates or a classification. I have not derived complete coverage for all dimensions up to 100; output also needs coloring distinct neighboring trominos. Provisional expert band due to unresolved construction.",
+      "complexity": "O(nm) possible once a complete finite-template decomposition is proved; that decomposition is unresolved",
+      "confidence": "low",
+      "unresolved": true
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2429",
+      "band": 5,
+      "rationale": "A and B form two permutation matchings that must be disjoint and extend the fixed placements. Counting one matching and multiplying factorials is invalid because available choices for the other depend on collisions. Inclusion-exclusion/rook counting appears relevant, but I have not derived an efficient complete counting recurrence at n=500.",
+      "complexity": "Feasible complete counting algorithm unresolved",
+      "confidence": "low",
+      "unresolved": true
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3112",
+      "band": 2,
+      "rationale": "Maintain an inclusive interval for the hidden integer and ask whether its midpoint is smaller than x. Binary search takes ceil(log2(10^9))=30 questions; flush output and stop after reporting the singleton.",
+      "complexity": "O(log 10^9) queries, O(1) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3138",
+      "band": 4,
+      "rationale": "An online palindromic tree maintains the longest palindromic suffix after each character, whose length is exactly the requested answer. Construct suffix links and transition nodes carefully; at most n+2 nodes suffice.",
+      "complexity": "O(26n) time and space for fixed alphabet implementation",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3140",
+      "band": 4,
+      "rationale": "Obtain an initial inversion count with a length-one reversal. Reversing [1,n] then [2,n] rotates the last value x to the front; the net inversion change is 2x-n-1, revealing x. After n-1 rotations infer the remaining value, then pancake-sort the now-known permutation using at most 2n-3 reversals. Total at most 4n-4 for n>=2, with immediate termination on zero and n=1 handled separately.",
+      "complexity": "O(n^2) local simulation time, O(n) space, at most 4n operations",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3141",
+      "band": 4,
+      "rationale": "Use a superset zeta transform of value frequencies to count elements containing each mask. For each mask 2^count-1 counts nonempty subsets whose AND contains that mask; superset Mobius inversion yields exact AND counts. Requires understanding two Boolean-lattice transforms.",
+      "complexity": "O(B*2^B+n) time and O(2^B) space, B=ceil(log2(n+1))",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3154",
+      "band": 3,
+      "rationale": "Gaussian elimination over the prime field: pivot nonzero entries, invert pivots, eliminate, detect inconsistent zero rows and set free variables to zero before back substitution. Rectangular and singular systems add bookkeeping but this is one standard linear-algebra algorithm.",
+      "complexity": "O(n*m*min(n,m)+min(n,m)*log P) time, O(nm) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3157",
+      "band": 3,
+      "rationale": "Rounds equal one plus descents in the inverse permutation, so the distribution is Eulerian numbers. Inserting the largest value gives A(n,d)=(d+1)A(n-1,d)+(n-d)A(n-1,d-1), computable quadratically for n=5000.",
+      "complexity": "O(n^2) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3191",
+      "band": 3,
+      "rationale": "Insert values into a binary linear basis over GF(2), then greedily xor pivots from high bit to low whenever the answer increases. This specialized but single algebraic primitive replaces exponential subset enumeration.",
+      "complexity": "O(nB) time, O(B) space with B=30",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3192",
+      "band": 4,
+      "rationale": "Build a reduced XOR basis whose increasing pivot order enumerates distinct xor values in sorted binary-index order. Every distinct xor has multiplicity 2^(n-rank); cap this multiplicity at k, and emit the first ceil(k/multiplicity) combinations with repeats. Rank, ordering and duplicate multiplicity must all be justified.",
+      "complexity": "O(nB+B^2+kB) time, O(B+k) output-inclusive space, B=30",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3220",
+      "band": 1,
+      "rationale": "Generate the array, initialize one k-element sum, and slide by subtracting the outgoing value and adding the incoming one, xoring each sum. Use 64-bit arithmetic for the generator product and sums; a ring buffer stores outgoing values.",
+      "complexity": "O(n) time, O(k) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3224",
+      "band": 2,
+      "rationale": "Maintain frequencies and an ordered set of (negative frequency,value) pairs. Remove the old pair before each frequency change and insert the new pair; the first element gives the required tie-broken mode.",
+      "complexity": "O(n log k) time, O(k) active state plus input storage",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3227",
+      "band": 5,
+      "rationale": "For each bar find its maximal histogram span [L,R] with no smaller bar. Its contribution to a window starting at s is height times the intersection length of [L,R] and [s,s+k-1], a piecewise-linear trapezoid. Insert its constant/rising/falling pieces as interval-restricted lines into an offline Li Chao tree and query each start. This gives an exact reduction, but I have not benchmarked the potentially large O(n log^2 n) constants against one second.",
+      "complexity": "O(n log^2 n) time, O(n) space using one segment Li Chao tree; one-second runtime margin unresolved",
+      "confidence": "medium",
+      "unresolved": true
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3273",
+      "band": 3,
+      "rationale": "Xor each queried color with its index parity. Adjacent equal original colors become a change in the transformed sequence; extend the odd cycle to index n+1 using known color 1, giving opposite transformed endpoints. Bisect an interval with opposite endpoint values until adjacent; no global monotonicity is needed. One initial query plus at most ceil(log2 n) new questions fits 20.",
+      "complexity": "O(log n) queries and O(1) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3304",
+      "band": 3,
+      "rationale": "A monotone stack finds each index's next strictly greater building. Visible buildings in [a,b] follow this successor chain; binary lifting counts jumps that remain at most b, then includes the initial building.",
+      "complexity": "O((n+q) log n) time and O(n log n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3311",
+      "band": 1,
+      "rationale": "Process cells row-major and choose a character different from its old character and already-written top and left neighbors. At most three of four letters are excluded, so a choice always exists; later neighbors enforce their own constraints.",
+      "complexity": "O(nm) time, O(nm) output storage",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3314",
+      "band": 3,
+      "rationale": "For each mountain, nearest heights at least its own bound the interval of possible lower destinations. Process mountains by increasing height, querying a range-max segment tree over that interval for the best previously computed route, then add one. Batch equal heights or rely on excluding them via the barriers.",
+      "complexity": "O(n log n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3359",
+      "band": 3,
+      "rationale": "Maintain the set of positions on the current anti-diagonal reachable by the lexicographically best prefix. Among their right/down successors keep only the smallest next letter, deduplicating positions. Every cell is considered only a constant number of times; storing full path strings per cell would be too costly at n=3000.",
+      "complexity": "O(n^2) time, O(n) frontier space plus O(n^2) input",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3396",
+      "band": 2,
+      "rationale": "Sieve primes through ceil(sqrt(2*10^12)) and test successive odd candidates by prime trial division through their square roots. Bertrand's postulate ensures this sieve bound covers the next prime. With only 20 inputs this avoids requiring probabilistic primality; precise candidate-gap/runtime is not benchmarked.",
+      "complexity": "O(M log log M + t*g*pi(sqrt P)) conservative time, O(M) space; M=ceil(sqrt(2*10^12)), g tested candidates",
+      "confidence": "medium",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3399",
+      "band": 2,
+      "rationale": "Feasible scores are a=b=0 or a,b both positive with a+b<=n. Keep n-a-b matching cards, and cyclically shift the remaining a+b sorted cards to realize exactly a wins and b losses. Equal card sums rule out only one player having positive score.",
+      "complexity": "O(n) time and space per test",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3408",
+      "band": 4,
+      "rationale": "Process weights in Kruskal order. For each query's edges of one weight test that they form a forest after contracting all strictly lighter graph edges, using a temporary/rollback DSU; only then union the whole graph weight batch globally. Total query edges at most m makes the offline batching efficient.",
+      "complexity": "O(m log m + m log n + q) time with rollback DSU, O(n+m+q) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3414",
+      "band": 3,
+      "rationale": "Maintain each column's upward run length of its current letter. For each row, split into equal-letter runs and use a monotone stack to sum subarray minima of those heights, adding to that letter's answer. This counts rectangles by bottom edge in O(n^2), avoiding a separate full scan for every letter.",
+      "complexity": "O(n^2) time, O(n+k) auxiliary space plus input storage",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3419",
+      "band": 1,
+      "rationale": "At each cell mark values already seen to its left and above, then scan for the mex. There are fewer than 2n forbidden values, and n<=100 makes direct cubic simulation comfortably sufficient; an XOR formula is unnecessary.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3421",
+      "band": 2,
+      "rationale": "For each distinct value with frequency f, choose none or one of its f occurrences. Every such selection has one order inherited from the array, so multiply (f+1) and subtract one for the empty subsequence. The counting product is the key simple observation.",
+      "complexity": "O(n log n) deterministic time by sorting, O(n) space",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3422",
+      "band": 3,
+      "rationale": "Start with any permutation c. For each invalid position i, swap with a position j satisfying c[j] not in {a[i],b[i]} and c[i] not in {a[j],b[j]}. At most four j are forbidden because a,b,c are permutations, so inspecting any five positions finds one for n>=5. The swap fixes i without creating an invalid j; brute force n<=4. Requires a short combinatorial repair proof.",
+      "complexity": "O(n) time and space, plus constant brute force for n<=4",
+      "confidence": "high",
+      "unresolved": false
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3430",
+      "band": 4,
+      "rationale": "Use a segment Li Chao tree on integer x in [0,100000]. Range insertion decomposes [l,r] into covered nodes and performs ordinary Li Chao insertion within them; a query takes the maximum along its root-to-leaf path. Specialized line-envelope data structure with range restrictions and empty-answer handling.",
+      "complexity": "O(n log^2 X) time, O(X) space, X=100001",
+      "confidence": "high",
+      "unresolved": false
+    }
+  ]
+}

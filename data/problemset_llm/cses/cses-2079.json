@@ -26,5 +26,18 @@
       "subtree-size-calculation": 0.95,
       "centroid-decomposition": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2079",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "4475e80399fa585054571349584886a01f6973528f7ed52c0b1e26f6bd0395f1",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

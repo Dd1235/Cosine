@@ -26,5 +26,18 @@
       "two-pointers": 0.85,
       "combinatorics": 0.8
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2115",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "01d1440e45b486db411f30961ba3233bb5f242d1766b58c299796df417451253",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

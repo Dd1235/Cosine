@@ -1,0 +1,8 @@
+{
+  "id": "cses-1747",
+  "title": "Pyramid Array",
+  "source_url": "https://cses.fi/problemset/task/1747",
+  "observed_at": "2026-09-11T06:54:53.853269+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array consisting of n distinct integers. On each move, you can swap any two adjacent values.\n\nYou want to transform the array into a pyramid array. This means that the final array has to be first increasing and then decreasing. It is also allowed that the final array is only increasing or decreasing.\n\nWhat is the minimum number of moves needed?\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe next line has n distinct integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the minimum number of moves.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n2 1 5 3\n\n\nOutput:\n\n1\n\n\nExplanation: You may swap the first two values which creates a pyramid array [1,2,5,3].",
+  "statement_sha256": "9eef756324779dbf21693fb73f104537570faa5bef061ab910ef0612d536d07b"
+}

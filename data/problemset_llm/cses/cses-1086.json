@@ -25,5 +25,18 @@
       "binary-search-answer": 0.95,
       "digit-frequency-count": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1086",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "cf86338c22b1fdf56fb1d43887a9059b1d12951901e5e7a7ab2243d606c322a8",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

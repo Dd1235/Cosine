@@ -1,0 +1,8 @@
+{
+  "id": "cses-3301",
+  "title": "Maximum Average Subarrays",
+  "source_url": "https://cses.fi/problemset/task/3301",
+  "observed_at": "2026-09-11T06:54:53.320607+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. For each i = 1, 2,\\dots, n, your task is to find the subarray ending at index i with the largest average. If there are multiple subarrays with the largest average, you should find the longest one.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint n integers: the length of the subarray ending at index i with the largest average for each i = 1, 2,\\dots, n.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^6\n\n\nExample\n\nInput:\n\n7\n1 6 4 6 2 5 5\n\n\nOutput:\n\n1 1 2 1 4 1 2\n\n\nExplanation: Consider i = 5. The averages of all subarrays ending at index 5 are \\frac{1 + 6 + 4 + 6 + 2}{5} = 3.8, \\frac{6 + 4 + 6 + 2}{4} = 4.5, \\frac{4 + 6 + 2}{3} = 4, \\frac{6 + 2}{2} = 4 and \\frac{2}{1} = 2. The largest average is 4.5 and the length of the corresponding subarray is 4.",
+  "statement_sha256": "651a1a032327b623b5c5e7553d65685599dfa7c5251bdbfa8589cca27bb14193"
+}

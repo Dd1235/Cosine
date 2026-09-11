@@ -1,0 +1,8 @@
+{
+  "id": "cses-2414",
+  "title": "List of Sums",
+  "source_url": "https://cses.fi/problemset/task/2414",
+  "observed_at": "2026-09-11T06:54:55.239379+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nList A consists of n positive integers, and list B contains the sum of each element pair of list A.\n\nFor example, if A=[1,2,3], then B=[3,4,5], and if A=[1,3,3,3], then B=[4,4,4,6,6,6].\n\nGiven list B, your task is to reconstruct list A.\n\nInput\n\nThe first input line has an integer n: the size of list A.\n\nThe next line has \\frac{n(n-1)}{2} integers: the contents of list B.\n\nYou can assume that there is a list A that corresponds to the input, and each value in A is between 1 \\dots k.\n\nOutput\n\nPrint n integers: the contents of list A.\n\nYou can print the values in any order. If there are more than one solution, you can print any of them.\n\nConstraints\n\n\n3 \\le n \\le 100\n\n1 \\le k \\le 10^9\n\n\nExample\n\nInput:\n\n4\n4 4 4 6 6 6\n\n\nOutput:\n\n1 3 3 3\n\n\nExplanation: In this case list A can be either [1,3,3,3] or [2,2,2,4] and both solutions are accepted.",
+  "statement_sha256": "ac2ad55d0e73f4d396b83fd48dc3df12a729684b3524b076b7500ee442022c21"
+}

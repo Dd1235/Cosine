@@ -1,0 +1,8 @@
+{
+  "id": "cses-2105",
+  "title": "Distinct Substrings",
+  "source_url": "https://cses.fi/problemset/task/2105",
+  "observed_at": "2026-09-11T06:53:41.318495+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nCount the number of distinct substrings that appear in a string.\n\nInput\n\nThe only input line has a string of length n that consists of characters a\u2013z.\n\nOutput\n\nPrint one integer: the number of substrings.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\nabaa\n\n\nOutput:\n\n8\n\n\nExplanation: the substrings are a, b, aa, ab, ba, aba, baa and abaa.",
+  "statement_sha256": "97590ae8fdf2a421d2cfe4b060d4c3e5bfbdc152f883190a3e96386dd825c489"
+}

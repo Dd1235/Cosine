@@ -28,5 +28,18 @@
       "point-update": 0.9,
       "range-sum-query": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1648",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "4f1dfa4de3fd2c4be3fafae36d74092515fc24c26247f8090edd922047f5bc34",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

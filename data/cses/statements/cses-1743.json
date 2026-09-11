@@ -1,0 +1,8 @@
+{
+  "id": "cses-1743",
+  "title": "String Reorder",
+  "source_url": "https://cses.fi/problemset/task/1743",
+  "observed_at": "2026-09-11T06:53:10.927272+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to reorder the characters of a string so that no two adjacent characters are the same. What is the lexicographically minimal such string?\n\nInput\n\nThe only line has a string of length n consisting of characters A\u2013Z.\n\nOutput\n\nPrint the lexicographically minimal reordered string where no two adjacent characters are the same. If it is not possible to create such a string, print -1.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nHATTIVATTI\n\n\nOutput:\n\nAHATITITVT",
+  "statement_sha256": "643e8d58dc5b060cce2dd6f76e6a9549cba94c323b36bb2ca2829894682752a6"
+}

@@ -26,5 +26,24 @@
       "greedy": 0.9,
       "simulation": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2427",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_a.json"
+    ],
+    "statement_sha256": "e8208076addb07883a10563db81042f3f7b062e647ae6bbecac46b5fff05f7fb",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_a.json"
+    }
   }
 }

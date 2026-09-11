@@ -26,5 +26,18 @@
       "lazy-propagation": 0.9,
       "range-reverse": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2073",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "60d1d450a2c7e7678a34c5d3e55035d8f4a821f476dff9edad5823347eaa102b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

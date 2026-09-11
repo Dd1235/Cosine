@@ -1,0 +1,8 @@
+{
+  "id": "cses-1192",
+  "title": "Counting Rooms",
+  "source_url": "https://cses.fi/problemset/task/1192",
+  "observed_at": "2026-09-11T06:53:20.534748+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a map of a building, and your task is to count the number of its rooms. The size of the map is n \\times m squares, and each square is either floor or wall. You can walk left, right, up, and down through the floor squares.\n\nInput\n\nThe first input line has two integers n and m: the height and width of the map.\n\nThen there are n lines of m characters describing the map. Each character is either . (floor) or # (wall).\n\nOutput\n\nPrint one integer: the number of rooms.\n\nConstraints\n\n\n1 \\le n,m \\le 1000\n\n\nExample\n\nInput:\n\n5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########\n\n\nOutput:\n\n3",
+  "statement_sha256": "9c2657dc47069e1c153083847740edc3d341aa9bfe6045924ce7950f4c13379c"
+}

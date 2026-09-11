@@ -1,0 +1,8 @@
+{
+  "id": "cses-3195",
+  "title": "Xor Pyramid Row",
+  "source_url": "https://cses.fi/problemset/task/3195",
+  "observed_at": "2026-09-11T06:54:40.759368+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a xor pyramid where each number is the xor of lower-left and lower-right numbers. Here is an example pyramid:\n\nGiven the bottom row of the pyramid, your task is to find the numbers on the k-th row from the top.\n\nInput\n\nThe first line has two integers n and k: the size of the pyramid and the given row.\n\nThe next line has n integers a_1,a_2,\\dots,a_n: the bottom row of the pyramid.\n\nOutput\n\nPrint k integers: the numbers on the k-th row from the top.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le a_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 5\n2 10 5 12 9 5 1 5\n\n\nOutput:\n\n1 10 5 1 8",
+  "statement_sha256": "a3f4cf567511f6c521caf5cc30b8f0e9581be75b9a73b484ce4e501f8730174d"
+}

@@ -1,0 +1,3608 @@
+{
+  "observed_at": "2026-09-11T06:54:37.181074+00:00",
+  "source_url": "https://cses.fi/problemset/",
+  "count_semantics": "unverified: public list displays two unlabeled counts; task statistics require login",
+  "release_cohort_policy": "unknown; no age inferred from task ID or local annotation timestamp",
+  "problems": [
+    {
+      "id": "cses-1068",
+      "title": "Weird Algorithm",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1068",
+      "public_count_first": 177764,
+      "public_count_second": 185661,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1083",
+      "title": "Missing Number",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1083",
+      "public_count_first": 153408,
+      "public_count_second": 160330,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1069",
+      "title": "Repetitions",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1069",
+      "public_count_first": 133304,
+      "public_count_second": 138298,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1094",
+      "title": "Increasing Array",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1094",
+      "public_count_first": 125669,
+      "public_count_second": 129817,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1070",
+      "title": "Permutations",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1070",
+      "public_count_first": 110072,
+      "public_count_second": 113244,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1071",
+      "title": "Number Spiral",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1071",
+      "public_count_first": 78248,
+      "public_count_second": 84813,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1072",
+      "title": "Two Knights",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1072",
+      "public_count_first": 60390,
+      "public_count_second": 62162,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1092",
+      "title": "Two Sets",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1092",
+      "public_count_first": 65644,
+      "public_count_second": 70211,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1617",
+      "title": "Bit Strings",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1617",
+      "public_count_first": 74617,
+      "public_count_second": 78519,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1618",
+      "title": "Trailing Zeros",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1618",
+      "public_count_first": 69088,
+      "public_count_second": 73253,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1754",
+      "title": "Coin Piles",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1754",
+      "public_count_first": 61477,
+      "public_count_second": 66855,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1755",
+      "title": "Palindrome Reorder",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1755",
+      "public_count_first": 57141,
+      "public_count_second": 60103,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2205",
+      "title": "Gray Code",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/2205",
+      "public_count_first": 39070,
+      "public_count_second": 43554,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2165",
+      "title": "Tower of Hanoi",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/2165",
+      "public_count_first": 36436,
+      "public_count_second": 37826,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1622",
+      "title": "Creating Strings",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1622",
+      "public_count_first": 48186,
+      "public_count_second": 49347,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1623",
+      "title": "Apple Division",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1623",
+      "public_count_first": 48927,
+      "public_count_second": 54801,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1624",
+      "title": "Chessboard and Queens",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1624",
+      "public_count_first": 29807,
+      "public_count_second": 30308,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3399",
+      "title": "Raab Game I",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/3399",
+      "public_count_first": 7895,
+      "public_count_second": 8834,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3419",
+      "title": "Mex Grid Construction",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/3419",
+      "public_count_first": 7658,
+      "public_count_second": 8027,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3217",
+      "title": "Knight Moves Grid",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/3217",
+      "public_count_first": 7725,
+      "public_count_second": 7894,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3311",
+      "title": "Grid Coloring I",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/3311",
+      "public_count_first": 6499,
+      "public_count_second": 6725,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2431",
+      "title": "Digit Queries",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/2431",
+      "public_count_first": 20926,
+      "public_count_second": 23952,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1743",
+      "title": "String Reorder",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1743",
+      "public_count_first": 5795,
+      "public_count_second": 6613,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1625",
+      "title": "Grid Path Description",
+      "section": "Introductory Problems",
+      "source_url": "https://cses.fi/problemset/task/1625",
+      "public_count_first": 11745,
+      "public_count_second": 15019,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1621",
+      "title": "Distinct Numbers",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1621",
+      "public_count_first": 88544,
+      "public_count_second": 95248,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1084",
+      "title": "Apartments",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1084",
+      "public_count_first": 66534,
+      "public_count_second": 73132,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1090",
+      "title": "Ferris Wheel",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1090",
+      "public_count_first": 64166,
+      "public_count_second": 68709,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1091",
+      "title": "Concert Tickets",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1091",
+      "public_count_first": 51468,
+      "public_count_second": 59309,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1619",
+      "title": "Restaurant Customers",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1619",
+      "public_count_first": 52274,
+      "public_count_second": 56093,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1629",
+      "title": "Movie Festival",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1629",
+      "public_count_first": 50861,
+      "public_count_second": 53599,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1640",
+      "title": "Sum of Two Values",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1640",
+      "public_count_first": 58763,
+      "public_count_second": 65262,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1643",
+      "title": "Maximum Subarray Sum",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1643",
+      "public_count_first": 56043,
+      "public_count_second": 58319,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1074",
+      "title": "Stick Lengths",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1074",
+      "public_count_first": 50245,
+      "public_count_second": 52378,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2183",
+      "title": "Missing Coin Sum",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2183",
+      "public_count_first": 38494,
+      "public_count_second": 39796,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2216",
+      "title": "Collecting Numbers",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2216",
+      "public_count_first": 39413,
+      "public_count_second": 41941,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2217",
+      "title": "Collecting Numbers II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2217",
+      "public_count_first": 17386,
+      "public_count_second": 21594,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1141",
+      "title": "Playlist",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1141",
+      "public_count_first": 39351,
+      "public_count_second": 44519,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1073",
+      "title": "Towers",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1073",
+      "public_count_first": 39308,
+      "public_count_second": 41911,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1163",
+      "title": "Traffic Lights",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1163",
+      "public_count_first": 30614,
+      "public_count_second": 34006,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3420",
+      "title": "Distinct Values Subarrays",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/3420",
+      "public_count_first": 10715,
+      "public_count_second": 11965,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3421",
+      "title": "Distinct Values Subsequences",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/3421",
+      "public_count_first": 8262,
+      "public_count_second": 8975,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2162",
+      "title": "Josephus Problem I",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2162",
+      "public_count_first": 23880,
+      "public_count_second": 26079,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2163",
+      "title": "Josephus Problem II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2163",
+      "public_count_first": 13003,
+      "public_count_second": 17787,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2168",
+      "title": "Nested Ranges Check",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2168",
+      "public_count_first": 14262,
+      "public_count_second": 16100,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2169",
+      "title": "Nested Ranges Count",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2169",
+      "public_count_first": 9533,
+      "public_count_second": 11134,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1164",
+      "title": "Room Allocation",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1164",
+      "public_count_first": 23247,
+      "public_count_second": 26424,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1620",
+      "title": "Factory Machines",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1620",
+      "public_count_first": 33696,
+      "public_count_second": 36350,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1630",
+      "title": "Tasks and Deadlines",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1630",
+      "public_count_first": 26883,
+      "public_count_second": 27400,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1631",
+      "title": "Reading Books",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1631",
+      "public_count_first": 21841,
+      "public_count_second": 23285,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1641",
+      "title": "Sum of Three Values",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1641",
+      "public_count_first": 31357,
+      "public_count_second": 34426,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1642",
+      "title": "Sum of Four Values",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1642",
+      "public_count_first": 19596,
+      "public_count_second": 21609,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1645",
+      "title": "Nearest Smaller Values",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1645",
+      "public_count_first": 26293,
+      "public_count_second": 27129,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1660",
+      "title": "Subarray Sums I",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1660",
+      "public_count_first": 34880,
+      "public_count_second": 36953,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1661",
+      "title": "Subarray Sums II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1661",
+      "public_count_first": 31827,
+      "public_count_second": 37255,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1662",
+      "title": "Subarray Divisibility",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1662",
+      "public_count_first": 28793,
+      "public_count_second": 31137,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2428",
+      "title": "Distinct Values Subarrays II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/2428",
+      "public_count_first": 17627,
+      "public_count_second": 19145,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1085",
+      "title": "Array Division",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1085",
+      "public_count_first": 27289,
+      "public_count_second": 28594,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1632",
+      "title": "Movie Festival II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1632",
+      "public_count_first": 14856,
+      "public_count_second": 17672,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1644",
+      "title": "Maximum Subarray Sum II",
+      "section": "Sorting and Searching",
+      "source_url": "https://cses.fi/problemset/task/1644",
+      "public_count_first": 13861,
+      "public_count_second": 16313,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1633",
+      "title": "Dice Combinations",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1633",
+      "public_count_first": 93035,
+      "public_count_second": 98147,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1634",
+      "title": "Minimizing Coins",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1634",
+      "public_count_first": 80476,
+      "public_count_second": 86109,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1635",
+      "title": "Coin Combinations I",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1635",
+      "public_count_first": 73510,
+      "public_count_second": 79169,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1636",
+      "title": "Coin Combinations II",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1636",
+      "public_count_first": 62392,
+      "public_count_second": 70045,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1637",
+      "title": "Removing Digits",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1637",
+      "public_count_first": 69366,
+      "public_count_second": 70732,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1638",
+      "title": "Grid Paths I",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1638",
+      "public_count_first": 65153,
+      "public_count_second": 66889,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1158",
+      "title": "Book Shop",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1158",
+      "public_count_first": 58796,
+      "public_count_second": 64230,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1746",
+      "title": "Array Description",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1746",
+      "public_count_first": 43590,
+      "public_count_second": 48010,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2413",
+      "title": "Counting Towers",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/2413",
+      "public_count_first": 27217,
+      "public_count_second": 28715,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1639",
+      "title": "Edit Distance",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1639",
+      "public_count_first": 43348,
+      "public_count_second": 45588,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3403",
+      "title": "Longest Common Subsequence",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/3403",
+      "public_count_first": 15377,
+      "public_count_second": 15880,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1744",
+      "title": "Rectangle Cutting",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1744",
+      "public_count_first": 35796,
+      "public_count_second": 38857,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3359",
+      "title": "Minimal Grid Path",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/3359",
+      "public_count_first": 7208,
+      "public_count_second": 11867,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1745",
+      "title": "Money Sums",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1745",
+      "public_count_first": 42183,
+      "public_count_second": 43664,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1097",
+      "title": "Removal Game",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1097",
+      "public_count_first": 26282,
+      "public_count_second": 33801,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1093",
+      "title": "Two Sets II",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1093",
+      "public_count_first": 33372,
+      "public_count_second": 35666,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3314",
+      "title": "Mountain Range",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/3314",
+      "public_count_first": 4987,
+      "public_count_second": 8472,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1145",
+      "title": "Increasing Subsequence",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1145",
+      "public_count_first": 33855,
+      "public_count_second": 37879,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1140",
+      "title": "Projects",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1140",
+      "public_count_first": 23872,
+      "public_count_second": 26499,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1653",
+      "title": "Elevator Rides",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1653",
+      "public_count_first": 15684,
+      "public_count_second": 19380,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2181",
+      "title": "Counting Tilings",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/2181",
+      "public_count_first": 9191,
+      "public_count_second": 9928,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2220",
+      "title": "Counting Numbers",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/2220",
+      "public_count_first": 13744,
+      "public_count_second": 15192,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1748",
+      "title": "Increasing Subsequence II",
+      "section": "Dynamic Programming",
+      "source_url": "https://cses.fi/problemset/task/1748",
+      "public_count_first": 6232,
+      "public_count_second": 7308,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1192",
+      "title": "Counting Rooms",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1192",
+      "public_count_first": 64686,
+      "public_count_second": 67678,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1193",
+      "title": "Labyrinth",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1193",
+      "public_count_first": 46045,
+      "public_count_second": 54022,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1666",
+      "title": "Building Roads",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1666",
+      "public_count_first": 56676,
+      "public_count_second": 58547,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1667",
+      "title": "Message Route",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1667",
+      "public_count_first": 49171,
+      "public_count_second": 50939,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1668",
+      "title": "Building Teams",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1668",
+      "public_count_first": 46380,
+      "public_count_second": 48606,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1669",
+      "title": "Round Trip",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1669",
+      "public_count_first": 36818,
+      "public_count_second": 39780,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1194",
+      "title": "Monsters",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1194",
+      "public_count_first": 26219,
+      "public_count_second": 30235,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1671",
+      "title": "Shortest Routes I",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1671",
+      "public_count_first": 40628,
+      "public_count_second": 44269,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1672",
+      "title": "Shortest Routes II",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1672",
+      "public_count_first": 32865,
+      "public_count_second": 36461,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1673",
+      "title": "High Score",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1673",
+      "public_count_first": 21153,
+      "public_count_second": 28434,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1195",
+      "title": "Flight Discount",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1195",
+      "public_count_first": 27097,
+      "public_count_second": 31077,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1197",
+      "title": "Cycle Finding",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1197",
+      "public_count_first": 19116,
+      "public_count_second": 22806,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1196",
+      "title": "Flight Routes",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1196",
+      "public_count_first": 18643,
+      "public_count_second": 20554,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1678",
+      "title": "Round Trip II",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1678",
+      "public_count_first": 20651,
+      "public_count_second": 22902,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1679",
+      "title": "Course Schedule",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1679",
+      "public_count_first": 27243,
+      "public_count_second": 28557,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1680",
+      "title": "Longest Flight Route",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1680",
+      "public_count_first": 20021,
+      "public_count_second": 24032,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1681",
+      "title": "Game Routes",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1681",
+      "public_count_first": 21800,
+      "public_count_second": 23120,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1202",
+      "title": "Investigation",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1202",
+      "public_count_first": 16585,
+      "public_count_second": 17675,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1750",
+      "title": "Planets Queries I",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1750",
+      "public_count_first": 14388,
+      "public_count_second": 16565,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1160",
+      "title": "Planets Queries II",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1160",
+      "public_count_first": 5228,
+      "public_count_second": 6484,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1751",
+      "title": "Planets Cycles",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1751",
+      "public_count_first": 8670,
+      "public_count_second": 9570,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1675",
+      "title": "Road Reparation",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1675",
+      "public_count_first": 21273,
+      "public_count_second": 22088,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1676",
+      "title": "Road Construction",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1676",
+      "public_count_first": 23163,
+      "public_count_second": 23854,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1682",
+      "title": "Flight Routes Check",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1682",
+      "public_count_first": 18404,
+      "public_count_second": 19774,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1683",
+      "title": "Planets and Kingdoms",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1683",
+      "public_count_first": 15014,
+      "public_count_second": 15625,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1684",
+      "title": "Giant Pizza",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1684",
+      "public_count_first": 6335,
+      "public_count_second": 6909,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1686",
+      "title": "Coin Collector",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1686",
+      "public_count_first": 9974,
+      "public_count_second": 10898,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1691",
+      "title": "Mail Delivery",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1691",
+      "public_count_first": 7927,
+      "public_count_second": 8602,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1692",
+      "title": "De Bruijn Sequence",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1692",
+      "public_count_first": 4173,
+      "public_count_second": 4361,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1693",
+      "title": "Teleporters Path",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1693",
+      "public_count_first": 6155,
+      "public_count_second": 6909,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1690",
+      "title": "Hamiltonian Flights",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1690",
+      "public_count_first": 9412,
+      "public_count_second": 10633,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1689",
+      "title": "Knight's Tour",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1689",
+      "public_count_first": 3510,
+      "public_count_second": 4193,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1694",
+      "title": "Download Speed",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1694",
+      "public_count_first": 6104,
+      "public_count_second": 7931,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1695",
+      "title": "Police Chase",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1695",
+      "public_count_first": 4876,
+      "public_count_second": 5407,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1696",
+      "title": "School Dance",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1696",
+      "public_count_first": 5355,
+      "public_count_second": 5641,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1711",
+      "title": "Distinct Routes",
+      "section": "Graph Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1711",
+      "public_count_first": 3779,
+      "public_count_second": 4836,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1646",
+      "title": "Static Range Sum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1646",
+      "public_count_first": 45279,
+      "public_count_second": 47255,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1647",
+      "title": "Static Range Minimum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1647",
+      "public_count_first": 31124,
+      "public_count_second": 33294,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1648",
+      "title": "Dynamic Range Sum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1648",
+      "public_count_first": 32386,
+      "public_count_second": 33754,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1649",
+      "title": "Dynamic Range Minimum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1649",
+      "public_count_first": 29237,
+      "public_count_second": 29910,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1650",
+      "title": "Range Xor Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1650",
+      "public_count_first": 29846,
+      "public_count_second": 30233,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1651",
+      "title": "Range Update Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1651",
+      "public_count_first": 24170,
+      "public_count_second": 25793,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1652",
+      "title": "Forest Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1652",
+      "public_count_first": 24790,
+      "public_count_second": 25631,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1143",
+      "title": "Hotel Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1143",
+      "public_count_first": 17615,
+      "public_count_second": 18581,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1749",
+      "title": "List Removals",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1749",
+      "public_count_first": 14666,
+      "public_count_second": 15354,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1144",
+      "title": "Salary Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1144",
+      "public_count_first": 11356,
+      "public_count_second": 14011,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2166",
+      "title": "Prefix Sum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/2166",
+      "public_count_first": 9508,
+      "public_count_second": 10209,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2206",
+      "title": "Pizzeria Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/2206",
+      "public_count_first": 7586,
+      "public_count_second": 7841,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3304",
+      "title": "Visible Buildings Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/3304",
+      "public_count_first": 2345,
+      "public_count_second": 2543,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3163",
+      "title": "Range Interval Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/3163",
+      "public_count_first": 1791,
+      "public_count_second": 2373,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1190",
+      "title": "Subarray Sum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1190",
+      "public_count_first": 8742,
+      "public_count_second": 9424,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3226",
+      "title": "Subarray Sum Queries II",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/3226",
+      "public_count_first": 2654,
+      "public_count_second": 2731,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1734",
+      "title": "Distinct Values Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1734",
+      "public_count_first": 8301,
+      "public_count_second": 10037,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3356",
+      "title": "Distinct Values Queries II",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/3356",
+      "public_count_first": 1483,
+      "public_count_second": 1678,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2416",
+      "title": "Increasing Array Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/2416",
+      "public_count_first": 3157,
+      "public_count_second": 3587,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1664",
+      "title": "Movie Festival Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1664",
+      "public_count_first": 1766,
+      "public_count_second": 1940,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1739",
+      "title": "Forest Queries II",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1739",
+      "public_count_first": 5144,
+      "public_count_second": 5499,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1735",
+      "title": "Range Updates and Sums",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1735",
+      "public_count_first": 7267,
+      "public_count_second": 8485,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1736",
+      "title": "Polynomial Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1736",
+      "public_count_first": 5333,
+      "public_count_second": 6204,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1737",
+      "title": "Range Queries and Copies",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/1737",
+      "public_count_first": 3755,
+      "public_count_second": 3997,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2184",
+      "title": "Missing Coin Sum Queries",
+      "section": "Range Queries",
+      "source_url": "https://cses.fi/problemset/task/2184",
+      "public_count_first": 893,
+      "public_count_second": 1223,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1674",
+      "title": "Subordinates",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1674",
+      "public_count_first": 37242,
+      "public_count_second": 39725,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1130",
+      "title": "Tree Matching",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1130",
+      "public_count_first": 21611,
+      "public_count_second": 24841,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1131",
+      "title": "Tree Diameter",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1131",
+      "public_count_first": 30506,
+      "public_count_second": 32185,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1132",
+      "title": "Tree Distances I",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1132",
+      "public_count_first": 23719,
+      "public_count_second": 25332,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1133",
+      "title": "Tree Distances II",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1133",
+      "public_count_first": 19338,
+      "public_count_second": 20184,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1687",
+      "title": "Company Queries I",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1687",
+      "public_count_first": 21738,
+      "public_count_second": 22792,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1688",
+      "title": "Company Queries II",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1688",
+      "public_count_first": 20329,
+      "public_count_second": 21323,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1135",
+      "title": "Distance Queries",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1135",
+      "public_count_first": 18333,
+      "public_count_second": 19561,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1136",
+      "title": "Counting Paths",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1136",
+      "public_count_first": 11609,
+      "public_count_second": 12233,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1137",
+      "title": "Subtree Queries",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1137",
+      "public_count_first": 13602,
+      "public_count_second": 14439,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1138",
+      "title": "Path Queries",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1138",
+      "public_count_first": 10984,
+      "public_count_second": 11571,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2134",
+      "title": "Path Queries II",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2134",
+      "public_count_first": 4614,
+      "public_count_second": 6736,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1139",
+      "title": "Distinct Colors",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1139",
+      "public_count_first": 10515,
+      "public_count_second": 11489,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2079",
+      "title": "Finding a Centroid",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2079",
+      "public_count_first": 8551,
+      "public_count_second": 8881,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2080",
+      "title": "Fixed-Length Paths I",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2080",
+      "public_count_first": 4289,
+      "public_count_second": 5368,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2081",
+      "title": "Fixed-Length Paths II",
+      "section": "Tree Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2081",
+      "public_count_first": 2109,
+      "public_count_second": 3638,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2164",
+      "title": "Josephus Queries",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2164",
+      "public_count_first": 5925,
+      "public_count_second": 7375,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1095",
+      "title": "Exponentiation",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1095",
+      "public_count_first": 28780,
+      "public_count_second": 30606,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1712",
+      "title": "Exponentiation II",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1712",
+      "public_count_first": 20083,
+      "public_count_second": 23798,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1713",
+      "title": "Counting Divisors",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1713",
+      "public_count_first": 26470,
+      "public_count_second": 29768,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1081",
+      "title": "Common Divisors",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1081",
+      "public_count_first": 17002,
+      "public_count_second": 19579,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1082",
+      "title": "Sum of Divisors",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1082",
+      "public_count_first": 9719,
+      "public_count_second": 14151,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2182",
+      "title": "Divisor Analysis",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2182",
+      "public_count_first": 6663,
+      "public_count_second": 8779,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2185",
+      "title": "Prime Multiples",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2185",
+      "public_count_first": 7741,
+      "public_count_second": 8937,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2417",
+      "title": "Counting Coprime Pairs",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2417",
+      "public_count_first": 5117,
+      "public_count_second": 5885,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3396",
+      "title": "Next Prime",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3396",
+      "public_count_first": 2763,
+      "public_count_second": 3141,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1079",
+      "title": "Binomial Coefficients",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1079",
+      "public_count_first": 12395,
+      "public_count_second": 13655,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1715",
+      "title": "Creating Strings II",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1715",
+      "public_count_first": 10251,
+      "public_count_second": 10787,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1716",
+      "title": "Distributing Apples",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1716",
+      "public_count_first": 9797,
+      "public_count_second": 10505,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1717",
+      "title": "Christmas Party",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1717",
+      "public_count_first": 8173,
+      "public_count_second": 8701,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3397",
+      "title": "Permutation Order",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3397",
+      "public_count_first": 1324,
+      "public_count_second": 1359,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3398",
+      "title": "Permutation Rounds",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3398",
+      "public_count_first": 1933,
+      "public_count_second": 2126,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2064",
+      "title": "Bracket Sequences I",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2064",
+      "public_count_first": 5458,
+      "public_count_second": 5913,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2187",
+      "title": "Bracket Sequences II",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2187",
+      "public_count_first": 2916,
+      "public_count_second": 3309,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2209",
+      "title": "Counting Necklaces",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2209",
+      "public_count_first": 2638,
+      "public_count_second": 2847,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2210",
+      "title": "Counting Grids",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2210",
+      "public_count_first": 2221,
+      "public_count_second": 2355,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1722",
+      "title": "Fibonacci Numbers",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1722",
+      "public_count_first": 8094,
+      "public_count_second": 10056,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1096",
+      "title": "Throwing Dice",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1096",
+      "public_count_first": 4276,
+      "public_count_second": 4624,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1723",
+      "title": "Graph Paths I",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1723",
+      "public_count_first": 4148,
+      "public_count_second": 4417,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1724",
+      "title": "Graph Paths II",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1724",
+      "public_count_first": 3478,
+      "public_count_second": 3641,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3154",
+      "title": "System of Linear Equations",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3154",
+      "public_count_first": 673,
+      "public_count_second": 726,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3355",
+      "title": "Sum of Four Squares",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3355",
+      "public_count_first": 951,
+      "public_count_second": 1136,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3406",
+      "title": "Triangle Number Sums",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/3406",
+      "public_count_first": 834,
+      "public_count_second": 996,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1725",
+      "title": "Dice Probability",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1725",
+      "public_count_first": 3663,
+      "public_count_second": 3931,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1726",
+      "title": "Moving Robots",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1726",
+      "public_count_first": 1903,
+      "public_count_second": 2003,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1727",
+      "title": "Candy Lottery",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1727",
+      "public_count_first": 1998,
+      "public_count_second": 3662,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1728",
+      "title": "Inversion Probability",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1728",
+      "public_count_first": 601,
+      "public_count_second": 2696,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1729",
+      "title": "Stick Game",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1729",
+      "public_count_first": 4177,
+      "public_count_second": 4274,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1730",
+      "title": "Nim Game I",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1730",
+      "public_count_first": 5582,
+      "public_count_second": 5784,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1098",
+      "title": "Nim Game II",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1098",
+      "public_count_first": 4416,
+      "public_count_second": 4587,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1099",
+      "title": "Stair Game",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/1099",
+      "public_count_first": 2995,
+      "public_count_second": 3242,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2207",
+      "title": "Grundy's Game",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2207",
+      "public_count_first": 2092,
+      "public_count_second": 2737,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2208",
+      "title": "Another Game",
+      "section": "Mathematics",
+      "source_url": "https://cses.fi/problemset/task/2208",
+      "public_count_first": 2369,
+      "public_count_second": 2543,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1731",
+      "title": "Word Combinations",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1731",
+      "public_count_first": 7239,
+      "public_count_second": 10215,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1753",
+      "title": "String Matching",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1753",
+      "public_count_first": 13717,
+      "public_count_second": 18067,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1732",
+      "title": "Finding Borders",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1732",
+      "public_count_first": 10125,
+      "public_count_second": 11002,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1733",
+      "title": "Finding Periods",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1733",
+      "public_count_first": 7241,
+      "public_count_second": 8140,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1110",
+      "title": "Minimal Rotation",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1110",
+      "public_count_first": 3624,
+      "public_count_second": 5268,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1111",
+      "title": "Longest Palindrome",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1111",
+      "public_count_first": 5331,
+      "public_count_second": 6893,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3138",
+      "title": "All Palindromes",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/3138",
+      "public_count_first": 1000,
+      "public_count_second": 1117,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1112",
+      "title": "Required Substring",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1112",
+      "public_count_first": 2035,
+      "public_count_second": 3007,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2420",
+      "title": "Palindrome Queries",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2420",
+      "public_count_first": 2492,
+      "public_count_second": 2871,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2102",
+      "title": "Finding Patterns",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2102",
+      "public_count_first": 2361,
+      "public_count_second": 3255,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2103",
+      "title": "Counting Patterns",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2103",
+      "public_count_first": 2242,
+      "public_count_second": 2723,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2104",
+      "title": "Pattern Positions",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2104",
+      "public_count_first": 1894,
+      "public_count_second": 2268,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2105",
+      "title": "Distinct Substrings",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2105",
+      "public_count_first": 2119,
+      "public_count_second": 2504,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1149",
+      "title": "Distinct Subsequences",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1149",
+      "public_count_first": 1372,
+      "public_count_second": 1449,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2106",
+      "title": "Repeating Substring",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2106",
+      "public_count_first": 2287,
+      "public_count_second": 2616,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2107",
+      "title": "String Functions",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2107",
+      "public_count_first": 2005,
+      "public_count_second": 2098,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3225",
+      "title": "Inverse Suffix Array",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/3225",
+      "public_count_first": 390,
+      "public_count_second": 444,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1113",
+      "title": "String Transform",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/1113",
+      "public_count_first": 692,
+      "public_count_second": 817,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2108",
+      "title": "Substring Order I",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2108",
+      "public_count_first": 1445,
+      "public_count_second": 1593,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2109",
+      "title": "Substring Order II",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2109",
+      "public_count_first": 984,
+      "public_count_second": 1254,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2110",
+      "title": "Substring Distribution",
+      "section": "String Algorithms",
+      "source_url": "https://cses.fi/problemset/task/2110",
+      "public_count_first": 1348,
+      "public_count_second": 1456,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2189",
+      "title": "Point Location Test",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2189",
+      "public_count_first": 8650,
+      "public_count_second": 9585,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2190",
+      "title": "Line Segment Intersection",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2190",
+      "public_count_first": 5129,
+      "public_count_second": 6359,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2191",
+      "title": "Polygon Area",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2191",
+      "public_count_first": 5877,
+      "public_count_second": 6195,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2192",
+      "title": "Point in Polygon",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2192",
+      "public_count_first": 3298,
+      "public_count_second": 4135,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2193",
+      "title": "Polygon Lattice Points",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2193",
+      "public_count_first": 2678,
+      "public_count_second": 2861,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2194",
+      "title": "Minimum Euclidean Distance",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2194",
+      "public_count_first": 2373,
+      "public_count_second": 3305,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2195",
+      "title": "Convex Hull",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/2195",
+      "public_count_first": 3931,
+      "public_count_second": 4651,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3410",
+      "title": "Maximum Manhattan Distances",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3410",
+      "public_count_first": 867,
+      "public_count_second": 900,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3411",
+      "title": "All Manhattan Distances",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3411",
+      "public_count_first": 906,
+      "public_count_second": 995,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1740",
+      "title": "Intersection Points",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/1740",
+      "public_count_first": 2356,
+      "public_count_second": 2535,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3427",
+      "title": "Line Segments Trace I",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3427",
+      "public_count_first": 475,
+      "public_count_second": 491,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3428",
+      "title": "Line Segments Trace II",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3428",
+      "public_count_first": 397,
+      "public_count_second": 416,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3429",
+      "title": "Lines and Queries I",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3429",
+      "public_count_first": 521,
+      "public_count_second": 546,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3430",
+      "title": "Lines and Queries II",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/3430",
+      "public_count_first": 465,
+      "public_count_second": 486,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1741",
+      "title": "Area of Rectangles",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/1741",
+      "public_count_first": 1381,
+      "public_count_second": 1534,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1742",
+      "title": "Robot Path",
+      "section": "Geometry",
+      "source_url": "https://cses.fi/problemset/task/1742",
+      "public_count_first": 378,
+      "public_count_second": 690,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1628",
+      "title": "Meet in the Middle",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/1628",
+      "public_count_first": 8388,
+      "public_count_second": 11238,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2136",
+      "title": "Hamming Distance",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2136",
+      "public_count_first": 3694,
+      "public_count_second": 4030,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3360",
+      "title": "Corner Subgrid Check",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/3360",
+      "public_count_first": 335,
+      "public_count_second": 711,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2137",
+      "title": "Corner Subgrid Count",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2137",
+      "public_count_first": 2510,
+      "public_count_second": 2852,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2138",
+      "title": "Reachable Nodes",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2138",
+      "public_count_first": 2619,
+      "public_count_second": 2803,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2143",
+      "title": "Reachability Queries",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2143",
+      "public_count_first": 1760,
+      "public_count_second": 2061,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2072",
+      "title": "Cut and Paste",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2072",
+      "public_count_first": 1810,
+      "public_count_second": 1997,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2073",
+      "title": "Substring Reversals",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2073",
+      "public_count_first": 1602,
+      "public_count_second": 1727,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2074",
+      "title": "Reversals and Sums",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2074",
+      "public_count_first": 1626,
+      "public_count_second": 1735,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2076",
+      "title": "Necessary Roads",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2076",
+      "public_count_first": 2340,
+      "public_count_second": 2399,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2077",
+      "title": "Necessary Cities",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2077",
+      "public_count_first": 2175,
+      "public_count_second": 2269,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2078",
+      "title": "Eulerian Subgraphs",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2078",
+      "public_count_first": 927,
+      "public_count_second": 976,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2084",
+      "title": "Monster Game I",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2084",
+      "public_count_first": 1397,
+      "public_count_second": 1546,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2085",
+      "title": "Monster Game II",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2085",
+      "public_count_first": 1230,
+      "public_count_second": 1312,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2086",
+      "title": "Subarray Squares",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2086",
+      "public_count_first": 1741,
+      "public_count_second": 2014,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2087",
+      "title": "Houses and Schools",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2087",
+      "public_count_first": 949,
+      "public_count_second": 1120,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2088",
+      "title": "Knuth Division",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2088",
+      "public_count_first": 1132,
+      "public_count_second": 1267,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2111",
+      "title": "Apples and Bananas",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2111",
+      "public_count_first": 1332,
+      "public_count_second": 1439,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2112",
+      "title": "One Bit Positions",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2112",
+      "public_count_first": 1004,
+      "public_count_second": 1091,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2113",
+      "title": "Signal Processing",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2113",
+      "public_count_first": 996,
+      "public_count_second": 1064,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2101",
+      "title": "New Roads Queries",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2101",
+      "public_count_first": 2640,
+      "public_count_second": 3162,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2133",
+      "title": "Dynamic Connectivity",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2133",
+      "public_count_first": 1211,
+      "public_count_second": 1353,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2121",
+      "title": "Parcel Delivery",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2121",
+      "public_count_first": 955,
+      "public_count_second": 1041,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2129",
+      "title": "Task Assignment",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2129",
+      "public_count_first": 1101,
+      "public_count_second": 1187,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2130",
+      "title": "Distinct Routes II",
+      "section": "Advanced Techniques",
+      "source_url": "https://cses.fi/problemset/task/2130",
+      "public_count_first": 729,
+      "public_count_second": 820,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3220",
+      "title": "Sliding Window Sum",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3220",
+      "public_count_first": 8135,
+      "public_count_second": 8398,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3221",
+      "title": "Sliding Window Minimum",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3221",
+      "public_count_first": 6120,
+      "public_count_second": 6957,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3426",
+      "title": "Sliding Window Xor",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3426",
+      "public_count_first": 5972,
+      "public_count_second": 6048,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3405",
+      "title": "Sliding Window Or",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3405",
+      "public_count_first": 2690,
+      "public_count_second": 4444,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3222",
+      "title": "Sliding Window Distinct Values",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3222",
+      "public_count_first": 4272,
+      "public_count_second": 4966,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3224",
+      "title": "Sliding Window Mode",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3224",
+      "public_count_first": 3324,
+      "public_count_second": 3517,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3219",
+      "title": "Sliding Window Mex",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3219",
+      "public_count_first": 3129,
+      "public_count_second": 3291,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1076",
+      "title": "Sliding Window Median",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/1076",
+      "public_count_first": 15328,
+      "public_count_second": 17410,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1077",
+      "title": "Sliding Window Cost",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/1077",
+      "public_count_first": 10011,
+      "public_count_second": 11497,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3223",
+      "title": "Sliding Window Inversions",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3223",
+      "public_count_first": 1680,
+      "public_count_second": 1776,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3227",
+      "title": "Sliding Window Advertisement",
+      "section": "Sliding Window Problems",
+      "source_url": "https://cses.fi/problemset/task/3227",
+      "public_count_first": 322,
+      "public_count_second": 505,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3112",
+      "title": "Hidden Integer",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3112",
+      "public_count_first": 2924,
+      "public_count_second": 3046,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3139",
+      "title": "Hidden Permutation",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3139",
+      "public_count_first": 1315,
+      "public_count_second": 1519,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3305",
+      "title": "K-th Highest Score",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3305",
+      "public_count_first": 598,
+      "public_count_second": 721,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3228",
+      "title": "Permuted Binary Strings",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3228",
+      "public_count_first": 703,
+      "public_count_second": 722,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3273",
+      "title": "Colored Chairs",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3273",
+      "public_count_first": 659,
+      "public_count_second": 698,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3140",
+      "title": "Inversion Sorting",
+      "section": "Interactive Problems",
+      "source_url": "https://cses.fi/problemset/task/3140",
+      "public_count_first": 384,
+      "public_count_second": 432,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1146",
+      "title": "Counting Bits",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/1146",
+      "public_count_first": 6283,
+      "public_count_second": 8060,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1655",
+      "title": "Maximum Xor Subarray",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/1655",
+      "public_count_first": 3711,
+      "public_count_second": 4239,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3191",
+      "title": "Maximum Xor Subset",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3191",
+      "public_count_first": 1409,
+      "public_count_second": 1547,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3211",
+      "title": "Number of Subset Xors",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3211",
+      "public_count_first": 1225,
+      "public_count_second": 1252,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3192",
+      "title": "K Subset Xors",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3192",
+      "public_count_first": 639,
+      "public_count_second": 748,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3233",
+      "title": "All Subarray Xors",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3233",
+      "public_count_first": 386,
+      "public_count_second": 595,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2419",
+      "title": "Xor Pyramid Peak",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/2419",
+      "public_count_first": 2472,
+      "public_count_second": 2954,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3194",
+      "title": "Xor Pyramid Diagonal",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3194",
+      "public_count_first": 439,
+      "public_count_second": 492,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3195",
+      "title": "Xor Pyramid Row",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3195",
+      "public_count_first": 379,
+      "public_count_second": 443,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1654",
+      "title": "SOS Bit Problem",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/1654",
+      "public_count_first": 2601,
+      "public_count_second": 2755,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3141",
+      "title": "And Subset Count",
+      "section": "Bitwise Operations",
+      "source_url": "https://cses.fi/problemset/task/3141",
+      "public_count_first": 625,
+      "public_count_second": 649,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2214",
+      "title": "Inverse Inversions",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/2214",
+      "public_count_first": 2084,
+      "public_count_second": 2224,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2215",
+      "title": "Monotone Subsequences",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/2215",
+      "public_count_first": 1259,
+      "public_count_second": 1488,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3422",
+      "title": "Third Permutation",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/3422",
+      "public_count_first": 560,
+      "public_count_second": 691,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3423",
+      "title": "Permutation Prime Sums",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/3423",
+      "public_count_first": 563,
+      "public_count_second": 604,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1697",
+      "title": "Chess Tournament",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/1697",
+      "public_count_first": 1394,
+      "public_count_second": 1607,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3424",
+      "title": "Distinct Sums Grid",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/3424",
+      "public_count_first": 200,
+      "public_count_second": 300,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2423",
+      "title": "Filling Trominos",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/2423",
+      "public_count_first": 309,
+      "public_count_second": 532,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2418",
+      "title": "Grid Path Construction",
+      "section": "Construction Problems",
+      "source_url": "https://cses.fi/problemset/task/2418",
+      "public_count_first": 171,
+      "public_count_second": 501,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3303",
+      "title": "Nearest Shops",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3303",
+      "public_count_first": 976,
+      "public_count_second": 1250,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1134",
+      "title": "Pr\u00fcfer Code",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1134",
+      "public_count_first": 1738,
+      "public_count_second": 1860,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1702",
+      "title": "Tree Traversals",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1702",
+      "public_count_first": 1426,
+      "public_count_second": 1559,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1757",
+      "title": "Course Schedule II",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1757",
+      "public_count_first": 2373,
+      "public_count_second": 3317,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1756",
+      "title": "Acyclic Graph Edges",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1756",
+      "public_count_first": 2472,
+      "public_count_second": 2619,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2177",
+      "title": "Strongly Connected Edges",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/2177",
+      "public_count_first": 1808,
+      "public_count_second": 2097,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2179",
+      "title": "Even Outdegree Edges",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/2179",
+      "public_count_first": 1588,
+      "public_count_second": 1844,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1707",
+      "title": "Graph Girth",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1707",
+      "public_count_first": 4014,
+      "public_count_second": 4521,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3357",
+      "title": "Fixed Length Walk Queries",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3357",
+      "public_count_first": 484,
+      "public_count_second": 535,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3111",
+      "title": "Transfer Speeds Sum",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3111",
+      "public_count_first": 543,
+      "public_count_second": 561,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3407",
+      "title": "MST Edge Check",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3407",
+      "public_count_first": 892,
+      "public_count_second": 963,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3408",
+      "title": "MST Edge Set Check",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3408",
+      "public_count_first": 333,
+      "public_count_second": 375,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3409",
+      "title": "MST Edge Cost",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3409",
+      "public_count_first": 527,
+      "public_count_second": 548,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1677",
+      "title": "Network Breakdown",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1677",
+      "public_count_first": 1350,
+      "public_count_second": 1465,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3114",
+      "title": "Tree Coin Collecting I",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3114",
+      "public_count_first": 462,
+      "public_count_second": 501,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3149",
+      "title": "Tree Coin Collecting II",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3149",
+      "public_count_first": 263,
+      "public_count_second": 300,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1700",
+      "title": "Tree Isomorphism I",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1700",
+      "public_count_first": 1236,
+      "public_count_second": 1459,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1701",
+      "title": "Tree Isomorphism II",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1701",
+      "public_count_first": 1024,
+      "public_count_second": 1170,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1699",
+      "title": "Flight Route Requests",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1699",
+      "public_count_first": 582,
+      "public_count_second": 722,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1703",
+      "title": "Critical Cities",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1703",
+      "public_count_first": 507,
+      "public_count_second": 757,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1203",
+      "title": "Visiting Cities",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1203",
+      "public_count_first": 772,
+      "public_count_second": 1007,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3308",
+      "title": "Graph Coloring",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3308",
+      "public_count_first": 299,
+      "public_count_second": 348,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3158",
+      "title": "Bus Companies",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3158",
+      "public_count_first": 347,
+      "public_count_second": 357,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3358",
+      "title": "Split into Two Paths",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/3358",
+      "public_count_first": 141,
+      "public_count_second": 239,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1704",
+      "title": "Network Renovation",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1704",
+      "public_count_first": 1042,
+      "public_count_second": 1367,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1705",
+      "title": "Forbidden Cities",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1705",
+      "public_count_first": 990,
+      "public_count_second": 1274,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1752",
+      "title": "Creating Offices",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1752",
+      "public_count_first": 477,
+      "public_count_second": 619,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1685",
+      "title": "New Flight Routes",
+      "section": "Advanced Graph Problems",
+      "source_url": "https://cses.fi/problemset/task/1685",
+      "public_count_first": 411,
+      "public_count_second": 1044,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3413",
+      "title": "Filled Subgrid Count I",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3413",
+      "public_count_first": 797,
+      "public_count_second": 888,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3414",
+      "title": "Filled Subgrid Count II",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3414",
+      "public_count_first": 426,
+      "public_count_second": 527,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3415",
+      "title": "All Letter Subgrid Count I",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3415",
+      "public_count_first": 242,
+      "public_count_second": 347,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3416",
+      "title": "All Letter Subgrid Count II",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3416",
+      "public_count_first": 153,
+      "public_count_second": 230,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3417",
+      "title": "Border Subgrid Count I",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3417",
+      "public_count_first": 129,
+      "public_count_second": 219,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3418",
+      "title": "Border Subgrid Count II",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3418",
+      "public_count_first": 144,
+      "public_count_second": 166,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3400",
+      "title": "Raab Game II",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3400",
+      "public_count_first": 146,
+      "public_count_second": 166,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1080",
+      "title": "Empty String",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/1080",
+      "public_count_first": 1932,
+      "public_count_second": 2341,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2229",
+      "title": "Permutation Inversions",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2229",
+      "public_count_first": 1142,
+      "public_count_second": 1257,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2176",
+      "title": "Counting Bishops",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2176",
+      "public_count_first": 450,
+      "public_count_second": 503,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2228",
+      "title": "Counting Sequences",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2228",
+      "public_count_first": 768,
+      "public_count_second": 823,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1078",
+      "title": "Grid Paths II",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/1078",
+      "public_count_first": 854,
+      "public_count_second": 1076,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1075",
+      "title": "Counting Permutations",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/1075",
+      "public_count_first": 990,
+      "public_count_second": 1115,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2429",
+      "title": "Grid Completion",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2429",
+      "public_count_first": 263,
+      "public_count_second": 332,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2421",
+      "title": "Counting Reorders",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2421",
+      "public_count_first": 300,
+      "public_count_second": 415,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3232",
+      "title": "Tournament Graph Distribution",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3232",
+      "public_count_first": 147,
+      "public_count_second": 157,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3157",
+      "title": "Collecting Numbers Distribution",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/3157",
+      "public_count_first": 156,
+      "public_count_second": 163,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2415",
+      "title": "Functional Graph Distribution",
+      "section": "Counting Problems",
+      "source_url": "https://cses.fi/problemset/task/2415",
+      "public_count_first": 281,
+      "public_count_second": 344,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1087",
+      "title": "Shortest Subsequence",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1087",
+      "public_count_first": 3283,
+      "public_count_second": 4284,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3150",
+      "title": "Distinct Values Sum",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3150",
+      "public_count_first": 877,
+      "public_count_second": 901,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3190",
+      "title": "Distinct Values Splits",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3190",
+      "public_count_first": 619,
+      "public_count_second": 662,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1670",
+      "title": "Swap Game",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1670",
+      "public_count_first": 2268,
+      "public_count_second": 2894,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3175",
+      "title": "Beautiful Permutation II",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3175",
+      "public_count_first": 770,
+      "public_count_second": 1179,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2422",
+      "title": "Multiplication Table",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/2422",
+      "public_count_first": 7852,
+      "public_count_second": 8706,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3151",
+      "title": "Bubble Sort Rounds I",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3151",
+      "public_count_first": 559,
+      "public_count_second": 633,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3152",
+      "title": "Bubble Sort Rounds II",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3152",
+      "public_count_first": 389,
+      "public_count_second": 432,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3306",
+      "title": "Nearest Campsites I",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3306",
+      "public_count_first": 242,
+      "public_count_second": 283,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3307",
+      "title": "Nearest Campsites II",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3307",
+      "public_count_first": 234,
+      "public_count_second": 252,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1142",
+      "title": "Advertisement",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1142",
+      "public_count_first": 4936,
+      "public_count_second": 5217,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2186",
+      "title": "Special Substrings",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/2186",
+      "public_count_first": 1090,
+      "public_count_second": 1193,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3169",
+      "title": "Counting LCM Arrays",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3169",
+      "public_count_first": 376,
+      "public_count_second": 408,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3193",
+      "title": "Square Subsets",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3193",
+      "public_count_first": 289,
+      "public_count_second": 318,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3294",
+      "title": "Subarray Sum Constraints",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3294",
+      "public_count_first": 591,
+      "public_count_second": 630,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3213",
+      "title": "Water Containers Moves",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3213",
+      "public_count_first": 233,
+      "public_count_second": 247,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3214",
+      "title": "Water Containers Queries",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3214",
+      "public_count_first": 268,
+      "public_count_second": 283,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2425",
+      "title": "Stack Weights",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/2425",
+      "public_count_first": 653,
+      "public_count_second": 780,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3301",
+      "title": "Maximum Average Subarrays",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3301",
+      "public_count_first": 228,
+      "public_count_second": 251,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3302",
+      "title": "Subsets with Fixed Average",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3302",
+      "public_count_first": 272,
+      "public_count_second": 295,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3361",
+      "title": "Two Array Average",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3361",
+      "public_count_first": 277,
+      "public_count_second": 308,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1747",
+      "title": "Pyramid Array",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1747",
+      "public_count_first": 869,
+      "public_count_second": 1047,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3404",
+      "title": "Permutation Subsequence",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/3404",
+      "public_count_first": 319,
+      "public_count_second": 330,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1188",
+      "title": "Bit Inversions",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1188",
+      "public_count_first": 2586,
+      "public_count_second": 2905,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1086",
+      "title": "Writing Numbers",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1086",
+      "public_count_first": 815,
+      "public_count_second": 882,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2427",
+      "title": "Letter Pair Move Game",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/2427",
+      "public_count_first": 236,
+      "public_count_second": 326,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1147",
+      "title": "Maximum Building I",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1147",
+      "public_count_first": 2283,
+      "public_count_second": 2383,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1162",
+      "title": "Sorting Methods",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1162",
+      "public_count_first": 849,
+      "public_count_second": 906,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1191",
+      "title": "Cyclic Array",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/1191",
+      "public_count_first": 1384,
+      "public_count_second": 1559,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2414",
+      "title": "List of Sums",
+      "section": "Additional Problems I",
+      "source_url": "https://cses.fi/problemset/task/2414",
+      "public_count_first": 545,
+      "public_count_second": 704,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3215",
+      "title": "Bouncing Ball Steps",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3215",
+      "public_count_first": 318,
+      "public_count_second": 351,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3216",
+      "title": "Bouncing Ball Cycle",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3216",
+      "public_count_first": 134,
+      "public_count_second": 181,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3218",
+      "title": "Knight Moves Queries",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3218",
+      "public_count_first": 166,
+      "public_count_second": 199,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3108",
+      "title": "K Subset Sums I",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3108",
+      "public_count_first": 261,
+      "public_count_second": 325,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3109",
+      "title": "K Subset Sums II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3109",
+      "public_count_first": 155,
+      "public_count_second": 194,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2132",
+      "title": "Increasing Array II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2132",
+      "public_count_first": 918,
+      "public_count_second": 1047,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1189",
+      "title": "Food Division",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1189",
+      "public_count_first": 580,
+      "public_count_second": 690,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1698",
+      "title": "Swap Round Sorting",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1698",
+      "public_count_first": 451,
+      "public_count_second": 558,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2430",
+      "title": "Binary Subsequences",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2430",
+      "public_count_first": 322,
+      "public_count_second": 463,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1706",
+      "title": "School Excursion",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1706",
+      "public_count_first": 1539,
+      "public_count_second": 1626,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1709",
+      "title": "Coin Grid",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1709",
+      "public_count_first": 1031,
+      "public_count_second": 1196,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3312",
+      "title": "Grid Coloring II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3312",
+      "public_count_first": 173,
+      "public_count_second": 222,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2426",
+      "title": "Programmers and Artists",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2426",
+      "public_count_first": 565,
+      "public_count_second": 783,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2174",
+      "title": "Removing Digits II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2174",
+      "public_count_first": 245,
+      "public_count_second": 519,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2180",
+      "title": "Coin Arrangement",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2180",
+      "public_count_first": 375,
+      "public_count_second": 496,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3159",
+      "title": "Replace with Difference",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3159",
+      "public_count_first": 177,
+      "public_count_second": 210,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2432",
+      "title": "Grid Puzzle I",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2432",
+      "public_count_first": 608,
+      "public_count_second": 666,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2131",
+      "title": "Grid Puzzle II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2131",
+      "public_count_first": 592,
+      "public_count_second": 647,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2115",
+      "title": "Bit Substrings",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2115",
+      "public_count_first": 451,
+      "public_count_second": 543,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2075",
+      "title": "Reversal Sorting",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2075",
+      "public_count_first": 396,
+      "public_count_second": 476,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1159",
+      "title": "Book Shop II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1159",
+      "public_count_first": 1437,
+      "public_count_second": 1637,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3161",
+      "title": "GCD Subsets",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3161",
+      "public_count_first": 518,
+      "public_count_second": 534,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3402",
+      "title": "Minimum Cost Pairs",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3402",
+      "public_count_first": 182,
+      "public_count_second": 228,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3425",
+      "title": "Same Sum Subsets",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3425",
+      "public_count_first": 158,
+      "public_count_second": 301,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1157",
+      "title": "Mex Grid Queries",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1157",
+      "public_count_first": 931,
+      "public_count_second": 1086,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1148",
+      "title": "Maximum Building II",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1148",
+      "public_count_first": 492,
+      "public_count_second": 604,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1161",
+      "title": "Stick Divisions",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1161",
+      "public_count_first": 4171,
+      "public_count_second": 4859,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-3401",
+      "title": "Stick Difference",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/3401",
+      "public_count_first": 106,
+      "public_count_second": 338,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-1665",
+      "title": "Coding Company",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/1665",
+      "public_count_first": 1669,
+      "public_count_second": 2177,
+      "release_cohort": null
+    },
+    {
+      "id": "cses-2402",
+      "title": "Two Stacks Sorting",
+      "section": "Additional Problems II",
+      "source_url": "https://cses.fi/problemset/task/2402",
+      "public_count_first": 210,
+      "public_count_second": 643,
+      "release_cohort": null
+    }
+  ]
+}

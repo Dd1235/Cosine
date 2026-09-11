@@ -23,5 +23,18 @@
       "convolution": 0.98,
       "prefix-sum": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2113",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "fcf8baf5c7ec98268e50b47e7ff93d33bc775f200df072a028f8f11cbced9843",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

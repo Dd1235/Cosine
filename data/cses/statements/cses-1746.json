@@ -1,0 +1,8 @@
+{
+  "id": "cses-1746",
+  "title": "Array Description",
+  "source_url": "https://cses.fi/problemset/task/1746",
+  "observed_at": "2026-09-11T06:53:18.042734+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou know that an array has n integers between 1 and  m, and the absolute difference between two adjacent values is at most 1.\n\nGiven a description of the array where some values may be unknown, your task is to count the number of arrays that match the description.\n\nInput\n\nThe first input line has two integers n and m: the array size and the upper bound for each value.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array. Value 0 denotes an unknown value.\n\nOutput\n\nPrint one integer: the number of arrays modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 100\n\n0 \\le x_i \\le m\n\n\nExample\n\nInput:\n\n3 5\n2 0 2\n\n\nOutput:\n\n3\n\n\nExplanation: The arrays [2,1,2], [2,2,2] and [2,3,2] match the description.",
+  "statement_sha256": "f39078f2cc95d15ea28b8cac2c1ec71a13231b49f08186ffa56318f9d21f3c43"
+}

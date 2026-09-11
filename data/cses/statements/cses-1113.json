@@ -1,0 +1,8 @@
+{
+  "id": "cses-1113",
+  "title": "String Transform",
+  "source_url": "https://cses.fi/problemset/task/1113",
+  "observed_at": "2026-09-11T06:53:42.325124+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider the following string transformation:\n\n\nappend the character # to the string (we assume that # is lexicographically smaller than all other characters of the string)\n\ngenerate all rotations of the string\n\nsort the rotations in increasing order\n\nbased on this order, construct a new string that contains the last character of each rotation\n\n\nFor example, the string babc becomes babc#. Then, the sorted list of rotations is #babc, abc#b, babc#, bc#ba, and c#bab. This yields a string cb#ab.\n\nInput\n\nThe only input line contains the transformed string of length n+1. Each character of the original string is one of a\u2013z.\n\nOutput\n\nPrint the original string of length n.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\ncb#ab\n\n\nOutput:\n\nbabc",
+  "statement_sha256": "779eb972b2e3ba6b3c9dee7ff5283d92764913d2c3c90204e900acdc06171bac"
+}

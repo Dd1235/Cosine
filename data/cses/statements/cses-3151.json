@@ -1,0 +1,8 @@
+{
+  "id": "cses-3151",
+  "title": "Bubble Sort Rounds I",
+  "source_url": "https://cses.fi/problemset/task/3151",
+  "observed_at": "2026-09-11T06:54:51.606128+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nBubble sort is a sorting algorithm that consists of a number of rounds. On each round the algorithm scans the array from left to right and swaps any adjacent elements that are in the wrong order.\n\nGiven an array of n integers, calculate the number of bubble sort rounds needed to sort the array.\n\nInput\n\nThe first line has an integer n: the array size.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the array contents.\n\nOutput\n\nPrint one integer: the number of rounds.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n3 2 4 1 4\n\n\nOutput:\n\n3\n\n\nExplanation: Bubble sort needs three rounds to sort this array. The array contents after each round are [2,3,1,4,4], [2,1,3,4,4], and [1,2,3,4,4].",
+  "statement_sha256": "945f45d0560448e39b4973649082f4927c06e8aac4892782eb42a647389394dd"
+}

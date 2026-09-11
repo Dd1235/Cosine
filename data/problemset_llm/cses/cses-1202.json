@@ -26,5 +26,18 @@
       "counting-paths": 0.9,
       "path-length-tracking": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1202",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "d8bdbad1aaad806c56d49c86dd1bbdeae55d123c347f274b3bcb295a4d3583f8",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

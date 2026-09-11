@@ -1,0 +1,8 @@
+{
+  "id": "cses-3220",
+  "title": "Sliding Window Sum",
+  "source_url": "https://cses.fi/problemset/task/3220",
+  "observed_at": "2026-09-11T06:53:49.664406+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the sum of each window of k elements, from left to right.\n\nIn this problem the input data is large and it is created using a generator.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThe next line contains four integers x, a, b and c: the input generator parameters. The input is generated as follows:\n\n\nx_1=x\n\nx_i=(ax_{i-1}+b) \\bmod c for i=2,3,\\dots,n\n\n\nOutput\n\nPrint the xor of all window sums.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^7\n\n0 \\le x, a, b \\le 10^9\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n8 5\n3 7 1 11\n\n\nOutput:\n\n12\n\n\nExplanation: The input array is [3,0,1,8,2,4,7,6]. The windows are [3,0,1,8,2], [0,1,8,2,4], [1,8,2,4,7] and [8,2,4,7,6], and their sums are 14, 15, 22 and 27. Thus, the answer is 14 \\oplus 15 \\oplus 22 \\oplus 27 = 12.",
+  "statement_sha256": "d23b48bcd9dfbe3c1d232f21a1f20540b237008ac6062e006f4286c789a0cb1e"
+}

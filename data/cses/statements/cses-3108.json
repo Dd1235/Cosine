@@ -1,0 +1,8 @@
+{
+  "id": "cses-3108",
+  "title": "K Subset Sums I",
+  "source_url": "https://cses.fi/problemset/task/3108",
+  "observed_at": "2026-09-11T06:54:56.075964+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Consider the sums of all 2^n subsets of the given array (including the empty subset with sum equal to zero).\n\nYour task is to find the k smallest subset sums.\n\nInput\n\nThe first line has two integers n and k: the size of the array and the number of subset sums k.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint k integers: the k smallest subset sums in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k \\le \\min(2^n, 2 \\cdot 10^5)\n\n-10^9 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 9\n1 6 3 -3\n\n\nOutput:\n\n-3 -2 0 0 1 1 3 3 4",
+  "statement_sha256": "c702d8cd5bdba9afc1e48ad84eb8be422497dca8374582498fad25d3058e627d"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2076",
+  "title": "Necessary Roads",
+  "source_url": "https://cses.fi/problemset/task/2076",
+  "observed_at": "2026-09-11T06:53:47.043437+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads between them. There is a route between any two cities.\n\nA road is called necessary if there is no route between some two cities after removing that road. Your task is to find all necessary roads.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and roads. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines that describe the roads. Each line has two integers a and b: there is a road between cities a and b. There is at most one road between two cities, and every road connects two distinct cities.\n\nOutput\n\nFirst print an integer k: the number of necessary roads. After that, print k lines that describe the roads. You may print the roads in any order.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 5\n1 2\n1 4\n2 4\n3 5\n4 5\n\n\nOutput:\n\n2\n3 5\n4 5",
+  "statement_sha256": "5e809679657550b9b6de586eac9f1d1425704e04820943b6575910d7e343bbde"
+}

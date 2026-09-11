@@ -23,5 +23,18 @@
       "prefix-xor": 0.95,
       "dynamic-programming": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3194",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "14bb4bbc16786b1f67c11f6fd1e8fa77d6320ee34d4eeed788401483cf6e8c37",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

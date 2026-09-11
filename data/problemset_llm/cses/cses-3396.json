@@ -28,5 +28,18 @@
       "miller-rabin-primality-test": 0.95,
       "modular-exponentiation": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3396",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "93a0c66fe723902ddb4a031715e868b382409a50da3595cc8fbce7909b326f90",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -26,5 +26,18 @@
       "dfs": 0.95,
       "graph-traversal": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1751",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "883e3dc1e02e9beda3f455287afbc1bca77c2b6ac05de6ffe45fa568d7ce21b4",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3302",
+  "title": "Subsets with Fixed Average",
+  "source_url": "https://cses.fi/problemset/task/3302",
+  "observed_at": "2026-09-11T06:54:53.628199+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to count the number of non-empty subsets of the given array with average equal to a.\n\nInput\n\nThe first line has two integers n and a: the size of the array and the target average.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the number of non-empty subsets with average equal to a, modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le n \\le 500\n\n1 \\le a \\le 500\n\n1 \\le x_i \\le 500\n\n\nExample\n\nInput:\n\n5 2\n1 1 2 3 4\n\n\nOutput:\n\n7",
+  "statement_sha256": "b92c286a34b5c3ceb46b53c3f36e46dbeb970750f0eb99ba577159c2063cc795"
+}

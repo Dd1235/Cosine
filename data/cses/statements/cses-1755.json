@@ -1,0 +1,8 @@
+{
+  "id": "cses-1755",
+  "title": "Palindrome Reorder",
+  "source_url": "https://cses.fi/problemset/task/1755",
+  "observed_at": "2026-09-11T06:52:41.208613+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, your task is to reorder its letters in such a way that it becomes a palindrome (i.e., it reads the same forwards and backwards).\n\nInput\n\nThe only input line has a string of length n consisting of characters A\u2013Z.\n\nOutput\n\nPrint a palindrome consisting of the characters of the original string. You may print any valid solution. If there are no solutions, print \"NO SOLUTION\".\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nAAAACACBA\n\n\nOutput:\n\nAACABACAA",
+  "statement_sha256": "3fd427593d1412bfd510a4f152c30db158ba34929a54336f8edef89f155a27e9"
+}

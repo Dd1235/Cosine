@@ -1,0 +1,8 @@
+{
+  "id": "cses-1149",
+  "title": "Distinct Subsequences",
+  "source_url": "https://cses.fi/problemset/task/1149",
+  "observed_at": "2026-09-11T06:53:41.506103+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string. You can remove any number of characters from it, but you cannot change the order of the remaining characters.\n\nHow many different strings can you generate?\n\nInput\n\nThe first input line contains a string of size n. Each character is one of a\u2013z.\n\nOutput\n\nPrint one integer: the number of strings modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 5 \\cdot 10^5\n\n\nExample\n\nInput:\n\naybabtu\n\n\nOutput:\n\n103",
+  "statement_sha256": "9fe8684370a2d1f7d8ae4fab316fdc675cd3650db73b3cf6f48106ac34581345"
+}

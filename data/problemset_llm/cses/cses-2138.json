@@ -27,5 +27,18 @@
       "dp-on-dag": 0.9,
       "reachability": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2138",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "64cdd14cb6bc0b5de9f1d210d674b8dc4e055a758d03c4698e5a1f78bff41af9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

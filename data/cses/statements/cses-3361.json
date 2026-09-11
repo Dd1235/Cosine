@@ -1,0 +1,8 @@
+{
+  "id": "cses-3361",
+  "title": "Two Array Average",
+  "source_url": "https://cses.fi/problemset/task/3361",
+  "observed_at": "2026-09-11T06:54:53.661208+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given two arrays of n integers.\n\nYour task is to select a nonempty prefix from both arrays such that the average of all selected numbers is as large as possible.\n\nInput\n\nThe first line has an integer n.\n\nThe second line has n integers a_1,a_2,\\dots,a_n: the numbers in the first array.\n\nThe third line has n integers b_1,b_2,\\dots,b_n: the numbers in the second array.\n\nOutput\n\nPrint two numbers: the prefix sizes.\n\nYour answer is considered correct if the absolute or relative difference to the maximum average is at most 10^{-6}.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le a_i, b_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 5 5 2\n3 1 3 1\n\n\nOutput:\n\n3 1\n\n\nExplanation: if you choose the prefixes [1,5,5] and [3], the average is (1+5+5+3)/4=3.5 which is the maximum possible average.",
+  "statement_sha256": "122cb1416a86197e18e6b9c50b4a0f06d1e46fc4580005a05165e710a9ca68b3"
+}

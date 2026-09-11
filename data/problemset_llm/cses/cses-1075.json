@@ -23,5 +23,18 @@
       "dynamic-programming": 0.95,
       "combinatorics": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1075",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f82d039f7ade4d91a29b8f5674a864ad4b928b7cdfa81758c0342ed6f1bf89bc",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

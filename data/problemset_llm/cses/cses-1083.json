@@ -23,5 +23,18 @@
       "arithmetic-sum": 0.95,
       "bit-manipulation": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 1,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1083",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "7d6758083e3680eb59ea8baaa7e87929789c8c1b36d2d9d5f3c8f17fe5844e8b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -26,5 +26,18 @@
       "greedy": 0.9,
       "round-based-swapping": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1698",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "d2ec1d4044f49b2fff444579eb5f86d84e1bc6b024ef6c710e9dcdb60e2a182e",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "version": "cses-research-status-v1",
+  "updated_at": "2026-09-11T07:04:51.019303+00:00",
+  "tasks_snapshotted": 400,
+  "first_assessments": 400,
+  "independent_second_assessments": 400,
+  "blinded_evaluation_assessments": 60,
+  "publication_ready": false,
+  "pending_specialist_ids": [],
+  "official_release_evidence": {
+    "url": "https://cses.fi/blog/text/3613",
+    "published": "2025-05-11",
+    "finding": "Official announcement says 100 new tasks brought total to 400; no per-task IDs are enumerated, so per-task cohort remains unknown."
+  },
+  "gates_pending": [
+    "user local verification before any production release",
+    "verified public count semantics and exact release cohorts before statistical adjustments",
+    "fully independent replication for stronger empirical validation"
+  ],
+  "production_changes": false,
+  "local_review_bands": 400,
+  "result": "Reviewed-only local integration: held-out30/30 within one band, no two-band errors. Statistics variants all disabled by admissibility gates; no statistical benefit established."
+}

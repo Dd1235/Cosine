@@ -1,0 +1,8 @@
+{
+  "id": "cses-3139",
+  "title": "Hidden Permutation",
+  "source_url": "https://cses.fi/problemset/task/3139",
+  "observed_at": "2026-09-11T06:54:38.660533+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a hidden permutation a_1, a_2,\\dots, a_n of integers 1, 2,\\dots, n. Your task is to find this permutation.\n\nTo do this, you can ask questions: you can choose two indices i and j and you will be told if a_i < a_j.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You should start by reading a single integer n: the length of the permutation.\n\nOn your turn, you can print one of the following:\n\n\n\"?\\ i\\ j\", where 1 \\le i, j \\le n: ask if a_i < a_j. The grader will return YES if a_i < a_j and NO otherwise.\n\n\"!\\ a_1\\ a_2 \\dots a_n\": report that the hidden permutation is a_1, a_2,\\dots, a_n. Your program must terminate after this.\n\n\nEach line should be followed by a line break. You must make sure the output gets flushed after printing each line.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\nyou can ask at most 10^4 questions of type ?\n\n\nExample\n3\n? 3 2\nNO\n? 3 1\nYES\n! 3 1 2\n\n\nExplanation: The hidden permutation is [3, 1, 2]. The first question asks if a_3 < a_2 which is false, so the answer is NO. The second question asks if a_3 < a_1 which is true, so the answer is YES.",
+  "statement_sha256": "9d812daf4c8173c33c4c99a310f3cc085277288120a8eb81a9f4fb2d0dff1c0c"
+}

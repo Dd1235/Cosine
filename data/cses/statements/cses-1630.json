@@ -1,0 +1,8 @@
+{
+  "id": "cses-1630",
+  "title": "Tasks and Deadlines",
+  "source_url": "https://cses.fi/problemset/task/1630",
+  "observed_at": "2026-09-11T06:53:14.833237+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have to process n tasks. Each task has a duration and a deadline, and you will process the tasks in some order one after another. Your reward for a task is d-f where d is its deadline and f is your finishing time. (The starting time is 0, and you have to process all tasks even if a task would yield negative reward.)\n\nWhat is your maximum reward if you act optimally?\n\nInput\n\nThe first input line has an integer n: the number of tasks.\n\nAfter this, there are n lines that describe the tasks. Each line has two integers a and d: the duration and deadline of the task.\n\nOutput\n\nPrint one integer: the maximum reward.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,d \\le 10^6\n\n\nExample\n\nInput:\n\n3\n6 10\n8 15\n5 12\n\n\nOutput:\n\n2",
+  "statement_sha256": "16eca938b8d5154fa0ce27ea4dd9f349ae2c8e36eea812dd52001ec0b9da576d"
+}

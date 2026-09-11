@@ -1,0 +1,8 @@
+{
+  "id": "cses-2133",
+  "title": "Dynamic Connectivity",
+  "source_url": "https://cses.fi/problemset/task/2133",
+  "observed_at": "2026-09-11T06:53:48.834934+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an undirected graph that consists of n nodes and m edges. There are two types of events that can happen:\n\n\nA new edge is created between nodes a and b.\n\nAn existing edge between nodes a and b is removed.\n\n\nYour task is to report the number of components after every event.\n\nInput\n\nThe first input line has three integers n, m and k: the number of nodes, edges and events.\n\nAfter this there are m lines describing the edges. Each line has two integers a and b: there is an edge between nodes a and b. There is at most one edge between any pair of nodes.\n\nThen there are k lines describing the events. Each line has the form \"t a b\" where t is 1 (create a new edge) or 2 (remove an edge). A new edge is always created between two nodes that do not already have an edge between them, and only existing edges can get removed.\n\nOutput\n\nPrint k+1 integers: first the number of components before the first event, and after this the new number of components after each event.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m,k \\le 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3 3\n1 4\n2 3\n3 5\n1 2 5\n2 3 5\n1 1 2\n\n\nOutput:\n\n2 2 2 1",
+  "statement_sha256": "549f21496f672e81eaffbac89fbc12f7c21e24ce9b0e5db00d603e969cddd6a7"
+}

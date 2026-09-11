@@ -1,0 +1,8 @@
+{
+  "id": "cses-3312",
+  "title": "Grid Coloring II",
+  "source_url": "https://cses.fi/problemset/task/3312",
+  "observed_at": "2026-09-11T06:54:57.296844+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an n\\times m grid where each cell contains one character A, B or C.\n\nFor each cell, you must change the character to A, B or C. The new character must be different from the old one.\n\nYour task is to change the characters in every cell such that no two adjacent cells have the same character.\n\nInput\n\nThe first line has two integers n and m: the number of rows and columns.\n\nThe next n lines each have m characters: the description of the grid.\n\nOutput\n\nPrint n lines each with m characters: the description of the final grid.\n\nYou may print any valid solution.\n\nIf no solution exists, just print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n, m \\le 500\n\n\nExample\n\nInput:\n\n3 4\nAAAA\nCCBB\nABCA\n\n\nOutput:\n\nBCBC\nABCA\nCABC",
+  "statement_sha256": "436cbba98111c5625dd97ce407d52e93aa5fe0d67c30b44b02e5552644323cdf"
+}

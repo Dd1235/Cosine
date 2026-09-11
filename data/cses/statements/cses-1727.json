@@ -1,0 +1,8 @@
+{
+  "id": "cses-1727",
+  "title": "Candy Lottery",
+  "source_url": "https://cses.fi/problemset/task/1727",
+  "observed_at": "2026-09-11T06:53:37.979343+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n children, and each of them independently gets a random integer number of candies between 1 and k.\n\nWhat is the expected maximum number of candies a child gets?\n\nInput\n\nThe only input line contains two integers n and k.\n\nOutput\n\nPrint the expected number rounded to six decimal places (rounding half to even).\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le k \\le 100\n\n\nExample\n\nInput:\n\n2 3\n\n\nOutput:\n\n2.444444",
+  "statement_sha256": "e9d848964117729bd127bd2696add3d8da09416eb9fa3e689ae116cab822546b"
+}

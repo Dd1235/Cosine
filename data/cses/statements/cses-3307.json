@@ -1,0 +1,8 @@
+{
+  "id": "cses-3307",
+  "title": "Nearest Campsites II",
+  "source_url": "https://cses.fi/problemset/task/3307",
+  "observed_at": "2026-09-11T06:54:52.085336+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA campground is represented as a grid where each square can contain a campsite that is either reserved or free. The distance between two squares (x_1, y_1) and (x_2, y_2) is the Manhattan distance |x_1 - x_2| + |y_1 - y_2|.\n\nYour task is to find the distance from each free campsite to the nearest reserved campsite.\n\nInput\n\nThe first line has two integers n and m:\nthe number of reserved and free campsites.\n\nThe next n lines describe the locations of the reserved campsites. Each line has two integers x and y.\n\nThe next m lines describe the locations of the free campsites. Each line has two integers x and y.\n\nYou can assume that each square contains at most one campsite.\n\nOutput\n\nPrint m integers: the distances from each free campsite to the nearest reserved campsite, in the input order.\n\nConstraints\n\n\n1 \\le n, m \\le 10^5\n\n1 \\le x, y \\le 10^6\n\n\nExample\n\nInput:\n\n4 2\n1 1\n5 2\n2 6\n4 7\n1 3\n7 5\n\n\nOutput:\n\n2 5\n\n\nExplanation: The following figure shows the map of the campground:\n\n\n\nThe distance from the first free campsite (on the left) to the nearest reserved campsite is 2, and the distance from the second free campsite (on the right) to the nearest reserved campsite is 5.",
+  "statement_sha256": "e69c2c6e5675c90b5e36aab1e5a981ecd7e096126c2c62bc1bc9086ccbf44712"
+}

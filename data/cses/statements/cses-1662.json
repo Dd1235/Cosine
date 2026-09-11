@@ -1,0 +1,8 @@
+{
+  "id": "cses-1662",
+  "title": "Subarray Divisibility",
+  "source_url": "https://cses.fi/problemset/task/1662",
+  "observed_at": "2026-09-11T06:53:16.146195+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to count the number of subarrays where the sum of values is divisible by n.\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe next line has n integers a_1,a_2,\\dots,a_n: the contents of the array.\n\nOutput\n\nPrint one integer: the required number of subarrays.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le a_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n3 1 2 7 4\n\n\nOutput:\n\n1",
+  "statement_sha256": "5377f5994c824fadff569fb4b845d1847f60c23a444bf45dd5017eda419ee1bd"
+}

@@ -27,5 +27,18 @@
       "bipartite-matching": 0.95,
       "dfs": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1130",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f4f9c93768274550301063a9efe9290874020f725a32daab8bf760973ebb0cf6",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

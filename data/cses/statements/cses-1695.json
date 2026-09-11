@@ -1,0 +1,8 @@
+{
+  "id": "cses-1695",
+  "title": "Police Chase",
+  "source_url": "https://cses.fi/problemset/task/1695",
+  "observed_at": "2026-09-11T06:53:26.069463+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nKaaleppi has just robbed a bank and is now heading to the harbor. However, the police wants to stop him by closing some streets of the city.\n\nWhat is the minimum number of streets that should be closed so that there is no route between the bank and the harbor?\n\nInput\n\nThe first input line has two integers n and m: the number of crossings and streets. The crossings are numbered 1,2,\\dots,n. The bank is located at crossing 1, and the harbor is located at crossing n.\n\nAfter this, there are m lines that describing the streets. Each line has two integers a and b: there is a street between crossings a and b. All streets are two-way streets, and there is at most one street between two crossings.\n\nOutput\n\nFirst print an integer k: the minimum number of streets that should be closed. After this, print k lines describing the streets. You can print any valid solution.\n\nConstraints\n\n\n2 \\le n \\le 500\n\n1 \\le m \\le 1000\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 5\n1 2\n1 3\n2 3\n3 4\n1 4\n\n\nOutput:\n\n2\n3 4\n1 4",
+  "statement_sha256": "a5472b91f38b8ccc3122305184d11b0ce6ac1fb5a4ac23bd06b95574b838d3f3"
+}

@@ -25,5 +25,18 @@
       "konig-theorem": 0.9,
       "bipartite-matching": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1709",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "dfa6b3a4883609a0e3f1e274427abb98a6a815edc1d6e920e2d47cf02e7695fc",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

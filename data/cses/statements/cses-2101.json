@@ -1,0 +1,8 @@
+{
+  "id": "cses-2101",
+  "title": "New Roads Queries",
+  "source_url": "https://cses.fi/problemset/task/2101",
+  "observed_at": "2026-09-11T06:53:48.651666+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities in Byteland but no roads between them. However, each day, a new road will be built. There will be a total of m roads.\n\nYour task is to process q queries of the form: \"after how many days can we travel from city a to city b for the first time?\"\n\nInput\n\nThe first input line has three integers n, m and q: the number of cities, roads and queries. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines that describe the roads in the order they are built. Each line has two integers a and b: there will be a road between cities a and b.\n\nFinally, there are q lines that describe the queries. Each line has two integers a and b: we want to travel from city a to city b.\n\nOutput\n\nFor each query, print the number of days, or -1 if it is never possible.\n\nConstraints\n\n\n1 \\le n, m, q \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 4 3\n1 2\n2 3\n1 3\n2 5\n1 3\n3 4\n3 5\n\n\nOutput:\n\n2\n-1\n4",
+  "statement_sha256": "2c196f0c8bf512cf16bbbf248ee07ed2a82da05290fbe884e14ee2de7ad68f7a"
+}

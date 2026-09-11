@@ -1,0 +1,8 @@
+{
+  "id": "cses-1685",
+  "title": "New Flight Routes",
+  "source_url": "https://cses.fi/problemset/task/1685",
+  "observed_at": "2026-09-11T06:54:47.374642+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m flight connections between them. Your task is to add new flights so that it will be possible to travel from any city to any other city. What is the minimum number of new flights required?\n\nInput\n\nThe first input line has two integers n and m: the number of cities and flights. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the flights. Each line has two integers a and b: there is a flight from city a to city b. All flights are one-way flights.\n\nOutput\n\nFirst print an integer k: the required number of new flights. After this, print k lines describing the new flights. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 5\n1 2\n2 3\n3 1\n1 4\n3 4\n\n\nOutput:\n\n1\n4 2",
+  "statement_sha256": "0edabac998f30ab233e2c3cd2cac81fbf2ce93b55ba0e1755b167edd54f19aef"
+}

@@ -27,5 +27,18 @@
       "gcd-for-boundary-points": 0.9,
       "polygon-area": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2193",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "ed16dc7402c66cf85771b1f85313d0b3e65f193b5a2a236482b23bbdb806845d",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

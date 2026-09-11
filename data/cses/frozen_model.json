@@ -1,0 +1,28 @@
+{
+  "version": "cses-reviewed-hybrid-v1",
+  "selected": "review_only",
+  "inputs_hash": "01bf2ddce63968655a793b04f1d2d8c11dbff06e11e2c8ea3a3d2d1047e44795",
+  "development_hash": "c0929a90b3e749b8aec90d4893399eed63a6174caad138900cb0d8b738ae2e87",
+  "scores": {
+    "review_only": {
+      "mae": 0.3333333333333333,
+      "within_one": 1.0,
+      "two_band_errors": []
+    },
+    "completion": {
+      "mae": 0.3333333333333333,
+      "within_one": 1.0,
+      "two_band_errors": []
+    },
+    "volume": {
+      "mae": 0.3333333333333333,
+      "within_one": 1.0,
+      "two_band_errors": []
+    },
+    "combined": {
+      "mae": 0.3333333333333333,
+      "within_one": 1.0,
+      "two_band_errors": []
+    }
+  }
+}

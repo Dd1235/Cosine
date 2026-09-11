@@ -1,0 +1,8 @@
+{
+  "id": "cses-1618",
+  "title": "Trailing Zeros",
+  "source_url": "https://cses.fi/problemset/task/1618",
+  "observed_at": "2026-09-11T06:52:41.022608+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the number of trailing zeros in the factorial n!.\n\nFor example, 20!=2432902008176640000 and it has 4 trailing zeros.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint the number of trailing zeros in n!.\n\nConstraints\n\n\n1 \\le n \\le 10^9\n\n\nExample\n\nInput:\n\n20\n\n\nOutput:\n\n4",
+  "statement_sha256": "276ca521f0e12a5c217a667d9bbcc0a4cdd54d79966d8783211918616cb21973"
+}

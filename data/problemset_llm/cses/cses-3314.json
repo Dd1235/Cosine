@@ -26,5 +26,18 @@
       "monotonic-stack": 0.85,
       "dynamic-programming": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3314",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "62e4d4e570f5266b0671efaf75e8946aedde60bd73e096bfd7619ea7d95d0371",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

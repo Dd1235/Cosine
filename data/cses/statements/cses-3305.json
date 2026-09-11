@@ -1,0 +1,8 @@
+{
+  "id": "cses-3305",
+  "title": "K-th Highest Score",
+  "source_url": "https://cses.fi/problemset/task/3305",
+  "observed_at": "2026-09-11T06:54:38.653755+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere were n coders from Finland and n coders from Sweden in a programming contest. It turned out that after the contest, each coder had a distinct score.\n\nYour task is to find the k-th highest score in the contest.\n\nTo do this, you can ask questions: you can choose a country (Finland or Sweden) and an integer i and you will be told the i-th highest score for the chosen country.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You should start by reading two integers n and k.\n\nOn your turn, you can print one of the following:\n\n\n\"\\mathrm{F}\\ i\", where 1 \\le i \\le n: ask the i-th highest score for Finland.\n\n\"\\mathrm{S}\\ i\", where 1 \\le i \\le n: ask the i-th highest score for Sweden.\n\n\"!\\ s\": report that the k-th highest score is s. Your program must terminate after this.\n\n\nEach line should be followed by a line break. You must make sure the output gets flushed after printing each line.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le k \\le 2n\n\neach score is between 1 and 10^9\n\nyou can ask at most 100 queries of the first two types in total\n\n\nExample\n3 1\nF 1\n9\nS 1\n8\n! 9\n\n\nExplanation: The scores for Finland are [9, 4, 3] and the scores for Sweden are [8, 6, 1]. Since k = 1, the task is to find the highest score overall, which in this case is 9.",
+  "statement_sha256": "776f3f9bb5c6ecd13652dd6aaff2d07adcd6acc58c685ee4ef6566c9e90ace08"
+}

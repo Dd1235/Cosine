@@ -1,0 +1,8 @@
+{
+  "id": "cses-1090",
+  "title": "Ferris Wheel",
+  "source_url": "https://cses.fi/problemset/task/1090",
+  "observed_at": "2026-09-11T06:53:11.627666+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n children who want to go to a Ferris wheel, and your task is to find a gondola for each child.\n\nEach gondola may have one or two children in it, and in addition, the total weight in a gondola may not exceed x. You know the weight of every child.\n\nWhat is the minimum number of gondolas needed for the children?\n\nInput\n\nThe first input line contains two integers n and x: the number of children and the maximum allowed weight.\n\nThe next line contains n integers p_1,p_2,\\ldots,p_n: the weight of each child.\n\nOutput\n\nPrint one integer: the minimum number of gondolas.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x \\le 10^9\n\n1 \\le p_i \\le x\n\n\nExample\n\nInput:\n\n4 10\n7 2 3 9\n\n\nOutput:\n\n3",
+  "statement_sha256": "7671eb3eb4334125f4922cd2b0684f7e2030a6c11351aac98a205f0a3aefbddf"
+}

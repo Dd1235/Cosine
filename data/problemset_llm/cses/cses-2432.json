@@ -24,5 +24,18 @@
       "max-flow": 0.95,
       "bipartite-matching": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2432",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5f205b5261a10eb524ddfa5870bec0e5e5ce1dd9dfafa4ca61bd1b4f51aa9f06",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

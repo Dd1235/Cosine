@@ -1,0 +1,8 @@
+{
+  "id": "cses-2084",
+  "title": "Monster Game I",
+  "source_url": "https://cses.fi/problemset/task/2084",
+  "observed_at": "2026-09-11T06:53:47.270781+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are playing a game that consists of n levels. Each level has a monster. On levels 1,2,\\dots,n-1, you can either kill or escape the monster. However, on level n you must kill the final monster to win the game.\n\nKilling a monster takes sf time where s is the monster's strength and f is your skill factor (lower skill factor is better). After killing a monster, you get a new skill factor. What is the minimum total time in which you can win the game?\n\nInput\n\nThe first input line has two integers n and x: the number of levels and your initial skill factor.\n\nThe second line has n integers s_1,s_2,\\dots,s_n: each monster's strength.\n\nThe third line has n integers f_1,f_2,\\dots,f_n: your new skill factor after killing a monster.\n\nOutput\n\nPrint one integer: the minimum total time to win the game.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x \\le 10^6\n\n1 \\le s_1 \\le s_2 \\le \\dots \\le s_n \\le 10^6\n\nx \\ge f_1 \\ge f_2 \\ge \\dots \\ge f_n \\ge 1\n\n\nExample\n\nInput:\n\n5 100\n20 30 30 50 90\n90 60 20 20 10\n\n\nOutput:\n\n4800\n\n\nExplanation: The best way to play is to kill the third and fifth monster.",
+  "statement_sha256": "397a3aebd33d67b70e84d04817918f865b9601ff8b10a685f5641a0494061702"
+}

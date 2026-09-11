@@ -26,5 +26,18 @@
       "dp-on-sequences": 0.98,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1636",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "cee45ca819f7e81770e48b2f83ad2a986c5097c07945acb97e5281bc7b39bbd2",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

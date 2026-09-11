@@ -1,0 +1,8 @@
+{
+  "id": "cses-3224",
+  "title": "Sliding Window Mode",
+  "source_url": "https://cses.fi/problemset/task/3224",
+  "observed_at": "2026-09-11T06:53:50.409469+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the mode each window of k elements, from left to right.\n\nThe mode is the most frequent element in an array. If there are several possible modes, choose the smallest of them.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the modes.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n1 2 3 2 5 2 4 4\n\n\nOutput:\n\n1 2 2 2 2 4",
+  "statement_sha256": "eb6bcea9efa3638c9c8dee284450275b6f816f129640356a452725c57d4e1d04"
+}

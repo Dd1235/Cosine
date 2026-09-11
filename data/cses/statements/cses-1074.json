@@ -1,0 +1,8 @@
+{
+  "id": "cses-1074",
+  "title": "Stick Lengths",
+  "source_url": "https://cses.fi/problemset/task/1074",
+  "observed_at": "2026-09-11T06:53:12.439767+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n sticks with some lengths. Your task is to modify the sticks so that each stick has the same length.\n\nYou can either lengthen and shorten each stick. Both operations cost x where x is the difference between the new and original length.\n\nWhat is the minimum total cost?\n\nInput\n\nThe first input line contains an integer n: the number of sticks.\n\nThen there are n integers: p_1,p_2,\\ldots,p_n: the lengths of the sticks.\n\nOutput\n\nPrint one integer: the minimum total cost.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le p_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 3 1 5 2\n\n\nOutput:\n\n5",
+  "statement_sha256": "b612c17d2236040a89047ebb3da5f94139d6b7ea3a0ff4e42528ea7ae9899a88"
+}

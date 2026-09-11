@@ -1,0 +1,8 @@
+{
+  "id": "cses-2422",
+  "title": "Multiplication Table",
+  "source_url": "https://cses.fi/problemset/task/2422",
+  "observed_at": "2026-09-11T06:54:51.527992+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nFind the middle element when the numbers in an n \\times n multiplication table are sorted in increasing order. It is assumed that n is odd.\n\nFor example, the 3 \\times 3 multiplication table is as follows:\n\n\\begin{matrix}\n1 & 2 & 3 \\\\\n2 & 4 & 6 \\\\\n3 & 6 & 9 \\\\\n\\end{matrix}\n\nThe numbers in increasing order are [1,2,2,3,3,4,6,6,9], so the answer is 3.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint one integer: the answer to the task.\n\nConstraints\n\n\n1 \\le n < 10^6\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n3",
+  "statement_sha256": "6ada15b7c080562e8b13a0fa0c965cb4fc0a3c8fc98b776f5bead0607687c684"
+}

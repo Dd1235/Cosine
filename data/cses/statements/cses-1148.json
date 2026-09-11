@@ -1,0 +1,8 @@
+{
+  "id": "cses-1148",
+  "title": "Maximum Building II",
+  "source_url": "https://cses.fi/problemset/task/1148",
+  "observed_at": "2026-09-11T06:54:59.400891+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a map of a forest where some squares are empty and some squares have trees.\n\nYou want to place a rectangular building in the forest so that no trees need to be cut down. For each building size, your task is to calculate the number of ways you can do this.\n\nInput\n\nThe first input line contains integers n and m: the size of the forest.\n\nAfter this, the forest is described. Each square is empty (.) or has trees (*).\n\nOutput\n\nPrint n lines each containing m integers.\n\nConstraints\n\n\n1 \\le n,m \\le 1000\n\n\nExample\n\nInput:\n\n4 7\n...*.*.\n.*.....\n.......\n......*\n\n\nOutput:\n\n24 17 13 9 6 3 1 \n16 9 7 5 3 1 0 \n9 3 2 1 0 0 0 \n3 0 0 0 0 0 0\n\n\nExplanation: For example, there are 5 possible places for a building of size 2 \\times 4.",
+  "statement_sha256": "866fdaf7840353c6060494925702f2603531e69c9679950d1825b83ad1b41b75"
+}

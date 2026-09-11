@@ -1,0 +1,8 @@
+{
+  "id": "cses-3402",
+  "title": "Minimum Cost Pairs",
+  "source_url": "https://cses.fi/problemset/task/3402",
+  "observed_at": "2026-09-11T06:54:59.392440+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, consider pairings of k pairs. Each number can appear in at most one pair, and the cost of a pair (a,b) is |a-b|. The cost of a pairing is the sum of all costs of the pairs.\n\nCalculate the minimum costs of pairings for k=1,2,\\dots,\\lfloor n/2 \\rfloor.\n\nInput\n\nThe first line has an integer: the array size.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the array contents.\n\nOutput\n\nPrint \\lfloor n/2 \\rfloor integers: the minimum costs of pairings.\n\nConstraints\n\n\n2 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8\n3 1 2 7 9 3 4 7\n\n\nOutput:\n\n0 0 1 6\n\n\nExplanation: Possible minimum-cost pairings are [(3,3)], [(3,3),(7,7)], [(1,2),(3,3),(7,7)] and [(1,2),(3,3),(4,7),(7,9)].",
+  "statement_sha256": "c36f38e394f794a99805db643c1c7b6a2cf9835c08ed2003331d8b0cd7dd50ff"
+}

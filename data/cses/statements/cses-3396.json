@@ -1,0 +1,8 @@
+{
+  "id": "cses-3396",
+  "title": "Next Prime",
+  "source_url": "https://cses.fi/problemset/task/3396",
+  "observed_at": "2026-09-11T06:53:34.567865+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a positive integer n, find the next prime number after it.\n\nInput\n\nThe first line has an integer t: the number of tests.\n\nAfter that, each line has a positive integer n.\n\nOutput\n\nFor each test, print the next prime after n.\n\nConstraints\n\n\n1 \\le t \\le 20\n\n1 \\le n \\le 10^{12}\n\n\nExample\n\nInput:\n\n5\n1\n2\n3\n42\n1337\n\n\nOutput:\n\n2\n3\n5\n43\n1361",
+  "statement_sha256": "93a0c66fe723902ddb4a031715e868b382409a50da3595cc8fbce7909b326f90"
+}

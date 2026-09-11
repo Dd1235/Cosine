@@ -1,0 +1,8 @@
+{
+  "id": "cses-1625",
+  "title": "Grid Path Description",
+  "source_url": "https://cses.fi/problemset/task/1625",
+  "observed_at": "2026-09-11T06:53:10.971148+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are 88418 paths in a 7 \\times 7 grid from the upper-left square to the lower-left square. Each path corresponds to a 48-character description consisting of characters D (down), U (up), L (left) and R (right).\n\nFor example, the path\n\ncorresponds to the description DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDLLDDDD.\n\nYou are given a description of a path which may also contain characters ? (any direction). Your task is to calculate the number of paths that match the description.\n\nInput\n\nThe only input line has a 48-character string of characters ?, D, U, L and R.\n\nOutput\n\nPrint one integer: the total number of paths.\n\nExample\n\nInput:\n\n??????R??????U??????????????????????????LD????D?\n\n\nOutput:\n\n201",
+  "statement_sha256": "1557aab4f914c5e178968671f2ad89cca82a8bc8ddd504ff5b440d15c24a27b4"
+}

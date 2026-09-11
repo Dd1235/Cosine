@@ -26,5 +26,18 @@
       "constructive-algorithm": 0.85,
       "number-theory": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3159",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "8b262e200f5c536391b103f4088d786322933a32dab155cef22df1ace8f5f3a9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -24,5 +24,18 @@
       "modular-arithmetic": 0.9,
       "cycle-detection": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3215",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "3c3c8d596f2ec5f07fd3e378d49ca0eb5d266b65b00f51d869af84b6723b871c",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

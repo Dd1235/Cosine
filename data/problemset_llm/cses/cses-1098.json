@@ -26,5 +26,18 @@
       "grundy-numbers": 0.95,
       "bit-manipulation": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1098",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "86149723c737e9954df06feba7dacf1b8a9ed2aed6a72e8b5bd5cf6b7a2b9649",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1686",
+  "title": "Coin Collector",
+  "source_url": "https://cses.fi/problemset/task/1686",
+  "observed_at": "2026-09-11T06:53:24.711855+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game has n rooms and m tunnels between them. Each room has a certain number of coins. What is the maximum number of coins you can collect while moving through the tunnels when you can freely choose your starting and ending room?\n\nInput\n\nThe first input line has two integers n and m: the number of rooms and tunnels. The rooms are numbered 1,2,\\dots,n.\n\nThen, there are n integers k_1,k_2,\\ldots,k_n: the number of coins in each room.\n\nFinally, there are m lines describing the tunnels. Each line has two integers a and b: there is a tunnel from room a to room b. Each tunnel is a one-way tunnel.\n\nOutput\n\nPrint one integer: the maximum number of coins you can collect.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le k_i \\le 10^9\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 4\n4 5 2 7\n1 2\n2 1\n1 3\n2 4\n\n\nOutput:\n\n16",
+  "statement_sha256": "f7bfc7564cc4e5b4997d6f54c1eba617deb290d463e5e3d3413e3bb7451edc46"
+}

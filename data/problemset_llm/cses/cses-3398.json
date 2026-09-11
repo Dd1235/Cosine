@@ -27,5 +27,18 @@
       "gcd": 0.95,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3398",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5c17e067227e7b9ad3931958a017b186f5d251d9891bf424f99c18b11ec2eed0",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -31,5 +31,18 @@
       "geometry": 0.9,
       "rerooting-dp": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1132",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "128da827d68c9f80cc05eea181b0c82521106decb66859a3a387881dc728d9e9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

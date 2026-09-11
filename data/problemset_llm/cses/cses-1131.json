@@ -25,5 +25,18 @@
       "bfs": 0.95,
       "tree-diameter": 0.98
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1131",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "b67b2eef148917852e2d27bac91cfdcabaa79f118a09918067d8b990f67fd8af",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

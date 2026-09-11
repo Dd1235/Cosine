@@ -1,0 +1,8 @@
+{
+  "id": "cses-1705",
+  "title": "Forbidden Cities",
+  "source_url": "https://cses.fi/problemset/task/1705",
+  "observed_at": "2026-09-11T06:54:46.856613+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads between them. Kaaleppi is currently in city a and wants to travel to city b.\n\nHowever, there is a problem: Kaaleppi has recently robbed a bank in city c and can't enter the city, because the local police would catch him. Your task is to find out if there is a route from city a to city b that does not visit city c.\n\nAs an additional challenge, you have to process q queries where a, b and c vary.\n\nInput\n\nThe first input line has three integers n, m and q: the number of cities, roads and queries. The cities are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the roads. Each line has two integers a and b: there is a road between cities a and b. Each road is bidirectional.\n\nFinally, there are q lines describing the queries. Each line has three integers a, b and c: is there a route from city a to city b that does not visit city c?\n\nYou can assume that there is a route between any two cities.\n\nOutput\n\nFor each query, print \"YES\", if there is such a route, and \"NO\" otherwise.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le q \\le 10^5\n\n1 \\le a,b,c \\le n\n\n\nExample\n\nInput:\n\n5 6 3\n1 2\n1 3\n2 3\n2 4\n3 4\n4 5\n1 4 2\n3 5 4\n3 5 2\n\n\nOutput:\n\nYES\nNO\nYES",
+  "statement_sha256": "856ea8e736796c4cb53d73d0d5d9610cf3f988674a0e493c20f8bf3cdaa084bf"
+}

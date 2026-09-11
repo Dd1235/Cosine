@@ -1,0 +1,8 @@
+{
+  "id": "cses-3409",
+  "title": "MST Edge Cost",
+  "source_url": "https://cses.fi/problemset/task/3409",
+  "observed_at": "2026-09-11T06:54:45.075094+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected weighted graph, determine for each edge the minimum spanning tree cost if the edge must be included in the spanning tree.\n\nInput\n\nThe first line has two integers n and m: the number of nodes and edges. The nodes are numbered 1,2,\\dots,n.\n\nThe following m lines describe the edges. Each line has three integers a, b, w: there is an edge between nodes a and b with weight w.\n\nYou can assume that the graph is connected and simple and each edge appears at most once in the graph.\n\nOutput\n\nFor each edge in the input order, print the minimum spanning tree cost when the edge is included.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le w \\le 10^9\n\n\nExample\n\nInput:\n\n5 6\n1 2 4\n1 3 2\n2 4 2\n3 4 1\n3 5 4\n4 5 3\n\n\nOutput:\n\n10\n8\n8\n8\n9\n8",
+  "statement_sha256": "002fb4e738accd66fcfb2213fb035440176977e61d57a9bcb8177cfb88cb9a5b"
+}

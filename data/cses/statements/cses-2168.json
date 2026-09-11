@@ -1,0 +1,8 @@
+{
+  "id": "cses-2168",
+  "title": "Nested Ranges Check",
+  "source_url": "https://cses.fi/problemset/task/2168",
+  "observed_at": "2026-09-11T06:53:14.236298+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n ranges, your task is to determine for each range if it contains some other range and if some other range contains it.\n\nRange [a,b] contains range [c,d] if a \\le c and d \\le b.\n\nInput\n\nThe first input line has an integer n: the number of ranges.\n\nAfter this, there are n lines that describe the ranges. Each line has two integers x and y: the range is [x,y].\n\nYou may assume that no range appears more than once in the input.\n\nOutput\n\nFirst print a line that describes for each range (in the input order) if it contains some other range (1) or not (0).\n\nThen print a line that describes for each range (in the input order) if some other range contains it (1) or not (0).\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x < y \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 6\n2 4\n4 8\n3 6\n\n\nOutput:\n\n1 0 0 0\n0 1 0 1",
+  "statement_sha256": "e359d107a69573a8e25c80bca65f8723cc0d2bcf332975e8652d3262ef71a0f2"
+}

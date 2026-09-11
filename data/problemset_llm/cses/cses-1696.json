@@ -26,5 +26,18 @@
       "max-flow": 0.95,
       "dfs": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1696",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "ab7d62dd10b18db2875ac136492716ba9e7b98dac6b284089c32d86780e1235e",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

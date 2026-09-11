@@ -26,5 +26,18 @@
       "kmp": 0.97,
       "string-processing": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2107",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "41bcde622c662c9f726deed47a10933bb4c23daac10a185b90f23a3bbc87d421",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

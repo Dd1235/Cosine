@@ -30,5 +30,18 @@
       "line-sweep": 0.9,
       "convex-hull-trick": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3430",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "afaa7ce18b265d42dd60972f367e7dbe8580dea282f5967ab7b87c0dbd920022",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

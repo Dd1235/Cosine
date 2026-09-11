@@ -1,0 +1,8 @@
+{
+  "id": "cses-1164",
+  "title": "Room Allocation",
+  "source_url": "https://cses.fi/problemset/task/1164",
+  "observed_at": "2026-09-11T06:53:14.854631+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a large hotel, and n customers will arrive soon. Each customer wants to have a single room.\n\nYou know each customer's arrival and departure day. Two customers can stay in the same room if the departure day of the first customer is earlier than the arrival day of the second customer.\n\nWhat is the minimum number of rooms that are needed to accommodate all customers? And how can the rooms be allocated?\n\nInput\n\nThe first input line contains an integer n: the number of customers.\n\nThen there are n lines, each of which describes one customer. Each line has two integers a and b: the arrival and departure day.\n\nOutput\n\nPrint first an integer k: the minimum number of rooms required.\n\nAfter that, print a line that contains the room number of each customer in the same order as in the input. The rooms are numbered 1,2,\\ldots,k. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a \\le b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n1 2\n2 4\n4 4\n\n\nOutput:\n\n2\n1 2 1",
+  "statement_sha256": "4f0c6673a4779705b6c72e109cd5eb78b91031f02e970e8781ccd069678ca679"
+}

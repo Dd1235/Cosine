@@ -1,0 +1,8 @@
+{
+  "id": "cses-1621",
+  "title": "Distinct Numbers",
+  "source_url": "https://cses.fi/problemset/task/1621",
+  "observed_at": "2026-09-11T06:53:10.938528+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a list of n integers, and your task is to calculate the number of distinct values in the list.\n\nInput\n\nThe first input line has an integer n: the number of values.\n\nThe second line has n integers x_1,x_2,\\dots,x_n.\n\nOutput\n\nPrint one integers: the number of distinct values.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 3 2 2 3\n\n\nOutput:\n\n2",
+  "statement_sha256": "81c4fa7821262e59006699f8632d00ee6de83c20a8432a503698cf01bf1ee7b5"
+}

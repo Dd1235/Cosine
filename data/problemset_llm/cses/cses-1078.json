@@ -25,5 +25,18 @@
       "combinatorial-dp": 0.95,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1078",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "a52769652d007bb74eb9338b0bda456d1a0672cb89467d4112042479f735ab35",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3429",
+  "title": "Lines and Queries I",
+  "source_url": "https://cses.fi/problemset/task/3429",
+  "observed_at": "2026-09-11T06:53:44.648362+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently process the following types of queries:\n\n\nAdd a line ax+b\n\nFind the maximum point in any line at position x\n\n\nInput\n\nThe first line has an integer n: the number of queries.\n\nThe following n lines describe the queries. The format of each line is either \"1 a b\" or \"2 x\".\n\nYou may assume that the first query is of type 1.\n\nOutput\n\nPrint the answer for each query of type 2.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le a,b \\le 10^9\n\n0 \\le x \\le 10^5\n\n\nExample\n\nInput:\n\n6\n1 1 2\n2 1\n2 3\n1 0 4\n2 1\n2 3\n\n\nOutput:\n\n3\n5\n4\n5",
+  "statement_sha256": "eaf8a91c37980309e206efb15a26d89d71345faf12683352b5d7ed3c92ce3f35"
+}

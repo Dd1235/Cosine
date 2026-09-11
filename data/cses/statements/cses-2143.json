@@ -1,0 +1,8 @@
+{
+  "id": "cses-2143",
+  "title": "Reachability Queries",
+  "source_url": "https://cses.fi/problemset/task/2143",
+  "observed_at": "2026-09-11T06:53:46.227934+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA directed graph consists of n nodes and m edges. The edges are numbered 1,2,\\dots,n.\n\nYour task is to answer q queries of the form \"can you reach node b from node a?\"\n\nInput\n\nThe first input line has three integers n, m and q: the number of nodes, edges and queries.\n\nThen there are m lines describing the edges. Each line has two distinct integers a and b: there is an edge from node a to node b.\n\nFinally there are q lines describing the queries. Each line consists of two integers a and b: \"can you reach node b from node a?\"\n\nOutput\n\nPrint the answer for each query: either \"YES\" or \"NO\".\n\nConstraints\n\n\n1 \\le n \\le 5 \\cdot 10^4\n\n1 \\le m,q \\le 10^5\n\n\nExample\n\nInput:\n\n4 4 3\n1 2\n2 3\n3 1\n4 3\n1 3\n1 4\n4 1\n\n\nOutput:\n\nYES\nNO\nYES",
+  "statement_sha256": "5ea4204ca1ea2f620314e172df8042a708d852625a72c1992679233bfa7b4e27"
+}

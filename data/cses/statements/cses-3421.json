@@ -1,0 +1,8 @@
+{
+  "id": "cses-3421",
+  "title": "Distinct Values Subsequences",
+  "source_url": "https://cses.fi/problemset/task/3421",
+  "observed_at": "2026-09-11T06:53:13.540239+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, count the number of subsequences where each element is distinct.\n\nA subsequence is a sequence of array elements from left to right that may have gaps.\n\nInput\n\nThe first line has an integer n: the array size.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array contents.\n\nOutput\n\nPrint the number of subsequences with distinct elements. The answer can be large, so print it modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 2 1 3\n\n\nOutput:\n\n11\n\n\nExplanation: The subsequences are [1] (two times), [2], [3], [1,2], [1,3] (two times), [2,1], [2,3], [1,2,3] and [2,1,3].",
+  "statement_sha256": "5143bbf210126202089122b5d02b1e01f2108cc23c03f8dd5a4cf287dd96d4fc"
+}

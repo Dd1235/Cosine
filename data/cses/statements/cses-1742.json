@@ -1,0 +1,8 @@
+{
+  "id": "cses-1742",
+  "title": "Robot Path",
+  "source_url": "https://cses.fi/problemset/task/1742",
+  "observed_at": "2026-09-11T06:53:45.310555+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a description of a robot's path. The robot begins at point (0,0) and performs n commands. Each command moves the robot some distance up, down, left or right.\n\nThe robot will stop when it has performed all commands, or immediately when it returns to a point that it has already visited. Your task is to calculate the total distance the robot moves.\n\nInput\n\nThe first line has an integer n: the number of commands.\n\nAfter that, there are n lines describing the commands. Each line has a character d and an integer x: the robot moves the distance  x to the direction d. Each direction is U (up), D (down), L (left), or R (right).\n\nOutput\n\nPrint the total distance the robot moves.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le x \\le 10^6\n\n\nExample\n\nInput:\n\n5\nU 2\nR 3\nD 1\nL 5\nU 2\n\n\nOutput:\n\n9",
+  "statement_sha256": "231fd194e59d9b1bace1606295ad3d2a7b3cda17f81dc0ff0f66bb6232300487"
+}

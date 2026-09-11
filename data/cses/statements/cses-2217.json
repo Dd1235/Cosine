@@ -1,0 +1,8 @@
+{
+  "id": "cses-2217",
+  "title": "Collecting Numbers II",
+  "source_url": "https://cses.fi/problemset/task/2217",
+  "observed_at": "2026-09-11T06:53:12.989273+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array that contains each number between 1 \\dots n exactly once. Your task is to collect the numbers from 1 to n in increasing order.\n\nOn each round, you go through the array from left to right and collect as many numbers as possible.\n\nGiven m operations that swap two numbers in the array, your task is to report the number of rounds after each operation.\n\nInput\n\nThe first line has two integers n and m: the array size and the number of operations.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the numbers in the array.\n\nFinally, there are m lines that describe the operations. Each line has two integers a and b: the numbers at positions a and b are swapped.\n\nOutput\n\nPrint m integers: the number of rounds after each swap.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n4 2 1 5 3\n2 3\n1 5\n2 3\n\n\nOutput:\n\n2\n3\n4",
+  "statement_sha256": "fd7915a255906a80b9e5a2af269766dbd7a80ee46f18d0066f80822a8d83f39a"
+}

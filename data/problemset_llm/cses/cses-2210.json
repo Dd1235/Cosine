@@ -27,5 +27,18 @@
       "group-theory": 0.95,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2210",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "188216f088da612dd866e6610085fd67f75414f59ecf9f9108fbe870246d6b19",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

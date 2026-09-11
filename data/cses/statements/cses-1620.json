@@ -1,0 +1,8 @@
+{
+  "id": "cses-1620",
+  "title": "Factory Machines",
+  "source_url": "https://cses.fi/problemset/task/1620",
+  "observed_at": "2026-09-11T06:53:14.842977+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA factory has n machines which can be used to make products. Your goal is to make a total of t products.\n\nFor each machine, you know the number of seconds it needs to make a single product. The machines can work simultaneously, and you can freely decide their schedule.\n\nWhat is the shortest time needed to make t products?\n\nInput\n\nThe first input line has two integers n and t: the number of machines and products.\n\nThe next line has n integers k_1,k_2,\\dots,k_n: the time needed to make a product using each machine.\n\nOutput\n\nPrint one integer: the minimum time needed to make t products.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le t \\le 10^9\n\n1 \\le k_i \\le 10^9\n\n\nExample\n\nInput:\n\n3 7\n3 2 5\n\n\nOutput:\n\n8\n\n\nExplanation: Machine 1 makes two products, machine 2 makes four products and machine 3 makes one product.",
+  "statement_sha256": "ac3f9ae81ed9078a570d962e0e965c617247550c7791538bf7d6643ad0d6d7f2"
+}

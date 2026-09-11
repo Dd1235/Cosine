@@ -1,0 +1,8 @@
+{
+  "id": "cses-1195",
+  "title": "Flight Discount",
+  "source_url": "https://cses.fi/problemset/task/1195",
+  "observed_at": "2026-09-11T06:53:21.985933+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to find a minimum-price flight route from Syrj\u00e4l\u00e4 to Mets\u00e4l\u00e4. You have one discount coupon, using which you can halve the price of any single flight during the route. However, you can only use the coupon once.\n\nWhen you use the discount coupon for a flight whose price is x, its price becomes \\lfloor x/2 \\rfloor (it is rounded down to an integer).\n\nInput\n\nThe first input line has two integers n and m: the number of cities and flight connections. The cities are numbered 1,2,\\ldots,n. City 1 is Syrj\u00e4l\u00e4, and city n is Mets\u00e4l\u00e4.\n\nAfter this there are m lines describing the flights. Each line has three integers a, b, and c: a flight begins at city a, ends at city b, and its price is c. Each flight is unidirectional.\n\nYou can assume that it is always possible to get from Syrj\u00e4l\u00e4 to Mets\u00e4l\u00e4.\n\nOutput\n\nPrint one integer: the price of the cheapest route from Syrj\u00e4l\u00e4 to Mets\u00e4l\u00e4.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n3 4\n1 2 3\n2 3 1\n1 3 7\n2 1 5\n\n\nOutput:\n\n2",
+  "statement_sha256": "56f9050a9e757f3dbd6e88253840932756a1d8b84132d06bcadcee48af85add6"
+}

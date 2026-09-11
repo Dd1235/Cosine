@@ -1,0 +1,8 @@
+{
+  "id": "cses-3159",
+  "title": "Replace with Difference",
+  "source_url": "https://cses.fi/problemset/task/3159",
+  "observed_at": "2026-09-11T06:54:57.904160+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. You will perform n-1 operations on the array.\n\nIn one operation, you will choose two numbers a and b from the array, delete both of them from the array and add |a - b| into the array.\n\nYour task is to find a sequence of operations such that the last number remaining in the array is 0.\n\nInput\n\nThe first line has an integer n: the length of the array.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint n-1 lines each containing two integers a and b: the numbers chosen in the operations. You can print any valid solution.\n\nIf no solution exists, print only -1.\n\nConstraints\n\n\n2 \\le n \\le 1000\n\n1 \\le x_i \\le 1000\n\n\nExample\n\nInput:\n\n5\n2 7 4 12 1\n\n\nOutput:\n\n2 12\n7 10\n4 1\n3 3\n\n\nExplanation: The array changes as follows:\n\n\n[2, 7, 4, 12, 1] \\rightarrow remove 2 and 12, add 10\n\n[7, 4, 1, 10] \\rightarrow remove 7 and 10, add 3\n\n[4, 1, 3] \\rightarrow remove 4 and 1, add 3\n\n[3, 3] \\rightarrow remove 3 and 3, add 0\n\n[0]: the final array",
+  "statement_sha256": "8b262e200f5c536391b103f4088d786322933a32dab155cef22df1ace8f5f3a9"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3410",
+  "title": "Maximum Manhattan Distances",
+  "source_url": "https://cses.fi/problemset/task/3410",
+  "observed_at": "2026-09-11T06:53:43.923137+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA set is initially empty and n points are added to it. Calculate the maximum Manhattan distance of two points after each addition.\n\nInput\n\nThe first line has an integer n: the number of points.\n\nThe following n lines describe the points. Each line has two integers x and y. You can assume that each point is distinct.\n\nOutput\n\nAfter each addition, print the maximum distance.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le x, y \\le 10^9\n\n\nExample\n\nInput:\n\n5\n1 1\n3 2\n2 4\n2 1\n4 5\n\n\nOutput:\n\n0\n3\n4\n4\n7",
+  "statement_sha256": "18d4e5a698f23e29a51cffa2fedb75db18a74d8efa6008ad222853b5a4f18d8b"
+}

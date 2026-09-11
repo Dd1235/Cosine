@@ -1,0 +1,8 @@
+{
+  "id": "cses-3399",
+  "title": "Raab Game I",
+  "source_url": "https://cses.fi/problemset/task/3399",
+  "observed_at": "2026-09-11T06:52:42.554995+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a two player game where each player has n cards numbered 1,2,\\dots,n. On each turn both players place one of their cards on the table. The player who placed the higher card gets one point. If the cards are equal, neither player gets a point. The game continues until all cards have been played.\n\nYou are given the number of cards n and the players' scores at the end of the game, a and b. Your task is to give an example of how the game could have played out.\n\nInput\n\nThe first line contains one integer t: the number of tests.\n\nThen there are t lines, each with three integers n, a and b.\n\nOutput\n\nFor each test case print YES if there is a game with the given outcome and NO otherwise.\n\nIf the answer is YES, print an example of one possible game. Print two lines representing the order in which the players place their cards. You can give any valid example.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n1 \\le n \\le 100\n\n0 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n4 1 2\n2 0 1\n3 0 0\n2 1 1\n4 4 1\n\n\nOutput:\n\nYES\n1 4 3 2\n2 1 3 4\nNO\nYES\n1 2 3\n1 2 3\nYES\n1 2\n2 1\nNO",
+  "statement_sha256": "390423ac56142de21e071a54ffc96424b68d74e9698840a5fefafe7083b55bb5"
+}

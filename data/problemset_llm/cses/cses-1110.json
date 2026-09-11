@@ -28,5 +28,18 @@
       "lexicographic-minimum": 0.9,
       "lyndon-factorization": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1110",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "220540b2b4c07f9fb83e32efdef106fdbf72651c8316d99dfbc4bec1b2946fa0",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2165",
+  "title": "Tower of Hanoi",
+  "source_url": "https://cses.fi/problemset/task/2165",
+  "observed_at": "2026-09-11T06:52:41.722644+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThe Tower of Hanoi game consists of three stacks (left, middle and right) and n round disks of different sizes. Initially, the left stack has all the disks, in increasing order of size from top to bottom.\n\nThe goal is to move all the disks to the right stack using the middle stack. On each move you can move the uppermost disk from a stack to another stack. In addition, it is not allowed to place a larger disk on a smaller disk.\n\nYour task is to find a solution that minimizes the number of moves.\n\nInput\n\nThe only input line has an integer n: the number of disks.\n\nOutput\n\nFirst print an integer k: the minimum number of moves.\n\nAfter this, print k lines that describe the moves. Each line has two integers a and b: you move a disk from stack a to stack b.\n\nConstraints\n\n\n1 \\le n \\le 16\n\n\nExample\n\nInput:\n\n2\n\n\nOutput:\n\n3\n1 2\n1 3\n2 3",
+  "statement_sha256": "f9578492925850bb66c089631558572a5ff1e9735cb403863083d37fdd55a512"
+}

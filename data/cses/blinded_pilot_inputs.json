@@ -1,0 +1,492 @@
+{
+  "rubric": {
+    "1": "Foundation: direct simulation/basic observation",
+    "2": "Standard: one standard technique",
+    "3": "Intermediate: nontrivial insight or combination",
+    "4": "Advanced: specialized technique or substantial composition",
+    "5": "Expert: demanding optimization/proof/implementation"
+  },
+  "instructions": "Read full statements and derive a feasible solution and complexity. Do not read public counts, other assessments, production labels, or proposed scores. Record uncertainty and unresolved proof/runtime issues honestly.",
+  "tasks": [
+    {
+      "id": "cses-1068",
+      "title": "Weird Algorithm",
+      "source_url": "https://cses.fi/problemset/task/1068",
+      "observed_at": "2026-09-11T06:52:39.933286+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an algorithm that takes as input a positive integer n. If n is even, the algorithm divides it by two, and if n is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until n is one. For example, the sequence for n=3 is as follows:\n 3 \\rightarrow 10 \\rightarrow 5 \\rightarrow 16 \\rightarrow 8 \\rightarrow 4 \\rightarrow 2 \\rightarrow 1\nYour task is to simulate the execution of the algorithm for a given value of n.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint a line that contains all values of n during the algorithm.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n3 10 5 16 8 4 2 1",
+      "statement_sha256": "eaf2ac59c36a70d69c95684f795c93c503e7d1eb0f5478ac0dbb2f4768a945f3"
+    },
+    {
+      "id": "cses-1070",
+      "title": "Permutations",
+      "source_url": "https://cses.fi/problemset/task/1070",
+      "observed_at": "2026-09-11T06:52:40.515533+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA permutation of integers 1,2,\\ldots,n is called beautiful if there are no adjacent elements whose difference is 1.\n\nGiven n, construct a beautiful permutation if such a permutation exists.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint a beautiful permutation of integers 1,2,\\ldots,n. If there are several solutions, you may print any of them. If there are no solutions, print \"NO SOLUTION\".\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample 1\n\nInput:\n\n5\n\n\nOutput:\n\n4 2 5 3 1\n\nExample 2\n\nInput:\n\n3\n\n\nOutput:\n\nNO SOLUTION",
+      "statement_sha256": "4091c567185c0d98c9f6a288092faba3dcb81d567661221d8343636d694c8407"
+    },
+    {
+      "id": "cses-1095",
+      "title": "Exponentiation",
+      "source_url": "https://cses.fi/problemset/task/1095",
+      "observed_at": "2026-09-11T06:53:33.105307+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently calculate values a^b modulo 10^9+7.\n\nNote that in this task we assume that 0^0=1.\n\nInput\n\nThe first input line contains an integer n: the number of calculations.\n\nAfter this, there are n lines, each containing two integers a and b.\n\nOutput\n\nPrint each value a^b modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a,b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 4\n2 8\n123 123\n\n\nOutput:\n\n81\n256\n921450052",
+      "statement_sha256": "49949077fd4b64901e6ec3000ed6592435a95dabe48c714fb7e200c3ee02c907"
+    },
+    {
+      "id": "cses-1133",
+      "title": "Tree Distances II",
+      "source_url": "https://cses.fi/problemset/task/1133",
+      "observed_at": "2026-09-11T06:53:31.017455+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes.\n\nYour task is to determine for each node the sum of the distances from the node to all other nodes.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint n integers: for each node 1,2,\\ldots,n, the sum of the distances.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n6 9 5 8 8",
+      "statement_sha256": "b816ae4e146053e6fc627f33b245be8c361834e44da0a16f098c154aefa4ed6a"
+    },
+    {
+      "id": "cses-1160",
+      "title": "Planets Queries II",
+      "source_url": "https://cses.fi/problemset/task/1160",
+      "observed_at": "2026-09-11T06:53:23.665701+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are playing a game consisting of n planets. Each planet has a teleporter to another planet (or the planet itself).\n\nYou have to process q queries of the form: You are now on planet a and want to reach planet b. What is the minimum number of teleportations?\n\nInput\n\nThe first input line contains two integers n and q: the number of planets and queries. The planets are numbered 1,2,\\ldots,n.\n\nThe second line contains n integers t_1,t_2,\\ldots,t_n: for each planet, the destination of the teleporter.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b: you are now on planet a and want to reach planet b.\n\nOutput\n\nFor each query, print the minimum number of teleportations. If it is not possible to reach the destination, print -1.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n2 3 2 3 2\n1 2\n1 3\n1 4\n\n\nOutput:\n\n1\n2\n-1",
+      "statement_sha256": "ee0c8a06208de3083bbae6362d41f93adc8061cca6b54a0b43af50dd6da4106b"
+    },
+    {
+      "id": "cses-1194",
+      "title": "Monsters",
+      "source_url": "https://cses.fi/problemset/task/1194",
+      "observed_at": "2026-09-11T06:53:21.350006+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou and some monsters are in a labyrinth. When taking a step to some direction in the labyrinth, each monster may simultaneously take one as well. Your goal is to reach one of the boundary squares without ever sharing a square with a monster.\n\nYour task is to find out if your goal is possible, and if it is, print a path that you can follow. Your plan has to work in any situation; even if the monsters know your path beforehand.\n\nInput\n\nThe first input line has two integers n and m: the height and width of the map.\n\nAfter this there are n lines of m characters describing the map. Each character is . (floor), # (wall), A (start), or M (monster). There is exactly one A in the input.\n\nOutput\n\nFirst print \"YES\" if your goal is possible, and \"NO\" otherwise.\n\nIf your goal is possible, also print an example of a valid path (the length of the path and its description using characters D, U, L, and R). You can print any path, as long as its length is at most n \\cdot m steps.\n\nConstraints\n\n\n1 \\le n,m \\le 1000\n\n\nExample\n\nInput:\n\n5 8\n########\n#M..A..#\n#.#.M#.#\n#M#..#..\n#.######\n\n\nOutput:\n\nYES\n5\nRRDDR",
+      "statement_sha256": "f4c94e78aad9693219dc8409a7f8201abd46326bf9fef01c3cb6d6ccd11a7044"
+    },
+    {
+      "id": "cses-1625",
+      "title": "Grid Path Description",
+      "source_url": "https://cses.fi/problemset/task/1625",
+      "observed_at": "2026-09-11T06:53:10.971148+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are 88418 paths in a 7 \\times 7 grid from the upper-left square to the lower-left square. Each path corresponds to a 48-character description consisting of characters D (down), U (up), L (left) and R (right).\n\nFor example, the path\n\ncorresponds to the description DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDLLDDDD.\n\nYou are given a description of a path which may also contain characters ? (any direction). Your task is to calculate the number of paths that match the description.\n\nInput\n\nThe only input line has a 48-character string of characters ?, D, U, L and R.\n\nOutput\n\nPrint one integer: the total number of paths.\n\nExample\n\nInput:\n\n??????R??????U??????????????????????????LD????D?\n\n\nOutput:\n\n201",
+      "statement_sha256": "1557aab4f914c5e178968671f2ad89cca82a8bc8ddd504ff5b440d15c24a27b4"
+    },
+    {
+      "id": "cses-1632",
+      "title": "Movie Festival II",
+      "source_url": "https://cses.fi/problemset/task/1632",
+      "observed_at": "2026-09-11T06:53:16.663991+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nIn a movie festival, n movies will be shown. Syrj\u00e4l\u00e4's movie club consists of k members, who will be all attending the festival.\n\nYou know the starting and ending time of each movie. What is the maximum total number of movies the club members can watch entirely if they act optimally?\n\nInput\n\nThe first input line has two integers n and k: the number of movies and club members.\n\nAfter this, there are n lines that describe the movies. Each line has two integers a and b: the starting and ending time of a movie.\n\nOutput\n\nPrint one integer: the maximum total number of movies.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le a < b \\le 10^9\n\n\nExample\n\nInput:\n\n5 2\n1 5\n8 10\n3 6\n2 5\n6 9\n\n\nOutput:\n\n4",
+      "statement_sha256": "03622ab4923b4e34031493facf59efce864db838b3bd2dadb34e810599d47ae4"
+    },
+    {
+      "id": "cses-1644",
+      "title": "Maximum Subarray Sum II",
+      "source_url": "https://cses.fi/problemset/task/1644",
+      "observed_at": "2026-09-11T06:53:16.859953+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find the maximum sum of values in a contiguous subarray with length between a and b.\n\nInput\n\nThe first input line has three integers n, a and b: the size of the array and the minimum and maximum subarray length.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nOutput\n\nPrint one integer: the maximum subarray sum.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a \\le b \\le n\n\n-10^9 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 1 2\n-1 3 -2 5 3 -5 2 2\n\n\nOutput:\n\n8",
+      "statement_sha256": "3dcd5d08af305522eee943a0ae22a7ba356b877843de3fd81431c73220de5d5d"
+    },
+    {
+      "id": "cses-1646",
+      "title": "Static Range Sum Queries",
+      "source_url": "https://cses.fi/problemset/task/1646",
+      "observed_at": "2026-09-11T06:53:26.596149+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to process q queries of the form: what is the sum of values in range [a,b]?\n\nInput\n\nThe first input line has two integers n and q: the number of values and queries.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b: what is the sum of values in range [a,b]?\n\nOutput\n\nPrint the result of each query.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n8 4\n3 2 4 5 1 1 5 3\n2 4\n5 6\n1 8\n3 3\n\n\nOutput:\n\n11\n2\n24\n4",
+      "statement_sha256": "cac359f70526ebde91efd0e9ce302e2a9dc36e8fd74f5536207520fa1699ec97"
+    },
+    {
+      "id": "cses-1673",
+      "title": "High Score",
+      "source_url": "https://cses.fi/problemset/task/1673",
+      "observed_at": "2026-09-11T06:53:22.049434+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou play a game consisting of n rooms and m tunnels. Your initial score is 0, and each tunnel increases your score by x where x may be both positive or negative. You may go through a tunnel several times.\n\nYour task is to walk from room 1 to room n. What is the maximum score you can get?\n\nInput\n\nThe first input line has two integers n and m: the number of rooms and tunnels. The rooms are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the tunnels. Each line has three integers a, b and x: the tunnel starts at room a, ends at room b, and it increases your score by x. All tunnels are one-way tunnels.\n\nYou can assume that it is possible to get from room 1 to room n.\n\nOutput\n\nPrint one integer: the maximum score you can get. However, if you can get an arbitrarily large score, print -1.\n\nConstraints\n\n\n1 \\le n \\le 2500\n\n1 \\le m \\le 5000\n\n1 \\le a,b \\le n\n\n-10^9 \\le x \\le 10^9\n\n\nExample\n\nInput:\n\n4 5\n1 2 3\n2 4 -1\n1 3 -2\n3 4 7\n1 4 4\n\n\nOutput:\n\n5",
+      "statement_sha256": "5e0dfa83f292241707ac369c87fcb544a0d4e9a1156404e0b3592f4b666c8b14"
+    },
+    {
+      "id": "cses-1684",
+      "title": "Giant Pizza",
+      "source_url": "https://cses.fi/problemset/task/1684",
+      "observed_at": "2026-09-11T06:53:24.721951+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nUolevi's family is going to order a large pizza and eat it together. A total of n family members will join the order, and there are m possible toppings. The pizza may have any number of toppings.\n\nEach family member gives two wishes concerning the toppings of the pizza. The wishes are of the form \"topping x is good/bad\". Your task is to choose the toppings so that at least one wish from everybody becomes true (a good topping is included in the pizza or a bad topping is not included).\n\nInput\n\nThe first input line has two integers n and m: the number of family members and toppings. The toppings are numbered 1,2,\\dots,m.\n\nAfter this, there are n lines describing the wishes. Each line has two wishes of the form \"+ x\" (topping x is good) or \"- x\" (topping x is bad).\n\nOutput\n\nPrint a line with m symbols: for each topping \"+\" if it is included and \"-\" if it is not included. You can print any valid solution.\n\nIf there are no valid solutions, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n1 \\le n,m \\le 10^5\n\n1 \\le x \\le m\n\n\nExample\n\nInput:\n\n3 5\n+ 1 + 2\n- 1 + 3\n+ 4 - 2\n\n\nOutput:\n\n- + + + -",
+      "statement_sha256": "8d025ac7743dbb1549039536d0b38d5a6764f1cf6b7ae739c657f40f9cd359e4"
+    },
+    {
+      "id": "cses-1685",
+      "title": "New Flight Routes",
+      "source_url": "https://cses.fi/problemset/task/1685",
+      "observed_at": "2026-09-11T06:54:47.374642+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m flight connections between them. Your task is to add new flights so that it will be possible to travel from any city to any other city. What is the minimum number of new flights required?\n\nInput\n\nThe first input line has two integers n and m: the number of cities and flights. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the flights. Each line has two integers a and b: there is a flight from city a to city b. All flights are one-way flights.\n\nOutput\n\nFirst print an integer k: the required number of new flights. After this, print k lines describing the new flights. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 5\n1 2\n2 3\n3 1\n1 4\n3 4\n\n\nOutput:\n\n1\n4 2",
+      "statement_sha256": "0edabac998f30ab233e2c3cd2cac81fbf2ce93b55ba0e1755b167edd54f19aef"
+    },
+    {
+      "id": "cses-1692",
+      "title": "De Bruijn Sequence",
+      "source_url": "https://cses.fi/problemset/task/1692",
+      "observed_at": "2026-09-11T06:53:25.243649+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to construct a minimum-length bit string that contains all possible substrings of length n. For example, when n=2, the string 00110 is a valid solution, because its substrings of length 2 are 00, 01, 10 and 11.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint a minimum-length bit string that contains all substrings of length n. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 15\n\n\nExample\n\nInput:\n\n2\n\n\nOutput:\n\n00110",
+      "statement_sha256": "00344f24282186a9cb19b2fb01ecf49ebf4284f8f4281f68ee03617ab1a6df06"
+    },
+    {
+      "id": "cses-1705",
+      "title": "Forbidden Cities",
+      "source_url": "https://cses.fi/problemset/task/1705",
+      "observed_at": "2026-09-11T06:54:46.856613+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads between them. Kaaleppi is currently in city a and wants to travel to city b.\n\nHowever, there is a problem: Kaaleppi has recently robbed a bank in city c and can't enter the city, because the local police would catch him. Your task is to find out if there is a route from city a to city b that does not visit city c.\n\nAs an additional challenge, you have to process q queries where a, b and c vary.\n\nInput\n\nThe first input line has three integers n, m and q: the number of cities, roads and queries. The cities are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the roads. Each line has two integers a and b: there is a road between cities a and b. Each road is bidirectional.\n\nFinally, there are q lines describing the queries. Each line has three integers a, b and c: is there a route from city a to city b that does not visit city c?\n\nYou can assume that there is a route between any two cities.\n\nOutput\n\nFor each query, print \"YES\", if there is such a route, and \"NO\" otherwise.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le q \\le 10^5\n\n1 \\le a,b,c \\le n\n\n\nExample\n\nInput:\n\n5 6 3\n1 2\n1 3\n2 3\n2 4\n3 4\n4 5\n1 4 2\n3 5 4\n3 5 2\n\n\nOutput:\n\nYES\nNO\nYES",
+      "statement_sha256": "856ea8e736796c4cb53d73d0d5d9610cf3f988674a0e493c20f8bf3cdaa084bf"
+    },
+    {
+      "id": "cses-1711",
+      "title": "Distinct Routes",
+      "source_url": "https://cses.fi/problemset/task/1711",
+      "observed_at": "2026-09-11T06:53:26.124451+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game consists of n rooms and m teleporters. At the beginning of each day, you start in room 1 and you have to reach room n.\n\nYou can use each teleporter at most once during the game. How many days can you play if you choose your routes optimally?\n\nInput\n\nThe first input line has two integers n and m: the number of rooms and teleporters. The rooms are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the teleporters. Each line has two integers a and b: there is a teleporter from room a to room b.\n\nThere are no two teleporters whose starting and ending room are the same.\n\nOutput\n\nFirst print an integer k: the maximum number of days you can play the game. Then, print k route descriptions according to the example. You can print any valid solution.\n\nConstraints\n\n\n2 \\le n \\le 500\n\n1 \\le m \\le 1000\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n6 7\n1 2\n1 3\n2 6\n3 4\n3 5\n4 6\n5 6\n\n\nOutput:\n\n2\n3\n1 2 6\n4\n1 3 4 6",
+      "statement_sha256": "8df23cc51c2774198c91925b0cbe1f390cf48e6d6445eedccc3e5b7229035dad"
+    },
+    {
+      "id": "cses-1732",
+      "title": "Finding Borders",
+      "source_url": "https://cses.fi/problemset/task/1732",
+      "observed_at": "2026-09-11T06:53:39.439358+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA border of a string is a prefix that is also a suffix of the string but not the whole string. For example, the borders of abcababcab are ab and abcab.\n\nYour task is to find all border lengths of a given string.\n\nInput\n\nThe only input line has a string of length n consisting of characters a\u2013z.\n\nOutput\n\nPrint all border lengths of the string in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nabcababcab\n\n\nOutput:\n\n2 5",
+      "statement_sha256": "f709deb813a2a5340934dc95a98502982a3606fb03187b4ad148b3b65f4d0bab"
+    },
+    {
+      "id": "cses-1741",
+      "title": "Area of Rectangles",
+      "source_url": "https://cses.fi/problemset/task/1741",
+      "observed_at": "2026-09-11T06:53:45.470523+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n rectangles, your task is to determine the total area of their union.\n\nInput\n\nThe first line has an integer n: the number of rectangles.\n\nAfter that, there are n lines describing the rectangles. Each line has four integers x_1, y_1, x_2 and y_2: a rectangle begins at point (x_1,y_1) and ends at point (x_2,y_2).\n\nOutput\n\nPrint the total area covered by the rectangles.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n-10^6 \\le x_1 < x_2 \\le 10^6\n\n-10^6 \\le y_1 < y_2 \\le 10^6\n\n\nExample\n\nInput:\n\n3\n1 3 4 5\n3 1 7 4\n5 3 8 6\n\n\nOutput:\n\n24",
+      "statement_sha256": "1e83f0bee5cef184c8879f8845957c78ced75897f815c374c457fe95a2e6f20c"
+    },
+    {
+      "id": "cses-1748",
+      "title": "Increasing Subsequence II",
+      "source_url": "https://cses.fi/problemset/task/1748",
+      "observed_at": "2026-09-11T06:53:20.345903+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to calculate the number of increasing subsequences it contains. If two subsequences have the same values but in different positions in the array, they are counted separately.\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the number of increasing subsequences modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n3\n2 1 3\n\n\nOutput:\n\n5\n\n\nExplanation: The increasing subsequences are [2], [1], [3], [2,3] and [1,3].",
+      "statement_sha256": "fd70ffb68b1cf4d9b22b077e639cf03be1d93775ec5229e4e83467e0e4c3049c"
+    },
+    {
+      "id": "cses-2081",
+      "title": "Fixed-Length Paths II",
+      "source_url": "https://cses.fi/problemset/task/2081",
+      "observed_at": "2026-09-11T06:53:32.576072+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a tree of n nodes, your task is to count the number of distinct paths that have at least k_1 and at most k_2 edges.\n\nInput\n\nThe first input line contains three integers n, k_1 and k_2: the number of nodes and the path lengths. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint one integer: the number of paths.\n\nConstraints\n\n\n1 \\le k_1 \\le k_2 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 2 3\n1 2\n2 3\n3 4\n3 5\n\n\nOutput:\n\n6",
+      "statement_sha256": "5bedeb2b9f3f2d0f0b133ca92fa9a32621c4cd36e7a275d9c0010e050a6a984c"
+    },
+    {
+      "id": "cses-2087",
+      "title": "Houses and Schools",
+      "source_url": "https://cses.fi/problemset/task/2087",
+      "observed_at": "2026-09-11T06:53:48.090413+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n houses on a street, numbered 1,2,\\dots,n. The distance of houses a and b is |a-b|. You know the number of children in each house.\n\nYour task is to establish k schools in such a way that each school is in some house. Then, each child goes to the nearest school. What is the minimum total walking distance of the children if you act optimally?\n\nInput\n\nThe first input line has two integers n and k: the number of houses and the number of schools. The houses are numbered 1,2\\dots,n.\n\nAfter this, there are n integers c_1,c_2,\\dots,c_n: the number of children in each house.\n\nOutput\n\nPrint the minimum total distance.\n\nConstraints\n\n\n1 \\le k \\le n \\le 3000\n\n1 \\le c_i \\le 10^9\n\n\nExample\n\nInput:\n\n6 2\n2 7 1 4 6 4\n\n\nOutput:\n\n11\n\n\nExplanation: Houses 2 and 5 will have schools.",
+      "statement_sha256": "20b50be9b9323b692fea4a3febf9479bfadb802ee1a733f56ff75c701c21d644"
+    },
+    {
+      "id": "cses-2109",
+      "title": "Substring Order II",
+      "source_url": "https://cses.fi/problemset/task/2109",
+      "observed_at": "2026-09-11T06:53:42.847708+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string of length n. If all of its substrings (not necessarily distinct) are ordered lexicographically, what is the kth smallest of them?\n\nInput\n\nThe first input line has a string of length n that consists of characters a\u2013z.\n\nThe second input line has an integer k.\n\nOutput\n\nPrint the kth smallest substring in lexicographical order.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le k \\le \\frac{n(n+1)}{2}\n\n\nExample\n\nInput:\n\nbaabaa\n10\n\n\nOutput:\n\nab\n\n\nExplanation: The 10 smallest substrings in order are a, a, a, a, aa, aa, aab, aaba, aabaa, and ab.",
+      "statement_sha256": "43aae244a8ce7a75df61cbc1029c9e73b33ac4c302993c332f232007a9a7823a"
+    },
+    {
+      "id": "cses-2133",
+      "title": "Dynamic Connectivity",
+      "source_url": "https://cses.fi/problemset/task/2133",
+      "observed_at": "2026-09-11T06:53:48.834934+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an undirected graph that consists of n nodes and m edges. There are two types of events that can happen:\n\n\nA new edge is created between nodes a and b.\n\nAn existing edge between nodes a and b is removed.\n\n\nYour task is to report the number of components after every event.\n\nInput\n\nThe first input line has three integers n, m and k: the number of nodes, edges and events.\n\nAfter this there are m lines describing the edges. Each line has two integers a and b: there is an edge between nodes a and b. There is at most one edge between any pair of nodes.\n\nThen there are k lines describing the events. Each line has the form \"t a b\" where t is 1 (create a new edge) or 2 (remove an edge). A new edge is always created between two nodes that do not already have an edge between them, and only existing edges can get removed.\n\nOutput\n\nPrint k+1 integers: first the number of components before the first event, and after this the new number of components after each event.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m,k \\le 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3 3\n1 4\n2 3\n3 5\n1 2 5\n2 3 5\n1 1 2\n\n\nOutput:\n\n2 2 2 1",
+      "statement_sha256": "549f21496f672e81eaffbac89fbc12f7c21e24ce9b0e5db00d603e969cddd6a7"
+    },
+    {
+      "id": "cses-2134",
+      "title": "Path Queries II",
+      "source_url": "https://cses.fi/problemset/task/2134",
+      "observed_at": "2026-09-11T06:53:31.900569+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes. The nodes are numbered 1,2,\\ldots,n. Each node has a value.\n\nYour task is to process following types of queries:\n\n\nchange the value of node s to x\n\nfind the maximum value on the path between nodes a and b.\n\n\nInput\n\nThe first input line contains two integers n and q: the number of nodes and queries. The nodes are numbered 1,2,\\ldots,n.\n\nThe next line has n integers v_1,v_2,\\ldots,v_n: the value of each node.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nFinally, there are q lines describing the queries. Each query is either of the form \"1 s x\" or \"2 a b\".\n\nOutput\n\nPrint the answer to each query of type 2.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le a,b, s \\le n\n\n1 \\le v_i, x \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n2 4 1 3 3\n1 2\n1 3\n2 4\n2 5\n2 3 5\n1 2 2\n2 3 5\n\n\nOutput:\n\n4 3",
+      "statement_sha256": "b77699245095a04b74d44c0aee29a6ac1630da4d8a90a41aefcea485543427eb"
+    },
+    {
+      "id": "cses-2138",
+      "title": "Reachable Nodes",
+      "source_url": "https://cses.fi/problemset/task/2138",
+      "observed_at": "2026-09-11T06:53:46.013762+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA directed acyclic graph consists of n nodes and m edges. The nodes are numbered 1,2,\\dots,n.\n\nCalculate for each node the number of nodes you can reach from that node (including the node itself).\n\nInput\n\nThe first input line has two integers n and m: the number of nodes and edges.\n\nThen there are m lines describing the edges. Each line has two distinct integers a and b: there is an edge from node a to node b.\n\nOutput\n\nPrint n integers: for each node the number of reachable nodes.\n\nConstraints\n\n\n1 \\le n \\le 5 \\cdot 10^4\n\n1 \\le m \\le 10^5\n\n\nExample\n\nInput:\n\n5 6\n1 2\n1 3\n1 4\n2 3\n3 5\n4 5\n\n\nOutput:\n\n5 3 2 2 1",
+      "statement_sha256": "64cdd14cb6bc0b5de9f1d210d674b8dc4e055a758d03c4698e5a1f78bff41af9"
+    },
+    {
+      "id": "cses-2169",
+      "title": "Nested Ranges Count",
+      "source_url": "https://cses.fi/problemset/task/2169",
+      "observed_at": "2026-09-11T06:53:14.048408+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n ranges, your task is to count for each range how many other ranges it contains and how many other ranges contain it.\n\nRange [a,b] contains range [c,d] if a \\le c and d \\le b.\n\nInput\n\nThe first input line has an integer n: the number of ranges.\n\nAfter this, there are n lines that describe the ranges. Each line has two integers x and y: the range is [x,y].\n\nYou may assume that no range appears more than once in the input.\n\nOutput\n\nFirst print a line that describes for each range (in the input order) how many other ranges it contains.\n\nThen print a line that describes for each range (in the input order) how many other ranges contain it.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x < y \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 6\n2 4\n4 8\n3 6\n\n\nOutput:\n\n2 0 0 0\n0 1 0 1",
+      "statement_sha256": "7ee8c8112e2e68a4becf2617614cdb15538923ddd7f9b7e25117a551dd5f8c4c"
+    },
+    {
+      "id": "cses-2181",
+      "title": "Counting Tilings",
+      "source_url": "https://cses.fi/problemset/task/2181",
+      "observed_at": "2026-09-11T06:53:19.813352+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of ways you can fill an n \\times m grid using 1 \\times 2 and 2 \\times 1 tiles.\n\nInput\n\nThe only input line has two integers n and m.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10\n\n1 \\le m \\le 1000\n\n\nExample\n\nInput:\n\n4 7\n\n\nOutput:\n\n781",
+      "statement_sha256": "1492c40d4861e146683ba4ca60ef329cb4d919d25131908ea0532e4e7f630fca"
+    },
+    {
+      "id": "cses-2183",
+      "title": "Missing Coin Sum",
+      "source_url": "https://cses.fi/problemset/task/2183",
+      "observed_at": "2026-09-11T06:53:13.008481+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins with positive integer values. What is the smallest sum you cannot create using a subset of the coins?\n\nInput\n\nThe first line has an integer n: the number of coins.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the value of each coin.\n\nOutput\n\nPrint one integer: the smallest coin sum.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 9 1 2 7\n\n\nOutput:\n\n6",
+      "statement_sha256": "54da1b7151b9ff48a3826ccd20876f07a8c9cbdbd4acc48019a5c003c554ec06"
+    },
+    {
+      "id": "cses-2184",
+      "title": "Missing Coin Sum Queries",
+      "source_url": "https://cses.fi/problemset/task/2184",
+      "observed_at": "2026-09-11T06:53:29.967220+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins with positive integer values. The coins are numbered 1,2,\\dots,n.\n\nYour task is to process q queries of the form: \"if you can use coins a \\dots b, what is the smallest sum you cannot produce?\"\n\nInput\n\nThe first input line has two integers n and q: the number of coins and queries.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the value of each coin.\n\nFinally, there are q lines that describe the queries. Each line has two values a and b: you can use coins a \\dots b.\n\nOutput\n\nPrint the answer for each query.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 3\n2 9 1 2 7\n2 4\n4 4\n1 5\n\n\nOutput:\n\n4\n1\n6\n\n\nExplanation: First you can use coins [9,1,2], then coins [2] and finally coins [2,9,1,2,7].",
+      "statement_sha256": "f37b6f342dd6a6c87affe47a6aec2f576f7ef934e65f1109cd21585ea1c2373f"
+    },
+    {
+      "id": "cses-2189",
+      "title": "Point Location Test",
+      "source_url": "https://cses.fi/problemset/task/2189",
+      "observed_at": "2026-09-11T06:53:42.867211+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a line that goes through the points p_1=(x_1,y_1) and p_2=(x_2,y_2). There is also a point p_3=(x_3,y_3).\n\nYour task is to determine whether p_3 is located on the left or right side of the line or if it touches the line when we are looking from p_1 to p_2.\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter this, there are t lines that describe the tests. Each line has six integers: x_1, y_1, x_2, y_2, x_3 and y_3.\n\nOutput\n\nFor each test, print \"LEFT\", \"RIGHT\" or \"TOUCH\".\n\nConstraints\n\n\n1 \\le t \\le 10^5\n\n-10^9 \\le x_1, y_1, x_2, y_2, x_3, y_3 \\le 10^9\n\nx_1 \\neq x_2 or y_1 \\neq y_2\n\n\nExample\n\nInput:\n\n3\n1 1 5 3 2 3\n1 1 5 3 4 1\n1 1 5 3 3 2\n\n\nOutput:\n\nLEFT\nRIGHT\nTOUCH",
+      "statement_sha256": "f9a93781643d421237eebf2b803e32c0c4de0b3c22eed02959596e3c1b0da8b5"
+    },
+    {
+      "id": "cses-2217",
+      "title": "Collecting Numbers II",
+      "source_url": "https://cses.fi/problemset/task/2217",
+      "observed_at": "2026-09-11T06:53:12.989273+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array that contains each number between 1 \\dots n exactly once. Your task is to collect the numbers from 1 to n in increasing order.\n\nOn each round, you go through the array from left to right and collect as many numbers as possible.\n\nGiven m operations that swap two numbers in the array, your task is to report the number of rounds after each operation.\n\nInput\n\nThe first line has two integers n and m: the array size and the number of operations.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the numbers in the array.\n\nFinally, there are m lines that describe the operations. Each line has two integers a and b: the numbers at positions a and b are swapped.\n\nOutput\n\nPrint m integers: the number of rounds after each swap.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n4 2 1 5 3\n2 3\n1 5\n2 3\n\n\nOutput:\n\n2\n3\n4",
+      "statement_sha256": "fd7915a255906a80b9e5a2af269766dbd7a80ee46f18d0066f80822a8d83f39a"
+    },
+    {
+      "id": "cses-2220",
+      "title": "Counting Numbers",
+      "source_url": "https://cses.fi/problemset/task/2220",
+      "observed_at": "2026-09-11T06:53:20.003806+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of integers between a and b where no two adjacent digits are the same.\n\nInput\n\nThe only input line has two integers a and b.\n\nOutput\n\nPrint one integer: the answer to the problem.\n\nConstraints\n\n\n0 \\le a \\le b \\le 10^{18}\n\n\nExample\n\nInput:\n\n123 321\n\n\nOutput:\n\n171",
+      "statement_sha256": "fddd3369f6ce44df53c08378f593f99297e400b3ee73de58929421ceb6ede981"
+    },
+    {
+      "id": "cses-2413",
+      "title": "Counting Towers",
+      "source_url": "https://cses.fi/problemset/task/2413",
+      "observed_at": "2026-09-11T06:53:18.204090+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to build a tower whose width is 2 and height is n. You have an unlimited supply of blocks whose width and height are integers.\n\nFor example, here are some possible solutions for n=6:\n\nGiven n, how many different towers can you build? Mirrored and rotated towers are counted separately if they look different.\n\nInput\n\nThe first input line contains an integer t: the number of tests.\n\nAfter this, there are t lines, and each line contains an integer n: the height of the tower.\n\nOutput\n\nFor each test, print the number of towers modulo 10^9+7.\n\nConstraints\n\n\n1 \\le t \\le 100\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n2\n6\n1337\n\n\nOutput:\n\n8\n2864\n640403945",
+      "statement_sha256": "e418cf2942853afbd9d473d9a5edd4468b839830df0d281ca47b8f1e11908915"
+    },
+    {
+      "id": "cses-2418",
+      "title": "Grid Path Construction",
+      "source_url": "https://cses.fi/problemset/task/2418",
+      "observed_at": "2026-09-11T06:54:42.879675+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an n \\times m grid and two squares a=(y_1,x_1) and b=(y_2,x_2), create a path from a to b that visits each square exactly once.\n\nFor example, here is a path from a=(1,3) to b=(3,6) in a 4 \\times 7 grid:\n\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter this, there are t lines that describe the tests. Each line has six integers n, m, y_1, x_1, y_2 and x_2.\n\nIn all tests 1 \\le y_1,y_2 \\le n and 1 \\le x_1,x_2 \\le m. In addition, y_1 \\neq y_2 or x_1 \\neq x_2.\n\nOutput\n\nPrint YES, if it is possible to construct a path, and NO otherwise.\n\nIf there is a path, also print its description which consists of characters U (up), D (down), L (left) and R (right). If there are several paths, you can print any of them.\n\nConstraints\n\n\n1 \\le t \\le 100\n\n1 \\le n \\le 50\n\n1 \\le m \\le 50\n\n\nExample\n\nInput:\n\n5\n1 3 1 1 1 3\n1 3 1 2 1 3\n2 2 1 1 2 2\n2 2 1 1 2 1\n4 7 1 3 3 6\n\n\nOutput:\n\nYES\nRR\nNO\nNO\nYES\nRDL\nYES\nRRRRDDDLLLLLLUUURDDRURDRURD",
+      "statement_sha256": "b5bb79f4b9e773947a5ccfec68d954c191d3c4069763d96914a15ed99d4980ac"
+    },
+    {
+      "id": "cses-2423",
+      "title": "Filling Trominos",
+      "source_url": "https://cses.fi/problemset/task/2423",
+      "observed_at": "2026-09-11T06:54:42.318024+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to fill an n \\times m grid using L-trominos (three squares that have an L-shape). For example, here is one way to fill a 4 \\times 6 grid:\n\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter that, there are t lines that describe the tests. Each line has two integers n and m.\n\nOutput\n\nFor each test, print YES if there is a solution, and NO otherwise.\n\nIf there is a solution, also print n lines that each contain m letters between A\u2013Z. Adjacent squares must have the same letter exactly when they belong to the same tromino. You can print any valid solution.\n\nConstraints\n\n\n1 \\le t \\le 100\n\n1 \\le n,m \\le 100\n\n\nExample\n\nInput:\n\n2\n4 6\n4 7\n\n\nOutput:\n\nYES\nAADDBB\nACCDEB\nBCAEEC\nBBAACC\nNO",
+      "statement_sha256": "91342817ad223675b35f3b819e20715a9dbd40ff50ef834e67debfaa8d3d964d"
+    },
+    {
+      "id": "cses-2429",
+      "title": "Grid Completion",
+      "source_url": "https://cses.fi/problemset/task/2429",
+      "observed_at": "2026-09-11T06:54:49.650203+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to create an n \\times n grid whose each row and column has exactly one A and B. Some of the characters have already been placed. In how many ways can you complete the grid?\n\nInput\n\nThe first input line has an integer n: the size of the grid.\n\nAfter this, there are n lines that describe the grid. Each line has n characters: . means an empty square, and A and B show the characters already placed.\n\nYou can assume that every row and column has at most one A and B.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n2 \\le n \\le 500\n\n\nExample\n\nInput:\n\n5\n.....\n..AB.\n.....\nB....\n...A.\n\n\nOutput:\n\n16",
+      "statement_sha256": "b424542355a294dbb00a20a98a9a50b834c5ccc085afb06cb21383a63128c96a"
+    },
+    {
+      "id": "cses-3112",
+      "title": "Hidden Integer",
+      "source_url": "https://cses.fi/problemset/task/3112",
+      "observed_at": "2026-09-11T06:54:38.643506+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a hidden integer x. Your task is to find the value of x.\n\nTo do this, you can ask questions: you can choose an integer y and you will be told if y < x.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You can start asking questions right away.\n\nOn your turn, you can print one of the following:\n\n\n\"?\\ y\", where 1 \\le y \\le 10^9: ask if y < x. The grader will return YES if y < x and NO otherwise.\n\n\"!\\ x\": report that the hidden integer is x. Your program must terminate after this.\n\n\nEach line should be followed by a line break. You must make sure the output gets flushed after printing each line.\n\nConstraints\n\n\n1 \\le x \\le 10^9\n\nyou can ask at most 30 questions of type ?\n\n\nExample\n? 3\nYES\n? 6\nYES\n? 7\nNO\n! 7",
+      "statement_sha256": "09cb8ff7b5191b9c9c39b4ecb1f42fb5542563623e74d8ed117f4a682d3a13a2"
+    },
+    {
+      "id": "cses-3138",
+      "title": "All Palindromes",
+      "source_url": "https://cses.fi/problemset/task/3138",
+      "observed_at": "2026-09-11T06:53:40.229006+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, calculate for each position the length of the longest palindrome that ends at that position.\n\nInput\n\nThe only line contains a string of length n. Each character is one of a\u2013z.\n\nOutput\n\nPrint n numbers: the length of each palindrome.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\nababbababaa\n\n\nOutput:\n\n1 1 3 3 2 4 6 8 5 5 2",
+      "statement_sha256": "dc2879c35bccc16f37e2693709dbd44411e90631a742cfd3e9c3cb0faae876b0"
+    },
+    {
+      "id": "cses-3140",
+      "title": "Inversion Sorting",
+      "source_url": "https://cses.fi/problemset/task/3140",
+      "observed_at": "2026-09-11T06:54:39.477059+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a hidden permutation a_1, a_2,\\dots, a_n of integers 1, 2,\\dots, n. Your task is to sort the permutation by reversing subarrays.\n\nOn each turn, you can reverse a subarray of the permutation. After that, you will be reported the number of inversions in the permutation. If the number of inversions is 0 (i.e., the permutation is sorted), you win.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You should start by reading a single integer n: the length of the permutation.\n\nOn your turn, print two integers i and j: reverse the subarray between indices i and j.\n\nAfter this, the next input line has a single integer: the number of inversions after the operation. If the number is 0, you win and your program must terminate after this.\n\nConstraints\n\n\n1\\leq n\\leq 1000\n\nyou can make at most 4n operations\n\n\nExample\n3\n1 2\n1\n2 3\n0\n\n\nExplanation: Here the initial permutation is [3,1,2]. After the first operation the permutation is [1,3,2] and the number of inversions is 1. After the second operation the permutation is [1,2,3] and the number of inversions is 0.",
+      "statement_sha256": "1d2e5cca3169a2df0b1d30ff289576082581aa4bd07153a777a7b5db23ad06a6"
+    },
+    {
+      "id": "cses-3141",
+      "title": "And Subset Count",
+      "source_url": "https://cses.fi/problemset/task/3141",
+      "observed_at": "2026-09-11T06:54:41.078882+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the number of non-empty subsets whose elements' bitwise and is equal to k for each k = 0, 1,\\dots, n.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers a_1, a_2,\\dots, a_n: the contents of the array.\n\nOutput\n\nPrint n + 1 integers as specified above modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a_i \\le n\n\n\nExample\n\nInput:\n\n4\n3 1 3 4\n\n\nOutput:\n\n7 4 0 3 1",
+      "statement_sha256": "82847a982d824b4afe4f1b4e9544e69849259ffe1753dcb24e4cde18c583def3"
+    },
+    {
+      "id": "cses-3154",
+      "title": "System of Linear Equations",
+      "source_url": "https://cses.fi/problemset/task/3154",
+      "observed_at": "2026-09-11T06:53:37.168289+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given n\\cdot(m+1) coefficients a_{i,j} and b_i which form the following n linear equations:\n\n\na_{1,1}x_1 + a_{1,2}x_2 + \\dots + a_{1,m}x_m = b_1 \\pmod {10^9 + 7}\n\na_{2,1}x_1 + a_{2,2}x_2 + \\dots + a_{2,m}x_m = b_2 \\pmod {10^9 + 7}\n\n\\dots\n\na_{n,1}x_1 + a_{n,2}x_2 + \\dots + a_{n,m}x_m = b_n \\pmod {10^9 + 7}\n\n\nYour task is to find any m integers x_1, x_2, \\dots, x_m  that satisfy the given equations.\n\nInput\n\nThe first line has two integers n and m: the number of equations and variables.\n\nThe next n lines each have m+1 integers a_{i,1}, a_{i,2}, \\dots, a_{i,m}, b_i: the coefficients of the i-th equation.\n\nOutput\n\nPrint m integers x_1, x_2,\\dots, x_m: the values of the variables that satisfy the equations. The values must also satisfy 0 \\le x_i < 10^9 + 7. You can print any valid solution. If no solution exists print only -1.\n\nConstraints\n\n\n1 \\le n, m \\le 500\n\n0 \\le a_{i,j}, b_i < 10^9 + 7\n\n\nExample\n\nInput:\n\n3 3\n2 0 1 7\n1 2 0 0\n1 3 1 2\n\n\nOutput:\n\n2 1000000006 3",
+      "statement_sha256": "850bc1986ee81d5be15f66386de9458e103a6d6cdf28c056402e7c72751f6ea2"
+    },
+    {
+      "id": "cses-3157",
+      "title": "Collecting Numbers Distribution",
+      "source_url": "https://cses.fi/problemset/task/3157",
+      "observed_at": "2026-09-11T06:54:50.171750+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array that contains each number between 1 \\dots n exactly once. You collect the numbers in increasing order from 1 to n. On each round, you traverse the array from left to right and collect as many consecutive numbers as possible, starting from the smallest number that has not been collected yet.\n\nYour task is to determine, for each k=1,2,\\dots,n, the number of arrays that require exactly k rounds to collect all the numbers.\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint n numbers: for each k=1,2,\\dots,n, the answer modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n1\n4\n1\n\n\nExplanation: The arrays are [1,2,3] (1 round), [1,3,2] (2 rounds), [2,1,3] (2 rounds), [2,3,1] (2 rounds), [3,1,2] (2 rounds), and [3,2,1] (3 rounds).",
+      "statement_sha256": "7dcb94a09292f4491b354440ba2ecea267bf089a43a69e71c46fd687ff5cf658"
+    },
+    {
+      "id": "cses-3191",
+      "title": "Maximum Xor Subset",
+      "source_url": "https://cses.fi/problemset/task/3191",
+      "observed_at": "2026-09-11T06:54:40.067112+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find the maximum xor sum of a subset.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the maximum xor sum of a subset.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 6 12 6\n\n\nOutput:\n\n13",
+      "statement_sha256": "3bbb44cf385ed38bfdeb541e2c418984248db855d788edf944dca1e90a556fa6"
+    },
+    {
+      "id": "cses-3192",
+      "title": "K Subset Xors",
+      "source_url": "https://cses.fi/problemset/task/3192",
+      "observed_at": "2026-09-11T06:54:40.217014+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Consider the xors of all 2^n subsets of the array (including the empty subset with xor equal to zero).\n\nYour task is to find the k smallest subset xors.\n\nInput\n\nThe first line has two integers n and k: the size of the array and the number of subset xors k.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint k integers: the k smallest subset xors in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k \\le \\min(2^n, 2 \\cdot 10^5)\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 9\n3 5 14 8\n\n\nOutput:\n\n0 0 3 3 5 5 6 6 8",
+      "statement_sha256": "f4fce9fb36acf289b9fe8c1d466911418f345570db23d15919ba4d46bcff1493"
+    },
+    {
+      "id": "cses-3220",
+      "title": "Sliding Window Sum",
+      "source_url": "https://cses.fi/problemset/task/3220",
+      "observed_at": "2026-09-11T06:53:49.664406+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the sum of each window of k elements, from left to right.\n\nIn this problem the input data is large and it is created using a generator.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThe next line contains four integers x, a, b and c: the input generator parameters. The input is generated as follows:\n\n\nx_1=x\n\nx_i=(ax_{i-1}+b) \\bmod c for i=2,3,\\dots,n\n\n\nOutput\n\nPrint the xor of all window sums.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^7\n\n0 \\le x, a, b \\le 10^9\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n8 5\n3 7 1 11\n\n\nOutput:\n\n12\n\n\nExplanation: The input array is [3,0,1,8,2,4,7,6]. The windows are [3,0,1,8,2], [0,1,8,2,4], [1,8,2,4,7] and [8,2,4,7,6], and their sums are 14, 15, 22 and 27. Thus, the answer is 14 \\oplus 15 \\oplus 22 \\oplus 27 = 12.",
+      "statement_sha256": "d23b48bcd9dfbe3c1d232f21a1f20540b237008ac6062e006f4286c789a0cb1e"
+    },
+    {
+      "id": "cses-3224",
+      "title": "Sliding Window Mode",
+      "source_url": "https://cses.fi/problemset/task/3224",
+      "observed_at": "2026-09-11T06:53:50.409469+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the mode each window of k elements, from left to right.\n\nThe mode is the most frequent element in an array. If there are several possible modes, choose the smallest of them.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the modes.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n1 2 3 2 5 2 4 4\n\n\nOutput:\n\n1 2 2 2 2 4",
+      "statement_sha256": "eb6bcea9efa3638c9c8dee284450275b6f816f129640356a452725c57d4e1d04"
+    },
+    {
+      "id": "cses-3227",
+      "title": "Sliding Window Advertisement",
+      "source_url": "https://cses.fi/problemset/task/3227",
+      "observed_at": "2026-09-11T06:53:51.236913+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA fence consists of n vertical boards. The width of each board is 1 and their heights may vary.\n\nYou want to attach a rectangular advertisement to the fence. Your task is to calculate the maximum area of such an advertisement in each window of k vertical boards, from left to right.\n\nInput\n\nThe first line contains two integers n and k: the width of the fence and the size of the window.\n\nAfter this, there are n integers x_1, x_2, \\dots, x_n: the height of each board.\n\nOutput\n\nPrint n - k + 1 integers: the maximum areas of the advertisements.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n4 1 5 3 3 2 4 1\n\n\nOutput:\n\n5 6 9 6 6 4",
+      "statement_sha256": "b85b87bd61533c8a44a6734241b32027045098812a97aadf38dc1267b6833b89"
+    },
+    {
+      "id": "cses-3273",
+      "title": "Colored Chairs",
+      "source_url": "https://cses.fi/problemset/task/3273",
+      "observed_at": "2026-09-11T06:54:39.472534+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n chairs arranged in a circle. Each chair is either red or blue. The chairs are numbered 1, 2,\\dots, n; chairs i and i+1 are next to each other for all 1 \\le i \\le n. Here chair n+1 refers to chair 1.\n\nYour task is to find two chairs that have the same color and are next to each other.\n\nTo do this, you can ask questions: you can choose a chair and you will be told the color of that chair.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You should start by reading a single integer n: the number of chairs.\n\nOn your turn, you can print one of the following:\n\n\n\"?\\ i\", where 1 \\le i \\le n: ask the color of chair i. The grader will return R or B for red or blue.\n\n\"!\\ i\": report that chairs i and i+1 have the same color. Your program must terminate after this.\n\n\nEach line should be followed by a line break. You must make sure the output gets flushed after printing each line.\n\nConstraints\n\n\n3 \\le n \\le 2 \\cdot 10^5, n is odd\n\nyou can ask at most 20 questions of type ?\n\n\nExample\n5\n? 1\nR\n? 2\nB\n? 3\nB\n! 2",
+      "statement_sha256": "4de894db064e512423fd9fd97887c130133d9a930d53d8b8741b07c90a968614"
+    },
+    {
+      "id": "cses-3304",
+      "title": "Visible Buildings Queries",
+      "source_url": "https://cses.fi/problemset/task/3304",
+      "observed_at": "2026-09-11T06:53:28.203749+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n buildings in a row numbered 1, 2,\\dots, n from left to right. You are standing to the left of the first building. You can see a building if it is taller than all buildings to its left.\n\nYour task is to process q queries: If only buildings in range [a, b] existed, how many buildings would you see?\n\nInput\n\nThe first line has two integers n and q: the number of buildings and queries.\n\nThe second line has n integers h_1, h_2, \\dots, h_n: the heights of the buildings.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b.\n\nOutput\n\nFor each query, print one integer: the number of visible buildings.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le q \\le 2 \\cdot 10^5\n\n1 \\le h_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 3\n4 1 2 2 3\n1 5\n2 5\n3 4\n\n\nOutput:\n\n1\n3\n1",
+      "statement_sha256": "d607679e53cd95b0fe5ced5664aa34a0ea4a127fbc21437ccde49e5bc7fc9cd1"
+    },
+    {
+      "id": "cses-3311",
+      "title": "Grid Coloring I",
+      "source_url": "https://cses.fi/problemset/task/3311",
+      "observed_at": "2026-09-11T06:52:43.078784+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an n\\times m grid where each cell contains one character A, B, C or D.\n\nFor each cell, you must change the character to A, B, C or D. The new character must be different from the old one.\n\nYour task is to change the characters in every cell such that no two adjacent cells have the same character.\n\nInput\n\nThe first line has two integers n and m: the number of rows and columns.\n\nThe next n lines each have m characters: the description of the grid.\n\nOutput\n\nPrint n lines each with m characters: the description of the final grid.\n\nYou may print any valid solution.\n\nIf no solution exists, just print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n, m \\le 500\n\n\nExample\n\nInput:\n\n3 4\nAAAA\nBBBB\nCCDD\n\n\nOutput:\n\nCDCD\nDCDC\nABAB",
+      "statement_sha256": "0479435e5ec64485d7645f7be808d72200d0e2e188eaf3dc6a028dce229da82d"
+    },
+    {
+      "id": "cses-3314",
+      "title": "Mountain Range",
+      "source_url": "https://cses.fi/problemset/task/3314",
+      "observed_at": "2026-09-11T06:53:19.281305+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n mountains in a row, each with a specific height. You begin your hang gliding route from some mountain.\n\nYou can glide from mountain a to mountain b if mountain a is taller than mountain b and all mountains between a and b.\n\nWhat is the maximum number of mountains you can visit on your route?\n\nInput\n\nThe first line has an integer n: the number of mountains.\n\nThe next line has n integers h_1, h_2,\\dots, h_n: the heights of the mountains.\n\nOutput:\n\nPrint one integer: the maximum number of mountains.\n\nConstraints\n\n\n1\\le n \\le 2 \\cdot 10^5\n\n1\\le h_i \\le 10^9\n\n\nExample\n\nInput:\n\n10\n20 15 17 35 25 40 12 19 13 12\n\n\nOutput:\n\n5",
+      "statement_sha256": "62e4d4e570f5266b0671efaf75e8946aedde60bd73e096bfd7619ea7d95d0371"
+    },
+    {
+      "id": "cses-3359",
+      "title": "Minimal Grid Path",
+      "source_url": "https://cses.fi/problemset/task/3359",
+      "observed_at": "2026-09-11T06:53:18.759825+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an n \\times n grid whose each square contains a letter.\n\nYou should move from the upper-left square to the lower-right square. You can only move right or down.\n\nWhat is the lexicographically minimal string you can construct?\n\nInput\n\nThe first line has an integer n: the size of the grid.\n\nAfter this, there are n lines that describe the grid. Each line has n letters between A and Z.\n\nOutput\n\nPrint the lexicographically minimal string.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n\nExample\n\nInput:\n\n4\nAACA\nBABC\nABDA\nAACA\n\n\nOutput:\n\nAAABACA",
+      "statement_sha256": "0216e35f85e47631ced5f9a94a49373e4c726bd21bfde85c2c32376b383bb210"
+    },
+    {
+      "id": "cses-3396",
+      "title": "Next Prime",
+      "source_url": "https://cses.fi/problemset/task/3396",
+      "observed_at": "2026-09-11T06:53:34.567865+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a positive integer n, find the next prime number after it.\n\nInput\n\nThe first line has an integer t: the number of tests.\n\nAfter that, each line has a positive integer n.\n\nOutput\n\nFor each test, print the next prime after n.\n\nConstraints\n\n\n1 \\le t \\le 20\n\n1 \\le n \\le 10^{12}\n\n\nExample\n\nInput:\n\n5\n1\n2\n3\n42\n1337\n\n\nOutput:\n\n2\n3\n5\n43\n1361",
+      "statement_sha256": "93a0c66fe723902ddb4a031715e868b382409a50da3595cc8fbce7909b326f90"
+    },
+    {
+      "id": "cses-3399",
+      "title": "Raab Game I",
+      "source_url": "https://cses.fi/problemset/task/3399",
+      "observed_at": "2026-09-11T06:52:42.554995+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a two player game where each player has n cards numbered 1,2,\\dots,n. On each turn both players place one of their cards on the table. The player who placed the higher card gets one point. If the cards are equal, neither player gets a point. The game continues until all cards have been played.\n\nYou are given the number of cards n and the players' scores at the end of the game, a and b. Your task is to give an example of how the game could have played out.\n\nInput\n\nThe first line contains one integer t: the number of tests.\n\nThen there are t lines, each with three integers n, a and b.\n\nOutput\n\nFor each test case print YES if there is a game with the given outcome and NO otherwise.\n\nIf the answer is YES, print an example of one possible game. Print two lines representing the order in which the players place their cards. You can give any valid example.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n1 \\le n \\le 100\n\n0 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n4 1 2\n2 0 1\n3 0 0\n2 1 1\n4 4 1\n\n\nOutput:\n\nYES\n1 4 3 2\n2 1 3 4\nNO\nYES\n1 2 3\n1 2 3\nYES\n1 2\n2 1\nNO",
+      "statement_sha256": "390423ac56142de21e071a54ffc96424b68d74e9698840a5fefafe7083b55bb5"
+    },
+    {
+      "id": "cses-3408",
+      "title": "MST Edge Set Check",
+      "source_url": "https://cses.fi/problemset/task/3408",
+      "observed_at": "2026-09-11T06:54:44.956703+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected weighted graph and edge sets, determine for each set if the edges can be included in a minimum spanning tree.\n\nInput\n\nThe first line has three integers n,  m and q: the number of nodes, edges and edge sets. The nodes are numbered 1,2,\\dots,n.\n\nThe following m lines describe the edges. Each line has three integers a, b, w: there is an edge between nodes a and b with weight w. The edges are numbered 1,2,\\dots,m in the input order.\n\nThe following 2q lines describe the edge sets. For each set, the first line contains its size and the second line contains its edges. The total number of edges in all sets is at most m.\n\nYou can assume that the graph is connected and simple and each edge appears at most once in the graph.\n\nOutput\n\nFor each edge set, print YES if the edges can be included in the minimum spanning tree and NO otherwise.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m, q \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le w \\le 10^9\n\n\nExample\n\nInput:\n\n5 6 4\n1 2 4\n1 3 2\n2 4 2\n3 4 1\n3 5 3\n4 5 3\n3\n2 3 4\n1\n1\n2\n2 6\n2\n5 6\n\n\nOutput:\n\nYES\nNO\nYES\nNO",
+      "statement_sha256": "ddc3fa6517bf2197eb09fb85c605fd613be70915914a706ce252251b082359a7"
+    },
+    {
+      "id": "cses-3414",
+      "title": "Filled Subgrid Count II",
+      "source_url": "https://cses.fi/problemset/task/3414",
+      "observed_at": "2026-09-11T06:54:47.573562+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a grid of letters. Your task is to calculate, for each letter, the number of rectangular subgrids whose each letter is the same.\n\nInput\n\nThe first line has two integers n and k: the size of the grid and the number of letters. The letters are the first k uppercase letters.\n\nAfter this, there are n lines that describe the grid. Each line has n letters.\n\nOutput\n\nPrint k lines: for each letter, the number of subgrids.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n1 \\le k \\le 26\n\n\nExample\n\nInput:\n\n5 3\nABBBC\nBBBBC\nBCAAA\nAAAAA\nAAAAA\n\n\nOutput:\n\n64\n24\n4",
+      "statement_sha256": "b664de18395301280c6438eb7656169ee9713037966e05a4b357e64aa9ddbf68"
+    },
+    {
+      "id": "cses-3419",
+      "title": "Mex Grid Construction",
+      "source_url": "https://cses.fi/problemset/task/3419",
+      "observed_at": "2026-09-11T06:52:42.403732+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to construct an n \\times n grid where each square has the smallest nonnegative integer that does not appear to the left on the same row or above on the same column.\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint the grid according to the example.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n0 1 2 3 4\n1 0 3 2 5\n2 3 0 1 6\n3 2 1 0 7\n4 5 6 7 0",
+      "statement_sha256": "52ccd566e5c216376d72e65cdea4b173e34a15be62de12b634c8e1d0171f0493"
+    },
+    {
+      "id": "cses-3421",
+      "title": "Distinct Values Subsequences",
+      "source_url": "https://cses.fi/problemset/task/3421",
+      "observed_at": "2026-09-11T06:53:13.540239+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, count the number of subsequences where each element is distinct.\n\nA subsequence is a sequence of array elements from left to right that may have gaps.\n\nInput\n\nThe first line has an integer n: the array size.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array contents.\n\nOutput\n\nPrint the number of subsequences with distinct elements. The answer can be large, so print it modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 2 1 3\n\n\nOutput:\n\n11\n\n\nExplanation: The subsequences are [1] (two times), [2], [3], [1,2], [1,3] (two times), [2,1], [2,3], [1,2,3] and [2,1,3].",
+      "statement_sha256": "5143bbf210126202089122b5d02b1e01f2108cc23c03f8dd5a4cf287dd96d4fc"
+    },
+    {
+      "id": "cses-3422",
+      "title": "Third Permutation",
+      "source_url": "https://cses.fi/problemset/task/3422",
+      "observed_at": "2026-09-11T06:54:41.619367+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given two permutations a and b such that a_i \\neq b_i in every position. Create a third permutation c such that a_i \\neq c_i and b_i \\neq c_i in every position.\n\nInput\n\nThe first line has an integer n: the permutation size.\n\nThe second line has n integers a_1,a_2,\\dots,a_n.\n\nThe third line has n integers b_1,b_2,\\dots,b_n.\n\nOutput\n\nPrint n integers c_1,c_2,\\dots,c_n. You can print any valid solution. If there are no solutions, print IMPOSSIBLE.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\n5\n1 3 2 5 4\n4 1 3 2 5\n\n\nOutput:\n\n3 2 5 4 1",
+      "statement_sha256": "039830157ef9ab548edb75ba6beb425ee501e1b3f1228c29616d3d1927274da5"
+    },
+    {
+      "id": "cses-3430",
+      "title": "Lines and Queries II",
+      "source_url": "https://cses.fi/problemset/task/3430",
+      "observed_at": "2026-09-11T06:53:44.945798+00:00",
+      "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently process the following types of queries:\n\n\nAdd a line ax+b that is active in range [l,r]\n\nFind the maximum point in any active line at position x\n\n\nInput\n\nThe first line has an integer n: the number of queries.\n\nThe following n lines describe the queries. The format of each line is either \"1 a b l r\" or \"2 x\".\n\nOutput\n\nPrint the answer for each query of type 2. If no line is active, print NO.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le a,b \\le 10^9\n\n0 \\le x \\le 10^5\n\n0 \\le l \\le r \\le 10^5\n\n\nExample\n\nInput:\n\n6\n1 1 2 1 3\n2 3\n2 4\n1 0 4 1 5\n2 3\n2 4\n\n\nOutput:\n\n5\nNO\n5\n4",
+      "statement_sha256": "afaa7ce18b265d42dd60972f367e7dbe8580dea282f5967ab7b87c0dbd920022"
+    }
+  ]
+}

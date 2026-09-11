@@ -1,0 +1,8 @@
+{
+  "id": "cses-1193",
+  "title": "Labyrinth",
+  "source_url": "https://cses.fi/problemset/task/1193",
+  "observed_at": "2026-09-11T06:53:20.530624+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a map of a labyrinth, and your task is to find a path from start to end. You can walk left, right, up and down.\n\nInput\n\nThe first input line has two integers n and m: the height and width of the map.\n\nThen there are n lines of m characters describing the labyrinth. Each character is . (floor), # (wall), A (start), or B (end). There is exactly one A and one B in the input.\n\nOutput\n\nFirst print \"YES\", if there is a path, and \"NO\" otherwise.\n\nIf there is a path, print the length of the shortest such path and its description as a string consisting of characters L (left), R (right), U (up), and D (down). You can print any valid solution.\n\nConstraints\n\n\n1 \\le n,m \\le 1000\n\n\nExample\n\nInput:\n\n5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########\n\n\nOutput:\n\nYES\n9\nLDDRRRRRU",
+  "statement_sha256": "27dcbd7cae94b457d7d65bccd930baf76ae7cb9e2adf0848dcc834b6de4917f1"
+}

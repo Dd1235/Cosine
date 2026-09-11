@@ -1,0 +1,8 @@
+{
+  "id": "cses-1637",
+  "title": "Removing Digits",
+  "source_url": "https://cses.fi/problemset/task/1637",
+  "observed_at": "2026-09-11T06:53:17.680206+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an integer n. On each step, you may subtract one of the digits from the number.\n\nHow many steps are required to make the number equal to 0?\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint one integer: the minimum number of steps.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n27\n\n\nOutput:\n\n5\n\n\nExplanation: An optimal solution is 27 \\rightarrow 20 \\rightarrow 18 \\rightarrow 10 \\rightarrow 9 \\rightarrow 0.",
+  "statement_sha256": "cb8d9b5cf133acb81237395b64db2244ca12bdcc74111bead13a7a2db7365df7"
+}

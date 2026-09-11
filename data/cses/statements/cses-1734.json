@@ -1,0 +1,8 @@
+{
+  "id": "cses-1734",
+  "title": "Distinct Values Queries",
+  "source_url": "https://cses.fi/problemset/task/1734",
+  "observed_at": "2026-09-11T06:53:28.740471+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers and q queries of the form: how many distinct values are there in a range [a,b]?\n\nInput\n\nThe first input line has two integers n and q: the array size and number of queries.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b.\n\nOutput\n\nFor each query, print the number of distinct values in the range.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 3\n3 2 3 1 2\n1 3\n2 4\n1 5\n\n\nOutput:\n\n2\n3\n3",
+  "statement_sha256": "a4bcfccfc7660ae9cf6af9cc64fc4149b6fdf700a80e1600f8f7be95284062ab"
+}

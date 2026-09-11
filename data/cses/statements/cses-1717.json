@@ -1,0 +1,8 @@
+{
+  "id": "cses-1717",
+  "title": "Christmas Party",
+  "source_url": "https://cses.fi/problemset/task/1717",
+  "observed_at": "2026-09-11T06:53:35.207868+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n children at a Christmas party, and each of them has brought a gift. The idea is that everybody will get a gift brought by someone else.\n\nIn how many ways can the gifts be distributed?\n\nInput\n\nThe only input line has an integer n: the number of children.\n\nOutput\n\nPrint the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n4\n\n\nOutput:\n\n9",
+  "statement_sha256": "ff041a44e6d39694b6e099f4bfc72bb79727d613240e35440623a73775fb905f"
+}

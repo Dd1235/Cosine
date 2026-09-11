@@ -26,5 +26,18 @@
       "fenwick-tree": 0.7,
       "dynamic-range-query": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1649",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "6fbe9a02fc4e39d6dab0346103aa019cdf07448a1fe51275262c62719bffdca9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1645",
+  "title": "Nearest Smaller Values",
+  "source_url": "https://cses.fi/problemset/task/1645",
+  "observed_at": "2026-09-11T06:53:15.585194+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find for each array position the nearest position to its left having a smaller value.\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nOutput\n\nPrint n integers: for each array position the nearest position with a smaller value. If there is no such position, print 0.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8\n2 5 1 4 8 3 2 5\n\n\nOutput:\n\n0 1 0 3 4 3 3 7",
+  "statement_sha256": "11d7925531365e41bd10f894a3e6a35956e32aea24ca8d08b42da7dc8f99905e"
+}

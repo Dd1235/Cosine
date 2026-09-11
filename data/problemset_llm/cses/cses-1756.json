@@ -26,5 +26,18 @@
       "topological-sort": 0.9,
       "cycle-detection": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 1,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1756",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "37cb1b36c449fedc53cb9fc4da14c0bc3d99d22df17ecd0ec0669d6b22b76006",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

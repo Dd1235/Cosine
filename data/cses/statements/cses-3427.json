@@ -1,0 +1,8 @@
+{
+  "id": "cses-3427",
+  "title": "Line Segments Trace I",
+  "source_url": "https://cses.fi/problemset/task/3427",
+  "observed_at": "2026-09-11T06:53:44.670103+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n line segments whose endpoints have integer coordinates. The left x-coordinate of each segment is 0 and the right x-coordinate is m. The slope of each segment is an integer.\n\nFor each x-coordinate 0,1,\\dots,m, find the maximum point in any line segment.\n\nInput\n\nThe first line has two integers n and m: the number of line segments and the maximum x-coordinate.\n\nThe next n lines describe the line segments. Each line has two integers y_1 and y_2: there is a line segment between points (0,y_1) and (m,y_2).\n\nOutput\n\nPrint m+1 integers: the maximum points for x=0,1,\\dots,m.\n\nConstraints\n\n\n1 \\le n, m \\le 10^5\n\n0 \\le y_1,y_2 \\le 10^9\n\n\nExample\n\nInput:\n\n4 5\n1 6\n7 2\n5 5\n10 0\n\n\nOutput:\n\n10 8 6 5 5 6",
+  "statement_sha256": "f81c74d8d9de5ae04551444974f7a78bf8a7e25295a62a22b49a5fe790459d99"
+}

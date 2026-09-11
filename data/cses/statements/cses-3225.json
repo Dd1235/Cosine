@@ -1,0 +1,8 @@
+{
+  "id": "cses-3225",
+  "title": "Inverse Suffix Array",
+  "source_url": "https://cses.fi/problemset/task/3225",
+  "observed_at": "2026-09-11T06:53:42.038185+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a suffix array of a string, your task is to reconstruct the string.\n\nThe suffix array of a string of length n is a permutation of numbers 1,2,\\dots,n that presents the lexicographical order of the suffixes.\n\nInput\n\nThe first line has an integer n: the length of the string.\n\nThe next line has n integers: the suffix array.\n\nOutput\n\nPrint a string that corresponds to the suffix array. The string must consist of characters a\u2013z. If there are several possible strings, you can print any of them.\n\nIf no string corresponds to the suffix array, print -1.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\n7\n4 1 3 5 6 7 2\n\n\nOutput:\n\naybabtu",
+  "statement_sha256": "c627517fea45ac4da04335a0837764161098b47f969e5df4913294dcbe726b32"
+}

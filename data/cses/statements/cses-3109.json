@@ -1,0 +1,8 @@
+{
+  "id": "cses-3109",
+  "title": "K Subset Sums II",
+  "source_url": "https://cses.fi/problemset/task/3109",
+  "observed_at": "2026-09-11T06:54:55.821359+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Consider the sums of all \\binom{n}{m} subsets of the given array with exactly m elements.\n\nYour task is to find the k smallest subset sums.\n\nInput\n\nThe first line has three integers n, m and k: the size of the array, the size of the subsets and the number of subset sums k.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint k integers: the k smallest subset sums in increasing order.\n\nConstraints\n\n\n1 \\le m < n \\le 2 \\cdot 10^5\n\n1 \\le k \\le \\min\\left(\\binom{n}{m}, 2 \\cdot 10^5\\right)\n\n-10^9 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5 3 9\n-3 1 5 2 0\n\n\nOutput:\n\n-2 -1 0 2 3 3 4 6 7",
+  "statement_sha256": "4a91d742a79dc419b297309eb18d75e9f5094b18ea64e81ed9fed851259a8200"
+}

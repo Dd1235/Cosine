@@ -1,0 +1,8 @@
+{
+  "id": "cses-2137",
+  "title": "Corner Subgrid Count",
+  "source_url": "https://cses.fi/problemset/task/2137",
+  "observed_at": "2026-09-11T06:53:45.997278+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an n \\times n grid whose each square is either black or white. A subgrid is called beautiful if its height and width is at least two and all of its corners are black. How many beautiful subgrids are there within the given grid?\n\nInput\n\nThe first input line has an integer n: the size of the grid.\n\nThen there are n lines describing the grid: 1 means that a square is black and 0 means it is white.\n\nOutput\n\nPrint the number of beautiful subgrids.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n\nExample\n\nInput:\n\n5\n00010\n11111\n00110\n11001\n00010\n\n\nOutput:\n\n4",
+  "statement_sha256": "d9a45582287c5a2cf7ae4b2545b6572f993ed9f641080b38c139774b7cae67ce"
+}

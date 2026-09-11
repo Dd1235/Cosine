@@ -1,0 +1,16 @@
+{
+  "status": "historical-presence sensitivity check; release-cohort evaluation not available",
+  "metrics": {
+    "present_by_2022_12_31": {
+      "n": 36,
+      "within_one": 1.0,
+      "mae": 0.3888888888888889
+    },
+    "absent_from_2022_inventory": {
+      "n": 24,
+      "within_one": 1.0,
+      "mae": 0.4166666666666667
+    }
+  },
+  "statistics_used": false
+}

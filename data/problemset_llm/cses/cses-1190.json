@@ -28,5 +28,18 @@
       "point-update": 0.9,
       "kadane": 0.97
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1190",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "4c9b723046c20cd78f9a327cafc70c1231da856cf3483e17b62b8cf1f6f9571b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

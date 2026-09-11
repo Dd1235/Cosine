@@ -26,5 +26,18 @@
       "bit-manipulation": 0.9,
       "xor-accumulation": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3405",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "0b85a81765cd8e4c101b25ea170760898105bac4baaf8807b69feae09c67019a",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

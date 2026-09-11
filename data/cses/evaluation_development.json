@@ -1,0 +1,347 @@
+{
+  "reviewer_id": "independent_evaluator_c",
+  "method": "Initial independent statement-only assessment; explicitly marked follow-up records use primary author solution evidence and local correctness/runtime checks. Still blind to assessor judgments, project statistics, proposed scores and production corpus labels. Follow-up web search accidentally surfaced unrelated third-party judge points/percentages, not used for judgments; absolute blindness to all public proxies cannot be claimed. Difficulty reflects prerequisites, insight, composition and implementation, not source solve rates.",
+  "rubric": {
+    "1": "Foundation: direct simulation/basic observation",
+    "2": "Standard: one standard technique",
+    "3": "Intermediate: nontrivial insight or combination",
+    "4": "Advanced: specialized technique or substantial composition",
+    "5": "Expert: demanding optimization/proof/implementation"
+  },
+  "reviews": [
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1068",
+      "band": 1,
+      "complexity": "O(L) time for L emitted values; O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Directly simulate the stated even/odd operation, outputting every state; use 64-bit values because intermediates can exceed the input bound. No algorithmic reduction required."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1625",
+      "band": 4,
+      "complexity": "Exponential search, loose O(3^48) bound; O(49) search state. Practical feasibility depends on pruning.",
+      "confidence": "medium",
+      "unresolved": false,
+      "solution_rationale": "Backtrack self-avoiding paths with fixed directions, reject premature arrival at the destination, and prune states where blocked opposite neighbors and open other neighbors split the remaining grid. The 48-step all-wildcard case makes effective geometric pruning essential; no polynomial worst-case bound is claimed."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3419",
+      "band": 1,
+      "complexity": "O(n^3) time, O(n^2) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "At each cell mark values already seen to its left and above, then scan for the mex. There are fewer than 2n forbidden values, and n<=100 makes direct cubic simulation comfortably sufficient; an XOR formula is unnecessary."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2183",
+      "band": 2,
+      "complexity": "O(n log n) time, O(n) storage",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "After sorting, maintain that every sum in [0,S] is achievable. A coin above S+1 exposes the first gap; otherwise extend S by the coin. The short greedy coverage invariant is the main observation."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2169",
+      "band": 3,
+      "complexity": "O(n log n) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Sort intervals by left endpoint increasing and right endpoint decreasing, then make two Fenwick sweeps on compressed right endpoints to count containing and contained intervals. The tie ordering is essential; duplicate intervals are excluded by the statement."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1644",
+      "band": 3,
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "For right endpoint r maximize prefix[r] minus the minimum prefix among indices r-b through r-a. Maintain this moving minimum with a deque; negative values rule out a positive-only two-pointer argument."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2413",
+      "band": 3,
+      "complexity": "O(max n+t) time, O(max n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Track two width-two frontier types: the top row joined into one block or split into two. Enumerating extension choices gives joined_next=2*joined+split and split_next=joined+4*split, both initialized to one. Deriving the small state space is the key insight."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3314",
+      "band": 3,
+      "complexity": "O(n log n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "For each mountain, nearest heights at least its own bound the interval of possible lower destinations. Process mountains by increasing height, querying a range-max segment tree over that interval for the best previously computed route, then add one. Batch equal heights or rely on excluding them via the barriers."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2220",
+      "band": 3,
+      "complexity": "O(D*10^2) time, O(D*10) space for D<=19",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Digit DP counts values up to a bound using position, last digit, tightness and a not-started state. Subtract counts up to a-1; zero and leading zeroes need explicit treatment for bounds up to 10^18."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1194",
+      "band": 3,
+      "complexity": "O(nm) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "First multi-source BFS computes earliest monster arrival. A second BFS for the player only enters cells strictly earlier than monsters and records parents for an escape path. The adversarial timing reduction and reconstruction combine standard graph techniques."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1160",
+      "band": 3,
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Decompose the functional graph into cycles and incoming trees. Record cycle component, entry, cycle index and depth; binary lifting checks tree ancestors and reaches cycle entries. Distinguish tree destinations, cycle destinations and disconnected components."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1692",
+      "band": 3,
+      "complexity": "O(2^n+n) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Use (n-1)-bit strings as vertices and n-bit strings as edges, then print an Euler tour with the initial prefix. The 2^n+n-1 length meets the substring-count lower bound. Requires the non-obvious Eulerian graph reduction."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1646",
+      "band": 2,
+      "complexity": "O(n+q) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Build 64-bit prefix sums; each inclusive query is prefix[b]-prefix[a-1]. A direct standard prefix-sum application at n,q<=200000."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2184",
+      "band": 4,
+      "complexity": "O(n log A+q log Smax log A) time, O(n log A) space, A<=10^9",
+      "confidence": "medium",
+      "unresolved": false,
+      "solution_rationale": "Build persistent value-segment trees over array prefixes storing coin sums. For each range repeatedly set S to the sum of coins at most S+1 until it stops changing; then S+1 is the missing sum. Positive values force geometric progress over successive expansions, but nested logarithms and persistent-memory constants require care at 200000 queries."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2134",
+      "band": 4,
+      "complexity": "O(n+q log^2 n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Heavy-light decomposition maps each path to logarithmically many array segments; a max segment tree supports point changes and segment queries. Substantial composition and tree indexing for n,q<=200000."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1095",
+      "band": 2,
+      "complexity": "O(t log B) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Binary modular exponentiation handles 200000 exponents up to 10^9; initialize the accumulator to one, covering exponent zero including 0^0. One standard algorithm."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3154",
+      "band": 3,
+      "complexity": "O(n*m*min(n,m)+min(n,m)*log P) time, O(nm) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Gaussian elimination over the prime field: pivot nonzero entries, invert pivots, eliminate, detect inconsistent zero rows and set free variables to zero before back substitution. Rectangular and singular systems add bookkeeping but this is one standard linear-algebra algorithm."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3138",
+      "band": 4,
+      "complexity": "O(26n) time and space for fixed alphabet implementation",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "An online palindromic tree maintains the longest palindromic suffix after each character, whose length is exactly the requested answer. Construct suffix links and transition nodes carefully; at most n+2 nodes suffice."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2189",
+      "band": 2,
+      "complexity": "O(t) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Evaluate the sign of the cross product of p2-p1 and p3-p1 using wide integer arithmetic. A direct orientation primitive without a larger geometry algorithm."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1741",
+      "band": 4,
+      "complexity": "O(n log n) time, O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Sweep vertical rectangle edges and maintain the covered y-length in a coordinate-compressed segment tree using coverage counts and child lengths. Multiply covered length by each x gap. Overlaps and elementary interval lengths make this more than a basic range-sum tree."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2087",
+      "band": 4,
+      "complexity": "O(n^2+k n log n) time, O(n^2+n) space; implementation constants matter at n=3000",
+      "confidence": "medium",
+      "unresolved": false,
+      "solution_rationale": "Each school serves a contiguous interval optimally at its weighted median. Precompute interval weighted-median costs in O(n^2) using monotone median pointers and prefix moments, then partition into k intervals using divide-and-conquer DP optimization from the Monge cost. This requires both the median reduction and optimization proof."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3220",
+      "band": 1,
+      "complexity": "O(n) time, O(k) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Generate the array, initialize one k-element sum, and slide by subtracting the outgoing value and adding the incoming one, xoring each sum. Use 64-bit arithmetic for the generator product and sums; a ring buffer stores outgoing values."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3227",
+      "band": 5,
+      "complexity": "O(n log^2 n) time and O(n) space.",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Independently derived and implemented: each bar has a maximal interval [L,R] containing no smaller bar. Its valid contribution for window start s is height times the interval/window intersection length. This trapezoid has at most three nonzero linear pieces. Add these restricted lines to one segment Li Chao tree and query every start. Every such rectangle is valid, and the minimum bar of every optimal window rectangle supplies a containing maximal interval, proving equality. Runtime checks resolve the earlier implementation concern.",
+      "original_statement_only_band": 5,
+      "sources": [],
+      "verification": {
+        "checks": "5000 seeded random arrays up to length 50: every window matched a quadratic histogram oracle. Tested n=200000 for six patterns (random, ascending, descending, equal, alternating extremes, triangular) and k in {1,17,100000,199999,200000}.",
+        "runtime": "30 maximum-size cases took 0.0011 to 0.0666 seconds each locally with g++-15 -O2; timings exclude input/output and do not claim a judge execution.",
+        "script": "/private/tmp/advertisement_c.cpp",
+        "result_file": "/private/tmp/advertisement_c_results.txt"
+      },
+      "evidence_stage": "source-assisted blind-to-assessors verification"
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3273",
+      "band": 3,
+      "complexity": "O(log n) queries and O(1) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Xor each queried color with its index parity. Adjacent equal original colors become a change in the transformed sequence; extend the odd cycle to index n+1 using known color 1, giving opposite transformed endpoints. Bisect an interval with opposite endpoint values until adjacent; no global monotonicity is needed. One initial query plus at most ceil(log2 n) new questions fits 20."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3191",
+      "band": 3,
+      "complexity": "O(nB) time, O(B) space with B=30",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Insert values into a binary linear basis over GF(2), then greedily xor pivots from high bit to low whenever the answer increases. This specialized but single algebraic primitive replaces exponential subset enumeration."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3141",
+      "band": 4,
+      "complexity": "O(B*2^B+n) time and O(2^B) space, B=ceil(log2(n+1))",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Use a superset zeta transform of value frequencies to count elements containing each mask. For each mask 2^count-1 counts nonempty subsets whose AND contains that mask; superset Mobius inversion yields exact AND counts. Requires understanding two Boolean-lattice transforms."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2423",
+      "band": 4,
+      "complexity": "O(nm) time and space per grid.",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Require area divisible by three and both dimensions greater than one. An odd-by-odd rectangle with a side three is impossible: every tile must use exactly one middle-row cell and two adjacent outer-row cells, forcing even outer-row lengths. All other even-area cases decompose into 2-by-3 tiles. Remaining odd cases use one verified 9-by-5 template plus even-area strips. Greedily color neighboring tile IDs; each tromino has at most eight boundary edges, so 26 colors suffice. This finite case construction supports Advanced rather than the earlier unresolved Expert band.",
+      "original_statement_only_band": 5,
+      "sources": [
+        {
+          "url": "https://github.com/ssevR/cses/blob/69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5/Additional_Problems/Filling_Trominos/main.cpp",
+          "author": "ssevR",
+          "commit": "69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5",
+          "sha256": "7cbd2b8ae61b6f6e32f47ced8f6b071174b80caec9cee0d02b967b633f40e7ab",
+          "type": "primary author implementation inspected and locally checked; no CSES submission verdict independently retrieved"
+        },
+        {
+          "url": "https://abc864197532.github.io/2021/09/15/cses-additional-sol/#2423-Filling-Trominos",
+          "type": "primary author solution explanation"
+        }
+      ],
+      "verification": {
+        "checks": "Executed all 10000 dimension pairs from 1..100 in legal batches of 100. Verified all decisions and each of 5348 produced grids by monochromatic connected components: every component has three cells spanning exactly two rows and columns.",
+        "script": "/private/tmp/check_specialists_c.py"
+      },
+      "evidence_stage": "source-assisted blind-to-assessors verification"
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3408",
+      "band": 4,
+      "complexity": "O(m log m + m log n + q) time with rollback DSU, O(n+m+q) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Process weights in Kruskal order. For each query's edges of one weight test that they form a forest after contracting all strictly lighter graph edges, using a temporary/rollback DSU; only then union the whole graph weight batch globally. Total query edges at most m makes the offline batching efficient."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1685",
+      "band": 4,
+      "complexity": "O(n+m) with adjacency vectors; inspected code uses sets and takes O(n+m log n). O(n+m) space.",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Condense SCCs. DFS from sources records one reachable sink per vertex and one originating source. Greedily take disjoint recorded source-sink pairs. Every unpaired source reaches a paired sink, and every unpaired sink is reached by a paired source. Cycle the paired paths, pair remaining sinks with remaining sources, and attach any excess to the core. These invariants prove strong connectivity with max(source_count,sink_count) added edges; no quadratic reachability graph is needed. The completed proof supports Advanced rather than the earlier provisional Expert band.",
+      "original_statement_only_band": 5,
+      "sources": [
+        {
+          "url": "https://github.com/ssevR/cses/blob/69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5/Additional_Problems/New_Flight_Routes/main.cpp",
+          "author": "ssevR",
+          "commit": "69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5",
+          "sha256": "1db6733fe1c43828fdde24f3d3a51938982f6f8abb899358e32db6cbf6b14c9c",
+          "type": "primary author implementation inspected and locally checked; no CSES submission verdict independently retrieved"
+        }
+      ],
+      "verification": {
+        "checks": "1500 seeded random directed graphs: independently computed SCC lower bound, exact output edge count, and strong connectivity in both directions. All passed.",
+        "runtime": "100000-node isolated, star and two-layer fan graphs took 0.026, 0.041 and 0.039 seconds locally with g++-15 -O2.",
+        "script": "/private/tmp/check_specialists_c.py"
+      },
+      "evidence_stage": "source-assisted blind-to-assessors verification"
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2429",
+      "band": 5,
+      "complexity": "O(n^2+(c0+1)(c1+1)(c2+1)) time and O(n^2) space in inspected code, where c0+c1+c2<=n; at n=500 the triple loop has fewer than 4.8 million iterations.",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Represent A and B as two partial permutations and use inclusion-exclusion over equal-position collisions. Eligible forced collisions fall into three classes: both entries missing, only A missing with the B value unused in A, and the symmetric class. Choose i,j,k collisions; assign i distinct values unused in both permutations, then multiply factorials for the remaining holes and sign (-1)^(i+j+k). The three classes and free-value intersection capture all dependencies. Requires a substantial grouped inclusion-exclusion derivation, supporting the original Expert judgment.",
+      "original_statement_only_band": 5,
+      "sources": [
+        {
+          "url": "https://github.com/ssevR/cses/blob/69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5/Additional_Problems/Grid_Completion/main.cpp",
+          "author": "ssevR",
+          "commit": "69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5",
+          "sha256": "9124a48a07a90742f3a45df6247f0a7e32770da3617e6d06a13a1dfd9e4ea644",
+          "type": "primary author implementation inspected and locally checked; no CSES submission verdict independently retrieved"
+        },
+        {
+          "url": "https://rbtr.ee/cses-2429",
+          "type": "primary author derivation and code"
+        }
+      ],
+      "verification": {
+        "checks": "175 seeded partial grids, n=2..6: source output matched exhaustive independently enumerated pairs of permutations.",
+        "runtime": "A 500x500 mixed three-class case completed in 0.354 seconds locally using g++-15 -O2.",
+        "script": "/private/tmp/check_specialists_c.py"
+      },
+      "evidence_stage": "source-assisted blind-to-assessors verification"
+    }
+  ]
+}

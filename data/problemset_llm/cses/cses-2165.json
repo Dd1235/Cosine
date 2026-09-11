@@ -26,5 +26,18 @@
       "recursive-solution": 0.95,
       "constructive-algorithm": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2165",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f9578492925850bb66c089631558572a5ff1e9735cb403863083d37fdd55a512",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

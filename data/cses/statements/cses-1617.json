@@ -1,0 +1,8 @@
+{
+  "id": "cses-1617",
+  "title": "Bit Strings",
+  "source_url": "https://cses.fi/problemset/task/1617",
+  "observed_at": "2026-09-11T06:52:41.022280+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the number of bit strings of length n.\n\nFor example, if n=3, the correct answer is 8, because the possible bit strings are 000, 001, 010, 011, 100, 101, 110, and 111.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint the result modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n8",
+  "statement_sha256": "ee60bddf7db13d7489f57eb2158a6143c2f65b7b93740a1da35b13d80411bacb"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1709",
+  "title": "Coin Grid",
+  "source_url": "https://cses.fi/problemset/task/1709",
+  "observed_at": "2026-09-11T06:54:57.296677+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is an n \\times n grid whose each square is empty or has a coin. On each move, you can remove all coins in a row or column.\n\nWhat is the minimum number of moves after which the grid is empty?\n\nInput\n\nThe first input line has an integer n: the size of the grid. The rows and columns are numbered 1,2,\\dots,n.\n\nAfter this, there are n lines describing the grid. Each line has n characters: each character is either . (empty) or o (coin).\n\nOutput\n\nFirst print an integer k: the minimum number of moves. After this, print k lines describing the moves.\n\nOn each line, first print 1 (row) or 2 (column), and then the number of a row or column. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n\nExample\n\nInput:\n\n3\n..o\no.o\n...\n\n\nOutput:\n\n2\n1 2\n2 3",
+  "statement_sha256": "dfa6b3a4883609a0e3f1e274427abb98a6a815edc1d6e920e2d47cf02e7695fc"
+}

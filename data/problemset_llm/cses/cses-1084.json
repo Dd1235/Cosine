@@ -27,5 +27,18 @@
       "two-pointers": 0.95,
       "greedy": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1084",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "6107d7a6d3f89a00721e9ecf4dd5c30cd13f4cc52ab1c8ad32bfe6597b399f21",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3408",
+  "title": "MST Edge Set Check",
+  "source_url": "https://cses.fi/problemset/task/3408",
+  "observed_at": "2026-09-11T06:54:44.956703+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected weighted graph and edge sets, determine for each set if the edges can be included in a minimum spanning tree.\n\nInput\n\nThe first line has three integers n,  m and q: the number of nodes, edges and edge sets. The nodes are numbered 1,2,\\dots,n.\n\nThe following m lines describe the edges. Each line has three integers a, b, w: there is an edge between nodes a and b with weight w. The edges are numbered 1,2,\\dots,m in the input order.\n\nThe following 2q lines describe the edge sets. For each set, the first line contains its size and the second line contains its edges. The total number of edges in all sets is at most m.\n\nYou can assume that the graph is connected and simple and each edge appears at most once in the graph.\n\nOutput\n\nFor each edge set, print YES if the edges can be included in the minimum spanning tree and NO otherwise.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m, q \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le w \\le 10^9\n\n\nExample\n\nInput:\n\n5 6 4\n1 2 4\n1 3 2\n2 4 2\n3 4 1\n3 5 3\n4 5 3\n3\n2 3 4\n1\n1\n2\n2 6\n2\n5 6\n\n\nOutput:\n\nYES\nNO\nYES\nNO",
+  "statement_sha256": "ddc3fa6517bf2197eb09fb85c605fd613be70915914a706ce252251b082359a7"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2108",
+  "title": "Substring Order I",
+  "source_url": "https://cses.fi/problemset/task/2108",
+  "observed_at": "2026-09-11T06:53:42.324277+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string of length n. If all of its distinct substrings are ordered lexicographically, what is the kth smallest of them?\n\nInput\n\nThe first input line has a string of length n that consists of characters a\u2013z.\n\nThe second input line has an integer k.\n\nOutput\n\nPrint the kth smallest distinct substring in lexicographical order.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le k \\le \\frac{n(n+1)}{2}\n\nIt is guaranteed that k does not exceed the number of distinct substrings.\n\n\nExample\n\nInput:\n\nbabaacbaab\n10\n\n\nOutput:\n\naba\n\n\nExplanation: The 10 smallest distinct substrings in order are a, aa, aab, aac, aacb, aacba, aacbaa, aacbaab, ab, and aba.",
+  "statement_sha256": "82463d302dff18d018ba58d17fe8acb0164bc636e43119274dcdd26333d31dc9"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2129",
+  "title": "Task Assignment",
+  "source_url": "https://cses.fi/problemset/task/2129",
+  "observed_at": "2026-09-11T06:53:49.168789+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA company has n employees and there are n tasks that need to be done. We know for each employee the cost of carrying out each task. Every employee should be assigned to exactly one task. What is the minimum total cost if we assign the tasks optimally and how could they be assigned?\n\nInput\n\nThe first input line has one integer n: the number of employees and the number of tasks that need to be done.\n\nAfter this, there are n lines each consisting of n integers. The ith line consists of integers c_{i1},c_{i2},\\ldots,c_{in}: the cost of each task when it is assigned to the ith employee.\n\nOutput\n\nFirst print the minimum total cost.\n\nThen print n lines each consisting of two integers a and b: you assign the bth task to the ath employee.\n\nIf there are multiple solutions you can print any of them.\n\nConstraints\n\n\n1 \\le n \\le 200\n\n1 \\le c_{ij} \\le 1000\n\n\nExample\n\nInput:\n\n4\n17 8 16 9\n7 15 12 19\n6 9 10 11\n14 7 13 10\n\n\nOutput:\n\n33\n1 4\n2 1\n3 3\n4 2\n\n\nExplanation: The minimum total cost is 33. We can reach this by assigning employee 1 task 4, employee 2 task 1, employee 3 task 3 and employee 4 task 2. This will cost 9 + 7 + 10 + 7 = 33.",
+  "statement_sha256": "36407c649f695f0d967a9109cd0758bb4b40a353f4cd9dba97a76afa4f264b66"
+}

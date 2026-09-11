@@ -26,5 +26,18 @@
       "difference-array": 0.9,
       "system-of-linear-equations": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3294",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "661ca0770b18a087b062ad08000bff19beaecd11eab5aa030b9669d252bcf135",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

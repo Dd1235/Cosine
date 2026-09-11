@@ -1,0 +1,8 @@
+{
+  "id": "cses-1130",
+  "title": "Tree Matching",
+  "source_url": "https://cses.fi/problemset/task/1130",
+  "observed_at": "2026-09-11T06:53:30.787595+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes.\n\nA matching is a set of edges where each node is an endpoint of at most one edge. What is the maximum number of edges in a matching?\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint one integer: the maximum number of pairs.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n2\n\n\nExplanation: One possible matching is (1,2) and (3,4).",
+  "statement_sha256": "f4f9c93768274550301063a9efe9290874020f725a32daab8bf760973ebb0cf6"
+}

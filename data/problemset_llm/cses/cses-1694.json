@@ -26,5 +26,18 @@
       "dinic": 0.9,
       "edmonds-karp": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1694",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "36bba9d8f5912ef5bb80fb3dc4b7423dbbcc1d902921a3fe51a9a1d78b7a3ae4",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

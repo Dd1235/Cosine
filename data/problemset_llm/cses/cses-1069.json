@@ -23,5 +23,18 @@
       "brute-force": 0.98,
       "two-pointers": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 1,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1069",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "125e9af34e21c82ef0c1e26209e7945654cc15724c28f64ec5bfb0f5f8a1aff8",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

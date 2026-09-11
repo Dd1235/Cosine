@@ -28,5 +28,18 @@
       "dynamic-programming": 0.9,
       "modular-exponentiation": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2228",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f93a7fd0dd59a36dd9349cd5cca5eba870c93128750e746073ff624135ca67ed",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

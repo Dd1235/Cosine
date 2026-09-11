@@ -1,0 +1,8 @@
+{
+  "id": "cses-1702",
+  "title": "Tree Traversals",
+  "source_url": "https://cses.fi/problemset/task/1702",
+  "observed_at": "2026-09-11T06:54:43.211653+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are three common ways to traverse the nodes of a binary tree:\n\n\nPreorder: First process the root, then the left subtree, and finally the right subtree.\n\nInorder: First process the left subtree, then the root, and finally the right subtree.\n\nPostorder: First process the left subtree, then the right subtree, and finally the root.\n\n\nThere is a binary tree of n nodes with distinct labels. You are given the preorder and inorder traversals of the tree, and your task is to determine its postorder traversal.\n\nInput\n\nThe first input line has an integer n: the number of nodes. The nodes are numbered 1,2,\\dots,n.\n\nAfter this, there are two lines describing the preorder and inorder traversals of the tree. Both lines consist of n integers.\n\nYou can assume that the input corresponds to a binary tree.\n\nOutput\n\nPrint the postorder traversal of the tree.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\n5\n5 3 2 1 4\n3 5 1 2 4\n\n\nOutput:\n\n3 1 4 2 5",
+  "statement_sha256": "5d2ac0ebbcf9a9bd704f3378c6a0ea4ee2e66e899c321b1f3b014ca1fb690e2e"
+}

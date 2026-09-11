@@ -28,5 +28,18 @@
       "probability-dp": 0.9,
       "inclusion-exclusion": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1727",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e9d848964117729bd127bd2696add3d8da09416eb9fa3e689ae116cab822546b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

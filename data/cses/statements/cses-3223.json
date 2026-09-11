@@ -1,0 +1,8 @@
+{
+  "id": "cses-3223",
+  "title": "Sliding Window Inversions",
+  "source_url": "https://cses.fi/problemset/task/3223",
+  "observed_at": "2026-09-11T06:53:51.237353+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the number of inversions in each window of k elements, from left to right.\n\nAn inversion is a pair of elements where the left element is larger than the right element.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the numbers of inversions.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n1 2 3 2 5 2 4 4\n\n\nOutput:\n\n0 1 1 1 2 0",
+  "statement_sha256": "e93f56a798bbac3ffcc3fc716e6a1ffcf9b0abf0ee92c1f0d5f44ed9f1423b8f"
+}

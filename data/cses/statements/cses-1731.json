@@ -1,0 +1,8 @@
+{
+  "id": "cses-1731",
+  "title": "Word Combinations",
+  "source_url": "https://cses.fi/problemset/task/1731",
+  "observed_at": "2026-09-11T06:53:39.464112+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string of length n and a dictionary containing k words. In how many ways can you create the string using the words?\n\nInput\n\nThe first input line has a string containing n characters between a\u2013z.\n\nThe second line has an integer k: the number of words in the dictionary.\n\nFinally there are k lines describing the words. Each word is unique and consists of characters a\u2013z.\n\nOutput\n\nPrint the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n1 \\le k \\le 10^5\n\nthe total length of the words is at most 10^6\n\n\nExample\n\nInput:\n\nababc\n4\nab\nabab\nc\ncb\n\n\nOutput:\n\n2\n\n\nExplanation: The possible ways are ab+ab+c and abab+c.",
+  "statement_sha256": "51047504378fac220b35ad6105ee0038dbaca2afd7e7c1b6f78e0a9e20278128"
+}

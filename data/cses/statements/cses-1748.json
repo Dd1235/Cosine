@@ -1,0 +1,8 @@
+{
+  "id": "cses-1748",
+  "title": "Increasing Subsequence II",
+  "source_url": "https://cses.fi/problemset/task/1748",
+  "observed_at": "2026-09-11T06:53:20.345903+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to calculate the number of increasing subsequences it contains. If two subsequences have the same values but in different positions in the array, they are counted separately.\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the number of increasing subsequences modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n3\n2 1 3\n\n\nOutput:\n\n5\n\n\nExplanation: The increasing subsequences are [2], [1], [3], [2,3] and [1,3].",
+  "statement_sha256": "fd70ffb68b1cf4d9b22b077e639cf03be1d93775ec5229e4e83467e0e4c3049c"
+}

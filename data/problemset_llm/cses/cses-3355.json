@@ -26,5 +26,18 @@
       "precomputation": 0.8,
       "number-theory": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3355",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e793b0fff8c0c8310cf16b3a208be65e6ab566377145ee45927efb61ad995238",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

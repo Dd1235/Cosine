@@ -25,5 +25,18 @@
       "gaussian-elimination": 0.98,
       "modular-inverse": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3154",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "850bc1986ee81d5be15f66386de9458e103a6d6cdf28c056402e7c72751f6ea2",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

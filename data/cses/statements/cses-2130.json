@@ -1,0 +1,8 @@
+{
+  "id": "cses-2130",
+  "title": "Distinct Routes II",
+  "source_url": "https://cses.fi/problemset/task/2130",
+  "observed_at": "2026-09-11T06:53:49.359229+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game consists of n rooms and m teleporters. At the beginning of each day, you start in room 1 and you have to reach room n.\n\nYou can use each teleporter at most once during the game. You want to play the game for exactly k days. Every time you use any teleporter you have to pay one coin. What is the minimum number of coins you have to pay during k days if you play optimally?\n\nInput\n\nThe first input line has three integers n, m and k: the number of rooms, the number of teleporters and the number of days you play the game. The rooms are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the teleporters. Each line has two integers a and b: there is a teleporter from room a to room b.\n\nThere are no two teleporters whose starting and ending room are the same.\n\nOutput\n\nFirst print one integer: the minimum number of coins you have to pay if you play optimally. Then, print k route descriptions according to the example. You can print any valid solution.\n\nIf it is not possible to play the game for k days, print only -1.\n\nConstraints\n\n\n2 \\le n \\le 500\n\n1 \\le m \\le 1000\n\n1 \\le k \\le n-1\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n8 10 2\n1 2\n1 3\n2 5\n2 4\n3 5 \n3 6\n4 8\n5 8\n6 7 \n7 8\n\n\nOutput:\n\n6\n4\n1 2 4 8 \n4\n1 3 5 8",
+  "statement_sha256": "141d713d7971c06b66e72e366c1e55749f902ad8a54772ae6ddc65a56a970667"
+}

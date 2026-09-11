@@ -25,5 +25,18 @@
       "two-pointers": 0.85,
       "tin-tout-ancestor-check": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2168",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e359d107a69573a8e25c80bca65f8723cc0d2bcf332975e8652d3262ef71a0f2",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1096",
+  "title": "Throwing Dice",
+  "source_url": "https://cses.fi/problemset/task/1096",
+  "observed_at": "2026-09-11T06:53:36.571688+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the number of ways to get a sum n by throwing dice. Each throw yields an integer between 1 \\ldots 6.\n\nFor example, if n=10, some possible ways are 3+3+4, 1+4+1+4 and 1+1+6+1+1.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^{18}\n\n\nExample\n\nInput:\n\n8\n\n\nOutput:\n\n125",
+  "statement_sha256": "c38b7122da2c3ef9b8f444eccc0584aafd8cd27ceaed01570ad0f08a9edd3c9a"
+}

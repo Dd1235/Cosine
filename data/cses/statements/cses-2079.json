@@ -1,0 +1,8 @@
+{
+  "id": "cses-2079",
+  "title": "Finding a Centroid",
+  "source_url": "https://cses.fi/problemset/task/2079",
+  "observed_at": "2026-09-11T06:53:32.418919+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a tree of n nodes, your task is to find a centroid, i.e., a node such that when it is appointed the root of the tree, each subtree has at most \\lfloor n/2 \\rfloor nodes.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\u2026,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint one integer: a centroid node. If there are several possibilities, you can choose any of them.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n2 3\n3 4\n3 5\n\n\nOutput:\n\n3",
+  "statement_sha256": "4475e80399fa585054571349584886a01f6973528f7ed52c0b1e26f6bd0395f1"
+}

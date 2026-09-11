@@ -28,5 +28,18 @@
       "dp-on-dag": 0.85,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1723",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "967f5db84b5c5ac37dff436dad39f042ff420a91fd83cf218f5691291d6f7c69",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

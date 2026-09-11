@@ -27,5 +27,18 @@
       "hamiltonian-dp": 0.97,
       "state-compression": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1690",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "92d51feed27c59cb3058a42e6e3264972e1ee9900af8beba6edc92e4012bd5b4",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

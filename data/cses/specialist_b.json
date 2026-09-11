@@ -1,0 +1,199 @@
+{
+  "reviewer_id": "independent-agent-b",
+  "status": "nine_specialist_assessments_resolved",
+  "reviews": [
+    {
+      "id": "cses-3424",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "For n>=5 use 1-based A[i][1]=n and A[i][j]=i if j>i, otherwise i-1. Let r=floor(n/2), c=3 for odd n and n/2+2 for even n. Swap A[2][1] with A[2][c], then A[r+1][n] with A[r+2][n]. For n=4 use rows [3,2,3,4], [4,1,1,2], [4,1,2,4], [3,2,1,3]. Reject n<=3.",
+      "complexity": "O(n^2) time and output space; O(n) auxiliary space is possible by applying swaps during output.",
+      "proof": "The base construction has exactly n copies of each symbol. Its row totals are (n-2)i+n+1; column one totals n^2 and column j>=2 totals n(n-1)/2+j-1. The two swaps preserve multiplicities and remove the unique row-column equality while maintaining all other inequalities. The n=4 template has eight different totals. For n=3, six distinct totals with total36 would have to be {3,4,5,7,8,9}; the all-one and all-three lines must be parallel, forcing the remaining line to sum6, a contradiction. Smaller n have too few available totals.",
+      "validation": "Symbolic corrected row/column totals checked for every n=5..1000; explicit grids verified for every n=4..100 plus n=500,1000, including exact n copies of each symbol. Independently found fixed n=4 template.",
+      "statement_sha256": "a78426760c2c8819bdf52eed9ebe61dac3e4e19745481e61f466efbd96e7af9d",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3424",
+          "role": "official problem statement"
+        },
+        {
+          "url": "https://codeforces.com/blog/entry/156045",
+          "role": "author explanation of the n>=5 base construction and two swaps"
+        }
+      ],
+      "derivation_origin": "Author construction for n>=5, independently simplified collision indices and verified; independently found n=4 template and small-n impossibility argument.",
+      "corrections_to_initial_assessment": [
+        "The previously missing construction is now explicit and checked; Advanced4 is supported rather than an uncertain Expert5."
+      ]
+    },
+    {
+      "id": "cses-3401",
+      "band": 5,
+      "status": "resolved",
+      "solution_rationale": "For a maximum piece bound R, let t_i=ceil(a_i/R), C=sum t_i, and Lmin=min floor(a_i/t_i). For K total pieces, define L0(K) as the Kth largest value in the multiset {floor(a_i/j):1<=j<=a_i}. The best minimum length compatible with R and K is min(L0(K),Lmin), provided C<=K. Enumerate O(n+m) relevant (C,R,Lmin) states by a max-heap of ceil(a_i/t_i), increasing all counts tied at the current R before recording a lower R. Stop when C>n+m. Generate L0(K) by merging each stick's decreasing quotient sequence with another heap. For increasing K, activate states with C<=K; two compressed Fenwick-min trees answer min_{Lmin<=L0}(R-Lmin) and min_{Lmin>=L0}(R)-L0. Their minimum is the answer for K=n+1..n+m.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space.",
+      "proof": "For fixed integer bounds L<=R, stick i can be divided into any integer number of pieces in [ceil(a_i/R),floor(a_i/L)]. Consequently exactly K pieces are possible iff every interval is nonempty and the sum of lower bounds is <=K<=the sum of upper bounds. Nonemptiness is equivalent to L<=Lmin; the upper-sum condition is equivalent to L<=L0(K), since the number of quotients floor(a_i/j)>=L equals sum floor(a_i/L). This proves the objective formula. When all t_i stay unchanged as R decreases, only the smallest such R matters. Heap processing records exactly these undominated states; each count increment consumes one of at most m+1 charged cuts. Query splitting at L0 gives the two Fenwick expressions. Balanced pieces realize every feasible count interval, so the bound is attainable.",
+      "validation": "Sweep/L0 formula matched exhaustive allocations for all k in 565 multisets: n=1,max a=15; n=2,max a=15; n=3,max a=10; n=4,max a=7. Includes counterexample [5,5,12] to naive split-largest greedy.",
+      "statement_sha256": "4787ce0fac05b191e3a442742b840e6f2b30ec226816a8ce90968345b7e57ddd",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3401",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Resolved the all-k algorithm and asymptotic bound. Naively always splitting a current longest piece is incorrect: [5,5,12] at K=6 can give spread3 while [5],[5],[3,3,3,3] attains2.",
+        "The downloaded reference analysis file contained only a heading and was not used as solution evidence."
+      ]
+    },
+    {
+      "id": "cses-3109",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Sort the array and output the sum of its first m entries as the initial state. A noninitial combination is represented by its smallest displaced position s: selected indices before s equal 1..s-1, while the suffix of selected indices is an immutable linked list beginning with v>s. A heap state stores its sum, s and this tail. Child one increases v by one if it remains below the next selected index (or at most n). Child two, when s>1, prepends index s as the new selected index for position s-1, preserving the old tail. Update sums by the corresponding single-element replacement. Seed the heap by increasing selected index m to m+1; pop and expand until k sums are output.",
+      "complexity": "O(n log n+k log k) time, O(n+k) space. Each heap state has at most two children and each child allocates at most one immutable tail node.",
+      "proof": "Every noninitial combination has a unique smallest displaced position s. Decrement its selected index there by one: this is always a valid combination, and either retains s or returns that position to its baseline, moving the smallest displaced position right. Reversing this unique parent operation yields exactly the two listed children: a newly displaced position can only be immediately left of the previous one, because earlier baseline neighbors would collide. The resulting tree covers every index subset exactly once. Sorted values make every edge cost nonnegative, so best-first traversal emits all sums in order, with distinct equal-valued index subsets retaining multiplicity.",
+      "validation": "All subset sums (with duplicate-value multiplicity) matched exhaustive combinations in 675 random cases, n=2..10 and every legal m.",
+      "statement_sha256": "4a91d742a79dc419b297309eb18d75e9f5094b18ea64e81ed9fed851259a8200",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3109",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Replaces the incomplete successor-generation discussion with a fully specified constant-branching enumeration. Advanced4 is supported."
+      ]
+    },
+    {
+      "id": "cses-3175",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Keep unused values ordered and greedily take the smallest value whose difference from the previous value is not one while more than six remain. Exhaustively test the final at-most-six values in lexicographic order, also checking the fixed preceding value. The first valid completion is the answer; reject only if the small exhaustive case has none.",
+      "complexity": "O(n log n) time, O(n) space with an ordered set; final tail has at most 6!=720 permutations.",
+      "proof": "On any set of q>=6 unused vertices, the graph of allowed successive values omits at most two neighbors per vertex, so its minimum degree is at least q-3>=q/2. Dirac's theorem gives a Hamiltonian cycle and hence a Hamiltonian path starting at any prescribed available vertex. Before each greedy choice the residual set has at least seven vertices; after selecting an allowed next value, a cycle on that residual set can be broken at this chosen value to extend the prefix. Thus every greedy choice preserves feasibility, and choosing the smallest feasible next value ensures lexicographic minimality. The finite tail handles all cases below the theorem's threshold.",
+      "validation": "Greedy with six-element exhaustive tail matched lexicographic exhaustive search for n=1..9; valid permutations checked through n=100 and at n=1000,100000. Dirac extension proof covers arbitrary n.",
+      "statement_sha256": "1f60afb071f27359039f255c5f5e6a473440ce29bc1dc1aba77734687d6e2cfd",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3175",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "The tail cutoff and extension proof are now specified; the earlier feasibility caveat is resolved."
+      ]
+    },
+    {
+      "id": "cses-3218",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Translate to displacements from the top-left corner and order x>=y>=0. Handle (1,0) with3 and (1,1),(2,2) with4. Otherwise take d=max(ceil(x/2),ceil((x+y)/3)) and increase d by one if its parity differs from x+y. The origin naturally yields zero.",
+      "complexity": "O(1) time and space per query.",
+      "proof": "Every move changes either coordinate by at most two and the sum of coordinates by at most three, giving the two lower bounds; checkerboard parity supplies the parity condition. For maximum coordinate x>=6 and y>=1, the legal move to (x-2,y-1), reordered if necessary, lowers the formula by exactly one. When x=y, the total-distance bound dominates the potentially larger reordered-coordinate bound. For y=0 and x>=6, move to (x-2,1), also lowering the formula by one. These moves stay in the nonnegative quadrant. The finite bases x<=5 are directly solved, with the three stated exceptions. Induction proves attainability at all larger coordinates.",
+      "validation": "Closed form matched exact nonnegative-quadrant BFS on all 10201 displacements x,y=0..100 using a 140x140 search board. Explicit exceptions include (1,1), unlike the unrestricted-plane formula.",
+      "statement_sha256": "f06abdb2b4503e738c04914cf02d9751903b47692d5a08540fc6822cfef9dbed",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3218",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Explicitly includes the quadrant-only exception (1,1)->4; the unrestricted infinite-plane formula would incorrectly return2."
+      ]
+    },
+    {
+      "id": "cses-3216",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Let A=n-1,B=m-1,g=gcd(A,B),p=A/g,q=B/g,L=lcm(A,B). Return time is2L. The number of distinct visited cells is L+1-(p-1)(q-1)/2; use wide integers and compute the lcm by division before multiplication.",
+      "complexity": "O(log min(n,m)) time, O(1) space per test.",
+      "proof": "Fold the time coordinate modulo2A and2B. Both coordinates return to zero together first at2L; time L is a corner, so the second half retraces the first. On [0,L], a repeated interior cell has exactly two visits. Two unequal times folding together must have opposite reflection signs in the two coordinates: their sum is a multiple of2A and difference a multiple of2B, or vice versa. After dividing by g, these two cases correspond to the interior lattice pairs (h,j) of the p-by-q rectangle below h/p+j/q=1, separated by h/p<j/q or the reverse. Coprimality excludes lattice points on either separating equality. Reflection pairs the points below and above the antidiagonal, giving exactly (p-1)(q-1)/2 crossings. Subtract one for each duplicate from the L+1 times.",
+      "validation": "Return-period and distinct-cell formula matched direct full-cycle simulation for all 1600 side-length pairs A,B=1..40 (grid dimensions A+1,B+1).",
+      "statement_sha256": "38ab696dd30078d617c719b6030e84f9e361f1966881d55c1c13050ea1b3b3f9",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3216",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "The distinct-cell expression is now accompanied by a crossing-count argument and exhaustive cycle checks."
+      ]
+    },
+    {
+      "id": "cses-3425",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Enumerate and sort all subset sums with masks in two halves. Maintain an integer interval [lo,hi] containing more subset sums than integer positions, initially [0,total]. For a midpoint, count sums <=mid using a monotone two-pointer scan across the sorted half lists. Keep an overfull half and its cumulative count below lo. Once lo=hi, recover two different half-mask pairs summing to that value. Delete common elements from their two full masks and output the remaining disjoint subsets.",
+      "complexity": "O(2^(n/2)*(n+log(total+1))) time and O(2^(n/2)) space; the given total<2^n makes the time O(n*2^(n/2)). Deterministic.",
+      "proof": "There are2^n index subsets and at most total+1<=2^n-1 integer sum values, so the initial interval is overfull. Splitting an overfull interval into two disjoint integer intervals leaves at least one overfull half; counting prefix sums identifies it exactly. At a singleton sum, at least two distinct subsets exist. Their symmetric differences have equal sum after removing common elements. Because all values are positive, neither difference can be empty unless both masks were identical. The two-list counting scan is linear because its second pointer moves only downward.",
+      "validation": "Deterministic MITM overfull-interval recovery validated in 176 cases n=3..18, including near-binary adversarial sets with only a single colliding sum. The earlier randomized birthday argument is explicitly rejected.",
+      "statement_sha256": "5a94db688912d02bb7812126131e8a6783d12ce5486a7755b4951f643cd78683",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3425",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Rejects the initial birthday-sampling claim. Distinct masks may have only one colliding sum; repeated draws of the same mask do not help. Near-binary arrays [1,2,4,...,2^(n-2),2^(n-1)-1] expose this failure.",
+        "A deterministic feasible algorithm replaces the randomized argument; no empirical collision assumption remains."
+      ]
+    },
+    {
+      "id": "cses-3358",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Topologically number the vertices1..n. After covering1..i, store S_i: possible other path endpoints j, with i the most recently added endpoint and0 representing an empty path. Begin S_1={0}. For v=i+1, find a witness h in S_i with edge h->v, permitting h=0 unconditionally. Preserve all old states only if edge i->v exists; otherwise clear them. If a witness exists, add state i and record parent[i]=h. Reject if the set becomes empty. Reconstruct from any final other endpoint j: nodes j+1..current share one path color; set current=j, j=parent[j] and flip the color, repeating until zero. Output each color in topological order.",
+      "complexity": "O(n+m) time and space, including reconstruction. Membership uses a Boolean/epoch array; incoming edges are scanned once and states are inserted and removed at most once.",
+      "proof": "Any two paths covering a topological prefix have i as one endpoint. The next vertex can only extend that endpoint, preserving j, or extend the other endpoint j, making i the new other endpoint. These are precisely the two transitions. The existing-state transition is identical for every j, allowing all states to be retained or cleared together. Every state i is born only when vertex i+1 is added, so one parent witness suffices. Between its birth and its use, all newly processed vertices extend the most recent path; this yields the reconstruction intervals and color flips.",
+      "validation": "Linear frontier-state DP and reconstruction matched exhaustive two-color path assignments on all 1098 forward-edge DAGs for n=2..5.",
+      "statement_sha256": "7aa036dae0b8c0ef7669b97b3befddfd18b2939ed3ed21b5528cddf5c6b4fdb7",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3358",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Replaces the generic Hopcroft-Karp bound with a linear specialized algorithm that better fits n=200000,m=500000."
+      ]
+    },
+    {
+      "id": "cses-3149",
+      "band": 4,
+      "status": "resolved",
+      "solution_rationale": "Peel all coinless leaves to obtain the minimal coin-containing subtree T and let E be its edge count. Multi-source traversal from T gives each vertex v its unique attachment p(v) in T and distance d(v) to T. Preprocess LCA distances on T or the original tree. For each query return 2E+d(a)+d(b)-dist(p(a),p(b)).",
+      "complexity": "O(n log n+q log n) time, O(n log n) space with binary-lifting LCA.",
+      "proof": "Every edge in T separates coins on both sides. A walk through all coins from p(a) to p(b) must traverse every T edge, traversing the p(a)-p(b) path once and every other edge at least twice. A DFS traversal attains cost2E-dist(p(a),p(b)). Before and after this tour, a and b require their attachment paths of lengths d(a),d(b). If they attach at the same vertex or share part of an outside branch, those portions still must be traversed toward and away from the core, exactly as counted. Thus the formula is both a lower bound and constructively attainable.",
+      "validation": "Core-projection formula matched exact BFS on (vertex, collected-coin-mask) for 800 random queries over 80 trees with n<=12 and up to five coins.",
+      "statement_sha256": "da5d7ad0df0659ab20c7033d3de73f7203b86d2222f08ce9543ef80f5076819b",
+      "source_links": [
+        {
+          "url": "https://cses.fi/problemset/task/3149",
+          "role": "official problem statement"
+        }
+      ],
+      "derivation_origin": "independent derivation",
+      "corrections_to_initial_assessment": [
+        "Simplifies the previous union-of-Steiner-subtrees case split to one explicit formula, including the single-coin and identical-endpoint cases."
+      ]
+    }
+  ],
+  "validation_script": "/tmp/specialist_b_checks.py",
+  "validation_note": "Checks validate independently derived formulas and constructions against exhaustive or exact small oracles; asymptotic feasibility follows the included proofs. No online-judge acceptance is claimed.",
+  "reference_audit": {
+    "repository": "https://github.com/ntanthedev/CSES-Problems-set",
+    "commit": "dbc77ad8d2f7438379c46975f9ecc9dcb069c251",
+    "note": "3401 analysis_en.md contained only a heading and supplied no solution evidence. No unverified autogenerated analysis was treated as proof."
+  }
+}

@@ -25,5 +25,18 @@
       "interval-dp": 0.98,
       "prefix-sum": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2088",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "88bc4af56a8f2d5c22811258bcd2d8547aaa47813ec06017f6815d11748041b3",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

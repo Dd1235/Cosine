@@ -26,5 +26,18 @@
       "dynamic-programming": 0.85,
       "subsequence-check": 0.8
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1087",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "c31a9fec4435dba37aa1079b922ea2a70d37b805740f7b52ef24e1ae0b927836",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

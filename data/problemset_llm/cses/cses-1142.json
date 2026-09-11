@@ -25,5 +25,18 @@
       "largest-rectangle-in-histogram": 0.97,
       "contribution-technique": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1142",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "81a657b43455af2c5fa75aa4a48810afbc5d1d299f4a728f5f5d2f1f8dc168b7",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -26,5 +26,18 @@
       "sliding-window": 0.95,
       "hash-map": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3420",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "833e17a5ffaaa212c14a487df46ae46272b86b9e36301c11df1e765d3eb50958",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

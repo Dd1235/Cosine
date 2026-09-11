@@ -1,0 +1,8 @@
+{
+  "id": "cses-1676",
+  "title": "Road Construction",
+  "source_url": "https://cses.fi/problemset/task/1676",
+  "observed_at": "2026-09-11T06:53:24.018236+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and initially no roads between them. However, every day a new road will be constructed, and there will be a total of m roads.\n\nA component is a group of cities where there is a route between any two cities using the roads. After each day, your task is to find the number of components and the size of the largest component.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and roads. The cities are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the new roads. Each line has two integers a and b: a new road is constructed between cities a and b.\n\nYou may assume that every road will be constructed between two different cities.\n\nOutput\n\nPrint m lines: the required information after each day.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n1 2\n1 3\n4 5\n\n\nOutput:\n\n4 2\n3 3\n2 3",
+  "statement_sha256": "5845777d7cd66ffc54fdf6d549f6954232f59dbaf7f4dc3ecd7decd091ec4402"
+}

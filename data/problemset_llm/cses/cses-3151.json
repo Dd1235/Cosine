@@ -24,5 +24,18 @@
       "inversion-count": 0.9,
       "binary-search-answer": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3151",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "945f45d0560448e39b4973649082f4927c06e8aac4892782eb42a647389394dd",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

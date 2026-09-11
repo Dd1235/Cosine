@@ -27,5 +27,18 @@
       "matrix-exponentiation": 0.98,
       "modular-arithmetic": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1722",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "219b4590716ab19735db77281d18828df2bcccdda9c0c6c9e0b189f9818d53cf",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

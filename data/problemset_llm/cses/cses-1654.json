@@ -30,5 +30,18 @@
       "mobius-inversion": 0.9,
       "sos-dp": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1654",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f41b6f0c8c38e2940bb30a1c10dfb339576069c21fe82ce270bf61e46e621653",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

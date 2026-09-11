@@ -27,5 +27,24 @@
       "backtracking": 0.9,
       "path-construction": 0.88
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2418",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_a.json"
+    ],
+    "statement_sha256": "b5bb79f4b9e773947a5ccfec68d954c191d3c4069763d96914a15ed99d4980ac",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_a.json"
+    }
   }
 }
