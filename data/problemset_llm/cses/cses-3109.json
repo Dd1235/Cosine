@@ -13,20 +13,18 @@
     "binary-search"
   ],
   "patterns": [
-    "binary-search-answer",
-    "two-pointers",
-    "prefix-sum",
-    "binary-search"
+    "heap",
+    "sorting"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777952174,
     "pattern_confidence": {
-      "binary-search-answer": 0.9,
-      "two-pointers": 0.7,
-      "prefix-sum": 0.75
-    }
+      "heap": 0.9,
+      "sorting": 0.9
+    },
+    "reviewed_by": "root solution skeptic and independent-agent-b solver; specialist label review2026-09-11"
   },
   "cses_difficulty": {
     "band": 4,

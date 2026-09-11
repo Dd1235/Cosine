@@ -14,18 +14,17 @@
   ],
   "patterns": [
     "topological-sort",
-    "greedy",
-    "two-path-partition"
+    "dynamic-programming"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777952026,
     "pattern_confidence": {
-      "topological-sort": 0.95,
-      "greedy": 0.85,
-      "two-path-partition": 0.9
-    }
+      "topological-sort": 0.9,
+      "dynamic-programming": 0.9
+    },
+    "reviewed_by": "root solution skeptic and independent-agent-b solver; specialist label review2026-09-11"
   },
   "cses_difficulty": {
     "band": 4,

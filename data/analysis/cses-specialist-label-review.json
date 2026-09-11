@@ -1,0 +1,66 @@
+{
+  "reviewed_at": "2026-09-11",
+  "problems": [
+    {
+      "id": "cses-3109",
+      "before": [
+        "binary-search-answer",
+        "two-pointers",
+        "prefix-sum",
+        "binary-search"
+      ],
+      "after": [
+        "heap",
+        "sorting"
+      ],
+      "solution": "Sort the array and output the sum of its first m entries as the initial state. A noninitial combination is represented by its smallest displaced position s: selected indices before s equal 1..s-1, while the suffix of selected indices is an immutable linked list beginning with v>s. A heap state stores its sum, s and this tail. Child one increases v by one if it remains below the next selected index (or at most n). Child two, when s>1, prepends index s as the new selected index for position s-1, preserving the old tail. Update sums by the corresponding single-element replacement. Seed the heap by increasing selected index m to m+1; pop and expand until k sums are output.",
+      "complexity": "O(n log n+k log k) time, O(n+k) space. Each heap state has at most two children and each child allocates at most one immutable tail node.",
+      "reviewers": [
+        "root",
+        "independent-agent-b"
+      ],
+      "reason": "Replace labels not justified by the verified feasible algorithm; difficulty experiment is unchanged."
+    },
+    {
+      "id": "cses-3401",
+      "before": [
+        "binary-search-answer",
+        "greedy",
+        "binary-search"
+      ],
+      "after": [
+        "heap",
+        "fenwick-tree",
+        "coordinate-compression",
+        "offline-queries",
+        "segment-tree"
+      ],
+      "solution": "For a maximum piece bound R, let t_i=ceil(a_i/R), C=sum t_i, and Lmin=min floor(a_i/t_i). For K total pieces, define L0(K) as the Kth largest value in the multiset {floor(a_i/j):1<=j<=a_i}. The best minimum length compatible with R and K is min(L0(K),Lmin), provided C<=K. Enumerate O(n+m) relevant (C,R,Lmin) states by a max-heap of ceil(a_i/t_i), increasing all counts tied at the current R before recording a lower R. Stop when C>n+m. Generate L0(K) by merging each stick's decreasing quotient sequence with another heap. For increasing K, activate states with C<=K; two compressed Fenwick-min trees answer min_{Lmin<=L0}(R-Lmin) and min_{Lmin>=L0}(R)-L0. Their minimum is the answer for K=n+1..n+m.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space.",
+      "reviewers": [
+        "root",
+        "independent-agent-b"
+      ],
+      "reason": "Replace labels not justified by the verified feasible algorithm; difficulty experiment is unchanged."
+    },
+    {
+      "id": "cses-3358",
+      "before": [
+        "topological-sort",
+        "greedy",
+        "two-path-partition"
+      ],
+      "after": [
+        "topological-sort",
+        "dynamic-programming"
+      ],
+      "solution": "Topologically number the vertices1..n. After covering1..i, store S_i: possible other path endpoints j, with i the most recently added endpoint and0 representing an empty path. Begin S_1={0}. For v=i+1, find a witness h in S_i with edge h->v, permitting h=0 unconditionally. Preserve all old states only if edge i->v exists; otherwise clear them. If a witness exists, add state i and record parent[i]=h. Reject if the set becomes empty. Reconstruct from any final other endpoint j: nodes j+1..current share one path color; set current=j, j=parent[j] and flip the color, repeating until zero. Output each color in topological order.",
+      "complexity": "O(n+m) time and space, including reconstruction. Membership uses a Boolean/epoch array; incoming edges are scanned once and states are inserted and removed at most once.",
+      "reviewers": [
+        "root",
+        "independent-agent-b"
+      ],
+      "reason": "Replace labels not justified by the verified feasible algorithm; difficulty experiment is unchanged."
+    }
+  ]
+}
