@@ -13,6 +13,7 @@ Output is a cache file the annotator reads instead of scraping.
 from __future__ import annotations
 
 import argparse
+from cache_io import merge_json_map
 import json
 import random
 import sys
@@ -79,7 +80,8 @@ def main() -> int:
                 "rating": rating,
                 "tags": r.get("tags") or [],
                 "statement": statement[:6000],
-                "url": f"https://codeforces.com/problemset/problem/{contest}/{index}",
+                "url": (f"https://codeforces.com/gym/{contest}/problem/{index}" if int(contest) >= 100000
+                        else f"https://codeforces.com/problemset/problem/{contest}/{index}"),
             })
         if offset % (args.page * 10) == 0:
             print(f"  scanned {offset + args.page}/{total}, kept {len(pool)}")
@@ -114,8 +116,7 @@ def main() -> int:
     have = {p["id"] for p in picked}
     picked.extend(p for p in curated if p["id"] not in have)
 
-    CACHE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE.write_text(json.dumps({p["id"]: p for p in picked}, ensure_ascii=False, indent=1) + "\n")
+    merge_json_map(CACHE, {p["id"]: p for p in picked})
 
     # The annotator reads topics off "# A / B" headings, so group by rating band
     # — that makes the band the record's source_topic, which is the only topic

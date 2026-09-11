@@ -86,6 +86,18 @@ const index = new HybridIndex({ lexical, dense });
     assert.deepEqual(seen, [5000, 5000], "the route's full-corpus fetch must reach every leg");
   }
 
+  // Raw query carries exact-title intent independently of expanded query terms.
+  {
+    const seen = [];
+    const spy = { search(q, k, offset, opts) { seen.push(opts); return { hits: [], total: 0 }; } };
+    const forwarding = new HybridIndex({ lexical: spy, dense: spy });
+    const opts = { raw: "Two Sum" };
+    await forwarding.search("two sum hash-map", 10, 0, opts);
+    await forwarding.explain("two sum hash-map", opts);
+    assert.equal(seen.length, 4);
+    seen.forEach(value => assert.strictEqual(value, opts));
+  }
+
   console.log("hybrid tests passed");
 })().catch((err) => {
   console.error(err);

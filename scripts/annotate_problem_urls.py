@@ -394,6 +394,8 @@ def leetcode_metadata(item: UrlItem) -> dict[str, Any]:
 def codeforces_problem_key(url: str) -> tuple[int, str] | None:
     m = re.search(r"/problemset/problem/(\d+)/([A-Za-z0-9]+)", url)
     if not m:
+        m = re.search(r"/(?:contest|gym)/(\d+)/problem/([A-Za-z0-9]+)", url)
+    if not m:
         return None
     return int(m.group(1)), m.group(2)
 

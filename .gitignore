@@ -9,3 +9,4 @@ __pycache__/
 data/formwise.xlsx
 CLAUDE.md
 PROJECT_CONTEXT.local.md
+data/cache/*.json.lock

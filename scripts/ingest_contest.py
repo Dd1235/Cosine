@@ -58,6 +58,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from cache_io import atomic_write_json, merge_json_map
 from update_problem_urls import LEETCODE_GRAPHQL_URL, request_json  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -126,7 +127,7 @@ def parse_contest_url(raw: str) -> tuple[str, Any]:
     m = re.search(r"leetcode\.com/contest/([a-z0-9-]+)", s, re.I)
     if m:
         return "leetcode", m.group(1)
-    m = re.search(r"codeforces\.com/(?:contest|contests)/(\d+)", s, re.I)
+    m = re.search(r"codeforces\.com/(?:contest|contests|gym)/(\d+)", s, re.I)
     if m:
         return "codeforces", int(m.group(1))
     raise ValueError(f"unrecognised contest url: {raw}")
@@ -208,11 +209,12 @@ def row_to_entry(r: dict[str, Any]) -> tuple[str, dict[str, Any]] | None:
         "rating": r.get("rating"),
         "tags": r.get("tags") or [],
         "statement": statement[:6000],
-        "url": f"https://codeforces.com/problemset/problem/{cid}/{index}",
+        "url": (f"https://codeforces.com/gym/{cid}/problem/{index}" if int(cid) >= 100000
+                else f"https://codeforces.com/problemset/problem/{cid}/{index}"),
     }
 
 
-def build_hf_index() -> dict[str, int]:
+def build_hf_index(write: bool = True) -> dict[str, int]:
     """One full pass over the dataset recording key -> row offset.
 
     Paging all ~9,500 rows takes ~25 minutes and the datasets-server 502s on
@@ -235,15 +237,15 @@ def build_hf_index() -> dict[str, int]:
                 index.setdefault(got[0], offset + i)
         if offset and offset % (PAGE * 20) == 0:
             print(f"    scanned {offset}/{total}, indexed {len(index)}")
-    HF_INDEX.parent.mkdir(parents=True, exist_ok=True)
-    HF_INDEX.write_text(json.dumps(
-        {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-         "rows": total, "keys": index}, indent=0) + "\n")
+    if write:
+        atomic_write_json(HF_INDEX,
+            {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+             "rows": total, "keys": index})
     print(f"  indexed {len(index)} problems")
     return index
 
 
-def load_hf_index(force_refresh: bool = False) -> dict[str, int]:
+def load_hf_index(force_refresh: bool = False, write: bool = True) -> dict[str, int]:
     cached = read_json(HF_INDEX, None)
     if cached and not force_refresh:
         try:
@@ -253,15 +255,15 @@ def load_hf_index(force_refresh: bool = False) -> dict[str, int]:
             print(f"  key index is {age.days} days old — refreshing")
         except (KeyError, ValueError):
             pass
-    return build_hf_index()
+    return build_hf_index(write=write)
 
 
-def hf_lookup(wanted: set[str], force_refresh: bool = False) -> dict[str, dict[str, Any]]:
+def hf_lookup(wanted: set[str], force_refresh: bool = False, write: bool = True) -> dict[str, dict[str, Any]]:
     """Resolve wanted `codeforces-<id>-<index>` keys to full rows, consulting
     the cached key index so an unavailable problem costs nothing."""
     if not wanted:
         return {}
-    index = load_hf_index(force_refresh)
+    index = load_hf_index(force_refresh, write=write)
     hits = {k: index[k] for k in wanted if k in index}
     if not hits:
         return {}
@@ -281,17 +283,8 @@ def hf_lookup(wanted: set[str], force_refresh: bool = False) -> dict[str, dict[s
 
 
 def merge_statements(entries: dict[str, dict[str, Any]]) -> int:
-    """MERGE, never overwrite. fetch_codeforces.py and fetch_codeforces_named.py
-    both truncate this file; running either for a contest would wipe the cache
-    every other ingest depends on."""
-    if not entries:
-        return 0
-    cache = read_json(CF_STATEMENTS, {})
-    before = len(cache)
-    cache.update(entries)
-    CF_STATEMENTS.parent.mkdir(parents=True, exist_ok=True)
-    CF_STATEMENTS.write_text(json.dumps(cache, ensure_ascii=False, indent=1) + "\n")
-    return len(cache) - before
+    """Merge under a shared lock and publish with atomic replacement."""
+    return merge_json_map(CF_STATEMENTS, entries)
 
 
 def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str,
@@ -310,7 +303,10 @@ def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str
     if not wanted:
         return stats
 
-    found = hf_lookup(wanted)
+    cached = read_json(CF_STATEMENTS, {})
+    found = {k: cached[k] for k in wanted
+             if k in cached and len(cached[k].get("statement", "").strip()) >= 80}
+    found.update(hf_lookup(wanted - set(found), write=not dry_run))
     missing = sorted(wanted - set(found))
     stats["staged"] = len(found)
     stats["queued"] = len(missing)
@@ -342,7 +338,7 @@ def queue_pending(items: list[dict[str, Any]]) -> None:
             continue
         pend["problems"].append({**it, "first_seen": now})
     pend["count"] = len(pend["problems"])
-    PENDING.write_text(json.dumps(pend, ensure_ascii=False, indent=1) + "\n")
+    atomic_write_json(PENDING, pend)
 
 
 def retry_pending(dry_run: bool) -> dict[str, int]:
@@ -365,7 +361,7 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
     if found:
         print(f"  {len(found)} already in the statement cache")
     missing = {p["id"] for p in live if p["id"] not in found}
-    found.update(hf_lookup(missing))
+    found.update(hf_lookup(missing, write=not dry_run))
     if not dry_run:
         merge_statements(found)
         by_contest: dict[int, list[str]] = {}
@@ -376,7 +372,7 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
         remaining = [p for p in live if p["id"] not in found]
         pend["problems"] = remaining
         pend["count"] = len(remaining)
-        PENDING.write_text(json.dumps(pend, ensure_ascii=False, indent=1) + "\n")
+        atomic_write_json(PENDING, pend)
 
     for key in sorted(found):
         print(f"    NEW   {key}  {found[key]['title'][:40]}")
@@ -403,7 +399,7 @@ def main() -> int:
 
     totals = {"new": 0, "queued": 0}
     if args.refresh_index:
-        build_hf_index()
+        build_hf_index(write=not args.dry_run)
     if args.retry_pending:
         out = retry_pending(args.dry_run)
         totals["new"] += out["staged"]
@@ -441,7 +437,7 @@ next:
   python3 scripts/apply_source_tags.py --write        # judge tags -> taxonomy (LeetCode tags land days later)
   python3 scripts/backfill_acceptance_rate.py --write  # metadata only, no re-embed needed
   npm run embed && npm run validate                   # embed FIRST: validate checks corpusHash
-  git diff --stat && git add -A && git commit && git push""")
+  git diff --stat  # review and commit selected files; deployment requires local approval""")
     return 0
 
 

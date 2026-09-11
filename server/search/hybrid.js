@@ -20,11 +20,11 @@ class HybridIndex {
   // and page over the whole ranked list. Reading topN here instead of the
   // caller's k capped every fused result set at 200 rows no matter what was
   // requested, so filtered pages past offset 200 came back empty.
-  async _legs(query, depth = this.topN) {
+  async _legs(query, depth = this.topN, opts = {}) {
     const n = Math.max(this.topN, depth);
     const [lex, den] = await Promise.all([
-      Promise.resolve(this.lexical.search(query, n, 0)),
-      this.dense.search(query, n, 0),
+      Promise.resolve(this.lexical.search(query, n, 0, opts)),
+      this.dense.search(query, n, 0, opts),
     ]);
     return { lex: lex.hits, den: den.hits };
   }
@@ -61,8 +61,8 @@ class HybridIndex {
     return rows;
   }
 
-  async search(query, k = 10, offset = 0) {
-    const { lex, den } = await this._legs(query, offset + k);
+  async search(query, k = 10, offset = 0, opts = {}) {
+    const { lex, den } = await this._legs(query, offset + k, opts);
     const rows = this._fuse(lex, den);
     const hits = rows
       .slice(offset, offset + k)
@@ -70,8 +70,8 @@ class HybridIndex {
     return { hits, total: rows.length };
   }
 
-  async explain(query) {
-    const { lex, den } = await this._legs(query);
+  async explain(query, opts = {}) {
+    const { lex, den } = await this._legs(query, this.topN, opts);
     const rows = this._fuse(lex, den);
     const leg = (hits) =>
       hits.slice(0, 10).map((h, i) => ({ id: h.problem.id, title: h.problem.title, score: h.score, rank: i + 1 }));
