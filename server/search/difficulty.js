@@ -3,7 +3,7 @@
 // There is no cross-judge difficulty scale and this deliberately does not
 // invent one. LeetCode has three named tiers, Codeforces has contest ratings,
 // AtCoder has community-estimated ratings on a different distribution (they go
-// negative), and CSES publishes nothing at all. Mapping those onto shared
+// negative), and CSES has independently reviewed estimated bands. Mapping those onto shared
 // buckets would mean asserting a CF 1600 is "the same as" a LeetCode Medium,
 // which nobody can defend. So a selection belongs to exactly one judge, and the
 // UI only offers a judge's control when that judge is selected.
@@ -33,10 +33,17 @@
 // Both forms live in one `difficulty=` parameter and are self-identifying, so a
 // URL needs no separate judge parameter to be interpreted against.
 
+const CSES_LABELS = ["Foundation", "Standard", "Intermediate", "Advanced", "Expert"];
+function csesBand(problem) {
+  const band = problem.platform === "cses" && problem.cses_difficulty?.band;
+  return Number.isInteger(band) && band >= 1 && band <= 5 ? band : null;
+}
+
 const NAMED = [
   { id: "lc-easy", judge: "leetcode", label: "easy", value: "easy" },
   { id: "lc-medium", judge: "leetcode", label: "medium", value: "medium" },
   { id: "lc-hard", judge: "leetcode", label: "hard", value: "hard" },
+  ...CSES_LABELS.map((label, i) => ({ id: `cses-${label.toLowerCase()}`, judge: "cses", label: `${label} (estimate)`, value: i + 1 })),
 ];
 
 const BY_ID = new Map(NAMED.map((b) => [b.id, b]));
@@ -114,6 +121,7 @@ function passesDifficulty(problem, selection) {
     if (!band || band.judge !== problem.platform) continue;
     judgeHasNamed = true;
     const d = problem.difficulty;
+    if (band.judge === "cses" && csesBand(problem) === band.value) return true;
     if (typeof d === "string" && d.toLowerCase() === band.value) return true;
   }
   return !judgeHasNamed;
@@ -127,8 +135,9 @@ function buildDifficultyPayload(problems) {
 
   for (const p of problems || []) {
     for (const band of NAMED) {
-      if (p.platform === band.judge && typeof p.difficulty === "string"
-          && p.difficulty.toLowerCase() === band.value) {
+      if (p.platform === band.judge && (band.judge === "cses"
+          ? csesBand(p) === band.value
+          : typeof p.difficulty === "string" && p.difficulty.toLowerCase() === band.value)) {
         counts.set(band.id, counts.get(band.id) + 1);
       }
     }
@@ -223,6 +232,10 @@ function sortableJudge(platforms, payloadJudges) {
 // are not "easiest"; we simply don't know, and putting an unknown at the top of
 // an easiest-first list would be a claim we can't support.
 function difficultyKey(problem) {
+  if (problem.platform === "cses") {
+    const band = csesBand(problem);
+    return band === null ? null : [band, 0];
+  }
   const d = problem.difficulty;
   if (typeof d === "number") return [d, 0]; // a rating is already fine-grained
   if (typeof d === "string") {
@@ -271,6 +284,6 @@ function parseSort(raw) {
 // Which judges can be sorted at all — named tiers or a rating scale.
 const SORTABLE_JUDGES = new Set([...NAMED.map((b) => b.judge), ...Object.keys(RATED)]);
 
-module.exports = { NAMED, RATED, parseSelection, passesDifficulty, buildDifficultyPayload,
+module.exports = { CSES_LABELS, csesBand, NAMED, RATED, parseSelection, passesDifficulty, buildDifficultyPayload,
   parseSort, sortByDifficulty, sortableJudge, SORTABLE_JUDGES, difficultyKey,
   ACCEPTANCE_JUDGE, ACCEPTANCE_SHORT, ACCEPTANCE_STEP };

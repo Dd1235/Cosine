@@ -14,7 +14,7 @@ const PLATFORMS = ["leetcode", "cses", "codeforces", "atcoder"];
 const problems = Array.from({ length: 300 }, (_, i) => {
   const platform = PLATFORMS[i % 4];
   // Difficulties in each judge's own shape: LeetCode names tiers, Codeforces
-  // and AtCoder use ratings, CSES publishes none.
+  // and AtCoder use ratings; CSES carries separately reviewed bands.
   const difficulty =
     platform === "leetcode" ? (i % 8 === 0 ? "Easy" : i % 3 === 0 ? "Medium" : "Hard")
     // Some Codeforces problems genuinely carry no rating, which is what makes
@@ -31,6 +31,7 @@ const problems = Array.from({ length: 300 }, (_, i) => {
     patterns: i % 3 === 0 ? ["dfs"] : ["greedy"],
   };
   if (difficulty !== undefined) p.difficulty = difficulty;
+  if (platform === "cses" && i % 20 !== 1) p.cses_difficulty = { band: 1 + (i % 5) };
   // Acceptance rate exists on LeetCode only, and a few carry none — the case
   // that decides where an unknown lands once it's used as a sort tiebreak.
   if (platform === "leetcode" && i % 40 !== 4) p.acceptance_rate = 10 + ((i * 7) % 80);
@@ -332,13 +333,23 @@ const platformsOf = (d) => [...new Set(d.hits.map((h) => h.problem.platform))].s
     for (const qs of [
       "q=graph&k=20&sort=difficulty-asc",
       "q=graph&k=20&platform=codeforces,leetcode&sort=difficulty-asc",
-      "q=graph&k=20&platform=cses&sort=difficulty-asc",
     ]) {
       const d = await get(qs);
       assert.equal(d.sort, undefined, `sort must be refused for ${qs}`);
       assert.ok(d.sortRefused, "a refused sort must say why, not fail silently");
       assert.equal(d.sortWindow, undefined, "a refused sort must not withdraw paging");
     }
+  }
+
+  // CSES estimates have their own ordering; unreviewed tasks remain last.
+  {
+    const d = await get("q=graph&k=300&platform=cses&sort=difficulty-asc");
+    assert.equal(d.sort, "difficulty-asc");
+    const bands = d.hits.map((h) => h.problem.cses_difficulty?.band ?? Infinity);
+    assert.deepEqual(bands, [...bands].sort((a, b) => a - b));
+    const filtered = await get("q=graph&k=300&platform=cses&difficulty=cses-standard,cses-expert");
+    assert.ok(filtered.total > 0);
+    assert.ok(filtered.hits.every((h) => [2, 5].includes(h.problem.cses_difficulty?.band)));
   }
 
   // With one rated judge it applies, ascending, and says so.

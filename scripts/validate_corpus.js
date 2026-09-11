@@ -110,6 +110,19 @@ function checkProblem({ rel, platform, basename, problem }, taxonomy, driftCount
       && typeof problem.difficulty !== "number") {
     err(`${rel}: ${platform} difficulty must be a number, got ${typeof problem.difficulty}`);
   }
+  if (problem.cses_difficulty != null) {
+    const d = problem.cses_difficulty;
+    if (platform !== "cses" || typeof d !== "object" || Array.isArray(d)) {
+      err(`${rel}: cses_difficulty must be a CSES-only object`);
+    } else {
+      if (!Number.isInteger(d.band) || d.band < 1 || d.band > 5) err(`${rel}: CSES band must be 1..5`);
+      if (!["low", "medium", "high"].includes(d.confidence)) err(`${rel}: CSES confidence must be low/medium/high`);
+      if (typeof d.method !== "string" || !d.method.trim()) err(`${rel}: CSES method version required`);
+      if (!Array.isArray(d.evidence) || !d.evidence.length || d.evidence.some((e) => typeof e !== "string" || !e.trim())) {
+        err(`${rel}: CSES evidence must contain nonempty references or reasoning`);
+      }
+    }
+  }
   if (typeof problem.slug === "string" && !SLUG_RE.test(problem.slug)) {
     err(`${rel}: slug "${problem.slug}" is not slug-shaped`);
   }
