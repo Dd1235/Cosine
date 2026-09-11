@@ -1,5 +1,6 @@
 const {
   MODEL_ID,
+  matchesEmbeddingRecipe,
   DTYPE,
   DIMS,
   corpusHash,
@@ -126,6 +127,10 @@ async function tryCreateDenseIndex(problems, { artifactDir, embed } = {}) {
   }
   const { manifest, matrix } = artifact;
 
+  if (!matchesEmbeddingRecipe(manifest.recipe)) {
+    console.warn("dense: embedding recipe mismatch — run `npm run embed`; skipping dense + hybrid");
+    return null;
+  }
   if (manifest.model !== MODEL_ID || manifest.dtype !== DTYPE || manifest.dims !== DIMS) {
     console.warn(
       `dense: artifact built with ${manifest.model}/${manifest.dtype}/${manifest.dims}d ` +

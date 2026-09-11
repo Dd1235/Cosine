@@ -1,5 +1,16 @@
 {
-  "version": 1,
+  "version": 2,
+  "recipe": {
+    "version": 2,
+    "model": "Xenova/all-MiniLM-L6-v2",
+    "tokenizer": "Xenova/all-MiniLM-L6-v2",
+    "dtype": "q8",
+    "package": "@huggingface/transformers@4.2.0",
+    "pooling": "mean",
+    "normalize": true,
+    "inferenceBatchSize": 1,
+    "textFields": "title+statement+tags+patterns"
+  },
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
@@ -3492,5 +3503,5 @@
   ],
   "corpusHash": "537bf4e8850edafc5732fb4a5d949175f8fdfb68d7825e299efcb31aa3021015",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-08T03:34:34.317Z"
+  "createdAt": "2026-09-11T06:52:34.997Z"
 }

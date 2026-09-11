@@ -16,6 +16,7 @@ const path = require("path");
 const { CORPUS_ROOT, DEFAULT_PLATFORMS } = require("../server/data");
 const {
   MODEL_ID,
+  matchesEmbeddingRecipe,
   DTYPE,
   DIMS,
   corpusHash,
@@ -194,6 +195,9 @@ function checkArtifact(problems) {
     return;
   }
   const { manifest, matrix } = artifact;
+  if (!matchesEmbeddingRecipe(manifest.recipe)) {
+    err("embeddings recipe mismatch — run `npm run embed`");
+  }
   if (manifest.model !== MODEL_ID || manifest.dtype !== DTYPE || manifest.dims !== DIMS) {
     err(`embeddings manifest model/dtype/dims (${manifest.model}/${manifest.dtype}/${manifest.dims}) != pinned (${MODEL_ID}/${DTYPE}/${DIMS})`);
   }
