@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-largest-palindrome-product",
+  "url": "https://leetcode.com/problems/largest-palindrome-product/",
+  "observed_at": "2026-09-11T07:22:09.368478+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an integer n, return the largest palindromic integer that can be represented as the product of two n -digits integers . Since the answer can be very large, return it modulo 1337 . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 2\n Output: 987\nExplanation: 99 x 91 = 9009, 9009 % 1337 = 987\n \n\n Example 2: \n\n \n Input: n = 1\n Output: 9\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 8",
+  "statement_sha256": "b9731ab5f6d43a07b7ed5d6f9fc65e587c940d1e3a01b30a21d7af65ce5d534e",
+  "raw_sha256": "bbb0f44ba122ce5215ed5695e4558da6667bd343ea215257b0e16777a2df8855",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-element-sum-of-a-complete-subset-of-indices",
+  "url": "https://leetcode.com/problems/maximum-element-sum-of-a-complete-subset-of-indices/",
+  "observed_at": "2026-09-11T07:22:12.476026+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 1 -indexed array nums . Your task is to select a complete subset from nums where every pair of selected indices multiplied is a perfect square, . i. e. if you select a i and a j , i * j must be a perfect square. \n\n Return the sum of the complete subset with the maximum sum . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [8,7,3,5,7,2,4,9] \n\n Output: 16 \n\n Explanation: \n\n We select elements at indices 2 and 8 and 2 * 8 is a perfect square. \n \n\n Example 2: \n\n \n Input: nums = [8,10,3,8,1,13,7,9,4] \n\n Output: 20 \n\n Explanation: \n\n We select elements at indices 1, 4, and 9. 1 * 4 , 1 * 9 , 4 * 9 are perfect squares. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n == nums.length <= 10 4 \n 1 <= nums[i] <= 10 9",
+  "statement_sha256": "818df642af0e264942f9103a4200fd814382fb2b9266f6bc7526db65f44f3b93",
+  "raw_sha256": "af2f526b3ab14fa8eeaa356cc350b46074a2a2038decf2b2ba378b9cf9064853",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

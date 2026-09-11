@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-strength-of-a-group",
+  "url": "https://leetcode.com/problems/maximum-strength-of-a-group/",
+  "observed_at": "2026-09-11T07:22:21.808577+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 0-indexed integer array nums representing the score of students in an exam. The teacher would like to form one non-empty group of students with maximal strength , where the strength of a group of students of indices i 0 , i 1 , i 2 , ... , i k is defined as nums[i 0 ] * nums[i 1 ] * nums[i 2 ] * ... * nums[i k \u200b] . \n\n Return the maximum strength of a group the teacher can create . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [3,-1,-5,2,5,-9]\n Output: 1350\n Explanation: One way to form a group of maximal strength is to group the students at indices [0,2,3,4,5]. Their strength is 3 * (-5) * 2 * 5 * (-9) = 1350, which we can show is optimal.\n \n\n Example 2: \n\n \n Input: nums = [-4,-5,-4]\n Output: 20\n Explanation: Group the students at indices [0, 1] . Then, we\u2019ll have a resulting strength of 20. We cannot achieve greater strength.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 13 \n -9 <= nums[i] <= 9",
+  "statement_sha256": "2f0252ef40b1f240b46f472f3996e9aa678f8aa193bb78be90dfff94aa1acf6a",
+  "raw_sha256": "58bdfd348919c1224efc0465a89c797e9058b734d8e588a5babd6460134402d4",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

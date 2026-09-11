@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-number-of-visited-cells-in-a-grid",
+  "url": "https://leetcode.com/problems/minimum-number-of-visited-cells-in-a-grid/",
+  "observed_at": "2026-09-11T07:21:47.647536+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 0-indexed m x n integer matrix grid . Your initial position is at the top-left cell (0, 0) . \n\n Starting from the cell (i, j) , you can move to one of the following cells: \n\n \n Cells (i, k) with j < k <= grid[i][j] + j (rightward movement), or \n Cells (k, j) with i < k <= grid[i][j] + i (downward movement). \n \n\n Return the minimum number of cells you need to visit to reach the bottom-right cell (m - 1, n - 1) . If there is no valid path, return -1 . \n\n \u00a0 \n Example 1: \n \n \n Input: grid = [[3,4,2,1],[4,2,3,1],[2,1,0,0],[2,4,0,0]]\n Output: 4\n Explanation: The image above shows one of the paths that visits exactly 4 cells.\n \n\n Example 2: \n \n \n Input: grid = [[3,4,2,1],[4,2,1,1],[2,1,1,0],[3,4,1,0]]\n Output: 3\n Explanation: The image above shows one of the paths that visits exactly 3 cells.\n \n\n Example 3: \n \n \n Input: grid = [[2,1,0],[1,0,0]]\n Output: -1\n Explanation: It can be proven that no path exists.\n \n\n \u00a0 \n Constraints: \n\n \n m == grid.length \n n == grid[i].length \n 1 <= m, n <= 10 5 \n 1 <= m * n <= 10 5 \n 0 <= grid[i][j] < m * n \n grid[m - 1][n - 1] == 0",
+  "statement_sha256": "7008ee5c43f43f4629b9803bbbc4d3615b5b5023f5d870ac0a2069b072ca465c",
+  "raw_sha256": "22fbfeee857ff9245ec59654ddfbca67407aa4aec77aadd8a12fe42793339ba4",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

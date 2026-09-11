@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-lexicographically-smallest-string-after-adjacent-removals",
+  "url": "https://leetcode.com/problems/lexicographically-smallest-string-after-adjacent-removals/",
+  "observed_at": "2026-09-11T07:21:57.848983+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s consisting of lowercase English letters. \n\n You can perform the following operation any number of times (including zero): \n\n \n Remove any pair of adjacent characters in the string that are consecutive in the alphabet, in either order (e.g., 'a' and 'b' , or 'b' and 'a' ). \n Shift the remaining characters to the left to fill the gap. \n \n\n Return the lexicographically smallest string that can be obtained after performing the operations optimally. \n\n Note: Consider the alphabet as circular, thus 'a' and 'z' are consecutive. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abc\" \n\n Output: \"a\" \n\n Explanation: \n\n \n Remove \"bc\" from the string, leaving \"a\" as the remaining string. \n No further operations are possible. Thus, the lexicographically smallest string after all possible removals is \"a\" . \n \n \n\n Example 2: \n\n \n Input: s = \"bcda\" \n\n Output: \"\" \n\n Explanation: \n\n \n \u200b\u200b\u200b\u200b\u200b\u200b\u200b Remove \"cd\" from the string, leaving \"ba\" as the remaining string. \n Remove \"ba\" from the string, leaving \"\" as the remaining string. \n No further operations are possible. Thus, the lexicographically smallest string after all possible removals is \"\" . \n \n \n\n Example 3: \n\n \n Input: s = \"zdce\" \n\n Output: \"zdce\" \n\n Explanation: \n\n \n Remove \"dc\" from the string, leaving \"ze\" as the remaining string. \n No further operations are possible on \"ze\" . \n However, since \"zdce\" is lexicographically smaller than \"ze\" , the smallest string after all possible removals is \"zdce\" . \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 250 \n s consists only of lowercase English letters.",
+  "statement_sha256": "6d5ccbc82c4632786a7129569c416cae553a1ecb54bd0dce66df6344f0a1ba32",
+  "raw_sha256": "cf2b04ddf6a145b79fd8b7211e645fd4692b6ee457de70d8e4201400b4122039",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

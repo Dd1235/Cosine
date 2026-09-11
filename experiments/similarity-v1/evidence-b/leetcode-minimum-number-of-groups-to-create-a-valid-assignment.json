@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-number-of-groups-to-create-a-valid-assignment",
+  "url": "https://leetcode.com/problems/minimum-number-of-groups-to-create-a-valid-assignment/",
+  "observed_at": "2026-09-11T07:22:21.493129+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a collection of numbered balls \u00a0and instructed to sort them into boxes for a nearly balanced distribution. There are two rules you must follow: \n\n \n Balls with the same\u00a0box must have the same value. But, if you have more than one ball with the same number, you can put them in different boxes. \n The biggest box can only have one more ball than the smallest box. \n \n\n \u200bReturn the fewest number of boxes to sort these balls following these rules. \n\n \u00a0 \n Example 1: \n\n \n Input: balls = [3,2,3,2,3] \n\n Output: 2 \n\n Explanation: \n\n We can sort balls into boxes as follows: \n\n \n [3,3,3] \n [2,2] \n \n\n The size difference between the two boxes doesn't exceed one. \n \n\n Example 2: \n\n \n Input: balls = [10,10,10,3,1,1] \n\n Output: 4 \n\n Explanation: \n\n We can sort balls into boxes as follows: \n\n \n \n\n \n [10] \n [10,10] \n [3] \n [1,1] \n \n\n You can't use fewer than four boxes while still following the rules. For example, putting all three balls numbered 10 in one box would break the rule about the maximum size difference between boxes. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 9",
+  "statement_sha256": "b1e896ffaa9268eba9136041eca60006f2bb6d31d02733400ee552d68018a6e2",
+  "raw_sha256": "eea35a874160c3d432bda8b8ac86f277aac54c98828b8a10b0a0a1d602213b7f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

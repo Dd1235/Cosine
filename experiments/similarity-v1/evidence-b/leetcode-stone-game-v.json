@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-stone-game-v",
+  "url": "https://leetcode.com/problems/stone-game-v/",
+  "observed_at": "2026-09-11T07:22:25.746390+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There are several stones arranged in a row , and each stone has an associated value which is an integer given in the array stoneValue . \n\n In each round of the game, Alice divides the row into two non-empty rows (i.e. left row and right row), then Bob calculates the value of each row which is the sum of the values of all the stones in this row. Bob throws away the row which has the maximum value, and Alice's score increases by the value of the remaining row. If the value of the two rows are equal, Bob lets Alice decide which row will be thrown away. The next round starts with the remaining row. \n\n The game ends when there is only one stone remaining . Alice's score is initially zero . \n\n Return the maximum score that Alice can obtain . \n\n \u00a0 \n Example 1: \n\n \n Input: stoneValue = [6,2,3,4,5,5]\n Output: 18\n Explanation: In the first round, Alice divides the row to [6,2,3], [4,5,5]. The left row has the value 11 and the right row has value 14. Bob throws away the right row and Alice's score is now 11.\nIn the second round Alice divides the row to [6], [2,3]. This time Bob throws away the left row and Alice's score becomes 16 (11 + 5).\nThe last round Alice has only one choice to divide the row which is [2], [3]. Bob throws away the right row and Alice's score is now 18 (16 + 2). The game ends because only one stone is remaining in the row.\n \n\n Example 2: \n\n \n Input: stoneValue = [7,7,7,7,7,7,7]\n Output: 28\n \n\n Example 3: \n\n \n Input: stoneValue = [4]\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= stoneValue.length <= 500 \n 1 <= stoneValue[i] <= 10 6",
+  "statement_sha256": "bb85349ce43cea6c61aa3f52428c7022562710d141e60711cd25ce362ff8c16c",
+  "raw_sha256": "b7c9e90761187d8b64c4eab15a3ee96b8e01729fd347b4dde4e23a1e76702d45",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc096-d",
+  "url": "https://atcoder.jp/contests/abc096/tasks/abc096_d",
+  "observed_at": "2026-09-11T07:21:47.917036+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\r\n\nPrint a sequence a_1, a_2, ..., a_N whose length is N that satisfies the following conditions:\r\n\na_i (1 \\leq i \\leq N) is a prime number at most 55 555.\r\n\nThe values of a_1, a_2, ..., a_N are all different.\r\n\nIn every choice of five different integers from a_1, a_2, ..., a_N, the sum of those integers is a composite number.\r\n\nIf there are multiple such sequences, printing any of them is accepted.\r\n\nNotes\r\n\nAn integer N not less than 2 is called a prime number if it cannot be divided evenly by any integers except 1 and N, and called a composite number otherwise.\r\n\nConstraints\r\n\nN is an integer between 5 and 55 (inclusive).\r\n\nInput\r\n\nInput is given from Standard Input in the following format:\r\n\nN\r\n\nOutput\r\n\nPrint N numbers a_1, a_2, a_3, ..., a_N in a line, with spaces in between.\r\n\nSample Input 1\n5\r\n\nSample Output 1\n3 5 7 11 31\r\n\nLet us see if this output actually satisfies the conditions.\n\nFirst, 3, 5, 7, 11 and 31 are all different, and all of them are prime numbers.\n\nThe only way to choose five among them is to choose all of them, whose sum is a_1+a_2+a_3+a_4+a_5=57, which is a composite number.\n\nThere are also other possible outputs, such as 2 3 5 7 13, 11 13 17 19 31 and 7 11 5 31 3.  \r\n\nSample Input 2\n6\r\n\nSample Output 2\n2 3 5 7 11 13\r\n\n2, 3, 5, 7, 11, 13 are all different prime numbers.\r\n\n2+3+5+7+11=28 is a composite number.\r\n\n2+3+5+7+13=30 is a composite number.\r\n\n2+3+5+11+13=34 is a composite number.\r\n\n2+3+7+11+13=36 is a composite number.\r\n\n2+5+7+11+13=38 is a composite number.\r\n\n3+5+7+11+13=39 is a composite number.\r\n\nThus, the sequence 2 3 5 7 11 13 satisfies the conditions.  \r\n\nSample Input 3\n8\r\n\nSample Output 3\n2 5 7 13 19 37 67 79",
+  "statement_sha256": "bf8e602ea67e2d823476fc8437ed94e449c406e98abd11155d46da6cca418f28",
+  "raw_sha256": "5375bf01c89ad1da5c9bbd895f70d5da75c65bdd9918118800f8a779554c68ee",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

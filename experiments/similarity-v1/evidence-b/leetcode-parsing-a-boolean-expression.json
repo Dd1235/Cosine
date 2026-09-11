@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-parsing-a-boolean-expression",
+  "url": "https://leetcode.com/problems/parsing-a-boolean-expression/",
+  "observed_at": "2026-09-11T07:21:56.615981+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A boolean expression is an expression that evaluates to either true or false . It can be in one of the following shapes: \n\n \n 't' that evaluates to true . \n 'f' that evaluates to false . \n '!(subExpr)' that evaluates to the logical NOT of the inner expression subExpr . \n '&(subExpr 1 , subExpr 2 , ..., subExpr n )' that evaluates to the logical AND of the inner expressions subExpr 1 , subExpr 2 , ..., subExpr n where n >= 1 . \n '|(subExpr 1 , subExpr 2 , ..., subExpr n )' that evaluates to the logical OR of the inner expressions subExpr 1 , subExpr 2 , ..., subExpr n where n >= 1 . \n \n\n Given a string expression that represents a boolean expression , return the evaluation of that expression . \n\n It is guaranteed that the given expression is valid and follows the given rules. \n\n \u00a0 \n Example 1: \n\n \n Input: expression = \"&(|(f))\"\n Output: false\n Explanation: \nFirst, evaluate |(f) --> f. The expression is now \"&(f)\".\nThen, evaluate &(f) --> f. The expression is now \"f\".\nFinally, return false.\n \n\n Example 2: \n\n \n Input: expression = \"|(f,f,f,t)\"\n Output: true\n Explanation: The evaluation of (false OR false OR false OR true) is true.\n \n\n Example 3: \n\n \n Input: expression = \"!(&(f,t))\"\n Output: true\n Explanation: \nFirst, evaluate &(f,t) --> (false AND true) --> false --> f. The expression is now \"!(f)\".\nThen, evaluate !(f) --> NOT false --> true. We return true.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= expression.length <= 2 * 10 4 \n expression[i] is one following characters: '(' , ')' , '&' , '|' , '!' , 't' , 'f' , and ',' .",
+  "statement_sha256": "420626ccfca72c993eb1e84d79272634cc373d8b4f23c3162c44679dfef579f0",
+  "raw_sha256": "26ca83507b13bfea53ef28bb9d1b2e43877eebf131ef22595ac902a6086b48e3",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

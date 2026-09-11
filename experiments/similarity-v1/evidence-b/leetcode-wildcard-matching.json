@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-wildcard-matching",
+  "url": "https://leetcode.com/problems/wildcard-matching/",
+  "observed_at": "2026-09-11T07:22:19.287741+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an input string ( s ) and a pattern ( p ), implement wildcard pattern matching with support for '?' and '*' where: \n\n \n '?' Matches any single character. \n '*' Matches any sequence of characters (including the empty sequence). \n \n\n The matching should cover the entire input string (not partial). \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"aa\", p = \"a\"\n Output: false\n Explanation: \"a\" does not match the entire string \"aa\".\n \n\n Example 2: \n\n \n Input: s = \"aa\", p = \"*\"\n Output: true\n Explanation: \u00a0'*' matches any sequence.\n \n\n Example 3: \n\n \n Input: s = \"cb\", p = \"?a\"\n Output: false\n Explanation: \u00a0'?' matches 'c', but the second letter is 'a', which does not match 'b'.\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= s.length, p.length <= 2000 \n s contains only lowercase English letters. \n p contains only lowercase English letters, '?' or '*' .",
+  "statement_sha256": "aa906395b89eb59022c731204b3b4d871d3e1a1906f114828085dab1bd65826b",
+  "raw_sha256": "64756307f4b05d270d572fee5bab7507a58cafde0074c157d068ca868de4c5f8",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

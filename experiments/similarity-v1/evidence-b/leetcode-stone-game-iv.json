@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-stone-game-iv",
+  "url": "https://leetcode.com/problems/stone-game-iv/",
+  "observed_at": "2026-09-11T07:22:26.009339+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Alice and Bob take turns playing a game, with Alice starting first. \n\n Initially, there are n stones in a pile. On each player's turn, that player makes a move consisting of removing any non-zero square number of stones in the pile. \n\n Also, if a player cannot make a move, he/she loses the game. \n\n Given a positive integer n , return true if and only if Alice wins the game otherwise return false , assuming both players play optimally. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 1\n Output: true\n Explanation: Alice can remove 1 stone winning the game because Bob doesn't have any moves. \n\n Example 2: \n\n \n Input: n = 2\n Output: false\n Explanation: Alice can only remove 1 stone, after that Bob removes the last one winning the game (2 -> 1 -> 0).\n \n\n Example 3: \n\n \n Input: n = 4\n Output: true\n Explanation: n is already a perfect square, Alice can win with one move, removing 4 stones (4 -> 0).\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 5",
+  "statement_sha256": "e0bef5c9070d9b5f549a593f08c73860423cdddb175c7afe4c26191144bbbc34",
+  "raw_sha256": "d6bb2d4392200a5a61069ba29692151ec962a5d4c3d110444814ffedbd017156",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

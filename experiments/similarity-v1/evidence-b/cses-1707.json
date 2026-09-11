@@ -1,0 +1,10 @@
+{
+  "id": "cses-1707",
+  "url": "https://cses.fi/problemset/task/1707",
+  "observed_at": "2026-09-11T07:21:43.808950+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected graph, your task is to determine its girth, i.e., the length of its shortest cycle.\n\nInput\n\nThe first input line has two integers n and m: the number of nodes and edges. The nodes are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the edges. Each line has two integers a and b: there is an edge between nodes a and b.\n\nYou may assume that there is at most one edge between each two nodes.\n\nOutput\n\nPrint one integer: the girth of the graph. If there are no cycles, print -1.\n\nConstraints\n\n\n1 \\le n \\le 2500\n\n1 \\le m \\le 5000\n\n\nExample\n\nInput:\n\n5 6\n1 2\n1 3\n2 4\n2 5\n3 4\n4 5\n\n\nOutput:\n\n3",
+  "statement_sha256": "7f6070e0ea224837557d2062964057c99added1858c085560b8b31bc0010c6a4",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

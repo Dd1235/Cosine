@@ -1,0 +1,10 @@
+{
+  "id": "cses-3211",
+  "url": "https://cses.fi/problemset/task/3211",
+  "observed_at": "2026-09-11T07:22:25.183624+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find the number of different subset xors.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the number of different subset xors.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 6 5\n\n\nOutput:\n\n4\n\n\nExplanation: The following values can be the xor of a subset:\n\n\n0 = \\text{xor of the empty set}\n\n3 = 3\n\n5 = 3 \\oplus 6\n\n6 = 3 \\oplus 5\n\n\nIn this case, no other values can be the xor of a subset.",
+  "statement_sha256": "3631156040ceeebbdbd8ad77335ca4389a160b80ad22eddacbf06ed3122e0dbe",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

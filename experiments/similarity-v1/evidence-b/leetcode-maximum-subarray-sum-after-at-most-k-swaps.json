@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-subarray-sum-after-at-most-k-swaps",
+  "url": "https://leetcode.com/problems/maximum-subarray-sum-after-at-most-k-swaps/",
+  "observed_at": "2026-09-11T07:22:28.541485+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums and an integer k . \n\n You are allowed to perform at most k swap operations on the array. \n\n In one swap operation, you may choose any two indices i and j and swap nums[i] and nums[j] . \n\n Return an integer denoting the maximum possible subarray sum after performing the swaps. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,-1,0,2], k = 1 \n\n Output: 3 \n\n Explanation: \n\n \n We can swap on indices 1 and 3, resulting in the array [1, 2, 0, -1] . \n The subarray [1, 2] has a sum of 3, which is the maximum possible subarray sum after at most k = 1 \u200b\u200b\u200b\u200b\u200b\u200b\u200b swap. \n \n \n\n Example 2: \n\n \n Input: nums = [4,3,2,4], k = 2 \n\n Output: 13 \n\n Explanation: \n\n The maximum possible subarray sum after at most k = 2 swaps is the sum of the entire array, which is 13. \n \n\n Example 3: \n\n \n Input: nums = [-1,-2], k = 0 \n\n Output: -1 \n\n Explanation: \n\n \n k = 0 swaps are allowed. \n The possible subarrays are [-1] , [-2] , and [-1, -2] , with sums -1, -2, and -3 respectively. \n Among these sums, the maximum is -1. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 1500 \n -10 5 <= nums[i] <= 10 5 \n 0 <= k <= nums.length",
+  "statement_sha256": "6998b5b8bcb7a32703d292ebcf84e6f6c6d95dd2077a9d663cdb528105709eeb",
+  "raw_sha256": "5ec4eeeeb93372a196ef524cc2ddd84a5522b18eb05bd07c1aafabb653340910",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

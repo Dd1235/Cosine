@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-arithmetic-subsequence",
+  "url": "https://leetcode.com/problems/longest-arithmetic-subsequence/",
+  "observed_at": "2026-09-11T07:22:05.828878+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array nums of integers, return the length of the longest arithmetic subsequence in nums . \n\n Note that: \n\n \n A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements. \n A sequence seq is arithmetic if seq[i + 1] - seq[i] are all the same value (for 0 <= i < seq.length - 1 ). \n \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [3,6,9,12]\n Output: 4\n Explanation: The whole array is an arithmetic sequence with steps of length = 3.\n \n\n Example 2: \n\n \n Input: nums = [9,4,7,2,10]\n Output: 3\n Explanation: The longest arithmetic subsequence is [4,7,10].\n \n\n Example 3: \n\n \n Input: nums = [20,1,15,3,10,5,8]\n Output: 4\n Explanation: The longest arithmetic subsequence is [20,15,10,5].\n \n\n \u00a0 \n Constraints: \n\n \n 2 <= nums.length <= 1000 \n 0 <= nums[i] <= 500",
+  "statement_sha256": "2da2398589c0bc74d646d3b46f8382f7e09331553b2518e00576242eb6a2aa43",
+  "raw_sha256": "cb647870f8dff053afe9f6fe773219dbe50c580784ac7e8d5712de68136f2c99",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

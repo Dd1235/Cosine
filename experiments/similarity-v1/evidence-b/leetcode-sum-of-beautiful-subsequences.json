@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-sum-of-beautiful-subsequences",
+  "url": "https://leetcode.com/problems/sum-of-beautiful-subsequences/",
+  "observed_at": "2026-09-11T07:22:22.960749+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums of length n . \n\n For every positive integer g , we define the beauty of g as the product of g and the number of strictly increasing subsequences of nums whose greatest common divisor (GCD) is exactly g . \n\n Return the sum of beauty values for all positive integers g . \n\n Since the answer could be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,2,3] \n\n Output: 10 \n\n Explanation: \n\n All strictly increasing subsequences and their GCDs are: \n\n \n \n \n Subsequence \n GCD \n \n \n \n \n [1] \n 1 \n \n \n [2] \n 2 \n \n \n [3] \n 3 \n \n \n [1,2] \n 1 \n \n \n [1,3] \n 1 \n \n \n [2,3] \n 1 \n \n \n [1,2,3] \n 1 \n \n \n \n\n Calculating beauty for each GCD: \n\n \n \n \n GCD \n Count of subsequences \n Beauty (GCD \u00d7 Count) \n \n \n \n \n 1 \n 5 \n 1 \u00d7 5 = 5 \n \n \n 2 \n 1 \n 2 \u00d7 1 = 2 \n \n \n 3 \n 1 \n 3 \u00d7 1 = 3 \n \n \n \n\n Total beauty is 5 + 2 + 3 = 10 . \n \n\n Example 2: \n\n \n Input: nums = [4,6] \n\n Output: 12 \n\n Explanation: \n\n All strictly increasing subsequences and their GCDs are: \n\n \n \n \n Subsequence \n GCD \n \n \n \n \n [4] \n 4 \n \n \n [6] \n 6 \n \n \n [4,6] \n 2 \n \n \n \n\n Calculating beauty for each GCD: \n\n \n \n \n GCD \n Count of subsequences \n Beauty (GCD \u00d7 Count) \n \n \n \n \n 2 \n 1 \n 2 \u00d7 1 = 2 \n \n \n 4 \n 1 \n 4 \u00d7 1 = 4 \n \n \n 6 \n 1 \n 6 \u00d7 1 = 6 \n \n \n \n\n Total beauty is 2 + 4 + 6 = 12 . \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n == nums.length <= 10 4 \n 1 <= nums[i] <= 7 * 10 4",
+  "statement_sha256": "89274a3ede7f34c83e72b531a375259dd5930ed2b5a4ea000c0e74a0e2ac2f7e",
+  "raw_sha256": "04c61c32b3e39e666c6cf19ccbd6ddb1a297d483b540c885d08aa9cfe0d752b7",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

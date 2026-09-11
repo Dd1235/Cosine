@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-happy-prefix",
+  "url": "https://leetcode.com/problems/longest-happy-prefix/",
+  "observed_at": "2026-09-11T07:22:28.429180+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A string is called a happy prefix if it is a non-empty prefix which is also a suffix (excluding itself). \n\n Given a string s , return the longest happy prefix of s . Return an empty string \"\" if no such prefix exists. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"level\"\n Output: \"l\"\n Explanation: s contains 4 prefix excluding itself (\"l\", \"le\", \"lev\", \"leve\"), and suffix (\"l\", \"el\", \"vel\", \"evel\"). The largest prefix which is also suffix is given by \"l\".\n \n\n Example 2: \n\n \n Input: s = \"ababab\"\n Output: \"abab\"\n Explanation: \"abab\" is the largest prefix which is also suffix. They can overlap in the original string.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s contains only lowercase English letters.",
+  "statement_sha256": "17a22ab8e5db3ee745ff1819390354a39bc1bfd9625b76cdcc29b6d5d1e63db1",
+  "raw_sha256": "edde28f0d308674fe67d174370a738cd984c9b3ea1cf70dc9d27a450a96e8956",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

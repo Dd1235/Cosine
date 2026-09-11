@@ -1,0 +1,10 @@
+{
+  "id": "cses-2228",
+  "url": "https://cses.fi/problemset/task/2228",
+  "observed_at": "2026-09-11T07:21:45.465743+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of sequences of length n where each element is an integer between 1 \\dots k and each integer between 1 \\dots k appears at least once in the sequence.\n\nFor example, when n=6 and k=4, some valid sequences are [1,3,1,4,3,2] and [2,2,1,3,4,2].\n\nInput\n\nThe only input line has two integers n and k.\n\nOutput\n\nPrint one integer: the number of sequences modulo 10^9+7.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n6 4\n\n\nOutput:\n\n1560",
+  "statement_sha256": "f93a7fd0dd59a36dd9349cd5cca5eba870c93128750e746073ff624135ca67ed",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-dp-s",
+  "url": "https://atcoder.jp/contests/dp/tasks/dp_s",
+  "observed_at": "2026-09-11T07:22:06.753067+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nFind the number of integers between 1 and K (inclusive) satisfying the following condition, modulo 10^9 + 7:\r\n\nThe sum of the digits in base ten is a multiple of D.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n1 \\leq K < 10^{10000}\r\n\n1 \\leq D \\leq 100\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nK\r\nD\r\n\nOutput\nPrint the number of integers satisfying the condition, modulo 10^9 + 7.\r\n\nSample Input 1\n30\r\n4\r\n\nSample Output 1\n6\r\n\nThose six integers are: 4, 8, 13, 17, 22 and 26.\r\n\nSample Input 2\n1000000009\r\n1\r\n\nSample Output 2\n2\r\n\nBe sure to print the number modulo 10^9 + 7.\r\n\nSample Input 3\n98765432109876543210\r\n58\r\n\nSample Output 3\n635270834",
+  "statement_sha256": "7abcf351b3131aca7ba3d1e4419eb07bf3a6b938034d8d2d8ceccd6cf8bf0fc9",
+  "raw_sha256": "c545e7aab24c1cc83ce6938a01dd7810891937f01de01f601a1358dd1d4ef4bd",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

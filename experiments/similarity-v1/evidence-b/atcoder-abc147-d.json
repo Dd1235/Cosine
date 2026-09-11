@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc147-d",
+  "url": "https://atcoder.jp/contests/abc147/tasks/abc147_d",
+  "observed_at": "2026-09-11T07:22:06.284042+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nWe have N integers. The i-th integer is A_i.\r\n\nFind \\sum_{i=1}^{N-1}\\sum_{j=i+1}^{N} (A_i \\text{ XOR } A_j), modulo (10^9+7).\r\n\nWhat is \\text{ XOR }?\r\n\nThe XOR of integers A and B, A \\text{ XOR } B, is defined as follows:\r\n\nWhen A \\text{ XOR } B is written in base two, the digit in the 2^k's place (k \\geq 0) is 1 if either A or B, but not both, has 1 in the 2^k's place, and 0 otherwise.\r\n\nFor example, 3 \\text{ XOR } 5 = 6. (In base two: 011 \\text{ XOR } 101 = 110.)\r\n\nConstraints\r\n\n2 \\leq N \\leq 3 \\times 10^5\r\n\n0 \\leq A_i < 2^{60}\r\n\nAll values in input are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\nA_1 A_2 ... A_N\r\n\nOutput\nPrint the value \\sum_{i=1}^{N-1}\\sum_{j=i+1}^{N} (A_i \\text{ XOR } A_j), modulo (10^9+7).\r\n\nSample Input 1\n3\r\n1 2 3\r\n\nSample Output 1\n6\r\n\nWe have (1\\text{ XOR } 2)+(1\\text{ XOR } 3)+(2\\text{ XOR } 3)=3+2+1=6.\r\n\nSample Input 2\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n\nSample Output 2\n237\r\n\nSample Input 3\n10\r\n3 14 159 2653 58979 323846 2643383 27950288 419716939 9375105820\r\n\nSample Output 3\n103715602\r\n\nPrint the sum modulo (10^9+7).",
+  "statement_sha256": "7a8bf9b5b513c18d2572dcf30e4085c26b5fd4ca2db5521ce8813af3f45a4588",
+  "raw_sha256": "01739e1a9411a0117ce2302b5f81c69dc58957b8cbf4625b47a1d0e5dc16d242",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

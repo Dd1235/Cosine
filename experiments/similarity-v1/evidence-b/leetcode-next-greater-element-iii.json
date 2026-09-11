@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-next-greater-element-iii",
+  "url": "https://leetcode.com/problems/next-greater-element-iii/",
+  "observed_at": "2026-09-11T07:22:16.789673+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a positive integer n , find the smallest integer which has exactly the same digits existing in the integer n and is greater in value than n . If no such positive integer exists, return -1 . \n\n Note that the returned integer should fit in 32-bit integer , if there is a valid answer but it does not fit in 32-bit integer , return -1 . \n\n \u00a0 \n Example 1: \n Input: n = 12\n Output: 21\n Example 2: \n Input: n = 21\n Output: -1\n \n \u00a0 \n Constraints: \n\n \n 1 <= n <= 2 31 - 1",
+  "statement_sha256": "e63df5c662597bdfaf7e0397d98307b174d5c3664d0fb156eadd5026d76e1655",
+  "raw_sha256": "af0fe320f27bfd62044e3cd38418d6f44adb9fa1952a4ff39d46dbeacbf3dea1",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

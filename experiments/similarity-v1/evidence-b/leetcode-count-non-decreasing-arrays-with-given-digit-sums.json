@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-non-decreasing-arrays-with-given-digit-sums",
+  "url": "https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums/",
+  "observed_at": "2026-09-11T07:22:19.478894+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array digitSum of length n . \n\n An array arr of length n is considered valid if: \n\n \n 0 <= arr[i] <= 5000 \n it is non-decreasing . \n the sum of the digits of arr[i] equals digitSum[i] . \n \n\n Return an integer denoting the number of distinct valid arrays . Since the answer may be large, return it modulo 10 9 + 7 . \n\n An array is said to be non-decreasing if each element is greater than or equal to the previous element, if it exists. \n\n \u00a0 \n Example 1: \n\n \n Input: digitSum = [25,1] \n\n Output: 6 \n\n Explanation: \n\n Numbers whose sum of digits is 25 are 799, 889, 898, 979, 988, and 997. \n\n The only number whose sum of digits is 1 that can appear after these values while keeping the array non-decreasing is 1000. \n\n Thus, the valid arrays are [799, 1000] , [889, 1000] , [898, 1000] , [979, 1000] , [988, 1000] , and [997, 1000] . \n\n Hence, the answer is 6. \n \n\n Example 2: \n\n \n Input: digitSum = [1] \n\n Output: 4 \n\n Explanation: \n\n The valid arrays are [1] , [10] , [100] , and [1000] . \n\n Thus, the answer is 4. \n \n\n Example 3: \n\n \n Input: digitSum = [2,49,23] \n\n Output: 0 \n\n Explanation: \n\n There is no integer in the range [0, 5000] whose sum of digits is 49. Thus, the answer is 0. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= digitSum.length <= 1000 \n 0 <= digitSum[i] <= 50",
+  "statement_sha256": "b51bf8af8398056118035e432a0c1b845f0bae924fc75d2e86be56970b6a4d26",
+  "raw_sha256": "ce46f5a056a4c11b2919e49f8bc367d1c43966d34720009c875ee1cab44e64ed",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

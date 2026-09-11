@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-dungeon-game",
+  "url": "https://leetcode.com/problems/dungeon-game/",
+  "observed_at": "2026-09-11T07:22:18.009390+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "The demons had captured the princess and imprisoned her in the bottom-right corner of a dungeon . The dungeon consists of m x n rooms laid out in a 2D grid. Our valiant knight was initially positioned in the top-left room and must fight his way through dungeon to rescue the princess. \n\n The knight has an initial health point represented by a positive integer. If at any point his health point drops to 0 or below, he dies immediately. \n\n Some of the rooms are guarded by demons (represented by negative integers), so the knight loses health upon entering these rooms; other rooms are either empty (represented as 0) or contain magic orbs that increase the knight's health (represented by positive integers). \n\n To reach the princess as quickly as possible, the knight decides to move only rightward or downward in each step. \n\n Return the knight's minimum initial health so that he can rescue the princess . \n\n Note that any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room where the princess is imprisoned. \n\n \u00a0 \n Example 1: \n \n \n Input: dungeon = [[-2,-3,3],[-5,-10,1],[10,30,-5]]\n Output: 7\n Explanation: The initial health of the knight must be at least 7 if he follows the optimal path: RIGHT-> RIGHT -> DOWN -> DOWN.\n \n\n Example 2: \n\n \n Input: dungeon = [[0]]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n m == dungeon.length \n n == dungeon[i].length \n 1 <= m, n <= 200 \n -1000 <= dungeon[i][j] <= 1000",
+  "statement_sha256": "f336a69a7248059b846491453a5fb13a23ad7206c21709eb00ad12ef8b26116b",
+  "raw_sha256": "75bccfb3f16cb0629cfe4ce5c3be4f0162a65715d4b7c6a07e46f56f239e261b",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

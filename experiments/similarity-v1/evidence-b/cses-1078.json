@@ -1,0 +1,10 @@
+{
+  "id": "cses-1078",
+  "url": "https://cses.fi/problemset/task/1078",
+  "observed_at": "2026-09-11T07:21:48.928677+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an n \\times n grid whose top-left square is (1,1) and bottom-right square is (n,n).\n\nYour task is to move from the top-left square to the bottom-right square. On each step you may move one square right or down. In addition, there are m traps in the grid. You cannot move to a square with a trap.\n\nWhat is the total number of possible paths?\n\nInput\n\nThe first input line contains two integers n and m: the size of the grid and the number of traps.\n\nAfter this, there are m lines describing the traps. Each such line contains two integers y and x: the location of a trap.\n\nYou can assume that there are no traps in the top-left and bottom-right square. You can also assume that each square has at most one trap.\n\nOutput\n\nPrint the number of paths modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n1 \\le m \\le 1000\n\n1 \\le y,x \\le n\n\n\nExample\n\nInput:\n\n3 1\n2 2\n\n\nOutput:\n\n2",
+  "statement_sha256": "a52769652d007bb74eb9338b0bda456d1a0672cb89467d4112042479f735ab35",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

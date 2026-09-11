@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-cat-and-mouse",
+  "url": "https://leetcode.com/problems/cat-and-mouse/",
+  "observed_at": "2026-09-11T07:22:25.708026+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A game on an undirected graph is played by two players, Mouse and Cat, who alternate turns. \n\n The graph is given as follows: graph[a] is a list of all nodes b such that ab is an edge of the graph. \n\n The mouse starts at node 1 and goes first, the cat starts at node 2 and goes second, and there is a hole at node 0 . \n\n During each player's turn, they must travel along one\u00a0edge of the graph that meets where they are.\u00a0 For example, if the Mouse is at node 1, it must travel to any node in graph[1] . \n\n Additionally, it is not allowed for the Cat to travel to the Hole (node 0 ). \n\n Then, the game can end in three\u00a0ways: \n\n \n If ever the Cat occupies the same node as the Mouse, the Cat wins. \n If ever the Mouse reaches the Hole, the Mouse wins. \n If ever a position is repeated (i.e., the players are in the same position as a previous turn, and\u00a0it is the same player's turn to move), the game is a draw. \n \n\n Given a graph , and assuming both players play optimally, return \n\n \n 1 \u00a0if the mouse wins the game, \n 2 \u00a0if the cat wins the game, or \n 0 \u00a0if the game is a draw. \n \n\n \u00a0 \n Example 1: \n \n \n Input: graph = [[2,5],[3],[0,4,5],[1,4,5],[2,3],[0,2,3]]\n Output: 0\n \n\n Example 2: \n \n \n Input: graph = [[1,3],[0],[3],[0,2]]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 3 <= graph.length <= 50 \n 1\u00a0<= graph[i].length < graph.length \n 0 <= graph[i][j] < graph.length \n graph[i][j] != i \n graph[i] is unique. \n The mouse and the cat can always move.",
+  "statement_sha256": "934ce26653e79a9988caa2139a3d56b5b3d02b3aa9a8fc1b63e1a912869fb59d",
+  "raw_sha256": "19f8ab837368f9997b4f2b7c294409263385e26d7247af8f1a3d0943bd5eac15",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

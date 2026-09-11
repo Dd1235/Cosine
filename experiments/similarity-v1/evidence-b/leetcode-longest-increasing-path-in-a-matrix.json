@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-increasing-path-in-a-matrix",
+  "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+  "observed_at": "2026-09-11T07:22:13.907098+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an m x n integers matrix , return the length of the longest increasing path in matrix . \n\n From each cell, you can either move in four directions: left, right, up, or down. You may not move diagonally or move outside the boundary (i.e., wrap-around is not allowed). \n\n \u00a0 \n Example 1: \n \n \n Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]\n Output: 4\n Explanation: The longest increasing path is [1, 2, 6, 9] .\n \n\n Example 2: \n \n \n Input: matrix = [[3,4,5],[3,2,6],[2,2,1]]\n Output: 4\n Explanation: The longest increasing path is [3, 4, 5, 6] . Moving diagonally is not allowed.\n \n\n Example 3: \n\n \n Input: matrix = [[1]]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n m == matrix.length \n n == matrix[i].length \n 1 <= m, n <= 200 \n 0 <= matrix[i][j] <= 2 31 - 1",
+  "statement_sha256": "44cc0486ad9c0d69ad4264b7d70d1b73834762f18de6f2bfa8f65027439590a7",
+  "raw_sha256": "41b3b0c9914b05848198a990f0d9006c6c9b2ad702383c4662b83d483bf0e47c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

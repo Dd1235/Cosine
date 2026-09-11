@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-replace-question-marks-in-string-to-minimize-its-value",
+  "url": "https://leetcode.com/problems/replace-question-marks-in-string-to-minimize-its-value/",
+  "observed_at": "2026-09-11T07:22:20.013530+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s . s[i] is either a lowercase English letter or '?' . \n\n For a string t having length m containing only lowercase English letters, we define the function cost(i) for an index i \u00a0as the number of characters equal to t[i] \u00a0that appeared before it, i.e. in the range [0, i - 1] . \n\n The value of t is the sum of cost(i) for all indices i . \n\n For example, for the string t = \"aab\" : \n\n \n cost(0) = 0 \n cost(1) = 1 \n cost(2) = 0 \n Hence, the value of \"aab\" is 0 + 1 + 0 = 1 . \n \n\n Your task is to replace all occurrences of '?' in s with any lowercase English letter so that the value of s is minimized . \n\n Return a string denoting the modified string with replaced occurrences of '?' . If there are multiple strings resulting in the minimum value , return the lexicographically smallest one. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"???\" \n\n Output: \"abc\" \n\n Explanation: In this example, we can replace the occurrences of '?' to make s equal to \"abc\" . \n\n For \"abc\" , cost(0) = 0 , cost(1) = 0 , and cost(2) = 0 . \n\n The value of \"abc\" is 0 . \n\n Some other modifications of s that have a value of 0 are \"cba\" , \"abz\" , and, \"hey\" . \n\n Among all of them, we choose the lexicographically smallest. \n \n\n Example 2: \n\n \n Input: s = \"a?a?\" \n\n Output: \"abac\" \n\n Explanation: In this example, the occurrences of '?' can be replaced to make s equal to \"abac\" . \n\n For \"abac\" , cost(0) = 0 , cost(1) = 0 , cost(2) = 1 , and cost(3) = 0 . \n\n The value of \"abac\" is\u00a0 1 . \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s[i] is either a lowercase English letter or '?' .",
+  "statement_sha256": "1cd896be95d0cc2039c5b1ff9ccc09f306cbaae94165af888e6fd3a889007b34",
+  "raw_sha256": "1e5e5a9f498aa3e128e54f67a2f3e0b417e0e8213fe67cd49d4aedfc04134c39",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

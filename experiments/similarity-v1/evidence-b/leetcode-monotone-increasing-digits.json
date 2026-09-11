@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-monotone-increasing-digits",
+  "url": "https://leetcode.com/problems/monotone-increasing-digits/",
+  "observed_at": "2026-09-11T07:22:14.340862+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "An integer has monotone increasing digits if and only if each pair of adjacent digits x and y satisfy x <= y . \n\n Given an integer n , return the largest number that is less than or equal to n with monotone increasing digits . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 10\n Output: 9\n \n\n Example 2: \n\n \n Input: n = 1234\n Output: 1234\n \n\n Example 3: \n\n \n Input: n = 332\n Output: 299\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= n <= 10 9",
+  "statement_sha256": "7ea3f7a312ff0b2a4cf79c35ed682fba2108c9b764cc3544ca17806bd36cfadb",
+  "raw_sha256": "f60f944c0c24d10c0536b11ee5a3943546895ea184a2dfd0cc42446de9924650",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

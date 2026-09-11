@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-closest-prime-numbers-in-range",
+  "url": "https://leetcode.com/problems/closest-prime-numbers-in-range/",
+  "observed_at": "2026-09-11T07:22:03.699275+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given two positive integers left and right , find the two integers num1 and num2 such that: \n\n \n left <= num1 < num2 <= right . \n Both num1 and num2 are prime numbers . \n num2 - num1 is the minimum amongst all other pairs satisfying the above conditions. \n \n\n Return the positive integer array ans = [num1, num2] . If there are multiple pairs satisfying these conditions, return the one with the smallest num1 value. If no such numbers exist, return [-1, -1] . \n\n \u00a0 \n Example 1: \n\n \n Input: left = 10, right = 19\n Output: [11,13]\n Explanation: The prime numbers between 10 and 19 are 11, 13, 17, and 19.\nThe closest gap between any pair is 2, which can be achieved by [11,13] or [17,19].\nSince 11 is smaller than 17, we return the first pair.\n \n\n Example 2: \n\n \n Input: left = 4, right = 6\n Output: [-1,-1]\n Explanation: There exists only one prime number in the given range, so the conditions cannot be satisfied.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= left <= right <= 10 6 \n \n\n \u00a0 \n .spoilerbutton {display:block; border:dashed; padding: 0px 0px; margin:10px 0px; font-size:150%; font-weight: bold; color:#000000; background-color:cyan; outline:0;\u00a0\n}\n.spoiler {overflow:hidden;}\n.spoiler > div {-webkit-transition: all 0s ease;-moz-transition: margin 0s ease;-o-transition: all 0s ease;transition: margin 0s ease;}\n.spoilerbutton[value=\"Show Message\"] + .spoiler > div {margin-top:-500%;}\n.spoilerbutton[value=\"Hide Message\"] + .spoiler {padding:5px;}",
+  "statement_sha256": "b5e361c9df4457d01e1ac2ff7d939012d02e21f0d60226c128e6255e011e6cd2",
+  "raw_sha256": "c78e48baaab9a92e276dd4145b8da42713c6704093e8330111fe718040ef72f0",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

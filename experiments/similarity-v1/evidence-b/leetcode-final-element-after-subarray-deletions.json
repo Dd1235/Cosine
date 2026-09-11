@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-final-element-after-subarray-deletions",
+  "url": "https://leetcode.com/problems/final-element-after-subarray-deletions/",
+  "observed_at": "2026-09-11T07:22:26.213911+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums . \n\n Two players, Alice and Bob, play a game in turns, with Alice playing first. \n\n \n In each turn, the current player chooses any subarray nums[l..r] such that r - l + 1 < m , where m is the current length of the array. \n The selected subarray is removed , and the remaining elements are concatenated to form the new array. \n The game continues until only one element remains. \n \n\n Alice aims to maximize the final element, while Bob aims to minimize it. Assuming both play optimally, return the value of the final remaining element. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,5,2] \n\n Output: 2 \n\n Explanation: \n\n One valid optimal strategy: \n\n \n Alice removes [1] , array becomes [5, 2] . \n Bob removes [5] , array becomes [2] \u200b\u200b\u200b\u200b\u200b\u200b\u200b. Thus, the answer is 2. \n \n \n\n Example 2: \n\n \n Input: nums = [3,7] \n\n Output: 7 \n\n Explanation: \n\n Alice removes [3] , leaving the array [7] . Since Bob cannot play a turn now, the answer is 7. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 5",
+  "statement_sha256": "a4999a23217b0f850797b20765b8436f2c465f9a81a7c85e7240480d947488fb",
+  "raw_sha256": "2d96de15f84bbb205e8aa119803ef7d64091d689fa137b54252f397add072d5a",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximize-the-total-height-of-unique-towers",
+  "url": "https://leetcode.com/problems/maximize-the-total-height-of-unique-towers/",
+  "observed_at": "2026-09-11T07:22:11.425983+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an array maximumHeight , where maximumHeight[i] denotes the maximum height the i th tower can be assigned. \n\n Your task is to assign a height to each tower so that: \n\n \n The height of the i th tower is a positive integer and does not exceed maximumHeight[i] . \n No two towers have the same height. \n \n\n Return the maximum possible total sum of the tower heights. If it's not possible to assign heights, return -1 . \n\n \u00a0 \n Example 1: \n\n \n Input: maximumHeight = [2,3,4,3] \n\n Output: 10 \n\n Explanation: \n\n We can assign heights in the following way: [1, 2, 4, 3] . \n \n\n Example 2: \n\n \n Input: maximumHeight = [15,10] \n\n Output: 25 \n\n Explanation: \n\n We can assign heights in the following way: [15, 10] . \n \n\n Example 3: \n\n \n Input: maximumHeight = [2,2,1] \n\n Output: -1 \n\n Explanation: \n\n It's impossible to assign positive heights to each index so that no two towers have the same height. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= maximumHeight.length\u00a0<= 10 5 \n 1 <= maximumHeight[i] <= 10 9",
+  "statement_sha256": "eefe429ef6717d6588ef6cffc13c4b2dee8dac7eac81fbe08c9a9b61423d82af",
+  "raw_sha256": "89f1c589f3a55a84d82f8f735b8d3cbfb41f62651da38a5329d6f64fbe5766bf",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

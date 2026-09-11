@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc178-c",
+  "url": "https://atcoder.jp/contests/abc178/tasks/abc178_c",
+  "observed_at": "2026-09-11T07:21:48.600007+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nHow many integer sequences A_1,A_2,\\ldots,A_N of length N satisfy all of the following conditions?\r\n\n0 \\leq A_i \\leq 9\r\n\nThere exists some i such that A_i=0 holds.\r\n\nThere exists some i such that A_i=9 holds.\r\n\nThe answer can be very large, so output it modulo 10^9 + 7.\r\n\nConstraints\r\n\n1 \\leq N \\leq 10^6\r\n\nN is an integer.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\n\nOutput\nPrint the answer modulo 10^9 + 7.\r\n\nSample Input 1\n2\r\n\nSample Output 1\n2\r\n\nTwo sequences \\{0,9\\} and \\{9,0\\} satisfy all conditions.\r\n\nSample Input 2\n1\r\n\nSample Output 2\n0\r\n\nSample Input 3\n869121\r\n\nSample Output 3\n2511445",
+  "statement_sha256": "0fbbef472ade5d6ae87928aab70ebe1cae8ecb895c4441eae5dca7519a1df848",
+  "raw_sha256": "5551269b366be17500e4a67da940eb038406a310af8f7f04b49091fc4fa1dfaa",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

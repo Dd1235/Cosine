@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-handling-sum-queries-after-update",
+  "url": "https://leetcode.com/problems/handling-sum-queries-after-update/",
+  "observed_at": "2026-09-11T07:22:18.055433+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two 0-indexed arrays nums1 and nums2 and a 2D array queries of queries. There are three types of queries: \n\n \n For a query of type 1, queries[i]\u00a0= [1, l, r] . Flip the values from 0 to 1 and from 1 to 0 in nums1 \u00a0from index l to index r . Both l and r are 0-indexed . \n For a query of type 2, queries[i]\u00a0= [2, p, 0] . For every index 0 <= i < n , set\u00a0 nums2[i] =\u00a0nums2[i]\u00a0+ nums1[i]\u00a0* p . \n For a query of type 3, queries[i]\u00a0= [3, 0, 0] . Find the sum of the elements in nums2 . \n \n\n Return an array containing all the answers to the third type\u00a0queries. \n\n \u00a0 \n Example 1: \n\n \n Input: nums1 = [1,0,1], nums2 = [0,0,0], queries = [[1,1,1],[2,1,0],[3,0,0]]\n Output: [3]\n Explanation: After the first query nums1 becomes [1,1,1]. After the second query, nums2 becomes [1,1,1], so the answer to the third query is 3. Thus, [3] is returned.\n \n\n Example 2: \n\n \n Input: nums1 = [1], nums2 = [5], queries = [[2,0,0],[3,0,0]]\n Output: [5]\n Explanation: After the first query, nums2 remains [5], so the answer to the second query is 5. Thus, [5] is returned.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums1.length,nums2.length <= 10 5 \n nums1.length = nums2.length \n 1 <= queries.length <= 10 5 \n queries[i].length = 3 \n 0 <= l <= r <= nums1.length - 1 \n 0 <= p <= 10 6 \n 0 <= nums1[i] <= 1 \n 0 <= nums2[i] <= 10 9",
+  "statement_sha256": "6f983c92b17f2204b7ca6bec57857c3f2866df018cb69f65a50f475e1ab4bbc8",
+  "raw_sha256": "d852a89526b7e0fe03062c1c836aba7b5a6c06f3aede69f45800bed8f301e28f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

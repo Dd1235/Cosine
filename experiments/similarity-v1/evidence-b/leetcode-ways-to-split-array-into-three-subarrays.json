@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-ways-to-split-array-into-three-subarrays",
+  "url": "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/",
+  "observed_at": "2026-09-11T07:22:01.469312+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A split of an integer array is good if: \n\n \n The array is split into three non-empty contiguous subarrays - named left , mid , right respectively from left to right. \n The sum of the elements in left is less than or equal to the sum of the elements in mid , and the sum of the elements in mid is less than or equal to the sum of the elements in right . \n \n\n Given nums , an array of non-negative integers, return the number of good ways to split nums . As the number may be too large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,1,1]\n Output: 1\n Explanation: The only good way to split nums is [1] [1] [1]. \n\n Example 2: \n\n \n Input: nums = [1,2,2,2,5,0]\n Output: 3\n Explanation: There are three good ways of splitting nums:\n[1] [2] [2,2,5,0]\n[1] [2,2] [2,5,0]\n[1,2] [2,2] [5,0]\n \n\n Example 3: \n\n \n Input: nums = [3,2,1]\n Output: 0\n Explanation: There is no good way to split nums. \n\n \u00a0 \n Constraints: \n\n \n 3 <= nums.length <= 10 5 \n 0 <= nums[i] <= 10 4",
+  "statement_sha256": "c4dacc08aff49f8dac2823b3056607150e96684d02033052e67c2862060c6c4b",
+  "raw_sha256": "ff6519253a657828dc31c1b1671eef0f66ea29b0cd5eb9f715db1fb18ea65f2d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

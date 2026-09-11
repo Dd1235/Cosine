@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-smallest-divisible-digit-product-ii",
+  "url": "https://leetcode.com/problems/smallest-divisible-digit-product-ii/",
+  "observed_at": "2026-09-11T07:22:14.666183+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string num which represents a positive integer, and an integer t . \n\n A number is called zero-free if none of its digits are 0. \n\n Return a string representing the smallest zero-free number greater than or equal to num such that the product of its digits is divisible by t . If no such number exists, return \"-1\" . \n\n \u00a0 \n Example 1: \n\n \n Input: num = \"1234\", t = 256 \n\n Output: \"1488\" \n\n Explanation: \n\n The smallest zero-free number that is greater than 1234 and has the product of its digits divisible by 256 is 1488, with the product of its digits equal to 256. \n \n\n Example 2: \n\n \n Input: num = \"12355\", t = 50 \n\n Output: \"12355\" \n\n Explanation: \n\n 12355 is already zero-free and has the product of its digits divisible by 50, with the product of its digits equal to 150. \n \n\n Example 3: \n\n \n Input: num = \"11111\", t = 26 \n\n Output: \"-1\" \n\n Explanation: \n\n No number greater than 11111 has the product of its digits divisible by 26. \n \n\n \u00a0 \n Constraints: \n\n \n 2 <= num.length <= 2 * 10 5 \n num consists only of digits in the range ['0', '9'] . \n num does not contain leading zeros. \n 1 <= t <= 10 14",
+  "statement_sha256": "b2530c04564ea71c013583535d5fe4da4633bb0f8450e9bb2a48eb6e74fd63b7",
+  "raw_sha256": "c60b664fcbda2ab9d8f0f7314ee5fc4350de1b85ce1159a01c54a94d7a326690",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc120-d",
+  "url": "https://atcoder.jp/contests/abc120/tasks/abc120_d",
+  "observed_at": "2026-09-11T07:21:55.172177+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N islands and M bridges.\r\n\nThe i-th bridge connects the A_i-th and B_i-th islands bidirectionally.\r\n\nInitially, we can travel between any two islands using some of these bridges.\r\n\nHowever, the results of a survey show that these bridges will all collapse because of aging, in the order from the first bridge to the M-th bridge.\r\n\nLet the inconvenience be the number of pairs of islands (a, b) (a < b) such that we are no longer able to travel between the a-th and b-th islands using some of the bridges remaining.\r\n\nFor each i (1 \\leq i \\leq M), find the inconvenience just after the i-th bridge collapses.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n2 \\leq N \\leq 10^5\r\n\n1 \\leq M \\leq 10^5\r\n\n1 \\leq A_i < B_i \\leq N\r\n\nAll pairs (A_i, B_i) are distinct.\r\n\nThe inconvenience is initially 0.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN M\r\nA_1 B_1\r\nA_2 B_2\r\n\\vdots\r\nA_M B_M\r\n\nOutput\nIn the order i = 1, 2, ..., M, print the inconvenience just after the i-th bridge collapses.\r\nNote that the answer may not fit into a 32-bit integer type.\r\n\nSample Input 1\n4 5\r\n1 2\r\n3 4\r\n1 3\r\n2 3\r\n1 4\r\n\nSample Output 1\n0\r\n0\r\n4\r\n5\r\n6\r\n\nFor example, when the first to third bridges have collapsed, the inconvenience is 4 since we can no longer travel between the pairs (1, 2), (1, 3), (2, 4) and (3, 4).\r\n\nSample Input 2\n6 5\r\n2 3\r\n1 2\r\n5 6\r\n3 4\r\n4 5\r\n\nSample Output 2\n8\r\n9\r\n12\r\n14\r\n15\r\n\nSample Input 3\n2 1\r\n1 2\r\n\nSample Output 3\n1",
+  "statement_sha256": "72f77a78ac7d811752ab9f30f953c831874820e70e490448c463e8ba18e7d9c4",
+  "raw_sha256": "9e7d073446b1eb1b56fe25af415adcb91155ddbaac415c88b698894ee4a3ac17",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

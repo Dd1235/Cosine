@@ -1,0 +1,10 @@
+{
+  "id": "cses-2421",
+  "url": "https://cses.fi/problemset/task/2421",
+  "observed_at": "2026-09-11T07:21:58.719488+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nCalculate the number of ways you can reorder the characters of a string so that no two adjacent characters are the same.\n\nFor example, the answer for aabc is 6, because the possible orders are abac, abca, acab, acba, baca, and caba.\n\nInput\n\nThe only input line has a string that consists of n characters between a\u2013z.\n\nOutput\n\nPrint an integer: the answer modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n\nExample\n\nInput:\n\naabc\n\n\nOutput:\n\n6",
+  "statement_sha256": "3c2a4b5b2f77425c181ec9a6fa294ff18bf846e7cf78f1b4536f5b2e7ab5d2de",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

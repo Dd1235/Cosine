@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc141-e",
+  "url": "https://atcoder.jp/contests/abc141/tasks/abc141_e",
+  "observed_at": "2026-09-11T07:21:52.637501+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nGiven is a string S of length N.\r\n\nFind the maximum length of a non-empty string that occurs twice or more in S as contiguous substrings without overlapping.\r\n\nMore formally, find the maximum positive integer len such that there exist integers l_1 and l_2 ( 1 \\leq l_1, l_2 \\leq N - len + 1 ) that satisfy the following:\r\n\nl_1 + len \\leq l_2\r\n\nS[l_1+i] = S[l_2+i] (i = 0, 1, ..., len - 1)\r\n\nIf there is no such integer len, print 0.\r\n\nConstraints\r\n\n2 \\leq N \\leq 5 \\times 10^3\r\n\n|S| = N\r\n\nS consists of lowercase English letters.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\nS\r\n\nOutput\nPrint the maximum length of a non-empty string that occurs twice or more in S as contiguous substrings without overlapping. If there is no such non-empty string, print 0 instead.\r\n\nSample Input 1\n5\r\nababa\r\n\nSample Output 1\n2\r\n\nThe strings satisfying the conditions are: a, b, ab, and ba. The maximum length among them is 2, which is the answer.\r\nNote that aba occurs twice in S as contiguous substrings, but there is no pair of integers l_1 and l_2 mentioned in the statement such that l_1 + len \\leq l_2.\r\n\nSample Input 2\n2\r\nxy\r\n\nSample Output 2\n0\r\n\nNo non-empty string satisfies the conditions.\r\n\nSample Input 3\n13\r\nstrangeorange\r\n\nSample Output 3\n5",
+  "statement_sha256": "25963734fc3441c9fdc46d8142c68cd8ce3e02c75cfad187de54a7bca6bbe34c",
+  "raw_sha256": "8e39ad1bfc9a3063d361974614a60b6505ce66f3fc91946c609ae93a84d12e28",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

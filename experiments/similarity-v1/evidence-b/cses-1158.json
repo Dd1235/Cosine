@@ -1,0 +1,10 @@
+{
+  "id": "cses-1158",
+  "url": "https://cses.fi/problemset/task/1158",
+  "observed_at": "2026-09-11T07:22:11.425785+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are in a book shop which sells n different books. You know the price and number of pages of each book.\n\nYou have decided that the total price of your purchases will be at most x. What is the maximum number of pages you can buy? You can buy each book at most once.\n\nInput\n\nThe first input line contains two integers n and x: the number of books and the maximum total price.\n\nThe next line contains n integers h_1,h_2,\\ldots,h_n: the price of each book.\n\nThe last line contains n integers s_1,s_2,\\ldots,s_n: the number of pages of each book.\n\nOutput\n\nPrint one integer: the maximum number of pages.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n1 \\le x \\le 10^5\n\n1 \\le h_i, s_i \\le 1000\n\n\nExample\n\nInput:\n\n4 10\n4 8 5 3\n5 12 8 1\n\n\nOutput:\n\n13\n\n\nExplanation: You can buy books 1 and 3. Their price is 4+5=9 and the number of pages is 5+8=13.",
+  "statement_sha256": "5ea5b46dc3904458ccd3a1d1f61a9bae1ea3b57a96cbcb91dd2a1b2d3cb120a7",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

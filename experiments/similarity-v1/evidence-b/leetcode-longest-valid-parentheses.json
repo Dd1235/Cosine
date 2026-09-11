@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-valid-parentheses",
+  "url": "https://leetcode.com/problems/longest-valid-parentheses/",
+  "observed_at": "2026-09-11T07:21:56.822063+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string containing just the characters '(' and ')' , return the length of the longest valid (well-formed) parentheses substring . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"(()\"\n Output: 2\n Explanation: The longest valid parentheses substring is \"()\".\n \n\n Example 2: \n\n \n Input: s = \")()())\"\n Output: 4\n Explanation: The longest valid parentheses substring is \"()()\".\n \n\n Example 3: \n\n \n Input: s = \"\"\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= s.length <= 3 * 10 4 \n s[i] is '(' , or ')' .",
+  "statement_sha256": "29e3a1abce36f07e2cda31b55a941c8a7a42996297818bc99032b90561ca7866",
+  "raw_sha256": "fc4317febbbe008522eae5200d41bc580967f5247bc26e686c0859d0dc197fbf",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

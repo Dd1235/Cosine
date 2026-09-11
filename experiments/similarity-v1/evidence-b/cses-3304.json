@@ -1,0 +1,10 @@
+{
+  "id": "cses-3304",
+  "url": "https://cses.fi/problemset/task/3304",
+  "observed_at": "2026-09-11T07:22:28.026080+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n buildings in a row numbered 1, 2,\\dots, n from left to right. You are standing to the left of the first building. You can see a building if it is taller than all buildings to its left.\n\nYour task is to process q queries: If only buildings in range [a, b] existed, how many buildings would you see?\n\nInput\n\nThe first line has two integers n and q: the number of buildings and queries.\n\nThe second line has n integers h_1, h_2, \\dots, h_n: the heights of the buildings.\n\nFinally, there are q lines describing the queries. Each line has two integers a and b.\n\nOutput\n\nFor each query, print one integer: the number of visible buildings.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le q \\le 2 \\cdot 10^5\n\n1 \\le h_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 3\n4 1 2 2 3\n1 5\n2 5\n3 4\n\n\nOutput:\n\n1\n3\n1",
+  "statement_sha256": "d607679e53cd95b0fe5ced5664aa34a0ea4a127fbc21437ccde49e5bc7fc9cd1",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

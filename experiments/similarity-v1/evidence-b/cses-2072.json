@@ -1,0 +1,10 @@
+{
+  "id": "cses-2072",
+  "url": "https://cses.fi/problemset/task/2072",
+  "observed_at": "2026-09-11T07:21:59.894441+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, your task is to process operations where you cut a substring and paste it to the end of the string. What is the final string after all the operations?\n\nInput\n\nThe first input line has two integers n and m: the length of the string and the number of operations. The characters of the string are numbered 1,2,\\dots,n.\n\nThe next line has a string of length n that consists of characters A\u2013Z.\n\nFinally, there are m lines that describe the operations. Each line has two integers a and b: you cut a substring from position a to position b.\n\nOutput\n\nPrint the final string after all the operations.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n7 2\nAYBABTU\n3 5\n3 5\n\n\nOutput:\n\nAYABTUB",
+  "statement_sha256": "f5e8406bd1323556286cb0e51ee3b9184b721c6042ad8da559e4cda5f38a8d3b",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

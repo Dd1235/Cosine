@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-the-number-of-square-free-subsets",
+  "url": "https://leetcode.com/problems/count-the-number-of-square-free-subsets/",
+  "observed_at": "2026-09-11T07:22:12.773717+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a positive integer 0-indexed \u00a0array nums . \n\n A subset of the array nums is square-free if the product of its elements is a square-free integer . \n\n A square-free integer is an integer that is divisible by no square number other than 1 . \n\n Return the number of square-free non-empty subsets of the array nums . Since the answer may be too large, return it modulo 10 9 + 7 . \n\n A non-empty \u00a0 subset of nums is an array that can be obtained by deleting some (possibly none but not all) elements from nums . Two subsets are different if and only if the chosen indices to delete are different. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [3,4,4,5]\n Output: 3\n Explanation: There are 3 square-free subsets in this example:\n- The subset consisting of the 0 th element [3]. The product of its elements is 3, which is a square-free integer.\n- The subset consisting of the 3 rd element [5]. The product of its elements is 5, which is a square-free integer.\n- The subset consisting of 0 th and 3 rd elements [3,5]. The product of its elements is 15, which is a square-free integer.\nIt can be proven that there are no more than 3 square-free subsets in the given array. \n\n Example 2: \n\n \n Input: nums = [1]\n Output: 1\n Explanation: There is 1 square-free subset in this example:\n- The subset consisting of the 0 th element [1]. The product of its elements is 1, which is a square-free integer.\nIt can be proven that there is no more than 1 square-free subset in the given array.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length\u00a0<= 1000 \n 1 <= nums[i] <= 30",
+  "statement_sha256": "937978293cc706e408c2c407a4996a32c05e130773e7e9ca4fd84b00d713a62a",
+  "raw_sha256": "5d1eed982b72982c0e7bc028f7e37c24541f43d98f91e385ef8a565ae6a1ee25",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

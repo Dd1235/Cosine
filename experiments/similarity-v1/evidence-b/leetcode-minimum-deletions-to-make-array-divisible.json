@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-deletions-to-make-array-divisible",
+  "url": "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/",
+  "observed_at": "2026-09-11T07:22:05.658928+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two positive integer arrays nums and numsDivide . You can delete any number of elements from nums . \n\n Return the minimum number of deletions such that the smallest element in nums divides all the elements of numsDivide . If this is not possible, return -1 . \n\n Note that an integer x divides y if y % x == 0 . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [2,3,2,4,3], numsDivide = [9,6,9,3,15]\n Output: 2\n Explanation: \nThe smallest element in [2,3,2,4,3] is 2, which does not divide all the elements of numsDivide.\nWe use 2 deletions to delete the elements in nums that are equal to 2 which makes nums = [3,4,3].\nThe smallest element in [3,4,3] is 3, which divides all the elements of numsDivide.\nIt can be shown that 2 is the minimum number of deletions needed.\n \n\n Example 2: \n\n \n Input: nums = [4,3,6], numsDivide = [8,2,6,10]\n Output: -1\n Explanation: \nWe want the smallest element in nums to divide all the elements of numsDivide.\nThere is no way to delete elements from nums to allow this. \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length, numsDivide.length <= 10 5 \n 1 <= nums[i], numsDivide[i] <= 10 9",
+  "statement_sha256": "3119fa411170ce4f14aec2b9013929a59b30ee200adba1698d8e58fafc266c1b",
+  "raw_sha256": "2c844a65e3dea859e1eebbda4129f55b0455721502c2da94d0ec0e3dbd9f6b30",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

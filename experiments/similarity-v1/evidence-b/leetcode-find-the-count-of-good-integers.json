@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-the-count-of-good-integers",
+  "url": "https://leetcode.com/problems/find-the-count-of-good-integers/",
+  "observed_at": "2026-09-11T07:22:19.388423+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two positive integers n and k . \n\n An integer x is called k-palindromic if: \n\n \n x is a palindrome . \n x is divisible by k . \n \n\n An integer is called good if its digits can be rearranged to form a k-palindromic integer. For example, for k = 2 , 2020 can be rearranged to form the k-palindromic integer 2002, whereas 1010 cannot be rearranged to form a k-palindromic integer. \n\n Return the count of good integers containing n digits. \n\n Note that any integer must not have leading zeros, neither before nor after rearrangement. For example, 1010 cannot be rearranged to form 101. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 3, k = 5 \n\n Output: 27 \n\n Explanation: \n\n Some of the good integers are: \n\n \n 551 because it can be rearranged to form 515. \n 525 because it is already k-palindromic. \n \n \n\n Example 2: \n\n \n Input: n = 1, k = 4 \n\n Output: 2 \n\n Explanation: \n\n The two good integers are 4 and 8. \n \n\n Example 3: \n\n \n Input: n = 5, k = 6 \n\n Output: 2468 \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 \n 1 <= k <= 9",
+  "statement_sha256": "1cdc7314608e06cfe91f5345f3399499d9c842de199da75ff5373425aa48185e",
+  "raw_sha256": "aa3bf287ce7553fd814142cf92d6d1803b4265e1affcddb9957a71f02a5e40db",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

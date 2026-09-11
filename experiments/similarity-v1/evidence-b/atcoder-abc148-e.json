@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc148-e",
+  "url": "https://atcoder.jp/contests/abc148/tasks/abc148_e",
+  "observed_at": "2026-09-11T07:22:12.621419+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nFor an integer n not less than 0, let us define f(n) as follows:\r\n\nf(n) = 1 (if n < 2)\r\n\nf(n) = n f(n-2) (if n \\geq 2)\r\n\nGiven is an integer N. Find the number of trailing zeros in the decimal notation of f(N).\r\n\nConstraints\r\n\n0 \\leq N \\leq 10^{18}\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\n\nOutput\nPrint the number of trailing zeros in the decimal notation of f(N).\r\n\nSample Input 1\n12\r\n\nSample Output 1\n1\r\n\nf(12) = 12 \u00d7 10 \u00d7 8 \u00d7 6 \u00d7 4 \u00d7 2 = 46080, which has one trailing zero.\r\n\nSample Input 2\n5\r\n\nSample Output 2\n0\r\n\nf(5) = 5 \u00d7 3 \u00d7 1 = 15, which has no trailing zeros.\r\n\nSample Input 3\n1000000000000000000\r\n\nSample Output 3\n124999999999999995",
+  "statement_sha256": "3cb56df556ab9ca2ca9a164bf7419e972dd6ad73a1543c6688fdffc0c1a82d2d",
+  "raw_sha256": "90167fad814bc3752b32cb77a8dcd1eecd99ffc8bf2aa1f4d5b841e525485869",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

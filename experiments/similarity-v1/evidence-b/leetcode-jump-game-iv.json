@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-jump-game-iv",
+  "url": "https://leetcode.com/problems/jump-game-iv/",
+  "observed_at": "2026-09-11T07:21:45.916970+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array of\u00a0integers arr , you are initially positioned at the first index of the array. \n\n In one step you can jump from index i to index: \n\n \n i + 1 where:\u00a0 i + 1 < arr.length . \n i - 1 where:\u00a0 i - 1 >= 0 . \n j where: arr[i] == arr[j] and i != j . \n \n\n Return the minimum number of steps to reach the last index of the array. \n\n Notice that you can not jump outside of the array at any time. \n\n \u00a0 \n Example 1: \n\n \n Input: arr = [100,-23,-23,404,100,23,23,23,3,404]\n Output: 3\n Explanation: You need three jumps from index 0 --> 4 --> 3 --> 9. Note that index 9 is the last index of the array.\n \n\n Example 2: \n\n \n Input: arr = [7]\n Output: 0\n Explanation: Start index is the last index. You do not need to jump.\n \n\n Example 3: \n\n \n Input: arr = [7,6,9,6,9,6,9,7]\n Output: 1\n Explanation: You can jump directly from index 0 to index 7 which is last index of the array.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= arr.length <= 5 * 10 4 \n -10 8 <= arr[i] <= 10 8",
+  "statement_sha256": "f338e22278aac2ccefcecceca5d83d42b86c2c30931fb526ea14057ee5421617",
+  "raw_sha256": "13d1368bfa4e1e6e9390918c692bacf3fa0fa773c7ad5f880eaed37d61cdcad6",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

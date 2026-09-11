@@ -1,0 +1,10 @@
+{
+  "id": "cses-3355",
+  "url": "https://cses.fi/problemset/task/3355",
+  "observed_at": "2026-09-11T07:22:12.601506+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA well known result in number theory is that every non-negative integer can be represented as the sum of four squares of non-negative integers.\n\nYou are given a non-negative integer n. Your task is to find four non-negative integers a, b, c and d such that n = a^2 + b^2 + c^2 + d^2.\n\nInput\n\nThe first line has an integer t: the number of test cases.\n\nEach of the next t lines has an integer n.\n\nOutput\n\nFor each test case, print four non-negative integers a, b, c and d that satisfy n = a^2 + b^2 + c^2 + d^2.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n0 \\le n \\le 10^7\n\nthe sum of all n is at most 10^7\n\n\nExample\n\nInput:\n\n3\n5\n30\n322266\n\n\nOutput:\n\n2 1 0 0\n1 2 3 4\n314 159 265 358",
+  "statement_sha256": "e793b0fff8c0c8310cf16b3a208be65e6ab566377145ee45927efb61ad995238",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

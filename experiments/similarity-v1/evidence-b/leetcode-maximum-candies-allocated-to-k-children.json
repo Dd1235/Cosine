@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-candies-allocated-to-k-children",
+  "url": "https://leetcode.com/problems/maximum-candies-allocated-to-k-children/",
+  "observed_at": "2026-09-11T07:22:23.393408+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 0-indexed integer array candies . Each element in the array denotes a pile of candies of size candies[i] . You can divide each pile into any number of sub piles , but you cannot merge two piles together. \n\n You are also given an integer k . You should allocate piles of candies to k children such that each child gets the same number of candies. Each child can be allocated candies from only one pile of candies and some piles of candies may go unused. \n\n Return the maximum number of candies each child can get. \n\n \u00a0 \n Example 1: \n\n \n Input: candies = [5,8,6], k = 3\n Output: 5\n Explanation: We can divide candies[1] into 2 piles of size 5 and 3, and candies[2] into 2 piles of size 5 and 1. We now have five piles of candies of sizes 5, 5, 3, 5, and 1. We can allocate the 3 piles of size 5 to 3 children. It can be proven that each child cannot receive more than 5 candies.\n \n\n Example 2: \n\n \n Input: candies = [2,5], k = 11\n Output: 0\n Explanation: There are 11 children but only 7 candies in total, so it is impossible to ensure each child receives at least one candy. Thus, each child gets no candy and the answer is 0.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= candies.length <= 10 5 \n 1 <= candies[i] <= 10 7 \n 1 <= k <= 10 12",
+  "statement_sha256": "adf8790fba66867e9942ad1978f0c9670751cc243f697302006e79d48e5be478",
+  "raw_sha256": "8dbc1de4e78264c6ba83dc7e88f9fbfb36b5230901b187a6abb96e1b7fcec6d1",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

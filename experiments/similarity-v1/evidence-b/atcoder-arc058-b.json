@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-arc058-b",
+  "url": "https://atcoder.jp/contests/arc058/tasks/arc058_b",
+  "observed_at": "2026-09-11T07:21:48.928928+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nWe have a large square grid with H rows and W columns.\r\nIroha is now standing in the top-left cell.\r\nShe will repeat going right or down to the adjacent cell, until she reaches the bottom-right cell.\r\n\nHowever, she cannot enter the cells in the intersection of the bottom A rows and the leftmost B columns. (That is, there are A\u00d7B forbidden cells.) There is no restriction on entering the other cells.\r\n\nFind the number of ways she can travel to the bottom-right cell.\r\n\nSince this number can be extremely large, print the number modulo 10^9+7.\r\n\nConstraints\r\n\n 1 \u2266 H, W \u2266 100,000\r\n\n 1 \u2266 A < H\r\n\n 1 \u2266 B < W\r\n\nInput\nThe input is given from Standard Input in the following format:\r\n\nH W A B\r\n\nOutput\nPrint the number of ways she can travel to the bottom-right cell, modulo 10^9+7.\r\n\nSample Input 1\n2 3 1 1\r\n\nSample Output 1\n2\r\n\nWe have a 2\u00d73 grid, but entering the bottom-left cell is forbidden. The number of ways to travel is two: \"Right, Right, Down\" and \"Right, Down, Right\".\r\n\nSample Input 2\n10 7 3 4\r\n\nSample Output 2\n3570\r\n\nThere are 12 forbidden cells.\r\n\nSample Input 3\n100000 100000 99999 99999\r\n\nSample Output 3\n1\r\n\nSample Input 4\n100000 100000 44444 55555\r\n\nSample Output 4\n738162020",
+  "statement_sha256": "a04087ffb59e1a918bf9bfc24cc653f2ac0e0400de66f39023ac132abd8db20c",
+  "raw_sha256": "9d55d3ca2907b3d30e42687c4510c865c3a3f132eee115c7599aff622e2ba804",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

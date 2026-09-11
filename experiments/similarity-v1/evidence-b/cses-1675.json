@@ -1,0 +1,10 @@
+{
+  "id": "cses-1675",
+  "url": "https://cses.fi/problemset/task/1675",
+  "observed_at": "2026-09-11T07:21:55.053179+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 128 MB\n\n\nThere are n cities and m roads between them. Unfortunately, the condition of the roads is so poor that they cannot be used. Your task is to repair some of the roads so that there will be a decent route between any two cities.\n\nFor each road, you know its reparation cost, and you should find a solution where the total cost is as small as possible.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and roads. The cities are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the roads. Each line has three integers a, b and c: there is a road between cities a and b, and its reparation cost is c. All roads are two-way roads.\n\nEvery road is between two different cities, and there is at most one road between two cities.\n\nOutput\n\nPrint one integer: the minimum total reparation cost. However, if there are no solutions, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n5 6\n1 2 3\n2 3 5\n2 4 2\n3 4 8\n5 1 7\n5 4 4\n\n\nOutput:\n\n14",
+  "statement_sha256": "51f282d4dcf425e0980cb1997b4f5943a2c63431c7f650ff7feff89c2cefd224",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

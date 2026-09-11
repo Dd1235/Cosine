@@ -1,0 +1,10 @@
+{
+  "id": "cses-1079",
+  "url": "https://cses.fi/problemset/task/1079",
+  "observed_at": "2026-09-11T07:22:06.187966+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate n binomial coefficients modulo 10^9+7.\n\nA binomial coefficient {a \\choose b} can be calculated using the formula \\frac{a!}{b!(a-b)!}. We assume that a and b are integers and 0 \\le b \\le a.\n\nInput\n\nThe first input line contains an integer n: the number of calculations.\n\nAfter this, there are n lines, each of which contains two integers a and b.\n\nOutput\n\nPrint each binomial coefficient modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n0 \\le b \\le a \\le 10^6\n\n\nExample\n\nInput:\n\n3\n5 3\n8 1\n9 5\n\n\nOutput:\n\n10\n8\n126",
+  "statement_sha256": "056029eb643727a3f2b1cdf2e72b936c438cc5a57be4b7e1bda919491654c21c",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

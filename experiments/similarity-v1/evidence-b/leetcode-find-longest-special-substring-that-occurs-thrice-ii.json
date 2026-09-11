@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-longest-special-substring-that-occurs-thrice-ii",
+  "url": "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/",
+  "observed_at": "2026-09-11T07:22:19.723361+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s that consists of lowercase English letters. \n\n A string is called special if it is made up of only a single character. For example, the string \"abc\" is not special, whereas the strings \"ddd\" , \"zz\" , and \"f\" are special. \n\n Return the length of the longest special substring of s which occurs at least thrice , or -1 if no special substring occurs at least thrice . \n\n A substring is a contiguous non-empty sequence of characters within a string. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"aaaa\"\n Output: 2\n Explanation: The longest special substring which occurs thrice is \"aa\": substrings \" aa aa\", \"a aa a\", and \"aa aa \".\nIt can be shown that the maximum length achievable is 2.\n \n\n Example 2: \n\n \n Input: s = \"abcdef\"\n Output: -1\n Explanation: There exists no special substring which occurs at least thrice. Hence return -1.\n \n\n Example 3: \n\n \n Input: s = \"abcaba\"\n Output: 1\n Explanation: The longest special substring which occurs thrice is \"a\": substrings \" a bcaba\", \"abc a ba\", and \"abcab a \".\nIt can be shown that the maximum length achievable is 1.\n \n\n \u00a0 \n Constraints: \n\n \n 3 <= s.length <= 5 * 10 5 \n s consists of only lowercase English letters.",
+  "statement_sha256": "6b51f59521dcf9432ab8142d5048d95fde976178ee67906fb5844c892e55ab31",
+  "raw_sha256": "30c7992449b91c1b01d147179651d6c1abf06cc2d0c90233ecc12202449d63df",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

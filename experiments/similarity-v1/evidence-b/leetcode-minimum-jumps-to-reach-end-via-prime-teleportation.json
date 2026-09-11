@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-jumps-to-reach-end-via-prime-teleportation",
+  "url": "https://leetcode.com/problems/minimum-jumps-to-reach-end-via-prime-teleportation/",
+  "observed_at": "2026-09-11T07:22:05.135375+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums of length n . \n\n You start at index 0, and your goal is to reach index n - 1 . \n\n From any index i , you may perform one of the following operations: \n\n \n Adjacent Step : Jump to index i + 1 or i - 1 , if the index is within bounds. \n Prime Teleportation : If nums[i] is a prime number p , you may instantly jump to any index j != i such that nums[j] % p == 0 . \n \n\n Return the minimum number of jumps required to reach index n - 1 . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,2,4,6] \n\n Output: 2 \n\n Explanation: \n\n One optimal sequence of jumps is: \n\n \n Start at index i = 0 . Take an adjacent step to index 1. \n At index i = 1 , nums[1] = 2 is a prime number. Therefore, we teleport to index i = 3 as nums[3] = 6 is divisible by 2. \n \n\n Thus, the answer is 2. \n \n\n Example 2: \n\n \n Input: nums = [2,3,4,7,9] \n\n Output: 2 \n\n Explanation: \n\n One optimal sequence of jumps is: \n\n \n Start at index i = 0 . Take an adjacent step to index i = 1 . \n At index i = 1 , nums[1] = 3 is a prime number. Therefore, we teleport to index i = 4 since nums[4] = 9 is divisible by 3. \n \n\n Thus, the answer is 2. \n \n\n Example 3: \n\n \n Input: nums = [4,6,5,8] \n\n Output: 3 \n\n Explanation: \n\n \n Since no teleportation is possible, we move through 0 \u2192 1 \u2192 2 \u2192 3 . Thus, the answer is 3. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n == nums.length <= 10 5 \n 1 <= nums[i] <= 10 6",
+  "statement_sha256": "10a74b9074a721a8d60a8f1f2e25b729379abc4c63dc73f3bccb59efec138d08",
+  "raw_sha256": "e5a2298b375700a8d54a6897680e84a193abe7cfb10709166be37e905d9c2d32",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

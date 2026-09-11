@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-arc074-c",
+  "url": "https://atcoder.jp/contests/arc074/tasks/arc074_c",
+  "observed_at": "2026-09-11T07:21:41.354926+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N squares arranged in a row.\r\nThe squares are numbered 1, 2, ..., N, from left to right.\r\n\nSnuke is painting each square in red, green or blue.\r\nAccording to his aesthetic sense, the following M conditions must all be satisfied.\r\nThe i-th condition is:\r\n\nThere are exactly x_i different colors among squares l_i, l_i + 1, ..., r_i.\r\n\nIn how many ways can the squares be painted to satisfy all the conditions?\r\nFind the count modulo 10^9+7.\r\n\nConstraints\r\n\n1 \u2264 N \u2264 300\r\n\n1 \u2264 M \u2264 300\r\n\n1 \u2264 l_i \u2264 r_i \u2264 N\r\n\n1 \u2264 x_i \u2264 3\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN M\r\nl_1 r_1 x_1\r\nl_2 r_2 x_2\r\n:\r\nl_M r_M x_M\r\n\nOutput\nPrint the number of ways to paint the squares to satisfy all the conditions, modulo 10^9+7.\r\n\nSample Input 1\n3 1\r\n1 3 3\r\n\nSample Output 1\n6\r\n\nThe six ways are:\r\n\nRGB\r\n\nRBG\r\n\nGRB\r\n\nGBR\r\n\nBRG\r\n\nBGR\r\n\nwhere R, G and B correspond to red, green and blue squares, respectively.\r\n\nSample Input 2\n4 2\r\n1 3 1\r\n2 4 2\r\n\nSample Output 2\n6\r\n\nThe six ways are:\r\n\nRRRG\r\n\nRRRB\r\n\nGGGR\r\n\nGGGB\r\n\nBBBR\r\n\nBBBG\r\n\nSample Input 3\n1 3\r\n1 1 1\r\n1 1 2\r\n1 1 3\r\n\nSample Output 3\n0\r\n\nThere are zero ways.\r\n\nSample Input 4\n8 10\r\n2 6 2\r\n5 5 1\r\n3 5 2\r\n4 7 3\r\n4 4 1\r\n2 3 1\r\n7 7 1\r\n1 5 2\r\n1 7 3\r\n3 4 2\r\n\nSample Output 4\n108",
+  "statement_sha256": "21cccce2b4d28809e2a0b8d36d6467e49818fbcbeedd3197c38d46f33b52e1ea",
+  "raw_sha256": "a8fefcff889d5d40af414de650eb4e1d4b6181e8440bdaa4138055da3c6afcc0",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

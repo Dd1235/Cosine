@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-check-if-a-parentheses-string-can-be-valid",
+  "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/",
+  "observed_at": "2026-09-11T07:21:57.486686+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A parentheses string is a non-empty string consisting only of '(' and ')' . It is valid if any of the following conditions is true : \n\n \n It is () . \n It can be written as AB ( A concatenated with B ), where A and B are valid parentheses strings. \n It can be written as (A) , where A is a valid parentheses string. \n \n\n You are given a parentheses string s and a string locked , both of length n . locked is a binary string consisting only of '0' s and '1' s. For each index i of locked , \n\n \n If locked[i] is '1' , you cannot change s[i] . \n But if locked[i] is '0' , you can change s[i] to either '(' or ')' . \n \n\n Return true if you can make s a valid parentheses string . Otherwise, return false . \n\n \u00a0 \n Example 1: \n \n \n Input: s = \"))()))\", locked = \"010100\"\n Output: true\n Explanation: locked[1] == '1' and locked[3] == '1', so we cannot change s[1] or s[3].\nWe change s[0] and s[4] to '(' while leaving s[2] and s[5] unchanged to make s valid. \n\n Example 2: \n\n \n Input: s = \"()()\", locked = \"0000\"\n Output: true\n Explanation: We do not need to make any changes because s is already valid.\n \n\n Example 3: \n\n \n Input: s = \")\", locked = \"0\"\n Output: false\n Explanation: locked permits us to change s[0]. \nChanging s[0] to either '(' or ')' will not make s valid.\n \n\n Example 4: \n\n \n Input: s = \"(((())(((())\", locked = \"111111010111\"\n Output: true\n Explanation: locked permits us to change s[6] and s[8]. \nWe change s[6] and s[8] to ')' to make s valid.\n \n\n \u00a0 \n Constraints: \n\n \n n == s.length == locked.length \n 1 <= n <= 10 5 \n s[i] is either '(' or ')' . \n locked[i] is either '0' or '1' .",
+  "statement_sha256": "8a96028a1fd463f2034695f4e3c78e3bd14a01c3db1b18ef3f97d808eb4e3531",
+  "raw_sha256": "8487aa6d6e98b0132130f6a381e96ed16428e480286ed5907ccc4942664a5cdf",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

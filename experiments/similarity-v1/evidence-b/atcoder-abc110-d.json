@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc110-d",
+  "url": "https://atcoder.jp/contests/abc110/tasks/abc110_d",
+  "observed_at": "2026-09-11T07:21:48.250516+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given positive integers N and M.\r\n\nHow many sequences a of length N consisting of positive integers satisfy a_1 \\times a_2 \\times ... \\times a_N = M? Find the count modulo 10^9+7.\r\n\nHere, two sequences a' and a'' are considered different when there exists some i such that a_i' \\neq a_i''.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n1 \\leq N \\leq 10^5\r\n\n1 \\leq M \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN M\r\n\nOutput\nPrint the number of the sequences consisting of positive integers that satisfy the condition, modulo 10^9 + 7.\r\n\nSample Input 1\n2 6\r\n\nSample Output 1\n4\r\n\nFour sequences satisfy the condition: \\{a_1, a_2\\} = \\{1, 6\\}, \\{2, 3\\}, \\{3, 2\\} and \\{6, 1\\}.\r\n\nSample Input 2\n3 12\r\n\nSample Output 2\n18\r\n\nSample Input 3\n100000 1000000000\r\n\nSample Output 3\n957870001",
+  "statement_sha256": "608e333db1e0ca7a5eac773bf2d8fbf1e54c4768f0f8cb9e782e11693c4cfa86",
+  "raw_sha256": "12b09b643e3bb455ba5346b64ff5b9f9ca6775ab4d8ab200f60ddbeb257bb120",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

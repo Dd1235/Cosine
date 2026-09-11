@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-concatenated-words",
+  "url": "https://leetcode.com/problems/concatenated-words/",
+  "observed_at": "2026-09-11T07:21:52.801651+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array of strings words ( without duplicates ), return all the concatenated words in the given list of words . \n\n A concatenated word is defined as a string that is comprised entirely of at least two shorter words (not necessarily distinct)\u00a0in the given array. \n\n \u00a0 \n Example 1: \n\n \n Input: words = [\"cat\",\"cats\",\"catsdogcats\",\"dog\",\"dogcatsdog\",\"hippopotamuses\",\"rat\",\"ratcatdogcat\"]\n Output: [\"catsdogcats\",\"dogcatsdog\",\"ratcatdogcat\"]\n Explanation: \"catsdogcats\" can be concatenated by \"cats\", \"dog\" and \"cats\"; \n\"dogcatsdog\" can be concatenated by \"dog\", \"cats\" and \"dog\"; \n\"ratcatdogcat\" can be concatenated by \"rat\", \"cat\", \"dog\" and \"cat\". \n\n Example 2: \n\n \n Input: words = [\"cat\",\"dog\",\"catdog\"]\n Output: [\"catdog\"]\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= words.length <= 10 4 \n 1 <= words[i].length <= 30 \n words[i] consists of only lowercase English letters. \n All the strings of words are unique . \n 1 <= sum(words[i].length) <= 10 5",
+  "statement_sha256": "ca41e1bfd3ea10ea102a6004a43ce01af2c0ccf781ac67a85eb213634bf9cad5",
+  "raw_sha256": "bbcc376626431e57f5c7d16e6e3dad808f074386a8ff56b6a01f4dc837b4da8d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

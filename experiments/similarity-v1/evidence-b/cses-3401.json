@@ -1,0 +1,10 @@
+{
+  "id": "cses-3401",
+  "url": "https://cses.fi/problemset/task/3401",
+  "observed_at": "2026-09-11T07:22:24.326699+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given n sticks with lengths a_1,a_2,\\dots,a_n.\nYou must make exactly k cuts to the sticks, so that\nthe number of sticks becomes n + k.\n\nAfter making the cuts, the difference between the length of the longest and shortest sticks should be as small as possible. Your task is to compute the smallest possible difference for all amounts k=1,2,\\dots,m.\n\nThe cuts must keep the lengths of the sticks positive integers. You may assume that the sticks can be cut m times.\n\nInput\n\nThe first line contains two integers n,m: the number of sticks and the maximum number of cuts.\n\nThe second line contains n integers a_1,a_2,\\dots,a_n:\nthe lengths of the sticks.\n\nOutput\n\nPrint one line with m integers: the smallest possible difference if exactly k=1,2,\\dots,m cuts are made.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a_i \\le 10^9\n\n\nExample\n\nInput:\n\n3 3\n7 3 2\n\n\nOutput:\n\n2 1 2\n\n\nExplanation: When k=1, you can cut the first stick into two sticks of lengths 3 and 4. After this, the stick lengths are [3,4,3,2] and the maximum difference is 2.",
+  "statement_sha256": "4787ce0fac05b191e3a442742b840e6f2b30ec226816a8ce90968345b7e57ddd",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

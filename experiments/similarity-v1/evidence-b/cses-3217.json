@@ -1,0 +1,10 @@
+{
+  "id": "cses-3217",
+  "url": "https://cses.fi/problemset/task/3217",
+  "observed_at": "2026-09-11T07:22:10.747184+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a knight on an n \\times n chessboard. For each square, print the minimum number of moves the knight needs to do to reach the top-left corner.\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint the number of moves for each square.\n\nConstraints\n\n\n4 \\le n \\le 1000\n\n\nExample\n\nInput:\n\n8\n\n\nOutput:\n\n0 3 2 3 2 3 4 5 \n3 4 1 2 3 4 3 4 \n2 1 4 3 2 3 4 5 \n3 2 3 2 3 4 3 4 \n2 3 2 3 4 3 4 5 \n3 4 3 4 3 4 5 4 \n4 3 4 3 4 5 4 5 \n5 4 5 4 5 4 5 6",
+  "statement_sha256": "713966bb6ce6e8d9da1414cf2fa5cde22c2da7335ea31a4ea189e7089a6bc65d",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

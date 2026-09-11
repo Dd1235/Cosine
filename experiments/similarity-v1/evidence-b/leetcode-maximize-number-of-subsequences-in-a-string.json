@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximize-number-of-subsequences-in-a-string",
+  "url": "https://leetcode.com/problems/maximize-number-of-subsequences-in-a-string/",
+  "observed_at": "2026-09-11T07:21:50.818060+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 0-indexed string text and another 0-indexed string pattern of length 2 , both of which consist of only lowercase English letters. \n\n You can add either pattern[0] or pattern[1] anywhere in text exactly once . Note that the character can be added even at the beginning or at the end of text . \n\n Return the maximum number of times pattern can occur as a subsequence of the modified text . \n\n A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters. \n\n \u00a0 \n Example 1: \n\n \n Input: text = \"abdcdbc\", pattern = \"ac\"\n Output: 4\n Explanation: \nIf we add pattern[0] = 'a' in between text[1] and text[2], we get \"ab a dcdbc\". Now, the number of times \"ac\" occurs as a subsequence is 4.\nSome other strings which have 4 subsequences \"ac\" after adding a character to text are \" a abdcdbc\" and \"abd a cdbc\".\nHowever, strings such as \"abdc a dbc\", \"abd c cdbc\", and \"abdcdbc c \", although obtainable, have only 3 subsequences \"ac\" and are thus suboptimal.\nIt can be shown that it is not possible to get more than 4 subsequences \"ac\" by adding only one character.\n \n\n Example 2: \n\n \n Input: text = \"aabb\", pattern = \"ab\"\n Output: 6\n Explanation: \nSome of the strings which can be obtained from text and have 6 subsequences \"ab\" are \" a aabb\", \"aa a bb\", and \"aab b b\".\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= text.length <= 10 5 \n pattern.length == 2 \n text and pattern consist only of lowercase English letters.",
+  "statement_sha256": "425e2b3e3cfa19d091d7276a080d3791ba8e7be5fd8d653b03061399a770a99f",
+  "raw_sha256": "05b4919d470c28e68350bf2490354000d60093d4bcd1b6173431f37b153ba3ba",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

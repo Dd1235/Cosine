@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-deletions-on-a-string",
+  "url": "https://leetcode.com/problems/maximum-deletions-on-a-string/",
+  "observed_at": "2026-09-11T07:22:27.442478+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s consisting of only lowercase English letters. In one operation, you can: \n\n \n Delete the entire string s , or \n Delete the first i letters of s if the first i letters of s are equal to the following i letters in s , for any i in the range 1 <= i <= s.length / 2 . \n \n\n For example, if s = \"ababc\" , then in one operation, you could delete the first two letters of s to get \"abc\" , since the first two letters of s and the following two letters of s are both equal to \"ab\" . \n\n Return the maximum number of operations needed to delete all of s . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abcabcdabc\"\n Output: 2\n Explanation: \n- Delete the first 3 letters (\"abc\") since the next 3 letters are equal. Now, s = \"abcdabc\".\n- Delete all the letters.\nWe used 2 operations so return 2. It can be proven that 2 is the maximum number of operations needed.\nNote that in the second operation we cannot delete \"abc\" again because the next occurrence of \"abc\" does not happen in the next 3 letters.\n \n\n Example 2: \n\n \n Input: s = \"aaabaab\"\n Output: 4\n Explanation: \n- Delete the first letter (\"a\") since the next letter is equal. Now, s = \"aabaab\".\n- Delete the first 3 letters (\"aab\") since the next 3 letters are equal. Now, s = \"aab\".\n- Delete the first letter (\"a\") since the next letter is equal. Now, s = \"ab\".\n- Delete all the letters.\nWe used 4 operations so return 4. It can be proven that 4 is the maximum number of operations needed.\n \n\n Example 3: \n\n \n Input: s = \"aaaaa\"\n Output: 5\n Explanation: In each operation, we can delete the first letter of s.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 4000 \n s consists only of lowercase English letters.",
+  "statement_sha256": "b3511297efe513419fc894e7844772850300674fe0c4fe0ceca8db6cb9aeed62",
+  "raw_sha256": "b1479de6be8553e337b4d4e5cde9ab5f0f2e93f07fe9478c2d3071089138d63c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-agc027-a",
+  "url": "https://atcoder.jp/contests/agc027/tasks/agc027_a",
+  "observed_at": "2026-09-11T07:22:23.832621+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N children, numbered 1, 2, ..., N.\r\n\nSnuke has decided to distribute x sweets among them.\r\nHe needs to give out all the x sweets, but some of the children may get zero sweets.\r\n\nFor each i (1 \\leq i \\leq N), Child i will be happy if he/she gets exactly a_i sweets.\r\nSnuke is trying to maximize the number of happy children by optimally distributing the sweets.\r\nFind the maximum possible number of happy children.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n2 \\leq N \\leq 100\r\n\n1 \\leq x \\leq 10^9\r\n\n1 \\leq a_i \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN x\r\na_1 a_2 ... a_N\r\n\nOutput\nPrint the maximum possible number of happy children.\r\n\nSample Input 1\n3 70\r\n20 30 10\r\n\nSample Output 1\n2\r\n\nOne optimal way to distribute sweets is (20, 30, 20).\r\n\nSample Input 2\n3 10\r\n20 30 10\r\n\nSample Output 2\n1\r\n\nThe optimal way to distribute sweets is (0, 0, 10).\r\n\nSample Input 3\n4 1111\r\n1 10 100 1000\r\n\nSample Output 3\n4\r\n\nThe optimal way to distribute sweets is (1, 10, 100, 1000).\r\n\nSample Input 4\n2 10\r\n20 20\r\n\nSample Output 4\n0\r\n\nNo children will be happy, no matter how the sweets are distributed.",
+  "statement_sha256": "9f18548b49fbd0e0f0e45ade6015cb4f0af2b5cdea4b5428009c87d5f9a2bb7b",
+  "raw_sha256": "cd7d16124d5354e7bf0f8c546240c37ee305b253c413a49e99a20f85f830d0d8",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

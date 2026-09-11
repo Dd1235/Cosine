@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimize-the-difference-between-target-and-chosen-elements",
+  "url": "https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/",
+  "observed_at": "2026-09-11T07:22:11.003659+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an m x n integer matrix mat and an integer target . \n\n Choose one integer from each row in the matrix such that the absolute difference between target and the sum of the chosen elements is minimized . \n\n Return the minimum absolute difference . \n\n The absolute difference between two numbers a and b is the absolute value of a - b . \n\n \u00a0 \n Example 1: \n \n \n Input: mat = [[1,2,3],[4,5,6],[7,8,9]], target = 13\n Output: 0\n Explanation: One possible choice is to:\n- Choose 1 from the first row.\n- Choose 5 from the second row.\n- Choose 7 from the third row.\nThe sum of the chosen elements is 13, which equals the target, so the absolute difference is 0.\n \n\n Example 2: \n \n \n Input: mat = [[1],[2],[3]], target = 100\n Output: 94\n Explanation: The best possible choice is to:\n- Choose 1 from the first row.\n- Choose 2 from the second row.\n- Choose 3 from the third row.\nThe sum of the chosen elements is 6, and the absolute difference is 94.\n \n\n Example 3: \n \n \n Input: mat = [[1,2,9,8,7]], target = 6\n Output: 1\n Explanation: The best choice is to choose 7 from the first row.\nThe absolute difference is 1.\n \n\n \u00a0 \n Constraints: \n\n \n m == mat.length \n n == mat[i].length \n 1 <= m, n <= 70 \n 1 <= mat[i][j] <= 70 \n 1 <= target <= 800",
+  "statement_sha256": "8650dc0ad37496d8e640b24ed276830e61ea70e7f8ac8ea3bea88719a9a34dff",
+  "raw_sha256": "88f5a3518ef0cafcf233b775cf912e38c5374d2e867914b76644cfdc967d85c5",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

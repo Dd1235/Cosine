@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-dp-n",
+  "url": "https://atcoder.jp/contests/dp/tasks/dp_n",
+  "observed_at": "2026-09-11T07:21:44.844807+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N slimes lining up in a row.\r\nInitially, the i-th slime from the left has a size of a_i.\r\n\nTaro is trying to combine all the slimes into a larger slime.\r\nHe will perform the following operation repeatedly until there is only one slime:\r\n\nChoose two adjacent slimes, and combine them into a new slime. The new slime has a size of x + y, where x and y are the sizes of the slimes before combining them. Here, a cost of x + y is incurred. The positional relationship of the slimes does not change while combining slimes.\r\n\nFind the minimum possible total cost incurred.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n2 \\leq N \\leq 400\r\n\n1 \\leq a_i \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\na_1 a_2 \\ldots a_N\r\n\nOutput\nPrint the minimum possible total cost incurred.\r\n\nSample Input 1\n4\r\n10 20 30 40\r\n\nSample Output 1\n190\r\n\nTaro should do as follows (slimes being combined are shown in bold):\r\n\n(10, 20, 30, 40) \u2192 (30, 30, 40)\r\n\n(30, 30, 40) \u2192 (60, 40)\r\n\n(60, 40) \u2192 (100)\r\n\nSample Input 2\n5\r\n10 10 10 10 10\r\n\nSample Output 2\n120\r\n\nTaro should do, for example, as follows:\r\n\n(10, 10, 10, 10, 10) \u2192 (20, 10, 10, 10)\r\n\n(20, 10, 10, 10) \u2192 (20, 20, 10)\r\n\n(20, 20, 10) \u2192 (20, 30)\r\n\n(20, 30) \u2192 (50)\r\n\nSample Input 3\n3\r\n1000000000 1000000000 1000000000\r\n\nSample Output 3\n5000000000\r\n\nThe answer may not fit into a 32-bit integer type.\r\n\nSample Input 4\n6\r\n7 6 8 6 1 1\r\n\nSample Output 4\n68\r\n\nTaro should do, for example, as follows:\r\n\n(7, 6, 8, 6, 1, 1) \u2192 (7, 6, 8, 6, 2)\r\n\n(7, 6, 8, 6, 2) \u2192 (7, 6, 8, 8)\r\n\n(7, 6, 8, 8) \u2192 (13, 8, 8)\r\n\n(13, 8, 8) \u2192 (13, 16)\r\n\n(13, 16) \u2192 (29)",
+  "statement_sha256": "32ecda071f3adeff78b0fcd31690416bbc6e08c1dcd18740dfe16e0fec5f5f87",
+  "raw_sha256": "00b7f438284b1a305943937eadfd86a5e3eaa078a9f9f2fc408fd1eeec542ec2",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

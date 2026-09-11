@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-most-profit-assigning-work",
+  "url": "https://leetcode.com/problems/most-profit-assigning-work/description/",
+  "observed_at": "2026-09-11T07:22:26.732868+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You have n jobs and m workers. You are given three arrays: difficulty , profit , and worker where: \n\n \n difficulty[i] and profit[i] are the difficulty and the profit of the i th job, and \n worker[j] is the ability of j th worker (i.e., the j th worker can only complete a job with difficulty at most worker[j] ). \n \n\n Every worker can be assigned at most one job , but one job can be completed multiple times . \n\n \n For example, if three workers attempt the same job that pays $1 , then the total profit will be $3 . If a worker cannot complete any job, their profit is $0 . \n \n\n Return the maximum profit we can achieve after assigning the workers to the jobs. \n\n \u00a0 \n Example 1: \n\n \n Input: difficulty = [2,4,6,8,10], profit = [10,20,30,40,50], worker = [4,5,6,7]\n Output: 100\n Explanation: Workers are assigned jobs of difficulty [4,4,6,6] and they get a profit of [20,20,30,30] separately.\n \n\n Example 2: \n\n \n Input: difficulty = [85,47,57], profit = [24,66,99], worker = [40,25,25]\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n n == difficulty.length \n n == profit.length \n m == worker.length \n 1 <= n, m <= 10 4 \n 1 <= difficulty[i], profit[i], worker[i] <= 10 5",
+  "statement_sha256": "5641b1e1da6ceaf5faed35f6569485eca428dd4fdaff978d47ac5e75fcefb166",
+  "raw_sha256": "0d3ae623578a8220efa004c9dd8281425e5ef864abc154d3902448642e12a286",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

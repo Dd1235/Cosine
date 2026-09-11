@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-different-palindromic-subsequences",
+  "url": "https://leetcode.com/problems/count-different-palindromic-subsequences/",
+  "observed_at": "2026-09-11T07:21:44.807210+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s, return the number of different non-empty palindromic subsequences in s . Since the answer may be very large, return it modulo 10 9 + 7 . \n\n A subsequence of a string is obtained by deleting zero or more characters from the string. \n\n A sequence is palindromic if it is equal to the sequence reversed. \n\n Two sequences a 1 , a 2 , ... and b 1 , b 2 , ... are different if there is some i for which a i != b i . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"bccb\"\n Output: 6\n Explanation: The 6 different non-empty palindromic subsequences are 'b', 'c', 'bb', 'cc', 'bcb', 'bccb'.\nNote that 'bcb' is counted only once, even though it occurs twice.\n \n\n Example 2: \n\n \n Input: s = \"abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba\"\n Output: 104860361\n Explanation: There are 3104860382 different non-empty palindromic subsequences, which is 104860361 modulo 10 9 + 7.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 1000 \n s[i] is either 'a' , 'b' , 'c' , or 'd' .",
+  "statement_sha256": "961513e2721230ccb6dadc0b82f148419a598f90c14bb6d19a9a247c56ed1724",
+  "raw_sha256": "eabd427f0f1a230d1d901a5ed434a82f7a0df8f91b7bbee748143a9086f6feff",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

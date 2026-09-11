@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-random-pick-index",
+  "url": "https://leetcode.com/problems/random-pick-index/",
+  "observed_at": "2026-09-11T07:22:23.301270+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an integer array nums with possible duplicates , randomly output the index of a given target number. You can assume that the given target number must exist in the array. \n\n Implement the Solution class: \n\n \n Solution(int[] nums) Initializes the object with the array nums . \n int pick(int target) Picks a random index i from nums where nums[i] == target . If there are multiple valid i's, then each index should have an equal probability of returning. \n \n\n \u00a0 \n Example 1: \n\n \n Input \n[\"Solution\", \"pick\", \"pick\", \"pick\"]\n[[[1, 2, 3, 3, 3]], [3], [1], [3]]\n Output \n[null, 4, 0, 2]\n\n Explanation \nSolution solution = new Solution([1, 2, 3, 3, 3]);\nsolution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.\nsolution.pick(1); // It should return 0. Since in the array only nums[0] is equal to 1.\nsolution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 2 * 10 4 \n -2 31 <= nums[i] <= 2 31 - 1 \n target is an integer from nums . \n At most 10 4 calls will be made to pick .",
+  "statement_sha256": "303cc91510497c79c0bfe2e238961c1f01d8a953d83019783077b195a94e3488",
+  "raw_sha256": "dd01cc62c34a0bf311a202131d501480345ef57ff900f544ebf043b3ab929ad5",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

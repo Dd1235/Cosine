@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-remove-boxes",
+  "url": "https://leetcode.com/problems/remove-boxes/",
+  "observed_at": "2026-09-11T07:21:45.001623+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given several boxes with different colors represented by different positive numbers. \n\n You may experience several rounds to remove boxes until there is no box left. Each time you can choose some continuous boxes with the same color (i.e., composed of k boxes, k >= 1 ), remove them and get k * k points. \n\n Return the maximum points you can get . \n\n \u00a0 \n Example 1: \n\n \n Input: boxes = [1,3,2,2,2,3,4,3,1]\n Output: 23\n Explanation: \n[1, 3, 2, 2, 2, 3, 4, 3, 1] \n----> [1, 3, 3, 4, 3, 1] (3*3=9 points) \n----> [1, 3, 3, 3, 1] (1*1=1 points) \n----> [1, 1] (3*3=9 points) \n----> [] (2*2=4 points)\n \n\n Example 2: \n\n \n Input: boxes = [1,1,1]\n Output: 9\n \n\n Example 3: \n\n \n Input: boxes = [1]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= boxes.length <= 100 \n 1 <= boxes[i]\u00a0<= 100",
+  "statement_sha256": "10683a613799feab90adf7e3fe1bca24bbb1383308d87f2ba1e5365e1f114b87",
+  "raw_sha256": "3c48d3d69fcee8d841bbbc8bda3e30e68212390aeb4a3ef977c27b3e986435be",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-numbers-with-non-decreasing-digits",
+  "url": "https://leetcode.com/problems/count-numbers-with-non-decreasing-digits/",
+  "observed_at": "2026-09-11T07:22:06.973059+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two integers, l and r , represented as strings, and an integer b . Return the count of integers in the inclusive range [l, r] whose digits are in non-decreasing order when represented in base b . \n\n An integer is considered to have non-decreasing digits if, when read from left to right (from the most significant digit to the least significant digit), each digit is greater than or equal to the previous one. \n\n Since the answer may be too large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: l = \"23\", r = \"28\", b = 8 \n\n Output: 3 \n\n Explanation: \n\n \n The numbers from 23 to 28 in base 8 are: 27, 30, 31, 32, 33, and 34. \n Out of these, 27, 33, and 34 have non-decreasing digits. Hence, the output is 3. \n \n \n\n Example 2: \n\n \n Input: l = \"2\", r = \"7\", b = 2 \n\n Output: 2 \n\n Explanation: \n\n \n The numbers from 2 to 7 in base 2 are: 10, 11, 100, 101, 110, and 111. \n Out of these, 11 and 111 have non-decreasing digits. Hence, the output is 2. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= l.length <= r.length <= 100 \n 2 <= b <= 10 \n l and r consist only of digits. \n The value represented by l is less than or equal to the value represented by r . \n l and r do not contain leading zeros.",
+  "statement_sha256": "3c47d7c9bdc19c0848e573c315546bdbd1e68599decd3d52317202631ddae120",
+  "raw_sha256": "5265107f21554ce2d9fbb7d7f3992cf864d0231a9a515fa1ea86cf9f5d3b7650",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

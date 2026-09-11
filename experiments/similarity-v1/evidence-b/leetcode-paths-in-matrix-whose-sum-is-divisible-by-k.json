@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-paths-in-matrix-whose-sum-is-divisible-by-k",
+  "url": "https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/",
+  "observed_at": "2026-09-11T07:21:48.880837+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 0-indexed m x n integer matrix grid and an integer k . You are currently at position (0, 0) and you want to reach position (m - 1, n - 1) moving only down or right . \n\n Return the number of paths where the sum of the elements on the path is divisible by k . Since the answer may be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n \n \n Input: grid = [[5,2,4],[3,0,5],[0,7,2]], k = 3\n Output: 2\n Explanation: There are two paths where the sum of the elements on the path is divisible by k.\nThe first path highlighted in red has a sum of 5 + 2 + 4 + 5 + 2 = 18 which is divisible by 3.\nThe second path highlighted in blue has a sum of 5 + 3 + 0 + 5 + 2 = 15 which is divisible by 3.\n \n\n Example 2: \n \n \n Input: grid = [[0,0]], k = 5\n Output: 1\n Explanation: The path highlighted in red has a sum of 0 + 0 = 0 which is divisible by 5.\n \n\n Example 3: \n \n \n Input: grid = [[7,3,4,9],[2,3,6,2],[2,3,7,0]], k = 1\n Output: 10\n Explanation: Every integer is divisible by 1 so the sum of the elements on every possible path is divisible by k.\n \n\n \u00a0 \n Constraints: \n\n \n m == grid.length \n n == grid[i].length \n 1 <= m, n <= 5 * 10 4 \n 1 <= m * n <= 5 * 10 4 \n 0 <= grid[i][j] <= 100 \n 1 <= k <= 50",
+  "statement_sha256": "ec858219b8d19e7f7a589b75735669daf7fbd7bbbe37227231929e3daf70ee60",
+  "raw_sha256": "a6d4d9eb930b4943ab7f2c1c60020e2a81a05bd68e6f41cc9d37546bcb3360ca",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

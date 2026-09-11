@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-largest-multiple-of-three",
+  "url": "https://leetcode.com/problems/largest-multiple-of-three/",
+  "observed_at": "2026-09-11T07:21:54.736974+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array of digits digits , return the largest multiple of three that can be formed by concatenating some of the given digits in any order . If there is no answer return an empty string. \n\n Since the answer may not fit in an integer data type, return the answer as a string. Note that the returning answer must not contain unnecessary leading zeros. \n\n \u00a0 \n Example 1: \n\n \n Input: digits = [8,1,9]\n Output: \"981\"\n \n\n Example 2: \n\n \n Input: digits = [8,6,7,1,0]\n Output: \"8760\"\n \n\n Example 3: \n\n \n Input: digits = [1]\n Output: \"\"\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= digits.length <= 10 4 \n 0 <= digits[i] <= 9",
+  "statement_sha256": "27f37aca15642fd6a38387919858d76b97bd105d45e84ab8e8aace6873386b58",
+  "raw_sha256": "dc7ad86824420b512d795dc500db5a1b1341ec2c740bb3cbfc67fbc7066925c0",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cses-1723",
+  "url": "https://cses.fi/problemset/task/1723",
+  "observed_at": "2026-09-11T07:21:44.217799+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a directed graph that has n nodes and m edges. Your task is to count the number of paths from node 1 to node n with exactly k edges.\n\nInput\n\nThe first input line contains three integers n, m and k: the number of nodes and edges, and the length of the path. The nodes are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the edges. Each line contains two integers a and b: there is an edge from node a to node b.\n\nOutput\n\nPrint the number of paths modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le m \\le n(n-1)\n\n1 \\le k \\le 10^9\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n3 4 8\n1 2\n2 3\n3 1\n3 2\n\n\nOutput:\n\n2\n\n\nExplanation: The paths are 1 \\rightarrow 2 \\rightarrow 3 \\rightarrow 1 \\rightarrow 2 \\rightarrow 3 \\rightarrow 1 \\rightarrow 2 \\rightarrow 3 and 1 \\rightarrow 2 \\rightarrow 3 \\rightarrow 2 \\rightarrow 3 \\rightarrow 2 \\rightarrow 3 \\rightarrow 2 \\rightarrow 3.",
+  "statement_sha256": "967f5db84b5c5ac37dff436dad39f042ff420a91fd83cf218f5691291d6f7c69",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

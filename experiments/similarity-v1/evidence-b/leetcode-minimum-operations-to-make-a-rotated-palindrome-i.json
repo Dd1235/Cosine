@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-operations-to-make-a-rotated-palindrome-i",
+  "url": "https://leetcode.com/problems/minimum-operations-to-make-a-rotated-palindrome-i/",
+  "observed_at": "2026-09-11T07:22:08.860146+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s consisting of lowercase English letters. \n\n You can perform the following operations any number of times (including zero) and in any order: \n\n \n Increment : Choose any index i and replace s[i] with the next lowercase English letter. The letter after 'z' is 'a' . \n Left rotate : Move the first character of the string to the end. \n \n\n Return the minimum number of operations required to make s a palindrome . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abc\" \n\n Output: 2 \n\n Explanation: \nOne optimal solution:\n\n \n Left rotate the string: \"abc\" -> \"bca\" . \n Increment 'a' to 'b' : \"bca\" -> \"bcb\" . \n \"bcb\" is a palindrome. Thus, the answer is 2. \n \n \n\n Example 2: \n\n \n Input: s = \"yb\" \n\n Output: 3 \n\n Explanation: \n\n \n Increment the first character three times: \"yb\" -> \"zb\" -> \"ab\" -> \"bb\" . \n \"bb\" is a palindrome. Thus, the answer is 3. \n \n \n\n \u00a0 \n Constraints: \n\n \n 2 <= s.length <= 2000 \n s consists only of lowercase English letters.",
+  "statement_sha256": "6dd9c6e458e2fac8dcfc264bdf3e97b26a1ab3fbbf70deba13ff338338788fba",
+  "raw_sha256": "c325ad3e936f6c9ca1aec3a9c93befd04f9b80d3669a52b59ad22cd2dfbbcacf",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

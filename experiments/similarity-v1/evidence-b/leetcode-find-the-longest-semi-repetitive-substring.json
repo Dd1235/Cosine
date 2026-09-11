@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-the-longest-semi-repetitive-substring",
+  "url": "https://leetcode.com/problems/find-the-longest-semi-repetitive-substring/",
+  "observed_at": "2026-09-11T07:22:24.342940+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a digit string s that consists of digits from 0 to 9. \n\n A string is called semi-repetitive if there is at most one adjacent pair of the same digit. For example, \"0010\" , \"002020\" , \"0123\" , \"2002\" , and \"54944\" are semi-repetitive while the following are not: \"00101022\" (adjacent same digit pairs are 00 and 22), and \"1101234883\" (adjacent same digit pairs are 11 and 88). \n\n Return the length of the longest semi-repetitive substring of s . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"52233\" \n\n Output: 4 \n\n Explanation: \n\n The longest semi-repetitive substring is \"5223\". Picking the whole string \"52233\" has two adjacent same digit pairs 22 and 33, but at most one is allowed. \n \n\n Example 2: \n\n \n Input: s = \"5494\" \n\n Output: 4 \n\n Explanation: \n\n s is a semi-repetitive string. \n \n\n Example 3: \n\n \n Input: s = \"1111111\" \n\n Output: 2 \n\n Explanation: \n\n The longest semi-repetitive substring is \"11\". Picking the substring \"111\" has two adjacent same digit pairs, but at most one is allowed. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 50 \n '0' <= s[i] <= '9'",
+  "statement_sha256": "ec2c4104775ab071f4e7dfa4f3474da54a27ad97f046b52f20f11ff7bd261e7c",
+  "raw_sha256": "77803a576b120b6f68fd3e3f49f4efc181fdb0a09c2876303cbe909c351e079f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

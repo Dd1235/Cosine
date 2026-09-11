@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-value-at-a-given-index-in-a-bounded-array",
+  "url": "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/",
+  "observed_at": "2026-09-11T07:22:09.235795+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given three positive integers:\u00a0 n , index , and maxSum . You want to construct an array nums ( 0-indexed ) that satisfies the following conditions: \n\n \n nums.length == n \n nums[i] is a positive integer where 0 <= i < n . \n abs(nums[i] - nums[i+1]) <= 1 where 0 <= i < n-1 . \n The sum of all the elements of nums does not exceed maxSum . \n nums[index] is maximized . \n \n\n Return nums[index] of the constructed array . \n\n Note that abs(x) equals x if x >= 0 , and -x otherwise. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 4, index = 2, maxSum = 6\n Output: 2\n Explanation: nums = [1,2, 2 ,1] is one array that satisfies all the conditions.\nThere are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 is the maximum nums[2].\n \n\n Example 2: \n\n \n Input: n = 6, index = 1, maxSum = 10\n Output: 3\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= maxSum <= 10 9 \n 0 <= index < n",
+  "statement_sha256": "1a21cbfff96abfa81c48bc93816344c6abd61b4d3c108a0a5b2e10c012576342",
+  "raw_sha256": "468179e3724ca958901712e1c75525e0ed37d9a346b966d6dd69c9001cbb886e",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

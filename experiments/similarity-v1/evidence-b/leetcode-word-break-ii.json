@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-word-break-ii",
+  "url": "https://leetcode.com/problems/word-break-ii/",
+  "observed_at": "2026-09-11T07:21:52.343007+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s and a dictionary of strings wordDict , add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order . \n\n Note that the same word in the dictionary may be reused multiple times in the segmentation. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"catsanddog\", wordDict = [\"cat\",\"cats\",\"and\",\"sand\",\"dog\"]\n Output: [\"cats and dog\",\"cat sand dog\"]\n \n\n Example 2: \n\n \n Input: s = \"pineapplepenapple\", wordDict = [\"apple\",\"pen\",\"applepen\",\"pine\",\"pineapple\"]\n Output: [\"pine apple pen apple\",\"pineapple pen apple\",\"pine applepen apple\"]\n Explanation: Note that you are allowed to reuse a dictionary word.\n \n\n Example 3: \n\n \n Input: s = \"catsandog\", wordDict = [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]\n Output: []\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 20 \n 1 <= wordDict.length <= 1000 \n 1 <= wordDict[i].length <= 10 \n s and wordDict[i] consist of only lowercase English letters. \n All the strings of wordDict are unique . \n Input is generated in a way that the length of the answer doesn't exceed\u00a010 5 .",
+  "statement_sha256": "a9f77b9b9b069e8a2cec6bf415dc0282d5b6938ec8fe9b36b927b432dc6f1093",
+  "raw_sha256": "d9b4e255ab949157035a9524320e895c8cabe5c2e2a161656d282f30c5de4cd3",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

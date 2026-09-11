@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-the-number-of-substrings-with-dominant-ones",
+  "url": "https://leetcode.com/problems/count-the-number-of-substrings-with-dominant-ones/",
+  "observed_at": "2026-09-11T07:22:01.821666+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a binary string s . \n\n Return the number of substrings with dominant ones. \n\n A string has dominant ones if the number of ones in the string is greater than or equal to the square of the number of zeros in the string. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"00011\" \n\n Output: 5 \n\n Explanation: \n\n The substrings with dominant ones are shown in the table below. \n \n\n \n \n \n i \n j \n s[i..j] \n Number of Zeros \n Number of Ones \n \n \n \n \n 3 \n 3 \n 1 \n 0 \n 1 \n \n \n 4 \n 4 \n 1 \n 0 \n 1 \n \n \n 2 \n 3 \n 01 \n 1 \n 1 \n \n \n 3 \n 4 \n 11 \n 0 \n 2 \n \n \n 2 \n 4 \n 011 \n 1 \n 2 \n \n \n \n\n Example 2: \n\n \n Input: s = \"101101\" \n\n Output: 16 \n\n Explanation: \n\n The substrings with non-dominant ones are shown in the table below. \n\n Since there are 21 substrings total and 5 of them have non-dominant ones, it follows that there are 16 substrings with dominant ones. \n \n\n \n \n \n i \n j \n s[i..j] \n Number of Zeros \n Number of Ones \n \n \n \n \n 1 \n 1 \n 0 \n 1 \n 0 \n \n \n 4 \n 4 \n 0 \n 1 \n 0 \n \n \n 1 \n 4 \n 0110 \n 2 \n 2 \n \n \n 0 \n 4 \n 10110 \n 2 \n 3 \n \n \n 1 \n 5 \n 01101 \n 2 \n 3 \n \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 4 * 10 4 \n s consists only of characters '0' and '1' .",
+  "statement_sha256": "d1ae0493ddb6c296d11f1540536922ea0f4200108f7dce10a0dc5d847e16102d",
+  "raw_sha256": "6a7eb5ce775037a7627934e617391b5cf8ddadd45a88dc5dfb5821a5c59f0b26",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

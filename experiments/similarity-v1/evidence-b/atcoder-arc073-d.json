@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-arc073-d",
+  "url": "https://atcoder.jp/contests/arc073/tasks/arc073_d",
+  "observed_at": "2026-09-11T07:21:45.742725+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N squares in a row. The squares are numbered 1, 2, ..., N from left to right.\r\n\nYou have two pieces, initially placed on square A and B, respectively.\r\nYou will be asked to process Q queries of the following kind, in the order received:\r\n\nGiven an integer x_i, move one of the two pieces of your choice to square x_i.\r\n\nHere, it takes you one second to move a piece one square.\r\nThat is, the time it takes to move a piece from square X to Y is |X-Y| seconds.\r\n\nYour objective is to process all the queries in the shortest possible time.\r\n\nYou may only move the pieces in response to queries, and you may not move both pieces at the same time.\r\nAlso, it is not allowed to rearrange the order in which queries are given.\r\nIt is, however, allowed to have both pieces in the same square at the same time.\r\n\nConstraints\r\n\n1 \u2264 N, Q \u2264 200,000\r\n\n1 \u2264 A, B \u2264 N\r\n\n1 \u2264 x_i \u2264 N\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN Q A B\r\nx_1 x_2 ... x_Q\r\n\nOutput\nLet the shortest possible time to process all the queries be X seconds. Print X.\r\n\nSample Input 1\n8 3 1 8\r\n3 5 1\r\n\nSample Output 1\n7\r\n\nAll the queries can be processed in seven seconds, by:\r\n\nmoving the piece at square 1 to 3\r\n\nmoving the piece at square 8 to 5\r\n\nmoving the piece at square 3 to 1\r\n\nSample Input 2\n9 2 1 9\r\n5 1\r\n\nSample Output 2\n4\r\n\nThe piece at square 9 should be moved first.\r\n\nSample Input 3\n9 2 1 9\r\n5 9\r\n\nSample Output 3\n4\r\n\nThe piece at square 1 should be moved first.\r\n\nSample Input 4\n11 16 8 1\r\n1 1 5 1 11 4 5 2 5 3 3 3 5 5 6 7\r\n\nSample Output 4\n21",
+  "statement_sha256": "8a86ffe226e590985ae2e3f6ad80ea8120bf8e11dcdf1d285cd4084fc10ba4a2",
+  "raw_sha256": "3ec3df647482f8424a859f4c3e7e7e0ccfbcb3b48b02f64221a229d1b247f74c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

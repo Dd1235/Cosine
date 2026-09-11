@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-09-11T07:22:55.350Z",
+  "node": "v20.11.0",
+  "os": "Darwin",
+  "release": "24.6.0",
+  "arch": "arm64",
+  "cpu": "Apple M2",
+  "corpusHash": "ab6359946f46cb8ee24d720608e5565cd1a534ee5a84f7def55e26c1ec6b429e",
+  "count": 3507,
+  "scope": "warm scoring only; excludes HTTP and personalized DB reads",
+  "latency": {
+    "dense": {
+      "repetitions": 200,
+      "medianMs": 3.4300839999998516,
+      "p95Ms": 3.840582999999924
+    },
+    "technique": {
+      "repetitions": 200,
+      "medianMs": 0.6838749999999436,
+      "p95Ms": 0.9964999999999691
+    },
+    "hybrid": {
+      "repetitions": 200,
+      "medianMs": 4.030834000000141,
+      "p95Ms": 4.481792000000041
+    }
+  }
+}

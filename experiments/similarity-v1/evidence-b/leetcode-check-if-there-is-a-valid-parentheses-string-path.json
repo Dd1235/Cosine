@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-check-if-there-is-a-valid-parentheses-string-path",
+  "url": "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/",
+  "observed_at": "2026-09-11T07:21:56.847825+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A parentheses string is a non-empty string consisting only of '(' and ')' . It is valid if any of the following conditions is true : \n\n \n It is () . \n It can be written as AB ( A concatenated with B ), where A and B are valid parentheses strings. \n It can be written as (A) , where A is a valid parentheses string. \n \n\n You are given an m x n matrix of parentheses grid . A valid parentheses string path in the grid is a path satisfying all of the following conditions: \n\n \n The path starts from the upper left cell (0, 0) . \n The path ends at the bottom-right cell (m - 1, n - 1) . \n The path only ever moves down or right . \n The resulting parentheses string formed by the path is valid . \n \n\n Return true if there exists a valid parentheses string path in the grid. Otherwise, return false . \n\n \u00a0 \n Example 1: \n \n \n Input: grid = [[\"(\",\"(\",\"(\"],[\")\",\"(\",\")\"],[\"(\",\"(\",\")\"],[\"(\",\"(\",\")\"]]\n Output: true\n Explanation: The above diagram shows two possible paths that form valid parentheses strings.\nThe first path shown results in the valid parentheses string \"()(())\".\nThe second path shown results in the valid parentheses string \"((()))\".\nNote that there may be other valid parentheses string paths.\n \n\n Example 2: \n \n \n Input: grid = [[\")\",\")\"],[\"(\",\"(\"]]\n Output: false\n Explanation: The two possible paths form the parentheses strings \"))(\" and \")((\". Since neither of them are valid parentheses strings, we return false.\n \n\n \u00a0 \n Constraints: \n\n \n m == grid.length \n n == grid[i].length \n 1 <= m, n <= 100 \n grid[i][j] is either '(' or ')' .",
+  "statement_sha256": "1cb48ff0328423875727e3c1df53b5b8e37cf1acba534fd8737bee911975f0e2",
+  "raw_sha256": "d28c5c9bb069590fc06558fd1ff6fa00810f2bbe0b596fa6bf521e5f8cacdd69",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

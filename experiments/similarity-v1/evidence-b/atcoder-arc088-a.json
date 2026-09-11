@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-arc088-a",
+  "url": "https://atcoder.jp/contests/abc083/tasks/arc088_a",
+  "observed_at": "2026-09-11T07:21:43.406629+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nAs a token of his gratitude, Takahashi has decided to give his mother an integer sequence.\r\nThe sequence A needs to satisfy the conditions below:\r\n\nA consists of integers between X and Y (inclusive).\r\n\nFor each 1\\leq i \\leq |A|-1, A_{i+1} is a multiple of A_i and strictly greater than A_i.\r\n\nFind the maximum possible length of the sequence.\r\n\nConstraints\r\n\n1 \\leq X \\leq Y \\leq 10^{18}\r\n\nAll input values are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nX Y\r\n\nOutput\nPrint the maximum possible length of the sequence.\r\n\nSample Input 1\n3 20\r\n\nSample Output 1\n3\r\n\nThe sequence 3,6,18 satisfies the conditions.\r\n\nSample Input 2\n25 100\r\n\nSample Output 2\n3\r\n\nSample Input 3\n314159265 358979323846264338\r\n\nSample Output 3\n31",
+  "statement_sha256": "f3ec8793cb0453b38d9bb41fdecd5f59094e2ae950d327788fa8af0654c3a46b",
+  "raw_sha256": "06ad8ecfed35545e9965ee721378deacedf5ece15d31f0a9463037eb969f180c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

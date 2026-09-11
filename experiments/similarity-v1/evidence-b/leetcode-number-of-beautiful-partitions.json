@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-beautiful-partitions",
+  "url": "https://leetcode.com/problems/number-of-beautiful-partitions/",
+  "observed_at": "2026-09-11T07:22:18.352731+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s that consists of the digits '1' to '9' and two integers k and minLength . \n\n A partition of s is called beautiful if: \n\n \n s is partitioned into k non-intersecting substrings. \n Each substring has a length of at least minLength . \n Each substring starts with a prime digit and ends with a non-prime digit. Prime digits are '2' , '3' , '5' , and '7' , and the rest of the digits are non-prime. \n \n\n Return the number of beautiful partitions of s . Since the answer may be very large, return it modulo 10 9 + 7 . \n\n A substring is a contiguous sequence of characters within a string. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"23542185131\", k = 3, minLength = 2\n Output: 3\n Explanation: There exists three ways to create a beautiful partition:\n\"2354 | 218 | 5131\"\n\"2354 | 21851 | 31\"\n\"2354218 | 51 | 31\"\n \n\n Example 2: \n\n \n Input: s = \"23542185131\", k = 3, minLength = 3\n Output: 1\n Explanation: There exists one way to create a beautiful partition: \"2354 | 218 | 5131\".\n \n\n Example 3: \n\n \n Input: s = \"3312958\", k = 3, minLength = 1\n Output: 1\n Explanation: There exists one way to create a beautiful partition: \"331 | 29 | 58\".\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= k, minLength <= s.length <= 1000 \n s consists of the digits '1' to '9' .",
+  "statement_sha256": "b1e76f3e7be67d699bde8047db7cb323f3b1d47c19c9421a54729d866b1396b1",
+  "raw_sha256": "3be3d954f9ef5175c4d5e3da133801384eb0c44ce0471ff21d6c55461a09f736",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

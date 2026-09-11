@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-height-by-stacking-cuboids",
+  "url": "https://leetcode.com/problems/maximum-height-by-stacking-cuboids/",
+  "observed_at": "2026-09-11T07:22:11.616321+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given n cuboids where the dimensions of the i th cuboid is cuboids[i] = [width i , length i , height i ] ( 0-indexed ). Choose a subset of cuboids and place them on each other. \n\n You can place cuboid i on cuboid j if width i <= width j and length i <= length j and height i <= height j . You can rearrange any cuboid's dimensions by rotating it to put it on another cuboid. \n\n Return the maximum height of the stacked cuboids . \n\n \u00a0 \n Example 1: \n\n \n\n \n Input: cuboids = [[50,45,20],[95,37,53],[45,23,12]]\n Output: 190\n Explanation: \nCuboid 1 is placed on the bottom with the 53x37 side facing down with height 95.\nCuboid 0 is placed next with the 45x20 side facing down with height 50.\nCuboid 2 is placed next with the 23x12 side facing down with height 45.\nThe total height is 95 + 50 + 45 = 190.\n \n\n Example 2: \n\n \n Input: cuboids = [[38,25,45],[76,35,3]]\n Output: 76\n Explanation: \nYou can't place any of the cuboids on the other.\nWe choose cuboid 1 and rotate it so that the 35x3 side is facing down and its height is 76.\n \n\n Example 3: \n\n \n Input: cuboids = [[7,11,17],[7,17,11],[11,7,17],[11,17,7],[17,7,11],[17,11,7]]\n Output: 102\n Explanation: \nAfter rearranging the cuboids, you can see that all cuboids have the same dimension.\nYou can place the 11x7 side down on all cuboids so their heights are 17.\nThe maximum height of stacked cuboids is 6 * 17 = 102.\n \n\n \u00a0 \n Constraints: \n\n \n n == cuboids.length \n 1 <= n <= 100 \n 1 <= width i , length i , height i <= 100",
+  "statement_sha256": "6c382237c1765dcaf9aedd6721a30f16002d000fb7a8db5d824bff5ab3b7d1f1",
+  "raw_sha256": "afd8a05b48d214150b36bbde8a2d7f4b85baeee2c1af3949f25199cd0491eb02",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-number-of-operations-to-satisfy-conditions",
+  "url": "https://leetcode.com/problems/minimum-number-of-operations-to-satisfy-conditions/",
+  "observed_at": "2026-09-11T07:21:55.337318+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 2D matrix grid of size m x n . In one operation , you can change the value of any cell to any non-negative number. You need to perform some operations such that each cell grid[i][j] is: \n\n \n Equal to the cell below it, i.e. grid[i][j] == grid[i + 1][j] (if it exists). \n Different from the cell to its right, i.e. grid[i][j] != grid[i][j + 1] (if it exists). \n \n\n Return the minimum number of operations needed. \n\n \u00a0 \n Example 1: \n\n \n Input: grid = [[1,0,2],[1,0,2]] \n\n Output: 0 \n\n Explanation: \n\n \n\n All the cells in the matrix already satisfy the properties. \n \n\n Example 2: \n\n \n Input: grid = [[1,1,1],[0,0,0]] \n\n Output: 3 \n\n Explanation: \n\n \n\n The matrix becomes [[1,0,1],[1,0,1]] which satisfies the properties, by doing these 3 operations: \n\n \n Change grid[1][0] to 1. \n Change grid[0][1] to 0. \n Change grid[1][2] to 1. \n \n \n\n Example 3: \n\n \n Input: grid = [[1],[2],[3]] \n\n Output: 2 \n\n Explanation: \n\n \n\n There is a single column. We can change the value to 1 in each cell using 2 operations. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n, m <= 1000 \n 0 <= grid[i][j] <= 9",
+  "statement_sha256": "f1c9687ec62a72d4388940b98bb9321e9c15889faba58d9a27764a98cefa85cf",
+  "raw_sha256": "bf821a0d9d368af7bffe5efb81f37f0aba16b416a21e182977b1e3b0b6ab106f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

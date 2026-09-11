@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-arithmetic-sequence-after-changing-at-most-one-element",
+  "url": "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/",
+  "observed_at": "2026-09-11T07:22:04.925326+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums . \n\n A subarray is arithmetic if the difference between consecutive elements in the subarray is constant. \n\n You can replace at most one element in nums with any integer . Then, you select an arithmetic subarray from nums . \n\n Return an integer denoting the maximum length of the arithmetic subarray you can select. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [9,7,5,10,1] \n\n Output: 5 \n\n Explanation: \n\n \n Replace nums[3] = 10 with 3. The array becomes [9, 7, 5, 3, 1] . \n Select the subarray [ 9, 7, 5, 3, 1 ] , which is arithmetic because consecutive elements have a common difference of -2. \n \n \n\n Example 2: \n\n \n Input: nums = [1,2,6,7] \n\n Output: 3 \n\n Explanation: \n\n \n Replace nums[0] = 1 with -2. The array becomes [-2, 2, 6, 7] . \n Select the subarray [ -2, 2, 6 , 7] , which is arithmetic because consecutive elements have a common difference of 4. \n \n \n\n \u00a0 \n Constraints: \n\n \n 4 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 5",
+  "statement_sha256": "b55c1893fb78977461d6f9dd36f12df289991e54fc5bd3bf2e4f5a2fcc506c4a",
+  "raw_sha256": "d799d8cda145bd7b6ef1620ae041c51e54d4e7206c976a0bd55f752fa725c6de",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

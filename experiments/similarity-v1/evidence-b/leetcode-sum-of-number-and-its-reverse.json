@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-sum-of-number-and-its-reverse",
+  "url": "https://leetcode.com/problems/sum-of-number-and-its-reverse/",
+  "observed_at": "2026-09-11T07:22:14.689685+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a non-negative integer num , return true if num can be expressed as the sum of any non-negative integer and its reverse, or false otherwise. \n\n \u00a0 \n Example 1: \n\n \n Input: num = 443\n Output: true\n Explanation: 172 + 271 = 443 so we return true.\n \n\n Example 2: \n\n \n Input: num = 63\n Output: false\n Explanation: 63 cannot be expressed as the sum of a non-negative integer and its reverse so we return false.\n \n\n Example 3: \n\n \n Input: num = 181\n Output: true\n Explanation: 140 + 041 = 181 so we return true. Note that when a number is reversed, there may be leading zeros.\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= num <= 10 5",
+  "statement_sha256": "3aa26a5d416da0de2f022ad6bbc030e1e572a2a155120c9121e153cc0986c9ab",
+  "raw_sha256": "bd74dc7d1f00172bdfe139da91ba743261aacbff95c92ab8cfd98ef45dd17081",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

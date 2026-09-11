@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc164-f",
+  "url": "https://atcoder.jp/contests/abc164/tasks/abc164_f",
+  "observed_at": "2026-09-11T07:22:12.165326+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nGiven are an integer N and arrays S, T, U, and V, each of length N.\r\nConstruct an N\u00d7N matrix a that satisfy the following conditions:\r\n\na_{i,j} is an integer.\r\n\n0 \\leq a_{i,j}  \\lt 2^{64}.\r\n\nIf S_{i} = 0, the bitwise AND of the elements in the i-th row is U_{i}.\r\n\nIf S_{i} = 1, the bitwise OR of the elements in the i-th row is U_{i}.\r\n\nIf T_{i} = 0, the bitwise AND of the elements in the i-th column is V_{i}.\r\n\nIf T_{i} = 1, the bitwise OR of the elements in the i-th column is V_{i}.\r\n\nHowever, there may be cases where no matrix satisfies the conditions.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n 1 \\leq N \\leq 500 \r\n\n 0 \\leq S_{i} \\leq 1 \r\n\n 0 \\leq T_{i} \\leq 1  \r\n\n 0 \\leq U_{i} \\lt 2^{64}  \r\n\n 0 \\leq V_{i} \\lt 2^{64}  \r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\nS_{1} S_{2} ...  S_{N}\r\nT_{1} T_{2} ...  T_{N}\r\nU_{1} U_{2} ...  U_{N}\r\nV_{1} V_{2} ...  V_{N}\r\n\nOutput\nIf there exists a matrix that satisfies the conditions, print one such matrix in the following format:\r\n\na_{1,1} ...  a_{1,N}\r\n:\r\na_{N,1} ...  a_{N,N}\r\n\nNote that any matrix satisfying the conditions is accepted.\r\n\nIf no matrix satisfies the conditions, print -1.\r\n\nSample Input 1\n2\r\n0 1\r\n1 0\r\n1 1\r\n1 0\r\n\nSample Output 1\n1 1\r\n1 0\r\n\nIn Sample Input 1, we need to find a matrix such that:\r\n\nthe bitwise AND of the elements in the 1-st row is 1;\r\n\nthe bitwise OR of the elements in the 2-nd row is 1;\r\n\nthe bitwise OR of the elements in the 1-st column is 1;\r\n\nthe bitwise AND of the elements in the 2-nd column is 0.\r\n\nSample Input 2\n2\r\n1 1\r\n1 0\r\n15 15\r\n15 11\r\n\nSample Output 2\n15 11\r\n15 11",
+  "statement_sha256": "06a13797bd01bfe7b7fae62d03fdb9a7d030114e840f18d9bd21bb6c5eb5db9f",
+  "raw_sha256": "a83bb7f8332e598ea2432f1f9ec81f16c215f12bfff417151732f4ef71afdd6c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

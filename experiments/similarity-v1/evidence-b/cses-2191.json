@@ -1,0 +1,10 @@
+{
+  "id": "cses-2191",
+  "url": "https://cses.fi/problemset/task/2191",
+  "observed_at": "2026-09-11T07:21:42.073267+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the area of a given polygon.\n\nThe polygon consists of n vertices (x_1,y_1),(x_2,y_2),\\dots,(x_n,y_n). The vertices (x_i,y_i) and (x_{i+1},y_{i+1}) are adjacent for i=1,2,\\dots,n-1, and the vertices (x_1,y_1) and (x_n,y_n) are also adjacent.\n\nInput\n\nThe first input line has an integer n: the number of vertices.\n\nAfter this, there are n lines that describe the vertices. The ith such line has two integers x_i and y_i.\n\nYou may assume that the polygon is simple, i.e., it does not intersect itself.\n\nOutput\n\nPrint one integer: 2a where the area of the polygon is a (this ensures that the result is an integer).\n\nConstraints\n\n\n3 \\le n \\le 1000\n\n-10^9 \\le x_i, y_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 1\n4 2\n3 5\n1 4\n\n\nOutput:\n\n16",
+  "statement_sha256": "edec26e508181b96267492be03c6254999c7043f744ac277965b85251fd33f06",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

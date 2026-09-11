@@ -1,0 +1,1052 @@
+{
+  "status": "incomplete-do-not-promote",
+  "missing": [
+    {
+      "seed": "atcoder-arc090-c",
+      "count": 19
+    },
+    {
+      "seed": "atcoder-arc074-c",
+      "count": 24
+    },
+    {
+      "seed": "atcoder-abc453-d",
+      "count": 24
+    },
+    {
+      "seed": "atcoder-abc213-e",
+      "count": 22
+    },
+    {
+      "seed": "atcoder-dp-y",
+      "count": 23
+    },
+    {
+      "seed": "atcoder-dp-p",
+      "count": 25
+    },
+    {
+      "seed": "codeforces-730-l",
+      "count": 26
+    },
+    {
+      "seed": "codeforces-903-d",
+      "count": 24
+    },
+    {
+      "seed": "codeforces-633-c",
+      "count": 25
+    },
+    {
+      "seed": "codeforces-828-a",
+      "count": 28
+    },
+    {
+      "seed": "cses-2076",
+      "count": 19
+    },
+    {
+      "seed": "cses-2191",
+      "count": 23
+    },
+    {
+      "seed": "leetcode-valid-parentheses",
+      "count": 24
+    },
+    {
+      "seed": "leetcode-count-vowels-permutation",
+      "count": 26
+    },
+    {
+      "seed": "leetcode-pizza-with-3n-slices",
+      "count": 26
+    },
+    {
+      "seed": "leetcode-minimum-array-changes-to-make-differences-equal",
+      "count": 28
+    },
+    {
+      "seed": "leetcode-maximum-prime-difference",
+      "count": 29
+    },
+    {
+      "seed": "atcoder-abc138-f",
+      "count": 25
+    },
+    {
+      "seed": "atcoder-abc103-c",
+      "count": 23
+    },
+    {
+      "seed": "atcoder-agc033-a",
+      "count": 23
+    },
+    {
+      "seed": "atcoder-dp-x",
+      "count": 23
+    },
+    {
+      "seed": "codeforces-1622-f",
+      "count": 28
+    },
+    {
+      "seed": "codeforces-613-e",
+      "count": 25
+    },
+    {
+      "seed": "codeforces-1411-b",
+      "count": 27
+    },
+    {
+      "seed": "codeforces-1717-b",
+      "count": 28
+    },
+    {
+      "seed": "cses-1196",
+      "count": 24
+    },
+    {
+      "seed": "cses-2164",
+      "count": 24
+    },
+    {
+      "seed": "leetcode-climbing-stairs",
+      "count": 23
+    },
+    {
+      "seed": "leetcode-number-of-ways-to-separate-numbers",
+      "count": 25
+    },
+    {
+      "seed": "leetcode-count-of-integers",
+      "count": 20
+    },
+    {
+      "seed": "leetcode-change-minimum-characters-to-satisfy-one-of-three-conditions",
+      "count": 29
+    },
+    {
+      "seed": "leetcode-assign-elements-to-groups-with-constraints",
+      "count": 23
+    },
+    {
+      "seed": "atcoder-arc085-c",
+      "count": 24
+    },
+    {
+      "seed": "atcoder-arc088-a",
+      "count": 26
+    },
+    {
+      "seed": "atcoder-abc121-d",
+      "count": 23
+    },
+    {
+      "seed": "atcoder-dp-l",
+      "count": 22
+    },
+    {
+      "seed": "codeforces-1439-c",
+      "count": 30
+    },
+    {
+      "seed": "codeforces-25-e",
+      "count": 29
+    },
+    {
+      "seed": "codeforces-1288-e",
+      "count": 26
+    },
+    {
+      "seed": "codeforces-366-a",
+      "count": 28
+    }
+  ],
+  "note": "Unjudged candidates are not zero relevance. Reported nDCG ideal is over the independently judged candidate pool. Compare development separately before freezing.",
+  "summaries": {
+    "dense": {
+      "judgedTestSeeds": 0,
+      "pairedSeeds": 0,
+      "ndcg": null,
+      "precision": null,
+      "deltaNdcg": null,
+      "deltaPrecision": null,
+      "ndcg95": null,
+      "precision95": null,
+      "slices": {
+        "hard": [],
+        "sparse": []
+      }
+    },
+    "technique": {
+      "judgedTestSeeds": 0,
+      "pairedSeeds": 0,
+      "ndcg": null,
+      "precision": null,
+      "deltaNdcg": null,
+      "deltaPrecision": null,
+      "ndcg95": null,
+      "precision95": null,
+      "slices": {
+        "hard": [],
+        "sparse": []
+      }
+    },
+    "hybrid": {
+      "judgedTestSeeds": 0,
+      "pairedSeeds": 0,
+      "ndcg": null,
+      "precision": null,
+      "deltaNdcg": null,
+      "deltaPrecision": null,
+      "ndcg95": null,
+      "precision95": null,
+      "slices": {
+        "hard": [],
+        "sparse": []
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": "atcoder-arc090-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc090-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc090-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc074-c",
+      "split": "test",
+      "stratum": "atcoder/hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc074-c",
+      "split": "test",
+      "stratum": "atcoder/hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc074-c",
+      "split": "test",
+      "stratum": "atcoder/hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc453-d",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc453-d",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc453-d",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc213-e",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc213-e",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc213-e",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-y",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-y",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-y",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-p",
+      "split": "test",
+      "stratum": "atcoder/unknown/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-p",
+      "split": "test",
+      "stratum": "atcoder/unknown/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-p",
+      "split": "test",
+      "stratum": "atcoder/unknown/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-730-l",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-730-l",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-730-l",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-903-d",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-903-d",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-903-d",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-633-c",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-633-c",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-633-c",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-828-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-828-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-828-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2076",
+      "split": "development",
+      "stratum": "cses/unknown/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2076",
+      "split": "development",
+      "stratum": "cses/unknown/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2076",
+      "split": "development",
+      "stratum": "cses/unknown/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2191",
+      "split": "test",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2191",
+      "split": "test",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2191",
+      "split": "test",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-valid-parentheses",
+      "split": "development",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-valid-parentheses",
+      "split": "development",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-valid-parentheses",
+      "split": "development",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-vowels-permutation",
+      "split": "test",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-vowels-permutation",
+      "split": "test",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-vowels-permutation",
+      "split": "test",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-pizza-with-3n-slices",
+      "split": "development",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-pizza-with-3n-slices",
+      "split": "development",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-pizza-with-3n-slices",
+      "split": "development",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-minimum-array-changes-to-make-differences-equal",
+      "split": "test",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-minimum-array-changes-to-make-differences-equal",
+      "split": "test",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-minimum-array-changes-to-make-differences-equal",
+      "split": "test",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-maximum-prime-difference",
+      "split": "development",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-maximum-prime-difference",
+      "split": "development",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-maximum-prime-difference",
+      "split": "development",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc138-f",
+      "split": "test",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc138-f",
+      "split": "test",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc138-f",
+      "split": "test",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc103-c",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc103-c",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc103-c",
+      "split": "development",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-agc033-a",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-agc033-a",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-agc033-a",
+      "split": "test",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-x",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-x",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-x",
+      "split": "development",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1622-f",
+      "split": "test",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1622-f",
+      "split": "test",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1622-f",
+      "split": "test",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-613-e",
+      "split": "development",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-613-e",
+      "split": "development",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-613-e",
+      "split": "development",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1411-b",
+      "split": "test",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1411-b",
+      "split": "test",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1411-b",
+      "split": "test",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1717-b",
+      "split": "development",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1717-b",
+      "split": "development",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1717-b",
+      "split": "development",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "cses-1196",
+      "split": "test",
+      "stratum": "cses/unknown/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "cses-1196",
+      "split": "test",
+      "stratum": "cses/unknown/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "cses-1196",
+      "split": "test",
+      "stratum": "cses/unknown/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2164",
+      "split": "development",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2164",
+      "split": "development",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "cses-2164",
+      "split": "development",
+      "stratum": "cses/unknown/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-climbing-stairs",
+      "split": "test",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-climbing-stairs",
+      "split": "test",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-climbing-stairs",
+      "split": "test",
+      "stratum": "leetcode/Easy/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-number-of-ways-to-separate-numbers",
+      "split": "development",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-number-of-ways-to-separate-numbers",
+      "split": "development",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-number-of-ways-to-separate-numbers",
+      "split": "development",
+      "stratum": "leetcode/Hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-of-integers",
+      "split": "test",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-of-integers",
+      "split": "test",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-count-of-integers",
+      "split": "test",
+      "stratum": "leetcode/Hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-change-minimum-characters-to-satisfy-one-of-three-conditions",
+      "split": "development",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-change-minimum-characters-to-satisfy-one-of-three-conditions",
+      "split": "development",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-change-minimum-characters-to-satisfy-one-of-three-conditions",
+      "split": "development",
+      "stratum": "leetcode/Medium/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-assign-elements-to-groups-with-constraints",
+      "split": "test",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-assign-elements-to-groups-with-constraints",
+      "split": "test",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "leetcode-assign-elements-to-groups-with-constraints",
+      "split": "test",
+      "stratum": "leetcode/Medium/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc085-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc085-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc085-c",
+      "split": "development",
+      "stratum": "atcoder/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc088-a",
+      "split": "test",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc088-a",
+      "split": "test",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-arc088-a",
+      "split": "test",
+      "stratum": "atcoder/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc121-d",
+      "split": "development",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc121-d",
+      "split": "development",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-abc121-d",
+      "split": "development",
+      "stratum": "atcoder/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-l",
+      "split": "test",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-l",
+      "split": "test",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "atcoder-dp-l",
+      "split": "test",
+      "stratum": "atcoder/unknown/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1439-c",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1439-c",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1439-c",
+      "split": "development",
+      "stratum": "codeforces/hard/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-25-e",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-25-e",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-25-e",
+      "split": "test",
+      "stratum": "codeforces/hard/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1288-e",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1288-e",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-1288-e",
+      "split": "development",
+      "stratum": "codeforces/lower/rich",
+      "ranker": "hybrid",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-366-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "dense",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-366-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "technique",
+      "metrics": null
+    },
+    {
+      "seed": "codeforces-366-a",
+      "split": "test",
+      "stratum": "codeforces/lower/sparse",
+      "ranker": "hybrid",
+      "metrics": null
+    }
+  ]
+}

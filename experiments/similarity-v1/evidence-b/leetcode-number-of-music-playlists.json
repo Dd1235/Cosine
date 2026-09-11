@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-music-playlists",
+  "url": "https://leetcode.com/problems/number-of-music-playlists/",
+  "observed_at": "2026-09-11T07:21:56.474052+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Your music player contains n different songs. You want to listen to goal songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that: \n\n \n Every song is played at least once . \n A song can only be played again only if k other songs have been played. \n \n\n Given n , goal , and k , return the number of possible playlists that you can create . Since the answer can be very large, return it modulo 10 9 + 7 . \n \u00a0 \n Example 1: \n\n \n Input: n = 3, goal = 3, k = 1\n Output: 6\n Explanation: There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], and [3, 2, 1].\n \n\n Example 2: \n\n \n Input: n = 2, goal = 3, k = 0\n Output: 6\n Explanation: There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], and [1, 2, 2].\n \n\n Example 3: \n\n \n Input: n = 2, goal = 3, k = 1\n Output: 2\n Explanation: There are 2 possible playlists: [1, 2, 1] and [2, 1, 2].\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= k < n <= goal <= 100",
+  "statement_sha256": "61bfce949228f91de205bb09762fb131e5dc9d8e2874c22ffeff99cff4d08724",
+  "raw_sha256": "7ad3fa0ad11ae83806dcde65648768672c41b1a60809f8155d133ca04f95d3d2",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

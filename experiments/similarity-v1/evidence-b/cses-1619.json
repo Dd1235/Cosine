@@ -1,0 +1,10 @@
+{
+  "id": "cses-1619",
+  "url": "https://cses.fi/problemset/task/1619",
+  "observed_at": "2026-09-11T07:21:54.735913+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given the arrival and leaving times of n customers in a restaurant.\n\nWhat was the maximum number of customers in the restaurant at any time?\n\nInput\n\nThe first input line has an integer n: the number of customers.\n\nAfter this, there are n lines that describe the customers. Each line has two integers a and b: the arrival and leaving times of a customer.\n\nYou may assume that all arrival and leaving times are distinct.\n\nOutput\n\nPrint one integer: the maximum number of customers.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a < b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n5 8\n2 4\n3 9\n\n\nOutput:\n\n2",
+  "statement_sha256": "c53dbc06c03c269bd6c32038bffe4e39b363cedad97ee6ca7ac47a9dbbe127e9",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

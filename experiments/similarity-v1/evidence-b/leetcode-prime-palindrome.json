@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-prime-palindrome",
+  "url": "https://leetcode.com/problems/prime-palindrome/",
+  "observed_at": "2026-09-11T07:22:03.565375+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an integer n, return the smallest prime palindrome greater than or equal to n . \n\n An integer is prime if it has exactly two divisors: 1 and itself. Note that 1 is not a prime number. \n\n \n For example, 2 , 3 , 5 , 7 , 11 , and 13 are all primes. \n \n\n An integer is a palindrome if it reads the same from left to right as it does from right to left. \n\n \n For example, 101 and 12321 are palindromes. \n \n\n The test cases are generated so that the answer always exists and is in the range [2, 2 * 10 8 ] . \n\n \u00a0 \n Example 1: \n Input: n = 6\n Output: 7\n Example 2: \n Input: n = 8\n Output: 11\n Example 3: \n Input: n = 13\n Output: 101\n \n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 8",
+  "statement_sha256": "6bc9170481def123887806f91fb0c42151f981e271d18a13f046a599237a13da",
+  "raw_sha256": "116ce4a1af55c8169c320b202edcf27ea35b83c97fa33e623140157b3a7f8bfd",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

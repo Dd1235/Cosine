@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-maximum-area-of-a-triangle",
+  "url": "https://leetcode.com/problems/find-maximum-area-of-a-triangle/",
+  "observed_at": "2026-09-11T07:21:55.908093+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 2D array coords of size n x 2 , representing the coordinates of n points in an infinite Cartesian plane. \n\n Find twice the maximum area of a triangle with its corners at any three elements from coords , such that at least one side of this triangle is parallel to the x-axis or y-axis. Formally, if the maximum area of such a triangle is A , return 2 * A . \n\n If no such triangle exists, return -1. \n\n Note that a triangle cannot have zero area. \n\n \u00a0 \n Example 1: \n\n \n Input: coords = [[1,1],[1,2],[3,2],[3,3]] \n\n Output: 2 \n\n Explanation: \n\n \n\n The triangle shown in the image has a base 1 and height 2. Hence its area is 1/2 * base * height = 1 . \n \n\n Example 2: \n\n \n Input: coords = [[1,1],[2,2],[3,3]] \n\n Output: -1 \n\n Explanation: \n\n The only possible triangle has corners (1, 1) , (2, 2) , and (3, 3) . None of its sides are parallel to the x-axis or the y-axis. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n == coords.length <= 10 5 \n 1 <= coords[i][0], coords[i][1] <= 10 6 \n All coords[i] are unique .",
+  "statement_sha256": "f3e7f72991e06324b14289fcd28330537e1f7213f50a640930b1e67d23a07fd3",
+  "raw_sha256": "2745b50ddbf7bbbd44434dafc26fb8d11ef9bf441ccebe53fd533dfe0763f42f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

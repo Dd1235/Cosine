@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc114-c",
+  "url": "https://atcoder.jp/contests/abc114/tasks/abc114_c",
+  "observed_at": "2026-09-11T07:22:18.001517+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given an integer N. Among the integers between 1 and N (inclusive), how many Shichi-Go-San numbers (literally \"Seven-Five-Three numbers\") are there?\r\n\nHere, a Shichi-Go-San number is a positive integer that satisfies the following condition:\r\n\nWhen the number is written in base ten, each of the digits 7, 5 and 3 appears at least once, and the other digits never appear.\r\n\nConstraints\r\n\n1 \\leq N < 10^9\r\n\nN is an integer.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\n\nOutput\nPrint the number of the Shichi-Go-San numbers between 1 and N (inclusive).\r\n\nSample Input 1\n575\r\n\nSample Output 1\n4\r\n\nThere are four Shichi-Go-San numbers not greater than 575: 357, 375, 537 and 573.\r\n\nSample Input 2\n3600\r\n\nSample Output 2\n13\r\n\nThere are 13 Shichi-Go-San numbers not greater than 3600: the above four numbers, 735, 753, 3357, 3375, 3537, 3557, 3573, 3575 and 3577.\r\n\nSample Input 3\n999999999\r\n\nSample Output 3\n26484",
+  "statement_sha256": "791bee8ef5c3b9fc544201ac80d8aa09b1dba37c8362b4e26e8de20884597689",
+  "raw_sha256": "444ff6fb7194d03d6555197b19f9509106ff423003a5488b7704d6c323ecaf87",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

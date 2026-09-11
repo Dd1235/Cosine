@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-primes",
+  "url": "https://leetcode.com/problems/count-primes/",
+  "observed_at": "2026-09-11T07:22:03.469813+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an integer n , return the number of prime numbers that are strictly less than n . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 10\n Output: 4\n Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.\n \n\n Example 2: \n\n \n Input: n = 0\n Output: 0\n \n\n Example 3: \n\n \n Input: n = 1\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= n <= 5 * 10 6",
+  "statement_sha256": "4e6c67cc277f86b127d0f66eec87eb47086dcfbe10693c55610993f3d38cec66",
+  "raw_sha256": "07a28550728014098d590f7a3e9cc715e4483bdbdb388b6121d8266fdde917ab",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

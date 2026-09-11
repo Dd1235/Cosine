@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximize-score-after-n-operations",
+  "url": "https://leetcode.com/problems/maximize-score-after-n-operations/",
+  "observed_at": "2026-09-11T07:22:22.766253+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given nums , an array of positive integers of size 2 * n . You must perform n operations on this array. \n\n In the i th operation (1-indexed) , you will: \n\n \n Choose two elements, x and y . \n Receive a score of i * gcd(x, y) . \n Remove x and y from nums . \n \n\n Return the maximum score you can receive after performing n operations. \n\n The function gcd(x, y) is the greatest common divisor of x and y . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,2]\n Output: 1\n Explanation: \u00a0The optimal choice of operations is:\n(1 * gcd(1, 2)) = 1\n \n\n Example 2: \n\n \n Input: nums = [3,4,6,8]\n Output: 11\n Explanation: \u00a0The optimal choice of operations is:\n(1 * gcd(3, 6)) + (2 * gcd(4, 8)) = 3 + 8 = 11\n \n\n Example 3: \n\n \n Input: nums = [1,2,3,4,5,6]\n Output: 14\n Explanation: \u00a0The optimal choice of operations is:\n(1 * gcd(1, 5)) + (2 * gcd(2, 4)) + (3 * gcd(3, 6)) = 1 + 4 + 9 = 14\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 7 \n nums.length == 2 * n \n 1 <= nums[i] <= 10 6",
+  "statement_sha256": "170a6e97b570c49c7cbe201ad9428198193d7d2379ec3c591e321774aa886d12",
+  "raw_sha256": "fed5d7485bc566c14b64727e009535aed11f7b8353fc4d23afb1b062f03c6b87",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

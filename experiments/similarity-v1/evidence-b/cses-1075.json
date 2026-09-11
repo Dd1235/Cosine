@@ -1,0 +1,10 @@
+{
+  "id": "cses-1075",
+  "url": "https://cses.fi/problemset/task/1075",
+  "observed_at": "2026-09-11T07:21:49.798641+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA permutation of integers 1,2,\\ldots,n is called beautiful if there are no adjacent elements whose difference is 1.\n\nGiven n, your task is to count the number of beautiful permutations.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint the number of beautiful permutations of 1,2,\\ldots,n modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n14",
+  "statement_sha256": "f82d039f7ade4d91a29b8f5674a864ad4b928b7cdfa81758c0342ed6f1bf89bc",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

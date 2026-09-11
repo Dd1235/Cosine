@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-magnetic-force-between-two-balls",
+  "url": "https://leetcode.com/problems/magnetic-force-between-two-balls/description/",
+  "observed_at": "2026-09-11T07:22:24.327517+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "In the universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket. Rick has n empty baskets, the i th basket is at position[i] , Morty has m balls and needs to distribute the balls into the baskets such that the minimum magnetic force between any two balls is maximum . \n\n Rick stated that magnetic force between two different balls at positions x and y is |x - y| . \n\n Given the integer array position and the integer m . Return the required force . \n\n \u00a0 \n Example 1: \n \n \n Input: position = [1,2,3,4,7], m = 3\n Output: 3\n Explanation: Distributing the 3 balls into baskets 1, 4 and 7 will make the magnetic force between ball pairs [3, 3, 6]. The minimum magnetic force is 3. We cannot achieve a larger minimum magnetic force than 3.\n \n\n Example 2: \n\n \n Input: position = [5,4,3,2,1,1000000000], m = 2\n Output: 999999999\n Explanation: We can use baskets 1 and 1000000000.\n \n\n \u00a0 \n Constraints: \n\n \n n == position.length \n 2 <= n <= 10 5 \n 1 <= position[i] <= 10 9 \n All integers in position are distinct . \n 2 <= m <= position.length",
+  "statement_sha256": "3e37486cb3e6e31575e568ad47b212a714883b03c4fc86323e9bb2ca4d7ec9df",
+  "raw_sha256": "6c043e32dc19f43ac4bffbb8f1604bb2d8b191f623d85e86116c672e643a5e44",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

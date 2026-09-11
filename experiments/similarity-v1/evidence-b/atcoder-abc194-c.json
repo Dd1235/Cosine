@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc194-c",
+  "url": "https://atcoder.jp/contests/abc194/tasks/abc194_c",
+  "observed_at": "2026-09-11T07:21:51.610736+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nGiven is a number sequence A of length N.\n\nFind the sum of squared differences of every pair of elements: \\displaystyle \\sum_{i = 2}^{N} \\sum_{j = 1}^{i - 1} (A_i - A_j)^2.\r\n\nConstraints\r\n\n2 \\le N \\le 3 \\times 10^5\r\n\n|A_i| \\le 200\r\n\nAll values in input are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\nA_1 A_2 A_3 \\cdots A_N\r\n\nOutput\nPrint the answer.\r\n\nSample Input 1\n3\r\n2 8 4\r\n\nSample Output 1\n56\r\n\nWe have \\sum_{i = 2}^{N} \\sum_{j = 1}^{i - 1} (A_i - A_j)^2 = (8 - 2)^2 + (4 - 2) ^ 2 + (4 - 8) ^ 2 = 56.\r\n\nSample Input 2\n5\r\n-5 8 9 -4 -3\r\n\nSample Output 2\n950",
+  "statement_sha256": "bf587e1ec0bd139f6775df5a0e9e2b4ff1e9c8a9c3f8e959ab5f6e40ab5ecac2",
+  "raw_sha256": "e8658bdbaf4aeeaa06d5bc65479d26689bb22c391efb5c1d08753333f2e3c2e6",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

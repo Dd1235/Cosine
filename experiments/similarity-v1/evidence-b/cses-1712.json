@@ -1,0 +1,10 @@
+{
+  "id": "cses-1712",
+  "url": "https://cses.fi/problemset/task/1712",
+  "observed_at": "2026-09-11T07:21:50.288442+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently calculate values a^{b^c} modulo 10^9+7.\n\nNote that in this task we assume that 0^0=1.\n\nInput\n\nThe first input line has an integer n: the number of calculations.\n\nAfter this, there are n lines, each containing three integers a, b and c.\n\nOutput\n\nPrint each value a^{b^c} modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n0 \\le a,b,c \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 7 1\n15 2 2\n3 4 5\n\n\nOutput:\n\n2187\n50625\n763327764",
+  "statement_sha256": "a3004e27fbd4a084ee9ddd8b1b8c6e09375c08029b4f09a4df95f8f4fadadc25",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

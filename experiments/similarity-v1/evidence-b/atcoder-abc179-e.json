@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc179-e",
+  "url": "https://atcoder.jp/contests/abc179/tasks/abc179_e",
+  "observed_at": "2026-09-11T07:22:08.885447+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nLet us denote by f(x, m) the remainder of the Euclidean division of x by m.\r\n\nLet A be the sequence that is defined by the initial value A_1=X and the recurrence relation A_{n+1} = f(A_n^2, M).\r\nFind \\displaystyle{\\sum_{i=1}^N A_i}.\r\n\nConstraints\r\n\n1 \\leq N \\leq 10^{10}\r\n\n0 \\leq X < M \\leq 10^5\r\n\nAll values in input are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN X M\r\n\nOutput\nPrint \\displaystyle{\\sum_{i=1}^N A_i}.\r\n\nSample Input 1\n6 2 1001\r\n\nSample Output 1\n1369\r\n\nThe sequence A begins 2,4,16,256,471,620,\\ldots Therefore, the answer is 2+4+16+256+471+620=1369.\r\n\nSample Input 2\n1000 2 16\r\n\nSample Output 2\n6\r\n\nThe sequence A begins 2,4,0,0,\\ldots Therefore, the answer is 6.\r\n\nSample Input 3\n10000000000 10 99959\r\n\nSample Output 3\n492443256176507",
+  "statement_sha256": "9c7e28a36bb375ec21ba18cc077231c0360c7c87b5052af4d7a58f2f6c610afe",
+  "raw_sha256": "3164db98d113fc5182bca6630e1deecefde15eea6ffe0307f0d7af3fe1269891",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

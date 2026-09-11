@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-vowels-permutation",
+  "url": "https://leetcode.com/problems/count-vowels-permutation/",
+  "observed_at": "2026-09-11T07:21:42.162133+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an integer n , your task is to count how many strings of length n can be formed under the following rules: \n\n \n Each character is a lower case vowel\u00a0( 'a' , 'e' , 'i' , 'o' , 'u' ) \n Each vowel\u00a0 'a' may only be followed by an 'e' . \n Each vowel\u00a0 'e' may only be followed by an 'a' \u00a0or an 'i' . \n Each vowel\u00a0 'i' may not be followed by another 'i' . \n Each vowel\u00a0 'o' may only be followed by an 'i' or a\u00a0 'u' . \n Each vowel\u00a0 'u' may only be followed by an 'a' . \n \n\n Since the answer\u00a0may be too large,\u00a0return it modulo\u00a0 10^9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 1\n Output: 5\n Explanation: All possible strings are: \"a\", \"e\", \"i\" , \"o\" and \"u\".\n \n\n Example 2: \n\n \n Input: n = 2\n Output: 10\n Explanation: All possible strings are: \"ae\", \"ea\", \"ei\", \"ia\", \"ie\", \"io\", \"iu\", \"oi\", \"ou\" and \"ua\".\n \n\n Example 3:\u00a0 \n\n \n Input: n = 5\n Output: 68 \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 2 * 10^4",
+  "statement_sha256": "cafc1772de140390477606bef8bd6b0bb4a71606f595bc9a92e61812ad543652",
+  "raw_sha256": "24387d1994b67582a62c9fb8bb6ffdd59e2058b1d8dcd801b2b74be98be26d98",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

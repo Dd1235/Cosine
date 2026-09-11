@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-word-search-ii",
+  "url": "https://leetcode.com/problems/word-search-ii/",
+  "observed_at": "2026-09-11T07:21:52.964896+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an m x n board \u00a0of characters and a list of strings words , return all words on the board . \n\n Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word. \n\n \u00a0 \n Example 1: \n \n \n Input: board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]\n Output: [\"eat\",\"oath\"]\n \n\n Example 2: \n \n \n Input: board = [[\"a\",\"b\"],[\"c\",\"d\"]], words = [\"abcb\"]\n Output: []\n \n\n \u00a0 \n Constraints: \n\n \n m == board.length \n n == board[i].length \n 1 <= m, n <= 12 \n board[i][j] is a lowercase English letter. \n 1 <= words.length <= 3 * 10 4 \n 1 <= words[i].length <= 10 \n words[i] consists of lowercase English letters. \n All the strings of words are unique.",
+  "statement_sha256": "e0565353758b39d627ec4960ba58d315a8865db25c6516902a16bd02de109b2b",
+  "raw_sha256": "855dfc48ec8155442c42a9f2bcd66a9d337c8fa4a56dcf96955a74c8cde0f991",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

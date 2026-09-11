@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc205-f",
+  "url": "https://atcoder.jp/contests/abc205/tasks/abc205_f",
+  "observed_at": "2026-09-11T07:22:15.363798+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere is a grid with H rows and W columns. Let (r, c) denote the square at the r-th row from the top and c-th column from the left.\r\n\nWe have N pieces. For the i-th piece, we can choose to do one of the following:\r\n\nPut it at a square (r, c) such that A_i \\leq r \\leq C_i and B_i \\leq c \\leq D_i.\r\n\nDo not put it on the grid.\r\n\nHowever, we cannot put two pieces in the same row or the same column.\r\n\nAt most how many pieces can we put on the grid?\r\n\nConstraints\r\n\n1 \\leq H, W, N \\leq 100\r\n\n1 \\leq A_i \\leq C_i \\leq H\r\n\n1 \\leq B_i \\leq D_i \\leq W\r\n\nAll values in input are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nH W N\r\nA_1 B_1 C_1 D_1\r\nA_2 B_2 C_2 D_2\r\n\\vdots\r\nA_N B_N C_N D_N\r\n\nOutput\nPrint the answer.\r\n\nSample Input 1\n2 3 3\r\n1 1 2 2\r\n1 2 2 3\r\n1 1 1 3\r\n\nSample Output 1\n2\r\n\nBy putting the first piece at (1, 1), the second piece at (2, 2), and not putting the third piece on the grid, we can put two pieces on the grid.\r\nWe cannot put three, so we should print 2.\r\n\nSample Input 2\n5 5 3\r\n1 1 5 5\r\n1 1 4 4\r\n2 2 3 3\r\n\nSample Output 2\n3",
+  "statement_sha256": "93cca144a38d45500a62c60e216a55e3e79f5ba6c1d8f523dcb4c7e68de89178",
+  "raw_sha256": "f1680564b06f592c16e5d6bd3a2fd8a0631b9155ada0a7b6c1aad2806902dca0",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

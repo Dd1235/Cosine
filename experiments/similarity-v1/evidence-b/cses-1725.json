@@ -1,0 +1,10 @@
+{
+  "id": "cses-1725",
+  "url": "https://cses.fi/problemset/task/1725",
+  "observed_at": "2026-09-11T07:22:22.960181+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou throw a dice n times, and every throw produces an outcome between 1 and 6. What is the probability that the sum of outcomes is between a and b?\n\nInput\n\nThe only input line contains three integers n, a and b.\n\nOutput\n\nPrint the probability rounded to six decimal places (rounding half to even).\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le a \\le b \\le 6n\n\n\nExample\n\nInput:\n\n2 9 10\n\n\nOutput:\n\n0.194444",
+  "statement_sha256": "1f92d963c7a6a48286d19d2280b7c02fcfb22ff5498d117b11d0fc83bca95018",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

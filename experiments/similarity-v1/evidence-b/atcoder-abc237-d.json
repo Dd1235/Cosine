@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc237-d",
+  "url": "https://atcoder.jp/contests/abc237/tasks/abc237_d",
+  "observed_at": "2026-09-11T07:21:44.688538+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere is a sequence that contains one 0, A=(0).\n\nAdditionally, you are given a string of length N, S=s_1s_2\\ldots s_N, consisting of L and R.\r\n\nFor each i=1, 2, \\ldots, N in this order, the following will be done.\r\n\nIf s_i is L, insert i to the immediate left of i-1 in A.\r\n\nIf s_i is R, insert i to the immediate right of i-1 in A.\r\n\nFind the final contents of A.\r\n\nConstraints\r\n\n1\\leq N \\leq 5\\times 10^5\r\n\nN is an integer.\r\n\n|S| = N\r\n\ns_i is L or R.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\nS\r\n\nOutput\nPrint the final contents of A, separated by spaces.\r\n\nSample Input 1\n5\r\nLRRLR\r\n\nSample Output 1\n1 2 4 5 3 0\r\n\nInitially, A=(0).\n\nS_1 is L, which makes it A=(1,0).\n\nS_2 is R, which makes it A=(1,2,0).\n\nS_3 is R, which makes it A=(1,2,3,0).\n\nS_4 is L, which makes it A=(1,2,4,3,0).\n\nS_5 is R, which makes it A=(1,2,4,5,3,0).  \r\n\nSample Input 2\n7\r\nLLLLLLL\r\n\nSample Output 2\n7 6 5 4 3 2 1 0",
+  "statement_sha256": "60b187c17a3079465b2b37521d48ed57a6f2ef9e132efc5ccffc18bacf52ef00",
+  "raw_sha256": "e2377b4e80532049fdb91c8063a3f32d82631d352dc83a89c6026447a9a6b23f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

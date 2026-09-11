@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-longest-duplicate-substring",
+  "url": "https://leetcode.com/problems/longest-duplicate-substring/",
+  "observed_at": "2026-09-11T07:22:27.676713+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s , consider all duplicated substrings : (contiguous) substrings of s that occur 2 or more times.\u00a0The occurrences\u00a0may overlap. \n\n Return any duplicated\u00a0substring that has the longest possible length.\u00a0If s does not have a duplicated substring, the answer is \"\" . \n\n \u00a0 \n Example 1: \n Input: s = \"banana\"\n Output: \"ana\"\n Example 2: \n Input: s = \"abcd\"\n Output: \"\"\n \n \u00a0 \n Constraints: \n\n \n 2 <= s.length <= 3 * 10 4 \n s consists of lowercase English letters.",
+  "statement_sha256": "e1bf0c8e4c33961cbc4fde6b1642a5892e5bc84f23eec32e14e9f3868384ca02",
+  "raw_sha256": "0b1266401b4bcb0dd449eebafff2a9e6caa1111bec736238ee153267e32e976f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

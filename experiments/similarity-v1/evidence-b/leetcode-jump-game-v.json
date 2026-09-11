@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-jump-game-v",
+  "url": "https://leetcode.com/problems/jump-game-v/",
+  "observed_at": "2026-09-11T07:22:13.525222+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array of\u00a0integers arr and an integer d . In one step you can jump from index i to index: \n\n \n i + x where:\u00a0 i + x < arr.length and 0 <\u00a0x <= d . \n i - x where:\u00a0 i - x >= 0 and 0 <\u00a0x <= d . \n \n\n In addition, you can only jump from index i to index j \u00a0if arr[i] > arr[j] and arr[i] > arr[k] for all indices k between i and j (More formally min(i,\u00a0j) < k < max(i, j) ). \n\n You can choose any index of the array and start jumping. Return the maximum number of indices \u00a0you can visit. \n\n Notice that you can not jump outside of the array at any time. \n\n \u00a0 \n Example 1: \n \n \n Input: arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2\n Output: 4\n Explanation: You can start at index 10. You can jump 10 --> 8 --> 6 --> 7 as shown.\nNote that if you start at index 6 you can only jump to index 7. You cannot jump to index 5 because 13 > 9. You cannot jump to index 4 because index 5 is between index 4 and 6 and 13 > 9.\nSimilarly You cannot jump from index 3 to index 2 or index 1.\n \n\n Example 2: \n\n \n Input: arr = [3,3,3,3,3], d = 3\n Output: 1\n Explanation: You can start at any index. You always cannot jump to any index.\n \n\n Example 3: \n\n \n Input: arr = [7,6,5,4,3,2,1], d = 1\n Output: 7\n Explanation: Start at index 0. You can visit all the indicies. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= arr.length <= 1000 \n 1 <= arr[i] <= 10 5 \n 1 <= d <= arr.length",
+  "statement_sha256": "344ddcbae1e5881c8c1474e0c151787e6b3a71028c35272927b389c6631aa01e",
+  "raw_sha256": "b4f828a2dd9e892a0fe02bd5669f53ae5c17c179482ec506d1c43cb173d6a2e5",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

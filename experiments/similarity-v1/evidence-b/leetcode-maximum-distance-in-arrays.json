@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-distance-in-arrays",
+  "url": "https://leetcode.com/problems/maximum-distance-in-arrays/",
+  "observed_at": "2026-09-11T07:22:05.134873+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given m arrays , where each array is sorted in ascending order . \n\n You can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers a and b to be their absolute difference |a - b| . \n\n Return the maximum distance . \n\n \u00a0 \n Example 1: \n\n \n Input: arrays = [[1,2,3],[4,5],[1,2,3]]\n Output: 4\n Explanation: One way to reach the maximum distance 4 is to pick 1 in the first or third array and pick 5 in the second array.\n \n\n Example 2: \n\n \n Input: arrays = [[1],[1]]\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n m == arrays.length \n 2 <= m <= 10 5 \n 1 <= arrays[i].length <= 500 \n -10 4 <= arrays[i][j] <= 10 4 \n arrays[i] is sorted in ascending order . \n There will be at most 10 5 integers in all the arrays.",
+  "statement_sha256": "21728c9104aaac43b504f79a6fdce5b2ab7f83a1071dc2937f3f1c2b20312012",
+  "raw_sha256": "d915298bd60b2f8c6d8c1578b473f9735121846075451ff8ccb877477b7481de",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}
