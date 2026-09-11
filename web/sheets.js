@@ -75,6 +75,7 @@ const LEGACY_HEADER = [
 ];
 
 let sheetsClientId = null;   // from /api/rankers; feature hidden while null
+let sheetSession = 0;      // invalidates async work when the local account changes
 let sheetsUserId = null;     // guards the localStorage envelope per account
 let tokenClient = null;      // GIS token client, created after the script loads
 let accessToken = null;      // memory only, ~1h lifetime
@@ -91,6 +92,11 @@ function sheetsInit({ clientId, userId, onChange }) {
   // notes and could leave `connected()` false, which sent the next sync
   // through connect() and its forced consent screen.
   if (clientId === sheetsClientId && (userId || null) === sheetsUserId) return;
+  sheetSession += 1;
+  accessToken = null;
+  tokenExpiresAt = 0;
+  tokenClient = null;
+  pendingNotes = new Map();
   sheetsClientId = clientId || null;
   sheetsUserId = userId || null;
   spreadsheetId = null;
@@ -178,7 +184,13 @@ function sheetsAvailable() {
   return Boolean(sheetsClientId && sheetsUserId);
 }
 
-function sheetsClearLocal() {
+function sheetsClearLocal({ signOut = false } = {}) {
+  sheetSession += 1;
+  tokenClient = null;
+  if (signOut) {
+    pendingNotes = new Map(); // persisted notes retain their account envelope
+    sheetsUserId = null;
+  }
   forget();  // clears the sheet pointer AND the cached notes
   accessToken = null;
   spreadsheetId = null;
@@ -215,8 +227,10 @@ function loadGsi() {
 // So background paths use "none" and take the failure; only a click ever
 // passes anything else.
 async function getToken(interactive, timeoutMs, promptMode) {
+  const session = sheetSession;
   if (accessToken && Date.now() < tokenExpiresAt - 60000) return accessToken;
   await loadGsi();
+  if (session !== sheetSession) throw new Error("sheet account changed; sync again");
   if (!tokenClient) {
     tokenClient = window.google.accounts.oauth2.initTokenClient({
       client_id: sheetsClientId,
@@ -240,6 +254,7 @@ async function getToken(interactive, timeoutMs, promptMode) {
     };
     tokenClient.callback = (resp) => {
       clearTimeout(timer);
+      if (session !== sheetSession) return finish(reject, new Error("sheet account changed; sync again"));
       if (resp.error) return finish(reject, new Error(resp.error_description || resp.error));
       accessToken = resp.access_token;
       tokenExpiresAt = Date.now() + (Number(resp.expires_in) || 3600) * 1000;
@@ -283,24 +298,35 @@ async function googleError(res, label) {
 // only shows the status, and "sheet: google api 400" tells nobody which of six
 // calls broke — including me, reading a bug report.
 async function gapi(url, options = {}, label = "") {
+  const session = sheetSession;
+  const checkSession = () => {
+    if (session !== sheetSession) throw new Error("sheet account changed; sync again");
+  };
   // Never `prompt: ""` from here. This runs inside background syncs too, and
   // "" shows the account chooser to anyone signed into more than one Google
   // account — a page refresh opening a sign-in box is exactly the bug v65
   // fixed, and this was the other door into it. A user-pressed sync sets
   // interactiveWindow, which is the only time UI is allowed.
   const token = await getToken(false, undefined, interactiveWindow ? "" : "none");
-  const send = (t) => fetch(url, {
-    ...options,
-    headers: { authorization: `Bearer ${t}`, "content-type": "application/json", ...(options.headers || {}) },
-  });
+  const send = (t) => {
+    checkSession();
+    return fetch(url, {
+      ...options,
+      headers: { authorization: `Bearer ${t}`, "content-type": "application/json", ...(options.headers || {}) },
+    });
+  };
   let res = await send(token);
+  checkSession();
   if (res.status === 401) {
     // token expired mid-session — one silent retry, then give up loudly
     accessToken = null;
     res = await send(await getToken(false, undefined, interactiveWindow ? "" : "none"));
   }
+  checkSession();
   if (!res.ok) throw await googleError(res, label);
-  return res.json();
+  const data = await res.json();
+  checkSession();
+  return data;
 }
 
 // True only while a sync the user pressed is running.
@@ -745,7 +771,7 @@ function appCells(item) {
     title: p.title || "",
     link: p.source_url || "",
     judge: p.platform || "",
-    difficulty: p.difficulty == null ? "" : String(p.difficulty),
+    difficulty: typeof cosineDifficulty !== "undefined" ? cosineDifficulty.format(p) : (p.difficulty == null ? "" : String(p.difficulty)),
     recall: item.recall || "",
   };
 }
@@ -775,6 +801,7 @@ async function sheetsSync(items, { interactive = false } = {}) {
 }
 
 async function runSync(items) {
+  const session = sheetSession;
   if (!sheetsConnected()) throw new Error("no sheet connected");
   try {
     await readSheet();
@@ -808,6 +835,7 @@ async function runSync(items) {
     console.warn("sheet: could not tidy the columns, syncing anyway —", lastLayoutError);
   }
 
+  if (session !== sheetSession) throw new Error("sheet account changed; sync again");
   const runs = appRuns();
   const updates = [];
   const appends = [];
@@ -884,6 +912,8 @@ async function flushNotes() {
   if (col == null) return 0;   // no such column yet; the next tidy-up adds it
   const data = [];
   const written = [];
+  const owner = sheetsUserId;
+  const pendingAtStart = pendingNotes;
   for (const [problemId, text] of pendingNotes) {
     const row = rowByProblem.get(problemId);
     if (!row) continue;        // not in the sheet yet — keep it pending
@@ -891,7 +921,7 @@ async function flushNotes() {
       range: `${SHEET_TAB}!${colLetter(col + 1)}${row.rowIndex}`,
       values: [[text]],
     });
-    written.push(problemId);
+    written.push([problemId, text]);
   }
   if (!data.length) return 0;
   await gapi(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values:batchUpdate`, {
@@ -900,7 +930,11 @@ async function flushNotes() {
     // starting with "-" into a number. RAW keeps what you typed.
     body: JSON.stringify({ valueInputOption: "RAW", data }),
   }, "write notes");
-  written.forEach((id) => pendingNotes.delete(id));
+  // Only acknowledge the exact values sent, never a newer edit or account.
+  if (owner !== sheetsUserId || pendingAtStart !== pendingNotes) return written.length;
+  written.forEach(([id, text]) => {
+    if (pendingNotes.get(id) === text) pendingNotes.delete(id);
+  });
   rememberPending();
   return written.length;
 }

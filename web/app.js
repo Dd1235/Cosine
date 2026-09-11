@@ -25,6 +25,7 @@ let libNotes = null;    // "yes" | "no" | null — whether you wrote a note
 let googleClientId = null;       // from /api/rankers; sheet feature hidden while null
 let sheetSyncedThisSession = false;
 let sheetSyncing = false;    // one write at a time; the sync sends everything
+let sheetGeneration = 0;    // increments for every local mutation
 let sheetDirty = false;      // something changed that the sheet hasn't got
 let sheetSyncTimer = null;
 let sheetErrorShown = false; // a background failure is said once, not forever
@@ -393,16 +394,24 @@ async function doSheetSync({ quiet = false } = {}) {
   if (sheetSyncing) return;
   const btn = document.getElementById("sheet-btn");
   sheetSyncing = true;
+  const generation = sheetGeneration;
+  const userId = currentUser && currentUser.id;
+  let succeeded = false;
   if (btn) btn.disabled = true;
   try {
     if (!cosineSheets.connected()) await cosineSheets.connect();
     sheetResumeFailed = false;   // a press is a fresh start for the silent path
     sheetErrorShown = false;
     const res = await fetch("/api/library?type=all");
+    if (!res.ok) throw new Error(`library fetch failed (${res.status})`);
     const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
+    if (!Array.isArray(data.items)) throw new Error("invalid library response");
     const out = await cosineSheets.sync(data.items || [], { interactive: !quiet });
+    if (!currentUser || currentUser.id !== userId) return;
+    succeeded = true;
     sheetSyncedThisSession = true;
-    sheetDirty = false;
+    sheetDirty = sheetGeneration !== generation;
     if (!quiet) {
       // A tidy-up that failed is worth saying even though the sync worked —
       // otherwise the columns silently stay wrong and nobody knows why.
@@ -422,6 +431,9 @@ async function doSheetSync({ quiet = false } = {}) {
     sheetSyncing = false;
     if (btn) btn.disabled = false;
     syncSheetChip();
+    // A debounce may have fired while this write was in flight. Requeue it
+    // after success, but do not repeatedly hammer a failed grant or endpoint.
+    if (succeeded && sheetDirty) scheduleSheetSync();
   }
 }
 
@@ -430,11 +442,16 @@ async function doSheetSync({ quiet = false } = {}) {
 // them costs nothing since the sync always sends the whole library anyway.
 const SHEET_SYNC_DELAY = 4000;
 function markSheetDirty() {
+  sheetGeneration += 1;
   sheetDirty = true;
+  scheduleSheetSync();
+}
+function scheduleSheetSync() {
   if (typeof cosineSheets === "undefined" || !cosineSheets.connected()) return;
   clearTimeout(sheetSyncTimer);
   sheetSyncTimer = setTimeout(async () => {
-    if (!sheetDirty) return;
+    sheetSyncTimer = null;
+    if (!sheetDirty || sheetSyncing) return;
     // A token lasts about an hour, so a long session runs out of one — ask
     // for another the same silent way rather than going quiet until the next
     // reload. Silent only: a background path must never be the thing that
