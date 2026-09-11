@@ -278,6 +278,8 @@ function main() {
   const byId = checkCrossFile(entries);
   const queryCount = checkBenchQueries(new Set(byId.keys()));
   checkArtifact(entries.map((e) => e.problem));
+  const { validateRegistry } = require('../server/collections');
+  for (const message of validateRegistry(require('../data/contests.json'), entries.map(e => e.problem))) err(message);
   reportDrift(driftCounts);
   if (process.argv.includes("--gaps")) printGaps(driftCounts);
 

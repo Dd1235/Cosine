@@ -292,6 +292,8 @@
           >
             atc
           </button>
+          <button type="button" class="judge-chip" data-platform="codechef" aria-pressed="false" title="include CodeChef">cc</button>
+          <button type="button" class="judge-chip" data-platform="kattis" aria-pressed="false" title="include Kattis">kattis</button>
           <button
             type="button"
             class="judge-chip judge-clear hidden"
@@ -302,6 +304,24 @@
           </button>
         </span>
         <span id="latency-summary" class="latency-summary"></span>
+      </div>
+      <div class="collection-controls" id="collection-controls">
+        <label for="collection-select">competition PYQs:</label>
+        <select id="collection-select" class="filter-select" aria-label="add a competition collection">
+          <option value="">loading collections…</option>
+        </select>
+        <span id="collection-chips" class="collection-chips"></span>
+      </div>
+      <div id="collection-resources" class="collection-resources" hidden></div>
+      <div id="cses-level-row" class="cses-level-row" hidden>
+        <label for="cses-level-select">my CSES level:</label>
+        <select id="cses-level-select" class="filter-select">
+          <option value="">choose your band</option>
+          <option value="1">Foundation</option><option value="2">Standard</option>
+          <option value="3">Intermediate</option><option value="4">Advanced</option>
+          <option value="5">Expert</option>
+        </select>
+        <span id="cses-level-note">CSES estimates use their own scale.</span>
       </div>
       <!-- Difficulty is per-judge, so this row only appears once a judge is
            selected — there is no cross-judge scale to offer before then. -->
@@ -437,6 +457,7 @@
       cosine · built by <a href="https://github.com/Dd1235" rel="author">Dedeepya Avancha</a> · <a href="/stats.html">stats</a> ·
       <a href="/debug.html">debug</a>
     </footer>
+    <script src="/difficulty.js"></script>
     <script src="/sheets.js"></script>
     <script src="/app.js"></script>
   </body>

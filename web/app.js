@@ -113,6 +113,15 @@ let currentUser = null;
 // soft reload, and a hardcoded "all" here would silently disagree with it.
 let currentFilter = filterSelect.value || "all";
 let activePattern = "";
+const activeCollections = new Set();
+let collections = [];
+let collectionSpoilers = false;
+let currentSimilar = null;
+let similarLibrary = null;
+let practiceMode = false;
+let similarCorpusSize = 20000;
+let csesLevel = null;
+let csesLevelSaving = false;
 const activePlatforms = new Set(); // empty = every judge
 let difficultyPayload = { named: [], rated: [], acceptance: null }; // controls, from /api/rankers
 const bootRanges = []; // ?difficulty= ranges parked until the payload names their judge
@@ -149,6 +158,9 @@ form.addEventListener("submit", (e) => {
 });
 
 input.addEventListener("input", () => {
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
   clearTimeout(debounceTimer);
   // Typing a new question ends the drill-down that produced the pattern.
   //
@@ -170,7 +182,7 @@ input.addEventListener("input", () => {
 });
 
 loadMoreEl.addEventListener("click", () => {
-  if (!currentQuery) return;
+  if (!currentQuery && !currentSimilar && !activePattern && !activePlatforms.size && !activeCollections.size) return;
   currentOffset += TOP_K;
   track("load_more", { searchId: currentSearchId, offset: currentOffset, ranker: currentRankerAnswered });
   runSearch(currentQuery, { append: true });
@@ -178,7 +190,8 @@ loadMoreEl.addEventListener("click", () => {
 
 filterSelect.addEventListener("change", () => {
   currentFilter = filterSelect.value;
-  if (currentQuery) runSearch(currentQuery, { append: false });
+  currentOffset = 0;
+  reissueCurrentView();
 });
 
 
@@ -247,6 +260,7 @@ async function populateRankerSelect() {
   }
   syncDifficultyControls();
   if (data.corpusSize) {
+    similarCorpusSize = data.corpusSize;
     const el = document.getElementById("corpus-size");
     if (el) el.textContent = data.corpusSize.toLocaleString();
   }
@@ -269,7 +283,7 @@ libChips.forEach((chip) => {
     input.value = cmd;
     input.focus();
     if (cmd) runSearch(cmd, { append: false });
-    else runSearch("", { append: false });
+    else { currentSimilar = null; similarLibrary = null; practiceMode = false; runSearch("", { append: false }); }
   });
 });
 
@@ -337,9 +351,16 @@ logoutBtn.addEventListener("click", async () => {
   try { localStorage.removeItem("algolens_profile_v1"); } catch (_e) {}
   // Same shared-machine reasoning for the sheet pointer; the token itself was
   // never persisted, so dropping the in-memory state is the whole cleanup.
-  if (typeof cosineSheets !== "undefined") cosineSheets.clearLocal();
+  if (typeof cosineSheets !== "undefined") cosineSheets.clearLocal({ signOut: true });
   sheetSyncedThisSession = false;
   currentUser = null;
+  levelSuggest = null;
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  clearTimeout(sheetSyncTimer);
+  sheetDirty = false;
+  loadCsesLevel();
   applyAuthState();
   clearPatternFilter({ reissue: false });
   // Clear results and the input — old results were rendered with bookmark
@@ -501,8 +522,9 @@ async function bootstrapAuth() {
   // re-issue once here instead of being silently dropped.
   const wasPending = bootNeedsAuth;
   bootNeedsAuth = false;
-  if (wasPending && currentUser && currentQuery) reissueSearch();
+  if (wasPending && currentUser) reissueCurrentView();
   loadLevelSignals();
+  loadCsesLevel();
   maybeInitSheets();
 }
 
@@ -555,7 +577,7 @@ function setLibPath(path) {
   // "..."`, so the chips showed there too, where clicking one is a no-op
   // (the filter resets the moment a non-library view re-issues).
   if (libAgeRow) {
-    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path);
+    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || !!currentSimilar;
     libAgeRow.hidden = !inLibrary || !currentUser;
     libAgeRow.querySelectorAll(".lib-age").forEach((c) => {
       c.classList.toggle("is-active", String(libAged ?? "") === c.dataset.aged);
@@ -585,6 +607,184 @@ function setLibPath(path) {
 }
 
 bootstrapAuth();
+
+function collectionParam() {
+  return activeCollections.size ? `&contest=${encodeURIComponent([...activeCollections].join(','))}` : '';
+}
+
+function safeResourceUrl(value) {
+  try {
+    const url = new URL(value);
+    return /^https?:$/.test(url.protocol) ? url.href : '';
+  } catch (_err) { return ''; }
+}
+
+async function loadCollections() {
+  try {
+    const res = await fetch('/api/collections');
+    if (!res.ok) throw new Error('collections unavailable');
+    const data = await res.json();
+    collections = Array.isArray(data.collections) ? data.collections : [];
+    renderCollectionControls();
+  } catch (_err) {
+    const select = document.getElementById('collection-select');
+    if (select) select.innerHTML = '<option value="">collections unavailable</option>';
+    renderCollectionControls(false);
+  }
+}
+
+function renderCollectionControls(loaded = true) {
+  const select = document.getElementById('collection-select');
+  const chips = document.getElementById('collection-chips');
+  const panel = document.getElementById('collection-resources');
+  if (!select || !chips || !panel) return;
+  if (loaded) {
+    select.innerHTML = '<option value="">add a collection…</option>' + collections
+      .filter(c => !activeCollections.has(c.id))
+      .map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)} · ${c.count || 0} problems</option>`).join('');
+  }
+  chips.innerHTML = '';
+  for (const id of activeCollections) {
+    const item = collections.find(c => c.id === id);
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'judge-chip active';
+    chip.textContent = `${item ? item.name : id} ×`;
+    chip.setAttribute('aria-label', `remove ${item ? item.name : id}`);
+    chip.addEventListener('click', () => {
+      activeCollections.delete(id);
+      collectionSpoilers = false;
+      currentOffset = 0;
+      renderCollectionControls();
+      syncUrl();
+      if (!activeCollections.size && !activePlatforms.size && !activePattern && !currentQuery && !currentSimilar) runSearch('');
+      else reissueCurrentView();
+    });
+    chips.appendChild(chip);
+  }
+  panel.hidden = activeCollections.size === 0;
+  panel.innerHTML = '';
+  resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers);
+  if (!activeCollections.size) return;
+  const heading = document.createElement('div');
+  heading.className = 'collection-heading';
+  const note = document.createElement('span');
+  note.textContent = currentSimilar ? 'Related practice · recommendations are not necessarily PYQs.' : 'Verified collection membership · open originals to attempt without hints.';
+  heading.appendChild(note);
+  const reveal = document.createElement('button');
+  reveal.type = 'button';
+  reveal.className = 'lib-chip';
+  reveal.textContent = collectionSpoilers ? 'hide hints' : 'reveal hints & difficulty';
+  reveal.setAttribute('aria-pressed', String(collectionSpoilers));
+  reveal.addEventListener('click', () => { collectionSpoilers = !collectionSpoilers; renderCollectionControls(); });
+  heading.appendChild(reveal);
+  panel.appendChild(heading);
+  for (const id of activeCollections) {
+    const collection = collections.find(c => c.id === id);
+    if (!collection) continue;
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problems · resources`;
+    details.appendChild(summary);
+    const list = document.createElement('ul');
+    for (const resource of collection.resources || []) {
+      const url = safeResourceUrl(resource.url);
+      if (!url) continue;
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = resource.title || resource.kind || 'contest resource';
+      li.appendChild(link);
+      if (resource.availability && resource.availability !== 'available') {
+        li.appendChild(document.createTextNode(` · ${resource.availability.replace(/_/g, ' ')}`));
+      }
+      list.appendChild(li);
+    }
+    if (!list.childNodes.length) {
+      const li = document.createElement('li');
+      li.textContent = 'No additional resource links have been verified yet.';
+      list.appendChild(li);
+    }
+    details.appendChild(list);
+    panel.appendChild(details);
+  }
+}
+
+const collectionSelect = document.getElementById('collection-select');
+if (collectionSelect) collectionSelect.addEventListener('change', () => {
+  if (!collectionSelect.value) return;
+  activeCollections.add(collectionSelect.value);
+  collectionSpoilers = false;
+  currentOffset = 0;
+  renderCollectionControls();
+  syncUrl();
+  reissueCurrentView();
+});
+
+function syncCsesLevelControl() {
+  const row = document.getElementById('cses-level-row');
+  const select = document.getElementById('cses-level-select');
+  if (!row || !select) return;
+  row.hidden = !activePlatforms.has('cses');
+  select.value = csesLevel ? String(csesLevel) : '';
+  select.disabled = csesLevelSaving;
+  const note = document.getElementById('cses-level-note');
+  if (note) note.textContent = currentUser ? 'Your choice is saved to this account.' : 'Saved in this browser · CSES uses its own scale.';
+}
+
+function setCsesLevelSuggestion(band) {
+  csesLevel = Number.isInteger(band) && band >= 1 && band <= 5 ? band : null;
+  levelSuggest = levelSuggest || {};
+  if (csesLevel) {
+    const label = cosineDifficulty.bands[csesLevel - 1];
+    const token = cosineDifficulty.tokens[csesLevel - 1];
+    const meta = (difficultyPayload.named || []).find(b => b.id === token);
+    levelSuggest.cses = { difficulty: token, why: `Your selected CSES band: ${label}`, count: meta ? meta.count : 0 };
+  } else delete levelSuggest.cses;
+  syncDifficultyControls();
+}
+
+async function loadCsesLevel() {
+  const userId = currentUser && currentUser.id;
+  if (!userId) {
+    let band = null;
+    try { band = Number(localStorage.getItem('cosine_cses_level_anon_v1')); } catch (_err) {}
+    setCsesLevelSuggestion(band);
+    return;
+  }
+  try {
+    const res = await fetch('/api/preferences/cses-level');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(data.band);
+  } catch (_err) {}
+}
+
+const csesLevelSelect = document.getElementById('cses-level-select');
+if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
+  const band = csesLevelSelect.value ? Number(csesLevelSelect.value) : null;
+  if (!currentUser) {
+    try {
+      if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
+      else localStorage.removeItem('cosine_cses_level_anon_v1');
+      setCsesLevelSuggestion(band);
+    } catch (_err) { setStatus('Could not save your CSES level in this browser.'); }
+    return;
+  }
+  const userId = currentUser.id;
+  csesLevelSaving = true;
+  syncCsesLevelControl();
+  try {
+    const res = await fetch('/api/preferences/cses-level', {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ band }),
+    });
+    if (!res.ok) throw new Error(`save failed (${res.status})`);
+    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(band);
+  } catch (err) { setStatus(`CSES level: ${err.message}`); }
+  finally { csesLevelSaving = false; syncCsesLevelControl(); }
+});
 
 // Judge chips. Multi-select on purpose: "codeforces + atcoder" is a real way
 // to think about practice, and the single-pick dropdown this replaced couldn't
@@ -617,7 +817,7 @@ async function loadLevelSignals() {
     if (!res.ok) return;
     const data = await res.json();
     if (!data.suggest || !Object.keys(data.suggest).length) return;
-    levelSuggest = data.suggest;
+    levelSuggest = { ...data.suggest, ...(csesLevel && levelSuggest?.cses ? { cses: levelSuggest.cses } : {}) };
     syncDifficultyControls();
   } catch (_err) {
     // A missing button is the right failure here — never block the page.
@@ -626,6 +826,8 @@ async function loadLevelSignals() {
 
 function activeFacets() {
   const bits = [];
+  if (activePattern) bits.push(activePattern);
+  for (const id of activeCollections) bits.push(collections.find(c => c.id === id)?.name || id);
   if (activePlatforms.size) bits.push([...activePlatforms].map((p) => (PLATFORM_LABELS[p] || [p])[0]).join("+"));
   for (const id of activeTiers) {
     const b = (difficultyPayload.named || []).find((x) => x.id === id);
@@ -679,7 +881,7 @@ function applyDifficultyToken(token) {
   } else if (range) {
     const meta = (difficultyPayload.rated || []).find((r) => r.short === range[1]);
     if (meta) activeRanges.set(meta.judge, { min: Number(range[2]), max: Number(range[3]) });
-  } else if (/^[a-z]{2,3}-[a-z]+$/.test(t)) {
+  } else if (/^[a-z]{2,4}-[a-z]+$/.test(t)) {
     activeTiers.add(t);
   }
 }
@@ -700,6 +902,7 @@ function levelIsApplied() {
 }
 
 function syncDifficultyControls() {
+  syncCsesLevelControl();
   if (!difficultyRow) return;
   const payloadLoaded =
     (difficultyPayload.named || []).length ||
@@ -810,7 +1013,7 @@ function syncDifficultyControls() {
     const typed = (input.value.trim() || currentQuery || "").toLowerCase();
     // A ranking only exists for a real query. `:bookmarks` is a command, and the
     // library sorts the whole saved list — offering it a "top 20" would lie.
-    const searching = !!typed && !(currentUser && libraryCommand(typed));
+    const searching = !!currentSimilar || (!!typed && !(currentUser && libraryCommand(typed)));
     groups.push(
       '<span class="difficulty-group sort-group"><span class="difficulty-label">sort</span>' +
         `<select class="filter-select" id="sort-select" aria-label="sort by difficulty">` +
@@ -950,10 +1153,11 @@ function afterDifficultyChange() {
 // hardcode runSearch, which meant changing a filter inside :bookmarks bounced
 // you back to search results.
 function reissueCurrentView() {
+  if (currentSimilar) return runSimilar(currentSimilar, { append: false });
   const typed = input.value.trim();
   if (currentUser && libraryCommand(typed)) return runSearch(typed, { append: false });
   if (typed || currentQuery) return runSearch(typed || currentQuery, { append: false });
-  if (activePattern || activePlatforms.size) return runBrowse({ append: false });
+  if (activePattern || activePlatforms.size || activeCollections.size) return runBrowse({ append: false });
   return undefined;
 }
 
@@ -989,10 +1193,15 @@ function applyMode() {
 
 async function runSearch(rawQuery, { append = false } = {}) {
   const q = rawQuery.trim();
+  if (currentSimilar && !q) return runSimilar(currentSimilar, { append });
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  rankerSelect.disabled = false;
   // An empty box with a filter still on isn't "nothing to show" — it's a
   // browse. Clearing your query keeps the active label and judges and lists
   // everything they select, which is what they claim to be doing.
-  if (!q && (activePattern || activePlatforms.size)) {
+  if (!q && (activePattern || activePlatforms.size || activeCollections.size)) {
     currentQuery = "";
     if (!append) currentOffset = 0;
     return runBrowse({ append });
@@ -1129,7 +1338,7 @@ async function runSearch(rawQuery, { append = false } = {}) {
   // Sorting reorders a fixed window of the best matches, so the window size
   // replaces the page size — and paging is withdrawn, not silently broken.
   const pageSize = sortDir ? sortWindow : TOP_K;
-  const url = `/api/search?q=${encodeURIComponent(q)}&k=${pageSize}&offset=${sortDir ? 0 : currentOffset}${filterParam}${patternParam}${rankerParam}${platformParam}${bandParam}${sortParam}`;
+  const url = `/api/search?q=${encodeURIComponent(q)}&k=${pageSize}&offset=${sortDir ? 0 : currentOffset}${filterParam}${patternParam}${rankerParam}${platformParam}${bandParam}${sortParam}${collectionParam()}`;
 
   let data;
   try {
@@ -1244,7 +1453,7 @@ async function runBrowse({ append = false } = {}) {
   currentSearchId = null;
   currentRankerAnswered = "";
   const facets = activeFacets();
-  const label = [activePattern, ...facets].filter(Boolean).join(" · ");
+  const label = facets.filter(Boolean).join(" · ");
   if (currentUser) setLibPath(`~/browse ${label}`);
   syncUrl();
 
@@ -1254,7 +1463,7 @@ async function runBrowse({ append = false } = {}) {
   const dp = difficultyParam();
   const bandParam = dp ? `&difficulty=${encodeURIComponent(dp)}` : "";
   const sortParam = sortDir ? `&sort=difficulty-${sortDir}` : "";
-  const url = `/api/search?q=&k=${TOP_K}&offset=${currentOffset}${patternParam}${platformParam}${filterParam}${bandParam}${sortParam}`;
+  const url = `/api/search?q=&k=${TOP_K}&offset=${currentOffset}${patternParam}${platformParam}${filterParam}${bandParam}${sortParam}${collectionParam()}`;
 
   let data;
   try {
@@ -1286,7 +1495,6 @@ async function runBrowse({ append = false } = {}) {
 
 async function runLibrary(type, q) {
   const issuedAt = ++lastQueryAt;
-  clearPatternFilter({ reissue: false }); // a saved list isn't a ranked search
   currentSearchId = null;
   currentRankerAnswered = "";
   hideFeedback();
@@ -1309,7 +1517,7 @@ async function runLibrary(type, q) {
     const orderParam = libOldest ? "&order=oldest" : "";
     const recallParam = libRecall ? `&recall=${encodeURIComponent(libRecall)}` : "";
     const qParam = q ? `&q=${encodeURIComponent(q)}` : "";
-    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}${qParam}`);
+    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}${qParam}${collectionParam()}${activePattern ? `&pattern=${encodeURIComponent(activePattern)}` : ""}`);
     data = await res.json();
   } catch (err) {
     if (issuedAt !== lastQueryAt) return;
@@ -1376,46 +1584,132 @@ async function runLibrary(type, q) {
   }
 }
 
-// "Find similar" view: doc-to-doc cosine over the precomputed embeddings.
-// Not a query search — the source problem's stored vector is the query, so
-// there's no text in the input and no load-more.
-async function runSimilar(problem) {
-  const issuedAt = ++lastQueryAt;
-  clearPatternFilter({ reissue: false }); // similar view is vector-driven, not filtered
-  clearPlatformFilter({ reissue: false });
-  currentSearchId = null;
-  currentRankerAnswered = "";
-  hideFeedback();
-  const shortTitle = problem.title.length > 24 ? problem.title.slice(0, 24) + "…" : problem.title;
-  if (currentUser) setLibPath(`~/similar/${problem.id}`);
-  setStatus(`similar to "${shortTitle}" · dense cosine`);
-  hideLoadMore();
-
-  let res, data;
-  try {
-    res = await fetch(`/api/similar/${encodeURIComponent(problem.id)}?k=10`);
-    data = await res.json();
-  } catch (err) {
-    if (issuedAt !== lastQueryAt) return;
-    setStatus(`error: ${err.message || "similar failed"}`);
-    return;
+// Similarity is its own addressable view. Facets apply before pagination.
+async function runSimilar(problem, { append = false, practice = false } = {}) {
+  const entering = !currentSimilar || currentSimilar.id !== problem.id;
+  if (entering) {
+    similarLibrary = currentUser ? libraryCommand(currentQuery)?.type || null : null;
+    practiceMode = false;
   }
-  if (issuedAt !== lastQueryAt) return;
-  if (!res.ok) {
-    setStatus(data.error || "similar unavailable");
-    return;
+  if (practice) {
+    activeCollections.clear();
+    similarLibrary = null;
+    libAged = null;
+    libOldest = false;
+    libNotes = null;
+    libRecall = null;
+    currentFilter = 'notdone';
+    filterSelect.value = 'notdone';
+    practiceMode = true;
   }
-
-  // Leave query state so load-more / reissue logic doesn't fight this view;
-  // typing or clicking a chip exits back to search.
-  currentQuery = "";
-  currentOffset = 0;
-  currentTotal = 0;
+  currentSimilar = problem;
+  rankerSelect.disabled = true;
+  currentQuery = '';
+  input.value = '';
+  compareMode = false;
+  applyMode();
+  if (!append) currentOffset = 0;
   currentTopScore = 0;
-
-  const lat = typeof data.latencyMs === "number" ? ` · ${data.latencyMs.toFixed(3)}ms` : "";
-  setStatus(`${data.hits.length} similar to "${shortTitle}" · cosine over stored vectors${lat}`);
-  renderHitsList(resultsEl, data.hits, { append: false, startIndex: 0 });
+  currentSearchId = null;
+  currentRankerAnswered = '';
+  hideFeedback();
+  syncDifficultyControls();
+  renderCollectionControls();
+  syncUrl();
+  const issuedAt = ++lastQueryAt;
+  const sourceTitle = problem.title || problem.id;
+  if (currentUser) setLibPath(`~/similar/${problem.id}`);
+  setStatus(`finding related practice for "${sourceTitle}"`);
+  const notesActive = libNotes && typeof cosineSheets !== 'undefined' && cosineSheets.connected();
+  const pageSize = sortDir ? sortWindow : TOP_K;
+  const params = new URLSearchParams({ k: String(notesActive ? similarCorpusSize : pageSize), offset: String(notesActive || sortDir ? 0 : currentOffset) });
+  if (practiceMode) params.set('practice', '1');
+  if (activePlatforms.size) params.set('platform', [...activePlatforms].join(','));
+  if (activePattern) params.set('pattern', activePattern);
+  if (activeCollections.size) params.set('contest', [...activeCollections].join(','));
+  const difficulty = difficultyParam();
+  if (difficulty) params.set('difficulty', difficulty);
+  if (sortDir && !notesActive) params.set('sort', `difficulty-${sortDir}`);
+  if (currentUser) {
+    if (currentFilter !== 'all') params.set('filter', currentFilter);
+    if (similarLibrary) params.set('library', similarLibrary);
+    if (libRecall) params.set('recall', libRecall);
+    if (libAged) params.set('aged', String(libAged));
+    if (libOldest) params.set('order', 'oldest');
+  }
+  try {
+    if (inFlight) inFlight.abort();
+    inFlight = new AbortController();
+    const res = await fetch(`/api/similar/${encodeURIComponent(problem.id)}?${params}`, { signal: inFlight.signal });
+    const data = await res.json();
+    if (issuedAt !== lastQueryAt) return;
+    if (!res.ok) throw new Error(data.error || `similar unavailable (${res.status})`);
+    if (data.source) currentSimilar = data.source;
+    let hits = data.hits || [];
+    currentTotal = data.total || hits.length;
+    if (notesActive) {
+      hits = hits.filter(h => {
+        const has = !!cosineSheets.noteText(h.problem.id).trim();
+        return libNotes === 'yes' ? has : !has;
+      });
+      currentTotal = hits.length;
+      if (sortDir) {
+        hits = hits.slice(0, sortWindow).sort((a, b) => {
+          const av = cosineDifficulty.value(a.problem), bv = cosineDifficulty.value(b.problem);
+          if (av == null || bv == null) return av == null ? (bv == null ? 0 : 1) : -1;
+          return sortDir === 'desc' ? bv - av : av - bv;
+        });
+      } else hits = hits.slice(currentOffset, currentOffset + TOP_K);
+    }
+    currentRankerAnswered = data.ranker || 'dense';
+    const label = (currentSimilar && currentSimilar.title) || sourceTitle;
+    const context = practiceMode
+      ? ` · recommended practice beyond the source contest${currentUser ? ' · not done' : ' · sign in to exclude solved problems'}`
+      : ` · ${activeFacets().join(' · ') || 'all problems'}${similarLibrary ? ` · saved: ${similarLibrary}` : ''}`;
+    if (!hits.length) {
+      if (!append) {
+        resultsEl.innerHTML = '';
+        const empty = document.createElement('li');
+        empty.className = 'similar-empty';
+        empty.textContent = 'No related problems match these filters. ';
+        const relax = document.createElement('button');
+        relax.type = 'button';
+        relax.className = 'lib-chip';
+        relax.textContent = 'clear filters and search again';
+        relax.addEventListener('click', () => {
+          activePattern = '';
+          activePlatforms.clear();
+          activeCollections.clear();
+          activeTiers.clear();
+          activeRanges.clear();
+          activeAcceptance = null;
+          similarLibrary = null;
+          libAged = null;
+          libOldest = false;
+          libRecall = null;
+          libNotes = null;
+          currentFilter = practiceMode ? 'notdone' : 'all';
+          filterSelect.value = currentFilter;
+          updatePatternPill();
+          syncJudgeControls();
+          runSimilar(currentSimilar);
+        });
+        empty.appendChild(relax);
+        resultsEl.appendChild(empty);
+      }
+      hideLoadMore();
+      setStatus(`0 related to "${label}"${context}`);
+      return;
+    }
+    renderHitsList(resultsEl, hits, { append, startIndex: currentOffset, unranked: true, similarMode: true, libraryMode: !!similarLibrary });
+    setStatus(`${sortDir ? `top ${hits.length}` : `showing 1–${currentOffset + hits.length}`} of ${currentTotal} related to "${label}"${context}${orderNote()}`);
+    if (sortDir || data.sortWindow) hideLoadMore();
+    else updateLoadMore();
+  } catch (err) {
+    if (err.name === 'AbortError' || issuedAt !== lastQueryAt) return;
+    setStatus(`error: ${err.message || 'similar unavailable'}`);
+    hideLoadMore();
+  }
 }
 
 // "Was this useful?" — the one-line prompt under results. One answer per
@@ -1489,7 +1783,7 @@ function applyPatternFilter(pattern) {
   // words you never typed — and clearing them dead-ended on a blank page. The
   // server browses a filter with no query now, so the box stays yours.
   currentOffset = 0;
-  runSearch(input.value, { append: false });
+  reissueCurrentView();
 }
 
 function clearPatternFilter({ reissue = true } = {}) {
@@ -1497,9 +1791,9 @@ function clearPatternFilter({ reissue = true } = {}) {
   activePattern = "";
   updatePatternPill();
   syncUrl();
-  if (reissue && currentQuery) {
+  if (reissue) {
     currentOffset = 0;
-    runSearch(currentQuery, { append: false });
+    reissueCurrentView();
   }
 }
 
@@ -1515,6 +1809,12 @@ function clearPatternFilter({ reissue = true } = {}) {
 function syncUrl() {
   const p = new URLSearchParams();
   if (currentQuery) p.set("q", currentQuery);
+  if (currentSimilar) {
+    p.set("similar", currentSimilar.id);
+    if (similarLibrary) p.set("library", similarLibrary);
+    if (practiceMode) p.set("practice", "1");
+  }
+  if (activeCollections.size) p.set("contest", [...activeCollections].join(","));
   if (activePattern) p.set("pattern", activePattern);
   if (activePlatforms.size) p.set("platform", [...activePlatforms].join(","));
   const dParam = difficultyParam();
@@ -1522,7 +1822,7 @@ function syncUrl() {
   if (sortDir) p.set("sort", `difficulty-${sortDir}`);
   // Library-only state, written only when a library view is open so a plain
   // search URL never carries stale revision filters.
-  if (currentUser && libraryCommand(currentQuery)) {
+  if (currentUser && (libraryCommand(currentQuery) || currentSimilar)) {
     if (libAged) p.set("aged", String(libAged));
     if (libOldest) p.set("order", "oldest");
     if (libRecall) p.set("recall", libRecall);
@@ -1572,9 +1872,9 @@ function clearPlatformFilter({ reissue = true } = {}) {
   activePlatforms.clear();
   syncJudgeControls();
   syncUrl();
-  if (reissue && currentQuery) {
+  if (reissue) {
     currentOffset = 0;
-    runSearch(currentQuery, { append: false });
+    reissueCurrentView();
   }
 }
 
@@ -1621,9 +1921,14 @@ const HELP_SECTIONS = [
 
 FIND SIMILAR
   inside an expanded result, "find similar problems" lists the
-  ten problems closest in meaning to that one — neighbours of
-  the problem itself, not of your query. Built for upsolving:
-  open the one that beat you, see its family.
+  related problems with your current filters and saved scope.
+  The source and filters stay in the URL, and results paginate.
+  Shared techniques appear inside expanded cards.
+
+  "practice this idea" broadens beyond the source contest and
+  saved list, keeping your judge, pattern, and difficulty.
+  Signed-in users see problems they have not marked done.
+  Recommendations are distinguished from actual PYQs.
 
 BROWSE
   a filter with no query lists everything it selects. Clear the
@@ -1631,7 +1936,8 @@ BROWSE
   paged.
 
 CORPUS
-  four judges, tagged [lc] [cf] [atc] [cses] on every card.
+  Judge badges identify the original platform. Verified PYQs
+  also include narrow CodeChef and Kattis collections.
   Deliberately hard: no LeetCode Easy, Codeforces and AtCoder
   stratified from 1300 up — the number on the card is the
   rating.`,
@@ -1669,10 +1975,10 @@ CORPUS
   and all of it lands in the URL, so a refresh keeps it and the
   link shares exactly what you see.
 
-  judges       the lc / cses / cf / atc chips above the
-               results, or the [lc] tag on any card. All four
-               are on until you narrow. Turning the last one
-               off returns to all four, so this filter can
+  judges       the platform chips above the results, or the
+               [lc] tag on any card. All judges are included
+               until you narrow. Turning the last one off
+               returns to all judges, so this filter can
                never find nothing. "all ✕" resets.
 
   difficulty   appears under the judges, in each judge's own
@@ -1684,6 +1990,20 @@ CORPUS
                LeetCode results untouched rather than deleting
                them. Drop the judge and its difficulty goes
                with it.
+
+  CSES         five estimated bands, independent of ratings:
+               Foundation, Standard, Intermediate, Advanced,
+               Expert. Only reviewed estimates are displayed.
+               Choose "my CSES level" explicitly; your account
+               saves the choice, or it stays in this browser
+               while signed out. "my level" applies that band.
+
+  PYQs         add one or more competition collections. These
+               combine with every other filter. Hints and
+               difficulty start hidden; open the original to
+               attempt, or reveal hints when you want them.
+               Resource links remain available even when a
+               round has no searchable problem statements.
 
   ac           pick a LeetCode tier and an acceptance-rate
                range appears under it: "hard" + "ac 10% to 30%"
@@ -2114,6 +2434,8 @@ const PLATFORM_LABELS = {
   codeforces: ["cf", "Codeforces"],
   atcoder: ["atc", "AtCoder"],
   cses: ["cses", "CSES"],
+  codechef: ["cc", "CodeChef"],
+  kattis: ["kattis", "Kattis"],
 };
 
 function platformBadge(platform) {
@@ -2140,7 +2462,8 @@ function renderHitsList(container, hits, opts = {}) {
   // A browse has no ranking, so a relevance bar would be drawing a number that
   // doesn't exist. Library lists are the same — they're ordered by when you
   // saved something, not by score.
-  const ranked = !opts.unranked && !libraryMode;
+  const ranked = !opts.unranked && !libraryMode && !opts.similarMode;
+  container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers);
   currentTopScore = hits.reduce(
     (m, h) => (typeof h.score === "number" ? Math.max(m, h.score) : m),
     currentTopScore
@@ -2164,7 +2487,7 @@ function renderHitsList(container, hits, opts = {}) {
 
     const meta = document.createElement("span");
     meta.className = "result-meta";
-    const diff = hit.problem.difficulty || "";
+    const diff = cosineDifficulty.format(hit.problem);
     // No raw score on cards. It read as a precise "similarity %" it never was,
     // and the same 4-decimal number meant a BM25 score in one view and a
     // cosine in another. The bar below still shows relative strength; exact
@@ -2172,7 +2495,7 @@ function renderHitsList(container, hits, opts = {}) {
     const trailing = libraryMode ? formatRelative(hit.markedAt) : "";
     // CSES ships no difficulty, so this used to render an empty bordered chip —
     // visible furniture standing in for nothing.
-    const diffHtml = diff === "" ? "" : `<span class="difficulty ${diffClass(diff)}">${escapeHtml(String(diff))}</span>`;
+    const diffHtml = diff === "" ? "" : `<span class="difficulty ${hit.problem.platform === "cses" ? "cses-estimate" : diffClass(hit.problem.difficulty)}">${escapeHtml(String(diff))}</span>`;
     let metaHtml = platformBadge(hit.problem.platform) + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
@@ -2208,7 +2531,7 @@ function renderHitsList(container, hits, opts = {}) {
     if (!ranked) bar.classList.add("hidden");
 
     const matched = document.createElement("div");
-    matched.className = "result-matched";
+    matched.className = "result-matched spoiler-content";
     if ((hit.matchedTerms || []).length) {
       for (const t of hit.matchedTerms) {
         const chip = document.createElement("span");
@@ -2219,14 +2542,19 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     const detail = document.createElement("div");
-    detail.className = "result-detail hidden";
+    detail.className = "result-detail hidden spoiler-content";
+    detail.id = `detail-${hit.problem.id}-${startIndex + i}`;
+    title.tabIndex = 0;
+    title.setAttribute("role", "button");
+    title.setAttribute("aria-expanded", "false");
+    title.setAttribute("aria-controls", detail.id);
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
       <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
       <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
         .join(" ")}</p>
-      <p><a href="#" class="similar-link">find similar problems &rarr;</a>${
+      <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
         hit.problem.source_url
           ? ` · <a href="${escapeHtml(hit.problem.source_url)}" class="external-link" target="_blank" rel="noopener">open original problem &rarr;</a>`
           : ""
@@ -2237,6 +2565,17 @@ function renderHitsList(container, hits, opts = {}) {
       e.stopPropagation();
       runSimilar(hit.problem);
     });
+    detail.querySelector(".practice-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      runSimilar(hit.problem, { practice: true });
+    });
+    if (opts.similarMode && (hit.sharedTechniques || []).length) {
+      const explanation = document.createElement("p");
+      explanation.className = "similar-explanation";
+      explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
+      detail.prepend(explanation);
+    }
     detail.querySelectorAll(".pattern-chip").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -2255,6 +2594,7 @@ function renderHitsList(container, hits, opts = {}) {
     header.addEventListener("click", () => {
       const opening = detail.classList.contains("hidden");
       detail.classList.toggle("hidden");
+      title.setAttribute("aria-expanded", String(opening));
       // The outcome signal: someone cared enough to open this result. Logged
       // once per card; position + searchId make CTR-per-ranker computable.
       if (opening && !li.dataset.opened) {
@@ -2266,6 +2606,12 @@ function renderHitsList(container, hits, opts = {}) {
           searchId: currentSearchId || undefined,
           ranker: currentRankerAnswered || undefined,
         });
+      }
+    });
+    title.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        header.click();
       }
     });
     const externalLink = detail.querySelector(".external-link");
@@ -2282,12 +2628,30 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     li.appendChild(header);
+    if (activeCollections.size) {
+      const attempt = document.createElement("div");
+      attempt.className = "pyq-attempt";
+      const original = safeResourceUrl(hit.problem.source_url);
+      if (original) {
+        const link = document.createElement("a");
+        link.href = original;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "open original problem →";
+        attempt.appendChild(link);
+      }
+      const notice = document.createElement("span");
+      notice.className = "spoiler-notice";
+      notice.textContent = " · hints and difficulty hidden";
+      attempt.appendChild(notice);
+      li.appendChild(attempt);
+    }
     if (!libraryMode) li.appendChild(bar);
     if (matched.childNodes.length > 0) li.appendChild(matched);
     li.appendChild(detail);
     container.appendChild(li);
 
-    if (!libraryMode && topScore > 0 && typeof hit.score === "number") {
+    if (ranked && topScore > 0 && typeof hit.score === "number") {
       const pct = Math.max(2, Math.round((hit.score / topScore) * 100));
       requestAnimationFrame(() => {
         fill.style.width = `${pct}%`;
@@ -2500,9 +2864,8 @@ function pickOne() {
 }
 
 function reissueSearch() {
-  if (!currentQuery) return;
   currentOffset = 0;
-  runSearch(currentQuery, { append: false });
+  reissueCurrentView();
 }
 
 // Read-only view of a problem's sheet row. The sheet is the editing surface —
@@ -2807,6 +3170,15 @@ const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();
 const bootQ = (bootParams.get("q") || "").trim();
+const bootSimilar = (bootParams.get("similar") || "").trim();
+if (/^[a-z0-9][a-z0-9-]{0,180}$/.test(bootSimilar)) currentSimilar = { id: bootSimilar, title: bootSimilar };
+const bootLibrary = bootParams.get("library");
+if (currentSimilar && ["all", "bookmarked", "done"].includes(bootLibrary)) { similarLibrary = bootLibrary; bootNeedsAuth = true; }
+practiceMode = !!currentSimilar && bootParams.get("practice") === "1";
+for (const id of (bootParams.get("contest") || "").split(",")) {
+  if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
+}
+loadCollections();
 const bootPattern = (bootParams.get("pattern") || "").trim().toLowerCase();
 const bootAged = Number.parseInt(bootParams.get("aged") || "", 10);
 if ([30, 90, 180].includes(bootAged)) libAged = bootAged;
@@ -2837,10 +3209,14 @@ for (const tok of (bootParams.get("difficulty") || "").toLowerCase().split(","))
 }
 syncJudgeControls();
 if (bootQ) input.value = bootQ;
-if (libraryCommand(bootQ)) bootNeedsAuth = true;
-if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) {
+if (libraryCommand(bootQ) || (currentSimilar && (libRecall || libAged || libNotes))) bootNeedsAuth = true;
+if (currentSimilar) {
+  if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) { activePattern = bootPattern; updatePatternPill(); }
+  input.value = "";
+  runSimilar(currentSimilar);
+} else if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) {
   applyPatternFilter(bootPattern);
-} else if (bootQ) {
+} else if (bootQ || activeCollections.size || activePlatforms.size) {
   runSearch(bootQ, { append: false });
 } else {
   setStatus("");

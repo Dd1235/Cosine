@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "id": "icpc-india-prelims-2025-26",
+      "name": "ICPC India Prelims 2025–26",
+      "family": "icpc",
+      "season": "2025–26",
+      "stage": "prelims",
+      "location": "India",
+      "evidence": [
+        "https://codeforces.com/gym/106179",
+        "https://indiaicpc.in/problemset.pdf"
+      ],
+      "problems": [
+        "codeforces-106179-a",
+        "codeforces-106179-b",
+        "codeforces-106179-c",
+        "codeforces-106179-d",
+        "codeforces-106179-e",
+        "codeforces-106179-f"
+      ],
+      "resources": [
+        {
+          "title": "Practice and virtual contest",
+          "url": "https://codeforces.com/gym/106179",
+          "kind": "judge",
+          "availability": "public"
+        },
+        {
+          "title": "Official problem booklet",
+          "url": "https://indiaicpc.in/problemset.pdf",
+          "kind": "pdf",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": null,
+      "observed_at": "2026-09-11"
+    },
+    {
+      "id": "icpc-india-archive",
+      "name": "ICPC India regional archives",
+      "family": "icpc",
+      "season": null,
+      "stage": "archive",
+      "location": "India",
+      "evidence": [
+        "https://codeforces.com/blog/entry/105000"
+      ],
+      "problems": [],
+      "resources": [
+        {
+          "title": "Indian prelims and regionals archive",
+          "url": "https://codeforces.com/blog/entry/105000",
+          "kind": "archive",
+          "availability": "public"
+        },
+        {
+          "title": "Maintained contest links",
+          "url": "https://github.com/m-e-r-l-i-n/icpc-india",
+          "kind": "archive",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": null,
+      "observed_at": "2026-09-11"
+    },
+    {
+      "id": "icpc-world-finals",
+      "name": "ICPC World Finals archive",
+      "family": "icpc",
+      "season": null,
+      "stage": "world-finals",
+      "location": null,
+      "evidence": [
+        "https://icpc.global/worldfinals/past-problems"
+      ],
+      "problems": [],
+      "resources": [
+        {
+          "title": "Official past problems",
+          "url": "https://icpc.global/worldfinals/past-problems",
+          "kind": "archive",
+          "availability": "public"
+        },
+        {
+          "title": "Kattis contest sources",
+          "url": "https://icpc.kattis.com/problem-sources",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": null,
+      "observed_at": "2026-09-11"
+    },
+    {
+      "id": "icpc-world-finals-2024",
+      "name": "ICPC World Finals 2024",
+      "family": "icpc",
+      "organizer": "ICPC",
+      "season": "2024",
+      "stage": "world-finals",
+      "location": null,
+      "held_date": null,
+      "observed_at": "2026-09-11",
+      "evidence": [
+        "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202024"
+      ],
+      "problems": [
+        "kattis-billboards",
+        "kattis-bingoforthewin",
+        "kattis-citizenship",
+        "kattis-doubleshorsebackwrestling",
+        "kattis-flippingcontainer",
+        "kattis-friendlyrivalry",
+        "kattis-kindergarten2",
+        "kattis-maxwellsdemon",
+        "kattis-steppeonit",
+        "kattis-thesilkroad",
+        "kattis-towerofnoiha",
+        "kattis-whereaminow"
+      ],
+      "resources": [
+        {
+          "title": "Official Kattis practice archive",
+          "url": "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202024",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ]
+    },
+    {
+      "id": "iicpc-codefest-2026-prelims",
+      "name": "IICPC Codefest 2026 Prelims",
+      "family": "iicpc-codefest",
+      "season": "2026",
+      "stage": "prelims",
+      "location": "India",
+      "evidence": [
+        "https://codeforces.com/topic/151460/en1?locale=en",
+        "https://www.codechef.com/api/contests/CDFESTMR2026"
+      ],
+      "problems": [
+        "codechef-amat",
+        "codechef-productneg",
+        "codechef-makezero7",
+        "codechef-productpos",
+        "codechef-mst101",
+        "codechef-expprod2",
+        "codechef-jump12",
+        "codechef-vscnt",
+        "codechef-cyclicxor"
+      ],
+      "resources": [
+        {
+          "title": "CodeChef practice mirror",
+          "url": "https://www.codechef.com/CDFESTMR2026",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "organizer": "IICPC",
+      "held_date": null,
+      "observed_at": "2026-09-11"
+    },
+    {
+      "id": "iicpc-quantfest-2025-prelims",
+      "name": "IICPC Quantfest 2025 Prelims",
+      "family": "iicpc-quantfest",
+      "season": "2025",
+      "stage": "prelims",
+      "location": "India",
+      "evidence": [
+        "https://codeforces.com/blog/entry/145776",
+        "https://quantfest.iicpc.com/"
+      ],
+      "problems": [],
+      "resources": [
+        {
+          "title": "Setter editorials and problem links",
+          "url": "https://codeforces.com/blog/entry/145776",
+          "kind": "editorial",
+          "availability": "public"
+        },
+        {
+          "title": "Official competition and round formats",
+          "url": "https://quantfest.iicpc.com/",
+          "kind": "archive",
+          "availability": "public"
+        }
+      ],
+      "organizer": "IICPC",
+      "held_date": null,
+      "observed_at": "2026-09-11"
+    }
+  ],
+  "aliases": {
+    "codeforces-2256-c": "codeforces-2255-a",
+    "codeforces-2256-d": "codeforces-2255-b",
+    "codeforces-2256-e": "codeforces-2255-c",
+    "codeforces-2256-f": "codeforces-2255-d"
+  }
+}

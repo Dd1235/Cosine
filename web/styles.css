@@ -1928,3 +1928,37 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   main { padding: 1.2rem 0.75rem 4rem; }
   .tagline { font-size: 0.75rem; }
 }
+
+/* Competition membership is a facet; resources remain separate from problems. */
+.collection-controls, .collection-chips, .collection-heading, .cses-level-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.collection-controls, .cses-level-row { margin: 10px 0; font-size: .8rem; }
+.collection-controls > label, .cses-level-row > label { flex-shrink: 0; }
+.collection-controls select { max-width: 100%; min-width: 0; }
+.collection-chips { flex-basis: 100%; }
+.collection-chips:empty { display: none; }
+.collection-resources { margin: 12px 0; padding: 12px; border: 1px solid var(--border, #7775); border-radius: 6px; font-size: .8rem; line-height: 1.6; }
+.collection-resources details { margin-top: 8px; }
+.collection-resources summary { cursor: pointer; overflow-wrap: anywhere; }
+.collection-resources ul { margin: 6px 0; padding-left: 20px; }
+.collection-heading { justify-content: space-between; }
+.cses-level-row[hidden], .collection-resources[hidden] { display: none; }
+#cses-level-note { opacity: .7; font-size: .75rem; }
+.cses-estimate { white-space: normal; }
+.pyq-attempt { font-size: .8rem; margin-top: 6px; }
+.spoiler-notice { display: none; opacity: .7; }
+.hide-spoilers .spoiler-content, .hide-spoilers .difficulty, .hide-spoilers .score-bar, .hide-spoilers .note-mark { display: none !important; }
+.hide-spoilers .spoiler-notice { display: inline; }
+.similar-empty { list-style: none; padding: 20px 0; }
+.similar-explanation { opacity: .85; }
+.result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 720px) {
+  .collection-controls select { width: 100%; font-size: 16px; }
+  .cses-level-row select { font-size: 16px; max-width: 100%; }
+  .collection-chips .judge-chip { white-space: normal; text-align: left; }
+  .collection-resources { overflow-wrap: anywhere; }
+}
