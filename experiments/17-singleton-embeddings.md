@@ -41,3 +41,13 @@ matching recipe and rejects legacy, batched, or package-mismatched artifacts.
 `node server/search/dense.test.js` passed. `npm run validate` passed with zero
 errors and the pre-existing open-vocabulary warning. Full singleton corpus
 embedding took 10.5 seconds on this local environment.
+
+## Separate latency change after baseline
+
+A later change adds a per-DenseIndex LRU of 128 exact-input query embeddings,
+coalesces concurrent identical requests, and evicts rejected promises. It stores
+no result lists or user decorations and cannot cross model/index instances.
+`node server/search/dense.cache.test.js` verifies case/space distinction,
+coalescing, eviction, rejection retry, and isolation. This cache was **not enabled**
+in either controlled benchmark above; future repeated-query latency reports must
+separate cache hits from cold query embeddings.
