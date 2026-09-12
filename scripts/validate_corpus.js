@@ -123,6 +123,28 @@ function checkProblem({ rel, platform, basename, problem }, taxonomy, driftCount
       }
     }
   }
+  // Kattis publishes its own 1.0-10.0 difficulty score. It is NOT `difficulty`:
+  // that field holds the judge's own named tier and Kattis has no tier, so it
+  // stays null and the score is carried separately, with the host and the date
+  // it was read -- Kattis recomputes the score as more people solve a problem,
+  // so an undated score is a number with no claim attached to it.
+  if (problem.kattis_difficulty != null) {
+    const k = problem.kattis_difficulty;
+    if (platform !== "kattis" || typeof k !== "object" || Array.isArray(k)) {
+      err(`${rel}: kattis_difficulty must be a Kattis-only object`);
+    } else {
+      if (typeof k.score !== "number" || !Number.isFinite(k.score) || k.score < 0 || k.score > 10) {
+        err(`${rel}: Kattis score must be a number 0..10`);
+      }
+      if (typeof k.host !== "string" || !k.host.trim()) err(`${rel}: Kattis host required`);
+      if (typeof k.observed_at !== "string" || !k.observed_at.trim()) {
+        err(`${rel}: Kattis observed_at required`);
+      }
+      if (k.label != null && !["easy", "medium", "hard"].includes(k.label)) {
+        err(`${rel}: Kattis label must be easy/medium/hard`);
+      }
+    }
+  }
   if (typeof problem.slug === "string" && !SLUG_RE.test(problem.slug)) {
     err(`${rel}: slug "${problem.slug}" is not slug-shaped`);
   }
