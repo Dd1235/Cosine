@@ -194,7 +194,7 @@ Fallback if Render asks for a card anyway: **Hugging Face Spaces** runs Dockerfi
 - Go/gRPC BM25 microservice — **shipped** ([go/](../go/), [experiments/03](../experiments/03-go-vs-node-bm25.md))
 - Pagination (`offset` + `total` through route, rankers, proto, UI) — **shipped**
 - Postgres auth + bookmarks + done state — **shipped**
-- Architecture and interview docs — **shipped** ([docs/implementation/13](implementation/13-architecture-diagrams.md), [14](implementation/14-interview-talk-tracks.md), [15](implementation/15-database-auth-and-user-state.md))
+- Architecture diagrams and the database / auth / user-state design — **shipped**
 - Expand bench to ~30 labeled queries — **shipped** (v3 is 42: 30 keyword + 12 paraphrase, sliced; [experiments/04](../experiments/04-bench-30q.md), [05](../experiments/05-dense-hybrid-rrf.md))
 - Dense retrieval (offline-embedded corpus, in-process MiniLM, brute-force cosine) — **shipped** ([experiments/05](../experiments/05-dense-hybrid-rrf.md))
 - Hybrid RRF retrieval + "find similar to this problem" route — **shipped** ([experiments/05](../experiments/05-dense-hybrid-rrf.md))
