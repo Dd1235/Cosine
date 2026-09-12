@@ -14,9 +14,42 @@ def text(s):
     s = re.sub(r'<(?:script|style)\b.*?</(?:script|style)>', '', s, flags=re.S)
     s = re.sub(r'</(?:p|h1|h2|li|pre|div)>', '\n', s)
     return html.unescape(re.sub('<[^>]+>', '', s)).strip()
+CHECK = ROOT/'data/cses/count_semantics_check.json'
+def shown(path):
+    try: return path.relative_to(ROOT)
+    except ValueError: return path
+def set_semantics(value, output):
+    """Record what the two public counts mean - only ever from a completed check.
+
+    The task statistics page needs a login, so the check is the owner's manual
+    procedure (documented in data/cses/README.md), not something this script can
+    perform. Without its file, or with a file that concluded something else,
+    this refuses: an unverified semantics claim is what every gate here exists
+    to prevent."""
+    if not CHECK.exists():
+        raise SystemExit(f'Refusing: {shown(CHECK)} does not exist. Run the manual logged-in count check first; the procedure is in data/cses/README.md.')
+    check = json.loads(CHECK.read_text())
+    conclusion = check.get('conclusion')
+    if conclusion != value:
+        raise SystemExit(f'Refusing: {shown(CHECK)} concludes {conclusion!r}, not {value!r}.')
+    snapshot_path = output/'public_counts.json'
+    if not snapshot_path.exists():
+        raise SystemExit(f'Refusing: no snapshot at {snapshot_path}.')
+    snapshot = json.loads(snapshot_path.read_text())
+    snapshot['verified_count_semantics'] = value
+    snapshot['count_semantics'] = f'verified by manual logged-in task-statistics check: {value}'
+    snapshot['count_semantics_evidence'] = 'data/cses/count_semantics_check.json'
+    snapshot_path.write_text(json.dumps(snapshot, indent=2)+'\n')
+    # Semantics are a frozen input, so this invalidates the freeze on purpose.
+    print(f'Recorded verified_count_semantics={value!r}. The frozen input hash no longer verifies; re-freeze before publishing again.')
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--output', type=Path, default=ROOT/'data/cses'); args=ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--output', type=Path, default=ROOT/'data/cses')
+    ap.add_argument('--set-semantics', dest='set_semantics', help='record verified count semantics from data/cses/count_semantics_check.json instead of snapshotting')
+    args=ap.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
+    if args.set_semantics:
+        return set_semantics(args.set_semantics, args.output)
     stamp=datetime.datetime.now(datetime.timezone.utc).isoformat()
     page=fetch('https://cses.fi/problemset/')
     records=[]

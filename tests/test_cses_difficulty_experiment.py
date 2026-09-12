@@ -1,9 +1,15 @@
 import importlib.util
+import json
+import tempfile
 from pathlib import Path
 import unittest
 
-spec=importlib.util.spec_from_file_location('cses_experiment',Path(__file__).resolve().parents[1]/'scripts/evaluate_cses_difficulty.py')
-m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+def load(name,relative):
+    spec=importlib.util.spec_from_file_location(name,Path(__file__).resolve().parents[1]/relative)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+
+m=load('cses_experiment','scripts/evaluate_cses_difficulty.py')
+collect=load('cses_collect','scripts/collect_cses_evidence.py')
 
 class CsesExperimentTest(unittest.TestCase):
     def snapshot(self,verified=False,cohort=None):
@@ -39,4 +45,48 @@ class CsesExperimentTest(unittest.TestCase):
             statement=m.read(root/'statements'/(r['id']+'.json'))
             self.assertEqual(r['statement_sha256'],statement['statement_sha256'])
             self.assertTrue(r['solution_rationale'] and r['complexity'])
+
+class PublishedScopeTest(unittest.TestCase):
+    def test_published_bands_say_what_they_are(self):
+        root=Path(__file__).resolve().parents[1]/'data/cses'
+        bands=m.read(root/'published_bands.json');status=m.read(root/'research_status.json')
+        self.assertEqual('published-estimate-v1',bands['scope'])
+        self.assertTrue(bands['statistical_model'].startswith('disabled'))
+        self.assertTrue(status['publication_ready'])
+        self.assertTrue(status['production_changes'])
+        self.assertIn('statistical adjustment disabled',status['scope'])
+        self.assertTrue(status['statistics_arm'].startswith('disabled'))
+        self.assertEqual(400,len(bands['problems']))
+        self.assertTrue(all(p['confidence'] in {'low','medium','high'} for p in bands['problems']))
+
+class CountSemanticsGateTest(unittest.TestCase):
+    # The public counts stay unlabelled until a logged-in human checks them. The
+    # only way that claim can appear in the snapshot is through a check file, so
+    # the refusal is the feature worth testing.
+    VALUE='distinct_solvers_over_distinct_attempting_users'
+    def test_refuses_without_check_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out=Path(tmp);(out/'public_counts.json').write_text(json.dumps({'problems':[]}))
+            missing=Path(tmp)/'count_semantics_check.json'
+            original=collect.CHECK;collect.CHECK=missing
+            try:
+                with self.assertRaises(SystemExit) as raised:collect.set_semantics(self.VALUE,out)
+            finally:collect.CHECK=original
+            self.assertIn('does not exist',str(raised.exception))
+            self.assertNotIn('verified_count_semantics',json.loads((out/'public_counts.json').read_text()))
+    def test_refuses_when_the_check_concluded_otherwise(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out=Path(tmp);(out/'public_counts.json').write_text(json.dumps({'problems':[]}))
+            check=out/'count_semantics_check.json'
+            check.write_text(json.dumps({'conclusion':'public counters are not solver/attempt counts'}))
+            original=collect.CHECK;collect.CHECK=check
+            try:
+                with self.assertRaises(SystemExit) as raised:collect.set_semantics(self.VALUE,out)
+            finally:collect.CHECK=original
+            self.assertIn('concludes',str(raised.exception))
+            self.assertNotIn('verified_count_semantics',json.loads((out/'public_counts.json').read_text()))
+    def test_no_check_file_is_committed(self):
+        self.assertFalse((Path(__file__).resolve().parents[1]/'data/cses/count_semantics_check.json').exists())
+        self.assertNotIn('verified_count_semantics',m.read(Path(__file__).resolve().parents[1]/'data/cses/public_counts.json'))
+
 if __name__=='__main__':unittest.main()

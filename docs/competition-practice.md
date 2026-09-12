@@ -25,6 +25,20 @@ There is no conversion from Codeforces rating. Unknown difficulty never passes
 a rating filter and sorts last in either direction. Cards and Sheets share the
 same formatter.
 
+CSES publishes no difficulty, so every band is an estimate and is labelled as
+one. Each of the 400 tasks got two independent solution reviews from the
+statement; the band is their rounded mean, and fourteen specialist checks with
+a proof or a finite computation override that mean where a review was unsafe.
+Confidence states how much the two reviews agreed: high means both chose the
+band, medium means they were one band apart, low means a specialist check
+resolved it rather than agreement. It is agreement between reviews, not human
+calibration, and it maps to no rating on any other judge. No count-based
+adjustment is applied; the two public CSES counters are unlabelled, so every
+statistical variant contributes zero. The method, the held-out numbers and the
+open questions are in `experiments/19-cses-reviewed-bands.md`; the reviews,
+snapshots, published bands and the publisher's gates are under `data/cses/`,
+described in `data/cses/README.md`.
+
 Sheets tokens stay memory-only; note content stays between the browser and
 Google. Acknowledgements apply only to the values and mutation generation sent.
 An edit during a sync triggers a later sync, and an account change invalidates

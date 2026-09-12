@@ -1,6 +1,6 @@
 {
   "method": "cses-reviewed-v1",
-  "scope": "local-review-candidate",
+  "scope": "published-estimate-v1",
   "statistical_model": "disabled: count semantics and release cohorts unverified",
   "problems": [
     {
