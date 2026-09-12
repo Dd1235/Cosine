@@ -20,17 +20,22 @@ MOD = 10 ** 9 + 7
 
 
 # ---------------------------------------------------------------- brute force
-def brute(n, p, k):
+def brute_vec(n, p):
+    """exact distribution of (n-digit palindrome mod p), by enumeration"""
+    v = [0] * p
     if n == 1:
-        return sum(1 for d in range(10) if d % p == k) % MOD
+        for d in range(10):
+            v[d % p] += 1
+        return v
     h = (n + 1) // 2
-    cnt = 0
     for first in range(10 ** (h - 1), 10 ** h):
         s = str(first)
-        full = s + s[::-1][(n % 2):]
-        if int(full) % p == k:
-            cnt += 1
-    return cnt % MOD
+        v[int(s + s[::-1][(n % 2):]) % p] += 1
+    return [x % MOD for x in v]
+
+
+def brute(n, p, k):
+    return brute_vec(n, p)[k % p]
 
 
 # ------------------------------------------------------- straightforward O(n)
@@ -44,9 +49,12 @@ def conv_sparse(v, p, c, digits):
     return out
 
 
-def slow(n, p, k):
+def slow_vec(n, p):
     if n == 1:
-        return sum(1 for d in range(10) if d % p == k) % MOD
+        v = [0] * p
+        for d in range(10):
+            v[d % p] += 1
+        return v
     m = n - 1
     h = (n + 1) // 2
     v = [0] * p
@@ -61,7 +69,11 @@ def slow(n, p, k):
     for j in range(1, last + 1):
         c = (pow(10, j, p) + pow(10, m - j, p)) % p
         v = conv_sparse(v, p, c, range(10))
-    return v[k % p]
+    return v
+
+
+def slow(n, p, k):
+    return slow_vec(n, p)[k % p]
 
 
 # ------------------------------------------------------------------- intended
@@ -89,9 +101,12 @@ def order10(p):
     return o
 
 
-def fast(n, p, k):
+def fast_vec(n, p):
     if n == 1:
-        return sum(1 for d in range(10) if d % p == k) % MOD
+        v = [0] * p
+        for d in range(10):
+            v[d % p] += 1
+        return v
     m = n - 1
     h = (n + 1) // 2
     v = [0] * p
@@ -103,11 +118,8 @@ def fast(n, p, k):
     if T >= 1:
         L = order10(p)
 
-        def cj(j):
-            return (pow(10, j, p) + pow(10, (m - j) % (L if p not in (2, 5) else 1) + L, p)) % p
-
-        # careful version: exponents are huge but we only need them mod L
-        # (both j >= 1 and m-j >= 1 sit in the purely periodic regime)
+        # exponents are huge but only their residues mod L matter: both
+        # j >= 1 and m-j >= 1 sit in the purely periodic regime of 10^t mod p
         def coef(j):
             e1 = j % L
             e2 = (m - j) % L
@@ -132,7 +144,11 @@ def fast(n, p, k):
             v = conv(v, acc, p)
         for j in range(1, rem + 1):
             v = conv_sparse(v, p, coef(j), range(10))
-    return v[k % p]
+    return v
+
+
+def fast(n, p, k):
+    return fast_vec(n, p)[k % p]
 
 
 # ------------------------------------------------------------------ the tests
@@ -140,56 +156,48 @@ PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 97, 101]
 
 
 def main():
-    # sample
-    assert fast(1, 2, 0) == 5, fast(1, 2, 0)
-    assert brute(1, 2, 0) == 5
-
+    assert fast(1, 2, 0) == 5, fast(1, 2, 0)          # the sample
     bad = 0
-    # 1) brute vs fast, every tiny case
+
+    # 1) exhaustive: enumeration vs both DPs, every residue
     for n in range(1, 8):
         for p in PRIMES:
-            for k in range(p):
-                b, f, s = brute(n, p, k), fast(n, p, k), slow(n, p, k)
-                if not (b == f == s):
-                    bad += 1
-                    print("MISMATCH tiny n=%d p=%d k=%d brute=%d fast=%d slow=%d"
-                          % (n, p, k, b, f, s))
-    print("tiny exhaustive (n<=7): done, %d mismatches" % bad)
+            b, f, sl = brute_vec(n, p), fast_vec(n, p), slow_vec(n, p)
+            if not (b == f == sl):
+                bad += 1
+                print("MISMATCH tiny n=%d p=%d" % (n, p))
+                for k in range(p):
+                    if not (b[k] == f[k] == sl[k]):
+                        print("   k=%d brute=%d fast=%d slow=%d"
+                              % (k, b[k], f[k], sl[k]))
+            tot = 10 if n == 1 else 9 * 10 ** ((n + 1) // 2 - 1)
+            assert sum(b) == tot, (n, p, sum(b), tot)
+    print("exhaustive n<=7 x 18 primes x all residues: %d mismatches" % bad)
 
-    # sanity: totals over all residues must equal the palindrome count
-    for n in range(1, 8):
-        tot = 10 if n == 1 else 9 * 10 ** ((n + 1) // 2 - 1)
-        for p in (7, 13, 101):
-            got = sum(fast(n, p, k) for k in range(p))
-            assert got == tot, (n, p, got, tot)
-    print("total-count check: ok")
-
-    # 2) slow vs fast on medium/large n (validates periodicity + exponentiation)
+    # 2) medium/large n: the O(n) DP vs the periodic/exponentiated one
     random.seed(1)
-    for _ in range(400):
+    for _ in range(120):
         n = random.choice([8, 9, 10, 11, 12, 13, 20, 21, 50, 51, 100, 101,
-                           999, 1000, 1001, 2048, 4097])
-        p = random.choice(PRIMES + [103, 107, 211, 401, 997])
-        k = random.randrange(p)
-        f, s = fast(n, p, k), slow(n, p, k)
-        if f != s:
+                           998, 999, 1000, 1001, 2048, 4097, 5000])
+        p = random.choice(PRIMES + [103, 107, 211, 401])
+        if fast_vec(n, p) != slow_vec(n, p):
             bad += 1
-            print("MISMATCH med n=%d p=%d k=%d fast=%d slow=%d" % (n, p, k, f, s))
-    print("medium n (slow vs fast): done, %d mismatches total" % bad)
+            print("MISMATCH med n=%d p=%d" % (n, p))
+    print("medium n (O(n) DP vs fast): %d mismatches total" % bad)
 
-    # 3) huge n, only the fast one can run; check the residues sum to the
-    #    closed-form palindrome count mod 1e9+7
+    # 3) huge n: only the fast one can run.  Check the residues sum to the
+    #    closed-form palindrome count mod 1e9+7, for p at the limit.
     for n, p in [(10 ** 18, 997), (10 ** 18 - 1, 997), (10 ** 18, 2),
-                 (10 ** 18, 5), (10 ** 17 + 3, 101)]:
+                 (10 ** 18, 5), (10 ** 17 + 3, 101), (2, 997), (3, 997)]:
         t0 = time.time()
-        vals = [fast(n, p, k) for k in range(p)] if p < 20 else None
-        if vals is not None:
-            h = (n + 1) // 2
-            tot = 9 * pow(10, h - 1, MOD) % MOD
-            assert sum(vals) % MOD == tot, (n, p, sum(vals) % MOD, tot)
-        else:
-            fast(n, p, 0)
-        print("huge n=%d p=%d ok  (%.2fs for this group)" % (n, p, time.time() - t0))
+        v = fast_vec(n, p)
+        h = (n + 1) // 2
+        tot = (10 if n == 1 else 9 * pow(10, h - 1, MOD)) % MOD
+        got = sum(v) % MOD
+        ok = got == tot
+        bad += 0 if ok else 1
+        print("huge n=%d p=%d  sum=%d expected=%d %s  (%.2fs)"
+              % (n, p, got, tot, "ok" if ok else "BAD", time.time() - t0))
 
     print("ALL OK" if bad == 0 else "FAILURES: %d" % bad)
     return 0 if bad == 0 else 1

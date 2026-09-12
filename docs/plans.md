@@ -288,17 +288,22 @@ skeptic verdict (`<batch>/skeptic.json`):
 | batch | what | solved | skeptic |
 | --- | --- | ---: | --- |
 | A | 6 staged CodeChef/WF2024 | 6 | done — 5 approved, `kattis-kindergarten2` **needs_work** (search is quadratic on an adversarial family; labels fine, complexity claim false) |
-| B | WF2024 remaining 9 | 9 | running / see `B/skeptic.json` |
-| D | Luxor WF 2022+2023, 12 | 7+ | not yet — run when `D/` has 12 solved (or accept what solved) |
-| E | Asia regionals, 38 | 6+ | not yet |
+| B | WF2024 remaining 9 | 9 | see `B/skeptic.json` if present; otherwise run it |
+| D | Luxor WF 2022+2023, 12 | 7 | not yet. **Unsolved-not-attempted** (agents lost mid-session): `arecurringproblem` 9.5, `aleaiactaest` 6.8, `jetlag` 7.1, `bridgingthegap` 6.7, `carlsvacation` 5.3 |
+| E | Asia regionals, 38 | 7 | not yet. Solved: freefood, sgcoin, hoppers, moscowdream, finalexam2, alchemy101, countingpalindromes. **Still to solve (31):** Singapore `bitwise conveyorbelts largesttriangle magicalstring nonprimefactors prolongedpassword rectangularcity slidingblocks wiknow`; Danang `abstractpainting bananaproblem datingtime easyquery fairbandwidthsharing generatingnumbers hanjie inspectingillumination justiceforants keepitsorted latinsquare`; Can Tho `beautifulsquare canthoexpressway div2mul2mul3 edgeremoval greatestpermutation hexagoncoloring intelligenceexchange jugglingsequence kingdomofhamsters lazystudents milkteabattle` |
 
-**Deliberately not attempted this session** (hardest, likely `unsolved`, and
-the session budget was the constraint): Asia `keepitsorted` 8.4,
-`beautifulsquare` 8.0, `div2mul2mul3` 9.2, `magicalstring` 9.0,
-`justiceforants` 9.1, `milkteabattle` 8.6; and a second attempt at
+**Deliberately not attempted this session** (session budget was the
+constraint; the solvers that were running for the D/E remainders above were
+lost when the session was compacted and were not relaunched): the hardest
+Asia problems `keepitsorted` 8.4, `beautifulsquare` 8.0, `div2mul2mul3` 9.2,
+`magicalstring` 9.0, `justiceforants` 9.1, `milkteabattle` 8.6; and a second attempt at
 `kattis-kindergarten2` starting from the skeptic's adversarial family
 (described in `external-batches/A/skeptic.json`). Unsolved problems stay
 staged and show as "not yet indexed" — that is the correct state.
+
+The solver brief to reuse is `data/analysis/external-batches/_tooling/SOLVER_BRIEF.md`
+(one Opus agent per hard problem, 2–3 easy ones per agent; ≤20 agents at once;
+solvers write `<batch>/<id>.json` + `verify_<slug>.py`).
 
 **To finish (one aggregated cycle, not per batch):**
 
