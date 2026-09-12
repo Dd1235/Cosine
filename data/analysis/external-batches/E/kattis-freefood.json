@@ -1,0 +1,24 @@
+{
+ "id": "kattis-freefood",
+ "status": "solved",
+ "solution": "Each event is a closed interval of days, so the answer is the size of the union of at most 100 intervals contained in [1,365]. Because the day range is tiny and fixed, the intended solution is to keep a 365-slot boolean array, mark every day from s_i to t_i for each event, and count the marked slots; overlaps take care of themselves since marking is idempotent. This costs O(N*365) time and O(365) memory. A difference array (+1 at s_i, -1 at t_i+1, prefix sum, count positive entries) or a sort-and-merge of the intervals gives the same answer in O(N log N) and is what the same problem would need if the day bound were large.",
+ "solution_confidence": 0.99,
+ "statement_summary": "Given up to 100 events, each occupying a contiguous range of days within a calendar year, count how many distinct days fall inside at least one event's range. Every event runs from a start day to an end day inclusive, and the ranges may overlap or nest arbitrarily. Since days are bounded by 365, the requested count is exactly the size of the union of the given intervals.",
+ "patterns": [
+  "interval-union",
+  "brute-force"
+ ],
+ "pattern_confidence": {
+  "interval-union": 0.95,
+  "brute-force": 0.7
+ },
+ "tags": [
+  "intervals",
+  "array",
+  "counting",
+  "easy"
+ ],
+ "source_text_sha256": "30361881692e291c1478e5575a5f25c43fdb00a715761245f1f8458b4e3fd8bc",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_freefood.py",
+ "notes": "Pure implementation -- there is no algorithmic idea beyond 'mark the days'. Only interval-union really describes it; brute-force is there because the 365-day bound is what licenses the direct stamping. Deliberately did NOT label difference-array / prefix-sum / sorting / line-sweep: all three are alternative ways to write the same union, none is needed at N<=100, and tagging them would make this problem compete with real difference-array problems. verify_freefood.py cross-checks boolean stamping, sort-and-merge and a difference array on 5000 random inputs (including deliberately overlap-heavy ones) plus all three samples."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "kattis-bingoforthewin",
+  "status": "solved",
+  "solution": "Key observation: for a fixed value v, the r-th time v is called it is taken by the fastest player whose cumulative multiplicity of v reaches r, so the final (m_v-th) occurrence of v always goes to the slowest player holding v, where m_v is v's total multiplicity over all sheets. Every one of the n*k calls is claimed by exactly one player, so the player who claims the very last call is exactly the player who finishes last, and that call is the final occurrence of whichever value is called last. Since the order is a uniformly random permutation of the multiset, each of the n*k tokens is equally likely to be last, hence P(player i finishes last) = (sum of m_v over values v whose slowest holder is i) / (n*k). Implementation: one pass over all n*k numbers building a hash map value -> (total count, largest player index holding it), then one pass over the map accumulating counts per owner; O(n*k) time and O(distinct values) memory, trivially within limits for n <= 100, k <= 1000. Both samples reproduce exactly (0, 1/2, 1/2 and four 1/4s), and the closed form was checked against an exhaustive simulation over all distinct multiset orderings on 520+ random instances with heavy duplicate values.",
+  "solution_confidence": 0.96,
+  "statement_summary": "In a speed variant of bingo, n players each hold a sheet of k numbers, not necessarily distinct, ranked by reaction speed. All n times k sheet numbers are called in uniformly random order, and each call goes to the fastest player still holding an uncrossed copy. With n at most 100 and k at most 1000, the task is to report each player's probability of finishing last.",
+  "patterns": ["combinatorics", "counting", "hash-map"],
+  "pattern_confidence": {
+    "combinatorics": 0.75,
+    "counting": 0.8,
+    "hash-map": 0.6
+  },
+  "tags": ["math", "combinatorics", "hash-map"],
+  "source_text_sha256": "e704aba8210e71e2b3f951f2bc8df75d7fb6ad16adc3ad7210a9363210f438ef",
+  "verify_script": "batchB/verify_bingoforthewin.py",
+  "notes": "The whole problem is one probability observation plus a group-by; there is no search, DP, or data structure beyond the map, so the label set is deliberately small. Deliberately NOT labelled probability-dp / expected-value-dp: nothing is computed by dynamic programming even though the answer is a probability (note that the taxonomy aliases 'probabilities' -> probability-dp, so plain non-DP probability problems like this one have no exact canonical carrier; 'combinatorics' is the closest, matching how cses-1725 is labelled). Considered and dropped contribution-technique: the answer does decompose into a per-value contribution m_v/(n*k) charged to that value's slowest holder, which is arguably the contribution technique, but the real work is the conditioning-on-the-last-call argument rather than a sum-over-elements reindexing, so it would dilute that label. hash-map is kept because values run to 1e9 and grouping by value is essentially the entire implementation; sorting the n*k (value, player) pairs is an equally valid route, so 'sorting' would not be wrong either. Vocabulary gap: there is no canonical label for a plain probability/uniform-random-order argument without DP."
+}

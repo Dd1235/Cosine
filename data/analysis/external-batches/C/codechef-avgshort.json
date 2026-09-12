@@ -1,0 +1,17 @@
+{
+  "id": "codechef-avgshort",
+  "status": "solved",
+  "solution": "Binary search the answer lambda and reweight every arc w -> w - lambda; a walk from A to B with average below lambda exists exactly when the shortest *walk* under the reweighted costs is negative. That test is Bellman-Ford run on the subgraph of vertices reachable from A and able to reach B: it returns true either when dist[B] < 0, or when a relaxation still fires after |V| rounds, i.e. a negative cycle sits on some A->B route and can be looped arbitrarily many times so the average tends to that cycle's mean. Correctness follows from decomposing any walk into one simple A->B path plus cycles: by the mediant inequality (a1+a2)/(b1+b2) >= min(a1/b1, a2/b2) the walk's ratio is at least the smallest ratio among the pieces, so the infimum equals min(best simple path ratio, best mean of a usable cycle) and the reweighted shortest-walk sign is monotone in lambda. Weights are 1..100 so the answer lies in [1,100] and about 40-50 bisection steps clear the 1e-6 requirement, giving O(log(1/eps) * N * M) per test (<= ~2.5e7 with N<=500, M<=1000, and far less in practice because Bellman-Ford exits early). The infimum need not be attained -- sample 2 answers 1.0, the mean of the 2<->3 cycle, which no finite walk achieves -- and -1 is printed when B is unreachable from A.",
+  "solution_confidence": 0.95,
+  "statement_summary": "Given a directed weighted graph with up to 500 nodes and 1000 arcs whose weights lie between 1 and 100, and two distinct nodes A and B, the task is to find the smallest possible average edge weight of a walk from A to B, where the walk may reuse edges and its length need not be bounded. Output is -1 when no walk exists.",
+  "patterns": ["bellman-ford", "binary-search-answer", "cycle-detection"],
+  "pattern_confidence": {
+    "bellman-ford": 0.93,
+    "binary-search-answer": 0.88,
+    "cycle-detection": 0.6
+  },
+  "tags": ["graph"],
+  "source_text_sha256": "d9d64f9bd565a946a14c0a2ac328a6023e70bba3c70d08007743d16cb7646ddc",
+  "verify_script": "batchC/verify_avgshort.py",
+  "notes": "Verified: both samples exact, plus 1400 randomized cross-checks (n<=7, dense and sparse, including unreachable cases) against an exact-Fraction brute force that enumerates all simple A->B paths and all simple cycles in the reachable/co-reachable subgraph. binary-search-answer is a real carrier here, not the usual false positive: the feasibility test is not a scan but a negative-cycle-detecting Bellman-Ford, and dropping the cycle half gives 5.5 instead of 1.0 on sample 2. cycle-detection is the weakest label -- the corpus mostly uses it for 'does a cycle exist', while here it stands for negative-cycle / minimum-mean-cycle detection; the vocabulary has no min-mean-cycle, negative-cycle, karp-min-mean-cycle or fractional-programming / Dinkelbach slug, which is the real gap for this problem. Deliberately omitted: shortest-path (docs/heuristics.md says 'shortest path' is an umbrella group and never a label, and bellman-ford is one of its members so the umbrella still reaches this problem); reachability (the two BFS that trim the graph to reachable-from-A and co-reachable-to-B are correctness-critical but still scaffolding); dp-on-dag (the graph is deliberately cyclic -- the cycles are the point). The curated 'Graph Level-1' filing does not hold up: the shortest-path framing is a decoy, a plain Dijkstra/BFS answers the wrong question, and nothing about the parametric search is level-1."
+}

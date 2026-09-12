@@ -1,0 +1,196 @@
+[
+  {
+    "id": "icpc-world-finals-2022",
+    "name": "ICPC World Finals 2022 (Luxor)",
+    "short": "WF 2022",
+    "family": "icpc",
+    "season": null,
+    "stage": "world-finals",
+    "location": "Luxor, Egypt",
+    "evidence": [
+      "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022",
+      "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023"
+    ],
+    "problems": [
+      "kattis-zoomanagement",
+      "kattis-bridgingthegap",
+      "kattis-carlsvacation",
+      "kattis-riddleofthesphinx",
+      "kattis-threekindsofdice",
+      "kattis-turningred"
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: ICPC World Finals 2022",
+        "url": "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022",
+        "kind": "judge",
+        "availability": "public"
+      },
+      {
+        "title": "Kattis problem source: ICPC World Finals 2022 and 2023",
+        "url": "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "organizer": "ICPC",
+    "held_date": "2024-04-18",
+    "observed_at": "2026-09-12"
+  },
+  {
+    "id": "icpc-world-finals-2023",
+    "name": "ICPC World Finals 2023 (Luxor)",
+    "short": "WF 2023",
+    "family": "icpc",
+    "season": null,
+    "stage": "world-finals",
+    "location": "Luxor, Egypt",
+    "evidence": [
+      "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202023",
+      "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023"
+    ],
+    "problems": [
+      "kattis-arecurringproblem",
+      "kattis-aleaiactaest",
+      "kattis-jetlag",
+      "kattis-schedule",
+      "kattis-tiltingtiles",
+      "kattis-waterworld",
+      "kattis-bridgingthegap",
+      "kattis-carlsvacation",
+      "kattis-riddleofthesphinx",
+      "kattis-threekindsofdice",
+      "kattis-turningred"
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: ICPC World Finals 2023",
+        "url": "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202023",
+        "kind": "judge",
+        "availability": "public"
+      },
+      {
+        "title": "Kattis problem source: ICPC World Finals 2022 and 2023",
+        "url": "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "organizer": "ICPC",
+    "held_date": "2024-04-18",
+    "observed_at": "2026-09-12"
+  },
+  {
+    "id": "icpc-asia-singapore-2018",
+    "name": "ICPC Asia Singapore Regional 2018",
+    "short": "Singapore 18",
+    "family": "icpc",
+    "season": null,
+    "stage": "regional",
+    "location": "Singapore",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional"
+    ],
+    "problems": [
+      "kattis-bitwise",
+      "kattis-conveyorbelts",
+      "kattis-freefood",
+      "kattis-hoppers",
+      "kattis-largesttriangle",
+      "kattis-magicalstring",
+      "kattis-nonprimefactors",
+      "kattis-prolongedpassword",
+      "kattis-rectangularcity",
+      "kattis-sgcoin",
+      "kattis-slidingblocks",
+      "kattis-wiknow"
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: 2018 ICPC Asia Singapore Regional",
+        "url": "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "organizer": "ICPC",
+    "held_date": null,
+    "observed_at": "2026-09-12"
+  },
+  {
+    "id": "icpc-asia-danang-2019",
+    "name": "ICPC Asia Danang Regional 2019",
+    "short": "Danang 19",
+    "family": "icpc",
+    "season": null,
+    "stage": "regional",
+    "location": "Da Nang, Vietnam",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest"
+    ],
+    "problems": [
+      "kattis-abstractpainting",
+      "kattis-bananaproblem",
+      "kattis-countingpalindromes",
+      "kattis-datingtime",
+      "kattis-easyquery",
+      "kattis-fairbandwidthsharing",
+      "kattis-generatingnumbers",
+      "kattis-hanjie",
+      "kattis-inspectingillumination",
+      "kattis-justiceforants",
+      "kattis-keepitsorted",
+      "kattis-latinsquare",
+      "kattis-moscowdream"
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: The 2019 ICPC Asia Danang Regional Contest",
+        "url": "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "organizer": "ICPC",
+    "held_date": null,
+    "observed_at": "2026-09-12"
+  },
+  {
+    "id": "icpc-asia-can-tho-2020",
+    "name": "ICPC Asia Can Tho Regional 2020",
+    "short": "Can Tho 20",
+    "family": "icpc",
+    "season": null,
+    "stage": "regional",
+    "location": "Can Tho, Vietnam",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest"
+    ],
+    "problems": [
+      "kattis-alchemy101",
+      "kattis-beautifulsquare",
+      "kattis-canthoexpressway",
+      "kattis-div2mul2mul3",
+      "kattis-edgeremoval",
+      "kattis-finalexam2",
+      "kattis-greatestpermutation",
+      "kattis-hexagoncoloring",
+      "kattis-intelligenceexchange",
+      "kattis-jugglingsequence",
+      "kattis-kingdomofhamsters",
+      "kattis-lazystudents",
+      "kattis-milkteabattle"
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: The 2020 ICPC Asia Can Tho Regional Contest",
+        "url": "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "organizer": "ICPC",
+    "held_date": null,
+    "observed_at": "2026-09-12"
+  }
+]

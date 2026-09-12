@@ -1,0 +1,20 @@
+{
+  "id": "kattis-moscowdream",
+  "status": "solved",
+  "solution": "Choosing the problem set means picking x easy, y medium and z hard proposals with 1 <= x <= a, 1 <= y <= b, 1 <= z <= c and x + y + z = n. Such a triple exists exactly when a, b and c are all at least 1 (so one of each is available) and 3 <= n <= a + b + c: the minimum reachable total is 3 and the maximum is a + b + c, and every total in between is reachable because raising one coordinate at a time changes the sum by one. The answer is therefore the single test a >= 1 and b >= 1 and c >= 1 and 3 <= n <= a + b + c, evaluated in O(1); with a, b, c <= 10 and n <= 20 the equivalent triple loop over at most 11^3 candidates is also well within limits. Both samples reproduce, and the closed form was checked against the brute force over the entire input space (all 11 * 11 * 11 * 20 inputs) with no mismatch.",
+  "solution_confidence": 0.99,
+  "statement_summary": "A committee has collected a easy, b medium and c hard problem proposals and wants to assemble a set of exactly n problems that contains at least one problem of each of the three difficulties. Given the four integers, where each pool holds at most ten proposals and n is at most twenty, the task is to report whether such a selection is possible.",
+  "patterns": [
+    "brute-force"
+  ],
+  "pattern_confidence": {
+    "brute-force": 0.5
+  },
+  "tags": [
+    "math",
+    "implementation"
+  ],
+  "source_text_sha256": "d9dc956535448d7b548663db1213a253c9365c2e7b95a0b4b89ce7258567f5a5",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_moscowdream.py",
+  "notes": "Stated plainly: this is a pure-implementation problem, the easiest slot of the 2019 Danang regional (Kattis 1.8). The whole solution is one boolean expression; there is no algorithmic idea to name. 'brute-force' is the only label and is offered at 0.5 confidence because the tiny bounds make the exhaustive 11^3 triple loop a genuine, commonly written accepted solution -- not because the problem needs search. Deliberately NOT labelled greedy, constructive-algorithm or counting: nothing is built, ordered or counted, and those would be decorations. Vocabulary gap: the canonical set has no 'implementation' / 'ad-hoc' slug (270 corpus entries carry 'implementation' only as a free-form tag), which is what this problem actually is; the tag list carries it instead. If empty pattern lists are acceptable for the index, [] would be the most honest answer here."
+}

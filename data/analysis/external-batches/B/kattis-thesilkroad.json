@@ -1,0 +1,28 @@
+{
+ "id": "kattis-thesilkroad",
+ "status": "solved",
+ "solution": "A robot that walks and returns must have visited exactly some interval [l,r] containing its start p, costing (r-l)+min(p-l,r-p) and collecting every store inside, so the day's answer is a choice of pairwise-disjoint intervals, one robot each, maximising collected tenges minus travel. Sweeping the sorted positions gives a five-state DP: each gap between consecutive positions is uncovered, or is part of an interval's left arm or right arm, with the arm traversed once or twice (the two arms are 2x/1x or 1x/2x), and the arm-to-arm switch must land exactly on a robot. Because the transitions live only at points, the whole day is a max-plus product of 5x5 matrices, so coordinate-compress all n positions up front and keep them in a segment tree of such matrices; adding a robot or store rewrites one leaf (plus the next occupied leaf, whose gap shrank) and the root's out-row gives the answer. O(n log n) with a 125-op merge. Verified: reproduces the sample exactly, and matches a brute force that lets each robot pick any interval with overlaps allowed on 8000 random cases, which also confirms the disjointness claim.",
+ "solution_confidence": 0.92,
+ "statement_summary": "Robots and stores holding money are added one per day to distinct positions along a line. Each day every store is refilled and every robot returns to its start; a robot collects every store it walks over, paying one tenge per meter moved, and each store pays out at most once. After each of up to 200000 days, report the maximum achievable total profit.",
+ "patterns": [
+  "dynamic-programming",
+  "segment-tree",
+  "coordinate-compression",
+  "offline-queries"
+ ],
+ "pattern_confidence": {
+  "dynamic-programming": 0.92,
+  "segment-tree": 0.88,
+  "coordinate-compression": 0.75,
+  "offline-queries": 0.7
+ },
+ "tags": [
+  "dynamic-programming",
+  "segment-tree",
+  "data-structures",
+  "offline-queries"
+ ],
+ "source_text_sha256": "9e7dcc7a226b5684ffb1029b07f005cc14cd905a7e2a73c825f523cbc2325645",
+ "verify_script": "batchB/verify_thesilkroad.py",
+ "notes": "Statement wording ('the profit from moving a robot to a store is its tenges minus meters moved') reads like a robot-to-store assignment, but sample day 3 (answer 35) is only reachable by one robot sweeping over two stores, so a robot collects everything it passes; the matching reading gives 30 and is wrong. Vocabulary gap: the core technique is 'dynamic DP' / segment tree of max-plus transition matrices, which has no canonical slug - segment-tree + dynamic-programming together are the closest carriers. matrix-exponentiation was deliberately NOT used (no repeated squaring of a fixed matrix), nor dp-optimization (the transition is not being asymptotically sped up). offline-queries is real rather than scaffolding: the day-by-day input must be read in full before day 1 to compress the up-to-1e8 coordinates into the tree. Answers fit in 64-bit (up to ~2e13)."
+}

@@ -1,0 +1,30 @@
+{
+ "id": "kattis-whereaminow",
+ "status": "solved",
+ "solution": "Maintain the set of states (cell, heading) still consistent with the readings so far. Every survivor reports the same distance each round, so one action sequence planned in the robot's own relative frame is simultaneously legal and meaningful for all of them - in particular a step is safe for everybody exactly when the current reading is nonzero - and since left/right/step are injective on states the set can only shrink by observation splits. Depth-first explore the robot's 4-connected open component in that relative frame: three turns at each newly entered cell reveal its four neighbours, and every reading also exposes a whole ray of open cells plus the wall behind it; that is about 6*r*c rounds (measured worst case 60202 on a fully open 100x100 map), inside the 100000-round budget. Two states are indistinguishable forever exactly when a rotation by a multiple of 90 degrees plus a translation carries one open component onto the other, state to state (reflections are excluded because turning is handed) - checked against explicit Moore-machine minimisation - so once exploration completes the survivors are precisely one such class. Answer 'yes' the moment all survivors share a cell; otherwise walk to a square that every surviving isometry maps to the same cell (the fixed point of a rotationally symmetric room, which is why an ambiguous start is not yet a 'no') and answer 'no' only when no such square exists. O(r*c) interaction rounds; the offline side is the component/congruence precomputation, O(r*c) with 2-D hashing of the rotated component (or Hopcroft minimisation of the 4*r*c-state machine).",
+ "solution_confidence": 0.88,
+ "statement_summary": "A robot sits on a known grid map of up to 100 by 100 open and wall squares, at an unknown open square facing an unknown cardinal direction. Each round it learns how many open squares lie ahead before the next wall, then turns left or right, or steps forward. Within 100000 rounds it must report its exact current square, or declare that its position can never be determined.",
+ "patterns": [
+  "interactive",
+  "grid-traversal",
+  "dfs",
+  "graph-modeling",
+  "connected-components"
+ ],
+ "pattern_confidence": {
+  "interactive": 0.97,
+  "grid-traversal": 0.9,
+  "dfs": 0.85,
+  "graph-modeling": 0.68,
+  "connected-components": 0.6
+ },
+ "tags": [
+  "interactive",
+  "grid",
+  "graph",
+  "dfs"
+ ],
+ "source_text_sha256": "175cc145ceb1378448b59a1499f1c66ccf303f6c43e1f885da84269d4c69f783",
+ "verify_script": "batchA/verify_whereaminow.py",
+ "notes": "Verified: (A) on 250 random maps the bisimulation quotient of the 4*r*c-state Moore machine (alphabet left/right/step) equals the partition by 'component seen from the robot's own frame', confirming rotation+translation is the only ambiguity and reflection is not; (B) the strategy was run from EVERY start state of 140 random maps and 15 hand-built symmetric maps - verdict and reported cell match brute force, it never steps into a wall; (C) sample 1's judge trajectory is consistent with exactly the cell row 2 col 2, sample 2 is 'no' from every state, sample 3 is 'yes 2 1'; (D) full exploration of 100x100 worst-ish maps costs 30k-60k rounds. Two traps the brute force caught: the answer must be the CURRENT cell, not the start cell, and an ambiguous start is not automatically 'no' - in a rotationally symmetric room you can walk to the rotation's fixed cell and become certain, so 'no' is only correct when no reachable square is a common fixed point of all surviving symmetries. Vocabulary gaps: nothing canonical covers the two most characteristic ideas here - belief-state / candidate-set tracking for localisation under partial observation, and canonical-form / automorphism (congruence) testing of a shape. 'connected-components' is the closest handle on the second (indistinguishability is congruence of open components) and is kept at low confidence for that reason; 'graph-modeling' stands for the (cell, heading) x {left,right,step} transition system that the whole argument lives on. 'brute-force' was considered and rejected as dilution, though r,c<=100 (only 40000 states) is what lets the candidate set be tracked explicitly. Implementation caveat, not a labelling one: handedness must be right-turn = clockwise as the map is printed; with the mirror convention the candidate set goes empty on any map lacking a mirror symmetry."
+}

@@ -1,0 +1,35 @@
+{
+ "id": "codechef-cyclicxor",
+ "status": "solved",
+ "solution": "Read the permutation as a Hamiltonian cycle on {1..N} and split the vertices by the top bit: H = 2^floor(log2 N), high = {H..N} of size M = N-H+1, low = {1..H-1} of size L = H-1. Any cycle crosses that cut an even number of times (>= 2) and every crossing edge has bit log2(H) set, so the answer is at least H; since (H+j) xor x = H + (j xor x) for x < H, a crossing costs exactly H only for the K = M-1 matched pairs {j, H+j}, and all non-crossing edges are automatically below H. If M >= 3 the answer is H and the count is a sum over t of C(K,2t) choices of used pairs times (2t-1)!!*2^(t-1)*(t-1)! ways for the two endpoint matchings to glue into a single cycle times (M-t-1)!/(t-1)! and (L-t-1)!/(t-1)! path systems on the two sides; if M == 1 the lone vertex H must take crossings H^1 and H^2 so the answer is H+2 with (N-3)! cycles, and if M == 2 no two crossings of cost <= H+1 hit distinct low vertices so the answer is again H+2 with 3*(N-4)! + (N-5)! cycles (the second term is the case where H and H+1 are non-adjacent and vertex 1 is a singleton). N=2 and N=3 are degenerate and answer (3,2) and (3,6). Multiply cycles by 2N (rotations times reflections) for the permutation count; O(N) factorial precompute and O(M) per test.",
+ "solution_confidence": 0.95,
+ "statement_summary": "Given an integer N, consider every permutation of 1 through N arranged in a cycle, and let its cost be the largest bitwise XOR of two cyclically adjacent entries. The task is to report the smallest cost achievable over all N! permutations and how many permutations attain it, modulo 998244353, across many queries whose N values sum to at most 200000.",
+ "patterns": [
+  "bit-manipulation",
+  "combinatorics",
+  "permutation-counting",
+  "constructive-algorithm",
+  "modular-arithmetic",
+  "parity-argument",
+  "graph-modeling"
+ ],
+ "pattern_confidence": {
+  "bit-manipulation": 0.95,
+  "combinatorics": 0.92,
+  "permutation-counting": 0.88,
+  "constructive-algorithm": 0.8,
+  "modular-arithmetic": 0.75,
+  "parity-argument": 0.6,
+  "graph-modeling": 0.55
+ },
+ "tags": [
+  "math",
+  "combinatorics",
+  "bit-manipulation",
+  "permutation",
+  "constructive-algorithm"
+ ],
+ "source_text_sha256": "807ca348c528460b3485cb6b2947d3b900ad5afd5554446992817192323bd594",
+ "verify_script": "batchA/verify_cyclicxor.py",
+ "notes": "Verified against all 7 statement samples (including N=17) and against an independent bitmask Hamiltonian-cycle brute force for every N from 2 to 16. A first attempt that only allowed the two high vertices to be adjacent got the M==2 case wrong (N=5 and N=9 failed the brute force) - the '+ (N-5)!' term for the non-adjacent configuration was missing; the N=4/8/11/17 samples alone did not catch it. Labels not applied: no binary-search-answer (nothing is searched), no dynamic-programming or hamiltonian-dp (the bitmask DP is only in my brute force, not in the intended O(N) solution), no greedy (the cheap-crossing choice is a lower-bound/exchange argument, not an incremental greedy). Missing from the vocabulary: the counting core is 'number of pairs of perfect matchings whose union is a single cycle' plus distributing free elements into path interiors - there is no double-factorial or path-cover-counting slug; 'combinatorics' + 'permutation-counting' is the closest fit."
+}

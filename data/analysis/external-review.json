@@ -211,6 +211,120 @@
       "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
       "reviewer": "independent-skeptic",
       "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-productpos",
+      "batch": "A",
+      "patterns": [
+        "game-theory",
+        "parity-argument",
+        "constructive-algorithm"
+      ],
+      "solution": "Every legal deletion removes a subarray containing an even number of -1s, so the parity of the total count m of -1s is invariant, and the only positions with no move are the empty array and a lone -1. Exhaustive memoised search over all arrays with n <= 14 shows the losing positions are exactly the empty array and the shapes 1^k (-1) 1^k, i.e. a single -1 sitting in the exact centre of an otherwise all-+1 array. Hence if m is even Alice deletes the whole array (its product is 1) and hands Bob the empty array; if m is odd she must leave one centred -1, which means keeping either the first -1 q1 or the last qm and deleting the contiguous block holding the other m-1 of them while trimming surplus +1s off the ends. With a = #(+1) before q1, b = #(+1) after qm, g = the +1 gap between q1 and q2 and h = the gap between q_{m-1} and qm, keeping q1 is possible iff a <= g + b and keeping qm iff b <= h + a; both can fail only if 0 > g + h, so for m >= 3 one always works, and for m == 1 (where g = h = 0) exactly one works unless a == b, which is precisely the centred P-position where Bob wins. The whole decision plus the construction is a single scan, O(n) per test and O(sum N) = 2*10^5 overall.",
+      "statement_summary": "Two players alternate moves on an array of up to 200,000 entries, each equal to 1 or -1. A move deletes any contiguous subarray whose product equals 1, joining the remaining pieces; whoever cannot move loses. For each of up to 10,000 test cases, with the total length bounded by 200,000, the task is to name the winner and, when the first player wins, output one winning opening deletion.",
+      "independent_band": "medium",
+      "review_rationale": "Re-derived: every legal deletion removes an even number of -1s so the parity of m=#(-1) is invariant; the terminal positions are the empty array and a lone -1, and an independent memoised solver I wrote (n<=12, all 8190 arrays) confirms the P-positions are exactly empty and 1^k(-1)1^k, so the O(n) case split (m even: delete everything; m odd: keep q1 or qm and trim so the survivor is centred; m==1 with a==b is the loss) is correct and the emitted (L,R) always leaves a P-position. All four samples reproduce (two with a different but verified winning move; the problem is special-judged). All three labels are the technique: a real two-player choice, a parity invariant that decides the game, and the explicit winning move is the actual work.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "b536417e89379f29ef75dae1a3a56b2a20451de37db88f01d79658a4b02c1944",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-mst101",
+      "batch": "A",
+      "patterns": [
+        "constructive-algorithm",
+        "minimum-spanning-tree",
+        "kruskal"
+      ],
+      "solution": "Because the weights are exactly the ranks 1..M with M=C(N,2), f(W) is just the sum of the ranks Kruskal accepts, so the task reduces to choosing which ranks r_1<...<r_{N-1} are the merging ones. Before rank r_i, i-1 merges have happened and all r_i-1 earlier edges must lie inside the components those merges built, whose largest possible capacity is one blob of size i; hence i <= r_i <= C(i,2)+1, and conversely any strictly increasing r obeying that bound is realizable by growing a single blob 1,2,...,N, spending r_i on the edge that attaches vertex i+1 to the blob and every other rank on a still-unused pair inside the blob. Summing the two extreme vectors gives the achievable K as exactly the contiguous range [N(N-1)/2, (N-1)+N(N-1)(N-2)/6] (the caps grow with i, so each r_i can be raised one unit at a time and every intermediate sum is hit); anything outside prints -1, which is common here since K may be as large as N^3 while the maximum is only about N^3/6. To hit a given K, start from r_i=i and raise the r_i greedily from the largest index down to its cap C(i,2)+1 until the deficit K-N(N-1)/2 is consumed, then emit the matrix in O(N^2) per test, so O(T*N^2) <= 500*2500 overall.",
+      "statement_summary": "Given two integers N and K, the task is to build an N by N symmetric matrix with zero diagonal whose above-diagonal entries are a permutation of 1 through N(N-1)/2, so that the minimum spanning tree of the complete weighted graph it describes has total weight exactly K. Up to 500 cases have N at most 50 and K at most N cubed; report -1 when impossible.",
+      "independent_band": "medium",
+      "review_rationale": "Re-derived the bound: before the i-th accepted rank r_i there are r_i-1 edges, i-1 of them merges, so the r_i-i internal edges must fit inside components built by i-1 merges (max C(i,2)-(i-1) free pairs), giving i<=r_i<=C(i,2)+1; growing one blob realises every increasing vector obeying it, and the caps grow so the sums are contiguous in [N(N-1)/2, N-1+N(N-1)(N-2)/6]. Checked the emitted matrices with my own Prim for every N<=8 and every K<=N^3, and 200k random permutations at N=5 hit exactly {10..14}. Samples (2,1),(2,8),(3,2),(3,3),(3,4) all reproduce. Kruskal's acceptance structure is genuinely the key idea, so kruskal stays alongside minimum-spanning-tree and constructive-algorithm.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "ab2912e2fdf0b6406b692e13991ecc7c7169ca8cf9d3d71aca79281cc188bdf7",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-vscnt",
+      "batch": "A",
+      "patterns": [
+        "virtual-tree",
+        "lca",
+        "euler-tour",
+        "ordered-set"
+      ],
+      "solution": "score(T) is 0 unless T is already LCA-closed; otherwise build the virtual forest on T (parent of v = nearest proper ancestor of v inside T) and the answer is 2^B where B counts vertices of T with at least two virtual children. Correctness: every leaf of that forest must lie in S because nothing else can generate it, a vertex with one virtual child is never the LCA of two elements of f(S) so it must lie in S too, and a vertex with two or more virtual children always has two child subtrees containing forced leaves, so it appears in f(S) for free and may be chosen or not. To maintain this online, keep T in a set ordered by DFS entry time and let cnt[u] be the number of adjacent pairs in that order whose LCA is u; the standard virtual-tree fact gives cnt[u] = number of virtual children of u for u in T, so B = #{u : cnt[u] >= 2} and T is LCA-closed exactly when no adjacent pair has its LCA outside T. A toggle of x touches only the two adjacent pairs around x plus x's own cnt block, so each query is O(log N) with O(1) LCA, giving O((N + Q) log N) over sums of 2*10^5.",
+      "statement_summary": "A rooted tree on N vertices is given with Q updates, each toggling one vertex into or out of a set T. The virtual tree of a set is its minimal superset closed under lowest common ancestors, and the score of T counts the sets whose virtual tree is exactly T. After every toggle the score modulo 998244353 must be reported, with N and Q summing to 200000.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived the characterisation: with T LCA-closed, f(S)=T iff S contains every vertex of T with <=1 virtual child (leaves cannot be generated; a one-child vertex is never the LCA of two elements of f(S) subset T; a vertex with >=2 virtual children has forced leaves in two distinct child subtrees so it is free), hence 2^B; and T is closed iff every tin-adjacent pair's LCA lies in T, with cnt[u]=number of virtual children for u in T because the T-elements of u's subtree follow u contiguously in DFS order. Independent subset-enumeration brute force with parent-walk LCA agreed on 1949 toggles over 300 random trees, both samples reproduce, O((N+Q) log N) is comfortable. virtual-tree, lca, the DFS-order adjacent-pair trick (euler-tour) and the predecessor/successor set (ordered-set) are each load-bearing.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "36b7eb88a4d0215e46e264c419fbb0ac9e823dc620fc42ab9cec302b917da7f5",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-cyclicxor",
+      "batch": "A",
+      "patterns": [
+        "bit-manipulation",
+        "combinatorics",
+        "permutation-counting"
+      ],
+      "solution": "Read the permutation as a Hamiltonian cycle on {1..N} and split the vertices by the top bit: H = 2^floor(log2 N), high = {H..N} of size M = N-H+1, low = {1..H-1} of size L = H-1. Any cycle crosses that cut an even number of times (>= 2) and every crossing edge has bit log2(H) set, so the answer is at least H; since (H+j) xor x = H + (j xor x) for x < H, a crossing costs exactly H only for the K = M-1 matched pairs {j, H+j}, and all non-crossing edges are automatically below H. If M >= 3 the answer is H and the count is a sum over t of C(K,2t) choices of used pairs times (2t-1)!!*2^(t-1)*(t-1)! ways for the two endpoint matchings to glue into a single cycle times (M-t-1)!/(t-1)! and (L-t-1)!/(t-1)! path systems on the two sides; if M == 1 the lone vertex H must take crossings H^1 and H^2 so the answer is H+2 with (N-3)! cycles, and if M == 2 no two crossings of cost <= H+1 hit distinct low vertices so the answer is again H+2 with 3*(N-4)! + (N-5)! cycles (the second term is the case where H and H+1 are non-adjacent and vertex 1 is a singleton). N=2 and N=3 are degenerate and answer (3,2) and (3,6). Multiply cycles by 2N (rotations times reflections) for the permutation count; O(N) factorial precompute and O(M) per test.",
+      "statement_summary": "Given an integer N, consider every permutation of 1 through N arranged in a cycle, and let its cost be the largest bitwise XOR of two cyclically adjacent entries. The task is to report the smallest cost achievable over all N! permutations and how many permutations attain it, modulo 998244353, across many queries whose N values sum to at most 200000.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived the H = top power of two lower bound (any cycle must cross the high/low cut and every crossing carries that bit), the K = M-1 free pairs {j, H+j}, the M==1 and M==2 exceptions (answer H+2), and the matching-pairs-glued-into-one-cycle count times path-system placements. My own permutation brute force for N=2..9 (all N! permutations) matches solve() exactly, the proposer's independent bitmask DP matches for N<=14, and all seven samples reproduce including N=17. The technique is the top-bit cut argument plus the cycle-counting combinatorics; the rest of the proposed labels are scaffolding.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "807ca348c528460b3485cb6b2947d3b900ad5afd5554446992817192323bd594",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "kattis-kindergarten2",
+      "batch": "A",
+      "patterns": [
+        "graph-modeling",
+        "topological-sort",
+        "functional-graph",
+        "constructive-algorithm"
+      ],
+      "solution": "Kid i is jealous of j_i and likes l_i, and an order is safe iff for every i either pos[j_i] < pos[i] or pos[i] < pos[l_i] < pos[j_i]; so each kid picks one of two precedence-edge sets -- j_i -> i, or the pair i -> l_i and l_i -> j_i -- and any topological order of an acyclic union is an answer. Because j_i < i for i >= 2, the jealousy map is an out-degree-1 functional graph: a tree rooted at kid 1 plus one back edge, so if every kid starts on the first option the only cycle is the root path 1..j_1 together with that edge. At least one kid on that cycle must be flipped to the second option; flipping v deletes j_v -> v and adds v -> l_v and l_v -> j_v, which produces a fresh cycle exactly when j_v can still reach l_v down the tree (l_v a descendant of j_v along an unbroken path), and that smaller cycle is resolved by the same rule recursively. Branching over the still-cuttable edges of the current cycle is complete -- every solution must delete one of them -- so correctness of both the order and the 'impossible' verdict follows, which is what the brute force confirms. Each search node is one O(n) pass and only touches its own cycle, whose edges are never revisited deeper; with DFS numbering plus a structure for the 'still reachable' test the intended implementation is O(n) to O(n log n), and in testing the search never exceeded 9 nodes, so n = 200000 is comfortable (0.4 s even in Python).",
+      "statement_summary": "Each of n kids is jealous of one other kid and likes another; everyone except the coolest envies someone cooler, so the jealousy relation is a tree plus one extra edge. A kid may misbehave if the envied kid goes later and the liked kid does not go strictly in between. With n up to 200000, a safe order must be produced, or impossibility reported.",
+      "independent_band": "very-hard",
+      "review_rationale": "The reduction (each kid picks either edge j_i->i or the pair i->l_i, l_i->j_i plus i->j_i; safe iff some choice is acyclic; output any topological order) is correct, and the branching search over the A-edges of a found cycle is complete and sound, so verdicts and orders are right (the proposer's exhaustive n<=5 and my re-reading agree). But the complexity argument does not hold: the write-up rests on 'the search never exceeded 9 nodes' from random instances where impossibility is rare, and I constructed a family (chain 1..m with j_1=m, a side leaf s_i under each chain node, l_v=s_{v-1}, l_{s_i}=i+1, l_{s_m}=1) that is impossible and drives the verified script to exactly n+1 search nodes, each an O(n) pass: 0.54s at n=1600 and quadratic growth, i.e. hours at n=200000. The proposal must either give the cycle-local implementation with an amortisation argument that total work is near-linear, or switch to the published linear approach, before this can publish.",
+      "status": "needs_work",
+      "issues": [
+        "complexity claim falsified: the verified search is Theta(n) nodes x O(n) per node on an explicit impossible family (skeptic scratchpad kg2_family.py); '9 search nodes' is an artefact of random testing",
+        "the 'fresh cycle iff j_v reaches l_v down the tree' criterion is only valid at the first flip level; deeper levels create cycles through B-edges (e.g. flipped v with l_v equal to a flipped child), so a linear implementation needs more structure than the write-up describes"
+      ],
+      "source_text_sha256": "a65a2d7dac82eb80b8d94d75b63739479b349c4b01939c936a1bd9a2e9160dda",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "kattis-whereaminow",
+      "batch": "A",
+      "patterns": [
+        "interactive",
+        "grid-traversal",
+        "dfs",
+        "simulation"
+      ],
+      "solution": "Maintain the set of states (cell, heading) still consistent with the readings so far. Every survivor reports the same distance each round, so one action sequence planned in the robot's own relative frame is simultaneously legal and meaningful for all of them - in particular a step is safe for everybody exactly when the current reading is nonzero - and since left/right/step are injective on states the set can only shrink by observation splits. Depth-first explore the robot's 4-connected open component in that relative frame: three turns at each newly entered cell reveal its four neighbours, and every reading also exposes a whole ray of open cells plus the wall behind it; that is about 6*r*c rounds (measured worst case 60202 on a fully open 100x100 map), inside the 100000-round budget. Two states are indistinguishable forever exactly when a rotation by a multiple of 90 degrees plus a translation carries one open component onto the other, state to state (reflections are excluded because turning is handed) - checked against explicit Moore-machine minimisation - so once exploration completes the survivors are precisely one such class. Answer 'yes' the moment all survivors share a cell; otherwise walk to a square that every surviving isometry maps to the same cell (the fixed point of a rotationally symmetric room, which is why an ambiguous start is not yet a 'no') and answer 'no' only when no such square exists. O(r*c) interaction rounds; the offline side is the component/congruence precomputation, O(r*c) with 2-D hashing of the rotated component (or Hopcroft minimisation of the 4*r*c-state machine).",
+      "statement_summary": "A robot sits on a known grid map of up to 100 by 100 open and wall squares, at an unknown open square facing an unknown cardinal direction. Each round it learns how many open squares lie ahead before the next wall, then turns left or right, or steps forward. Within 100000 rounds it must report its exact current square, or declare that its position can never be determined.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived: all survivors report the same d, so a relative-frame plan is legal for all (step iff d>0), actions are injective so only observations split the set, and once the survivors share one relative component shape they are bisimilar forever, so the only remaining lever is walking to a common fixed point of the surviving rotations (finite components admit no translational automorphism), else 'no'. The proposer's Moore-machine minimisation check on 250 maps and every-start-state run on 155 maps passed on my rerun, all three samples reproduce, and the round budget is safe: at most 3 scan turns plus two traversals of at most 3 rounds per cell gives <=8 per cell, ~80k worst case against 100k, with 60202 measured on the fully open 100x100.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "175cc145ceb1378448b59a1499f1c66ccf303f6c43e1f885da84269d4c69f783",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
     }
   ],
   "validation": [

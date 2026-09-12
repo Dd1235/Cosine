@@ -1,0 +1,23 @@
+{
+  "id": "kattis-alchemy101",
+  "status": "solved",
+  "solution": "Maximising the chosen subset S of {1..m} with xor(S) = m is the same as minimising the discarded set T = {1..m} \\ S, because xor(T) = X(m) xor m where X(m) is the xor of 1..m, which has the closed form [m, 1, m+1, 0] indexed by m mod 4. Let v = X(m) xor m. If v = 0 the whole range already works and the answer is all m substances; otherwise v always falls in [1, m] (v = 1 when m = 2 mod 4, v = m when m = 3 mod 4, v = m-1 when m = 1 mod 4 and m > 1), so discarding the single substance v is optimal and the answer has size m-1. A size-m answer is impossible whenever v is nonzero, and for a given size m-1 the discarded element is forced, so the optimal set is unique and printing it ascending is the lexicographically smallest list -- the statement's tie-break is vacuous. Each test is O(m) to emit, O(1) to decide, so t <= 1000 tests with m <= 1000 print at most about a million integers. All three samples reproduce, exhaustive subset enumeration for every m up to 16 matches the closed form exactly (and confirms a unique maximum-size subset in each case), and for every m up to 1000 the constructed set was checked to be distinct, in range, of the predicted size and to xor to m.",
+  "solution_confidence": 0.95,
+  "statement_summary": "Substances are numbered by positive integers and combining two yields the substance whose number is their bitwise xor. Only substances one through m are available and none may be reused. For each of up to one thousand test cases, with m at most one thousand, the task is to report the largest collection whose xor equals m, choosing the lexicographically smallest such list.",
+  "patterns": [
+    "bit-manipulation",
+    "constructive-algorithm"
+  ],
+  "pattern_confidence": {
+    "bit-manipulation": 0.92,
+    "constructive-algorithm": 0.75
+  },
+  "tags": [
+    "math",
+    "bit-manipulation",
+    "xor"
+  ],
+  "source_text_sha256": "fee9f1b8181dea399488dad3001e1f8fff1693190e7294b1a12be617e0fa5a6d",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_alchemy101.py",
+  "notes": "The two labels are the whole solution: the xor-of-1..m period-4 identity (bit-manipulation) plus the observation that dropping one forced element constructs an optimal set (constructive-algorithm). Deliberately NOT labelled lexicographic-order: the maximum-size set is unique (verified by exhaustive enumeration for m <= 16), so the statement's lexicographic tie-break never binds and only fixes the print order -- labelling it would send lexicographic-order searchers to a problem with no tie-break reasoning. Deliberately NOT labelled prefix-xor: in this corpus that label means prefix-xor arrays over a given array for range/subarray xor, whereas here the only prefix involved is the closed form for xor(1..m); a searcher wanting the 'xor of 1 to n' identity should land here via bit-manipulation and the summary. Also dropped: xor-basis (no linear-algebra basis is built), greedy (the discarded element is forced, not chosen greedily), brute-force (m <= 1000 with t <= 1000 makes per-test search unnecessary; an O(m) scan for a single removable element would also pass, but the closed form is the intended route). Kattis difficulty 3.9 mostly reflects the mod-4 case analysis and the large output volume rather than depth."
+}

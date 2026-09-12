@@ -1,0 +1,31 @@
+{
+ "id": "kattis-doubleshorsebackwrestling",
+ "status": "solved",
+ "solution": "Riders i,j are pairable iff l_i+l_j <= s <= u_i+u_j. Split riders by s/2: N (l > s/2), P (u < s/2) and Z (interval straddles s/2). N-N and P-P are never pairable, Z-Z always are, and with t=2l-s, y=2u-s for N and u0=s-2u, x=s-2l for P, an N-P pair is pairable iff the intervals [t,y] and [u0,x] intersect; a Z pairs with an N iff its x >= t and with a P iff its y >= u0, so a Z is a joker that may act once as a P-side interval [0,x] or an N-side interval [0,y]. Maximizing matched N/P riders is optimal (leftover Zs pair among themselves, parity works out), so sweep the coordinate downward with two max-heaps keyed by left endpoint: at each coordinate the elements whose interval ends there must be matched now or never; pair expiring N with expiring P first, otherwise give each expiring element the active opposite-side interval with the largest left endpoint (soonest to expire), and only if none exists the joker with the smallest capacity in its other role. An exchange argument shows each such choice is safe; leftover jokers are paired in twos. O(n log n) for n = 2e5.",
+ "solution_confidence": 0.93,
+ "statement_summary": "There are n riders, each with a true rating known only to lie in an integer interval [l_i,u_i]. Two riders may form a doubles team if some choice of ratings from their intervals sums exactly to a target s. Given up to 200000 riders with bounds up to 1e9, the task is to form the maximum number of disjoint teams and output one such set of pairs.",
+ "patterns": [
+  "greedy",
+  "line-sweep",
+  "heap",
+  "exchange-argument",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "greedy": 0.95,
+  "line-sweep": 0.85,
+  "heap": 0.8,
+  "exchange-argument": 0.75,
+  "sorting": 0.6
+ },
+ "tags": [
+  "intervals",
+  "matching",
+  "greedy",
+  "sweep",
+  "constructive"
+ ],
+ "source_text_sha256": "31acac279255e7c5ba9ed9dcb07047f6ba5f43e74c98e527483b0a25962fa400",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchB/verify_doubleshorsebackwrestling.py",
+ "notes": "Verified: sample reproduces (2 pairs), 10000 randomized cross-checks against a bitmask-DP maximum-matching brute force (n <= 10, seeds 1-4) plus 6000 extra joker-heavy cases up to n=12 all agree; n=2e5 random runs in 0.53s in pure Python. The problem is a maximum matching in a general graph, but the intended solution never runs a matching algorithm: it reduces to a bipartite interval-intersection matching with side-choosing jokers and solves it by greedy sweep, so bipartite-matching / max-flow are deliberately NOT labelled (they would TLE-mislead at n=2e5). interval-scheduling omitted: intervals are matched pairwise across two classes, not selected as a non-overlapping set. Confidence on the greedy is empirical plus an exchange-argument sketch, not a written proof; the joker tie-break (smallest capacity in the other role) is the part most likely to hide a subtle case, though no counterexample was found."
+}

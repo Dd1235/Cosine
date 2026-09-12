@@ -1,0 +1,156 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-12",
+ "batch": "A",
+ "reviews": [
+  {
+   "id": "codechef-productpos",
+   "status": "approved",
+   "keep": [
+    "game-theory",
+    "parity-argument",
+    "constructive-algorithm"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "b536417e89379f29ef75dae1a3a56b2a20451de37db88f01d79658a4b02c1944",
+   "review_rationale": "Re-derived: every legal deletion removes an even number of -1s so the parity of m=#(-1) is invariant; the terminal positions are the empty array and a lone -1, and an independent memoised solver I wrote (n<=12, all 8190 arrays) confirms the P-positions are exactly empty and 1^k(-1)1^k, so the O(n) case split (m even: delete everything; m odd: keep q1 or qm and trim so the survivor is centred; m==1 with a==b is the loss) is correct and the emitted (L,R) always leaves a P-position. All four samples reproduce (two with a different but verified winning move; the problem is special-judged). All three labels are the technique: a real two-player choice, a parity invariant that decides the game, and the explicit winning move is the actual work.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "codechef-mst101",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm",
+    "minimum-spanning-tree",
+    "kruskal"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "proposer confidence 0.6 and the 'greedy' is just one of many ways to distribute a deficit over a contiguous range of achievable sums; there is no exchange argument and a searcher for greedy would learn nothing here"
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "ab2912e2fdf0b6406b692e13991ecc7c7169ca8cf9d3d71aca79281cc188bdf7",
+   "review_rationale": "Re-derived the bound: before the i-th accepted rank r_i there are r_i-1 edges, i-1 of them merges, so the r_i-i internal edges must fit inside components built by i-1 merges (max C(i,2)-(i-1) free pairs), giving i<=r_i<=C(i,2)+1; growing one blob realises every increasing vector obeying it, and the caps grow so the sums are contiguous in [N(N-1)/2, N-1+N(N-1)(N-2)/6]. Checked the emitted matrices with my own Prim for every N<=8 and every K<=N^3, and 200k random permutations at N=5 hit exactly {10..14}. Samples (2,1),(2,8),(3,2),(3,3),(3,4) all reproduce. Kruskal's acceptance structure is genuinely the key idea, so kruskal stays alongside minimum-spanning-tree and constructive-algorithm.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "codechef-vscnt",
+   "status": "approved",
+   "keep": [
+    "virtual-tree",
+    "lca",
+    "euler-tour",
+    "ordered-set"
+   ],
+   "drop": [
+    {
+     "label": "combinatorics",
+     "why": "the count is 2^B once the forced vertices are identified; the work is the structural characterisation on the virtual forest and the online maintenance, not a combinatorial argument. A combinatorics searcher landing on an online virtual-tree data-structure problem would be misled"
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "36b7eb88a4d0215e46e264c419fbb0ac9e823dc620fc42ab9cec302b917da7f5",
+   "review_rationale": "Re-derived the characterisation: with T LCA-closed, f(S)=T iff S contains every vertex of T with <=1 virtual child (leaves cannot be generated; a one-child vertex is never the LCA of two elements of f(S) subset T; a vertex with >=2 virtual children has forced leaves in two distinct child subtrees so it is free), hence 2^B; and T is closed iff every tin-adjacent pair's LCA lies in T, with cnt[u]=number of virtual children for u in T because the T-elements of u's subtree follow u contiguously in DFS order. Independent subset-enumeration brute force with parent-walk LCA agreed on 1949 toggles over 300 random trees, both samples reproduce, O((N+Q) log N) is comfortable. virtual-tree, lca, the DFS-order adjacent-pair trick (euler-tour) and the predecessor/successor set (ordered-set) are each load-bearing.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "codechef-cyclicxor",
+   "status": "approved",
+   "keep": [
+    "bit-manipulation",
+    "combinatorics",
+    "permutation-counting"
+   ],
+   "drop": [
+    {
+     "label": "constructive-algorithm",
+     "why": "nothing is constructed or output; the achievability half is an existence argument inside a min+count problem, and a searcher for constructive problems wants to build an object"
+    },
+    {
+     "label": "modular-arithmetic",
+     "why": "the modulus only wraps factorials and binomials for output; scaffolding, not the technique"
+    },
+    {
+     "label": "parity-argument",
+     "why": "confidence 0.6; that a cycle crosses a cut an even number of times is a tautology, and the H lower bound comes from the top bit, not from parity"
+    },
+    {
+     "label": "graph-modeling",
+     "why": "confidence 0.55, below the gate; reading a cyclic permutation as a Hamiltonian cycle is the statement, not a modelling insight"
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "807ca348c528460b3485cb6b2947d3b900ad5afd5554446992817192323bd594",
+   "review_rationale": "Re-derived the H = top power of two lower bound (any cycle must cross the high/low cut and every crossing carries that bit), the K = M-1 free pairs {j, H+j}, the M==1 and M==2 exceptions (answer H+2), and the matching-pairs-glued-into-one-cycle count times path-system placements. My own permutation brute force for N=2..9 (all N! permutations) matches solve() exactly, the proposer's independent bitmask DP matches for N<=14, and all seven samples reproduce including N=17. The technique is the top-bit cut argument plus the cycle-counting combinatorics; the rest of the proposed labels are scaffolding.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-kindergarten2",
+   "status": "needs_work",
+   "keep": [
+    "graph-modeling",
+    "topological-sort",
+    "functional-graph",
+    "constructive-algorithm"
+   ],
+   "drop": [
+    {
+     "label": "tin-tout-ancestor-check",
+     "why": "confidence 0.5, below the gate, and the proposer concedes the solution needs a dynamic reachability test rather than a static tin/tout compare"
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "a65a2d7dac82eb80b8d94d75b63739479b349c4b01939c936a1bd9a2e9160dda",
+   "review_rationale": "The reduction (each kid picks either edge j_i->i or the pair i->l_i, l_i->j_i plus i->j_i; safe iff some choice is acyclic; output any topological order) is correct, and the branching search over the A-edges of a found cycle is complete and sound, so verdicts and orders are right (the proposer's exhaustive n<=5 and my re-reading agree). But the complexity argument does not hold: the write-up rests on 'the search never exceeded 9 nodes' from random instances where impossibility is rare, and I constructed a family (chain 1..m with j_1=m, a side leaf s_i under each chain node, l_v=s_{v-1}, l_{s_i}=i+1, l_{s_m}=1) that is impossible and drives the verified script to exactly n+1 search nodes, each an O(n) pass: 0.54s at n=1600 and quadratic growth, i.e. hours at n=200000. The proposal must either give the cycle-local implementation with an amortisation argument that total work is near-linear, or switch to the published linear approach, before this can publish.",
+   "issues": [
+    "complexity claim falsified: the verified search is Theta(n) nodes x O(n) per node on an explicit impossible family (skeptic scratchpad kg2_family.py); '9 search nodes' is an artefact of random testing",
+    "the 'fresh cycle iff j_v reaches l_v down the tree' criterion is only valid at the first flip level; deeper levels create cycles through B-edges (e.g. flipped v with l_v equal to a flipped child), so a linear implementation needs more structure than the write-up describes"
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-whereaminow",
+   "status": "approved",
+   "keep": [
+    "interactive",
+    "grid-traversal",
+    "dfs"
+   ],
+   "drop": [
+    {
+     "label": "graph-modeling",
+     "why": "confidence 0.68 and the (cell, heading) x {left,right,step} state space is handed over by the statement; no re-modelling insight is involved"
+    },
+    {
+     "label": "connected-components",
+     "why": "confidence 0.6; the open component is the arena the robot explores, not a technique applied, and a searcher for connected-components problems would not want a WF interactive localisation problem"
+    }
+   ],
+   "add": [
+    {
+     "label": "simulation",
+     "why": "the decision mechanism is carrying every consistent (cell, heading) candidate through the same actions and filtering by each observation; 'yes' fires exactly when all survivors share a cell. That belief-state tracking is essential and the vocabulary has no closer word for it",
+     "confidence": 0.6
+    }
+   ],
+   "independent_band": "hard",
+   "source_text_sha256": "175cc145ceb1378448b59a1499f1c66ccf303f6c43e1f885da84269d4c69f783",
+   "review_rationale": "Re-derived: all survivors report the same d, so a relative-frame plan is legal for all (step iff d>0), actions are injective so only observations split the set, and once the survivors share one relative component shape they are bisimilar forever, so the only remaining lever is walking to a common fixed point of the surviving rotations (finite components admit no translational automorphism), else 'no'. The proposer's Moore-machine minimisation check on 250 maps and every-start-state run on 155 maps passed on my rerun, all three samples reproduce, and the round budget is safe: at most 3 scan turns plus two traversals of at most 3 rounds per cell gives <=8 per cell, ~80k worst case against 100k, with 60202 measured on the fully open 100x100.",
+   "issues": [],
+   "summary_ok": true
+  }
+ ],
+ "notes": "All six sha256 values match the staging source_text. All six summaries are 61-69 words, clean of markup, examples and caption text. Systematic: the proposers attach 'confidence 0.55-0.75' scaffolding labels (modular-arithmetic, parity-argument, graph-modeling, connected-components, greedy) that name the problem's surroundings rather than its technique; I dropped every one of those and kept only labels a searcher for that term would be glad to find. Systematic on verification: random small instances are a poor witness for worst-case complexity when failures are rare (kindergarten2 impossibles are ~0.5% at n=5); an adversarial family should accompany any 'in testing it never exceeded' claim. Independent checks run: skeptic_indep.py (own brute forces for productpos n<=12, cyclicxor n<=9 by permutations, mst101 via Prim N<=8 plus random permutations, vscnt via subset enumeration with parent-walk LCA), kg2_adversary.py and kg2_family.py in the scratchpad."
+}

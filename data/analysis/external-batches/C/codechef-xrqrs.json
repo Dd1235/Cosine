@@ -1,0 +1,25 @@
+{
+ "id": "codechef-xrqrs",
+ "status": "solved",
+ "solution": "Values satisfy 1 <= x <= 5*10^5 < 2^19, so build a persistent binary trie over 19-bit values -- equivalently a persistent segment tree over the value domain [0, 2^19) -- with root[i] the version holding the array prefix a[1..i]; each append copies only the 19 nodes on one root-to-leaf path, and \"delete last k\" is just popping k root pointers, since older versions are still intact. Every range query descends root[R] and root[L-1] in lockstep and uses the per-node count difference cnt[R]-cnt[L-1], which is exactly the multiset of a[L..R] because node counts are additive over prefixes. Max-xor greedily takes the child opposite to x's current bit whenever that difference is positive, which is optimal because a higher bit outweighs all lower bits combined; count-of-<=x adds the whole 0-child difference at each set bit of x and follows the 1-child, then adds the equal-value leaf; the k-th smallest compares k with the 0-child difference and descends. All operations are O(log C) = 19 steps, giving O(M log C) ~ 10^7 time and ~10^7 nodes for M = 5*10^5. Verified against an O(n)-per-query brute force on the sample and on 550 random query streams over both narrow and full value ranges.",
+ "solution_confidence": 0.93,
+ "statement_summary": "An initially empty integer array supports five interleaved operations: appending a value at the end, deleting the last k values, and three queries over a contiguous index range, namely reporting the stored value that maximizes its xor with a given x, counting values at most x, and returning the k-th smallest. Up to 500000 operations arrive, each value at most 500000, and every query must be answered.",
+ "patterns": [
+  "persistent-segment-tree",
+  "trie",
+  "order-statistics"
+ ],
+ "pattern_confidence": {
+  "persistent-segment-tree": 0.92,
+  "trie": 0.88,
+  "order-statistics": 0.8
+ },
+ "tags": [
+  "bit-manipulation",
+  "xor",
+  "range-query"
+ ],
+ "source_text_sha256": "9acb33c311cd0aa5d3b234bbe8ac51cd957f2fff94e50994ded1ceb9d726089a",
+ "verify_script": "batchC/verify_xrqrs.py",
+ "notes": "The curated 'Trie' filing is right but incomplete: a plain trie answers only the max-xor query, and none of the three queries are prefix-wide -- persistence over array prefixes is what makes the [L,R] restriction and the 'delete last k' rollback work, so persistent-segment-tree carries equal weight (the persistent binary trie and a persistent segment tree over [0, 2^19) are the same structure here). order-statistics is named for the k-th-smallest query, which is a descent on the same node counts. Deliberately omitted: offline-queries (persistence answers everything online, no reordering), coordinate-compression (values are already bounded by 5*10^5), merge-sort-tree/wavelet-tree (a wavelet tree would in fact serve all five operations, but it has no canonical slug and cannot cheaply undo the truncations), and greedy (the bitwise max-xor descent is scaffolding inside the trie technique, not a separate label). Query type 1 outputs y itself, not x xor y -- confirmed against the sample. Memory is the practical risk at M = 5*10^5: ~10^7 nodes, about 120 MB with three int arrays."
+}

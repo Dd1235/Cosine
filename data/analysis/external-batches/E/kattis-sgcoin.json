@@ -1,0 +1,24 @@
+{
+ "id": "kattis-sgcoin",
+ "status": "solved",
+ "solution": "The given hash is H(prev,T,tok) = (v*7 + tok) mod p with p = 1e9+7, where v is the polynomial-31 hash of the transaction string seeded with prev. The token enters linearly with coefficient 1, so there is no search at all: fix any transaction string T, compute v, pick a target of the form k*1e7 (the valid hash values are the 100 positive multiples of 1e7 that are at most p-1), and the required token is forced as tok = (target - 7v) mod p. The only side condition is tok <= 1e9-1, which excludes just the 7 residues 1e9..1e9+6, so trying successive targets finds one immediately. Do this once to forge block A from the input hash, then again with A's hash as prev to forge block B, giving O(|T|) total work.",
+ "solution_confidence": 0.97,
+ "statement_summary": "A blockchain block is valid when a specified polynomial hash of the previous block's hash value, a transaction string and a token produces a positive value with seven trailing zeros modulo 1000000007. Given the current last hash value, the task is to output two chained blocks, printing a transaction string and token for a block appended to it and for a second appended to that, with each token below one billion.",
+ "patterns": [
+  "constructive-algorithm",
+  "modular-arithmetic"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.9,
+  "modular-arithmetic": 0.85
+ },
+ "tags": [
+  "hashing",
+  "math",
+  "construction",
+  "ad-hoc"
+ ],
+ "source_text_sha256": "7e0a93c59329c158694da003e869295ab368c08f6afedf250477314a8df96608",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_sgcoin.py",
+ "notes": "Despite the proof-of-work framing, nothing is mined -- the token is solved for, not searched, because it appears with coefficient 1 in a linear congruence mod 1e9+7. Did NOT label string-hashing: the polynomial hash is handed to you as a black box to evaluate, it is not a technique the solver applies. Also did not label brute-force; scanning the <=100 valid targets is a one-line guard for the tok<1e9 bound (in practice the first target always worked over 2004 random inputs), not the method. verify_sgcoin.py reproduces all three worked H() values printed in the statement, including the sample's 140000000 -> 930000000 -> 730000000 chain, then forges and re-verifies chains for 2004 inputs."
+}

@@ -271,6 +271,58 @@ runs with an API key in CI.
 
 ---
 
+## 4a. Resume here — the Kattis/CodeChef publish that was left mid-flight (2026-09-12)
+
+Everything below is on disk in the repo; nothing depends on a session scratchpad.
+
+**Done and committed.** Picker in the judge row, back-navigation state, card
+provenance, CSES confidence/provenance, the heuristics register, Kattis
+source-page ingest + `scripts/publish_external.py` + tests, 65 staged
+statements (`data/analysis/external-staging/`), batch **C** (6 CodeChef
+problems) published — corpus 3,513.
+
+**Solved and reviewed, not yet published.** `data/analysis/external-batches/`
+holds every solver output (`<batch>/<id>.json` + `verify_<slug>.py`) and every
+skeptic verdict (`<batch>/skeptic.json`):
+
+| batch | what | solved | skeptic |
+| --- | --- | ---: | --- |
+| A | 6 staged CodeChef/WF2024 | 6 | done — 5 approved, `kattis-kindergarten2` **needs_work** (search is quadratic on an adversarial family; labels fine, complexity claim false) |
+| B | WF2024 remaining 9 | 9 | running / see `B/skeptic.json` |
+| D | Luxor WF 2022+2023, 12 | 7+ | not yet — run when `D/` has 12 solved (or accept what solved) |
+| E | Asia regionals, 38 | 6+ | not yet |
+
+**Deliberately not attempted this session** (hardest, likely `unsolved`, and
+the session budget was the constraint): Asia `keepitsorted` 8.4,
+`beautifulsquare` 8.0, `div2mul2mul3` 9.2, `magicalstring` 9.0,
+`justiceforants` 9.1, `milkteabattle` 8.6; and a second attempt at
+`kattis-kindergarten2` starting from the skeptic's adversarial family
+(described in `external-batches/A/skeptic.json`). Unsolved problems stay
+staged and show as "not yet indexed" — that is the correct state.
+
+**To finish (one aggregated cycle, not per batch):**
+
+1. Run any missing skeptic passes (Opus; brief = the batch-C skeptic prompt
+   recorded in `external-batches/C/skeptic.json` `notes`, plus: check the
+   complexity claim with an adversarial instance). Write
+   `external-batches/<batch>/skeptic.json`.
+2. `python3 scripts/research/aggregate_external_batches.py --dry-run`, then
+   without `--dry-run`. It appends proposals, writes review entries, copies
+   approved verify scripts, publishes every approved problem in A/B/D/E, and
+   splices the five drafted collections (`_tooling/contests-draft.json`:
+   `icpc-world-finals-2022/2023`, `icpc-asia-singapore-2018`,
+   `-danang-2019`, `-can-tho-2020`) into `data/contests.json`.
+3. `npm run embed && npm run validate && npm run bench && npm run test:search`
+   — gate on bm25/tfidf only (§2a). Then one commit.
+4. README: corpus count, judges list; `data/unrated_problems.json` is
+   unaffected (Kattis has no rating; `kattis_difficulty` is metadata).
+5. Restart the preview (`./scripts/local-preview.sh`) and do the browser-only
+   checks the API could not: picker keyboard flow, Back restoring a
+   collection, logout with a chip active, `:compare`, hidden hints, ≤720 px.
+
+The branch is `feature/competition-practice`, ahead of `main`, **not pushed** —
+production still needs the owner's local verification first.
+
 ## 4b. The family sweep, measured on its own
 
 **Applied: 1,152 labels across 1,023 problems** (`scripts/apply_families.js`),

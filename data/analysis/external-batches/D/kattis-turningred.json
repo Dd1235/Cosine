@@ -1,0 +1,18 @@
+{
+  "id": "kattis-turningred",
+  "status": "solved",
+  "solution": "Write colours R,G,B as 0,1,2; pressing a button adds 1 (mod 3) to each light it controls, so if x_j is the number of presses of button j, light i ends red exactly when the sum of x over the buttons controlling it equals d_i = (-c_i) mod 3. Only residues matter and the cheapest realisation of residue r on a button is r presses, so the task is to minimise sum x_j with x_j in {0,1,2} subject to a Z_3 system whose every equation touches at most two variables -- that is the whole content of 'each light is controlled by at most two buttons'. Read it as a graph with buttons as vertices: a two-button light is an edge with x_u + x_v = d, a one-button light pins x_u = d, and a light with no button is feasible only if d = 0. Within one connected component the root's value determines all others by propagating x_v = d - x_u, so there are only three candidate assignments per component, and components are independent and their costs add; try all three, discard the inconsistent ones and keep the cheapest, reporting impossible if some component admits none. Because the relation is a sum rather than a difference the value flips sign on every step, so an odd cycle pins the root (2t = const has a unique root mod 3) while an even cycle imposes a root-independent check -- the three-way enumeration covers both without a case split. Total work is O(3(l+b)) = O(l+b), comfortably inside l <= 2*10^5, b <= 2l.",
+  "solution_confidence": 0.96,
+  "statement_summary": "Each of up to 200,000 lights shows red, green, or blue, and each of up to twice that many buttons cycles every light it is wired to from red to green to blue and back to red. Crucially, no light is wired to more than two buttons. The task is to report the fewest total button presses that turn every light red, or to report that doing so is impossible.",
+  "patterns": ["graph-modeling", "connected-components", "modular-arithmetic", "dfs"],
+  "pattern_confidence": {
+    "graph-modeling": 0.95,
+    "connected-components": 0.9,
+    "modular-arithmetic": 0.88,
+    "dfs": 0.6
+  },
+  "tags": ["graph", "math", "dfs"],
+  "source_text_sha256": "f82a321fd908600baf0cf6f9d19439336822ab568bc7d2d48749838231c41d7d",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchD/verify_turningred.py",
+  "notes": "Verified: the O(l+b) solver matches an exhaustive 3^b brute force on 6000 random sparse instances and 1500 cycle-heavy dense instances (both honouring 'each light appears at most twice'), and reproduces all four official samples including the 'impossible' one; a 2*10^5 / 4*10^5 instance runs in 0.5s in Python. Deliberately omitted labels: gaussian-elimination -- it IS a linear system over GF(3), but with at most two variables per equation it is solved by graph propagation, not elimination, and the vocabulary has no label for 'sparse linear system / constraint propagation over a finite field' (closest cousin in spirit is two-sat's implication graph); bipartite-graph and parity-argument -- odd versus even cycles do decide whether the free parameter survives, but the three-value enumeration never needs the 2-colouring, so labelling them would mislead; brute-force -- the per-component enumeration is over three values, a constant, not a search; union-find -- a weighted DSU carrying mod-3 offsets is a viable alternative implementation but is not needed. dfs is kept at moderate confidence: the traversal is how constraints propagate through a component, which is the engine of the algorithm rather than mere scaffolding, though bfs would serve identically."
+}

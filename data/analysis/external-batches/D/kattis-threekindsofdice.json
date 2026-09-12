@@ -1,0 +1,27 @@
+{
+ "id": "kattis-threekindsofdice",
+ "status": "solved",
+ "solution": "Because a die is rolled uniformly, score(D3,D) is the average of score(f,D) over D3's faces, so both quantities are linear in D3's face distribution: map each candidate face value v to the plane point P(v) = (score(v,D1), score(v,D2)), where score(v,D) = (#{f<v} + 0.5*#{f=v})/|D|. Those two coordinates are step functions of v, so only O(n) distinct points exist (every face value f, every f+1, and 1, which covers both landing on a face and landing inside a gap), and the set of achievable (score(D3,D1), score(D3,D2)) pairs is exactly the convex hull of those points -- any rational convex combination is realisable as a real die, and the optima sit at a hull vertex or on one hull edge, so their weights are rational and attained. The two answers are then 2D linear-programming queries on the hull: minimise y subject to x >= 1/2 (walk the lower hull, taking the best vertex with x >= 1/2 and the interpolation of the edge crossing x = 1/2), and, by the symmetric query on the points reflected to (-y,-x), maximise x subject to y <= 1/2. Feasibility is free since D1 itself gives the hull point (1/2, score(D1,D2)). Sorting the values and building the hull is O(n log n) for n up to 1e5, well inside the limits.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Two dice are given as lists of face values, each rolled uniformly, and one of them beats the other more than half the time. A third die of any size may be built. Report the smallest score it can get against the weaker die while still tying or beating the stronger, and the largest score against the stronger while not beating the weaker. Each die has up to 100000 faces.",
+ "patterns": [
+  "convex-hull",
+  "geometry",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "convex-hull": 0.95,
+  "geometry": 0.7,
+  "sorting": 0.5
+ },
+ "tags": [
+  "geometry",
+  "convex-hull",
+  "probability",
+  "optimization",
+  "math"
+ ],
+ "source_text_sha256": "fb09d013fd0c7e54da4c0580808085b93c3f5f3119f914848eabbaeb3cb73c6b",
+ "verify_script": "batchD/verify_threekindsofdice.py",
+ "notes": "Verification (verify_threekindsofdice.py, exact Fractions): both official samples reproduce to 9 decimals (7/24 and 3/4; 1/2 and 1/2). The hull solver is then cross-checked three independent ways on 300 random small instances -- (a) an O(N^2) exact enumeration of every candidate point and every point-pair/constraint-line crossing, which never disagreed; (b) a constructive check that rebuilds an explicit die from the optimal pair and rational weight and re-verifies its two scores directly, so the optimum is genuinely attained by a real die rather than only approached; (c) exhaustive brute force over actual dice D3 (all multisets of faces), which never beat the hull answer, and on 40 tiny instances where <=8 faces suffice to realise the optimal weights it matched exactly. A timing run at n = 1e5 per die finishes in ~1 s in plain Python. Labels: convex-hull is the crux -- the whole problem is 'achievable score pairs form a convex polygon, intersect it with a halfplane'. geometry covers the planar modelling (the taxonomy has no family rule mapping convex-hull to geometry, so it is listed explicitly); sorting is kept low at 0.5 since it is mostly scaffolding for the candidate values. Deliberately NOT labelled: game-theory (intransitive dice is the story, but nothing game-theoretic is computed -- no equilibrium, no Grundy value); binary-search (counting faces below v is scaffolding); convex-hull-trick (that is a DP optimisation, unrelated here); expected-value-dp / probability-dp (no DP state at all). Vocabulary gap: the queries are really 2D linear programming over a convex region, and there is no linear-programming (or plain probability / expected-value) slug in the canonical list; convex-hull is the closest true carrier. Minor uncertainty: which input line is D1 must be decided at runtime by computing score(A,B), which the statement guarantees is never a tie."
+}

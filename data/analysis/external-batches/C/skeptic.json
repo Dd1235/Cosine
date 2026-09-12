@@ -1,0 +1,104 @@
+{
+  "reviewer": "independent-skeptic",
+  "reviewed_at": "2026-09-12",
+  "batch": "C",
+  "reviews": [
+    {
+      "id": "codechef-trptstic",
+      "status": "approved",
+      "keep": ["binary-search-answer", "prefix-sum"],
+      "drop": [],
+      "add": [],
+      "independent_band": "medium",
+      "source_text_sha256": "3089dda2c0ebd4e0e1c4fdac8c2e9f9de3a1b5b12eec047c963d205c6ab00416",
+      "review_rationale": "Re-derived independently: a radius d works for centre (r,c) iff A[r][c] >= 1 and the clipped (2d+1)^2 Chebyshev square sums to at least K+1; the predicate is monotone in d, so binary search d in [0, max(N,M)] with an O(NM) check via 2D prefix sums, O(NM log max(N,M)) for sum NM <= 1e6. All four samples check by hand (sample 4: centre (1,0) reaches everything at d=1, centre (0,1) needs d=2) and the script's 4000 random + 400 literal-placement cross-checks pass. binary-search-answer is a genuine carrier under the strict test: the answer is the searched quantity, there is no closed form or single two-pointer sweep because d is shared across all centres, and the feasibility test is a real O(NM) data-structure sweep (2D prefix sums plus the mentor-capacity trap), not a trivial scan. prefix-sum is the enabler, not scaffolding; without it the check is unreachable at the limits.",
+      "issues": [
+        "Nit: the summary says 'Chebyshev distance' where the statement only gives max(|dr|,|dc|); acceptable since it is the correct name and a plausible query, but no vocabulary label exists for Chebyshev/chessboard distance (manhattan-distance would be wrong here).",
+        "The binary-search family label is expected to be added by the ingest families rule (regex 'binary-search' matches binary-search-answer); not added here to match batch convention."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "codechef-avgshort",
+      "status": "approved",
+      "keep": ["bellman-ford", "binary-search-answer", "cycle-detection"],
+      "drop": [],
+      "add": [
+        {
+          "label": "shortest-path",
+          "why": "shortest-path IS a canonical key (67 carriers); it was dropped for a wrong reason (heuristics.md misread as 'umbrella only', since corrected at line 317). On the merits: the problem is a shortest-path variant (minimum mean walk), the feasibility engine is a shortest-walk computation (Bellman-Ford on w - lambda), and the corpus precedent atcoder-abc137-e (bellman-ford + negative cycle) carries shortest-path. A 'shortest path' searcher is glad to land here.",
+          "confidence": 0.75
+        }
+      ],
+      "independent_band": "hard",
+      "source_text_sha256": "d9d64f9bd565a946a14c0a2ac328a6023e70bba3c70d08007743d16cb7646ddc",
+      "review_rationale": "Re-derived: answer = inf over walks = min(best simple A->B path mean, best mean of a cycle reachable from A and co-reachable to B) by the mediant inequality; parametric search on lambda with edges reweighted w - lambda and Bellman-Ford negative-walk / negative-cycle detection on the trimmed subgraph decides 'mean < lambda' monotonically. Sample 2 (answer 1.0 = mean of the 2<->3 cycle, never attained) confirms the infinite-walk case is load-bearing; both samples and 800 exact-Fraction cross-checks pass. An O(NM) Karp min-mean-cycle plus k-edge-walk DP alternative exists, but the parametric search is the intended and natural route, and its feasibility test (reweighting plus negative-cycle detection) is the interesting part, so binary-search-answer is a real carrier. cycle-detection sits exactly at the 0.6 threshold and is kept on precedent: cses-1197 and cses-1673 (negative-cycle Bellman-Ford, the latter with the same reachable/co-reachable trim) already carry it, so the siblings stay adjacent in search.",
+      "issues": [
+        "Time budget: sum N <= 1e4, sum M <= 2e4 allows ~20 max-size tests; 100 bisection steps x 20 x 5e5 relaxations = 1e9 worst case in C++. Use ~30 steps (range 99, tolerance 1e-6) or Dinkelbach; noted so the solution text's '40-50 steps' claim is read as an upper bound, not a recommendation.",
+        "cycle-detection here means negative-cycle detection, not 'does a cycle exist'; kept only because the corpus already uses it that way on the CSES siblings."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "codechef-nplflf",
+      "status": "approved",
+      "keep": ["trie"],
+      "drop": [],
+      "add": [],
+      "independent_band": "medium",
+      "source_text_sha256": "3a2190bcd9213757dc3fed88f9f9c3a827f493cd42c89c15d740506dc6768b83",
+      "review_rationale": "Re-derived: a shared suffix of length l is a depth-l node in a trie of reversed strings; cnt[node] = live strings through it; Ask(k,l) is max cnt at depth l >= k. Add/remove walk one path with +/-1, total O(sum|s|); the per-depth maximum under +/-1 updates is maintained in O(1) with a count-of-counts array (or a multiset in O(log)). Sample traced by hand and 3500 randomized cross-checks pass; q, sum|s| <= 1e5 is comfortably met. trie is the whole technique; string-hashing is a real alternative but would be a misleading hit, and no other canonical label is the technique rather than scaffolding.",
+      "issues": [],
+      "summary_ok": true
+    },
+    {
+      "id": "codechef-xrqrs",
+      "status": "approved",
+      "keep": ["persistent-segment-tree", "trie", "order-statistics"],
+      "drop": [],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "9acb33c311cd0aa5d3b234bbe8ac51cd957f2fff94e50994ded1ceb9d726089a",
+      "review_rationale": "Re-derived: values < 2^19, so a persistent binary tree over the value domain with one version per array prefix answers every [L,R] query by descending root[R] and root[L-1] in lockstep on count differences; 'delete last k' is popping k roots. Max-xor is the greedy opposite-bit descent, count-<=x sums 0-children at x's set bits plus the equal leaf, k-th smallest compares k with the 0-child count. O(M log C) time and ~1e7 nodes (~120 MB with three int arrays; acceptable, tighten if the judge is 128 MB). Sample and 550 random streams pass; type 1 outputs y, not x xor y, confirmed. persistent-segment-tree is an honest label here, not a stand-in: count-<=x and k-th-smallest are literally the classic persistent-segment-tree-over-values (K-th Number) queries, and the max-xor query is the trie face of the same node layout. order-statistics matches corpus usage (List Removals, K-th Largest Value) for the k-th query.",
+      "issues": [
+        "Vocabulary gap: the truthful name is persistent trie; see notes for the persistent-trie ruling."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "codechef-gpd",
+      "status": "approved",
+      "keep": ["trie", "bit-manipulation"],
+      "drop": [],
+      "add": [
+        {
+          "label": "persistent-segment-tree",
+          "why": "The load-bearing idea is path-copied persistence with one version per tree node (version(u) = version(parent) + key(u)), exactly the persistent-segment-tree-on-tree-paths technique (COT-style), and the forced-online encoding is what rules out the offline single-trie DFS. A persistent binary trie over 31-bit keys and a dynamically-allocated persistent segment tree over [0, 2^31) are the same node layout and the same insert. Without this label the persistence, which is the hard half of the problem, is unsearchable; the proposer flagged that as the one genuine gap. Confidence below xrqrs because gpd has no range query over the value domain, only trie descents.",
+          "confidence": 0.7
+        }
+      ],
+      "independent_band": "hard",
+      "source_text_sha256": "d5b3de9368c8b51ca2ad91978f00089fed7d1f242d0a5d2928d7252b0d7b391b",
+      "review_rationale": "Re-derived: root at R, version(u) = insert(version(parent(u)), key(u)) on a path-copied binary trie, so version(v) holds exactly the keys on v -> R; a test is two 31-step descents (follow k's bit for min, opposite for max). New stations build off their parent's version, so online growth is free; O((N+Q)*31) time and nodes (~9.3e6). Sample traced through the xor-decoding protocol and 400 random trees plus encode/decode round trips pass. lca/binary-lifting cannot apply (xor extrema do not merge across jumps without a structure per jump) and offline-queries would be the opposite of the truth; dfs and hash-map are build scaffolding. bit-manipulation is kept: the higher-bit-dominates greedy is the reasoning that makes the descent optimal and the whole problem is xor extrema.",
+      "issues": [
+        "The initial N-1 edges are not guaranteed top-down; the solution text says so but any implementation must build versions in BFS/DFS order from R (the verify script does)."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "codechef-rebxor",
+      "status": "approved",
+      "keep": ["trie", "prefix-xor"],
+      "drop": [],
+      "add": [],
+      "independent_band": "medium",
+      "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
+      "review_rationale": "Re-derived: xor(l..r) = P[r]^P[l-1]; sweep left to right inserting P[0..r-1] into a 30-bit trie and query P[r] for the best segment ending at r, prefix-max gives left[k]; the same on the reversed array gives right[k]; answer = max over splits of left[k] + right[k+1], exact because r1 < l2 means every valid pair straddles some split and the two halves are independent. O(N * 30). Sample = 6 by hand and 4000 four-loop brute-force cross-checks pass. trie and prefix-xor are both the technique; dynamic-programming (running maxima) and greedy (the bit descent) are correctly omitted as scaffolding, and xor-basis does not apply to contiguous segments.",
+      "issues": [
+        "Nit: summary says integers 'below one billion'; the bound is A_i <= 1e9 inclusive. Harmless for search, not a correctness problem."
+      ],
+      "summary_ok": true
+    }
+  ],
+  "notes": "All six verify scripts were run and pass (samples plus randomized brute-force cross-checks); every source_text_sha256 equals sha256 of the staging source_text; every summary is 60-70 words, free of markup and examples. Nothing rejected. (a) binary-search-answer: both carriers survive the strict test. trptstic: the answer d is the searched quantity, no closed form or single sweep exists because d is shared across all centres, and the check is a real O(NM) 2D-prefix-sum sweep with a capacity trap, at least as substantive as the Aggressive Cows canonical example. avgshort: the check is reweight-by-lambda plus negative-cycle Bellman-Ford, i.e. the feasibility test IS the solution (0-1 fractional programming / parametric search); a searcher for the term is glad to land on either. (b) shortest-path belongs on avgshort at 0.75: it is a canonical key with 67 carriers, the problem is a shortest-path variant whose engine is a shortest-walk computation, and atcoder-abc137-e (bellman-ford + negative cycle) already carries it; the drop rested on a misreading of heuristics.md that the doc itself now corrects. (c) persistent-trie ruling: persistent-segment-tree is an HONEST stand-in on both xrqrs (0.9) and gpd (0.7), not a false carrier. A persistent binary trie over B-bit integers and a persistent segment tree over the value domain [0, 2^B) with dynamic node allocation are the same structure: two children plus a count, path-copied insert, versions differenced pairwise. xrqrs even issues the classic persistent-segment-tree queries (count <= x, k-th smallest); gpd uses the classic version-per-tree-node pattern. Kept on both because otherwise 'persistent' is unsearchable for them, and the label is not diluted: it has only two current carriers (cses-1737, cf-813-e), both of which are also path-copied count trees. A new canonical `persistent-trie` IS warranted: it is a distinct name people type ('persistent trie', 'persistent xor trie', 'persistent binary trie'), it names the xor-descent use that the segment-tree name hides, and xrqrs/gpd would be its first two honest carriers; when added, keep persistent-segment-tree on xrqrs (it genuinely does k-th/count queries) and consider replacing it on gpd. Do not fold persistent-trie into trie as an alias: persistence is the hard half and would be lost. Other traps: dp-on-dag correctly absent everywhere (avgshort's graph is cyclic by design, nothing else has a graph); dsu-on-tree absent everywhere; the only label at the 0.6 floor is cycle-detection on avgshort, kept on corpus precedent (cses-1197, cses-1673 use it for negative-cycle Bellman-Ford). Systematic observation: the batch's proposers were consistent about treating the bitwise greedy descent as internal to `trie` (omitted greedy on all four trie problems) but inconsistent about bit-manipulation (pattern on gpd, tag only on xrqrs and rebxor); I accepted that split since gpd is purely xor extrema while the other two have xor as one facet among several, but a corpus-wide rule for when a max-xor trie problem also carries bit-manipulation would remove the judgement call."
+}

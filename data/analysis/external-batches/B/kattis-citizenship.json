@@ -1,0 +1,26 @@
+{
+ "id": "kattis-citizenship",
+ "status": "solved",
+ "solution": "Every year has 365 days with fixed month lengths, so map each date to the integer day index 365*Y + cum[M-1] + (D-1); then every 12-month period is exactly 365 days and, applying on day A, period k is [A-365k, A-365k+364] for k=1..y. Mark the days covered by the n travel ranges and prefix-sum them, so the out-of-country count f(x) of any 365-day window is O(1); the requirement is max_{k=1..y} f(A-365k) <= 365-d. A must exceed the last input day L, and at A = L+1+365y every period lies entirely after L and is trip-free, so the answer is one of the at most 365y+1 candidates in [L+1, L+1+365y] and is found by scanning them in increasing order. The predicate is not monotone in A (advancing A drops a present day from a period and may add a travel day), so binary searching the date is invalid -- a random search found instances that are feasible on one day and infeasible the next. For a fixed residue A mod 365 the y period starts are y consecutive terms of the stride-365 sequence f(365j+r), so a monotonic-deque sliding-window maximum per residue answers all candidates in O(365y) total (the direct O(365y*y) = 3.7e8 check also fits comfortably in C++).",
+ "solution_confidence": 0.95,
+ "statement_summary": "A prospective citizen must have spent at least d days inside the country in each of the y consecutive 12-month periods counted backwards from the application date, where every year has 365 days with fixed month lengths. Given up to 500 disjoint, sorted date ranges during which the person was abroad, the task is to report the earliest application date strictly after the final listed date.",
+ "patterns": [
+  "prefix-sum",
+  "sliding-window",
+  "brute-force"
+ ],
+ "pattern_confidence": {
+  "prefix-sum": 0.92,
+  "sliding-window": 0.8,
+  "brute-force": 0.7
+ },
+ "tags": [
+  "intervals",
+  "prefix-sum",
+  "sliding-window",
+  "dates"
+ ],
+ "source_text_sha256": "4a429e879b66af83684bbb96a9b79d8132e6f2e73909276d1e4bf3755184c28e",
+ "verify_script": "batchB/verify_citizenship.py",
+ "notes": "Verified: both samples reproduce (2024-05-31, 2028-02-26) and 550 randomized cross-checks against a day-by-day brute force agree; worst case n=500, y=1000 runs in 0.22s in pure Python and lands exactly on the proven bound L+1+365y. Deliberately NOT labelled binary-search-answer: a search over random instances produced a case (y=2, d=279, trips 0002-06-07..0002-08-10 and 0005-01-02..0005-05-14) where the feasibility predicate is true on 0006-03-29 and false on 0006-03-30, so the answer is not a monotone threshold. monotonic-queue / deque are omitted: the sliding-window maximum per residue class gives the clean O(365y) bound but the naive O(365y^2) re-check is ~3.7e8 O(1) probes and fits the limits, so the deque is an optimization rather than the solution. difference-array is likewise omitted (the input ranges are already disjoint and sorted, so marking is direct). Vocabulary gap: the real difficulty here is calendar/date arithmetic on a custom 365-day year, and no canonical label covers date handling; 'simulation' was considered and rejected because nothing is stepped through -- the day index is closed form."
+}
