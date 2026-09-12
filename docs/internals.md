@@ -2,6 +2,8 @@
 
 For users / recruiters: see [README.md](../README.md). This doc is for working in the codebase.
 
+Every place the system deviates from the textbook answer on purpose — with the measurement behind it and its known limits — is catalogued in [heuristics.md](heuristics.md).
+
 ## Run it
 
 ```sh
