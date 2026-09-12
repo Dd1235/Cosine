@@ -370,6 +370,12 @@ logoutBtn.addEventListener("click", async () => {
   currentQuery = "";
   resultsEl.innerHTML = "";
   hideLoadMore();
+  // The URL still carried similar=/practice= from the view we just tore down,
+  // and the collection chips still claimed a filter nothing is applying.
+  // Collections themselves are kept, for the same reason judges are: they are
+  // a standing preference, not account state.
+  renderCollectionControls();
+  syncUrl();
   setStatus("logged out");
 });
 
@@ -787,7 +793,7 @@ function addCollection(id) {
   collectionSpoilers = false;
   currentOffset = 0;
   renderCollectionControls();
-  syncUrl();
+  syncUrl({ push: true });
   reissueCurrentView();
 }
 
@@ -796,7 +802,7 @@ function removeCollection(id) {
   collectionSpoilers = false;
   currentOffset = 0;
   renderCollectionControls();
-  syncUrl();
+  syncUrl({ push: true });
   // Dropping the last facet is a return to the empty state, not a browse of
   // nothing — the same fall-through the chip has always had.
   if (!activeCollections.size && !activePlatforms.size && !activePattern && !currentQuery && !currentSimilar) runSearch('');
@@ -1795,6 +1801,9 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
   }
   if (practice) {
     activeCollections.clear();
+    // Nothing is being kept spoiler-free any more: this is a recommendation
+    // list, not the contest you are sitting.
+    collectionSpoilers = false;
     similarLibrary = null;
     libAged = null;
     libOldest = false;
@@ -1885,6 +1894,10 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
           activeTiers.clear();
           activeRanges.clear();
           activeAcceptance = null;
+          // "Clear filters" has to clear the controls too, or the difficulty
+          // row and the competition chips keep claiming a filter that is gone.
+          sortDir = null;
+          collectionSpoilers = false;
           similarLibrary = null;
           libAged = null;
           libOldest = false;
@@ -1894,6 +1907,8 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
           filterSelect.value = currentFilter;
           updatePatternPill();
           syncJudgeControls();
+          syncDifficultyControls();
+          renderCollectionControls();
           runSimilar(currentSimilar);
         });
         empty.appendChild(relax);
@@ -2003,12 +2018,19 @@ function clearPatternFilter({ reissue = true } = {}) {
 // deep links worked, but only if you typed one by hand, so a refresh threw away
 // your query, your judges and your filter.
 //
-// replaceState, never pushState: runSearch fires on every debounced keystroke,
-// so pushing would bury the real previous page under "g", "gr", "gra". Back
-// still leaves the app in one step, which is what people expect from a search
-// box. Offset is deliberately absent — restoring page 5 would silently refetch
+// replaceState by default: runSearch fires on every debounced keystroke, so
+// pushing would bury the real previous page under "g", "gr", "gra". Back still
+// leaves the app in one step, which is what people expect from a search box.
+//
+// push:true is the one exception, and only adding or removing a competition
+// passes it. Picking a collection is a deliberate, discrete act — you clicked
+// one thing, once — so it earns a history entry, and Back undoes exactly it.
+// Judges and patterns stay on replaceState for now; extending this is a
+// follow-up, not an oversight.
+//
+// Offset is deliberately absent — restoring page 5 would silently refetch
 // everything above it.
-function syncUrl() {
+function syncUrl({ push = false } = {}) {
   const p = new URLSearchParams();
   if (currentQuery) p.set("q", currentQuery);
   if (currentSimilar) {
@@ -2033,9 +2055,14 @@ function syncUrl() {
   if (activeRanker) p.set("ranker", activeRanker);
   if (currentUser && currentFilter !== "all") p.set("filter", currentFilter);
   const qs = p.toString();
-  const next = location.pathname + (qs ? `?${qs}` : "") + location.hash;
+  const search = qs ? `?${qs}` : "";
+  const next = location.pathname + search + location.hash;
+  // Whatever we just wrote is, by definition, already applied — popstate
+  // compares against this so a hash change never re-runs the whole view.
+  lastAppliedSearch = search;
   if (next !== location.pathname + location.search + location.hash) {
-    history.replaceState(null, "", next);
+    if (push) history.pushState({ cosine: 1 }, "", next);
+    else history.replaceState(null, "", next);
   }
 }
 
@@ -3372,62 +3399,139 @@ function escapeHtml(s) {
 
 // Deep links, both directions: the URL is read here at boot and written by
 // syncUrl() as you browse, so refresh, bookmark and share all keep the view.
+//
+// applyUrlState is the only reader of the query string, and it runs twice: at
+// boot, and again on every popstate. That second caller is why it CLEARS every
+// facet before parsing — going Back from "?contest=wf&platform=cf" to
+// "?q=graph" is a different view, not that view with the collections still
+// hanging off it. A reader that only ever ran once could get away with
+// assuming the state was already empty; this one cannot.
+//
+// Two things it deliberately never touches. activeRanker is a preference about
+// how to search rather than a description of what you are looking at, and the
+// <select> carrying it is populated asynchronously — re-reading it per
+// navigation would fight that. currentUser is not in the URL at all.
+let lastAppliedSearch = location.search;
+
+function applyUrlState(params) {
+  lastAppliedSearch = location.search;
+  activeCollections.clear();
+  activePlatforms.clear();
+  activeTiers.clear();
+  activeRanges.clear();
+  bootRanges.length = 0;
+  activeAcceptance = null;
+  sortDir = null;
+  activePattern = "";
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  collectionSpoilers = false;
+  libAged = null;
+  libOldest = false;
+  libRecall = null;
+  libNotes = null;
+  currentFilter = "all";
+  filterSelect.value = "all";
+
+  const q = (params.get("q") || "").trim();
+  const similarId = (params.get("similar") || "").trim();
+  if (/^[a-z0-9][a-z0-9-]{0,180}$/.test(similarId)) currentSimilar = { id: similarId, title: similarId };
+  const library = params.get("library");
+  if (currentSimilar && ["all", "bookmarked", "done"].includes(library)) { similarLibrary = library; bootNeedsAuth = true; }
+  practiceMode = !!currentSimilar && params.get("practice") === "1";
+  // practice=1 and contest= are a contradiction the server answers with zero
+  // results: practice means "anything BUT the source contest", and runSimilar
+  // clears the collections to say so. A hand-edited or stale link carrying
+  // both is read as practice, and the first syncUrl writes the contest away.
+  if (!practiceMode) {
+    for (const id of (params.get("contest") || "").split(",")) {
+      if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
+    }
+  }
+  const pattern = (params.get("pattern") || "").trim().toLowerCase();
+  const aged = Number.parseInt(params.get("aged") || "", 10);
+  if ([30, 90, 180].includes(aged)) libAged = aged;
+  if ((params.get("order") || "").toLowerCase() === "oldest") libOldest = true;
+  const recall = (params.get("recall") || "").trim().toLowerCase();
+  if (["again", "hard", "medium", "easy", "none"].includes(recall)) libRecall = recall;
+  const notes = (params.get("notes") || "").trim().toLowerCase();
+  if (["yes", "no"].includes(notes)) libNotes = notes;
+  const sort = (params.get("sort") || "").trim().toLowerCase();
+  if (sort === "difficulty-asc" || sort === "difficulty") sortDir = "asc";
+  else if (sort === "difficulty-desc") sortDir = "desc";
+  const filter = (params.get("filter") || "").trim().toLowerCase();
+  if (["done", "notdone"].includes(filter)) {
+    currentFilter = filter;
+    filterSelect.value = filter;
+    bootNeedsAuth = true;
+  }
+  for (const p of (params.get("platform") || "").toLowerCase().split(",")) {
+    if (PLATFORM_LABELS[p.trim()]) activePlatforms.add(p.trim());
+  }
+  // A judge range names its judge by a short form only /api/rankers can
+  // resolve. At boot that payload has not landed yet, so the token is parked;
+  // on a later popstate it has, and the token resolves immediately.
+  const ratedKnown = (difficultyPayload.rated || []).length > 0;
+  for (const tok of (params.get("difficulty") || "").toLowerCase().split(",")) {
+    const t = tok.trim();
+    const range = /^([a-z]{2,4}):(-?\d+)-(-?\d+)$/.exec(t);
+    if (range && range[1] !== "ac" && !ratedKnown) bootRanges.push(range);
+    else applyDifficultyToken(t);
+  }
+  if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(pattern)) activePattern = pattern;
+  input.value = q;
+  if (libraryCommand(q) || (currentSimilar && (libRecall || libAged || libNotes))) bootNeedsAuth = true;
+  return q;
+}
+
+// Which view the parsed state describes. Separate from applyUrlState because
+// popstate needs the controls repainted between the two.
+function dispatchUrlView() {
+  const q = input.value.trim();
+  if (currentSimilar) {
+    input.value = "";
+    runSimilar(currentSimilar);
+  } else if (activePattern) {
+    applyPatternFilter(activePattern);
+  } else if (q || activeCollections.size || activePlatforms.size) {
+    runSearch(q, { append: false });
+  } else {
+    // Nothing selected and nothing typed. Back to a bare URL has to clear the
+    // results too — at boot there are none, on popstate there are.
+    currentQuery = "";
+    currentTotal = 0;
+    currentOffset = 0;
+    resultsEl.innerHTML = "";
+    hideLoadMore();
+    hideFeedback();
+    setStatus("");
+  }
+}
+
 const bootParams = new URLSearchParams(location.search);
 const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();
-const bootQ = (bootParams.get("q") || "").trim();
-const bootSimilar = (bootParams.get("similar") || "").trim();
-if (/^[a-z0-9][a-z0-9-]{0,180}$/.test(bootSimilar)) currentSimilar = { id: bootSimilar, title: bootSimilar };
-const bootLibrary = bootParams.get("library");
-if (currentSimilar && ["all", "bookmarked", "done"].includes(bootLibrary)) { similarLibrary = bootLibrary; bootNeedsAuth = true; }
-practiceMode = !!currentSimilar && bootParams.get("practice") === "1";
-for (const id of (bootParams.get("contest") || "").split(",")) {
-  if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
-}
+applyUrlState(bootParams);
 loadCollections();
-const bootPattern = (bootParams.get("pattern") || "").trim().toLowerCase();
-const bootAged = Number.parseInt(bootParams.get("aged") || "", 10);
-if ([30, 90, 180].includes(bootAged)) libAged = bootAged;
-if ((bootParams.get("order") || "").toLowerCase() === "oldest") libOldest = true;
-const bootRecall = (bootParams.get("recall") || "").trim().toLowerCase();
-if (["again", "hard", "medium", "easy", "none"].includes(bootRecall)) libRecall = bootRecall;
-const bootNotes = (bootParams.get("notes") || "").trim().toLowerCase();
-if (["yes", "no"].includes(bootNotes)) libNotes = bootNotes;
-const bootSort = (bootParams.get("sort") || "").trim().toLowerCase();
-if (bootSort === "difficulty-asc" || bootSort === "difficulty") sortDir = "asc";
-else if (bootSort === "difficulty-desc") sortDir = "desc";
-const bootFilter = (bootParams.get("filter") || "").trim().toLowerCase();
-if (["done", "notdone"].includes(bootFilter)) {
-  currentFilter = bootFilter;
-  filterSelect.value = bootFilter;
-  bootNeedsAuth = true;
-}
-for (const p of (bootParams.get("platform") || "").toLowerCase().split(",")) {
-  if (PLATFORM_LABELS[p.trim()]) activePlatforms.add(p.trim());
-}
-for (const tok of (bootParams.get("difficulty") || "").toLowerCase().split(",")) {
-  const t = tok.trim();
-  const range = /^([a-z]{2,4}):(-?\d+)-(-?\d+)$/.exec(t);
-  // A judge range names its judge by a short form only the payload can resolve,
-  // so it waits. "ac" names a quantity, and tiers are already canonical.
-  if (range && range[1] !== "ac") bootRanges.push(range);
-  else applyDifficultyToken(t);
-}
 syncJudgeControls();
-if (bootQ) input.value = bootQ;
-if (libraryCommand(bootQ) || (currentSimilar && (libRecall || libAged || libNotes))) bootNeedsAuth = true;
-if (currentSimilar) {
-  if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) { activePattern = bootPattern; updatePatternPill(); }
-  input.value = "";
-  runSimilar(currentSimilar);
-} else if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) {
-  applyPatternFilter(bootPattern);
-} else if (bootQ || activeCollections.size || activePlatforms.size) {
-  runSearch(bootQ, { append: false });
-} else {
-  setStatus("");
-}
+updatePatternPill();
+dispatchUrlView();
+
+// Back / Forward. Without this the address bar and the page disagreed the
+// moment you used either: syncUrl only ever replaced, so the only entries that
+// existed were the ones the browser made, and pressing Back left a collection
+// filtering results that the URL no longer mentioned.
+window.addEventListener("popstate", () => {
+  // A hash-only move (an in-page anchor) is not a change of view.
+  if (location.search === lastAppliedSearch) return;
+  applyUrlState(new URLSearchParams(location.search));
+  syncJudgeControls();
+  updatePatternPill();
+  renderCollectionControls();
+  dispatchUrlView();
+});
 
 // Put the caret where typing actually goes. Pointer-fine only, so mobile
 // keyboards don't spring open on load.
