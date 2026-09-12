@@ -92,6 +92,125 @@
         "Removed the unverified 12-second runtime-limit assertion because it is absent from the supplied full source text. The algorithmic feasibility and fairness proof are otherwise sound."
       ],
       "source_text_sha256": "6949a63b14639077294eb96c081f548ded0072e4d0b5fe3db9cdaff8b3f5a4f3"
+    },
+    {
+      "id": "codechef-trptstic",
+      "batch": "C",
+      "patterns": [
+        "binary-search-answer",
+        "prefix-sum"
+      ],
+      "solution": "People are interchangeable and constrained only by per-room capacity, so a radius d works for a mentor in cell (r,c) exactly when A[r][c] >= 1 (the mentor must fit in his own room) and the total capacity of the (2d+1)x(2d+1) Chebyshev square centred on (r,c), clipped to the grid, is at least K+1; the answer is the smallest such d over all legal centres, and -1 when the whole grid holds fewer than K+1 people. That predicate is monotone in d because the square only grows, which licenses a binary search on d over [0, max(N,M)]. Each candidate d is tested by building a 2D prefix-sum table once and asking, for every cell with capacity at least 1, whether its clipped square sums to K+1 or more - an O(1) query per centre, so O(NM) per test. Total cost is O(NM log max(N,M)), about 2*10^7 operations for the worst allowed sum of N*M = 10^6, and O(NM) memory. The naive cell-by-cell square sum is far too slow (up to 10^6 centres times a square of up to 10^6 cells), and dropping the A[r][c] >= 1 check is wrong: on [[3,0,0,0,3]] with K=5 the illegal centre (0,2) would report 2 instead of the correct 4.",
+      "statement_summary": "A school books a hotel whose rooms form an N by M grid, each with a stated capacity. One mentor and K students must be housed, and the task is the smallest Chebyshev distance from the mentor's room to the farthest room holding a student. The answer is -1 if total capacity is below K+1. The sum of N times M over all tests stays within one million.",
+      "independent_band": "medium",
+      "review_rationale": "Re-derived independently: a radius d works for centre (r,c) iff A[r][c] >= 1 and the clipped (2d+1)^2 Chebyshev square sums to at least K+1; the predicate is monotone in d, so binary search d in [0, max(N,M)] with an O(NM) check via 2D prefix sums, O(NM log max(N,M)) for sum NM <= 1e6. All four samples check by hand (sample 4: centre (1,0) reaches everything at d=1, centre (0,1) needs d=2) and the script's 4000 random + 400 literal-placement cross-checks pass. binary-search-answer is a genuine carrier under the strict test: the answer is the searched quantity, there is no closed form or single two-pointer sweep because d is shared across all centres, and the feasibility test is a real O(NM) data-structure sweep (2D prefix sums plus the mentor-capacity trap), not a trivial scan. prefix-sum is the enabler, not scaffolding; without it the check is unreachable at the limits.",
+      "status": "approved",
+      "issues": [
+        "Nit: the summary says 'Chebyshev distance' where the statement only gives max(|dr|,|dc|); acceptable since it is the correct name and a plausible query, but no vocabulary label exists for Chebyshev/chessboard distance (manhattan-distance would be wrong here).",
+        "The binary-search family label is expected to be added by the ingest families rule (regex 'binary-search' matches binary-search-answer); not added here to match batch convention."
+      ],
+      "source_text_sha256": "3089dda2c0ebd4e0e1c4fdac8c2e9f9de3a1b5b12eec047c963d205c6ab00416",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-avgshort",
+      "batch": "C",
+      "patterns": [
+        "bellman-ford",
+        "binary-search-answer",
+        "cycle-detection",
+        "shortest-path"
+      ],
+      "solution": "Binary search the answer lambda and reweight every arc w -> w - lambda; a walk from A to B with average below lambda exists exactly when the shortest *walk* under the reweighted costs is negative. That test is Bellman-Ford run on the subgraph of vertices reachable from A and able to reach B: it returns true either when dist[B] < 0, or when a relaxation still fires after |V| rounds, i.e. a negative cycle sits on some A->B route and can be looped arbitrarily many times so the average tends to that cycle's mean. Correctness follows from decomposing any walk into one simple A->B path plus cycles: by the mediant inequality (a1+a2)/(b1+b2) >= min(a1/b1, a2/b2) the walk's ratio is at least the smallest ratio among the pieces, so the infimum equals min(best simple path ratio, best mean of a usable cycle) and the reweighted shortest-walk sign is monotone in lambda. Weights are 1..100 so the answer lies in [1,100] and about 40-50 bisection steps clear the 1e-6 requirement, giving O(log(1/eps) * N * M) per test (<= ~2.5e7 with N<=500, M<=1000, and far less in practice because Bellman-Ford exits early). The infimum need not be attained -- sample 2 answers 1.0, the mean of the 2<->3 cycle, which no finite walk achieves -- and -1 is printed when B is unreachable from A.",
+      "statement_summary": "Given a directed weighted graph with up to 500 nodes and 1000 arcs whose weights lie between 1 and 100, and two distinct nodes A and B, the task is to find the smallest possible average edge weight of a walk from A to B, where the walk may reuse edges and its length need not be bounded. Output is -1 when no walk exists.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived: answer = inf over walks = min(best simple A->B path mean, best mean of a cycle reachable from A and co-reachable to B) by the mediant inequality; parametric search on lambda with edges reweighted w - lambda and Bellman-Ford negative-walk / negative-cycle detection on the trimmed subgraph decides 'mean < lambda' monotonically. Sample 2 (answer 1.0 = mean of the 2<->3 cycle, never attained) confirms the infinite-walk case is load-bearing; both samples and 800 exact-Fraction cross-checks pass. An O(NM) Karp min-mean-cycle plus k-edge-walk DP alternative exists, but the parametric search is the intended and natural route, and its feasibility test (reweighting plus negative-cycle detection) is the interesting part, so binary-search-answer is a real carrier. cycle-detection sits exactly at the 0.6 threshold and is kept on precedent: cses-1197 and cses-1673 (negative-cycle Bellman-Ford, the latter with the same reachable/co-reachable trim) already carry it, so the siblings stay adjacent in search.",
+      "status": "approved",
+      "issues": [
+        "Time budget: sum N <= 1e4, sum M <= 2e4 allows ~20 max-size tests; 100 bisection steps x 20 x 5e5 relaxations = 1e9 worst case in C++. Use ~30 steps (range 99, tolerance 1e-6) or Dinkelbach; noted so the solution text's '40-50 steps' claim is read as an upper bound, not a recommendation.",
+        "cycle-detection here means negative-cycle detection, not 'does a cycle exist'; kept only because the corpus already uses it that way on the CSES siblings."
+      ],
+      "source_text_sha256": "d9d64f9bd565a946a14c0a2ac328a6023e70bba3c70d08007743d16cb7646ddc",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-nplflf",
+      "batch": "C",
+      "patterns": [
+        "trie"
+      ],
+      "solution": "A common suffix of length l is exactly a depth-l node in a trie built over the REVERSED strings, and the number of collection members sharing that suffix is the number of live strings whose reversed path passes through that node. Adding or removing a string walks its one root-to-leaf path and adds or subtracts 1 from cnt at each node touched; since every Add is removable at most once, the total node work is O(sum|s|) <= 2*10^5. For each depth l keep freq[l][c] = how many depth-l nodes currently have count c together with best[l], the running maximum; because every update moves one count by exactly +/-1, the maximum either rises to the new value or, when the sole holder of the maximum drops, falls by exactly one (that node now sits at best-1), so best[l] is maintained in O(1) per touched node. An Ask (k,l) is then answered in O(1) as best[l] >= k, treating depths beyond the deepest node as 0. Total O(q + sum|s|) time and O(sum|s|) memory, well within q, sum|s| <= 10^5.",
+      "statement_summary": "A collection of strings starts empty and is transformed by a sequence of operations: append a new string, delete the string inserted by a specified earlier operation, or report whether at least k strings currently in the collection share one common suffix of length l. Every such question is answered yes or no. The number of operations and the total length of all added strings are each at most 100000.",
+      "independent_band": "medium",
+      "review_rationale": "Re-derived: a shared suffix of length l is a depth-l node in a trie of reversed strings; cnt[node] = live strings through it; Ask(k,l) is max cnt at depth l >= k. Add/remove walk one path with +/-1, total O(sum|s|); the per-depth maximum under +/-1 updates is maintained in O(1) with a count-of-counts array (or a multiset in O(log)). Sample traced by hand and 3500 randomized cross-checks pass; q, sum|s| <= 1e5 is comfortably met. trie is the whole technique; string-hashing is a real alternative but would be a misleading hit, and no other canonical label is the technique rather than scaffolding.",
+      "status": "approved",
+      "issues": [],
+      "source_text_sha256": "3a2190bcd9213757dc3fed88f9f9c3a827f493cd42c89c15d740506dc6768b83",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-xrqrs",
+      "batch": "C",
+      "patterns": [
+        "persistent-segment-tree",
+        "persistent-trie",
+        "trie",
+        "order-statistics"
+      ],
+      "solution": "Values satisfy 1 <= x <= 5*10^5 < 2^19, so build a persistent binary trie over 19-bit values -- equivalently a persistent segment tree over the value domain [0, 2^19) -- with root[i] the version holding the array prefix a[1..i]; each append copies only the 19 nodes on one root-to-leaf path, and \"delete last k\" is just popping k root pointers, since older versions are still intact. Every range query descends root[R] and root[L-1] in lockstep and uses the per-node count difference cnt[R]-cnt[L-1], which is exactly the multiset of a[L..R] because node counts are additive over prefixes. Max-xor greedily takes the child opposite to x's current bit whenever that difference is positive, which is optimal because a higher bit outweighs all lower bits combined; count-of-<=x adds the whole 0-child difference at each set bit of x and follows the 1-child, then adds the equal-value leaf; the k-th smallest compares k with the 0-child difference and descends. All operations are O(log C) = 19 steps, giving O(M log C) ~ 10^7 time and ~10^7 nodes for M = 5*10^5. Verified against an O(n)-per-query brute force on the sample and on 550 random query streams over both narrow and full value ranges.",
+      "statement_summary": "An initially empty integer array supports five interleaved operations: appending a value at the end, deleting the last k values, and three queries over a contiguous index range, namely reporting the stored value that maximizes its xor with a given x, counting values at most x, and returning the k-th smallest. Up to 500000 operations arrive, each value at most 500000, and every query must be answered.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived: values < 2^19, so a persistent binary tree over the value domain with one version per array prefix answers every [L,R] query by descending root[R] and root[L-1] in lockstep on count differences; 'delete last k' is popping k roots. Max-xor is the greedy opposite-bit descent, count-<=x sums 0-children at x's set bits plus the equal leaf, k-th smallest compares k with the 0-child count. O(M log C) time and ~1e7 nodes (~120 MB with three int arrays; acceptable, tighten if the judge is 128 MB). Sample and 550 random streams pass; type 1 outputs y, not x xor y, confirmed. persistent-segment-tree is an honest label here, not a stand-in: count-<=x and k-th-smallest are literally the classic persistent-segment-tree-over-values (K-th Number) queries, and the max-xor query is the trie face of the same node layout. order-statistics matches corpus usage (List Removals, K-th Largest Value) for the k-th query.",
+      "status": "approved",
+      "issues": [
+        "Vocabulary gap: the truthful name is persistent trie; see notes for the persistent-trie ruling."
+      ],
+      "source_text_sha256": "9acb33c311cd0aa5d3b234bbe8ac51cd957f2fff94e50994ded1ceb9d726089a",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-gpd",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "persistent-trie",
+        "bit-manipulation",
+        "persistent-segment-tree"
+      ],
+      "solution": "Root the tree at R and give every node its own version of a binary trie over the 31-bit keys: version(u) is version(parent(u)) with key(u) inserted by path copying, so version(u) holds exactly the keys on the path u -> R, and a node added later simply builds its version off its parent's. A test (v, k) is then two greedy descents in version(v): follow k's bit at each level when it exists to minimise the xor, follow the opposite bit to maximise it, which is optimal because a decision at a higher bit outweighs everything below it. Persistence is what makes this work under the forced-online encoding - an offline DFS carrying one mutable trie is unavailable - and only the path from the new leaf is copied, so each insertion is 31 new nodes. Total O((N+Q) * 31) time and trie nodes, roughly 9M nodes for the limits, with each query answered in O(31). Verified against a parent-walking brute force on the official sample and 400 random trees, including the encode/decode round trip of the online protocol.",
+      "statement_summary": "Stations form a tree rooted at the chief's station, each holding an encryption key, and new stations attach to existing ones as queries run. A security test names a station and a key k and asks for the smallest and largest value of key xor k over the stations on the path to the root. Values arrive xored with the previous answer, so the 200,000 operations must be answered online.",
+      "independent_band": "hard",
+      "review_rationale": "Re-derived: root at R, version(u) = insert(version(parent(u)), key(u)) on a path-copied binary trie, so version(v) holds exactly the keys on v -> R; a test is two 31-step descents (follow k's bit for min, opposite for max). New stations build off their parent's version, so online growth is free; O((N+Q)*31) time and nodes (~9.3e6). Sample traced through the xor-decoding protocol and 400 random trees plus encode/decode round trips pass. lca/binary-lifting cannot apply (xor extrema do not merge across jumps without a structure per jump) and offline-queries would be the opposite of the truth; dfs and hash-map are build scaffolding. bit-manipulation is kept: the higher-bit-dominates greedy is the reasoning that makes the descent optimal and the whole problem is xor extrema.",
+      "status": "approved",
+      "issues": [
+        "The initial N-1 edges are not guaranteed top-down; the solution text says so but any implementation must build versions in BFS/DFS order from R (the verify script does)."
+      ],
+      "source_text_sha256": "d5b3de9368c8b51ca2ad91978f00089fed7d1f242d0a5d2928d7252b0d7b391b",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
+    },
+    {
+      "id": "codechef-rebxor",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "prefix-xor"
+      ],
+      "solution": "Let P[i] be the XOR of the first i elements, so the XOR of a segment (l,r) is P[r]^P[l-1]. Sweep left to right keeping a 30-bit binary trie of P[0..r-1]; querying it with P[r] by greedily descending toward the opposite bit at each level gives the best segment ending at r, and a running maximum turns that into left[k] = best single segment inside the first k elements. Running the same sweep on the reversed array gives right[k] = best segment inside the suffix starting at k, and the answer is max over split points k of left[k] + right[k+1], which is exact because the constraint r1 < l2 means every valid pair is separated by exactly such a split and each side is maximized independently. The greedy trie descent is optimal because fixing a higher bit to 1 outweighs every lower bit combined. Total cost is O(N log max(A)) time and trie nodes, about 1.2e7 for N = 4*10^5, well inside the limits.",
+      "statement_summary": "Given an array of up to four hundred thousand non-negative integers below one billion, the task is to pick two non-empty contiguous segments that do not overlap, the first ending strictly before the second begins, and report the largest achievable sum of the bitwise XOR of each segment's elements. The array size rules out inspecting every pair of candidate segments.",
+      "independent_band": "medium",
+      "review_rationale": "Re-derived: xor(l..r) = P[r]^P[l-1]; sweep left to right inserting P[0..r-1] into a 30-bit trie and query P[r] for the best segment ending at r, prefix-max gives left[k]; the same on the reversed array gives right[k]; answer = max over splits of left[k] + right[k+1], exact because r1 < l2 means every valid pair straddles some split and the two halves are independent. O(N * 30). Sample = 6 by hand and 4000 four-loop brute-force cross-checks pass. trie and prefix-xor are both the technique; dynamic-programming (running maxima) and greedy (the bit descent) are correctly omitted as scaffolding, and xor-basis does not apply to contiguous segments.",
+      "status": "approved",
+      "issues": [
+        "Nit: summary says integers 'below one billion'; the bound is A_i <= 1e9 inclusive. Harmless for search, not a correctness problem."
+      ],
+      "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
+      "reviewer": "independent-skeptic",
+      "reviewed_at": "2026-09-12"
     }
   ],
   "validation": [

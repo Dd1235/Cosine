@@ -613,6 +613,9 @@
     },
     "kadane": {
       "category": "array"
+    },
+    "persistent-trie": {
+      "category": "data-structures"
     }
   },
   "aliases": {
@@ -977,7 +980,8 @@
     "maximum-subarray": "kadane",
     "max-subarray-sum": "kadane",
     "maximum-sum-subarray": "kadane",
-    "range-maximum-subarray-sum": "kadane"
+    "range-maximum-subarray-sum": "kadane",
+    "persistent-binary-trie": "persistent-trie"
   },
   "families": [
     {
@@ -1197,7 +1201,8 @@
         "cartesian-tree",
         "linked-list",
         "two-heaps",
-        "design"
+        "design",
+        "persistent-trie"
       ]
     },
     "geometry": {

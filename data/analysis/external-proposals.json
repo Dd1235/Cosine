@@ -57,6 +57,310 @@
       ],
       "solution": "At each current left boundary, find for each remaining sponsor its earliest cut accumulating 1/n of its original total integral; assign the interval ending at the earliest of these cuts to that sponsor. Every other sponsor loses at most 1/n of its own original value, so the invariant guarantees all remaining shares fit. Compute integrals by trapezoid prefix sums, binary-search the segment containing target cumulative integral, solve its monotone quadratic (stable root/linear case). Last sponsor gets the remainder. O(totalSegments+n^2 log(maxSegments)), O(totalSegments), suitable n<=5000 totalSegments<=500000 and 12s native limit.",
       "statement_summary": "Partition a billboard into contiguous sections, one per sponsor, so every sponsor receives at least 1/n of its own total value. Each valuation is a nonnegative piecewise-linear function; there are at most 5000 sponsors and 500000 total breakpoints."
+    },
+    {
+      "id": "codechef-cyclicxor",
+      "batch": "A",
+      "patterns": [
+        "bit-manipulation",
+        "combinatorics",
+        "permutation-counting",
+        "constructive-algorithm",
+        "modular-arithmetic",
+        "parity-argument",
+        "graph-modeling"
+      ],
+      "pattern_confidence": {
+        "bit-manipulation": 0.95,
+        "combinatorics": 0.92,
+        "permutation-counting": 0.88,
+        "constructive-algorithm": 0.8,
+        "modular-arithmetic": 0.75,
+        "parity-argument": 0.6,
+        "graph-modeling": 0.55
+      },
+      "tags": [
+        "math",
+        "combinatorics",
+        "bit-manipulation",
+        "permutation",
+        "constructive-algorithm"
+      ],
+      "solution": "Read the permutation as a Hamiltonian cycle on {1..N} and split the vertices by the top bit: H = 2^floor(log2 N), high = {H..N} of size M = N-H+1, low = {1..H-1} of size L = H-1. Any cycle crosses that cut an even number of times (>= 2) and every crossing edge has bit log2(H) set, so the answer is at least H; since (H+j) xor x = H + (j xor x) for x < H, a crossing costs exactly H only for the K = M-1 matched pairs {j, H+j}, and all non-crossing edges are automatically below H. If M >= 3 the answer is H and the count is a sum over t of C(K,2t) choices of used pairs times (2t-1)!!*2^(t-1)*(t-1)! ways for the two endpoint matchings to glue into a single cycle times (M-t-1)!/(t-1)! and (L-t-1)!/(t-1)! path systems on the two sides; if M == 1 the lone vertex H must take crossings H^1 and H^2 so the answer is H+2 with (N-3)! cycles, and if M == 2 no two crossings of cost <= H+1 hit distinct low vertices so the answer is again H+2 with 3*(N-4)! + (N-5)! cycles (the second term is the case where H and H+1 are non-adjacent and vertex 1 is a singleton). N=2 and N=3 are degenerate and answer (3,2) and (3,6). Multiply cycles by 2N (rotations times reflections) for the permutation count; O(N) factorial precompute and O(M) per test.",
+      "statement_summary": "Given an integer N, consider every permutation of 1 through N arranged in a cycle, and let its cost be the largest bitwise XOR of two cyclically adjacent entries. The task is to report the smallest cost achievable over all N! permutations and how many permutations attain it, modulo 998244353, across many queries whose N values sum to at most 200000.",
+      "source_text_sha256": "807ca348c528460b3485cb6b2947d3b900ad5afd5554446992817192323bd594",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_cyclicxor.py"
+    },
+    {
+      "id": "codechef-mst101",
+      "batch": "A",
+      "patterns": [
+        "constructive-algorithm",
+        "minimum-spanning-tree",
+        "kruskal",
+        "greedy"
+      ],
+      "pattern_confidence": {
+        "constructive-algorithm": 0.97,
+        "minimum-spanning-tree": 0.95,
+        "kruskal": 0.9,
+        "greedy": 0.6
+      },
+      "tags": [
+        "graph",
+        "matrix",
+        "constructive-algorithm",
+        "greedy"
+      ],
+      "solution": "Because the weights are exactly the ranks 1..M with M=C(N,2), f(W) is just the sum of the ranks Kruskal accepts, so the task reduces to choosing which ranks r_1<...<r_{N-1} are the merging ones. Before rank r_i, i-1 merges have happened and all r_i-1 earlier edges must lie inside the components those merges built, whose largest possible capacity is one blob of size i; hence i <= r_i <= C(i,2)+1, and conversely any strictly increasing r obeying that bound is realizable by growing a single blob 1,2,...,N, spending r_i on the edge that attaches vertex i+1 to the blob and every other rank on a still-unused pair inside the blob. Summing the two extreme vectors gives the achievable K as exactly the contiguous range [N(N-1)/2, (N-1)+N(N-1)(N-2)/6] (the caps grow with i, so each r_i can be raised one unit at a time and every intermediate sum is hit); anything outside prints -1, which is common here since K may be as large as N^3 while the maximum is only about N^3/6. To hit a given K, start from r_i=i and raise the r_i greedily from the largest index down to its cap C(i,2)+1 until the deficit K-N(N-1)/2 is consumed, then emit the matrix in O(N^2) per test, so O(T*N^2) <= 500*2500 overall.",
+      "statement_summary": "Given two integers N and K, the task is to build an N by N symmetric matrix with zero diagonal whose above-diagonal entries are a permutation of 1 through N(N-1)/2, so that the minimum spanning tree of the complete weighted graph it describes has total weight exactly K. Up to 500 cases have N at most 50 and K at most N cubed; report -1 when impossible.",
+      "source_text_sha256": "ab2912e2fdf0b6406b692e13991ecc7c7169ca8cf9d3d71aca79281cc188bdf7",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_mst101.py"
+    },
+    {
+      "id": "codechef-productpos",
+      "batch": "A",
+      "patterns": [
+        "game-theory",
+        "parity-argument",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "game-theory": 0.95,
+        "parity-argument": 0.85,
+        "constructive-algorithm": 0.75
+      },
+      "tags": [
+        "array",
+        "game-theory",
+        "math"
+      ],
+      "solution": "Every legal deletion removes a subarray containing an even number of -1s, so the parity of the total count m of -1s is invariant, and the only positions with no move are the empty array and a lone -1. Exhaustive memoised search over all arrays with n <= 14 shows the losing positions are exactly the empty array and the shapes 1^k (-1) 1^k, i.e. a single -1 sitting in the exact centre of an otherwise all-+1 array. Hence if m is even Alice deletes the whole array (its product is 1) and hands Bob the empty array; if m is odd she must leave one centred -1, which means keeping either the first -1 q1 or the last qm and deleting the contiguous block holding the other m-1 of them while trimming surplus +1s off the ends. With a = #(+1) before q1, b = #(+1) after qm, g = the +1 gap between q1 and q2 and h = the gap between q_{m-1} and qm, keeping q1 is possible iff a <= g + b and keeping qm iff b <= h + a; both can fail only if 0 > g + h, so for m >= 3 one always works, and for m == 1 (where g = h = 0) exactly one works unless a == b, which is precisely the centred P-position where Bob wins. The whole decision plus the construction is a single scan, O(n) per test and O(sum N) = 2*10^5 overall.",
+      "statement_summary": "Two players alternate moves on an array of up to 200,000 entries, each equal to 1 or -1. A move deletes any contiguous subarray whose product equals 1, joining the remaining pieces; whoever cannot move loses. For each of up to 10,000 test cases, with the total length bounded by 200,000, the task is to name the winner and, when the first player wins, output one winning opening deletion.",
+      "source_text_sha256": "b536417e89379f29ef75dae1a3a56b2a20451de37db88f01d79658a4b02c1944",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_productpos.py"
+    },
+    {
+      "id": "codechef-vscnt",
+      "batch": "A",
+      "patterns": [
+        "virtual-tree",
+        "lca",
+        "euler-tour",
+        "ordered-set",
+        "combinatorics"
+      ],
+      "pattern_confidence": {
+        "virtual-tree": 0.95,
+        "lca": 0.9,
+        "euler-tour": 0.75,
+        "ordered-set": 0.7,
+        "combinatorics": 0.7
+      },
+      "tags": [
+        "tree",
+        "combinatorics",
+        "data-structure"
+      ],
+      "solution": "score(T) is 0 unless T is already LCA-closed; otherwise build the virtual forest on T (parent of v = nearest proper ancestor of v inside T) and the answer is 2^B where B counts vertices of T with at least two virtual children. Correctness: every leaf of that forest must lie in S because nothing else can generate it, a vertex with one virtual child is never the LCA of two elements of f(S) so it must lie in S too, and a vertex with two or more virtual children always has two child subtrees containing forced leaves, so it appears in f(S) for free and may be chosen or not. To maintain this online, keep T in a set ordered by DFS entry time and let cnt[u] be the number of adjacent pairs in that order whose LCA is u; the standard virtual-tree fact gives cnt[u] = number of virtual children of u for u in T, so B = #{u : cnt[u] >= 2} and T is LCA-closed exactly when no adjacent pair has its LCA outside T. A toggle of x touches only the two adjacent pairs around x plus x's own cnt block, so each query is O(log N) with O(1) LCA, giving O((N + Q) log N) over sums of 2*10^5.",
+      "statement_summary": "A rooted tree on N vertices is given with Q updates, each toggling one vertex into or out of a set T. The virtual tree of a set is its minimal superset closed under lowest common ancestors, and the score of T counts the sets whose virtual tree is exactly T. After every toggle the score modulo 998244353 must be reported, with N and Q summing to 200000.",
+      "source_text_sha256": "36b7eb88a4d0215e46e264c419fbb0ac9e823dc620fc42ab9cec302b917da7f5",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_vscnt.py"
+    },
+    {
+      "id": "kattis-kindergarten2",
+      "batch": "A",
+      "patterns": [
+        "graph-modeling",
+        "topological-sort",
+        "functional-graph",
+        "constructive-algorithm",
+        "tin-tout-ancestor-check"
+      ],
+      "pattern_confidence": {
+        "graph-modeling": 0.9,
+        "topological-sort": 0.9,
+        "functional-graph": 0.8,
+        "constructive-algorithm": 0.85,
+        "tin-tout-ancestor-check": 0.5
+      },
+      "tags": [
+        "graph",
+        "tree",
+        "dfs",
+        "constructive-algorithm"
+      ],
+      "solution": "Kid i is jealous of j_i and likes l_i, and an order is safe iff for every i either pos[j_i] < pos[i] or pos[i] < pos[l_i] < pos[j_i]; so each kid picks one of two precedence-edge sets -- j_i -> i, or the pair i -> l_i and l_i -> j_i -- and any topological order of an acyclic union is an answer. Because j_i < i for i >= 2, the jealousy map is an out-degree-1 functional graph: a tree rooted at kid 1 plus one back edge, so if every kid starts on the first option the only cycle is the root path 1..j_1 together with that edge. At least one kid on that cycle must be flipped to the second option; flipping v deletes j_v -> v and adds v -> l_v and l_v -> j_v, which produces a fresh cycle exactly when j_v can still reach l_v down the tree (l_v a descendant of j_v along an unbroken path), and that smaller cycle is resolved by the same rule recursively. Branching over the still-cuttable edges of the current cycle is complete -- every solution must delete one of them -- so correctness of both the order and the 'impossible' verdict follows, which is what the brute force confirms. Each search node is one O(n) pass and only touches its own cycle, whose edges are never revisited deeper; with DFS numbering plus a structure for the 'still reachable' test the intended implementation is O(n) to O(n log n), and in testing the search never exceeded 9 nodes, so n = 200000 is comfortable (0.4 s even in Python).",
+      "statement_summary": "Each of n kids is jealous of one other kid and likes another; everyone except the coolest envies someone cooler, so the jealousy relation is a tree plus one extra edge. A kid may misbehave if the envied kid goes later and the liked kid does not go strictly in between. With n up to 200000, a safe order must be produced, or impossibility reported.",
+      "source_text_sha256": "a65a2d7dac82eb80b8d94d75b63739479b349c4b01939c936a1bd9a2e9160dda",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_kindergarten2.py"
+    },
+    {
+      "id": "kattis-whereaminow",
+      "batch": "A",
+      "patterns": [
+        "interactive",
+        "grid-traversal",
+        "dfs",
+        "graph-modeling",
+        "connected-components"
+      ],
+      "pattern_confidence": {
+        "interactive": 0.97,
+        "grid-traversal": 0.9,
+        "dfs": 0.85,
+        "graph-modeling": 0.68,
+        "connected-components": 0.6
+      },
+      "tags": [
+        "interactive",
+        "grid",
+        "graph",
+        "dfs"
+      ],
+      "solution": "Maintain the set of states (cell, heading) still consistent with the readings so far. Every survivor reports the same distance each round, so one action sequence planned in the robot's own relative frame is simultaneously legal and meaningful for all of them - in particular a step is safe for everybody exactly when the current reading is nonzero - and since left/right/step are injective on states the set can only shrink by observation splits. Depth-first explore the robot's 4-connected open component in that relative frame: three turns at each newly entered cell reveal its four neighbours, and every reading also exposes a whole ray of open cells plus the wall behind it; that is about 6*r*c rounds (measured worst case 60202 on a fully open 100x100 map), inside the 100000-round budget. Two states are indistinguishable forever exactly when a rotation by a multiple of 90 degrees plus a translation carries one open component onto the other, state to state (reflections are excluded because turning is handed) - checked against explicit Moore-machine minimisation - so once exploration completes the survivors are precisely one such class. Answer 'yes' the moment all survivors share a cell; otherwise walk to a square that every surviving isometry maps to the same cell (the fixed point of a rotationally symmetric room, which is why an ambiguous start is not yet a 'no') and answer 'no' only when no such square exists. O(r*c) interaction rounds; the offline side is the component/congruence precomputation, O(r*c) with 2-D hashing of the rotated component (or Hopcroft minimisation of the 4*r*c-state machine).",
+      "statement_summary": "A robot sits on a known grid map of up to 100 by 100 open and wall squares, at an unknown open square facing an unknown cardinal direction. Each round it learns how many open squares lie ahead before the next wall, then turns left or right, or steps forward. Within 100000 rounds it must report its exact current square, or declare that its position can never be determined.",
+      "source_text_sha256": "175cc145ceb1378448b59a1499f1c66ccf303f6c43e1f885da84269d4c69f783",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_whereaminow.py"
+    },
+    {
+      "id": "codechef-avgshort",
+      "batch": "C",
+      "patterns": [
+        "bellman-ford",
+        "binary-search-answer",
+        "cycle-detection"
+      ],
+      "pattern_confidence": {
+        "bellman-ford": 0.93,
+        "binary-search-answer": 0.88,
+        "cycle-detection": 0.6
+      },
+      "tags": [
+        "graph"
+      ],
+      "solution": "Binary search the answer lambda and reweight every arc w -> w - lambda; a walk from A to B with average below lambda exists exactly when the shortest *walk* under the reweighted costs is negative. That test is Bellman-Ford run on the subgraph of vertices reachable from A and able to reach B: it returns true either when dist[B] < 0, or when a relaxation still fires after |V| rounds, i.e. a negative cycle sits on some A->B route and can be looped arbitrarily many times so the average tends to that cycle's mean. Correctness follows from decomposing any walk into one simple A->B path plus cycles: by the mediant inequality (a1+a2)/(b1+b2) >= min(a1/b1, a2/b2) the walk's ratio is at least the smallest ratio among the pieces, so the infimum equals min(best simple path ratio, best mean of a usable cycle) and the reweighted shortest-walk sign is monotone in lambda. Weights are 1..100 so the answer lies in [1,100] and about 40-50 bisection steps clear the 1e-6 requirement, giving O(log(1/eps) * N * M) per test (<= ~2.5e7 with N<=500, M<=1000, and far less in practice because Bellman-Ford exits early). The infimum need not be attained -- sample 2 answers 1.0, the mean of the 2<->3 cycle, which no finite walk achieves -- and -1 is printed when B is unreachable from A.",
+      "statement_summary": "Given a directed weighted graph with up to 500 nodes and 1000 arcs whose weights lie between 1 and 100, and two distinct nodes A and B, the task is to find the smallest possible average edge weight of a walk from A to B, where the walk may reuse edges and its length need not be bounded. Output is -1 when no walk exists.",
+      "source_text_sha256": "d9d64f9bd565a946a14c0a2ac328a6023e70bba3c70d08007743d16cb7646ddc",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_avgshort.py"
+    },
+    {
+      "id": "codechef-gpd",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "bit-manipulation"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95,
+        "bit-manipulation": 0.8
+      },
+      "tags": [
+        "tree",
+        "data-structures",
+        "xor",
+        "online-queries"
+      ],
+      "solution": "Root the tree at R and give every node its own version of a binary trie over the 31-bit keys: version(u) is version(parent(u)) with key(u) inserted by path copying, so version(u) holds exactly the keys on the path u -> R, and a node added later simply builds its version off its parent's. A test (v, k) is then two greedy descents in version(v): follow k's bit at each level when it exists to minimise the xor, follow the opposite bit to maximise it, which is optimal because a decision at a higher bit outweighs everything below it. Persistence is what makes this work under the forced-online encoding - an offline DFS carrying one mutable trie is unavailable - and only the path from the new leaf is copied, so each insertion is 31 new nodes. Total O((N+Q) * 31) time and trie nodes, roughly 9M nodes for the limits, with each query answered in O(31). Verified against a parent-walking brute force on the official sample and 400 random trees, including the encode/decode round trip of the online protocol.",
+      "statement_summary": "Stations form a tree rooted at the chief's station, each holding an encryption key, and new stations attach to existing ones as queries run. A security test names a station and a key k and asks for the smallest and largest value of key xor k over the stations on the path to the root. Values arrive xored with the previous answer, so the 200,000 operations must be answered online.",
+      "source_text_sha256": "d5b3de9368c8b51ca2ad91978f00089fed7d1f242d0a5d2928d7252b0d7b391b",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_gpd.py"
+    },
+    {
+      "id": "codechef-nplflf",
+      "batch": "C",
+      "patterns": [
+        "trie"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95
+      },
+      "tags": [
+        "string",
+        "data-structure"
+      ],
+      "solution": "A common suffix of length l is exactly a depth-l node in a trie built over the REVERSED strings, and the number of collection members sharing that suffix is the number of live strings whose reversed path passes through that node. Adding or removing a string walks its one root-to-leaf path and adds or subtracts 1 from cnt at each node touched; since every Add is removable at most once, the total node work is O(sum|s|) <= 2*10^5. For each depth l keep freq[l][c] = how many depth-l nodes currently have count c together with best[l], the running maximum; because every update moves one count by exactly +/-1, the maximum either rises to the new value or, when the sole holder of the maximum drops, falls by exactly one (that node now sits at best-1), so best[l] is maintained in O(1) per touched node. An Ask (k,l) is then answered in O(1) as best[l] >= k, treating depths beyond the deepest node as 0. Total O(q + sum|s|) time and O(sum|s|) memory, well within q, sum|s| <= 10^5.",
+      "statement_summary": "A collection of strings starts empty and is transformed by a sequence of operations: append a new string, delete the string inserted by a specified earlier operation, or report whether at least k strings currently in the collection share one common suffix of length l. Every such question is answered yes or no. The number of operations and the total length of all added strings are each at most 100000.",
+      "source_text_sha256": "3a2190bcd9213757dc3fed88f9f9c3a827f493cd42c89c15d740506dc6768b83",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_nplflf.py"
+    },
+    {
+      "id": "codechef-rebxor",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "prefix-xor"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95,
+        "prefix-xor": 0.95
+      },
+      "tags": [
+        "bit-manipulation",
+        "xor",
+        "arrays"
+      ],
+      "solution": "Let P[i] be the XOR of the first i elements, so the XOR of a segment (l,r) is P[r]^P[l-1]. Sweep left to right keeping a 30-bit binary trie of P[0..r-1]; querying it with P[r] by greedily descending toward the opposite bit at each level gives the best segment ending at r, and a running maximum turns that into left[k] = best single segment inside the first k elements. Running the same sweep on the reversed array gives right[k] = best segment inside the suffix starting at k, and the answer is max over split points k of left[k] + right[k+1], which is exact because the constraint r1 < l2 means every valid pair is separated by exactly such a split and each side is maximized independently. The greedy trie descent is optimal because fixing a higher bit to 1 outweighs every lower bit combined. Total cost is O(N log max(A)) time and trie nodes, about 1.2e7 for N = 4*10^5, well inside the limits.",
+      "statement_summary": "Given an array of up to four hundred thousand non-negative integers below one billion, the task is to pick two non-empty contiguous segments that do not overlap, the first ending strictly before the second begins, and report the largest achievable sum of the bitwise XOR of each segment's elements. The array size rules out inspecting every pair of candidate segments.",
+      "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_rebxor.py"
+    },
+    {
+      "id": "codechef-trptstic",
+      "batch": "C",
+      "patterns": [
+        "binary-search-answer",
+        "prefix-sum"
+      ],
+      "pattern_confidence": {
+        "binary-search-answer": 0.88,
+        "prefix-sum": 0.93
+      },
+      "tags": [
+        "matrix",
+        "grid",
+        "binary-search",
+        "prefix-sum"
+      ],
+      "solution": "People are interchangeable and constrained only by per-room capacity, so a radius d works for a mentor in cell (r,c) exactly when A[r][c] >= 1 (the mentor must fit in his own room) and the total capacity of the (2d+1)x(2d+1) Chebyshev square centred on (r,c), clipped to the grid, is at least K+1; the answer is the smallest such d over all legal centres, and -1 when the whole grid holds fewer than K+1 people. That predicate is monotone in d because the square only grows, which licenses a binary search on d over [0, max(N,M)]. Each candidate d is tested by building a 2D prefix-sum table once and asking, for every cell with capacity at least 1, whether its clipped square sums to K+1 or more - an O(1) query per centre, so O(NM) per test. Total cost is O(NM log max(N,M)), about 2*10^7 operations for the worst allowed sum of N*M = 10^6, and O(NM) memory. The naive cell-by-cell square sum is far too slow (up to 10^6 centres times a square of up to 10^6 cells), and dropping the A[r][c] >= 1 check is wrong: on [[3,0,0,0,3]] with K=5 the illegal centre (0,2) would report 2 instead of the correct 4.",
+      "statement_summary": "A school books a hotel whose rooms form an N by M grid, each with a stated capacity. One mentor and K students must be housed, and the task is the smallest Chebyshev distance from the mentor's room to the farthest room holding a student. The answer is -1 if total capacity is below K+1. The sum of N times M over all tests stays within one million.",
+      "source_text_sha256": "3089dda2c0ebd4e0e1c4fdac8c2e9f9de3a1b5b12eec047c963d205c6ab00416",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_trptstic.py"
+    },
+    {
+      "id": "codechef-xrqrs",
+      "batch": "C",
+      "patterns": [
+        "persistent-segment-tree",
+        "trie",
+        "order-statistics"
+      ],
+      "pattern_confidence": {
+        "persistent-segment-tree": 0.92,
+        "trie": 0.88,
+        "order-statistics": 0.8
+      },
+      "tags": [
+        "bit-manipulation",
+        "xor",
+        "range-query"
+      ],
+      "solution": "Values satisfy 1 <= x <= 5*10^5 < 2^19, so build a persistent binary trie over 19-bit values -- equivalently a persistent segment tree over the value domain [0, 2^19) -- with root[i] the version holding the array prefix a[1..i]; each append copies only the 19 nodes on one root-to-leaf path, and \"delete last k\" is just popping k root pointers, since older versions are still intact. Every range query descends root[R] and root[L-1] in lockstep and uses the per-node count difference cnt[R]-cnt[L-1], which is exactly the multiset of a[L..R] because node counts are additive over prefixes. Max-xor greedily takes the child opposite to x's current bit whenever that difference is positive, which is optimal because a higher bit outweighs all lower bits combined; count-of-<=x adds the whole 0-child difference at each set bit of x and follows the 1-child, then adds the equal-value leaf; the k-th smallest compares k with the 0-child difference and descends. All operations are O(log C) = 19 steps, giving O(M log C) ~ 10^7 time and ~10^7 nodes for M = 5*10^5. Verified against an O(n)-per-query brute force on the sample and on 550 random query streams over both narrow and full value ranges.",
+      "statement_summary": "An initially empty integer array supports five interleaved operations: appending a value at the end, deleting the last k values, and three queries over a contiguous index range, namely reporting the stored value that maximizes its xor with a given x, counting values at most x, and returning the k-th smallest. Up to 500000 operations arrive, each value at most 500000, and every query must be answered.",
+      "source_text_sha256": "9acb33c311cd0aa5d3b234bbe8ac51cd957f2fff94e50994ded1ceb9d726089a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_xrqrs.py"
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+ "id": "codechef-gpd",
+ "title": "Gotham PD",
+ "slug": "gpd",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/GPD",
+ "source_topic": "Trie",
+ "source_tags": [],
+ "statement": "Stations form a tree rooted at the chief's station, each holding an encryption key, and new stations attach to existing ones as queries run. A security test names a station and a key k and asks for the smallest and largest value of key xor k over the stations on the path to the root. Values arrive xored with the previous answer, so the 200,000 operations must be answered online.",
+ "tags": [],
+ "patterns": [
+  "trie",
+  "persistent-trie",
+  "bit-manipulation",
+  "persistent-segment-tree",
+  "segment-tree"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789236544,
+  "pattern_confidence": {
+   "trie": 0.9,
+   "persistent-trie": 0.9,
+   "bit-manipulation": 0.9,
+   "persistent-segment-tree": 0.9,
+   "segment-tree": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

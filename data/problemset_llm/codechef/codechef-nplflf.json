@@ -1,0 +1,25 @@
+{
+ "id": "codechef-nplflf",
+ "title": "Query On Strings",
+ "slug": "nplflf",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/NPLFLF",
+ "source_topic": "Trie",
+ "source_tags": [],
+ "statement": "A collection of strings starts empty and is transformed by a sequence of operations: append a new string, delete the string inserted by a specified earlier operation, or report whether at least k strings currently in the collection share one common suffix of length l. Every such question is answered yes or no. The number of operations and the total length of all added strings are each at most 100000.",
+ "tags": [],
+ "patterns": [
+  "trie"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789236544,
+  "pattern_confidence": {
+   "trie": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

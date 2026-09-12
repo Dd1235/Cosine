@@ -14,7 +14,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3507,
+  "count": 3513,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -3520,13 +3520,19 @@
     "atcoder-dp-x",
     "atcoder-dp-y",
     "codechef-amat",
+    "codechef-avgshort",
     "codechef-expprod2",
+    "codechef-gpd",
     "codechef-jump12",
     "codechef-makezero7",
+    "codechef-nplflf",
     "codechef-productneg",
+    "codechef-rebxor",
+    "codechef-trptstic",
+    "codechef-xrqrs",
     "kattis-billboards"
   ],
-  "corpusHash": "528a7631a50d1c8e457ce5b831caaef2b4de7ef3225f820ef6cf80e689aaa429",
+  "corpusHash": "49a95074657d2ce49709a0b3602251fb2d838de7cd040065299d7988183d929a",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-11T07:24:21.264Z"
+  "createdAt": "2026-09-12T18:09:21.065Z"
 }
