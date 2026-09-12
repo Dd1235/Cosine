@@ -620,57 +620,204 @@ function safeResourceUrl(value) {
   } catch (_err) { return ''; }
 }
 
+// Collections are a facet, so their controls live where the other facets do:
+// one chip per active collection in the judge row, and a "+ competition"
+// button that opens a listbox of the rest. The button only exists once
+// /api/collections has answered with something you could still add, so the row
+// looks exactly as it did before when there is nothing to offer.
+let collectionsLoaded = false;
+
 async function loadCollections() {
   try {
     const res = await fetch('/api/collections');
     if (!res.ok) throw new Error('collections unavailable');
     const data = await res.json();
     collections = Array.isArray(data.collections) ? data.collections : [];
+    collectionsLoaded = true;
     renderCollectionControls();
   } catch (_err) {
-    const select = document.getElementById('collection-select');
-    if (select) select.innerHTML = '<option value="">collections unavailable</option>';
+    // Never drop state on a failed load: a ?contest= link still selected those
+    // collections, and the server is still filtering by them. Chips render by
+    // id, and the add button stays hidden because we have nothing to list.
+    collectionsLoaded = false;
     renderCollectionControls(false);
   }
 }
 
-function renderCollectionControls(loaded = true) {
-  const select = document.getElementById('collection-select');
+function collectionById(id) {
+  return collections.find(c => c.id === id) || null;
+}
+
+function collectionChipLabel(collection, id) {
+  return collection ? (collection.short || collection.name) : id;
+}
+
+// "resources only" is the honest phrasing for a collection whose problems are
+// all still unindexed — "0 problems" reads like a bug.
+function collectionOptionLabel(collection) {
+  const count = collection.count || 0;
+  const base = count
+    ? `${collection.name} · ${count} problem${count === 1 ? '' : 's'}`
+    : `${collection.name} · resources only`;
+  return collection.unavailableCount ? `${base} · ${collection.unavailableCount} not yet indexed` : base;
+}
+
+// The registry vocabulary is public | inaccessible | not-verified, so "public"
+// is the unremarkable case and gets no suffix. This used to compare against
+// "available", a value the validator never accepts, so every link said
+// "· public".
+function resourceAvailabilityNote(availability) {
+  if (!availability || availability === 'public') return '';
+  return ` · ${String(availability).replace(/[_-]/g, ' ')}`;
+}
+
+// One sentence, two meanings, and which one applies depends on the view — so
+// it is computed rather than written once when the panel is built.
+function collectionNote(similar = currentSimilar) {
+  return similar
+    ? 'Related practice · recommendations are not necessarily PYQs.'
+    : 'Verified collection membership · open originals to attempt without hints.';
+}
+
+function renderCollectionControls(loaded = collectionsLoaded) {
+  renderCollectionChips();
+  renderCollectionPicker(loaded);
+  renderCollectionPanel();
+}
+
+function renderCollectionChips() {
   const chips = document.getElementById('collection-chips');
-  const panel = document.getElementById('collection-resources');
-  if (!select || !chips || !panel) return;
-  if (loaded) {
-    select.innerHTML = '<option value="">add a collection…</option>' + collections
-      .filter(c => !activeCollections.has(c.id))
-      .map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)} · ${c.count || 0}${c.unavailableCount ? `/${(c.count || 0) + c.unavailableCount}` : ""} problems</option>`).join('');
-  }
+  if (!chips) return;
   chips.innerHTML = '';
   for (const id of activeCollections) {
-    const item = collections.find(c => c.id === id);
+    const item = collectionById(id);
+    const label = collectionChipLabel(item, id);
     const chip = document.createElement('button');
     chip.type = 'button';
-    chip.className = 'judge-chip active';
-    chip.textContent = `${item ? item.name : id} ×`;
+    chip.className = 'judge-chip active collection-chip';
+    chip.dataset.collection = id;
+    chip.textContent = `${label} ×`;
+    chip.title = item ? item.name : id;
     chip.setAttribute('aria-label', `remove ${item ? item.name : id}`);
-    chip.addEventListener('click', () => {
-      activeCollections.delete(id);
-      collectionSpoilers = false;
-      currentOffset = 0;
-      renderCollectionControls();
-      syncUrl();
-      if (!activeCollections.size && !activePlatforms.size && !activePattern && !currentQuery && !currentSimilar) runSearch('');
-      else reissueCurrentView();
-    });
+    chip.addEventListener('click', () => removeCollection(id));
     chips.appendChild(chip);
   }
+}
+
+function inactiveCollections() {
+  return collections.filter(c => !activeCollections.has(c.id));
+}
+
+function renderCollectionPicker(loaded = collectionsLoaded) {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!add || !picker) return;
+  const options = loaded ? inactiveCollections() : [];
+  add.classList.toggle('hidden', options.length === 0);
+  if (!options.length) {
+    closeCollectionPicker({ focus: false });
+    picker.innerHTML = '';
+    return;
+  }
+  picker.innerHTML = '';
+  for (const c of options) {
+    const option = document.createElement('button');
+    option.type = 'button';
+    option.className = 'collection-option';
+    option.setAttribute('role', 'option');
+    option.setAttribute('aria-selected', 'false');
+    option.dataset.collection = c.id;
+    option.textContent = collectionOptionLabel(c);
+    option.addEventListener('click', () => {
+      closeCollectionPicker({ focus: false });
+      addCollection(c.id);
+    });
+    picker.appendChild(option);
+  }
+}
+
+function collectionPickerOptions() {
+  const picker = document.getElementById('collection-picker');
+  return picker ? [...picker.querySelectorAll('.collection-option')] : [];
+}
+
+function openCollectionPicker() {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!add || !picker || add.classList.contains('hidden')) return;
+  picker.hidden = false;
+  add.setAttribute('aria-expanded', 'true');
+  const first = collectionPickerOptions()[0];
+  if (first) first.focus();
+}
+
+function closeCollectionPicker({ focus = false } = {}) {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!picker || picker.hidden) {
+    if (add) add.setAttribute('aria-expanded', 'false');
+    return;
+  }
+  picker.hidden = true;
+  if (add) {
+    add.setAttribute('aria-expanded', 'false');
+    if (focus) add.focus();
+  }
+}
+
+function collectionPickerOpen() {
+  const picker = document.getElementById('collection-picker');
+  return !!picker && !picker.hidden;
+}
+
+function moveCollectionFocus(delta, absolute) {
+  const options = collectionPickerOptions();
+  if (!options.length) return;
+  const current = options.indexOf(document.activeElement);
+  let next;
+  if (absolute === 'first') next = 0;
+  else if (absolute === 'last') next = options.length - 1;
+  else next = (current + delta + options.length) % options.length;
+  options[next].focus();
+}
+
+function addCollection(id) {
+  if (!id || activeCollections.has(id)) return;
+  activeCollections.add(id);
+  collectionSpoilers = false;
+  currentOffset = 0;
+  renderCollectionControls();
+  syncUrl();
+  reissueCurrentView();
+}
+
+function removeCollection(id) {
+  if (!activeCollections.delete(id)) return;
+  collectionSpoilers = false;
+  currentOffset = 0;
+  renderCollectionControls();
+  syncUrl();
+  // Dropping the last facet is a return to the empty state, not a browse of
+  // nothing — the same fall-through the chip has always had.
+  if (!activeCollections.size && !activePlatforms.size && !activePattern && !currentQuery && !currentSimilar) runSearch('');
+  else reissueCurrentView();
+}
+
+function renderCollectionPanel() {
+  const panel = document.getElementById('collection-resources');
+  if (!panel) return;
+  // Which resource lists were expanded is the reader's state, not ours, and a
+  // re-render happens on every chip change — so it is carried across.
+  const open = new Set([...panel.querySelectorAll('details[open]')].map(d => d.dataset.collection));
   panel.hidden = activeCollections.size === 0;
   panel.innerHTML = '';
-  resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers);
+  if (resultsEl) resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers);
   if (!activeCollections.size) return;
   const heading = document.createElement('div');
   heading.className = 'collection-heading';
   const note = document.createElement('span');
-  note.textContent = currentSimilar ? 'Related practice · recommendations are not necessarily PYQs.' : 'Verified collection membership · open originals to attempt without hints.';
+  note.id = 'collection-note';
+  note.textContent = collectionNote();
   heading.appendChild(note);
   const reveal = document.createElement('button');
   reveal.type = 'button';
@@ -681,9 +828,11 @@ function renderCollectionControls(loaded = true) {
   heading.appendChild(reveal);
   panel.appendChild(heading);
   for (const id of activeCollections) {
-    const collection = collections.find(c => c.id === id);
+    const collection = collectionById(id);
     if (!collection) continue;
     const details = document.createElement('details');
+    details.dataset.collection = id;
+    if (open.has(id)) details.open = true;
     const summary = document.createElement('summary');
     summary.textContent = `${collection.name} · ${collection.count || 0} searchable problem${collection.count === 1 ? "" : "s"}${collection.unavailableCount ? ` · ${collection.unavailableCount} not yet indexed` : ""} · resources`;
     details.appendChild(summary);
@@ -698,9 +847,8 @@ function renderCollectionControls(loaded = true) {
       link.rel = 'noopener';
       link.textContent = resource.title || resource.kind || 'contest resource';
       li.appendChild(link);
-      if (resource.availability && resource.availability !== 'available') {
-        li.appendChild(document.createTextNode(` · ${resource.availability.replace(/_/g, ' ')}`));
-      }
+      const availability = resourceAvailabilityNote(resource.availability);
+      if (availability) li.appendChild(document.createTextNode(availability));
       list.appendChild(li);
     }
     if (!list.childNodes.length) {
@@ -713,16 +861,48 @@ function renderCollectionControls(loaded = true) {
   }
 }
 
-const collectionSelect = document.getElementById('collection-select');
-if (collectionSelect) collectionSelect.addEventListener('change', () => {
-  if (!collectionSelect.value) return;
-  activeCollections.add(collectionSelect.value);
-  collectionSpoilers = false;
-  currentOffset = 0;
-  renderCollectionControls();
-  syncUrl();
-  reissueCurrentView();
-});
+const collectionAddBtn = document.getElementById('collection-add');
+if (collectionAddBtn) {
+  collectionAddBtn.addEventListener('click', () => {
+    if (collectionPickerOpen()) closeCollectionPicker({ focus: true });
+    else openCollectionPicker();
+  });
+  collectionAddBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      openCollectionPicker();
+    }
+  });
+}
+
+const collectionPickerEl = document.getElementById('collection-picker');
+if (collectionPickerEl) {
+  collectionPickerEl.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveCollectionFocus(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveCollectionFocus(-1); }
+    else if (e.key === 'Home') { e.preventDefault(); moveCollectionFocus(0, 'first'); }
+    else if (e.key === 'End') { e.preventDefault(); moveCollectionFocus(0, 'last'); }
+    else if (e.key === 'Escape') { e.preventDefault(); closeCollectionPicker({ focus: true }); }
+    else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const id = document.activeElement && document.activeElement.dataset
+        ? document.activeElement.dataset.collection : null;
+      if (id) { closeCollectionPicker({ focus: false }); addCollection(id); }
+    }
+  });
+  // Tabbing past the last option leaves the listbox, so it should not stay
+  // open behind you.
+  collectionPickerEl.addEventListener('focusout', (e) => {
+    const to = e.relatedTarget;
+    if (to && (collectionPickerEl.contains(to) || to === collectionAddBtn)) return;
+    closeCollectionPicker({ focus: false });
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!collectionPickerOpen()) return;
+    if (collectionPickerEl.contains(e.target) || (collectionAddBtn && collectionAddBtn.contains(e.target))) return;
+    closeCollectionPicker({ focus: false });
+  });
+}
 
 function syncCsesLevelControl() {
   const row = document.getElementById('cses-level-row');
@@ -1495,7 +1675,16 @@ async function runBrowse({ append = false } = {}) {
   if (!append) currentTopScore = 0;
   const hits = data.hits || [];
   if (!hits.length) {
-    setStatus(`nothing matches ${label}`);
+    // Three collections are resource-only shells by design — an archive page
+    // and a scoreboard, no indexed problems. "nothing matches" reads like a
+    // broken filter; the panel below it is the whole point of the selection.
+    const active = [...activeCollections].map(collectionById).filter(Boolean);
+    const resourceOnly = active.length === 1 && !(active[0].count || 0) ? active[0] : null;
+    setStatus(
+      currentTotal === 0 && resourceOnly
+        ? `${resourceOnly.name} has no indexed problems yet — its resources are listed below.`
+        : `nothing matches ${label}`
+    );
     resultsEl.innerHTML = "";
     hideLoadMore();
     return;
@@ -2477,6 +2666,11 @@ function renderHitsList(container, hits, opts = {}) {
   // saved something, not by score.
   const ranked = !opts.unranked && !libraryMode && !opts.similarMode;
   container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers);
+  // The resources panel is rendered by the chip lifecycle, which runs before a
+  // view resolves — so its one sentence is refreshed here, where we finally
+  // know whether these results are collection members or recommendations.
+  const collectionNoteEl = document.getElementById("collection-note");
+  if (collectionNoteEl) collectionNoteEl.textContent = collectionNote();
   currentTopScore = hits.reduce(
     (m, h) => (typeof h.score === "number" ? Math.max(m, h.score) : m),
     currentTopScore

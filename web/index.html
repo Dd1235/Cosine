@@ -302,15 +302,26 @@
           >
             all ✕
           </button>
+          <span id="collection-chips" class="collection-chips"></span>
+          <button
+            type="button"
+            id="collection-add"
+            class="judge-chip judge-add hidden"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="collection-picker"
+          >
+            + competition
+          </button>
+          <div
+            id="collection-picker"
+            class="collection-picker"
+            role="listbox"
+            aria-label="competition collections"
+            hidden
+          ></div>
         </span>
         <span id="latency-summary" class="latency-summary"></span>
-      </div>
-      <div class="collection-controls" id="collection-controls">
-        <label for="collection-select">competition PYQs:</label>
-        <select id="collection-select" class="filter-select" aria-label="add a competition collection">
-          <option value="">loading collections…</option>
-        </select>
-        <span id="collection-chips" class="collection-chips"></span>
       </div>
       <div id="collection-resources" class="collection-resources" hidden></div>
       <div id="cses-level-row" class="cses-level-row" hidden>
