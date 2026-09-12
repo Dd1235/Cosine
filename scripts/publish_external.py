@@ -64,7 +64,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from annotate_problem_urls import canonical_label, with_families  # noqa: E402
+from annotate_problem_urls import slugify, with_families  # noqa: E402
 from cache_io import atomic_write_json  # noqa: E402
 from fetch_statements import AGENT_CANARY  # noqa: E402
 
@@ -143,7 +143,9 @@ def check(record: dict[str, Any], review: dict[str, Any], staged: dict[str, Any]
         reasons.append("no patterns")
     else:
         for label in raw:
-            folded = aliases.get(canonical_label(str(label)), canonical_label(str(label)))
+            # One alias source: the taxonomy this run loaded, never a second copy.
+            slug = slugify(str(label))
+            folded = aliases.get(slug, slug)
             if folded not in canonical:
                 reasons.append(f"pattern {label!r} is not in the taxonomy")
             elif folded not in patterns:
