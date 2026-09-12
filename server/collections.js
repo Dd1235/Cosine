@@ -7,6 +7,9 @@ function validateRegistry(data, problems) {
     if (!/^[a-z0-9-]+$/.test(c.id) || ids.has(c.id)) errors.push(`invalid/duplicate collection id: ${c.id}`);
     ids.add(c.id);
     for (const field of ['name','family','organizer','stage']) if (!c[field]) errors.push(`${c.id}: missing ${field}`);
+    // Optional chip label. It replaces the name on a card and in the judge row,
+    // where anything longer than a judge chip stops reading as a chip.
+    if (c.short !== undefined && (typeof c.short !== 'string' || !c.short.trim() || c.short.length > 16)) errors.push(`${c.id}: invalid short label`);
     if (!Array.isArray(c.problems) || new Set(c.problems).size !== c.problems.length) errors.push(`${c.id}: invalid ordered memberships`);
     if (!c.evidence?.length || !c.evidence.every(url)) errors.push(`${c.id}: invalid evidence`);
     if (c.held_date !== null && !/^\d{4}-\d{2}-\d{2}$/.test(c.held_date || '')) errors.push(`${c.id}: invalid held date`);
@@ -31,9 +34,11 @@ function createCollections(problems, data = registry) {
   }));
   const known = new Map(collections.map(c => [c.id, c]));
   const memberships = new Map();
+  // What a card says about where a problem came from. Registry order, so a
+  // problem in two collections always names them in the same order.
   for (const c of collections) for (const id of c.problems) {
     if (!memberships.has(id)) memberships.set(id, []);
-    memberships.get(id).push({ id: c.id, name: c.name });
+    memberships.get(id).push({ id: c.id, name: c.name, ...(c.short ? { short: c.short } : {}) });
   }
   function parse(raw) {
     // Preserve unknown selections as empty matches, never silently broaden.

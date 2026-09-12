@@ -4,7 +4,7 @@ const db = require('../db');
 const {createSearchRouter} = require('./search');
 const {createUserStateRouter} = require('./user_state');
 const {Bm25Index} = require('../search/bm25');
-const {createCollections} = require('../collections');
+const {createCollections, validateRegistry} = require('../collections');
 const {SimilarIndex} = require('../search/similar');
 const ps = [
   {id:'codeforces-1-a',platform:'codeforces',title:'Path one',statement:'Find graph paths',patterns:['bfs'],difficulty:1200},
@@ -12,10 +12,24 @@ const ps = [
   {id:'codeforces-1-c',platform:'codeforces',title:'Path three',statement:'Find graph paths',patterns:['bfs']},
   {id:'cses-1',platform:'cses',title:'Path four',statement:'Find graph paths',patterns:['bfs'],cses_difficulty:{band:2}},
 ];
-const registry={version:1,collections:[{id:'contest-a',name:'Test A',problems:['codeforces-1-b','codeforces-1-a'],resources:[]},{id:'contest-b',name:'Test B',problems:['cses-1'],resources:[]}],aliases:{'codeforces-9-a':'codeforces-1-a'}};
+const registry={version:1,collections:[{id:'contest-a',name:'Test A',short:'A 24',problems:['codeforces-1-b','codeforces-1-a'],resources:[]},{id:'contest-b',name:'Test B',problems:['cses-1'],resources:[]},{id:'contest-c',name:'Test C',short:'C 26',problems:['codeforces-1-b'],resources:[]}],aliases:{'codeforces-9-a':'codeforces-1-a'}};
 const c=createCollections(ps,registry);
 assert.equal(c.canonical('codeforces-9-a'),'codeforces-1-a');
 assert.equal(c.passes(ps[0],c.parse('missing')),false);
+// A problem in two contests names them in registry order, always — the card
+// shows the first one and lists the rest in its tooltip.
+assert.deepEqual(c.memberships.get('codeforces-1-b').map(m=>m.id),['contest-a','contest-c']);
+assert.deepEqual(c.memberships.get('codeforces-1-b').map(m=>m.short),['A 24','C 26']);
+assert.equal(c.payload().collections.find(x=>x.id==='contest-a').short,'A 24');
+// `short` is optional, and short: the chip it labels sits in the judge row.
+const base={id:'x',name:'X',family:'f',organizer:'o',stage:'prelims',problems:[],evidence:['https://example.com/x'],held_date:null,resources:[]};
+const check=extra=>validateRegistry({version:1,collections:[{...base,...extra}]},ps);
+assert.deepEqual(check({}),[]);
+assert.deepEqual(check({short:'WF 2024'}),[]);
+assert.deepEqual(check({short:'India Prelims 25'}),[],'16 characters is the limit, not one under it');
+assert.ok(check({short:'x'.repeat(17)}).some(e=>/short/.test(e)),'17 is too long');
+assert.ok(check({short:'  '}).some(e=>/short/.test(e)),'blank is not a label');
+assert.ok(check({short:2024}).some(e=>/short/.test(e)),'not a string');
 const structural=new SimilarIndex(ps,null).similar(ps[0].id);
 assert.equal(structural.ranker,'technique');
 assert.ok(structural.hits.every(h=>h.problem.id!==ps[0].id));
@@ -30,6 +44,12 @@ const server=app.listen(0,async()=>{
  const ids=r=>r.hits.map(h=>h.problem.id);
  try{
   assert.deepEqual(ids(await get('/search?contest=contest-a')),['codeforces-1-b','codeforces-1-a']);
+  // Provenance rides along on every hit so a card can say where it came from.
+  const memberOf=(await get('/search?contest=contest-a')).hits.find(h=>h.problem.id==='codeforces-1-b');
+  assert.deepEqual(memberOf.competitions.map(m=>m.id),['contest-a','contest-c']);
+  assert.equal(memberOf.competitions[0].short,'A 24');
+  const unaffiliated=(await get('/search?q=graph')).hits.find(h=>h.problem.id==='codeforces-1-c');
+  assert.deepEqual(unaffiliated.competitions,[]);
   assert.equal((await get('/search?contest=missing')).total,0);
   assert.deepEqual(ids(await get('/search?contest=contest-a,contest-b&platform=cses')),['cses-1']);
   assert.deepEqual(ids(await get('/search?q=graph&contest=contest-a&difficulty=cf:1500-1700')),['codeforces-1-b']);

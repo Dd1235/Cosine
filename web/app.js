@@ -817,7 +817,7 @@ function renderCollectionPanel() {
   const open = new Set([...panel.querySelectorAll('details[open]')].map(d => d.dataset.collection));
   panel.hidden = activeCollections.size === 0;
   panel.innerHTML = '';
-  if (resultsEl) resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers);
+  if (resultsEl) resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers && !compareMode);
   if (!activeCollections.size) return;
   const heading = document.createElement('div');
   heading.className = 'collection-heading';
@@ -1882,7 +1882,9 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
         resultsEl.innerHTML = '';
         const empty = document.createElement('li');
         empty.className = 'similar-empty';
-        empty.textContent = 'No related problems match these filters. ';
+        // The server knows which filter emptied the list; its sentence is
+        // better than ours whenever it sends one.
+        empty.textContent = `${data.emptyReason || 'No related problems match these filters.'} `;
         const relax = document.createElement('button');
         relax.type = 'button';
         relax.className = 'lib-chip';
@@ -2602,7 +2604,8 @@ function renderCompare(data, q) {
   const totalHits = results.reduce((s, r) => s + r.hits.length, 0);
   if (totalHits === 0) { setStatus(`0 hits for "${q}"`); compareEl.innerHTML = ""; latencySummaryEl.textContent = ""; return; }
   const expanded = describeExpansion(q, data.expandedQuery);
-  setStatus(`compare: "${q}"${expanded}`);
+  const contestNote = activeCollections.size ? " · collections do not apply to :compare" : "";
+  setStatus(`compare: "${q}"${expanded}${contestNote}`);
   latencySummaryEl.textContent = results.map((r) => `${r.ranker} ${r.latencyMs.toFixed(3)}ms`).join("  ·  ");
   compareEl.innerHTML = "";
   results.forEach((r, idx) => {
@@ -2675,6 +2678,25 @@ function platformBadge(platform) {
     title="${escapeHtml(on ? `stop filtering to ${full}` : `only ${full}`)}">${escapeHtml(short)}</button>`;
 }
 
+// Where a problem came from, when it came from a contest we track. Three
+// endpoints have shipped hit.competitions for a while and nothing rendered it,
+// so the only way to discover that a problem you found by searching was an
+// ICPC World Finals question was to already have the collection selected.
+//
+// Deliberately NOT spoiler-content: "this was WF 2024" is provenance, not a
+// hint — it tells you nothing about how to solve it, and hiding it would defeat
+// the point of showing it in the first place.
+function competitionTag(competitions) {
+  const list = competitions || [];
+  if (!list.length) return "";
+  const first = list[0];
+  const label = first.short || first.name;
+  const title = list.map((c) => c.name).join(" · ");
+  const more = list.length > 1 ? ` +${list.length - 1}` : "";
+  return `<button type="button" class="competition-tag" data-collection="${escapeHtml(first.id)}"
+    title="${escapeHtml(`${title} — filter to this collection`)}">${escapeHtml(label + more)}</button>`;
+}
+
 // Badge wording deliberately leads with "vs <other>" — the old form put the
 // other ranker's name first and read as a label for the card's own column.
 function rankDeltaBadge(thisRank, otherRank, otherName) {
@@ -2692,7 +2714,10 @@ function renderHitsList(container, hits, opts = {}) {
   // doesn't exist. Library lists are the same — they're ordered by when you
   // saved something, not by score.
   const ranked = !opts.unranked && !libraryMode && !opts.similarMode;
-  container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers);
+  // :compare ignores the contest filter on the server — it is a ranker lens,
+  // not a browse — so hiding hints there would blank half the comparison for a
+  // filter that isn't being applied.
+  container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers && !compareMode);
   // The resources panel is rendered by the chip lifecycle, which runs before a
   // view resolves — so its one sentence is refreshed here, where we finally
   // know whether these results are collection members or recommendations.
@@ -2730,7 +2755,7 @@ function renderHitsList(container, hits, opts = {}) {
     // CSES ships no difficulty, so this used to render an empty bordered chip —
     // visible furniture standing in for nothing.
     const diffHtml = diff === "" ? "" : `<span class="difficulty ${hit.problem.platform === "cses" ? "cses-estimate" : diffClass(hit.problem.difficulty)}">${escapeHtml(String(diff))}</span>`;
-    let metaHtml = platformBadge(hit.problem.platform) + diffHtml + escapeHtml(trailing);
+    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
       const hasNotes = note && cosineSheets.userColumns().some((fld) => (note[fld.key] || "").trim());
@@ -2747,6 +2772,12 @@ function renderHitsList(container, hits, opts = {}) {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
         togglePlatformFilter(btn.dataset.platform);
+      });
+    });
+    meta.querySelectorAll(".competition-tag").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        addCollection(btn.dataset.collection);
       });
     });
 
@@ -2776,7 +2807,10 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     const detail = document.createElement("div");
-    detail.className = "result-detail hidden spoiler-content";
+    // Only the labels are hints. Blacking out the whole panel also hid the
+    // statement — the thing you are meant to sit and attempt — and the
+    // "find similar / practice this idea" links out of it.
+    detail.className = "result-detail hidden";
     detail.id = `detail-${hit.problem.id}-${startIndex + i}`;
     title.tabIndex = 0;
     title.setAttribute("role", "button");
@@ -2784,8 +2818,8 @@ function renderHitsList(container, hits, opts = {}) {
     title.setAttribute("aria-controls", detail.id);
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
-      <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
-      <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
+      <p class="tags spoiler-content"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
+      <p class="patterns spoiler-content"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
         .join(" ")}</p>
       <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
@@ -2862,7 +2896,7 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     li.appendChild(header);
-    if (activeCollections.size) {
+    if (activeCollections.size && !compareMode) {
       const attempt = document.createElement("div");
       attempt.className = "pyq-attempt";
       const original = safeResourceUrl(hit.problem.source_url);

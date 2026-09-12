@@ -4,6 +4,7 @@
     {
       "id": "icpc-india-prelims-2025-26",
       "name": "ICPC India Prelims 2025–26",
+      "short": "India Prelims 25",
       "family": "icpc",
       "season": "2025–26",
       "stage": "prelims",
@@ -99,6 +100,7 @@
     {
       "id": "icpc-world-finals-2024",
       "name": "ICPC World Finals 2024",
+      "short": "WF 2024",
       "family": "icpc",
       "organizer": "ICPC",
       "season": "2024",
@@ -135,6 +137,7 @@
     {
       "id": "iicpc-codefest-2026-prelims",
       "name": "IICPC Codefest 2026 Prelims",
+      "short": "Codefest 26",
       "family": "iicpc-codefest",
       "season": "2026",
       "stage": "prelims",
@@ -169,6 +172,7 @@
     {
       "id": "iicpc-quantfest-2025-prelims",
       "name": "IICPC Quantfest 2025 Prelims",
+      "short": "Quantfest 25",
       "family": "iicpc-quantfest",
       "season": "2025",
       "stage": "prelims",
