@@ -355,6 +355,7 @@ logoutBtn.addEventListener("click", async () => {
   sheetSyncedThisSession = false;
   currentUser = null;
   levelSuggest = null;
+  levelSignalsUser = null;
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
@@ -736,13 +737,19 @@ function syncCsesLevelControl() {
 
 function setCsesLevelSuggestion(band) {
   csesLevel = Number.isInteger(band) && band >= 1 && band <= 5 ? band : null;
-  levelSuggest = levelSuggest || {};
   if (csesLevel) {
     const label = cosineDifficulty.bands[csesLevel - 1];
     const token = cosineDifficulty.tokens[csesLevel - 1];
     const meta = (difficultyPayload.named || []).find(b => b.id === token);
+    levelSuggest = levelSuggest || {};
     levelSuggest.cses = { difficulty: token, why: `Your selected CSES band: ${label}`, count: meta ? meta.count : 0 };
-  } else delete levelSuggest.cses;
+  } else if (levelSuggest) {
+    // Clearing must not leave an empty object behind. loadLevelSignals used to
+    // read any truthy levelSuggest as "already loaded" and skip /api/level, so
+    // a sign-in after a clear would never show the cf/atc/lc "my level" chips.
+    delete levelSuggest.cses;
+    if (!Object.keys(levelSuggest).length) levelSuggest = null;
+  }
   syncDifficultyControls();
 }
 
@@ -811,13 +818,18 @@ function orderNote() {
 // search page wait on leetcode.com. A signed-out user, or one who has never
 // opened the profile page, simply doesn't get the button.
 async function loadLevelSignals() {
-  if (!currentUser || levelSuggest) return;
+  // Keyed by user, not by whether levelSuggest is truthy: the CSES preference
+  // writes into the same object, so truthiness never meant "fetched".
+  if (!currentUser || levelSignalsUser === currentUser.id) return;
+  const userId = currentUser.id;
   try {
     const res = await fetch("/api/level");
     if (!res.ok) return;
     const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
     if (!data.suggest || !Object.keys(data.suggest).length) return;
     levelSuggest = { ...data.suggest, ...(csesLevel && levelSuggest?.cses ? { cses: levelSuggest.cses } : {}) };
+    levelSignalsUser = userId;
     syncDifficultyControls();
   } catch (_err) {
     // A missing button is the right failure here — never block the page.
@@ -859,6 +871,7 @@ const activeTiers = new Set();     // named tiers, e.g. lc-hard
 const activeRanges = new Map();    // judge -> { min, max }
 let activeAcceptance = null;       // { min, max } — leetcode acceptance rate
 let levelSuggest = null;           // judge -> { difficulty, why, count }, from /api/level
+let levelSignalsUser = null;       // whose /api/level answer levelSuggest currently holds
 
 function difficultyParam() {
   const parts = [...activeTiers];

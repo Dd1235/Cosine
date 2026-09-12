@@ -87,3 +87,34 @@ function harness() {
   assert.ok(addresses.at(-1).includes('practice=1'));
   console.log('practice, collection, CSES display and URL tests passed');
 })().catch(err => { console.error(err); process.exitCode = 1; });
+
+// setCsesLevelSuggestion / loadLevelSignals: clearing the CSES band must not
+// leave an empty levelSuggest behind (it used to read as "already fetched"), and
+// /api/level is fetched once per user rather than once per truthy object.
+{
+  const lvl = source.slice(source.indexOf('function setCsesLevelSuggestion('), source.indexOf('async function loadCsesLevel('));
+  const sig = source.slice(source.indexOf('async function loadLevelSignals('), source.indexOf('function activeFacets('));
+  const fetches = [];
+  const ctx = vm.createContext({
+    csesLevel: null, levelSuggest: null, levelSignalsUser: null, currentUser: { id: 'u1' },
+    difficultyPayload: { named: [{ id: 'cses-intermediate', count: 7 }] },
+    cosineDifficulty: difficulty, syncDifficultyControls() {},
+    fetch: async (url) => { fetches.push(url); return { ok: true, json: async () => ({ suggest: { codeforces: { difficulty: 'cf:1500-1700', why: 'x', count: 3 } } }) }; },
+  });
+  vm.runInContext(lvl + sig, ctx);
+  ctx.setCsesLevelSuggestion(3);
+  assert.equal(ctx.levelSuggest.cses.difficulty, 'cses-intermediate');
+  ctx.setCsesLevelSuggestion(null);
+  assert.equal(ctx.levelSuggest, null, 'clearing the band leaves no empty object behind');
+  (async () => {
+    await ctx.loadLevelSignals(); await ctx.loadLevelSignals();
+    assert.equal(fetches.length, 1, 'level signals are fetched once per user');
+    assert.ok(ctx.levelSuggest.codeforces);
+    ctx.setCsesLevelSuggestion(2); ctx.setCsesLevelSuggestion(null);
+    assert.ok(ctx.levelSuggest.codeforces, 'clearing CSES keeps the other judges');
+    ctx.levelSignalsUser = null; ctx.currentUser = { id: 'u2' }; ctx.levelSuggest = null;
+    await ctx.loadLevelSignals();
+    assert.equal(fetches.length, 2, 'a different user fetches again');
+    console.log('level suggestion tests passed');
+  })();
+}
