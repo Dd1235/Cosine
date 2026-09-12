@@ -313,8 +313,10 @@ it would fire on a large slice of the corpus.
 
 ### Umbrella groups for phrases that will never be labels
 
-`range queries`, `string algorithms`, `shortest path`, `tree algorithms` and
-seven more are **groups**, not labels: they carry a display label, their own
+`range queries`, `string algorithms`, `tree algorithms` and eight more are
+**groups**, not labels (`shortest path` is both — a group *and* a canonical
+label that problems carry, which is why an annotator citing this section once
+dropped it wrongly): they carry a display label, their own
 aliases, and a member list of canonical slugs. They exist because those phrases
 are what people type and a label for them would be meaningless. Only members that
 some problem actually carries are shipped to the client — an umbrella that

@@ -1,15 +1,48 @@
 # Competition practice
 
-Choose collections from the competition control. Selected collections form a
-union; judge, difficulty, technique and progress filters intersect that union.
-A collection link restores its selection through `contest=id,id`. Unknown
-collection IDs produce no matches rather than broadening the search.
+Competitions live in the judge row: a `+ competition` chip at its end opens a
+picker (arrow keys, Enter, Escape, click-outside), and each active competition
+is a removable chip beside the judge chips. The chip is hidden until the
+registry loads and while every collection is already active, so an unused
+feature has no footprint. Selected collections form a union; judge, difficulty,
+technique and progress filters intersect that union. A collection link restores
+its selection through `contest=id,id`. Unknown collection IDs produce no
+matches rather than broadening the search.
+
+Adding or removing a competition is the one facet change that pushes a history
+entry, so Back undoes it; typing and every other facet still replace the
+current entry, because a debounced search box must not bury the previous page
+under partial queries. Back and Forward re-apply the whole URL state through
+one function, the same one the page boots from. Logout keeps competitions, as
+it keeps judges. A `practice=1` link ignores `contest=` on load — practice
+excludes the source contest by definition, so the pair can only be empty.
 
 Collection membership is separate from judge and technique. Browse uses the
-published problem order. Cards hide difficulty and technique hints until
-revealed. A resource can link an official booklet, editorial, practice judge or
-non-coding round without becoming a ranked problem. Counts distinguish searchable
-members from members still awaiting statement or solution review.
+published problem order. Every card that belongs to a collection carries a
+small competition tag (the collection's short name); clicking it adds that
+collection. With a collection active, difficulty, tags, patterns and the CSES
+provenance line start hidden until revealed; the statement and the "find
+similar" / "practice this idea" links stay visible, because hiding them left
+the feature's own follow-on actions unreachable. `:compare` is a ranker lens and
+ignores collections; the status line says so. A resource can link an official
+booklet, editorial, practice judge or non-coding round without becoming a
+ranked problem. Counts distinguish searchable members from members still
+awaiting statement or solution review, and a collection with no indexed
+problems says so in the status line instead of reading as a broken filter.
+
+Members arrive through `scripts/ingest_contest.py`, which reads a Kattis
+problem-source page (`icpc.kattis.com` and `open.kattis.com`, where ICPC World
+Finals and the Asia regionals are hosted) or an `open.kattis.com/contests/<id>`
+page, stages every statement into `data/analysis/external-staging/`, and prints
+a registry skeleton. CodeChef problems stage through the same adapter module.
+Staging authorises nothing: a problem publishes only through
+`scripts/publish_external.py`, which requires a derived solution, an independent
+skeptic review pinned to the statement's hash, and canonical labels. A problem
+that could not be solved stays staged and counts as "not yet indexed". Kattis
+publishes a per-host difficulty score; it is stored as `kattis_difficulty`
+metadata and shown in the detail line, never mapped onto a rating, a filter or
+a sort. No Indian regional is hosted on Kattis, so that collection remains
+resource-only until Gym- or CodeChef-hosted rounds are added.
 
 Find similar keeps the source in the URL, excludes the source and verified
 aliases, and filters before pagination. It retains the current facets and saved

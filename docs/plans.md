@@ -232,17 +232,27 @@ contest ingest.
 
 ## 4. Contest ingest cadence
 
-**Two skills cover this now**, both readable as standalone briefs so codex or
-another session can run them from a clone:
+**Two local skills cover this** (`.claude/skills/add-contest`, `add-problem`
+— kept out of the repo by choice, so they describe the procedure for this
+machine rather than travelling with a clone). Both carry the Codeforces
+statement workaround, the two label traps, and the embed-in-the-same-commit
+rule. The repo-side description of every deliberate deviation they rely on is
+`docs/heuristics.md`.
 
-- `.claude/skills/add-contest/SKILL.md` — a whole contest. Q1 skipping, the
-  pending queue, per-judge staging.
-- `.claude/skills/add-problem/SKILL.md` — one or a few problems, by URL or by
-  name, including the "here's my solution, no API calls" path and CSES, which
-  belongs to no contest.
-
-Both carry the Codeforces statement workaround, the two label traps, and the
-embed-in-the-same-commit rule.
+**Judges beyond the original four.** Kattis and CodeChef arrive through
+`scripts/external_judges.py`; Codeforces Gym through the cache-first path in
+`ingest_contest.py` (Gym is not in open-r1, so each problem costs a Tavily
+fetch and arrives unrated). `ingest_contest.py` also takes a Kattis
+problem-source page or an `open.kattis.com/contests/<id>` page: it refuses a
+page without the difficulty table marker, stages every statement into
+`data/analysis/external-staging/`, records `kattis_difficulty` per host, and
+prints a `data/contests.json` skeleton. **Staging authorises nothing** —
+`scripts/publish_external.py --batch <name> --write` publishes only what has a
+solution, an approved independent review whose `source_text_sha256` matches the
+staged statement, canonical labels and no planted "AI agent" sentence. A
+problem an agent could not solve stays staged and shows as "not yet indexed",
+which is the honest state for a 9.5-rated World Finals problem. Gate the
+benchmark on bm25 and tfidf only (§2a).
 
 LeetCode weeklies are Sundays, biweeklies alternate Saturdays.
 
