@@ -2224,10 +2224,20 @@ CORPUS
 
   CSES         five estimated bands, independent of ratings:
                Foundation, Standard, Intermediate, Advanced,
-               Expert. Only reviewed estimates are displayed.
-               Choose "my CSES level" explicitly; your account
-               saves the choice, or it stays in this browser
-               while signed out. "my level" applies that band.
+               Expert. CSES publishes no difficulty, so these
+               are estimates and every card says so: two
+               independent solution reviews per task, the band
+               is their rounded mean, and 14 specialist checks
+               with a proof or a computation overrode it.
+               Confidence is how far the two reviews agreed —
+               high, both chose the band; medium, one band
+               apart; low, a specialist check settled it. That
+               is agreement between reviews, not human
+               calibration, and it converts to no Codeforces
+               rating. Choose "my CSES level" explicitly; your
+               account saves the choice, or it stays in this
+               browser while signed out. "my level" applies
+               that band.
 
   PYQs         add one or more competition collections. These
                combine with every other filter. Hints and
@@ -2754,7 +2764,13 @@ function renderHitsList(container, hits, opts = {}) {
     const trailing = libraryMode ? formatRelative(hit.markedAt) : "";
     // CSES ships no difficulty, so this used to render an empty bordered chip —
     // visible furniture standing in for nothing.
-    const diffHtml = diff === "" ? "" : `<span class="difficulty ${hit.problem.platform === "cses" ? "cses-estimate" : diffClass(hit.problem.difficulty)}">${escapeHtml(String(diff))}</span>`;
+    // CSES bands are estimates, so the chip carries how much the two reviews
+    // agreed: the class for CSS, the title for the person reading it.
+    const isCses = hit.problem.platform === "cses";
+    const csesConfidence = isCses ? cosineDifficulty.confidence(hit.problem) : null;
+    const csesClass = `cses-estimate${csesConfidence ? ` cses-confidence-${csesConfidence}` : ""}`;
+    const csesTitle = csesConfidence ? ` title="${escapeHtml(cosineDifficulty.confidenceTitle(csesConfidence))}"` : "";
+    const diffHtml = diff === "" ? "" : `<span class="difficulty ${isCses ? csesClass : diffClass(hit.problem.difficulty)}"${isCses ? csesTitle : ""}>${escapeHtml(String(diff))}</span>`;
     let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
@@ -2816,8 +2832,19 @@ function renderHitsList(container, hits, opts = {}) {
     title.setAttribute("role", "button");
     title.setAttribute("aria-expanded", "false");
     title.setAttribute("aria-controls", detail.id);
+    // Where a CSES band came from. Only what the record already carries — the
+    // band, how far the two reviews agreed, when it was reviewed, and whether a
+    // specialist check overrode the mean. Never the reviews themselves. It is
+    // a difficulty hint, so it hides with the other hints.
+    const prov = cosineDifficulty.provenance(hit.problem);
+    const provHtml = !prov ? "" : `<p class="cses-provenance spoiler-content">difficulty: ${escapeHtml(prov.label)} · CSES estimate${
+      prov.confidence ? ` · ${escapeHtml(prov.confidence)} confidence` : ""
+    }${prov.reviewedAt ? ` · reviewed ${escapeHtml(prov.reviewedAt)}` : ""}${
+      prov.overridden ? " · specialist override" : ""
+    } · <a href="https://github.com/Dd1235/Cosine/blob/main/experiments/19-cses-reviewed-bands.md" target="_blank" rel="noopener">how these were made &rarr;</a></p>`;
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
+      ${provHtml}
       <p class="tags spoiler-content"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
       <p class="patterns spoiler-content"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
@@ -2840,7 +2867,7 @@ function renderHitsList(container, hits, opts = {}) {
     });
     if (opts.similarMode && (hit.sharedTechniques || []).length) {
       const explanation = document.createElement("p");
-      explanation.className = "similar-explanation";
+      explanation.className = "similar-explanation spoiler-content"; // a technique list is a hint
       explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
       detail.prepend(explanation);
     }

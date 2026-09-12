@@ -2005,6 +2005,12 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .cses-level-row[hidden], .collection-resources[hidden] { display: none; }
 #cses-level-note { opacity: .7; font-size: .75rem; }
 .cses-estimate { white-space: normal; }
+/* The band is an estimate; the border says how much the two reviews agreed —
+   solid when both chose it, dashed when they were a band apart, dotted when a
+   specialist check had to settle it. */
+.result-meta .difficulty.cses-confidence-medium { border-style: dashed; }
+.result-meta .difficulty.cses-confidence-low { border-style: dotted; }
+.cses-provenance { font-size: 0.85rem; color: var(--text-dim); }
 .pyq-attempt { font-size: .8rem; margin-top: 6px; }
 .spoiler-notice { display: none; opacity: .7; }
 .hide-spoilers .spoiler-content, .hide-spoilers .difficulty, .hide-spoilers .score-bar, .hide-spoilers .note-mark { display: none !important; }
