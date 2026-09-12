@@ -1,0 +1,12 @@
+{
+ "id": "codechef-rebxor",
+ "platform": "codechef",
+ "title": "Nikitosh and xor",
+ "slug": "rebxor",
+ "source_url": "https://www.codechef.com/problems/REBXOR",
+ "source_topic": "Trie",
+ "source_text": "Nikitosh the painter has a 1-indexed array A of N elements. He wants to find the maximum value of expression ( A[l 1 ] ⊕ A[l 1 + 1] ⊕ ... ⊕ A[r 1 ] ) + ( A[l 2 ] ⊕ A[l 2 + 1] ⊕ ... ⊕ A[r 2 ] ) where 1 ≤ l 1 ≤ r 1 < l 2 ≤ r 2 ≤ N . Here, x ⊕ y means the bitwise XOR of x and y . Because Nikitosh is a painter and not a mathematician, you need to help him in this task. Input The first line contains one integer N , denoting the number of elements in the array. The second line contains N space-separated integers, denoting A 1 , A 2 , ... , A N . Output Output a single integer denoting the maximum possible value of the given expression. Constraints 2 ≤ N ≤ 4*10 5 0 ≤ A i ≤ 10 9 Subtasks Subtask 1 (40 points) : 2 ≤ N ≤ 10 4 Subtask 2 (60 points) : Original constraints Sample Input 5 1 2 3 1 2 Sample Output 6 Choose ( l 1 , r 1 , l 2 , r 2 ) = (1, 2, 3, 3) or (1, 2, 4, 5) or (3, 3, 4, 5).",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null
+}

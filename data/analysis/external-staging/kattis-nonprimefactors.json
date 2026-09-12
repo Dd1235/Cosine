@@ -1,0 +1,23 @@
+{
+ "id": "kattis-nonprimefactors",
+ "platform": "kattis",
+ "title": "Non-Prime Factors",
+ "slug": "nonprimefactors",
+ "source_url": "https://open.kattis.com/problems/nonprimefactors",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_text": "In many programming competitions, we are asked to find (or count the number of) Prime Factors of an integer $i$ . This is boring. This time, let’s count the number of Non-Prime Factors of an integer $i$ , denoted as NPF(i) . For example, integer $100$ has the following nine factors: $\\{ 1, \\underline{2}, 4, \\underline{5}, 10, 20, 25, 50, 100\\} $ . The two which are underlined are prime factors of $100$ and the rest are non-prime factors. Therefore, NPF(100) = $7$ . Input The first line contains an integer $Q$ ( $1 \\le Q \\le 3\\cdot 10^6$ ) denoting the number of queries. Each of the next $Q$ lines contains one integer $i$ ( $2 \\leq i \\leq 2\\cdot 10^6$ ). Output For each query $i$ , print the value of NPF(i) . Warning The I/O files are large. Please use fast I/O methods. Sample Input 1 Sample Output 1 4 100 13 12 2018 7 1 4 2",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "kattis_difficulty": {
+  "score": 5.4,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ },
+ "contest_source": {
+  "host": "open.kattis.com",
+  "name": "2018 ICPC Asia Singapore Regional",
+  "position": 7
+ }
+}

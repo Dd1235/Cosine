@@ -1,0 +1,12 @@
+{
+ "id": "codechef-nplflf",
+ "platform": "codechef",
+ "title": "Query On Strings",
+ "slug": "nplflf",
+ "source_url": "https://www.codechef.com/problems/NPLFLF",
+ "source_topic": "Trie",
+ "source_text": "Aniket loves strings and hence he keeps expanding his collection of strings. Harsh came up with an idea to tease Aniket. Harsh can ask Aniket to do one of the following operations to his collection of strings (Initially he has an empty collection). Add: Add a given string to the collection. Ask: Ask if there exists a group of k strings such that they have a common suffix of length l . Remove i : Remove the string that was added in the i th operation (if the string is not already removed). It is guaranteed that i th operation was an Add operation. Aniket is tired of the mid-sem exams he has just had. Can you help him do all these operations and find the answers of all Ask operations. Input First line of input contains an integer q denoting the total number of operations Harsh does. q lines follow in the following format. 1 s Add the string s(all lowercase characters) to Aniket's collection of strings. 2 k l Ask if there exists a group of k strings such that they have a common suffix of length l. 3 x Remove the string added in the x th operation (if not already removed). Output Print the answer to all the Ask operations in different lines. Print \"YES\" if it exists else print \"NO\" . Constraints 1 ≤ q ≤ 10 5 1 ≤ |s| (sum of lengths of all strings added to the collection) ≤ 10 5 1 ≤ k,l ≤ 10 5 1 ≤ x ≤ number of operations done yet Example Input 1: 9 1 aba 1 accba 2 2 2 2 2 3 1 aaaa 1 ababa 2 3 2 3 1 2 3 2 Output 1: YES NO YES NO",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null
+}
