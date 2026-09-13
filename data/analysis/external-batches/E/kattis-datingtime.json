@@ -1,0 +1,26 @@
+{
+  "id": "kattis-datingtime",
+  "status": "solved",
+  "solution": "Measure time as minutes t after midnight; the minute hand sits at 6t degrees and the hour hand at 0.5t, so their signed separation is 5.5t mod 360 and the displayed angle equals alpha exactly when 5.5t is congruent to alpha or to -alpha modulo 360. Doubling that congruence shows 11t must be an integer, so every qualifying instant falls on a multiple of one eleventh of a minute and a full day contains only 22, 44 and 22 of them for alpha equal to 0, 90 and 180. The published program finds them by walking the 24 hours and, for each, solving 5.5m = 30*(h mod 12) +- alpha for the minute offset m by cases on the hour, holding m exactly as a quotient and a remainder over 11 and discarding any m of 60 or more; a candidate is counted when its whole-minute part lies inside the window, except at the closing minute, where a nonzero remainder places the instant strictly after the window and is rejected. That endpoint rule is what makes the inclusive bounds correct, since the fractional part can only push an instant later. Each query costs O(24) time and O(1) space, trivially inside the limits for t <= 100 queries.",
+  "solution_confidence": 0.98,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/datingtime.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Compiled and run: it reproduces the sample (22, 44, 1). I then transcribed its per-hour case analysis into E/verify_datingtime.py and compared it against an independent model that counts lattice points 11t = r (mod 720) in the window, on all 3,112,560 (start, end, alpha) windows of the day with zero mismatches; the lattice model is itself checked against an exact Fraction brute force that walks the window on a 1/110-minute grid (and a 1/330 grid for a spot check). The compiled binary was driven over 4,004 random windows and matched the transcription exactly."
+  },
+  "statement_summary": "Given a start time, an end time and an angle that is zero, ninety or a hundred and eighty degrees, the task is to count the instants in the closed interval at which the hour and minute hands of a continuously moving analogue clock form exactly that angle. Both times fall within one day, and up to one hundred such queries are asked.",
+  "patterns": [
+    "brute-force"
+  ],
+  "pattern_confidence": {
+    "brute-force": 0.5
+  },
+  "tags": [
+    "math",
+    "implementation",
+    "geometry"
+  ],
+  "source_text_sha256": "286074ee310571b7872ac8aca3fe0f4be3320eb663934c17a34900b9a50152e3",
+  "verify_script": "E/verify_datingtime.py",
+  "notes": "Stated plainly: this is a pure-implementation problem dressed as geometry. There is one observation (the hands close at 5.5 degrees per minute, so the qualifying instants are multiples of 1/11 minute and there are at most 44 in a day) and after that it is careful arithmetic and one endpoint rule. 'brute-force' at 0.5 is the only label, and it is honest rather than enthusiastic: what the accepted solution does is enumerate the 24 hours and solve a linear equation in each, which is exhaustion over a tiny candidate set. Deliberately NOT labelled geometry (no computational geometry -- no points, no cross products, just an angle that is linear in time), simulation (nothing is stepped forward; the instants are solved for), or number-theory (the modular step is one doubling, not a technique). The real trap here is floating point: the answers land on thirds and elevenths of a minute and the published code avoids doubles entirely by keeping the remainder mod 11, which is why its inclusive endpoints come out right. Vocabulary gap: no canonical 'implementation' / 'ad-hoc' slug, so that is carried in tags. The published source contains no text addressed to a reader or an agent."
+}

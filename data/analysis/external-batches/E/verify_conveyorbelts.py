@@ -15,10 +15,16 @@ flow of that size, so the answer is the max flow with unit source edges.
 Nodes N*K <= 90000, arcs M*K <= 300000, flow value <= K <= 300 -- Dinic is instant.
 
 The brute force below does NOT use the phase argument: it enumerates routes and
-checks conflicts by literally simulating which minute each product sits on each belt.
+checks conflicts by literally simulating which minute each product sits on each belt
+(real minutes x*K+j+d over many periods, never a residue class).  Two cheap exact
+prunings keep it finishable -- routes with identical slot sets collapse, and a route
+whose slots are a superset of another's is never needed -- and a case whose distinct
+route count still exceeds MAX_OPTIONS is skipped and counted rather than hung on.
 """
 import random
 import sys
+import threading
+import time
 from collections import deque
 from itertools import combinations
 
@@ -126,11 +132,18 @@ def all_routes(n, k, edges, j, cap_states=None):
 
 
 HORIZON = 40
+MAX_OPTIONS = 400          # safety valve: above this the subset search is hopeless
+
+
+class TooWide(Exception):
+    """Raised when a case has too many distinct routes to brute force honestly."""
 
 
 def occupancy(j, k, route):
     """(belt, minute) slots literally used by every product of producer j.
-    Product born at minute x*K+j rides belt route[d] during minute x*K+j+d."""
+    Product born at minute x*K+j rides belt route[d] during minute x*K+j+d.
+    Deliberately expressed in real minutes, not in phases mod K -- the phase
+    argument is the thing under test, so the brute force must not assume it."""
     slots = []
     for x in range(HORIZON):
         birth = x * k + j
@@ -139,39 +152,51 @@ def occupancy(j, k, route):
     return slots
 
 
+def route_options(n, k, edges, j):
+    """The distinct, non-dominated slot sets producer j could occupy.
+
+    Two routes matter only through the set of (belt, minute) slots they occupy, so
+    identical slot sets collapse; and if one route's slots are a subset of
+    another's, the bigger one is never needed (swapping it for the smaller keeps
+    every disjointness that held).  Without this the plain route list reaches many
+    thousands of entries and the subset search below never finishes.
+    """
+    out = []
+    for route in all_routes(n, k, edges, j):
+        slots = occupancy(j, k, route)
+        if len(set(slots)) != len(slots):       # self-collision: illegal route
+            continue
+        out.append(frozenset(slots))
+    out = list(set(out))
+    if len(out) > MAX_OPTIONS:
+        raise TooWide(len(out))
+    minimal = [a for i, a in enumerate(out)
+               if not any(i != m and b <= a for m, b in enumerate(out))]
+    # `b <= a` with equal sets cannot happen twice: duplicates were removed above
+    return minimal
+
+
 def brute(n, k, edges):
-    routes = {}
-    for j in range(1, k + 1):
-        routes[j] = all_routes(n, k, edges, j)
-    producers = [j for j in range(1, k + 1) if routes[j]]
-    best = 0
+    options = {j: route_options(n, k, edges, j) for j in range(1, k + 1)}
+    producers = [j for j in range(1, k + 1) if options[j]]
 
     def try_subset(sub):
-        used = set()
-
-        def rec(i):
+        def rec(i, used):
             if i == len(sub):
                 return True
-            j = sub[i]
-            for r in routes[j]:
-                slots = occupancy(j, k, r)
-                if any(s in used for s in slots):
-                    continue
-                if len(set(slots)) != len(slots):      # self-collision
-                    continue
-                used.update(slots)
-                if rec(i + 1):
-                    return True
-                used.difference_update(slots)
+            for slots in options[sub[i]]:
+                if slots.isdisjoint(used):
+                    if rec(i + 1, used | slots):
+                        return True
             return False
 
-        return rec(0)
+        return rec(0, frozenset())
 
     for size in range(len(producers), 0, -1):
         for sub in combinations(producers, size):
             if try_subset(list(sub)):
                 return size
-    return best
+    return 0
 
 
 # ------------------------------------------------------------------------ testing
@@ -182,42 +207,57 @@ SAMPLES = [
 ]
 
 
+def compare(n, k, edges, tally):
+    """solve vs brute on one case; returns False if the case was too wide to brute."""
+    try:
+        b = brute(n, k, edges)
+    except TooWide:
+        tally["skipped"] += 1
+        return False
+    a = solve(n, k, edges)
+    if a != b:
+        print("MISMATCH", n, k, edges, "flow", a, "brute", b)
+        sys.exit(1)
+    tally["checked"] += 1
+    if 0 < a < k:
+        tally["hard"] += 1
+    return True
+
+
 def main():
     for (args, want) in SAMPLES:
         got = solve(*args)
         print("sample", args, "want", want, "got", got)
         assert got == want, "SAMPLE FAILED"
+        assert brute(*args) == want, "BRUTE DISAGREES WITH SAMPLE"
+    print("all three samples agree with both the flow model and the simulation")
 
+    tally = {"checked": 0, "skipped": 0, "hard": 0}
     random.seed(11)
-    for it in range(3000):
+    for _ in range(3000):
         n = random.randint(1, 5)
         k = random.randint(1, n)
         m = random.randint(0, 6)
         edges = [(random.randint(1, n), random.randint(1, n)) for _ in range(m)]
-        a, b = solve(n, k, edges), brute(n, k, edges)
-        if a != b:
-            print("MISMATCH", n, k, edges, "flow", a, "brute", b)
-            sys.exit(1)
-    print("3000 random small cases: flow model == faithful simulation brute force")
+        compare(n, k, edges, tally)
+    print("small random: %(checked)d checked, %(skipped)d too wide, %(hard)d needed "
+          "a producer switched off" % tally)
 
-    # a couple of larger random checks against the brute force with more room
+    tally = {"checked": 0, "skipped": 0, "hard": 0}
     random.seed(7)
-    for it in range(300):
+    for _ in range(400):
         n = random.randint(2, 7)
         k = random.randint(1, min(n, 3))
         m = random.randint(0, 9)
         edges = [(random.randint(1, n), random.randint(1, n)) for _ in range(m)]
-        a, b = solve(n, k, edges), brute(n, k, edges)
-        if a != b:
-            print("MISMATCH", n, k, edges, "flow", a, "brute", b)
-            sys.exit(1)
-    print("300 larger random cases OK")
+        compare(n, k, edges, tally)
+    print("larger random: %(checked)d checked, %(skipped)d too wide, %(hard)d hard" % tally)
 
     # bottleneck generator: every producer is forced through a narrow waist, which is
     # where the "same belt, different minute" accounting actually decides the answer.
+    tally = {"checked": 0, "skipped": 0, "hard": 0}
     random.seed(23)
-    hard = 0
-    for it in range(600):
+    for _ in range(600):
         n = random.randint(4, 7)
         k = random.randint(2, min(n - 1, 4))
         waist = n - 1
@@ -232,14 +272,51 @@ def main():
             edges.append((v, waist))
         for _ in range(random.randint(0, 3)):
             edges.append((random.randint(1, n - 1), random.randint(1, n - 1)))
-        a, b = solve(n, k, edges), brute(n, k, edges)
-        if a != b:
-            print("MISMATCH", n, k, edges, "flow", a, "brute", b)
-            sys.exit(1)
-        if 0 < a < k:
-            hard += 1
-    print("600 bottleneck cases OK (%d of them had to switch producers off)" % hard)
+        compare(n, k, edges, tally)
+    print("bottleneck: %(checked)d checked, %(skipped)d too wide, %(hard)d had to "
+          "switch producers off" % tally)
+
+    # phase-collision generator: every producer reaches one shared exit belt, but by
+    # chains of different lengths, so the exit belt is contested exactly when two
+    # producers' (index + route length) values agree modulo K
+    tally = {"checked": 0, "skipped": 0, "hard": 0}
+    random.seed(41)
+    for _ in range(600):
+        k = random.randint(2, 3)
+        nxt = k + 1
+        edges = []
+        hub_pred = []
+        for j in range(1, k + 1):
+            v = j
+            for _ in range(random.randint(1, 3) - 1):   # fresh intermediate nodes
+                edges.append((v, nxt))
+                v = nxt
+                nxt += 1
+            hub_pred.append(v)
+        hub = nxt
+        nxt += 1
+        for v in hub_pred:
+            edges.append((v, hub))
+        n = nxt                                          # the warehouse
+        edges.append((hub, n))
+        if random.random() < 0.3:                        # sometimes a second exit belt
+            edges.append((hub, n))
+        compare(n, k, edges, tally)
+    print("phase-collision: %(checked)d checked, %(skipped)d too wide, %(hard)d had "
+          "to switch producers off" % tally)
+
+    # cost at the stated limit (answer unverifiable at this size, this is timing only)
+    random.seed(3)
+    n, k, m = 300, 300, 1000
+    edges = [(random.randint(1, n), random.randint(1, n)) for _ in range(m)]
+    t = time.time()
+    f = solve(n, k, edges)
+    print("N=K=300, M=1000: %d nodes, %d arcs, flow %d, %.1fs even in Python"
+          % (n * k + 2, m * k, f, time.time() - t))
 
 
 if __name__ == "__main__":
-    main()
+    threading.stack_size(512 * 1024 * 1024)   # the Dinic dfs recurses per node
+    th = threading.Thread(target=main)
+    th.start()
+    th.join()

@@ -1,0 +1,32 @@
+{
+  "id": "kattis-beautifulsquare",
+  "status": "solved",
+  "solution": "The square is a Hamiltonian path of the n x n grid graph that is forced to start at the given cell, since consecutive labels must share an edge. Colour the cells like a chessboard: a Hamiltonian path on n*n cells alternates colours, so when n is odd the (n*n+1)/2 cells with r+c even outnumber the others by one and the path must begin and end on that majority colour, which makes the answer NO exactly when n is odd and r+c is odd; for even n the grid has a Hamiltonian cycle, so every start cell works. Otherwise the published solution constructs the path by case analysis: it first walks straight from (r,c) along its column to the top or bottom border (the direction chosen by the parity of r), then boustrophedon-sweeps the strip of columns on one side of the start column and finally the remaining rectangle, the split being arranged so each piece is traversed along an even-length direction and therefore ends on the cell adjacent to the next piece. Filling is O(n^2) time and O(n^2) space per test case, so at most 10^6 cell writes over all t <= 100 cases with n <= 100.",
+  "solution_confidence": 0.97,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest/beautifulsquare.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Compiled (g++ -O2 -std=c++17, its internal asserts left enabled) and run on the statement's sample, then driven exhaustively over every start cell for n = 1..40 and for n = 99 and 100, plus 4000 random cases, with an output validator checking permutation, placement of 1 and edge-adjacency of consecutive labels. The solution's feasibility rule was not taken on trust: an exhaustive Hamiltonian-path search for n <= 4 over all start cells reproduces the same YES/NO set."
+  },
+  "statement_summary": "Given a square grid of up to one hundred rows and the cell that must hold the number one, the task is to write every integer from one to the number of cells, each once, so that consecutive integers occupy cells sharing an edge, or to report that this is impossible. Up to one hundred grids are asked about, and the starting cell decides feasibility.",
+  "patterns": [
+    "constructive-algorithm",
+    "parity-argument",
+    "grid-traversal"
+  ],
+  "pattern_confidence": {
+    "constructive-algorithm": 0.96,
+    "parity-argument": 0.86,
+    "grid-traversal": 0.5
+  },
+  "tags": [
+    "grid",
+    "construction",
+    "parity",
+    "hamiltonian-path",
+    "ad-hoc"
+  ],
+  "source_text_sha256": "df5b1de242a2d704493484a41f02db52962bf46f3f914354a94cdf5eeb2258a3",
+  "verify_script": "E/verify_beautifulsquare.py",
+  "notes": "The two load-bearing labels are constructive-algorithm (an explicit filling must be printed) and parity-argument (the chessboard colouring is the entire impossibility proof and the only thing separating the two verdicts). grid-traversal is kept at 0.5 only because the construction is a boustrophedon walk over the grid; nobody reaches this problem through a BFS/DFS-on-grid query, so it is the weakest of the three. Vocabulary gap: the corpus has no hamiltonian-path label. hamiltonian-dp is the nearest slug and is deliberately NOT used -- it means bitmask DP over visited sets, which at n = 100 is hopeless and would send searchers the wrong way. Also dropped: bipartite-graph (the colouring is used as a counting argument, not as a graph the solution builds), backtracking and dfs (the reference search in my verifier is not the solution), simulation and brute-force. The published solution's asserts fire on any internal inconsistency and none fired across ~46k exhaustive cases, including n = 1 (handled by the n odd branch with x == n) and n = 2."
+}

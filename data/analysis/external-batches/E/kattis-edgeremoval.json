@@ -1,0 +1,32 @@
+{
+ "id": "kattis-edgeremoval",
+ "status": "solved",
+ "solution": "Sort the edges by weight and run Kruskal one whole weight class at a time, keeping a DSU that has absorbed everything strictly lighter. An edge of the class whose endpoints are already in the same component lies in no minimum spanning tree and can never create an alternative one, so it is kept for free; the rest join distinct components, and since they all share a weight the MST is unique only if they form a forest, so exactly the ones that close a cycle among themselves are deleted. That set is optimal: in any surviving graph with a unique MST, every non-tree edge must be strictly heavier than its whole tree path (otherwise swapping gives a second MST), so its endpoints are already joined by lighter edges and it is one of the free edges, bounding the survivors by (n-1) plus the number of free edges; the construction reaches that bound, and because only cycle-closing edges are dropped the graph stays connected and every weight prefix keeps exactly the components it had, so the classes really are independent. A disconnected input is detected by a preliminary union of all edges and answered with -1. Sorting dominates, giving O(m log m) time and O(n+m) space for m up to 3*10^5 summed over test cases.",
+ "solution_confidence": 0.96,
+ "solution_source": {
+  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest/edgeremoval.cpp",
+  "kind": "accepted C++ solution (third-party repo)",
+  "used": "Compiled and ran it on the sample, then drove the binary from verify_edgeremoval.py against a brute force that deletes every subset in increasing size and accepts only when the graph is connected and has exactly one minimum-weight spanning tree (counted by enumerating all C(m, n-1) subsets). On 365 connected random graphs plus 285 disconnected ones its count always equalled the true minimum AND its emitted edge set was re-verified to leave a connected graph with a unique MST."
+ },
+ "statement_summary": "A student has drawn an undirected weighted graph that may admit several minimum spanning trees. He wants to delete as few edges as possible so that exactly one minimum spanning tree remains; the weight deleted is irrelevant. The task is to report that minimum count and one such set of edges, or to report that the graph is disconnected. Graphs carry up to three hundred thousand edges.",
+ "patterns": [
+  "minimum-spanning-tree",
+  "kruskal",
+  "union-find"
+ ],
+ "pattern_confidence": {
+  "minimum-spanning-tree": 0.97,
+  "kruskal": 0.92,
+  "union-find": 0.85
+ },
+ "tags": [
+  "graph",
+  "mst",
+  "union-find",
+  "greedy",
+  "sorting"
+ ],
+ "source_text_sha256": "cddee36503766a6d69788a215acaf6c324a228fa04a589a617b5d38cfe2a61eb",
+ "verify_script": "E/verify_edgeremoval.py",
+ "notes": "The published C++ prints '1 6' on the sample where the judge prints '1 2'; both are optimal and the statement explicitly accepts any optimal set, and the brute force confirms that deleting edge 6 leaves a connected graph with a unique MST. Two portability edits were needed to build it here and neither touches the algorithm: bits/stdc++.h does not exist under libc++, and its 'operator<' is a non-const member that libc++ rejects inside std::sort (libstdc++, which the contest used, accepts it). Its two-phase loop per weight class (collect the edges joining distinct components, only then union them) is essential and easy to get wrong by fusing the passes. Labelled union-find alongside kruskal because the whole criterion is 'does this edge close a cycle in the contracted graph', which is the DSU doing real work rather than scaffolding; did NOT label greedy (kruskal covers it), sorting or connected-components (the -1 check is a preliminary). Nothing in the source file is addressed to a reader: only commented-out debug prints and a THEMIS-guarded freopen block."
+}

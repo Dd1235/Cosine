@@ -1,0 +1,33 @@
+{
+  "id": "kattis-conveyorbelts",
+  "status": "solved",
+  "solution": "Producer j emits at minutes x*K+j and its route is fixed, so the item born at minute x*K+j occupies the (d+1)-st belt of its route during minute x*K+j+d; that belt is therefore busy exactly at the minutes congruent to j+d modulo K, and two items collide on a belt precisely when their producer-plus-depth values agree modulo K. That collapses the whole time axis into a phase in Z_K and turns the capacity rule into arc-disjointness on a time-expanded graph: make a node (v,p) for each junction v and phase p, and give every belt a to b one unit-capacity arc (a,p) -> (b,(p+1) mod K) per phase, each arc standing for the single resource 'that belt during the minutes of phase p'. Add a source with a unit edge into (j, j mod K) for each producer and an infinite edge from every (N,p) to a sink; an integral flow decomposes into arc-disjoint source-sink paths, which are exactly a set of simultaneously legal routes (including the degenerate one for a producer already sitting at junction N, and including the case of one producer's own consecutive items, which would have to reuse a single belt-phase arc to clash), so the maximum flow is the answer. Dinic's algorithm is the practical choice: at most N*K+2 = 90002 nodes and M*K = 300000 unit arcs, and since the flow value is at most K = 300 the number of phases is bounded by K, giving O(K*M*K) = O(K^2*M) about 9*10^7 operations worst case and O((N+M)*K) memory.",
+  "solution_confidence": 0.95,
+  "solution_source": {
+    "url": "https://www.comp.nus.edu.sg/~acmicpc/icpcsg18-analysis_FH.pdf",
+    "kind": "official judges' solution debrief (PDF, text-extracted)",
+    "used": "the debrief gives the whole model -- blow each junction up into K time copies that wrap, wire each belt as K arcs (a,t) -> (b,(t+1) mod K), unit source edges into the producers, infinite edges out of the warehouse copies, Dinic -- and it was transcribed into E/verify_conveyorbelts.py. Confirmed on all three statement samples and cross-checked against a brute force that does NOT use the phase argument: it enumerates routes and tests conflicts by literally simulating which minute each item occupies each belt. They agree on 3000 tiny random graphs, 400 larger ones, 482 of 600 bottleneck-shaped graphs (118 had too many distinct routes to brute honestly and are skipped and counted), and 600 graphs built so that producers reach one shared exit belt by chains of different lengths, 261 of which genuinely force a producer to be switched off."
+  },
+  "statement_summary": "A factory has up to three hundred junctions linked by one-way conveyor belts that each take one minute to traverse. Producers sit on the first K junctions, the jth emitting an item every K minutes, and all of a producer's items must follow one fixed route to the final junction. No belt may carry two items at once; the task is to report how many producers can stay running.",
+  "patterns": [
+    "max-flow",
+    "graph-modeling",
+    "layered-graph",
+    "dinic"
+  ],
+  "pattern_confidence": {
+    "max-flow": 0.95,
+    "graph-modeling": 0.92,
+    "layered-graph": 0.85,
+    "dinic": 0.7
+  },
+  "tags": [
+    "graph",
+    "max-flow",
+    "scheduling",
+    "modular-arithmetic"
+  ],
+  "source_text_sha256": "8afdf5bd9380030948253b1f695b077abcbe8c6f5d051413083964fd487be69a",
+  "verify_script": "E/verify_conveyorbelts.py",
+  "notes": "The whole problem is the modelling step; once the time axis is folded into a phase modulo K the rest is a textbook unit-capacity flow, which is why graph-modeling and layered-graph sit next to max-flow. layered-graph is the right name for the K copies of the junction graph wired (v,p) -> (w,p+1 mod K) -- a time-expanded graph that wraps -- and it is what a searcher looking for this trick would type. dinic is kept but at lower confidence: any max-flow routine with a decent bound works in principle, but the debrief explicitly says to use Dinic to avoid TLE, and the Dinic-specific argument (phases bounded by the flow value K) is what makes 300000 arcs safe. Deliberately NOT labelled: bipartite-matching (the phase graph is not bipartite and paths have unbounded length, so this is genuinely flow, not matching), min-cut (no cut is ever computed or reasoned about), modular-arithmetic (the mod K is index bookkeeping, not number theory -- it is kept only as a free-text tag), shortest-path and bfs (the BFS inside Dinic is scaffolding). Correctness details the debrief leaves out and this batch checked: a flow decomposition may contain cycles, which can be dropped without changing the value; two items from the SAME producer clash only if their route uses one belt at two depths congruent modulo K, which is exactly reusing one belt-phase arc and so is already forbidden by the unit capacity; and a producer at junction N when N is at most K needs no belt, which the model handles because (N, N mod K) is directly joined to the sink. The debrief contains nothing addressed to a reader or an agent, but it is a text extraction of slides, so limits lost their exponents ('1 <= K <= N <= 300, 0 <= M <= 1000' survived intact here, unlike the Bitwise half of the same file). Verification caveats: the brute force is exponential, so the cross-check covers graphs up to about eight junctions only, and 118 of the 600 densest bottleneck cases exceed its route budget and are skipped (the script counts them rather than hanging -- the version of this script inherited from the earlier pass did hang there, because it rebuilt each route's minute-by-minute occupancy inside the subset search; it now precomputes slot sets, drops duplicate and dominated ones, and caps the rest). The max-size shape (N = K = 300, M = 1000) was run for cost only, not for a correct answer, and finishes in about 1.5 seconds even in this Python Dinic, so the C++ bound is not tight."
+}

@@ -1,0 +1,34 @@
+{
+ "id": "kattis-nonprimefactors",
+ "status": "solved",
+ "solution": "If i = p1^q1 * ... * pm^qm then i has exactly (q1+1)...(qm+1) divisors of which exactly m are prime, so NPF(i) = d(i) - omega(i), where d counts divisors and omega counts distinct prime divisors; that identity reproduces all four samples (100 -> 9-2 = 7, 13 -> 2-1 = 1, 12 -> 6-2 = 4, 2018 -> 4-2 = 2). Both tables are precomputed once for every value up to 2*10^6 by sieving rather than per query: the harmonic loop 'for each d, bump a counter at every multiple of d' gives d(i) in O(M log M), and the same loop restricted to primes gives omega(i) in O(M log log M) -- equivalently, skipping the primes in the first loop accumulates NPF directly. Each query is then a single array lookup, so the whole program is O(M log M + Q) time and O(M) memory; NPF never exceeds 283 on this range, so a 16-bit table of 2*10^6 entries (4 MB) is enough. The deciding constraint is the query count: with Q up to 3*10^6 and i up to 2*10^6, per-query trial division costs about 1400 steps and is far too slow even when memoised over the at most 2*10^6 distinct inputs, and the sheer I/O volume forces buffered or unformatted reading and writing.",
+ "solution_confidence": 0.96,
+ "solution_source": {
+  "url": "https://www.comp.nus.edu.sg/~acmicpc/ICPC2018_ans.pptx",
+  "kind": "official judges' solution slides (pptx, text-extracted)",
+  "used": "Slide 19 supplies the identity NPF(i) = prod(q_k+1) - m and slide 21 gestures at the modified sieve; the exponents on slide 19 are damaged by the text extraction and slide 21 is one vague sentence, so I reconstructed the sieve myself. verify_nonprimefactors.py confirms the sample, checks the sieve tables against trial-division factorisation and the slide-19 product formula for every i in [2, 200000], and enumerates divisors explicitly to re-derive NPF from its definition up to 20000."
+ },
+ "statement_summary": "For each of up to three million queries the task is to report how many divisors of a given integer are not themselves prime, where that integer is at least two and at most two million. Because the queries greatly outnumber the distinct possible inputs and the input and output volume is very large, an answer must be produced in effectively constant time per query.",
+ "patterns": [
+  "sieve",
+  "number-theory",
+  "divisor-enumeration",
+  "prime-factorization"
+ ],
+ "pattern_confidence": {
+  "sieve": 0.95,
+  "number-theory": 0.85,
+  "divisor-enumeration": 0.7,
+  "prime-factorization": 0.6
+ },
+ "tags": [
+  "math",
+  "number-theory",
+  "sieve",
+  "divisors",
+  "precomputation"
+ ],
+ "source_text_sha256": "603e1f6229dfabe597efcfdfcf06358bbaf64fbacb34699dd70bb7b6e80a990d",
+ "verify_script": "E/verify_nonprimefactors.py",
+ "notes": "The published solution is partly WRONG on complexity, which is worth recording: slide 20 presents per-query O(sqrt i) trial division as 'the solution', and slide 23's remedy is only to cache repeated queries in a hash table. Neither meets the limits -- 2*10^6 distinct values times ~1400 trial divisions is ~3*10^9 operations -- so the accepted approach is the sieve that slide 21 only sketches in one garbled sentence. I did not label hash-map for that reason: memoising queries is a dead end when a dense array indexed by i is both smaller and faster. prime-factorization is the weakest label (0.6): the identity is stated in terms of the factorisation, but no i is ever factorised at run time; a smallest-prime-factor linear sieve is one valid way to get omega, so the label is not wrong, just indirect. divisor-enumeration is kept because the harmonic sieve is literally enumerating each number's divisors in bulk and 'count the divisors of n' is the query people make. counting was considered and dropped as too generic. The slide deck contains reader-directed asides ('python will die miserably', 'please read the solution by yourself') which are commentary, not instructions, and were ignored; the Python remark is however a real signal that the intended limits assume C/C++-grade I/O."
+}

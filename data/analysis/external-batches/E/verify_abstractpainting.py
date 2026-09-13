@@ -4,10 +4,17 @@
 Claim: the number of good paintings of an R x C grid of unit squares is
     3^(R+C) * 2^(R*C)   (mod 1e9+7)
 
-Three independent implementations are compared:
+Four implementations are compared:
   1. closed_form(R, C)              -- the claimed answer, O(log) per test
   2. brute(R, C)                    -- enumerate all 3^(#edges) colourings
   3. column_dp(R, C)                -- profile DP over the 3^R vertical boundary
+  4. published(R, C)                -- transcription of the published C++, which
+                                       multiplies by 3 (R+C) times and by 2
+                                       (R*C) times, i.e. the same closed form
+                                       written without fast exponentiation
+
+Optionally the real compiled binary is driven too:
+    python3 verify_abstractpainting.py /path/to/abstractpainting_binary
 
 Edge indexing: h[i][j] is the horizontal edge on grid line i (0..R) above square
 (i, j); v[i][j] is the vertical edge on grid line j (0..C) left of square (i, j).
@@ -29,6 +36,27 @@ def good(a, b, c, d):
 
 def closed_form(R, C, mod=MOD):
     return pow(3, R + C, mod) * pow(2, R * C, mod) % mod
+
+
+def published(R, C, mod=MOD):
+    """Literal transcription of the published C++ solve()."""
+    res = 1
+    for _ in range(R + C):
+        res = res * 3 % mod
+    for _ in range(R * C):
+        res = res * 2 % mod
+    return res
+
+
+def run_binary(path, cases):
+    import subprocess
+    out = []
+    for i in range(0, len(cases), 5):          # T <= 5 per the statement
+        chunk = cases[i:i + 5]
+        inp = str(len(chunk)) + "\n" + "\n".join("%d %d" % rc for rc in chunk) + "\n"
+        res = subprocess.run([path], input=inp, capture_output=True, text=True)
+        out += [int(v) for v in res.stdout.split()]
+    return out
 
 
 def brute(R, C):
@@ -110,6 +138,22 @@ def main():
         c = closed_form(R, C)
         assert d == c, (R, C, d, c)
         print(f"R={R} C={C} dp={d} closed={c} OK")
+
+    print("\n== published C++ transcription vs closed form ==")
+    for R in range(1, 15):
+        for C in list(range(1, 13)) + [1999, 2000]:
+            assert published(R, C) == closed_form(R, C), (R, C)
+    print("all R in 1..14 x C in 1..12, 1999, 2000 agree")
+
+    if len(sys.argv) > 1:
+        print("\n== compiled binary vs closed form ==")
+        cases = [(R, C) for R in range(1, 15) for C in list(range(1, 13)) + [1999, 2000]]
+        random.seed(23)
+        cases += [(random.randint(1, 14), random.randint(1, 2000)) for _ in range(200)]
+        got = run_binary(sys.argv[1], cases)
+        want = [closed_form(R, C) for R, C in cases]
+        assert got == want, next(x for x in zip(cases, got, want) if x[1] != x[2])
+        print(f"{len(cases)} cases: compiled binary == 3^(R+C) * 2^(R*C) mod 1e9+7")
 
     print("\n== limits ==")
     print("R=14 C=2000 ->", closed_form(14, 2000))

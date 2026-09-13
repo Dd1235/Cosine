@@ -12,7 +12,18 @@ so every solution has 11t integral and the answer is just a count of lattice
 points in an interval: for each residue r in {2a mod 720, -2a mod 720} count
 integers k with 11*T1 <= r + 720k <= 11*T2.  O(1) per test case.
 
-Checked against a brute force that walks the whole [T1, T2] window on a fine
+The published C++ does not use that closed form: for each of the 24 hours it
+solves 5.5*m - 30*(h mod 12) == +-alpha for the minute offset m, by cases on the
+hour, keeping m as the exact rational TS/11 (integer part `M`, remainder `Thua`)
+and rejecting m >= 60.  A candidate at minute `vl` with remainder `Thua` counts
+when T1 <= vl <= T2, except that on vl == T2 it counts only if Thua == 0 --
+which is right, because a nonzero remainder puts the instant strictly after the
+last whole minute of the window.  published_count() below is a transcription of
+that, and it is compared against solve() on all 3,112,560 (T1, T2, alpha)
+windows.  Pass the compiled binary to check the transcription itself:
+    python3 verify_datingtime.py /path/to/datingtime_binary
+
+solve() is checked against a brute force that walks the whole [T1, T2] window on a fine
 rational grid (step 1/110 minute -- the angle function is piecewise linear with
 breakpoints only at multiples of 1/11 minute, so the grid cannot miss a
 solution) and tests the angle exactly with Fraction arithmetic.
@@ -58,6 +69,56 @@ def brute_finer(T1, T2, alpha, grid):
         if min(sep, 360 - sep) == alpha:
             cnt += 1
     return cnt
+
+
+def published_candidates(k):
+    """Transcription of the published C++: the (vl, Thua) instants it
+    manufactures for angle k, independent of the query window."""
+    out = []
+    for i in range(24):
+        x = i % 12
+        if k == 0:
+            if x == 11:
+                continue
+            out.append((i * 60 + 60 * x // 11, 60 * x % 11))
+        elif k == 90:
+            if x <= 2:
+                cands = [2 * (30 * x + 90), 2 * (30 * x + 270)]
+            elif x <= 8:
+                cands = [2 * (30 * x + 90), 2 * (30 * x - 90)]
+            else:
+                cands = [2 * (30 * x - 90), 2 * (30 * x - 270)]
+            for TS in cands:
+                if TS // 11 < 60:
+                    out.append((i * 60 + TS // 11 % 60, TS % 11))
+        elif k == 180:
+            TS = 2 * (30 * x + 180) if x <= 5 else 2 * (30 * x - 180)
+            if TS // 11 < 60:
+                out.append((i * 60 + TS // 11 % 60, TS % 11))
+    return out
+
+
+CANDIDATES = {a: published_candidates(a) for a in (0, 90, 180)}
+
+
+def published_count(T1, T2, k):
+    total = 0
+    for vl, thua in CANDIDATES[k]:
+        if vl == T2:
+            total += thua == 0
+        else:
+            total += T1 <= vl <= T2
+    return total
+
+
+def run_binary(path, cases):
+    import subprocess
+    lines = [str(len(cases))]
+    for T1, T2, a in cases:
+        lines.append("%02d:%02d %02d:%02d %d" % (T1 // 60, T1 % 60, T2 // 60, T2 % 60, a))
+    res = subprocess.run([path], input="\n".join(lines) + "\n",
+                         capture_output=True, text=True)
+    return [int(v) for v in res.stdout.split()]
 
 
 def main():
@@ -112,6 +173,30 @@ def main():
         b, s = brute(T1, T2, a), solve(T1, T2, a)
         assert b == s, (T1, T2, a, b, s)
     print("300 random windows OK")
+
+    print("\n== published C++ transcription vs the lattice model, EVERY window ==")
+    bad = 0
+    for a in (0, 90, 180):
+        for T1 in range(1440):
+            for T2 in range(T1, 1440):
+                if published_count(T1, T2, a) != solve(T1, T2, a):
+                    bad += 1
+                    if bad < 5:
+                        print("MISMATCH", T1, T2, a)
+    print("3112560 windows, mismatches:", bad)
+    assert bad == 0
+
+    if len(sys.argv) > 1:
+        print("\n== compiled binary vs transcription ==")
+        cases = [(0, 1439, 0), (0, 1439, 90), (0, 1439, 180), (1080, 1081, 180)]
+        for _ in range(4000):
+            T1 = random.randint(0, 1439)
+            T2 = random.randint(T1, 1439)
+            cases.append((T1, T2, random.choice((0, 90, 180))))
+        got = run_binary(sys.argv[1], cases)
+        want = [published_count(*c) for c in cases]
+        assert got == want, next(x for x in zip(cases, got, want) if x[1] != x[2])
+        print(f"{len(cases)} cases: compiled binary == transcription == lattice model")
 
     print("\n== denser grid (step 1/330 min) cannot find extra solutions ==")
     for _ in range(20):

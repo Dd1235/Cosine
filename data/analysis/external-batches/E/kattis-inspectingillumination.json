@@ -1,0 +1,32 @@
+{
+ "id": "kattis-inspectingillumination",
+ "status": "solved",
+ "solution": "A query returns the image of the queried switch set under the hidden permutation, so a fixed family of sets that separates every switch index is enough to identify each source's switch. The published solution runs the segment-tree recursion over the switch range and asks, once per depth, a single query holding the union of all left-child intervals at that depth; because those are pairwise disjoint and disjoint from every right-child interval at the same depth, the depth-(d+1) reply cleanly splits the set of sources already attributed to a node into the part driven by its left half (present in that reply) and the part driven by its right half (absent), and recursing to the leaves names the switch of every source. That is one query per level, ceiling(log2 n)+1, which is at most 11 for n up to 1000 and well inside the budget of 32; the queries are non-adaptive and carry exactly the same information as asking, for each bit position, the set of switches whose index has that bit set. Correctness needs no assumption about lamp state because the reply reports which sources were toggled, not whether they are lit. Work is O(n log n) time and O(n log n) space for the per-depth query sets. A transcription driven against a simulated interactor recovers the permutation for every permutation with n at most 6 and for 400 random sizes up to 1000, never exceeding 11 queries, and always agrees with the bitwise solution.",
+ "solution_confidence": 0.95,
+ "solution_source": {
+  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/inspectingillumination.cpp",
+  "kind": "accepted C++ solution (third-party repo)",
+  "used": "Transcribed the divide-and-conquer query construction and the Get() splitting step into Python, ran it against an interactor that enforces the 32-query cap and shuffles every reply, exhaustively for n<=6 and randomly up to n=1000, and cross-checked it against an independently written bitwise solution."
+ },
+ "statement_summary": "A butler faces switches, each controlling exactly one of an equal number of light sources, but the pairing is unknown. In one round he may flip any non-empty set of switches and is then told, in arbitrary order, which sources changed state. With up to a thousand switches and at most thirty-two rounds allowed, he must report which switch drives each source.",
+ "patterns": [
+  "interactive",
+  "divide-and-conquer",
+  "bit-manipulation"
+ ],
+ "pattern_confidence": {
+  "interactive": 0.98,
+  "divide-and-conquer": 0.85,
+  "bit-manipulation": 0.6
+ },
+ "tags": [
+  "interactive",
+  "permutation",
+  "divide-and-conquer",
+  "bit-manipulation",
+  "queries"
+ ],
+ "source_text_sha256": "371ede1015a033e6b55cee54c474993775374aa98bfb2607b17f072a54b548c3",
+ "verify_script": "E/verify_inspectingillumination.py",
+ "notes": "The published code is written as a segment-tree recursion rather than as bit queries, but the two are the same scheme: the union of left-child intervals at depth d is exactly 'the switches whose index has a particular bit pattern' under a different encoding, and both solvers return identical answers on every instance tested. bit-manipulation is kept at moderate confidence for that equivalent phrasing (which is the one most editorials give) rather than because the published code does any bit work. Rejected 'binary-search': the halving is parallel and non-adaptive - there is no monotone predicate being searched - so divide-and-conquer covers it. The source has two busy-wait spins ('while (Ques[i].size()==0) continue;' and 'while (KQ.size()!=n) continue;') that would hang rather than fail if the construction were ever wrong; they never trigger, since every depth that has a node also has a left child. Nothing in the file is addressed to a reader."
+}

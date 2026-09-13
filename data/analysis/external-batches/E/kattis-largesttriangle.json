@@ -1,0 +1,33 @@
+{
+ "id": "kattis-largesttriangle",
+ "status": "solved",
+ "solution": "The maximum-area triangle over a point set always has all three vertices on the convex hull, so the first step is a monotone-chain hull that drops duplicates and collinear points, leaving h <= N strictly convex vertices (if fewer than three survive the answer is 0). For each hull vertex a taken as the root, the largest triangle rooted at a is found by a rotating-calipers-style sweep: as the second vertex b walks forward around the hull, the best apex c is non-decreasing, because for a fixed base a-b the distance from c to that line is unimodal around a convex polygon, so one monotone pointer that advances c while the area does not decrease finds the optimum in amortised O(h) per root. Running that for every root gives O(N log N) for the sort and hull plus O(h^2) <= 25 million cross products at N = 5000, in O(N) memory. Areas are carried as twice-the-area integer cross products, which reach about 3.2*10^15 for coordinates bounded by 4*10^7, so 64-bit arithmetic is required and the halving is done only when printing. The tempting single-pass O(h) calipers variant that advances a, b and c together is unsound (Keikha et al. 2017, cited by the judges on slide 49), which is why the per-root loop is not collapsed.",
+ "solution_confidence": 0.95,
+ "solution_source": {
+  "url": "https://www.comp.nus.edu.sg/~acmicpc/ICPC2018_ans.pptx",
+  "kind": "official judges' solution slides (pptx, text-extracted)",
+  "used": "Slides 34-50 and 52 give the shape (hull, then 'largest triangle rooted at p_i' by a rotating-calipers-like scan, O(n^2) overall) but the pseudocode on slides 40-48 is mangled by the text extraction, with the comparison operators lost. I reconstructed the monotone two-pointer myself, confirmed the statement's sample (100.00000) and cross-checked it against an exhaustive O(N^3) brute force over all input points on 2220 random sets (uniform, collinear-heavy, on-circle, duplicate-heavy, and fully degenerate) in verify_largesttriangle.py."
+ },
+ "statement_summary": "Given up to five thousand points with non-negative integer coordinates bounded by forty million, the task is to report the area of the largest triangle whose three corners are chosen among those points, or zero when no non-degenerate triangle exists. The points need not be distinct, arrive in no particular order and may include long collinear runs, and the reported area is accepted within a small absolute error.",
+ "patterns": [
+  "convex-hull",
+  "rotating-calipers",
+  "geometry",
+  "two-pointers"
+ ],
+ "pattern_confidence": {
+  "convex-hull": 0.96,
+  "rotating-calipers": 0.9,
+  "geometry": 0.9,
+  "two-pointers": 0.7
+ },
+ "tags": [
+  "geometry",
+  "convex-hull",
+  "rotating-calipers",
+  "two-pointers"
+ ],
+ "source_text_sha256": "ed86c96bc500bba62022508398c7ae93d1e9af5eb7852b237a9d2b9cad5588a3",
+ "verify_script": "E/verify_largesttriangle.py",
+ "notes": "Both pillars are load-bearing and both are queries people make, so convex-hull and rotating-calipers are the two strong labels; two-pointers is kept lower because the monotone c-pointer IS the calipers mechanism and the two labels overlap. Deliberately NOT labelled: polygon-area (the area of a triangle from one cross product is not the shoelace-over-a-polygon technique), orientation-test and sorting (cross products and the lexicographic sort are scaffolding inside the hull), and brute-force (the O(N^3) enumeration is explicitly the TLE solution on slide 36). The slide deck contains asides addressed to a reader ('For problems G, H, F, please read the solution by yourself', and remarks about test-data generation); these are not instructions and were ignored. One caveat worth recording: my verifier also searched ~240k random small polygons for a counterexample to the single-sweep Dobkin-Snyder calipers and found none, so that unsound shortcut is not randomly falsifiable -- a solver who writes it will likely pass their own local tests. Hull must use a strict (<= 0) turn test so collinear points are removed; keeping them does not change the answer but does inflate h."
+}

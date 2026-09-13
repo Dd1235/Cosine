@@ -1,0 +1,28 @@
+{
+  "id": "kattis-hanjie",
+  "status": "solved",
+  "solution": "The board is at most six by six, so the solutions can simply be enumerated. The published program lays the rows down one at a time: within a row it places the clue's blocks left to right in every position that keeps them in order with at least one white cell between consecutive blocks, recursing on the triple (row, next free column, index of the next block), and an empty clue leaves the row white. Every row it completes therefore satisfies its own clue by construction, so when all rows are down it only has to read the run lengths off each of the c columns and compare them with the column clues, incrementing the counter on a full match. The enumeration is exhaustive because the correspondence between a line matching a clue and an ordered choice of block start positions is a bijection. The widest row has only ten placements (a clue of two singletons in six columns is the maximum), bounding the search by ten to the sixth leaves and O(r*c) work per leaf, roughly three times ten to the seventh operations worst case; that adversarial input measured 0.08 s, and space is O(r*c).",
+  "solution_confidence": 0.98,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/hanjie.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Compiled and run: it reproduces the sample (2). I transcribed the recursion into E/verify_hanjie.py and cross-checked it against two independent counters -- an exhaustive 2^(r*c) sweep that rechecks row AND column clues from scratch, and a per-row pattern enumeration crossed over all rows -- on every legal clue set for boards up to 2x3 and 3x2, 3000 random 3x3 sets, random 4x4 / 2x6 / 6x2 sets, and 800 random sets up to 6x6 (229 of them with at least one solution). The compiled binary was driven over all 800 of those and matched. Worst-case timing was measured on the 6x6 board whose twelve clues are all '1 1'."
+  },
+  "statement_summary": "A nonogram board with at most six rows and six columns comes with a clue for every row and every column: the lengths, in order, of the maximal blocks of black cells in that line, with at least one white cell separating consecutive blocks. The task is to count the black-and-white colourings of the board that satisfy every row clue and every column clue simultaneously.",
+  "patterns": [
+    "brute-force",
+    "backtracking"
+  ],
+  "pattern_confidence": {
+    "brute-force": 0.85,
+    "backtracking": 0.8
+  },
+  "tags": [
+    "grid",
+    "backtracking",
+    "brute-force"
+  ],
+  "source_text_sha256": "781070738675484599e6080ab259e36668b4026612113c90fe27a0e98499539d",
+  "verify_script": "E/verify_hanjie.py",
+  "notes": "Both labels are real here rather than decoration: the six-by-six bound is the whole gift, and the accepted solution is a row-by-row backtracking search with a check at the leaves. Deliberately NOT labelled bitmask-dp or profile-dp: a column-by-column DP with a bitmask of the rows' black cells is the scalable way to write this and is what a larger board would need, but the published solution does not do it and the limits do not ask for it -- labelling it would send bitmask-DP searchers to a problem that never exercises the idea. Also not constructive-algorithm (nothing is built, everything is counted) and not grid-dp. One near-miss in the published code worth recording, since it looks like a bug and is not: the inner loop bound `next_Y < c - Lm` does not itself keep the block being placed inside the board -- for a single remaining block of length a it lets the start run up to column c-1, and the code then writes black cells past the last column into an oversized global array. Those states are killed one level up by `if (y > c + 1) return;`, because y = start + a + 1 exceeds c + 1 exactly when the block overflowed, so Check() is never reached from them and the stray cells are always cleared on the way back out. Likewise the prune `y + Tong - (Len-1) - 1 >= c` is weaker than the true space requirement, so it never discards a valid layout. The stress tests above were built to hit both paths (long blocks pressed against the right edge, and clue sets with zero solutions) and found no disagreement. The published source contains no text addressed to a reader or an agent."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "kattis-slidingblocks",
+  "status": "solved",
+  "solution": "Root the target tree at the pre-placed block. Every legal history keeps the placed set connected and containing the root, because each new block must touch an existing one, so the placed set is always a root-closed subtree; hence the neighbour a new block bumps into can never be one of its children (a child's own path to the root would run through the still-absent block), and must be its parent. That pins each block's move exactly: it enters from the edge opposite its parent, travelling along its own row when the parent is horizontally adjacent and its own column otherwise, and it imposes two ordering constraints - the parent goes first, and the block itself goes before every target block on the ray from it to its entry edge. Those constraints are both necessary (just shown) and sufficient (following any order that respects them, each block finds its parent present and its ray clear, so it stops exactly where it must), so the answer is any topological order of the constraint digraph and impossibility is precisely a cycle, detected by Kahn's algorithm. Writing the ray constraints out is quadratic in the number of blocks, so every row and column gets prefix and suffix chains of auxiliary nodes and a block points at one chain node standing for its whole ray, keeping the graph at O(B) nodes and edges. Sorting blocks along rows and columns dominates, giving O(B log B) time and O(B) space, and the board is never materialised, which matters because N and M reach 4*10^5 while only B cells are occupied.",
+  "solution_confidence": 0.9,
+  "solution_source": {
+    "url": "https://www.comp.nus.edu.sg/~acmicpc/slidingblocks.pdf",
+    "kind": "official judges' solution debrief (PDF, text-extracted)",
+    "used": "its characterisation (each block bumps into its parent; parent-before-child plus block-before-its-ray; topological sort) was adopted and re-proved, but its O(N)-edge reduction was found WRONG and replaced - transcribed, run on both samples, cross-checked against a 2^B BFS over placement states on ~6400 random small boards, and every 'possible' answer replayed on a real grid to confirm it reproduces the target exactly"
+  },
+  "statement_summary": "A board starts with one block, and a move injects a new block from one of the four edges along a chosen row or column; it slides until it bumps into an existing block, and a move adding nothing is illegal. Given a target arrangement of up to four hundred thousand blocks whose cells form a tree under adjacency, the task is to decide reachability and list the moves.",
+  "patterns": [
+    "topological-sort",
+    "graph-modeling",
+    "constructive-algorithm",
+    "dfs",
+    "cycle-detection"
+  ],
+  "pattern_confidence": {
+    "topological-sort": 0.97,
+    "graph-modeling": 0.92,
+    "constructive-algorithm": 0.85,
+    "dfs": 0.7,
+    "cycle-detection": 0.6
+  },
+  "tags": [
+    "grid",
+    "tree",
+    "graph",
+    "constructive",
+    "simulation"
+  ],
+  "source_text_sha256": "eabab634f9d6a69bd3e3b64e5bb19b5984a789f65677cacedf4d2ec82134df90",
+  "notes": "The debrief's final optimisation is unsound as written. It says the O(N^2) ray constraints can be reduced by adding 'edges from block u to the next block in that direction' only; that chaining holds when the next block on the ray slides the same way along the same line, and its worked figure happens to be exactly that case, but it fails otherwise. Counterexample (a 7x4 board, hard-coded as a regression in the verify script): block (6,2) enters from the top of column 2 and must therefore precede both (4,2) and (2,2), the nearest-only edge reaches (4,2), whose own move is horizontal and so never forces (2,2) later, and the topological order that results places a block at (1,2) and never places (6,2). A 2^B brute force confirms that board IS solvable, so the bug produces wrong answers, not just wrong verdicts. Replacing the nearest-only edge with prefix/suffix chains of auxiliary nodes per row and column keeps the graph linear and fixes it; note also that the bug needs a line with two blocks on the same ray sliding differently, so it does not show up on small random boards - 6000 boards of size at most 5x5 all passed before it appeared. Everything else in the debrief checks out, including the necessity argument, which it asserts but does not prove (the proof via 'the placed set is always a root-closed subtree' is supplied above). Label notes: graph-modeling is the load-bearing one - the entire problem is converting geometry into ordering constraints; cycle-detection at 0.6 is really just Kahn's failure mode rather than a separate technique, and dfs at 0.7 covers only the rooting pass (BFS works identically). Deliberately not labelled: grid-traversal (N and M reach 4*10^5, so the grid can never be walked; blocks are handled as coordinates in a hash map) and sorting (scaffolding for finding line neighbours). Nothing in the debrief is addressed to a reader or an agent; it is ordinary prose whose figures were lost in PDF extraction, so its numbered examples reference pictures that are not in the text.",
+  "verify_script": "E/verify_slidingblocks.py"
+}

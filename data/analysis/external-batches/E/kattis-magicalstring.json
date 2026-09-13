@@ -1,0 +1,30 @@
+{
+  "id": "kattis-magicalstring",
+  "status": "solved",
+  "solution": "A converted character is absorbed into its asterisk immediately and asterisks never merge with anything, so every operation collapses an interval of the ORIGINAL string and the collapsed intervals are pairwise disjoint; an interval is collapsible exactly when its length is 3 to 5 and exactly one of its positions differs from the common letter of the others, the longer shapes being limited to x-z-x-x, x-x-z-x and x-x-z-x-x because the input already has no run of three. Maximality of the run that collapses adds an ordering constraint rather than a shape constraint: if the character immediately outside an end of the interval equals its common letter, that position must already be an asterisk, so the chosen interval touching that end must be collapsed first. The answer is therefore weighted interval scheduling with a budget of K intervals and weight equal to length, restricted to selections that admit a valid order, which holds exactly when every blocked end has the adjacent interval chosen and no adjacent pair blocks each other -- a mutual block is a 2-cycle and is the only possible cycle, since dependencies only ever run between neighbouring intervals along the line. A left-to-right DP over (next free position, operations used, and a flag saying whether an interval ends at the previous position and whether it still needs its right neighbour) enforces all of that, and because each interval eats at least three characters only min(K, n/3) operations matter, giving O(n*min(K,n/3)) time and memory, about 10^6 states for n = K = 1000 and trivially inside the limits for 50 test cases. Greedy and any incremental-in-K argument both fail here, which the judges' own example shows.",
+  "solution_confidence": 0.93,
+  "solution_source": {
+    "url": "https://www.comp.nus.edu.sg/~acmicpc/icpcsg18-analysis_SHU.pdf",
+    "kind": "official judges' solution debrief (PDF, text-extracted)",
+    "used": "Took the debrief's reframing as weighted interval scheduling with a cap of K, then re-derived the collapsible-interval set and the ordering rules from the statement rather than from its loose SINGLE/EXTEND wording, and verified both formulations against an exhaustive simulator of the statement: all three samples plus 3,250 random magical strings (up to length 13, two- to four-letter alphabets, K up to 4) agreed with brute force, with zero mismatches for either."
+  },
+  "statement_summary": "A string of lowercase letters contains no run of three or more equal characters. An operation rewrites one character so that a run of at least three equal characters appears; that maximal run collapses into an asterisk, which is inert and never rewritten or absorbed. Using at most a thousand operations on a string of at most a thousand characters, the task is to maximise how many characters are absorbed.",
+  "patterns": [
+    "interval-scheduling",
+    "dynamic-programming"
+  ],
+  "pattern_confidence": {
+    "interval-scheduling": 0.88,
+    "dynamic-programming": 0.92
+  },
+  "tags": [
+    "string",
+    "intervals",
+    "dynamic-programming",
+    "scheduling",
+    "optimization"
+  ],
+  "source_text_sha256": "99957975c28a7bcd9e2d9d3dc23cdca1c288dfb203fddfd3bbb0ac4a0646d047",
+  "verify_script": "/Users/dedeepya/Cosine/data/analysis/external-batches/E/verify_magicalstring.py",
+  "notes": "The debrief's route (build SINGLE = intervals collapsible on their own, EXTEND = SINGLE plus every piece of length >= 3 left when a SINGLE interval is cut at an end by another SINGLE interval, then weighted interval scheduling with at most K intervals) is correct in outcome -- it matched the exhaustive simulator on all 3,250 random cases and all three samples -- but the slides state it loosely in two places, so it was re-derived instead of trusted. First, EXTEND is never justified as a feasible SELECTION: nothing in the formulation forces the cutting interval to be chosen too, and the reason that is harmless is an exchange argument the slides do not give (an optimal selection that takes a cut interval whose cutter is absent could extend it into the free space for strictly more weight at the same cost, so it was not optimal). Second, and this is the real trap, the ordering between operations is load-bearing: the naive relaxation that takes ANY disjoint collapsible intervals answers 6 on S = aababb with K = 2, where the true answer is 4, because 'aab' needs position 4 collapsed first and 'abb' needs position 3 collapsed first and the two deadlock. Restricting cuts to SINGLE endpoints is what quietly excludes that pair in the debrief's version; the DP in the verify script instead carries the dependency explicitly as a 3-valued flag, and both agree with brute force. That deadlock case is checked as a named regression in the script. Deliberately omitted: greedy (the debrief shows both that greedy fails and that the answer is not monotone in the sense of reusing the K-1 solution), interval-dp (the DP is linear over positions, not over interval endpoints), and knapsack (the 'at most K intervals' axis is a plain count dimension, not an item-weight trade-off). The 26-letter alphabet is irrelevant to the algorithm; only equality of adjacent characters matters. Nothing in the source text was addressed to a reader or an agent."
+}

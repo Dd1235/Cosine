@@ -1,0 +1,29 @@
+{
+ "id": "kattis-intelligenceexchange",
+ "status": "solved",
+ "solution": "Run Dijkstra four times, from each house and each school, and then classify every vertex and every edge once. A walker occupies a point p only at time dist(house, p), and only when dist(house, p) + dist(p, school) equals the shortest distance; the school vertex is additionally occupied at every later time because they wait there forever. So a vertex counts when it lies on shortest paths of both and the two arrival times are equal, or when it is one walker's school, lies on the other's shortest paths, and the other passes it no earlier than its owner arrives. Since every weight is positive, an edge can lie on a given walker's shortest paths in at most one direction, so the only interior meetings are head-on: if one enters at time a and the other enters from the far end at time c on an edge of length w, they cross at the single point reached at time (a+c+w)/2, which is strictly inside the edge exactly when the absolute difference of a and c is below w, the boundary case being a vertex meeting already counted. Infinitely many meeting points can only come from traversing a whole edge together, which requires a vertex with equal arrival times having an incident edge on both walkers' shortest paths in the same direction; any finite answer is at most n+m, far under the stated billion threshold, so that test is exactly when to print -1. Four Dijkstras dominate: O((n+m) log n) time and O(n+m) space for n, m up to 5*10^5.",
+ "solution_confidence": 0.95,
+ "solution_source": {
+  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest/intelligenceexchange.cpp",
+  "kind": "accepted C++ solution (third-party repo)",
+  "used": "Compiled and ran it on all three samples, then drove the binary from verify_intelligenceexchange.py against a brute force that avoids the whole edge analysis: subdividing every edge into unit pieces at scale K=2 puts every possible meeting point (they sit at half-integer offsets) on a vertex, so the brute force only applies the vertex rule, and re-running at K=4 detects the infinite case because a continuum's count grows with the mesh while a finite one does not. 2600 random graphs, including grids and cycles and cases with shared houses, all agree, and n=m=5*10^5 runs in 1.3s."
+ },
+ "statement_summary": "Two students leave home at the same moment and walk to their schools across a weighted undirected graph, each taking some shortest route at the same speed and staying at school after arriving. The task is to count the distinct locations, on edges as well as at vertices, where the two could be present simultaneously, or report that the count would exceed a billion.",
+ "patterns": [
+  "dijkstra",
+  "shortest-path"
+ ],
+ "pattern_confidence": {
+  "dijkstra": 0.95,
+  "shortest-path": 0.9
+ },
+ "tags": [
+  "graph",
+  "shortest-path",
+  "dijkstra",
+  "counting"
+ ],
+ "source_text_sha256": "54b366085e7585ef001f34fb8e2a1b51cf920ef0f45700cd4c1248f5a165102a",
+ "verify_script": "E/verify_intelligenceexchange.py",
+ "notes": "The -1 rule reads as a magnitude cap ('if r > 10^9') but is really an infinity flag: a finite answer is at most one point per vertex plus one per edge, so at most 10^6. The published code's two delicate points both check out. First, its strict inequality max(a,c) < min(b,d) is what stops an edge crossing that lands on an endpoint from being counted twice, once as an edge and once as a vertex. Second, the two 'walker waits at school' cases are chained with else, which is correct even when both schools coincide, since exactly one of the two arrival comparisons then holds. The statement warns that one edge may host two meeting locations; that cannot actually happen with positive weights, because an edge lies on a walker's shortest paths in at most one direction, so at most one head-on crossing exists per edge. Considered and rejected graph-modeling (the graph is given as is) and heap (scaffolding inside Dijkstra). There is no canonical label for the continuous, meet-on-an-edge case analysis that is the real difficulty here. Nothing in the source file is addressed to a reader: only commented-out debug prints and a THEMIS-guarded freopen block."
+}

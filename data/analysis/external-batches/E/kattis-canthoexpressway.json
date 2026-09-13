@@ -1,0 +1,30 @@
+{
+  "id": "kattis-canthoexpressway",
+  "status": "solved",
+  "solution": "Write f(P) = a*Px + b*Py for the linear form defining the two parallel lines and let lo and hi be the smaller and larger of the two constants. The strip is exactly the preimage of the interval from lo to hi under f, so the polygon and the strip share positive area precisely when the projection interval of the polygon, from the minimum to the maximum of f over its vertices, overlaps that interval in positive length: a convex polygon with interior has a chord of positive length on every line strictly between its own supporting lines, and integrating those chords over an interval of positive length gives positive area, while a strip that only touches the polygon meets it in a point or a single edge, both of measure zero. The published solution evaluates the same predicate by sign tests rather than by projecting: it answers YES if some edge strictly straddles one of the two lines, or some edge joins a vertex lying on one line to a vertex lying on the other, or some vertex lies strictly between the lines, and NO otherwise, which enumerates exactly the ways the projections can overlap in positive length. Everything stays in exact integers, with f bounded by about two million and its pairwise products by four times ten to the twelfth, so the 64-bit products the code uses are necessary. Each query is O(k) with k at most six and O(1) extra space, so all ten thousand queries cost at most about sixty thousand operations.",
+  "solution_confidence": 0.96,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest/canthoexpressway.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Compiled and run on the statement's sample (NO, YES), then differential-tested on about 25000 generated cases against an exact oracle that clips the polygon by the two half-planes with Fraction arithmetic and takes the shoelace area, answering YES iff that area is strictly positive. The generators include tiny coordinates where vertices land exactly on the boundary lines, strips engineered so a boundary passes through a vertex projection, hand-built strips flush with an edge of a square or triangle, both vertex orientations and rotated starting vertices, and full-magnitude coordinates. The projection formulation was checked against the same oracle on every case as a third opinion."
+  },
+  "statement_summary": "For up to ten thousand independent queries, each supplying a strip bounded by two distinct parallel lines with small integer coefficients and a convex polygon of three to six integer vertices in either orientation, the task is to decide whether the strip and the polygon share a region of positive area. Meeting only at a single point or along one whole edge does not count.",
+  "patterns": [
+    "geometry",
+    "segment-intersection"
+  ],
+  "pattern_confidence": {
+    "geometry": 0.95,
+    "segment-intersection": 0.45
+  },
+  "tags": [
+    "geometry",
+    "convex-polygon",
+    "half-plane",
+    "intersection",
+    "ad-hoc"
+  ],
+  "notes": "geometry is the only strong label; the problem is small and its difficulty is entirely in getting the degenerate contacts right (a vertex on a line, an edge lying inside a line, the strip covering the polygon, the polygon covering the strip) rather than in any named algorithm. segment-intersection is kept low at 0.45: the accepted solution's main test is straddle tests of polygon edges against the two lines, which is the sign half of a segment-line intersection test, but a searcher for segment-intersection usually wants segment-versus-segment and would find this a stretch. Deliberately NOT labelled: convex-hull (the polygon is handed over convex), point-in-polygon (no containment query is needed or performed -- an interior point test would in fact be the wrong predicate here, since a strip can cut a polygon with every vertex outside it), polygon-area and line-sweep (my oracle clips and uses the shoelace formula, but the solution computes no area at all), orientation-test (no cross product is taken; the vertex order is irrelevant to the answer), brute-force (k <= 6 makes the vertex scan the intended method, not an enumeration shortcut). Vocabulary gap: the clean way to state this is a separating-axis / projection-interval test along the line normal, and the corpus has no slug for either. Worth recording for a reviewer: the whole decision is equivalent to one-dimensional interval overlap of the vertex projections with the two constants, which is far shorter than the published case analysis and is verified equivalent on every generated case.",
+  "source_text_sha256": "a1f4c3f143936e61ff8042b9bd0f85ff4594c2c26200e9a3df092179dd769088",
+  "verify_script": "E/verify_canthoexpressway.py"
+}
