@@ -12,15 +12,11 @@
   "patterns": [
     "segment-tree",
     "sparse-table",
-    "offline-queries",
-    "line-sweep",
     "lexicographic-order"
   ],
   "pattern_confidence": {
     "segment-tree": 0.85,
     "sparse-table": 0.8,
-    "offline-queries": 0.7,
-    "line-sweep": 0.6,
     "lexicographic-order": 0.8
   },
   "tags": [
@@ -32,5 +28,5 @@
   ],
   "source_text_sha256": "d88282713074acc20b1465a208d89fbe1e0a2bf416586a42115d7712169851d7",
   "verify_script": "E/verify_wiknow.py",
-  "notes": "The debrief solves a DIFFERENT question from the one the statement asks: it stops at deciding whether any A,B,A,B exists and never mentions the lexicographically smallest pair, which is what has to be printed. The minimality half (sweep A upward using one range-max per occurrence gap, then a single linear scan over the winning A's span for the smallest B) is derived here and is the only part that needed brute-force checking; the existence half is the debrief's and is correct. The debrief's own phrasing (segments [imin(S_j), j], queries (u, imax(S_u)), sorted events, segment tree) also works and is O(N log N); the consecutive-occurrence form used here is equivalent and avoids the event sort. Label caveats: line-sweep at 0.6 is the weakest - the corpus mostly uses it for geometry, and here the 'sweep' is the debrief's ordering of add/remove/query events along the index axis, which a searcher may or may not expect; offline-queries likewise describes the debrief's formulation more than the implemented one, where the queries are answered against a static RMQ. Both segment-tree and sparse-table are listed because each is a genuine full solution, not scaffolding, and which one appears depends on which of the two equivalent formulations is followed. Not labelled: two-pointers and greedy (the extremal-occurrence step is an exchange argument, not a greedy choice over candidates), hash-map (values are bounded by N so plain arrays suffice - pure scaffolding). Nothing in the debrief text is addressed to a reader or an agent; it is ordinary prose plus PDF extraction noise (spaced subscripts like 'S i', and one typo where it writes A_u and A_j for S_u and S_j)."
+  "notes": "The debrief solves a DIFFERENT question from the one the statement asks: it stops at deciding whether any A,B,A,B exists and never mentions the lexicographically smallest pair, which is what has to be printed. The minimality half (sweep A upward using one range-max per occurrence gap, then a single linear scan over the winning A's span for the smallest B) is derived here and is the only part that needed brute-force checking; the existence half is the debrief's and is correct. The debrief's own phrasing (segments [imin(S_j), j], queries (u, imax(S_u)), sorted events, segment tree) also works and is O(N log N); the consecutive-occurrence form used here is equivalent and avoids the event sort. Label caveats: line-sweep at 0.6 is the weakest - the corpus mostly uses it for geometry, and here the 'sweep' is the debrief's ordering of add/remove/query events along the index axis, which a searcher may or may not expect; offline-queries likewise describes the debrief's formulation more than the implemented one, where the queries are answered against a static RMQ. Both segment-tree and sparse-table are listed because each is a genuine full solution, not scaffolding, and which one appears depends on which of the two equivalent formulations is followed. Not labelled: two-pointers and greedy (the extremal-occurrence step is an exchange argument, not a greedy choice over candidates), hash-map (values are bounded by N so plain arrays suffice - pure scaffolding). Nothing in the debrief text is addressed to a reader or an agent; it is ordinary prose plus PDF extraction noise (spaced subscripts like 'S i', and one typo where it writes A_u and A_j for S_u and S_j). SKEPTIC EDIT: line-sweep and offline-queries were dropped before publication. Both described the NUS debrief's event/segment formulation rather than the implemented solution, which answers static range maxima over consecutive-occurrence gaps with no sweep and no query batching. In this corpus line-sweep is overwhelmingly a geometry label, and the statement has no queries at all."
 }

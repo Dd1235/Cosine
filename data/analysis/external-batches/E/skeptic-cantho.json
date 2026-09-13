@@ -1,0 +1,162 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-13",
+ "batch": "E",
+ "verification": "verify-run.txt was absent when review began and was rewritten mid-review (28 of 28 PASS; its three FAIL(exit1) 0s lines for beautifulsquare, canthoexpressway and milkteabattle were a harness gap, the runner passed no binary path). Independently of that file, the reviewer re-ran all eight scripts here (three published binaries compiled with g++ -O2 -std=c++17 against a bits/stdc++.h shim) and every number agrees with the record: finalexam2 0 mismatches; alchemy101 exhaustive m<=16 + structural m<=1000 OK; canthoexpressway ~11k cases vs exact Fraction clipping OK; edgeremoval 365 connected + 285 disconnected vs brute force OK, limits 0.65s; jugglingsequence 180300 + 3000 + 2086 queries OK, 1e4 queries at n=1e18 in 0.16s; intelligenceexchange 2600 graphs OK, n=m=5e5 in 1.63s; beautifulsquare oracle n<=4 + exhaustive n<=40 and n=99,100 + 4000 random OK; milkteabattle 333 minimising games all at OPT to 1e-9, 5 of 158 wasteful-opponent games at 0.7338-0.7666 of OPT (k=1, n in 47..50), 3-slot value iteration 2.45 vs 2.5. Reviewer added a wider intelligenceexchange driver (grids up to 5x6 with corner-to-corner walkers, dense unit-weight graphs, odd weights): 760 cases, 0 mismatches, finite answers up to 5 and 145 infinite cases.",
+ "reviews": [
+  {
+   "id": "kattis-finalexam2",
+   "status": "approved",
+   "keep": [],
+   "drop": [
+    {
+     "label": "simulation",
+     "why": "Nothing evolves step by step: the misalignment is a one-shot relabelling and the answer is the number of i with key[i] == key[i+1]. Corpus simulation carriers (juicer rounds, token games, incremental RAM) all run a process forward; the only simulation here is the proposer's own brute-force cross-check, which is not the solution."
+    }
+   ],
+   "add": [
+    {
+     "label": "counting",
+     "why": "The answer is literally a count of adjacent equal pairs in the key; the corpus applies counting to plain frequency/pair counts on easy problems (codeforces-768-a, 841-a) and carries the alias pair-counting. Leaving the problem with no pattern at all has a single anomalous precedent (codeforces-656-c).",
+     "confidence": 0.6
+    }
+   ],
+   "independent_band": "easy",
+   "source_text_sha256": "35ec96c6a85bc5423e6b88f8a005c80e9b8661717ee5d081b2301d031cd749dd",
+   "review_rationale": "Derivation is a one-line off-by-one and both samples (3, 1) reproduce; O(n) time and O(1) space against n <= 1000 is trivially inside limits. The only label was under 0.6 and fails the strict test, so it is swapped for the label that names what is actually computed. Kattis 1.5 puts this well inside the easy band.",
+   "issues": [
+    "Kattis 1.5 is an Easy in a hard-focus corpus; it enters only because whole contests are ingested. The proposal's own notes admit counting was the co-equal candidate; the swap here is a strictness call, not a correctness one."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-alchemy101",
+   "status": "approved",
+   "keep": [
+    "bit-manipulation",
+    "constructive-algorithm"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "fee9f1b8181dea399488dad3001e1f8fff1693190e7294b1a12be617e0fa5a6d",
+   "review_rationale": "Checked the closed form by hand: v = X(m) xor m is 0, m-1, 1, m for m mod 4 = 0,1,2,3 (with m = 1 giving 0), the discarded element is forced so the maximum set is unique and the lexicographic clause never binds; all three samples reproduce and the exhaustive m <= 16 run confirms uniqueness. O(m) output per test, at most about a million integers in total, no space concern. The two labels are the whole solution; I agree with declining prefix-xor, lexicographic-order and greedy for the reasons given.",
+   "issues": [
+    "Independent band is easy rather than Kattis's medium (3.9): the xor-of-1..m identity is standard and the drop-one-element step is immediate; the score mostly reflects output volume."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-canthoexpressway",
+   "status": "approved",
+   "keep": [
+    "geometry"
+   ],
+   "drop": [
+    {
+     "label": "segment-intersection",
+     "why": "The accepted code never intersects two segments; it takes the sign of a*x+b*y-c at vertices and asks whether an edge straddles a line, which is a half-plane side test, and the whole predicate collapses to one-dimensional overlap of the vertex projections with [lo, hi]. The label has a single corpus carrier (codeforces-1248-a) and a searcher for it wants segment-versus-segment; 0.45 is under the strict threshold and the label does not survive it."
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "a1f4c3f143936e61ff8042b9bd0f85ff4594c2c26200e9a3df092179dd769088",
+   "review_rationale": "I re-derived the equivalence the proposal asserts: positive common area iff max(min f, lo) < min(max f, hi), and each of the code's three YES conditions implies it, while positive overlap with no vertex strictly inside forces an edge from a vertex with f = lo to one with f = hi, which is the code's second condition, so the sign-test case analysis is exactly the projection test. Values of f are bounded by about 2e6 (fits int) and only their pairwise products need 64 bits, which the code provides. O(k) per query with k <= 6 over 1e4 queries is negligible in time and space. Considered adding orientation-test (the corpus uses it for which-side-of-a-line tests) and declined: the line is given in implicit form, no cross product is formed, and the corpus's three carriers are the CSES point-location trio.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-edgeremoval",
+   "status": "approved",
+   "keep": [
+    "minimum-spanning-tree",
+    "kruskal",
+    "union-find"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "cddee36503766a6d69788a215acaf6c324a228fa04a589a617b5d38cfe2a61eb",
+   "review_rationale": "The lower bound holds: with a unique MST every non-tree edge is strictly heavier than its tree path, so its endpoints are joined by strictly lighter kept edges, hence lighter original edges, so survivors <= (n-1) + loop edges; the construction keeps a spanning forest per weight class over the contracted graph, preserving the original connectivity at every weight prefix, so it attains the bound and the resulting MST is unique. The driver does exercise the claim: it checks the C++ count against an exhaustive optimum and independently re-validates the emitted edge set for connectivity and MST uniqueness, plus the 3e5-edge single-class worst case in 0.65s. Sorting dominates, O(m log m) time and O(n+m) space; union-by-size keeps the recursive find shallow. union-find is not scaffolding here: the entire criterion is whether an edge closes a cycle among strictly lighter edges.",
+   "issues": [
+    "Published C++ prints a different optimal edge on the sample (6 vs the judge's 2); both verified valid, statement accepts any."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-jugglingsequence",
+   "status": "approved",
+   "keep": [
+    "binary-search",
+    "order-statistics",
+    "binary-search-answer"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "1baa75b157b07a96da2f434597d1909d428d1d0c712cf2453f045b606b5f8a50",
+   "review_rationale": "I re-derived the block identity by induction (from a_t = 1 the block is t+1, 2t+2, then t-j and 2t+3+j alternating, returning to 1 exactly at index 3t+1), which matches the verifier's term-by-term check to n = 4000 and the sample sequence 1 2 4 1 5 10. Ruling strictly on binary-search-answer: the corpus definition (docs/codex-label-audit.md) is guessing a candidate answer and testing a monotone predicate, and count(values <= x) >= m is exactly that with a non-trivial predicate; the interval-walk alternative exists but the accepted solution and the standard idiom for selection over an implicit multiset both search the value, and the corpus's one other order-statistics carrier that searches a value (leetcode-kth-smallest-path-xor-sum) carries the same pair. binary-search alongside it is the family rule, not double counting (all 280 carriers have both). O(log^2 n) per query over 1e4 queries, O(log n) space, values below 1.52e18 fit signed 64-bit, verified at n = 1e18.",
+   "issues": [
+    "Keep binary-search-answer at the proposed 0.6, no higher: the load-bearing insight is the period-tripling block decomposition, which has no canonical label."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-intelligenceexchange",
+   "status": "approved",
+   "keep": [
+    "dijkstra",
+    "shortest-path"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "54b366085e7585ef001f34fb8e2a1b51cf920ef0f45700cd4c1248f5a165102a",
+   "review_rationale": "Walked the C++ case analysis: a vertex where both arrive at the same time on shortest paths counts and is where co-traversal (hence -1) is tested; head-on crossings are counted from Carmen's entry endpoint with the open-interval overlap test, and a crossing whose entry endpoint is a co-arrival vertex necessarily has |a-c| = w and is correctly skipped; the school-wait cases are chained with else and are exclusive. The earlier reviewer's coverage worry was legitimate: the supplied drivers' answers top out at 3, so I ran 760 additional cases (grids to 5x6 with corner-to-corner walkers, dense unit-weight graphs, odd weights) against the same mesh-refinement brute force and got 0 mismatches with finite answers up to 5 and 145 infinite cases; the count is a sum of independent per-vertex and per-edge tests, so once each test is exercised in isolation large totals add no new logic, and the 5e5 limit case (1.63s, 16 MB of distances) confirms scale. Four Dijkstras dominate, O((n+m) log n) time, O(n+m) space.",
+   "issues": [
+    "Supplied drivers reach only answers <= 3; mitigated by the reviewer's extra run (answers to 5, many -1 cases), but a future verify pass should fold a larger-grid generator into verify_intelligenceexchange.py."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-beautifulsquare",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm",
+    "parity-argument"
+   ],
+   "drop": [
+    {
+     "label": "grid-traversal",
+     "why": "Every corpus carrier (cses-1192 rooms, unique-paths, escape-a-large-maze, whereaminow) is a BFS/DFS/DP search over a given grid; here the grid is empty and the solution writes a boustrophedon fill by case analysis. The proposal itself concedes nobody reaches this problem through a grid-traversal query; at 0.5 it fails the strict threshold."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "df5b1de242a2d704493484a41f02db52962bf46f3f914354a94cdf5eeb2258a3",
+   "review_rationale": "The parity argument is sound: consecutive labels alternate chessboard colour, so a Hamiltonian path on n*n cells with n odd starts and ends on the majority colour, which is r+c even ((n*n+1)/2 cells, since (1,1) is even); hence NO exactly when n is odd and r+c is odd, and n = 1 correctly falls on the YES side. Sufficiency is by construction: for even n the grid has a Hamiltonian cycle so every start works, and for odd n with r+c even the exhaustive n <= 40 and n = 99 runs plus the n <= 4 Hamiltonian-path oracle confirm the published case analysis. O(n^2) per test, at most 1e6 cell writes and 1e6 output integers over all tests. No canonical label exists for Hamiltonian path construction; hamiltonian-dp would mislead.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-milkteabattle",
+   "status": "approved",
+   "keep": [
+    "interactive",
+    "game-theory",
+    "constructive-algorithm"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "c4cf0e0b5c2708ce3d5e0548e2611007f7b5f2bdc086720ea5b35bec4db279f9",
+   "review_rationale": "I checked the value independently: with u survivors at common level v the quantity v + x*H_u is invariant under pour-x/u-and-lose-one, the levelling phase ends with m-1 slots at x, and the final free pour gives x*(1 + H_{m-1}); m = 2 gives the fixed point 2x by direct minimax and m = 3 matches the value iteration, and the disjoint-block adversary makes the m-slot game an upper bound on any pouring strategy. game-theory stands: the students genuinely choose (adaptive interactor), the target is a minimax value proved by a potential function, and the corpus already uses the label for non-combinatorial adversarial problems such as codeforces-1427-h. constructive-algorithm at 0.7 follows the corpus norm for interactive strategy-design carriers (7 of 10 sampled). On the wasteful-opponent shortfall: it is a note, not a blocker for publication, because the labels and summary describe the problem and the accepted approach, and Kattis accepted this code; but the code is genuinely not adversary-proof, since each wasted opponent round raises every survivor by x/u, so a strategy that reserved roughly 250 knock-out rounds instead of 99 would reach OPT against any opponent within the 2000-round cap, and the 1900/99 split is the only reason the leftmost-window opponent wins.",
+   "issues": [
+    "The solution text presents the published 1900/99 round split as if it guaranteed OPT; it does not against non-minimising opponents (0.73-0.77 of OPT at k = 1, n >= 47). Recommend one added sentence: a robust split reserves a few hundred knock-out rounds, since a wasted opponent round only raises the survivors' level and the invariant then exceeds OPT.",
+    "The reference value is judged to 1e-3 relative and the code lands exactly on OPT with zero margin; that is fine for annotation but worth knowing if anyone reuses the code as a reference."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "verify-run.txt arrived mid-review; every script was also re-run here independently and all pass with matching figures, so the proposals' pass/fail claims hold. Using published accepted C++ did not degrade correctness of the derivations (every complexity and edge-case claim checked out and the two delicate code points in intelligenceexchange and edgeremoval were correctly identified), but it introduced a visible bias in the low-confidence labels: two of the three sub-0.6 labels I dropped (segment-intersection on canthoexpressway, grid-traversal on beautifulsquare) describe what the code mechanically does (edge-versus-line sign tests, a snake walk over the grid) rather than a technique a searcher would name, which is the transcription-side failure mode to watch for in future code-sourced batches. The third drop (simulation on finalexam2) is the mirror image: a label attached to the verifier's brute force rather than the solution. The other risk of code-sourcing surfaced on milkteabattle, where the annotated 'solution' inherits a fragility of the accepted code (not adversary-proof under the round cap) that a derived solution would not have had; it is recorded as an issue rather than a block. Independent bands differ from Kattis in one place (alchemy101 easy vs 3.9 medium) and are otherwise consistent."
+}

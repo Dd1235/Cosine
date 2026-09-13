@@ -1,0 +1,35 @@
+{
+ "id": "kattis-milkteabattle",
+ "title": "Milk Tea Battle",
+ "slug": "milkteabattle",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/milkteabattle",
+ "source_topic": "ICPC / The 2020 Asia Can Tho Regional Contest",
+ "source_tags": [],
+ "statement": "In an interactive, adaptive game with at most fifty cups, one player repeatedly distributes at most a fixed number of litres of milk tea among cups, after which opponents empty a window of consecutive cups of a fixed length, at most ten. He may instead end with a last distribution nobody drinks, and within two thousand rounds must guarantee some cup holds essentially the largest amount any strategy can force.",
+ "tags": [],
+ "patterns": [
+  "interactive",
+  "game-theory",
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "interactive": 0.9,
+   "game-theory": 0.9,
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.6,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:25:04+00:00"
+ }
+}

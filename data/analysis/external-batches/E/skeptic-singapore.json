@@ -1,0 +1,173 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-13",
+ "batch": "E",
+ "reviews": [
+  {
+   "id": "kattis-freefood",
+   "status": "approved",
+   "keep": [
+    "interval-union",
+    "brute-force"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "30361881692e291c1478e5575a5f25c43fdb00a715761245f1f8458b4e3fd8bc",
+   "review_rationale": "Union of at most 100 closed intervals inside [1,365]; day-stamping is O(N*365) time and 366 booleans of space, trivially inside a 1 s / 1024 MB limit. Re-ran verify_freefood.py: all three samples plus 5000 random cases agree across stamping, sort-and-merge and a difference array. interval-union is exactly the question asked; brute-force at 0.7 honestly names the stamping that the tiny bound licenses, and the proposer rightly kept difference-array and line-sweep off.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-sgcoin",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm",
+    "modular-arithmetic"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "7e0a93c59329c158694da003e869295ab368c08f6afedf250477314a8df96608",
+   "review_rationale": "Checked the algebra: H = (7v + tok) mod p with tok entering linearly, so tok = (target - 7v) mod p is forced for any of the 100 positive multiples of 10^7 below p, and only the 7 residues in [10^9, 10^9+6] are excluded, so a valid target always exists. Re-ran verify_sgcoin.py: reproduces all four H values printed in the statement (including the 140000000 -> 930000000 -> 730000000 chain) and forges valid two-block chains for 2004 inputs; O(|T|) time, O(1) space. Nothing is mined, so constructive-algorithm plus modular-arithmetic is the right pair and string-hashing/brute-force are correctly withheld.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-hoppers",
+   "status": "approved",
+   "keep": [
+    "bipartite-graph",
+    "connected-components",
+    "parity-argument"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "44e8f34c5a2041e2173a7e47ec4ee24492546cd57667c19df8a49c198874c0a4",
+   "review_rationale": "Re-derived the formula: two-hop infection reaches exactly the even-walk closure, which is the whole graph iff it is connected and non-bipartite; k-1 edges are necessary for connectivity, a tree of joins between bipartite components stays bipartite, and N>=3 guarantees a same-colour non-edge for the k-th edge. One 2-colouring pass is O(N+M) time and space at 5*10^5, well inside 2 s. Re-ran verify_hoppers.py: exhaustive over all 3- and 4-vertex graphs plus 800 random 5/6-vertex graphs against a literal two-hop simulation, all agree. parity-argument at 0.6 survives strict review because the even-length-walk step is the actual deduction, not a restatement of bipartiteness.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-largesttriangle",
+   "status": "approved",
+   "keep": [
+    "convex-hull",
+    "rotating-calipers",
+    "geometry",
+    "two-pointers"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "ed86c96bc500bba62022508398c7ae93d1e9af5eb7852b237a9d2b9cad5588a3",
+   "review_rationale": "The per-root monotone apex pointer is sound: for a fixed root, the base direction rotates monotonically as the second vertex advances, so the farthest hull vertex from the base line moves monotonically too, giving amortised O(h) per root and O(h^2) <= 2.5*10^7 cross products at N=5000 in O(N) space, inside 2 s. Twice-area fits in 64-bit (about 3.2*10^15). Re-ran verify_largesttriangle.py: sample gives 100.00000, degenerate inputs give 0, and the sweep matches an O(N^3) brute force on 2220 random point sets. The proposer correctly refused the single-pass Dobkin-Snyder shortcut (known unsound per Keikha et al.), which is why O(h^2) and not O(h) is claimed; two-pointers at 0.7 overlaps rotating-calipers but is an honest description of the mechanism.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-nonprimefactors",
+   "status": "approved",
+   "keep": [
+    "sieve",
+    "number-theory",
+    "divisor-enumeration",
+    "prime-factorization"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "603e1f6229dfabe597efcfdfcf06358bbaf64fbacb34699dd70bb7b6e80a990d",
+   "review_rationale": "NPF(i) = d(i) - omega(i) is correct and reproduces the samples; the harmonic sieve is O(M log M) build plus O(1) per query with a 4 MB 16-bit table, which is the only approach comfortably inside Kattis's 1 s limit (fetched: 1 second, 1024 MB). Re-ran verify_nonprimefactors.py: tables match trial-division factorisation up to 2*10^5 and explicit divisor enumeration up to 2*10^4. The claim that the slides' per-query trial division would not pass is directionally right at 1 s but overstated as written, see issues. prime-factorization at 0.6 is kept: the identity is a statement about the factorisation and the common SPF-sieve implementation does factorise.",
+   "issues": [
+    "Solution text says per-query trial division 'costs about 1400 steps' and is 'far too slow even when memoised'. 1400 is the prime-input worst case; I measured the average over random i <= 2*10^6 at about 240 iterations for naive trial division and about 48 when dividing by primes only, so memoised over 2*10^6 distinct inputs that is roughly 4.8*10^8 versus 1*10^8 divisions. At the 1 s limit the naive form the slides describe is indeed too slow, but the primes-only form is borderline rather than hopeless. Recommend rewording to 'about 240 divisions on average, up to 1400 for primes; roughly 5*10^8 in total even when memoised, too slow for the 1 s limit'. Not blocking: the chosen solution and its limits claim are correct."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-bitwise",
+   "status": "approved",
+   "keep": [
+    "bit-manipulation",
+    "greedy"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "c7a5d9b3138dd255dad0cfef3bd7de4a5d20b67e02353042b4d188df3f2cfe67",
+   "review_rationale": "Confirmed the binary-search-answer exclusion: the predicate actually evaluated is 'every section OR is a superset of X', and on A=[4,4], K=2 it holds for X=4 and fails for X=3, so it is monotone only under submask inclusion; the numerically monotone predicate 'max AND >= X' is not directly computable, which is exactly why the algorithm is a high-to-low greedy mask build and not a search. Re-proved the <=31-start reduction (slide the wrapping section's start forward to the last position with the same suffix OR; the skipped elements only add bits to the preceding section) and the shortest-first sweep with merge-down. 30 bits * 31 starts * N is about 4.6*10^8 word ops in O(N) space, fine under the fetched 3 s limit. Re-ran verify_bitwise.py: samples, 7000 random cases against exhaustive circular partitions, and 64000 triples confirming the candidate-start set equals all N starts. The debrief text (extracted from the NUS PDF) does say 'at most log(10^9) = 31 different starting points' without naming them, so the suffix-OR criterion is a genuine but well-tested reconstruction.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-conveyorbelts",
+   "status": "approved",
+   "keep": [
+    "max-flow",
+    "graph-modeling",
+    "layered-graph",
+    "dinic"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "8afdf5bd9380030948253b1f695b077abcbe8c6f5d051413083964fd487be69a",
+   "review_rationale": "The phase-mod-K reduction is correct: item x*K+j occupies its (d+1)-st belt at minute x*K+j+d, so a belt-phase pair is a single unit resource and simultaneous legality is arc-disjointness in the K-layer time-expanded graph; I checked the debrief text and the model transcribed matches it exactly (K copies per junction, K arcs per belt, unit source edges, infinite sink edges, Dinic). Paths through a warehouse copy can be truncated at the sink without changing the value, and flow cycles can be dropped, so max flow equals the answer. Unit capacities with flow value <= K give at most K Dinic phases over 3*10^5 arcs, about 9*10^7 ops and O((N+M)K) memory, inside the fetched 2 s. Re-ran verify_conveyorbelts.py: samples plus 4482 cases against a minute-by-minute simulation that does not assume the phase argument. layered-graph is the right name for the wrap-around time expansion and dinic is justified by the debrief's explicit recommendation.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-wiknow",
+   "status": "approved",
+   "keep": [
+    "segment-tree",
+    "sparse-table",
+    "lexicographic-order"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "d88282713074acc20b1465a208d89fbe1e0a2bf416586a42115d7712169851d7",
+   "review_rationale": "Re-ruled after the coordinator's edit: patterns are now exactly segment-tree, sparse-table, lexicographic-order, with line-sweep and offline-queries removed from both patterns and pattern_confidence and a SKEPTIC EDIT sentence in notes recording why; the surviving 'Label caveats' sentence reads as history, not as a claim, so it is fine. The solution itself was already verified: the 2-page NUS debrief (text-extracted) decides existence only and never mentions the lexicographically smallest pair; the consecutive-occurrence reduction is correct in both directions; smallest A by a gap-RMQ test then one linear scan of A's span for smallest B is right; O(N log N) time and about 30 MB of sparse table at N=4*10^5 fit the fetched 2 s / 1024 MB; verify_wiknow.py passes samples, 40000 exhaustive-brute cases, 400 cubic-reference cases and spanning shapes. Approved as it now stands.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-slidingblocks",
+   "status": "approved",
+   "keep": [
+    "topological-sort",
+    "graph-modeling",
+    "constructive-algorithm"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "eabab634f9d6a69bd3e3b64e5bb19b5984a789f65677cacedf4d2ec82134df90",
+   "review_rationale": "Re-ruled after the coordinator's edit: patterns are now exactly topological-sort, graph-modeling, constructive-algorithm, with dfs and cycle-detection removed from both fields and a SKEPTIC EDIT sentence in notes; the older 'Label notes' sentence about them now reads as the reason they were dropped. The central claim was independently confirmed: the NUS debrief says verbatim 'we only need to add edges from block u to the next block in that direction', my own implementation of that rule on the 7x4 board emits a move list that replays to a board with a block at (1,2) and none at (6,2), and my own 2^B BFS shows the target is reachable, so the debrief's reduction gives wrong answers. The characterisation and the prefix/suffix chain repair are sound, O(B log B) time and O(B) space with the grid never materialised fit the fetched 4 s; verify_slidingblocks.py passes samples, 6000 random boards and 270 dense maximal trees against the BFS with every move list replayed. Approved as it now stands.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-easyquery",
+   "status": "approved",
+   "keep": [
+    "segment-tree",
+    "persistent-segment-tree",
+    "offline-queries",
+    "bit-manipulation",
+    "order-statistics",
+    "coordinate-compression"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "f1febf7cf906d4e44e25888d731cf5d9b08d4038cad633e862c68b5d942275c1",
+   "review_rationale": "Re-ruled a second time after the coordinator fixed the last clause: the solution field now says the boundary clipping is 'a step the editorial's prose leaves out, although its code performs it', which is exactly what solutions/advanced/kattis-easyquery.mdx shows (wavelet lef/rig return each boundary value with its clipped occurrence count). I re-read the solution field end to end and every other statement it makes about the editorial (wavelet tree for the order statistics) and about the algorithm's own structure is accurate; solution_source.used and notes were already correct on the code's existence, the 3-trees-by-30-wide-nodes shape and per-test sizing. Algorithm and limits were verified earlier (verify_easyquery.py clean on the sample, 3200 random arrays and 1500 duplicate-heavy boundary shapes; O(30(n+q) log n) time and O(30 n) memory under the fetched 11 s / 1024 MB). Labels publish as proposed: persistent-segment-tree is a fair stand-in for the wavelet tree (no slug exists), offline-queries is genuinely required, and coordinate-compression at 0.72 is doing real work as the trees' index space. Approved.",
+   "issues": [],
+   "summary_ok": true
+  }
+ ],
+ "notes": "Process: the batch directory contains no verify-run.txt, so I re-ran all ten verify scripts myself (macOS has no timeout binary; used perl alarm); all ten exited 0 and reproduced every published sample. All ten source_text_sha256 values match sha256 of the staging source_text, and all ten statement_summary fields are 63-69 words with no examples or markup. I fetched every Kattis page for the actual limits (freefood, sgcoin, nonprimefactors 1 s; wiknow, conveyorbelts, largesttriangle, hoppers 2 s; bitwise 3 s; slidingblocks 4 s; easyquery 11 s; all 1024 MB) and no solution here blows time or space. On the published-solution question: it did not degrade the label sets much -- eight of ten label sets publish as proposed, and the two needs_work label edits (wiknow line-sweep/offline-queries, slidingblocks dfs/cycle-detection) are exactly the pattern of inheriting labels from the debrief's formulation or from scaffolding rather than from the problem, which is the one systematic risk of annotating from a source. Where it did hurt is in statements about the sources themselves: the two claims that most needed checking (slidingblocks' unsound nearest-block reduction, wiknow's existence-only debrief) are both TRUE -- I confirmed slidingblocks with my own implementation of the debrief's rule plus my own BFS, and read both debriefs via pdftotext -- but the easyquery proposal misdescribes its source three times (says there is no code, credits itself with boundary clipping the editorial's code already does, and quotes a '30 segment trees' claim the editorial never makes), and the nonprimefactors proposal overstates the slides' trial-division cost by quoting the prime-input worst case as if it were typical. Recommendation for future batches from published sources: when a page has code, read the code before asserting what the source omits, and keep quoted criticisms of a source to sentences that actually appear in it. bitwise's binary-search-answer exclusion is correct and should be cited as the model argument for the 277-carrier cleanup: a bit-by-bit greedy mask build with a superset-monotone predicate is not a binary search on the answer even when the source phrases it as 'given X, can you achieve at least X'."
+}

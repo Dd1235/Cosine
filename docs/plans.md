@@ -271,69 +271,107 @@ runs with an API key in CI.
 
 ---
 
-## 4a. Resume here — the Kattis/CodeChef publish that was left mid-flight (2026-09-12)
+## 4a. Resume here — the Kattis/CodeChef publish (2026-09-13, complete)
 
 Everything below is on disk in the repo; nothing depends on a session scratchpad.
 
 **Done and committed.** Picker in the judge row, back-navigation state, card
 provenance, CSES confidence/provenance, the heuristics register, Kattis
 source-page ingest + `scripts/publish_external.py` + tests, 65 staged
-statements (`data/analysis/external-staging/`), batch **C** (6 CodeChef
-problems) published — corpus 3,513.
+statements (`data/analysis/external-staging/`).
 
-**Published from this work (single aggregate, 2026-09-13):** batches A, B, D —
-24 problems — plus the earlier batch C (6). Corpus 3,537. Collections: WF 2024
-10/12, Codefest 9/9, WF 2022 5/6, WF 2023 10/11. Every proposal and review is in
+**Published.** Batch C (6 CodeChef) on 2026-09-12; then one aggregate on
+2026-09-13 covering batches A, B, D (24 problems) and batch E (28 problems).
+**Corpus 3,565.** Every proposal, verify script and skeptic review is in
 `data/analysis/external-batches/`.
 
-**Held by the skeptic (labels fine, solution does not meet the limits):**
-`kattis-kindergarten2` (branching search quadratic on a constructed family),
-`kattis-thesilkroad` (linear neighbour scan → Θ(n²) on descending input; the
-successor structure is the fix), `kattis-bridgingthegap` (DP is O(n²/c) space —
-2 GB at n=10⁴, c=2). Each stays staged and counts as "not yet indexed".
+Collection coverage after the publish — the number the "so sparse?" question was
+really about:
 
-**Batch E (Asia regionals, 38): 7 solved, 0 reviewed, 31 unsolved.** Solved:
-freefood, sgcoin, hoppers, moscowdream, finalexam2, alchemy101,
-countingpalindromes. Still to solve — Singapore `bitwise conveyorbelts
-largesttriangle magicalstring nonprimefactors prolongedpassword rectangularcity
-slidingblocks wiknow`; Danang `abstractpainting bananaproblem datingtime
-easyquery fairbandwidthsharing generatingnumbers hanjie inspectingillumination
-justiceforants keepitsorted latinsquare`; Can Tho `beautifulsquare
-canthoexpressway div2mul2mul3 edgeremoval greatestpermutation hexagoncoloring
-intelligenceexchange jugglingsequence kingdomofhamsters lazystudents
-milkteabattle`. The three Asia collections are drafted in
-`_tooling/contests-draft.json` and are spliced by
-`aggregate_external_batches.py` (drop `--collections=`) once E publishes.
+| collection | indexed | not yet indexed |
+|---|---|---|
+| `iicpc-codefest-2026-prelims` | 9/9 | — |
+| `icpc-asia-singapore-2018` | 11/12 | rectangularcity |
+| `icpc-world-finals-2024` | 10/12 | kindergarten2, thesilkroad |
+| `icpc-world-finals-2023` | 10/11 | bridgingthegap |
+| `icpc-asia-danang-2019` | 9/13 | bananaproblem, fairbandwidthsharing, justiceforants, keepitsorted |
+| `icpc-asia-can-tho-2020` | 8/13 | div2mul2mul3, greatestpermutation, hexagoncoloring, kingdomofhamsters, lazystudents |
+| `icpc-world-finals-2022` | 5/6 | bridgingthegap |
+| `icpc-india-prelims-2025-26` | 5/6 | codeforces-106179-f |
 
-**Deliberately not attempted** (session budget): the hardest Asia problems `keepitsorted` 8.4, `beautifulsquare` 8.0, `div2mul2mul3` 9.2,
-`magicalstring` 9.0, `justiceforants` 9.1, `milkteabattle` 8.6; and a second attempt at
-`kattis-kindergarten2` starting from the skeptic's adversarial family
-(described in `external-batches/A/skeptic.json`). Unsolved problems stay
-staged and show as "not yet indexed" — that is the correct state.
+**Held by the skeptic (labels fine, solution does not meet the limits).** These
+need a fix, not a solve, and each stays staged and counts as "not yet indexed":
 
-The solver brief to reuse is `data/analysis/external-batches/_tooling/SOLVER_BRIEF.md`
-(one Opus agent per hard problem, 2–3 easy ones per agent; ≤20 agents at once;
-solvers write `<batch>/<id>.json` + `verify_<slug>.py`).
+- `kattis-kindergarten2` — branching search goes quadratic on a constructed family.
+- `kattis-thesilkroad` — linear neighbour scan is Θ(n²) on descending input; a
+  successor structure is the fix.
+- `kattis-bridgingthegap` — DP is O(n²/c) space, about 2 GB at n=10⁴, c=2.
 
-**To finish (one aggregated cycle, not per batch):**
+**Never sourced (10).** No statement could be solved and no published solution
+was found for rectangularcity, div2mul2mul3, greatestpermutation,
+hexagoncoloring, kingdomofhamsters, lazystudents, bananaproblem,
+fairbandwidthsharing, justiceforants, keepitsorted. All ten are staged, are
+members of their collection, and render as "not yet indexed" — the honest state.
 
-1. Run any missing skeptic passes (Opus; brief = the batch-C skeptic prompt
-   recorded in `external-batches/C/skeptic.json` `notes`, plus: check the
-   complexity claim with an adversarial instance). Write
-   `external-batches/<batch>/skeptic.json`.
-2. `python3 scripts/research/aggregate_external_batches.py --dry-run`, then
-   without `--dry-run`. It appends proposals, writes review entries, copies
-   approved verify scripts, publishes every approved problem in A/B/D/E, and
-   splices the five drafted collections (`_tooling/contests-draft.json`:
-   `icpc-world-finals-2022/2023`, `icpc-asia-singapore-2018`,
-   `-danang-2019`, `-can-tho-2020`) into `data/contests.json`.
-3. `npm run embed && npm run validate && npm run bench && npm run test:search`
-   — gate on bm25/tfidf only (§2a). Then one commit.
-4. README: corpus count, judges list; `data/unrated_problems.json` is
-   unaffected (Kattis has no rating; `kattis_difficulty` is metadata).
-5. Restart the preview (`./scripts/local-preview.sh`) and do the browser-only
-   checks the API could not: picker keyboard flow, Back restoring a
-   collection, logout with a chip active, `:compare`, hidden hints, ≤720 px.
+**What the batch-E review found, worth carrying forward.** Batch E was annotated
+from published solutions (official debriefs, contest slides, third-party
+accepted C++, a USACO Guide page) rather than solved from scratch. That trades
+derivation risk for transcription risk, and all three independent skeptics named
+the same failure mode: **proposals made false claims about their own sources.**
+Three were caught and corrected before publishing — the worst asserted a page
+had "no code" when it carries a complete C++ solution that already does the step
+the proposal claimed to have derived. Rule for the next code-sourced batch:
+**when a source has code, read the code before asserting what the source omits,
+and quote only sentences that actually appear in it.** The second, milder bias is
+labels drifting toward what the specific implementation mechanically does
+(`segment-intersection` for sign tests, `grid-traversal` for a snake walk) rather
+than a technique a searcher would name.
+
+Two proposals claimed the *published* solution is wrong, and both held up under
+independent reproduction: the sliding-blocks debrief's O(N)-edge reduction
+produces a wrong answer on a 7×4 counterexample, and the wiknow debrief decides
+existence only, never the lexicographically smallest pair the statement demands.
+`kattis-milkteabattle` publishes with a caveat rather than being held: the
+problem and its bound x(1+H_{m−1}) are correct, but the accepted code's fixed
+1900/99 round split reaches the optimum against every minimising opponent and
+only 0.73 of it against one that merely wastes turns.
+
+All 28 batch-E verify scripts pass. Three drive a published C++ binary passed as
+`argv[1]` and need it built first (`g++ -O2 -std=c++17`, with a `bits/stdc++.h`
+shim on macOS); run without that argument they die instantly on
+`FileNotFoundError`, which reads as a failure and is not one. Results are in
+`external-batches/E/verify-run.txt`.
+
+Contest dates for the three Asia collections were recovered from Kattis's own
+countdown timers (`elapsed_seconds` on the contest page, fetched with the repo's
+user agent — Kattis 403s a default one): Singapore 2018-12-13, Danang
+2019-12-06, Can Tho 2020-12-11.
+
+**Still open.**
+
+1. **Browser-only UI checks** the API could not cover. Restart the preview
+   (`./scripts/local-preview.sh`, port 3100) and verify: picker keyboard flow
+   (Tab → Enter → arrows → Escape returns focus), Back restoring a collection
+   chip, logout with a chip active, `:compare` showing no spoiler hiding, hidden
+   hints still showing the statement and the similar/practice links, and the
+   picker full-width with ≥34 px options at ≤720 px.
+2. **CSES counter-semantics check** — needs the owner's logged-in cses.fi
+   browser; the procedure is in `data/cses/README.md`. The statistics arm stays
+   explicitly closed either way.
+3. **The three held problems** — each needs a better data structure or a tighter
+   DP, not a fresh solve. The skeptic reviews in `external-batches/{A,B,D}/`
+   describe the adversarial instance for each.
+4. **`codeforces-106179-f`** must not publish until
+   `scripts/research/verify_gym106179_f_gap.py` is satisfied.
+5. **India regionals stay resource-only** — Kattis does not host them. Resolving
+   `icpc-india-archive` links into CF Gym or CodeChef problem URLs is the
+   follow-up.
+
+The solver brief to reuse is `data/analysis/external-batches/_tooling/SOLVER_BRIEF.md`,
+and `SOLVER_BRIEF_WITH_SOLUTION.md` for the code-sourced variant. The aggregate
+step is `python3 scripts/research/aggregate_external_batches.py [--dry-run]`; it
+is idempotent and re-running it rewrites only `generated_at_unix` on records that
+already exist.
 
 The branch is `feature/competition-practice`, ahead of `main`, **not pushed** —
 production still needs the owner's local verification first.

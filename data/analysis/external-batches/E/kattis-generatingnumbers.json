@@ -1,29 +1,27 @@
 {
- "id": "kattis-generatingnumbers",
- "status": "solved",
- "solution": "Increments only raise a number and a rearrangement cannot change how many digits it has, so the cheapest route to a c-digit target first climbs to the smallest c-digit number, 10^(c-1), at a fixed toll of 5(c-1)^2+4(c-1) instructions, and then assembles the target's digit multiset one digit at a time: increment the units digit from zero up to the wanted value, then spend one rearrangement to shove it aside. The published code collapses that into a closed form: the base toll, plus for each digit its value plus one, with three rebates - the leading 1 of 10^(c-1) already supplies one digit '1' free, the last digit placed needs no closing rearrangement, and when the target contains no digit 1 at all the spare 1 is grown into the leading digit instead. Targets shaped as a digit d followed by zeros are the exception, since the only way in is an increment from (d-1) followed by nines, so they cost the base toll plus d-1 plus 10(c-1), one less when d is 2; single-digit targets cost x-1. Each of the up to 1000 queries is therefore answered in O(number of digits) = O(1) time and O(1) space. A 0-1 BFS over the true state graph (v -> v+1 at cost 1, v -> its digit-multiset class at cost 1, class -> every member at cost 0, restricted to numbers with at most c digits, which is safe because digit count never decreases) reproduces the formula exactly for every x of at most seven digits.",
- "solution_confidence": 0.95,
- "solution_source": {
-  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/generatingnumbers.cpp",
-  "kind": "accepted C++ solution (third-party repo)",
-  "used": "Transcribed the closed form line by line into Python and cross-checked it against a 0-1 BFS on the real state graph for every x with up to 7 digits (1,111,110 values, zero mismatches), plus the three statement samples."
- },
- "statement_summary": "Starting from the number one, a machine may either add one to its current value or rearrange that value's decimal digits into any order that does not begin with a zero. For up to a thousand targets, each as large as one billion, the task is to report the fewest such instructions needed to turn one into the given target.",
- "patterns": [
-  "greedy",
-  "constructive-algorithm"
- ],
- "pattern_confidence": {
-  "greedy": 0.85,
-  "constructive-algorithm": 0.55
- },
- "tags": [
-  "math",
-  "digits",
-  "greedy",
-  "optimization"
- ],
- "source_text_sha256": "bc54c5d351aef2a9fcdd123127c6b8817d5a9098697ad8ad43f742fe271af009",
- "verify_script": "E/verify_generatingnumbers.py",
- "notes": "The C++ is a bare closed form with no comment explaining it, so the reasoning above is reconstructed from optimal BFS paths (e.g. 843: 1 -> 19 -> 91 -> 108 -> 801 -> 804 -> 840 -> 843, 44 moves) and then checked exhaustively. It contains only freopen debug scaffolding and commented-out dead code; nothing addressed to a reader. It is exactly right on all 1,111,110 values with at most 7 digits, which covers every structural case (leading digit with and without a spare 1 elsewhere, trailing zeros, the d-followed-by-zeros branch up to c=7); 8- to 10-digit inputs are out of BFS reach and rest on the formula's linearity in c. Considered and rejected: 'shortest-path'/'bfs' - the problem IS a shortest path in an implicit graph and BFS is how the pattern is discovered, but with x up to 1e9 no search solves it and the accepted code performs none; 'digit-dp' - there is no DP over digit positions, just arithmetic."
+  "id": "kattis-generatingnumbers",
+  "status": "solved",
+  "solution": "Increments only raise a number and a rearrangement cannot change how many digits it has, so the cheapest route to a c-digit target first climbs to the smallest c-digit number, 10^(c-1), at a fixed toll of 5(c-1)^2+4(c-1) instructions, and then assembles the target's digit multiset one digit at a time: increment the units digit from zero up to the wanted value, then spend one rearrangement to shove it aside. The published code collapses that into a closed form: the base toll, plus for each digit its value plus one, with three rebates - the leading 1 of 10^(c-1) already supplies one digit '1' free, the last digit placed needs no closing rearrangement, and when the target contains no digit 1 at all the spare 1 is grown into the leading digit instead. Targets shaped as a digit d followed by zeros are the exception for d of at least 2, since the only way in is an increment from (d-1) followed by nines, so they cost the base toll plus d-1 plus 10(c-1), one less when d is 2; the case d equal to 1 is not an exception at all, because 10^(c-1) is where the climb already ends and so costs exactly the base toll. Single-digit targets cost x-1. Each of the up to 1000 queries is therefore answered in O(number of digits) = O(1) time and O(1) space. A 0-1 BFS over the true state graph (v -> v+1 at cost 1, v -> its digit-multiset class at cost 1, class -> every member at cost 0, restricted to numbers with at most c digits, which is safe because digit count never decreases) reproduces the formula exactly for every x of at most seven digits, all 9,999,999 of them, with zero mismatches. Inputs of eight to ten digits are not checked against the search, which would not fit in memory; they rest on the toll being linear in the digit count, which the seven checked decades establish but do not prove.",
+  "solution_confidence": 0.95,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/generatingnumbers.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Transcribed the closed form line by line into Python and cross-checked it against a 0-1 BFS on the real state graph for every x with up to 7 digits (9,999,999 values, zero mismatches), plus the three statement samples. The source is uncommented, so the reasoning recorded above is a reconstruction rather than a transcription of the author's argument."
+  },
+  "statement_summary": "Starting from the number one, a machine may either add one to its current value or rearrange that value's decimal digits into any order that does not begin with a zero. For up to a thousand targets, each as large as one billion, the task is to report the fewest such instructions needed to turn one into the given target.",
+  "patterns": [
+    "greedy"
+  ],
+  "pattern_confidence": {
+    "greedy": 0.85
+  },
+  "tags": [
+    "math",
+    "digits",
+    "greedy",
+    "optimization"
+  ],
+  "source_text_sha256": "bc54c5d351aef2a9fcdd123127c6b8817d5a9098697ad8ad43f742fe271af009",
+  "verify_script": "E/verify_generatingnumbers.py",
+  "notes": "The C++ is a bare closed form with no comment explaining it, so the reasoning above is reconstructed from optimal BFS paths (e.g. 843: 1 -> 19 -> 91 -> 108 -> 801 -> 804 -> 840 -> 843, 44 moves) and then checked exhaustively. It contains only freopen debug scaffolding and commented-out dead code; nothing addressed to a reader. It is exactly right on all 9,999,999 values with at most 7 digits, which covers every structural case (leading digit with and without a spare 1 elsewhere, trailing zeros, the d-followed-by-zeros branch up to c=7); 8- to 10-digit inputs are out of BFS reach and rest on the formula's linearity in c. Considered and rejected: 'shortest-path'/'bfs' - the problem IS a shortest path in an implicit graph and BFS is how the pattern is discovered, but with x up to 1e9 no search solves it and the accepted code performs none; 'digit-dp' - there is no DP over digit positions, just arithmetic. SKEPTIC EDIT: constructive-algorithm was dropped before publication. The answer is a minimum count and nothing is constructed for output; the explicit instruction sequence is only the optimality proof's witness, so a searcher for constructive problems would be misdirected."
 }

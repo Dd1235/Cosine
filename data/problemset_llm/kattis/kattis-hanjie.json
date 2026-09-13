@@ -1,0 +1,33 @@
+{
+ "id": "kattis-hanjie",
+ "title": "Hanjie",
+ "slug": "hanjie",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/hanjie",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "A nonogram board with at most six rows and six columns comes with a clue for every row and every column: the lengths, in order, of the maximal blocks of black cells in that line, with at least one white cell separating consecutive blocks. The task is to count the black-and-white colourings of the board that satisfy every row clue and every column clue simultaneously.",
+ "tags": [],
+ "patterns": [
+  "brute-force",
+  "backtracking"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "brute-force": 0.9,
+   "backtracking": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.3,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

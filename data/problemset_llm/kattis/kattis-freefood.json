@@ -1,0 +1,33 @@
+{
+ "id": "kattis-freefood",
+ "title": "Free Food",
+ "slug": "freefood",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/freefood",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "Given up to 100 events, each occupying a contiguous range of days within a calendar year, count how many distinct days fall inside at least one event's range. Every event runs from a start day to an end day inclusive, and the ranges may overlap or nest arbitrarily. Since days are bounded by 365, the requested count is exactly the size of the union of the given intervals.",
+ "tags": [],
+ "patterns": [
+  "interval-union",
+  "brute-force"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "interval-union": 0.9,
+   "brute-force": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 1.4,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

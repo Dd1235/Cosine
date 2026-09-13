@@ -1,0 +1,33 @@
+{
+ "id": "kattis-alchemy101",
+ "title": "Alchemy 101",
+ "slug": "alchemy101",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/alchemy101",
+ "source_topic": "ICPC / The 2020 Asia Can Tho Regional Contest",
+ "source_tags": [],
+ "statement": "Substances are numbered by positive integers and combining two yields the substance whose number is their bitwise xor. Only substances one through m are available and none may be reused. For each of up to one thousand test cases, with m at most one thousand, the task is to report the largest collection whose xor equals m, choosing the lexicographically smallest such list.",
+ "tags": [],
+ "patterns": [
+  "bit-manipulation",
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "bit-manipulation": 0.9,
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 3.9,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:25:04+00:00"
+ }
+}

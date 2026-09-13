@@ -85,11 +85,12 @@
     "name": "ICPC Asia Singapore Regional 2018",
     "short": "Singapore 18",
     "family": "icpc",
-    "season": null,
+    "season": "2018-2019",
     "stage": "regional",
     "location": "Singapore",
     "evidence": [
-      "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional"
+      "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional",
+      "https://www.comp.nus.edu.sg/~acmicpc/index.html"
     ],
     "problems": [
       "kattis-bitwise",
@@ -114,7 +115,7 @@
       }
     ],
     "organizer": "ICPC",
-    "held_date": null,
+    "held_date": "2018-12-13",
     "observed_at": "2026-09-12"
   },
   {
@@ -122,11 +123,12 @@
     "name": "ICPC Asia Danang Regional 2019",
     "short": "Danang 19",
     "family": "icpc",
-    "season": null,
+    "season": "2019-2020",
     "stage": "regional",
     "location": "Da Nang, Vietnam",
     "evidence": [
-      "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest"
+      "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest",
+      "https://danang19.kattis.com/contests/danang19"
     ],
     "problems": [
       "kattis-abstractpainting",
@@ -152,7 +154,7 @@
       }
     ],
     "organizer": "ICPC",
-    "held_date": null,
+    "held_date": "2019-12-06",
     "observed_at": "2026-09-12"
   },
   {
@@ -160,11 +162,12 @@
     "name": "ICPC Asia Can Tho Regional 2020",
     "short": "Can Tho 20",
     "family": "icpc",
-    "season": null,
+    "season": "2020-2021",
     "stage": "regional",
     "location": "Can Tho, Vietnam",
     "evidence": [
-      "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest"
+      "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest",
+      "https://cantho20.kattis.com/contests/cantho20"
     ],
     "problems": [
       "kattis-alchemy101",
@@ -190,7 +193,7 @@
       }
     ],
     "organizer": "ICPC",
-    "held_date": null,
+    "held_date": "2020-12-11",
     "observed_at": "2026-09-12"
   }
 ]

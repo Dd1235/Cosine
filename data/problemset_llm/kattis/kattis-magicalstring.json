@@ -1,0 +1,33 @@
+{
+ "id": "kattis-magicalstring",
+ "title": "Magical String",
+ "slug": "magicalstring",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/magicalstring",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A string of lowercase letters contains no run of three or more equal characters. An operation rewrites one character so that a run of at least three equal characters appears; that maximal run collapses into an asterisk, which is inert and never rewritten or absorbed. Using at most a thousand operations on a string of at most a thousand characters, the task is to maximise how many characters are absorbed.",
+ "tags": [],
+ "patterns": [
+  "interval-scheduling",
+  "dynamic-programming"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "interval-scheduling": 0.9,
+   "dynamic-programming": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 9.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

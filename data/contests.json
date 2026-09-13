@@ -280,6 +280,122 @@
       "organizer": "ICPC",
       "held_date": "2024-04-18",
       "observed_at": "2026-09-12"
+    },
+    {
+      "id": "icpc-asia-singapore-2018",
+      "name": "ICPC Asia Singapore Regional 2018",
+      "short": "Singapore 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "regional",
+      "location": "Singapore",
+      "evidence": [
+        "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional",
+        "https://www.comp.nus.edu.sg/~acmicpc/index.html"
+      ],
+      "problems": [
+        "kattis-bitwise",
+        "kattis-conveyorbelts",
+        "kattis-freefood",
+        "kattis-hoppers",
+        "kattis-largesttriangle",
+        "kattis-magicalstring",
+        "kattis-nonprimefactors",
+        "kattis-prolongedpassword",
+        "kattis-rectangularcity",
+        "kattis-sgcoin",
+        "kattis-slidingblocks",
+        "kattis-wiknow"
+      ],
+      "resources": [
+        {
+          "title": "Kattis problem source: 2018 ICPC Asia Singapore Regional",
+          "url": "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": "2018-12-13",
+      "observed_at": "2026-09-12"
+    },
+    {
+      "id": "icpc-asia-danang-2019",
+      "name": "ICPC Asia Danang Regional 2019",
+      "short": "Danang 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "regional",
+      "location": "Da Nang, Vietnam",
+      "evidence": [
+        "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest",
+        "https://danang19.kattis.com/contests/danang19"
+      ],
+      "problems": [
+        "kattis-abstractpainting",
+        "kattis-bananaproblem",
+        "kattis-countingpalindromes",
+        "kattis-datingtime",
+        "kattis-easyquery",
+        "kattis-fairbandwidthsharing",
+        "kattis-generatingnumbers",
+        "kattis-hanjie",
+        "kattis-inspectingillumination",
+        "kattis-justiceforants",
+        "kattis-keepitsorted",
+        "kattis-latinsquare",
+        "kattis-moscowdream"
+      ],
+      "resources": [
+        {
+          "title": "Kattis problem source: The 2019 ICPC Asia Danang Regional Contest",
+          "url": "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": "2019-12-06",
+      "observed_at": "2026-09-12"
+    },
+    {
+      "id": "icpc-asia-can-tho-2020",
+      "name": "ICPC Asia Can Tho Regional 2020",
+      "short": "Can Tho 20",
+      "family": "icpc",
+      "season": "2020-2021",
+      "stage": "regional",
+      "location": "Can Tho, Vietnam",
+      "evidence": [
+        "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest",
+        "https://cantho20.kattis.com/contests/cantho20"
+      ],
+      "problems": [
+        "kattis-alchemy101",
+        "kattis-beautifulsquare",
+        "kattis-canthoexpressway",
+        "kattis-div2mul2mul3",
+        "kattis-edgeremoval",
+        "kattis-finalexam2",
+        "kattis-greatestpermutation",
+        "kattis-hexagoncoloring",
+        "kattis-intelligenceexchange",
+        "kattis-jugglingsequence",
+        "kattis-kingdomofhamsters",
+        "kattis-lazystudents",
+        "kattis-milkteabattle"
+      ],
+      "resources": [
+        {
+          "title": "Kattis problem source: The 2020 ICPC Asia Can Tho Regional Contest",
+          "url": "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "organizer": "ICPC",
+      "held_date": "2020-12-11",
+      "observed_at": "2026-09-12"
     }
   ],
   "aliases": {

@@ -1,0 +1,31 @@
+{
+ "id": "kattis-generatingnumbers",
+ "title": "Generating Numbers",
+ "slug": "generatingnumbers",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/generatingnumbers",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "Starting from the number one, a machine may either add one to its current value or rearrange that value's decimal digits into any order that does not begin with a zero. For up to a thousand targets, each as large as one billion, the task is to report the fewest such instructions needed to turn one into the given target.",
+ "tags": [],
+ "patterns": [
+  "greedy"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "greedy": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.5,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "id": "kattis-latinsquare",
+ "title": "Latin Square",
+ "slug": "latinsquare",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/latinsquare",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "A square grid of side at most one hundred is partly filled: some values have already been written, each exactly as many times as the grid has rows and never twice in a row or column. The task is to fill the remaining empty cells so every value appears exactly once in each row and column, or to report that no completion exists.",
+ "tags": [],
+ "patterns": [
+  "bipartite-matching",
+  "constructive-algorithm",
+  "graph-modeling",
+  "hall-theorem"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "bipartite-matching": 0.9,
+   "constructive-algorithm": 0.9,
+   "graph-modeling": 0.9,
+   "hall-theorem": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.2,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

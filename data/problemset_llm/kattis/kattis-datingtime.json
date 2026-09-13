@@ -1,0 +1,31 @@
+{
+ "id": "kattis-datingtime",
+ "title": "Dating time",
+ "slug": "datingtime",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/datingtime",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "Given a start time, an end time and an angle that is zero, ninety or a hundred and eighty degrees, the task is to count the instants in the closed interval at which the hour and minute hands of a continuously moving analogue clock form exactly that angle. Both times fall within one day, and up to one hundred such queries are asked.",
+ "tags": [],
+ "patterns": [
+  "brute-force"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "brute-force": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.3,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

@@ -1,0 +1,189 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-13",
+ "batch": "E",
+ "reviews": [
+  {
+   "id": "kattis-moscowdream",
+   "status": "approved",
+   "keep": [
+    "brute-force"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "d9dc956535448d7b548663db1213a253c9365c2e7b95a0b4b89ce7258567f5a5",
+   "review_rationale": "Closed form a,b,c >= 1 and 3 <= n <= a+b+c is right (contiguity of the reachable sums is immediate) and the script's exhaustive sweep of the whole 11^3*20 input space passed on my run. I rule to keep brute-force at 0.5 rather than emptying the list: the six existing single-brute-force corpus entries are exactly this kind of tiny-bound div2-A problem, the 11^3 triple loop is a genuinely common accepted solution, and the only empty-patterns entry in the corpus is a special/joke problem, so an empty list would be the outlier. No other label is defensible; greedy/counting/constructive were rightly refused.",
+   "issues": [
+    "Sub-0.6 label kept by precedent (19 such labels already in the index); if the index later enforces a 0.6 floor this entry should carry [] rather than an inflated confidence."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-abstractpainting",
+   "status": "approved",
+   "keep": [
+    "combinatorics",
+    "counting"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "9038a44a185194c079ba9514710549810d5516e474e42b15753e3d51ee35c0f1",
+   "review_rationale": "The per-square argument is sound: with top and left fixed, equal colours force bottom=right=the third colour (2 ways) and unequal colours force bottom/right to be that pair in either order (2 ways), and row-major filling assigns every edge exactly once, giving 3^(R+C)*2^(RC); samples 18/108/108 reproduce and the script's exhaustive, DP and transcription cross-checks pass. O(RC) multiplications and O(1) space are trivially inside limits. On the profile-dp/bitmask-dp rejection I go further than the proposer: a 3^R-state column profile at R=14, C=2000 is roughly 10^10 state-columns before transitions, so it is not a passing alternative at the real limits, and labelling it would be a misdirection on two counts. counting at 0.6 is the deliverable and is paired with combinatorics 22 times in the corpus; keep.",
+   "issues": [
+    "Proposal notes say the profile DP 'works'; it works only as a small-size verifier, not at the stated limits -- worth correcting in the notes so nobody re-litigates the label."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-datingtime",
+   "status": "approved",
+   "keep": [
+    "brute-force"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "286074ee310571b7872ac8aca3fe0f4be3320eb663934c17a34900b9a50152e3",
+   "review_rationale": "Hands close at 5.5 degrees per minute, so qualifying instants are the 22/44/22 lattice points of 11t = r (mod 720) in a day; the third sample (18:00 exactly at 180 degrees, count 1) and the full 3,112,560-window sweep passed on my 53 s run. O(24) per query and O(1) space are irrelevant to the limits. One label is the honest answer: the accepted route enumerates a tiny candidate set (per hour, or per 1/11 minute across the day) and tests each, which is brute-force in the corpus sense, and nothing else here is a technique -- no computational geometry, no simulation, and the modular step is one doubling. The real content is the exact-endpoint arithmetic, for which the vocabulary has no slug; tags carry it.",
+   "issues": [
+    "brute-force could honestly sit at 0.6 rather than 0.5 (the grid-walk over 15,840 instants per day is the most common accepted solution), but no change to the label set is needed."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-hanjie",
+   "status": "approved",
+   "keep": [
+    "brute-force",
+    "backtracking"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "781070738675484599e6080ab259e36668b4026612113c90fe27a0e98499539d",
+   "review_rationale": "Row-by-row block placement with a column check at the leaves is exhaustive by the block-start bijection, the widest row has C(5,2)=10 placements so the search is bounded by 10^6 leaves times O(rc), and the script's exhaustive small-board and 6x6 stress passes (0.08 s worst case) on my run. Both labels are techniques, not scaffolding, and the refusal of bitmask-dp/profile-dp is right: the limits never exercise it. The recorded overflow near-miss in the published code (blocks written past column c, killed one level up) was checked and is genuinely harmless. Space O(rc).",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-latinsquare",
+   "status": "approved",
+   "keep": [
+    "bipartite-matching",
+    "constructive-algorithm",
+    "graph-modeling",
+    "hall-theorem"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "500d133fd37fac5ee62414b28f345fb25fb0ee772d565ca55d40f56e1d5585e1",
+   "review_rationale": "Regularity confirmed: each of the k written values occupies exactly one cell per row and per column, so every row and every column has exactly n-k empty cells and the empty-cell rows-vs-columns graph is (n-k)-regular; for any row set A, d|A| edges leave A and each column absorbs at most d of them, so |N(A)| >= |A| and Hall gives a perfect matching, and removing it leaves a (n-k-1)-regular graph, so peeling never fails. The answer is therefore never NO and the published code's unconditional YES is correct, not lucky. At most n Kuhn matchings on n^2 edges is O(n^4) worst / ~2.6n^3 observed at n=100, O(n^2) space; fine. All four labels are load-bearing: matching is the algorithm, the row/column/empty-cell graph is the modelling step, Hall is the whole correctness proof, and the output is a construction.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-inspectingillumination",
+   "status": "approved",
+   "keep": [
+    "interactive",
+    "divide-and-conquer",
+    "bit-manipulation"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "371ede1015a033e6b55cee54c474993775374aa98bfb2607b17f072a54b548c3",
+   "review_rationale": "Query count confirmed from the transcription: the code asks one query per depth from the leaf depth down to the root (the root query is informationally void but is issued), so the count is leaf-depth+1 = ceil(log2 n)+1, which is 11 at n=1000 and matched the worst case observed over 400 random sizes; the bitwise solver needs 10. Both are far inside 32. Correctness does not depend on lamp state since the reply names toggled sources. O(n log n) time and space. Labels are right, but the emphasis is a published-solution artefact: the canonical way to see this problem is 'give each switch a log n-bit signature, one query per bit', so bit-manipulation deserves at least parity with divide-and-conquer rather than 0.6 vs 0.85; I would set bit-manipulation to 0.8. binary-search was correctly refused (non-adaptive halving, no monotone predicate).",
+   "issues": [
+    "Confidence ordering inverted relative to the editorial route: bit-manipulation should be >= divide-and-conquer.",
+    "Two busy-wait spins in the published C++ would hang rather than fail on a malformed depth; harmless here, but the transcription's assert is the right way to guard it."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-generatingnumbers",
+   "status": "approved",
+   "keep": [
+    "greedy"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "bc54c5d351aef2a9fcdd123127c6b8817d5a9098697ad8ad43f742fe271af009",
+   "review_rationale": "Re-ruled after the coordinator's edits: approved. The closed form is right where it can be tested: I ran my own plain BFS (v -> v+1 and v -> every no-leading-zero permutation) for every x below 10^5 with zero mismatches, and I re-ran verify_generatingnumbers.py with the '7' argument myself -- 9 through 9,000,000 values per digit length, 9,999,999 in all, zero mismatches, plus the three samples, 29.7 s. O(digits) per query, O(1) space. The three issues are resolved: the 'digit d followed by zeros' rule is now restricted to d >= 2 with 10^(c-1) stated to cost exactly the base toll (I confirmed formula('100000000') = 352 = 5*64+4*8); solution_source.used records the 9,999,999-value sweep and says the reasoning is a reconstruction from uncommented code; and the solution now states plainly that 8- to 10-digit inputs rest on linearity in the digit count, established but not proved by the checked decades. Labels: patterns is exactly ['greedy'] at 0.85, the honest name for the digit-by-digit assemble-and-rotate strategy; constructive-algorithm is gone and the SKEPTIC EDIT sentence records why; bfs/shortest-path and digit-dp remain rightly refused.",
+   "issues": [
+    "Non-blocking: the notes field still carries the stale figure in the sentence 'It is exactly right on all 1,111,110 values with at most 7 digits' -- should read 9,999,999 to agree with the corrected solution text and solution_source.used. It understates coverage rather than overstating it, and notes are provenance rather than published content, so it does not hold up approval."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-countingpalindromes",
+   "status": "approved",
+   "keep": [
+    "palindrome",
+    "modular-arithmetic",
+    "number-theory",
+    "modular-exponentiation",
+    "counting"
+   ],
+   "drop": [
+    {
+     "label": "digit-dp",
+     "why": "0.55 and the technique that solves the problem is not a digit DP: no bounded/tight dimension, and the position-by-position recurrence cannot run at n = 10^18 -- the content is periodicity of 10^j mod p plus exponentiating a cyclic-convolution operator. A digit-dp searcher would find the DP is only the formulation, not the solution."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "43be264fb168451e0927b5f719b08ce8243a39b5b0ac37810daf1c76ce353558",
+   "review_rationale": "I wrote an independent O(n*10*p) position DP and it agrees with the proposer's fast routine on 14 cases including p=2 and p=5 (where 10^t vanishes), p=983/977 with several full periods, and the n=1 sample (5). The period argument is sound: for non-middle positions j >= 1 both exponents j and n-1-j exceed 0, so the weight depends on j mod ord_p(10) (period 1 for p=2,5), and commutativity of Z[Z_p] licenses regrouping; the leading digit and odd middle digit are separate sparse factors. Cost O(10Lp + p^2 log n) ~ 6e7 at p=997 and O(p) memory fit; a p x p matrix power would not. Rejecting matrix-exponentiation is defensible for that reason, and the vocabulary gap (polynomial/cyclic-convolution exponentiation) is real. modular-exponentiation 0.72 is the corpus alias for binary exponentiation of the period product; keep.",
+   "issues": [
+    "Summary writes '10^18' and '1000000007' while sibling summaries spell magnitudes out; not markup, but 'a quintillion' would be consistent.",
+    "No independent reference exists for n = 10^18 beyond the residue-sum identity; acceptable and already disclosed."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-prolongedpassword",
+   "status": "approved",
+   "keep": [
+    "functional-graph",
+    "cycle-detection"
+   ],
+   "drop": [
+    {
+     "label": "matrix-exponentiation",
+     "why": "0.35 and, by the proposer's own account, not load-bearing: once K is capped at 50 the lengths come from a 26x51 saturating table, and the debrief's r*N^K is a stylistic choice the slides themselves make unnecessary one slide earlier. Indexing it would send matrix-power searchers to a problem that never needs one."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "13a82e680759b6af659116823751dc766ac3f71e3319778b32e8667e08ea380a",
+   "review_rationale": "The 50-level fold is correct: |T_c| >= 2 gives |f^k(c)| >= 2^k and 2^50 > 10^15, so at every level with at least 50 expansions remaining the query lies in the first letter's image and the top K-50 steps are iterates of the first-letter map on 26 nodes, which needs cycle detection (10^15 steps cannot be simulated). Below that, saturating lengths plus a 50-level descent scanning at most 50 children per level answers each query; O(|S| + M*50*50) time and O(|S|) space fit. Samples and 400 random cross-checks against literal expansion (342 exercising the fold) passed on my run. functional-graph and cycle-detection are the genuine techniques; binary-search/prefix-sum/offline-queries were rightly treated as scaffolding. The vocabulary lacks the actual shape (k-th leaf descent of an iterated morphism), which the notes record.",
+   "issues": [
+    "The debrief text extraction is lossy (matrix layout, '1015'); the reconstruction is verified independently so this is a provenance note only."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-magicalstring",
+   "status": "approved",
+   "keep": [
+    "interval-scheduling",
+    "dynamic-programming"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "99957975c28a7bcd9e2d9d3dc23cdca1c288dfb203fddfd3bbb0ac4a0646d047",
+   "review_rationale": "The deadlock counterexample is real: on aababb with K=2 the only legal first moves are position 3 -> a (run aaaa, positions 1-4) or position 4 -> b (run bbbb, positions 3-6), each absorbing 4 and leaving no second move, so the answer is 4, while the naive disjoint-interval relaxation takes 'aab' and 'abb' for 6 -- collapsing either as a 3-run needs the other's boundary already dead. I confirmed this by hand and with my own statement-level simulator, which also agreed with the proposer's DP on 4,000 random magical strings up to length 12 over 2-3 letter alphabets with K <= 4. The DP over (position, operations used, boundary-dependency flag) is O(n*min(K,n/3)) time and memory, ~10^6 states, fine for T=50. Both labels are load-bearing: it is weighted interval scheduling with a count cap, solved by a linear DP; greedy, interval-dp and knapsack were rightly refused.",
+   "issues": [
+    "Summary is exactly 70 words, at the ceiling."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "Procedural: the brief's data/analysis/external-batches/E/verify-run.txt does not exist anywhere in the repo, so I re-ran all ten verify scripts myself (all pass; datingtime 53 s, abstractpainting 28 s, countingpalindromes 23 s) and additionally wrote three from-scratch checkers (magicalstring simulator, generatingnumbers BFS, countingpalindromes position DP) that agree with the proposer's code everywhere. All ten source_text SHA-256s match the staging files. Systematic finding on published-solution provenance: correctness did not suffer -- every algorithm checked out -- but label EMPHASIS drifted toward the mechanics of the particular code or slide deck rather than the problem's idea: inspectingillumination weights divide-and-conquer over bit-manipulation because the accepted C++ happens to be written as a segment-tree recursion, prolongedpassword carried matrix-exponentiation at 0.35 purely because the debrief mentions it, and generatingnumbers, whose source is an uncommented closed form, is the one entry where the reconstructed prose contained an actual error (the d-followed-by-zeros rule was wrong for d=1) and a miscounted coverage claim; both were corrected by the coordinator and re-verified by me (7-digit sweep re-run, 9,999,999 values, zero mismatches), and the entry is now approved. Reconstruction from bare code is the riskiest of the three provenance kinds; debrief-derived and derived-then-confirmed entries were clean. Two low-confidence labels dropped (countingpalindromes/digit-dp 0.55, prolongedpassword/matrix-exponentiation 0.35) plus generatingnumbers/constructive-algorithm 0.55 (now removed from the proposal); two kept at 0.5 by corpus precedent (moscowdream, datingtime -- the six existing single-brute-force entries are the same tiny-bound shape and the only empty-patterns entry is a special problem). Vocabulary gaps recorded by proposers and confirmed: implementation/ad-hoc, polynomial (cyclic-convolution) exponentiation, and k-th-leaf descent in an iterated morphism. Independent bands are my own reading, not Kattis's: Kattis scores 1.8/4.6/4.3/4.3/6.2/5.2/7.5/7.9/7.5/9.0 in the order listed."
+}

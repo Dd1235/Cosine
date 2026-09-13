@@ -1,0 +1,31 @@
+{
+ "id": "kattis-moscowdream",
+ "title": "Moscow Dream",
+ "slug": "moscowdream",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/moscowdream",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "A committee has collected a easy, b medium and c hard problem proposals and wants to assemble a set of exactly n problems that contains at least one problem of each of the three difficulties. Given the four integers, where each pool holds at most ten proposals and n is at most twenty, the task is to report whether such a selection is possible.",
+ "tags": [],
+ "patterns": [
+  "brute-force"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "brute-force": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 1.8,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

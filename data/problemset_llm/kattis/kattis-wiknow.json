@@ -1,0 +1,35 @@
+{
+ "id": "kattis-wiknow",
+ "title": "Wi Know",
+ "slug": "wiknow",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/wiknow",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A message is a sequence of up to four hundred thousand positive integers, none larger than the length of the sequence. The task is to decide whether some two distinct values appear in the repeating order A, B, A, B as a not necessarily contiguous subsequence, and if so to report the lexicographically smallest such ordered pair, otherwise to report that no such pair exists.",
+ "tags": [],
+ "patterns": [
+  "segment-tree",
+  "sparse-table",
+  "lexicographic-order"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "segment-tree": 0.9,
+   "sparse-table": 0.9,
+   "lexicographic-order": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

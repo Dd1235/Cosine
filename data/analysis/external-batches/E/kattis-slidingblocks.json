@@ -12,16 +12,12 @@
   "patterns": [
     "topological-sort",
     "graph-modeling",
-    "constructive-algorithm",
-    "dfs",
-    "cycle-detection"
+    "constructive-algorithm"
   ],
   "pattern_confidence": {
     "topological-sort": 0.97,
     "graph-modeling": 0.92,
-    "constructive-algorithm": 0.85,
-    "dfs": 0.7,
-    "cycle-detection": 0.6
+    "constructive-algorithm": 0.85
   },
   "tags": [
     "grid",
@@ -31,6 +27,6 @@
     "simulation"
   ],
   "source_text_sha256": "eabab634f9d6a69bd3e3b64e5bb19b5984a789f65677cacedf4d2ec82134df90",
-  "notes": "The debrief's final optimisation is unsound as written. It says the O(N^2) ray constraints can be reduced by adding 'edges from block u to the next block in that direction' only; that chaining holds when the next block on the ray slides the same way along the same line, and its worked figure happens to be exactly that case, but it fails otherwise. Counterexample (a 7x4 board, hard-coded as a regression in the verify script): block (6,2) enters from the top of column 2 and must therefore precede both (4,2) and (2,2), the nearest-only edge reaches (4,2), whose own move is horizontal and so never forces (2,2) later, and the topological order that results places a block at (1,2) and never places (6,2). A 2^B brute force confirms that board IS solvable, so the bug produces wrong answers, not just wrong verdicts. Replacing the nearest-only edge with prefix/suffix chains of auxiliary nodes per row and column keeps the graph linear and fixes it; note also that the bug needs a line with two blocks on the same ray sliding differently, so it does not show up on small random boards - 6000 boards of size at most 5x5 all passed before it appeared. Everything else in the debrief checks out, including the necessity argument, which it asserts but does not prove (the proof via 'the placed set is always a root-closed subtree' is supplied above). Label notes: graph-modeling is the load-bearing one - the entire problem is converting geometry into ordering constraints; cycle-detection at 0.6 is really just Kahn's failure mode rather than a separate technique, and dfs at 0.7 covers only the rooting pass (BFS works identically). Deliberately not labelled: grid-traversal (N and M reach 4*10^5, so the grid can never be walked; blocks are handled as coordinates in a hash map) and sorting (scaffolding for finding line neighbours). Nothing in the debrief is addressed to a reader or an agent; it is ordinary prose whose figures were lost in PDF extraction, so its numbered examples reference pictures that are not in the text.",
+  "notes": "The debrief's final optimisation is unsound as written. It says the O(N^2) ray constraints can be reduced by adding 'edges from block u to the next block in that direction' only; that chaining holds when the next block on the ray slides the same way along the same line, and its worked figure happens to be exactly that case, but it fails otherwise. Counterexample (a 7x4 board, hard-coded as a regression in the verify script): block (6,2) enters from the top of column 2 and must therefore precede both (4,2) and (2,2), the nearest-only edge reaches (4,2), whose own move is horizontal and so never forces (2,2) later, and the topological order that results places a block at (1,2) and never places (6,2). A 2^B brute force confirms that board IS solvable, so the bug produces wrong answers, not just wrong verdicts. Replacing the nearest-only edge with prefix/suffix chains of auxiliary nodes per row and column keeps the graph linear and fixes it; note also that the bug needs a line with two blocks on the same ray sliding differently, so it does not show up on small random boards - 6000 boards of size at most 5x5 all passed before it appeared. Everything else in the debrief checks out, including the necessity argument, which it asserts but does not prove (the proof via 'the placed set is always a root-closed subtree' is supplied above). Label notes: graph-modeling is the load-bearing one - the entire problem is converting geometry into ordering constraints; cycle-detection at 0.6 is really just Kahn's failure mode rather than a separate technique, and dfs at 0.7 covers only the rooting pass (BFS works identically). Deliberately not labelled: grid-traversal (N and M reach 4*10^5, so the grid can never be walked; blocks are handled as coordinates in a hash map) and sorting (scaffolding for finding line neighbours). Nothing in the debrief is addressed to a reader or an agent; it is ordinary prose whose figures were lost in PDF extraction, so its numbered examples reference pictures that are not in the text. SKEPTIC EDIT: dfs and cycle-detection were dropped before publication. The traversal is scaffolding - it covers only the rooting pass and BFS serves identically - and the impossibility verdict is Kahn's failure mode, the same step as the topological sort rather than a second technique.",
   "verify_script": "E/verify_slidingblocks.py"
 }

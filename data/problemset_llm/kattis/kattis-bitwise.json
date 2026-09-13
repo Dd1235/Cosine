@@ -1,0 +1,33 @@
+{
+ "id": "kattis-bitwise",
+ "title": "Bitwise",
+ "slug": "bitwise",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/bitwise",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A circle of up to five hundred thousand non-negative integers must be cut into exactly K contiguous non-empty sections, each section's power being the bitwise OR of the integers it contains. The task is to report the largest bitwise AND of the K powers achievable over all such divisions, where K is given and a section may wrap around the end of the circle.",
+ "tags": [],
+ "patterns": [
+  "bit-manipulation",
+  "greedy"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "bit-manipulation": 0.9,
+   "greedy": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.2,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

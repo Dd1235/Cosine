@@ -1,0 +1,35 @@
+{
+ "id": "kattis-hoppers",
+ "title": "Hoppers",
+ "slug": "hoppers",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/hoppers",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "In an undirected network of up to five hundred thousand hosts and links, an infected host infects every host lying exactly two links away, and each newly infected host then spreads the same way. The task is to report the minimum number of additional links that must be installed so that compromising one suitably chosen host eventually infects every host in the network.",
+ "tags": [],
+ "patterns": [
+  "bipartite-graph",
+  "connected-components",
+  "parity-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "bipartite-graph": 0.9,
+   "connected-components": 0.9,
+   "parity-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 3.5,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "id": "kattis-beautifulsquare",
+ "title": "Beautiful Square",
+ "slug": "beautifulsquare",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/beautifulsquare",
+ "source_topic": "ICPC / The 2020 Asia Can Tho Regional Contest",
+ "source_tags": [],
+ "statement": "Given a square grid of up to one hundred rows and the cell that must hold the number one, the task is to write every integer from one to the number of cells, each once, so that consecutive integers occupy cells sharing an edge, or to report that this is impossible. Up to one hundred grids are asked about, and the starting cell decides feasibility.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "parity-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "parity-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:25:04+00:00"
+ }
+}
