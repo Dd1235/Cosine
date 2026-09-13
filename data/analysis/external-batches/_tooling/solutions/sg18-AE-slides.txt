@@ -1,0 +1,155 @@
+--- slide 1 ---
+Contest debriefing Scientific Committee
+
+--- slide 2 ---
+Result Problem J: Free Food Problem C: SG Coin Problem L: Non-prime factors Problem B: Hopper Problem A: Largest Triangle Problem D: Bitwise Problem K:  Conveyorbelts Problem I: Prolonged Password Problem E: Magical String (For problems G, H, F, please read the solution by yourself  ) First 4 hours only A B C D E F G H I J K L Solved / Tries 18/97 (19%) 38/71 (54%) 43/93 (46%) 7/33 (21%) 0/7 (0%) 20/44 (45%) 8/18 (44%) 3/10 (30%) 4/10 (40%) 47/49 (96%) 7/12 (58%) 41/117 (35%) Average tries 3.73 1.69 1.98 2.75 1.75 1.76 2.00 1.43 1.67 1.04 1.50 2.34 Averages tries to solve 3.22 1.63 1.98 3.14 - 1.75 2.12 1.67 1.75 1.04 1.57 1.78 Total: 50 teams Ken Felix Suhendry
+
+--- slide 3 ---
+Free Food Problem J Author: Dr.  Suhendry  Effendy (NUS) Tester: Dr. Felix Halim (Google), Dr. Steven Halim (NUS)
+
+--- slide 4 ---
+Problem Input: N intervals (1    N   100) Output: the number of days in which free food is served. 1 2 3 4 5 6 7 364 365 0 1 1 1 1 0 1 0 0
+
+--- slide 5 ---
+0 0 0 0 0 0 0 0 0 Solution Note that there are only 100 intervals and  each interval is of length at most 365.  We use brute-force solution. Initialize the bit array B[1..365] as zeros For each interval ( s i ,  t i ), mark B[ s i .. t i ] = 1. Report the number of bits B[ i ] equal 1 1 2 3 4 5 6 7 364 365
+
+--- slide 6 ---
+Solution Note that there are only 100 intervals and  each interval is of length at most 365.  We use brute-force solution. Initialize the bit array B[1..365] as zeros For each interval ( s i ,  t i ), mark B[ s i .. t i ] = 1. Report the number of bits B[ i ] equal 1 1 2 3 4 5 6 7 364 365 0 1 1 1 0 0 0 0 0
+
+--- slide 7 ---
+Solution Note that there are only 100 intervals and  each interval is of length at most 365.  We use brute-force solution. Initialize the bit array B[1..365] as zeros For each interval ( s i ,  t i ), mark B[ s i .. t i ] = 1. Report the number of bits B[ i ] equal 1 1 2 3 4 5 6 7 364 365 0 1 1 1 1 0 0 0 0
+
+--- slide 8 ---
+Solution Note that there are only 100 intervals and  each interval is of length at most 365.  We use brute-force solution. Initialize the bit array B[1..365] as zeros For each interval ( s i ,  t i ), mark B[ s i .. t i ] = 1. Report the number of bits B[ i ] equal 1 1 2 3 4 5 6 7 364 365 0 1 1 1 1 0 1 0 0
+
+--- slide 9 ---
+SG Coin Problem C Author: Dr. Felix Halim (Google) Tester: Dr.  Suhendry  Effendy (NUS), Dr. Steven Halim (NUS)
+
+--- slide 10 ---
+Problem Given a block Z with  HashValue    Z  (with 9 digits and 7 trailing zeros), you need to generate two blocks A and B such that  A =H(  Z ,S A ,T A ) has 9 digits and 7 trailing zeros; and  B =H(  A ,S B ,T B ) has 9 digits and 7 trailing zeros. prevHashValue : ?? Transaction: ?? Token: ?? HashValue :   Z prevHashValue :   Z Transaction: S A Token: T A HashValue :   A =H(  Z ,S A ,T A ) prevHashValue :   A Transaction: S B Token: T B HashValue :   B =H(  A ,S B ,T B ) Block Z Block A Block B
+
+--- slide 11 ---
+Simple solution 1. Randomly generate S A  and T A . 2. Compute   A =H(  Z ,S A ,T A ) 3. Randomly generate S B  and T B . 4. Compute   B =H(  A ,S B ,T B ) 5. Output S A , T A , S B , T B . The running time is slow since you need to compute H(). prevHashValue : ?? Transaction: ?? Token: ?? HashValue :   Z prevHashValue :   Z Transaction: S A Token: T A HashValue :   A =H(  Z ,S A ,T A ) prevHashValue :   A Transaction: S B Token: T B HashValue :   B =H(  A ,S B ,T B ) Block Z Block A Block B
+
+--- slide 12 ---
+Speedup 1: Use a short  The running time of H() depends on the length of transaction. So, we use one character “X” for transaction. 1. Randomly generate T A . 2. Compute   A =H(  Z ,“X”,T A ) 3. Randomly generate T B . 4. Compute   B =H(  A ,“X”,T B ) 5. Output “X”, T A , “X”, T B . prevHashValue : ?? Transaction: ?? Token: ?? HashValue :   Z prevHashValue :   Z Transaction: “X” Token: T A HashValue :   A =H(  Z , “X”, T A ) prevHashValue :   A Transaction: “X” Token: T B HashValue :   B =H(  A , “X”, T B ) Block Z Block A Block B
+
+--- slide 13 ---
+Observation Since all  HashValues  have 9 digits and 7 trailing zeros, there are 99 different  HashValues : 010000000 020000000 030000000 … 990000000
+
+--- slide 14 ---
+Build Lookup table For each  hashValue   , we find a token such that 990000000=H(, “X”, ). Since there are only 100  HashValues , we can precompute a table T[] where T[ ] equals the token  such that 990000000=H(, “X”, ) 010000000 020000000 030000000 … … … … … … 980000000 990000000 000000000 000000001 000000002 … … … … … … … … … 999999998 999999999 Token   HashValue    T[ ]= such that 000000000=H(, “X”, )
+
+--- slide 15 ---
+Solution If the  hashValue  of block Z is   Z , the output is “X”, T[  Z ] “X”, T[ 990000000] By table lookup, O(1) time. prevHashValue : ?? Transaction: ?? Token: ?? HashValue :   Z prevHashValue :   Z Transaction: “X” Token: T[  Z ] HashValue :  990000000 =H(  Z , “X”, T[  Z ] ) prevHashValue :  990000000 Transaction: “X” Token: T[990000000] HashValue :  990000000 =H(  A , “X”, T[990000000]) Block Z Block A Block B
+
+--- slide 16 ---
+Remark Accidentally, this problem is very similar to the problem H in Yangon 2018 (on last Sunday, 9 Dec). Note that we submit the problem last month. This is just a coincidence.
+
+--- slide 17 ---
+Non-Prime Factors Problem L Author: Dr. Steven Halim (NUS) Tester: Dr. Felix Halim (Google), Dr.  Suhendry  Effendy (NUS)
+
+--- slide 18 ---
+Problem Input: an integer  i Output: NPF( i ), which is the number of non-prime factors of  i . Example:  i  = 40. 40 has 8 factors: 1,  2 , 4,  5 , 8, 10, 20, 40. 40 has 2 prime factors: 2, 5. 40 has 6 non-prime factors: 1, 4, 8, 10, 20, 40. NPF(40)=6.
+
+--- slide 19 ---
+Theorem The prime factorization of  i  =  . Then, the number of factors of  i  = (q 1 +1)(q 2 +1)…(q m +1). The number of prime factors of  i  = m. The number of non-prime factors of  i  = (q 1 +1)(q 2 +1)…(q m +1) - m. Example: i  = 40 = 2 3 *5 1 . 40 has 8=(3+1)*(1+1) factors: 2 0 *5 0 ,  2 0 *5 1 ,  2 1 *5 0 , 2 1 *5 1 , 2 2 *5 0 , 2 2 *5 1 , 2 3 *5 0 , 2 3 *5 1 . 40 has 2 prime factors:  2 0 *5 1 ,  2 1 *5 0 . 40 has 6=(3+1)(1+1)-2 non-prime factors: 2 0 *5 0 , 2 1 *5 1 , 2 2 *5 0 , 2 2 *5 1 , 2 3 *5 0 , 2 3 *5 1 .
+
+--- slide 20 ---
+Solution Given a number  i , For p = 2 to  Check if p is a prime factor if  i . Then, we obtain the prime factorization of  i  =  . This takes   time. After that, report NPF( i ) = (q 1 +1)(q 2 +1)…(q m +1) - m.
+
+--- slide 21 ---
+Another solution Given a number  i , Find all non-prime factors of  i  using a  modified sieve of  eratosthenes  algorithm Basically, run sieve of  eratosthenes  algorithm but cross out all the prime number Then, we count the number of non-prime numbers
+
+--- slide 22 ---
+Further speedup It is still not fast enough! Speedup 1 : File I/O is slow. C language: Instead of using  cin /count, use  scanf / printf . Java language: Instead of using Scanner/ System.out.println , use  BufferedReader / PrintWriter .
+
+--- slide 23 ---
+Further speedup Speedup 2 : Observe that There are at most 3*10 6  queries. The maximum value of  i  is 2*10 6 . By pigeon-hole principle, some queries NPF( i ) are  duplicates . To save computational time, you can store the answers in a hash table.
+
+--- slide 24 ---
+Remark Since this question requires a lot of I/O,  python  will  die miserably.
+
+--- slide 25 ---
+Hoppers Problem B Author: Hubert  Teo  Hua Kian (Stanford University) Tester: Dr.  Suhendry  Effendy (NUS), Dr. Steven Halim (NUS)
+
+--- slide 26 ---
+Problem Input: An undirected network with N nodes and M edges Malware ‘hopper’: If a node is infected, its neighbors’ neighbors will be infected.  A network is unsafe if one node v is infected by ‘hopper’, all nodes in the network will be infected. Output: The minimum of number of additional edges to make the network unsafe. Example 1: Add zero edge to make G unsafe. If we infect node 1, Node 2 will be infected since 1-5-4-3-2 is of even length. Node 3 will be infected since 1-2-3 is of even length. Node 4 will be infected since 1-5-4 is of even length. Node 5 will be infected since 1-2-3-4-5 is of even length. 1 2 3 5 4 1 2 5 3 4
+
+--- slide 27 ---
+Problem Example 2: The original graph G is safe. If we infect node 1, Node 3 will be infected since 1-2-3 is of even length. Cannot further propagate. If we infect node 2, Node 4 will be infected since 2-3-4 is of even length. Cannot further propagate. After we add 1 edge (1, 3), G is unsafe. If we infect node 1, Node 2 will be infected since 1-3-2 is of even length. Node 3 will be infected since 1-2-3 is of even length. Node 4 will be infected since 1-3-2 is of even length. 1 2 4 3
+
+--- slide 28 ---
+Idea Lemma: If G does not have odd cycle, then G is safe. Proof: If G does not have odd cycle, then G is 2-colorable,  say red and blue. If you infect a red node, all red nodes will be infected but  not blue nodes. If you infect a blue node, all blue nodes will be infected but  not red nodes. So, G is safe. 1 2 5 4 3 10 9 8 7 6 1 2 5 4 3 10 9 8 7 6
+
+--- slide 29 ---
+Idea Lemma: Consider an odd cycle 1 – 2 – 3 – … – n. For any node j, Either 1-2-3-…-j or 1-n-(n-1)-…-j is of even length. Proof:  For odd j, 1-2-3-…-j is of even length. For even j, 1-n-(n-1)-…-j is of even length. 1 2 n 3 n-1 4 5 1 2 n-1 4 n 3 5
+
+--- slide 30 ---
+Idea Lemma: Suppose the graph G is connected and has an odd cycle. G is unsafe. After we infect a node v in the odd cycle, all nodes will be infected. Proof: Let 1-2-…-n be the odd cycle in G. For any node u in G, either 1-2-…-j-…-u or 1-n-(n-1)-…-j-…-u is of even length. Hence, there is an even-length path from 1 to u. All nodes are infected. G is unsafe. 1 2 n 3 n-1 4 5 1 j u
+
+--- slide 31 ---
+Theorem Lemma: Suppose the graph G has k connected component. Case 1: If G has an odd cycle, we need to add k-1 edges. Case 2: If G does not have an odd cycle, we need to add k edges. Proof for case 1: We add k-1 edges to link all k components. If we infect u, u has an length-even path to all nodes in G. All nodes will be infected. u
+
+--- slide 32 ---
+Theorem Lemma: Suppose the network G has k connected component. Case 1: If G has an odd cycle, we need to add k-1 edges. Case 2: If G does not have an odd cycle, we need to add k edges. Proof for case 2: We add k-1 edges to link all k components. There is no odd cycle. So, the network is still unsafe. We add a link (v, w). u-v-w is a triangle, odd-length cycle. All nodes will be infected. u w v
+
+--- slide 33 ---
+Solution 1. Let k be the number of connected components 2. By DFS (or BFS), detect if there is an odd cycle. 3. If there is an odd cycle, Report k-1 Otherwise, report k. This algorithm runs in O(N+M) time.
+
+--- slide 34 ---
+Largest Triangle Problem A Author: Dr. Steven Halim (NUS) Tester: Dr. Felix Halim (Google), Dr.  Suhendry  Effendy (NUS)
+
+--- slide 35 ---
+Problem Input: A set of points. Output: The area of the largest triangle.
+
+--- slide 36 ---
+Naïve solution Enumerate all 3 points. Find the one with the biggest area. This solution takes O(N 3 ) time. It rendered Time-Limit-Exceeded (TLE)
+
+--- slide 37 ---
+A better solution We can reduce the number of points by filter out: Duplicate points Points not in convex hull Points that are collinear However, it is still not fast enough. x x x x x x x x x
+
+--- slide 38 ---
+Idea of the solution A triangle is said rooted at a if one of its endpoint is a. Let the convex hull be P = p 0 , p 1 , …,  p n . Area = 0 For  i  = 0 to n Set A i  = area of the largest triangle rooted at p i . If (A i  > Area) then Area = A i Report Area Below, we show that “area of the largest triangle  rooted at p i ” can be computed in O(n) time. So, we give an O(n 2 ) time algorithm. p 0 p 1 p 2 p 3 p 4 p 5 p 6 p 7 p 8
+
+--- slide 39 ---
+Find the largest triangle rooted at a Area of the largest triangle rooted at ‘a’ can be found using an idea similar to the  rotating  caliper  algorithm
+
+--- slide 40 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 Keikha  et al. Maximum-Area Triangle in a Convex Polygon, Revisited. 2017.
+
+--- slide 41 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c   c’  Area =  p 0 p 1 p 2  Area =  p 0 p 1 p 3
+
+--- slide 42 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c  Area =  p 0 p 1 p 3
+
+--- slide 43 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c   c’  Area =  p 0 p 1 p 3 Area =  p 0 p 2 p 4
+
+--- slide 44 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c  Area =  p 0 p 2 p 4
+
+--- slide 45 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c  c’  Area =  p 0 p 2 p 4
+
+--- slide 46 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b c  c’  Area =  p 0 p 2 p 4
+
+--- slide 47 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c    p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b  c Area =  p 0 p 2 p 4
+
+--- slide 48 ---
+Find the largest triangle rooted at a Let the convex hull be p 0 , p 1 , …,  p N . Set a=p 0 , b=p 1 , c=p 2 Area =   abc While (c   p N ) c’=next(c) While ( abc ’    abc ) If (  abc ’ > Area) then Area =   abc ’ c = c’ b = next(b) Return Area This algorithm runs  in O(N) time. p 0 p 1 p 2 p 3 p 5 p 4 a b  c Area =  p 0 p 2 p 4 
+
+--- slide 49 ---
+Even faster solution O(n 2 ) solution can pass all test cases. This problem actually can be solved in O(n log n) time. Keikha  et al. Maximum-Area Triangle in a Convex Polygon, Revisited. 2017. https://arxiv.org/pdf/1705.11035.pdf The above paper also showed that idea based on the “modified  rotating  caliper  algorithm”  cannot give an O(n ) time.
+
+--- slide 50 ---
+Remark 1. This is the only  geometry problem in the set, added to diversify the problem types. 2. For large test cases in this problem, it requires to generate many points in a convex hull. We actually use the solution in ICPC.SG.2015 to generate the large test cases. https://open.kattis.com/problems/convex
+
+--- slide 51 ---
+Acknowledgement  (related to Scientific committee) Problem setters Sean  Pek  Yu Xuan  (NUS, SGP, prelim tasks only), Shafaet  Ashraf  ( Traveloka , SGP), Dr  Felix Halim  (Google, USA; ICPC World Finalist 2007), Raymond Kang Seng  Ing  (Google, USA; 2x ICPC World Finalist 2015, 2018), Hubert  Teo  Hua Kian  (Stanford University, USA; 2x ICPC World Finalist 2016, 2018), Chin Zhan  Xiong  ( Nuro , USA; 2x ICPC World Finalist 2017, 2018), Nguyen Tan  Sy  Nguyen  ( Anduin  Transactions, VNM; 2x ICPC World Finalist 2013, 2016), Kyle See  (Augmented Intelligence Pros, Philippines, World Finalist 2016), Irvan   Jahja  (NUS, SGP, 2x ICPC World Finalist 2012, 2013), Dr   Suhendry  Effendy  (NUS, SGP, ICPC Asia Jakarta Head Judge 2010-2016), Dr  Steven Halim  (NUS, SGP, 6x ICPC World Finalist (Coach 3x/RCD 2x/Attendee 1x) 2010, 2012, 2014, 2015, 2016, 2018). Tester Dr   Suhendry  Effendy  (NUS, SGP, ICPC Asia Jakarta Head Judge 2010-2016), Dr  Felix Halim  (Google, USA; ICPC World Finalist 2007), Dr  Steven Halim  (NUS, SGP, 6x ICPC World Finalist (Coach) 2010, 2012, 2014-16, 2018), Shen Chuanqi  (Google, USA; ICPC World Finalist 2015), Nguyen  Thanh   Trung  (Google, SGP; ICPC World Finalist 2012, 2016). Honorary Judges from  Kattis  team Dr  Fredrik  Niemelä , Associate Professor Greg  Hamerly .
+
+--- slide 52 ---
+2-stable triangle rooted at a Let the convex hull be P = p 0 , p 1 , …,  p n . Fixed a=p 0 . A triangle is said rooted at a if one of its endpoint is a. A triangle   abc  rooted at a is said to be 2-stable if  ab’c ,   abc ’      abc  for all b’ and c’. Lemma: Suppose   abc  and   ab’c ’ are 2-stable. We have: b    b’    c    c’ or b’    b    c     c’in  P a b c b’ c’ Keikha  et al. Maximum-Area Triangle in a Convex Polygon, Revisited. 2017.

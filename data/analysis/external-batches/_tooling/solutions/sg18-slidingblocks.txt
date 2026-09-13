@@ -1,0 +1,80 @@
+Definition
+Consider the following board with 13 blocks.
+
+
+
+
+Since the blocks are guaranteed to form a tree, for each block u , there is a single path from u
+to block number 1 -- the root of the tree. We call this path P (u) .
+e.g.
+    ●   P (7) = (7, 3, 2, 1)
+    ●   P (8) = (8, 6, 5, 4, 3, 2, 1)
+For any u =/ 1 let's denote by par(u) the block after u in P (u) , e.g.
+par(8) = 6, par(7) = 3, par(5) = 4 . Note that par(u) is uniquely defined since P (u) is unique.
+
+
+
+Observations
+We can prove that each block u must be slide after par(u) . More precisely, the block u must be
+slide so that it bumps into par(u) and stops. Thus, for each block we also know the direction
+which it is slided.
+
+Consider block 8 in the above figure. We know that this block is slided from the right until it
+bumps into block 6. This also means that block 13 must be slided after block 8 (otherwise block
+8 will stop when it reaches block 13).
+
+So for each block u , we have the following 2 conditions:
+    ●   Block par(u) must be slided before block u .
+    ●   Find the direction which block u is slided in. All blocks in this direction must be slided
+        after u .
+
+We can prove that when these 2 conditions are met for all block u , it is possible to make the
+target board.
+
+Proof
+Consider a sequence of blocks S , such that in this sequence:
+    ●   par(u) appears before u
+    ●   All blocks in the direction which we slide block u must appear after u in sequence S .
+
+We slide each block one by one in the order it appears in S . For each block u , we must be able
+to slide it so that it bumps into par(u) and stops (since par(u) must already be slided, and no
+other block is on its direction).
+
+Thus, it is possible to make target board iff the 2 conditions are met for all block u , or
+equivalently we can find sequence S as described above.
+
+
+
+Algorithm
+    1. DFS on the blocks to build the tree. During this step, we also:
+         ○ Find par(u) for each block u .
+            ○     Find the direction which block u must be slided.
+            ○     Find the next block in direction which u must be slided.
+    2. Build a new graph G , where:
+            ○     Vertices are the blocks.
+            ○     For each condition: u must be slided before v , add an edge (u, v) .
+    3. Run topo sort on G to find the sequence S .
+
+Note:
+   ● If we add all edges of G , there would be O(N 2 ) edges, where N is the number of
+        blocks.
+
+
+
+
+e.g. In the above figure, we need to add the following edges:
+    ● (6, 11), (6, 12), (6, 17), (6, 18), (6, 23), (6, 24)
+    ● (11, 12)
+    ● (12, 17), (12, 18), (12, 23), (12, 24)
+    ● (17, 18)
+    ● (18, 23), (18, 24)
+    ● (23, 24)
+
+To reduce the number of edges to O(N ) , notice that we only need to add edges from block u to
+the next block in that direction. Thus we only need O(N ) edges:
+●   (6, 11)
+●   (11, 12)
+●   (12, 17)
+●   (17, 18)
+●   (18, 23)
+
