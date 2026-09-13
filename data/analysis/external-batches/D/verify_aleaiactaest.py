@@ -32,6 +32,7 @@ import itertools
 import math
 import random
 import sys
+import time
 from collections import Counter
 
 INF = float("inf")
@@ -324,6 +325,145 @@ def solve_valueiter(d, dice, words, sweeps=200000, tol=1e-13):
     return 1.0 + exp
 
 
+# ------------------------------------------------- second independent solver
+def solve_lattice_vi(d, dice, words, iters=4000, tol=1e-14):
+    """Independent method #2: value iteration on the keep-set lattice.
+
+    No Dijkstra, no explicit per-state transition lists.  Partial hands live in
+    a mixed-radix array (digit n_i means "die i is free"); the expectation over
+    completions is an axis-by-axis average (a zeta transform on the lattice) and
+    the "best sub-hand" is an axis-by-axis min.  Value iteration from V == 0
+    computes the k-horizon optimum, which increases to V*; since the answer is
+    bounded by E[max of d Geom(1/6)] <= 13.9378 the tail decays like (5/6)^k and
+    ~140 sweeps reach 1e-10.
+    """
+    faces, probs = [], []
+    for die in dice:
+        c = Counter(die); ks = sorted(c)
+        faces.append(ks); probs.append([c[k] / 6.0 for k in ks])
+    n = [len(f) for f in faces]
+    r = [x + 1 for x in n]
+    ps = [1] * d
+    for i in range(1, d): ps[i] = ps[i - 1] * r[i - 1]
+    npart = ps[-1] * r[-1]
+    ts = [1] * d
+    for i in range(1, d): ts[i] = ts[i - 1] * n[i - 1]
+    ntup = ts[-1] * n[-1]
+
+    wordset = {"".join(sorted(x)) for x in words}
+    combos = list(itertools.product(*[range(x) for x in n]))
+    tid_of, win, pfull = {}, [False] * ntup, [0] * ntup
+    for combo in combos:
+        tid = sum(combo[i] * ts[i] for i in range(d))
+        tid_of[combo] = tid
+        win[tid] = "".join(sorted(faces[i][combo[i]] for i in range(d))) in wordset
+        pfull[tid] = sum(combo[i] * ps[i] for i in range(d))
+    if not any(win):
+        return None
+
+    free_idx = [[q for q in range(npart) if (q // ps[i]) % r[i] == n[i]] for i in range(d)]
+    fix_idx = [[q for q in range(npart) if (q // ps[i]) % r[i] != n[i]] for i in range(d)]
+    EMPTY = sum(n[i] * ps[i] for i in range(d))
+
+    def zeta(V):
+        A = [0.0] * npart
+        for tid in range(ntup):
+            A[pfull[tid]] = V[tid]
+        for i in range(d):
+            si, ni, pi = ps[i], n[i], probs[i]
+            for q in free_idx[i]:
+                base = q - ni * si
+                A[q] = sum(pi[f] * A[base + f * si] for f in range(ni))
+        return A
+
+    V = [0.0] * ntup
+    for it in range(iters):
+        A = zeta(V)
+        B = A[:]
+        for i in range(d):
+            si, ni = ps[i], n[i]
+            for q in fix_idx[i]:
+                fq = q + (ni - (q // si) % r[i]) * si
+                if B[fq] < B[q]:
+                    B[q] = B[fq]
+        newV = [0.0] * ntup
+        for combo in combos:
+            tid = tid_of[combo]
+            if win[tid]:
+                continue
+            base = pfull[tid]
+            newV[tid] = 1.0 + min(B[base + (n[i] - combo[i]) * ps[i]] for i in range(d))
+        delta = max(abs(a - b) for a, b in zip(newV, V))
+        V = newV
+        if delta < tol and it > 20:
+            break
+    return 1.0 + zeta(V)[EMPTY]
+
+
+def run_lattice_cross(trials=70, seed=4242):
+    """Dijkstra vs lattice value iteration on random instances up to d = 5."""
+    rng = random.Random(seed)
+    bad = 0
+    for _ in range(trials):
+        d = rng.randint(1, 4)
+        alpha = rng.choice(["AB", "ABC", "ABCD", "ABCDEF"])
+        dice = ["".join(rng.choice(alpha) for _ in range(6)) for _ in range(d)]
+        words = sorted({"".join(rng.choice(alpha) for _ in range(d))
+                        for _ in range(rng.randint(1, 5))})
+        a = solve_dijkstra(d, dice, words)
+        b = solve_lattice_vi(d, dice, words, iters=6000)
+        if (a is None) != (b is None) or (a is not None and abs(a - b) > 1e-7 * max(1.0, a)):
+            print(" MISMATCH(lattice)", d, dice, words, a, b)
+            bad += 1
+    for _ in range(6):
+        d, alpha = 5, "ABC"
+        dice = ["".join(rng.choice(alpha) for _ in range(6)) for _ in range(d)]
+        words = sorted({"".join(rng.choice(alpha) for _ in range(d))
+                        for _ in range(rng.randint(1, 3))})
+        a = solve_dijkstra(d, dice, words)
+        b = solve_lattice_vi(d, dice, words, iters=3000)
+        if (a is None) != (b is None) or (a is not None and abs(a - b) > 1e-7 * max(1.0, a)):
+            print(" MISMATCH(lattice d=5)", d, dice, words, a, b)
+            bad += 1
+    print("dijkstra vs lattice-VI: %d mismatches" % bad)
+    return bad == 0
+
+
+def run_interpretation_check():
+    """Sample 1 separates 'rearrange into a word' from 'die i shows word[i]'."""
+    d, dice, words = parse(SAMPLES[0][0])
+    feasible = [w for w in words if all(w[i] in dice[i] for i in range(d))]
+    ok = not feasible                      # no word is positionally makeable...
+    got = solve_dijkstra(d, dice, words)   # ...yet the expected answer is finite
+    ok &= got is not None and abs(got - 9.677887141) < 1e-6
+    print("interpretation: positional match would print 'impossible' on sample 1,"
+          " multiset match gives %.9f -> multiset confirmed (%s)"
+          % (got, "OK" if ok else "FAIL"))
+    return ok
+
+
+def run_worst_case():
+    """Largest input shape, and the analytic ceiling on the answer."""
+    dice = ["ABCDEF"] * 6
+    t0 = time.time(); a = solve_dijkstra(6, dice, ["FFFFFF"]); t1 = time.time()
+    bound = sum((-1) ** (k + 1) * math.comb(6, k) / (1 - (5 / 6) ** k)
+                for k in range(1, 7))
+    ok = abs(a - bound) < 1e-9
+    print("worst case d=6 (6^6 tuples, 63 keep-sets): %.9f in %.1fs; "
+          "E[max of 6 Geom(1/6)] = %.9f (%s)"
+          % (a, t1 - t0, bound, "OK" if ok else "FAIL"))
+    # a 2e5-word dictionary costs only the O(w d) canonicalisation
+    rng = random.Random(11)
+    alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    pool = {"".join(rng.choice("ABCDEF") for _ in range(6)) for _ in range(120000)}
+    while len(pool) < 200000:                      # pad out to the real cap of w
+        pool.add("".join(rng.choice(alpha) for _ in range(6)))
+    words = sorted(pool)
+    t0 = time.time(); b = solve_dijkstra(6, dice, words); t1 = time.time()
+    print("worst case w=%d: %.9f in %.1fs" % (len(words), b, t1 - t0))
+    return ok
+
+
 # --------------------------------------------------------------------- tests
 SAMPLES = [
     ("5 8\nABCDEP\nAEHOXU\nAISOLR\nABCDEF\nABCSCC\nPARSE\nPAUSE\nPHASE\nPOISE\nPROSE\nPULSE\nPURSE\nPEACE", 9.677887141),
@@ -347,16 +487,6 @@ def run_samples():
         ok &= good
         print(("  OK  " if good else " FAIL "), "want", want, "got", gs)
     return ok
-
-
-def positional_variant(d, dice, words):
-    """Sanity: what the answer would be if words matched die-by-die."""
-    faces = []
-    for die in dice:
-        faces.append(die)
-    # reuse solve_dijkstra with an exact-word (ordered) match by faking the set
-    # -- easiest: monkey-patch through a tiny re-implementation
-    return None
 
 
 def run_random(trials=60, seed=7):
@@ -407,9 +537,12 @@ if __name__ == "__main__":
     print()
     r1 = run_random()
     r2 = run_random_big()
+    r3 = run_lattice_cross()
+    r4 = run_interpretation_check()
+    r5 = run_worst_case()
     print()
     d, dice, words = parse(SAMPLES[0][0])
     mc = simulate(d, dice, words, trials=100000, seed=12345)
     print("sample 1 Monte-Carlo of the computed policy: %.4f (exact 9.677887141)" % mc)
     print()
-    print("ALL OK" if (s and r1 and r2) else "FAILURES PRESENT")
+    print("ALL OK" if (s and r1 and r2 and r3 and r4 and r5) else "FAILURES PRESENT")

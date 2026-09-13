@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """One aggregated publish for batches B, D, E (and the kindergarten2 retry if approved).
 
-For each batch: read scratchpad/batch<X>/*.json proposals + skeptic*.json reviews,
+For each batch: read data/analysis/external-batches/<X>/*.json proposals + skeptic*.json reviews,
 append proposals to external-proposals.json, write review entries (keep + add ->
 patterns) to external-review.json, copy approved verify scripts into
 scripts/research/, then run publish_external.py --batch <X> --write. Finally splice
 scratchpad/contests-draft.json into data/contests.json. Idempotent.
-Run from the repo root:  python3 <scratchpad>/aggregate_publish.py [--dry-run]
+Run from the repo root:  python3 scripts/research/aggregate_external_batches.py [--dry-run] [--collections=id,id]
 """
 import json, shutil, subprocess, sys, glob
 from pathlib import Path
@@ -18,8 +18,8 @@ P = ROOT/"data/analysis/external-proposals.json"; props = json.loads(P.read_text
 R = ROOT/"data/analysis/external-review.json"; rev = json.loads(R.read_text())
 pby = {p["id"]: p for p in props["problems"]}
 summary = {}
-for batch in ("B", "D", "E", "A2"):
-    bdir = SC/f"batch{batch}"
+for batch in ("A", "B", "D", "E", "A2"):   # C already published (2247a85)
+    bdir = SC/batch   # data/analysis/external-batches/<A|B|C|D|E|A2>/
     if not bdir.exists(): continue
     reviews = {}
     for f in sorted(bdir.glob("skeptic*.json")):
@@ -65,7 +65,11 @@ for batch in [b for b in summary if summary[b]["approved"]]:
 # registry: splice the drafted collections (idempotent by id)
 C = ROOT/"data/contests.json"; reg = json.loads(C.read_text()); draft = json.loads((SC/"_tooling"/"contests-draft.json").read_text())
 have = {c["id"] for c in reg["collections"]}
-new = [c for c in draft if c["id"] not in have]
+# --collections a,b restricts which drafted collections are spliced this round —
+# a collection with zero searchable members reads as sparseness, so Asia
+# regionals wait until their batch publishes.
+only = next((a.split("=",1)[1].split(",") for a in sys.argv if a.startswith("--collections=")), None)
+new = [c for c in draft if c["id"] not in have and (only is None or c["id"] in only)]
 if new and not DRY: reg["collections"] += new; C.write_text(json.dumps(reg, indent=2, ensure_ascii=False) + "\n")
 print(f"registry: +{len(new)} collections ({', '.join(c['id'] for c in new)})")
 print("\nnext: npm run embed && npm run validate && npm run bench && npm run test:search, then commit")

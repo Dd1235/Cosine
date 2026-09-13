@@ -1,0 +1,34 @@
+{
+ "id": "kattis-aleaiactaest",
+ "status": "solved",
+ "solution": "A position is the tuple of top symbols on the d <= 6 dice, and a move keeps a subset K of them and rerolls the rest, so the value of a move depends only on the kept partial hand; the state space is the keep-set lattice of at most 7^d partial hands (each die free or pinned to one of its faces) over at most 6^d full tuples, with h(q) = 1 + sum_t Pr[t|q] V(t) and V(t) = 0 if the multiset of t is a dictionary word, else min over the 2^d - 1 proper sub-hands q of t of h(q); the answer is h(empty). A full tuple wins iff its sorted symbol string is in a hash set of the sorted dictionary words, which is the whole of the O(w d) input processing, and the answer is 'impossible' exactly when no tuple wins. The recursion is cyclic (rerolling can return the same tuple), so it is a stochastic-shortest-path MDP with unit costs and is solved as the least nonnegative fixed point: either value iteration from V = 0, or -- exactly, in one pass -- Dijkstra order, since q is a sub-hand of each of its completions so V(t) <= h(q) always, and popping the smallest tentative key h(q) = (1 + sum_known Pr V) / (1 - Pr[unknown]) finalises every still-unknown completion at that same value. Value iteration also suffices because the strategy 'fix one winning assignment and keep each die once it shows its target' bounds every answer by E[max of d independent Geom(1/6)] <= 13.9378, so the horizon tail decays like (5/6)^k and ~140 sweeps reach 1e-10. Cost is O(6^d * 2^d) = about 2.9e6 state-move pairs plus O(w d), trivially inside the limits.",
+ "solution_confidence": 0.95,
+ "statement_summary": "Given at most six dice, each with six faces bearing letters or digits, and a dictionary of up to 200000 words of that same length, all dice are rolled; a roll succeeds when the top symbols can be rearranged into a dictionary word. Otherwise any subset may be kept and the rest rerolled. Report the expected number of rolls under optimal play, or that no word is reachable.",
+ "patterns": [
+  "expected-value-dp",
+  "probability-dp",
+  "bitmask-dp",
+  "state-compression",
+  "dijkstra"
+ ],
+ "pattern_confidence": {
+  "expected-value-dp": 0.95,
+  "probability-dp": 0.8,
+  "bitmask-dp": 0.65,
+  "state-compression": 0.5,
+  "dijkstra": 0.4
+ },
+ "tags": [
+  "probability",
+  "expected-value",
+  "dice",
+  "optimal-strategy",
+  "markov-decision-process",
+  "bitmask",
+  "fixed-point-iteration",
+  "hash-map"
+ ],
+ "source_text_sha256": "e808bc7795b36e30d5035c2be1fe8872e22976a557c1f8e51cb0489180df3885",
+ "verify_script": "/Users/dedeepya/Cosine/data/analysis/external-batches/D/verify_aleaiactaest.py",
+ "notes": "Verification: all four official samples reproduce to the printed 9 decimals (9.677887141 / 1.000000000 / 10.555444555 / impossible). Three mutually independent solvers agree -- Dijkstra-order exact solve on the keep-set lattice, plain value iteration over raw symbol tuples with explicit transition lists (no lattice machinery), and value iteration on the lattice via mixed-radix zeta/min transforms (no Dijkstra, no transition lists) -- over 158 random instances spanning d = 1..5 and alphabets of size 2..6, with zero mismatches, and a Monte-Carlo run of the extracted greedy policy on sample 1 gives 9.700 against the exact 9.678. The one real modelling trap is what counts as a word: the samples discriminate it, because on sample 1 NO dictionary word is makeable if die i must show word[i] (PEACE needs an E from die 5 = ABCSCC, which has none), so that reading prints 'impossible' while the expected answer is finite -- the top symbols are matched as a MULTISET (equivalently a bijection between dice and word letters), which is why canonicalising by sorting into a hash set is correct and no bipartite-matching code is needed. Second trap: the Bellman recursion is cyclic, since rerolling a subset can hand back the same tuple, so it is not a plain DAG DP; it is a unit-cost stochastic shortest path whose optimum is the LEAST nonnegative fixed point. A d = 6 worst case (6^6 tuples, 63 keep-sets, w = 200000) runs in under 4 s in plain Python, so the limits are comfortable. The maximum possible answer is E[max of 6 independent Geom(1/6)] = 13.937796697320, which the solver attains exactly on dice ABCDEF x6 with the single word FFFFFF -- this is both a nice check and the reason value iteration converges in ~140 sweeps. Labels: expected-value-dp and probability-dp are the crux (expected number of rolls under an optimal policy, with per-die face probabilities); bitmask-dp covers the decision, which is a choice among the 2^d - 1 subsets of dice to keep, and d <= 6 is precisely the deciding constraint; state-compression (0.5) is the mixed-radix packing of the d dice into one index, borderline scaffolding but it is what makes 7^6 states addressable. dijkstra is deliberately low (0.4): it is the top-level algorithm of one complete and exact solution (Dijkstra for stochastic shortest path, valid because every partial hand's value upper-bounds all of its completions), but plain value iteration also passes, so it is optional rather than required -- it is listed because 'Dijkstra on an MDP' is a real query this problem should answer, not because the problem is a shortest-path problem. Deliberately NOT labelled: bipartite-matching (multiset equality, not matching); game-theory / game-dp (no opponent); binary-search-answer (no monotone predicate is searched); dp-on-dag (the state graph has cycles and is not handed to us); sos-dp (the zeta transform over the free-dice lattice is one implementation speed-up, not needed -- 6^6 * 63 direct edges already fit). Vocabulary gap: there is no slug for Markov decision process / stochastic shortest path / value iteration, which is the single most accurate name for this problem's method; expected-value-dp is the closest carrier."
+}

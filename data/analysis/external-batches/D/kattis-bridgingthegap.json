@@ -1,0 +1,30 @@
+{
+ "id": "kattis-bridgingthegap",
+ "status": "solved",
+ "solution": "Sort the crossing times ascending. Exchange arguments collapse the search space: every return trip carries exactly one walker, the walkers that ever return form a prefix of the sorted order (the k shuttles), a forward trip that carries s shuttles carries precisely walkers 1..s together with c-s passengers, and a multiset of shuttle counts {s_j} is realisable exactly when sum_j (s_j - 1) = k - 1 with 0 <= s_j <= min(k,c) and max_j s_j = k, the last trip taking all k shuttles over. Since walker i returns #{j : s_j >= i} - 1 times, the return bill telescopes to sum_j (t_1+...+t_{s_j}) minus (t_1+...+t_k), so each trip simply pays for the shuttles riding on it; the forward bill is the sum of trip maxima, got by ordering the trips by passenger capacity c-s and giving them consecutive blocks of the passenger list starting at the slowest walker, a trip with no passenger costing t_s instead. A single DP over (passengers already ferried, running value of sum (s_j - 1)) that sweeps s in increasing order therefore ranges over all admissible schedules at once, and k never has to be enumerated because k is just the number of walkers still on the near side when the DP stops. At most n/c trips carry no shuttle and k is at most that plus one, so the table is O(n * (n/c) * min(c, n/c)) = O(n^2) in the worst case c ~ sqrt(n), roughly 2*10^8 operations at n = c = 10^4, well inside the limits and far smaller in practice since most states are unreachable.",
+ "solution_confidence": 0.87,
+ "statement_summary": "A group of n walkers must cross a bridge at night sharing a single torch, and the bridge holds at most c walkers at a time. Each walker has a crossing time, a group moves at its slowest member's pace, and the torch must be carried back for the next group. The task is the minimum total time until everyone is across, with n and c up to ten thousand.",
+ "patterns": [
+  "sorting",
+  "greedy",
+  "exchange-argument",
+  "dynamic-programming",
+  "partition-dp"
+ ],
+ "pattern_confidence": {
+  "sorting": 0.95,
+  "greedy": 0.7,
+  "exchange-argument": 0.7,
+  "dynamic-programming": 0.92,
+  "partition-dp": 0.6
+ },
+ "tags": [
+  "array",
+  "sorting",
+  "greedy",
+  "dynamic-programming"
+ ],
+ "source_text_sha256": "c59e4b4f31066b6c4eb03a4ec9bf245ab102f7dc210200e7e5cdf3636291843a",
+ "verify_script": "/Users/dedeepya/Cosine/data/analysis/external-batches/D/verify_bridgingthegap.py",
+ "notes": "Generalisation of the classic torch/bridge puzzle from capacity 2 to capacity c; the classic two moves are the cases k=1 (the fastest walker escorts everybody) and k=2 (the two fastest cross, the fastest rows back, the two slowest cross, the second fastest rows back). Two plausible reductions were measured wrong here and are pinned as regression tests in the verify script. (1) 'Repeat a shuttle cycle': send the m fastest across, then m-1 full trips with one shuttle rowing back after each. It passes every random test up to n=8 and then fails at n=9, c=3, t=[5,6,9,11,14,15,17,23,23] with 76 against the true 74, because trips belonging to different cycles compete for the slow walkers and the capacities must be pooled and sorted globally. (2) 'Largest capacity gets the slowest walkers' is right only among trips that actually carry someone: when a trip must run empty, the one left empty should be the trip with the fewest shuttles, not the one with the smallest capacity, since an empty trip costs the time of its slowest shuttle. That fails first at n=22, c=5 (648 against 646). Verification: the derived solution agrees with an assumption-free Dijkstra over (subset still on the near side, torch side) on both samples, 7 pinned cases and about 1100 random instances up to n=13, and with an independently shaped per-k DP on 280 random instances up to n=45. Residual uncertainty: the claim that any multiset {s_j} obeying sum (s_j - 1) = k - 1 can be ordered in time (shuttle count never exceeding the shuttles currently on the near side) is argued but only checked indirectly through the brute force, and the problem is on icpc.kattis.com with no public editorial, so there is no reference answer to compare against."
+}
