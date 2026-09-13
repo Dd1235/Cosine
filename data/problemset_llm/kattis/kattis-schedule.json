@@ -1,0 +1,33 @@
+{
+ "id": "kattis-schedule",
+ "title": "Schedule",
+ "slug": "schedule",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/schedule",
+ "source_topic": "ICPC / World Finals 2023",
+ "source_tags": [],
+ "statement": "A company has n two-person teams; each week exactly one member of each team is in the office. For two people on different teams, isolation is the longest gap between consecutive weeks both are present, with the two ends counted as gaps too. Over w weeks, minimise the largest isolation over all cross-team pairs and output such a schedule, or report infinity; n reaches 10000 and w at most 52.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "combinatorics"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "combinatorics": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.9,
+  "label": "hard",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:50+00:00"
+ }
+}

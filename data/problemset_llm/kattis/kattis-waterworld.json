@@ -1,0 +1,31 @@
+{
+ "id": "kattis-waterworld",
+ "title": "Waterworld",
+ "slug": "waterworld",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/waterworld",
+ "source_topic": "ICPC / World Finals 2023",
+ "source_tags": [],
+ "statement": "A rotating spherical planet is imaged along its central vertical line, split into n segments of equal image height, while the rotation is analysed in m equal angular steps covering 360 degrees, dividing the surface into n times m areas. Given each area's integer water-coverage percentage, with n and m up to 1000, report the percentage of the entire surface covered by water within 10^-6.",
+ "tags": [],
+ "patterns": [
+  "geometry"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "geometry": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.1,
+  "label": "easy",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:50+00:00"
+ }
+}

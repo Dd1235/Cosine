@@ -1,0 +1,29 @@
+{
+ "id": "codechef-mst101",
+ "title": "MST Problem",
+ "slug": "mst101",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/MST101",
+ "source_topic": "IICPC Codefest",
+ "source_tags": [],
+ "statement": "Given two integers N and K, the task is to build an N by N symmetric matrix with zero diagonal whose above-diagonal entries are a permutation of 1 through N(N-1)/2, so that the minimum spanning tree of the complete weighted graph it describes has total weight exactly K. Up to 500 cases have N at most 50 and K at most N cubed; report -1 when impossible.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "minimum-spanning-tree",
+  "kruskal"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270425,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "minimum-spanning-tree": 0.9,
+   "kruskal": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

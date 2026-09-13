@@ -1,0 +1,31 @@
+{
+ "id": "kattis-whereaminow",
+ "title": "Where Am I Now?",
+ "slug": "whereaminow",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/whereaminow",
+ "source_topic": "ICPC / World Finals 2024",
+ "source_tags": [],
+ "statement": "A robot sits on a known grid map of up to 100 by 100 open and wall squares, at an unknown open square facing an unknown cardinal direction. Each round it learns how many open squares lie ahead before the next wall, then turns left or right, or steps forward. Within 100000 rounds it must report its exact current square, or declare that its position can never be determined.",
+ "tags": [],
+ "patterns": [
+  "interactive",
+  "grid-traversal",
+  "dfs",
+  "simulation"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270425,
+  "pattern_confidence": {
+   "interactive": 0.9,
+   "grid-traversal": 0.9,
+   "dfs": 0.9,
+   "simulation": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

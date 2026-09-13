@@ -1,0 +1,29 @@
+{
+ "id": "codechef-cyclicxor",
+ "title": "Cyclic XOR Problem",
+ "slug": "cyclicxor",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/CYCLICXOR",
+ "source_topic": "IICPC Codefest",
+ "source_tags": [],
+ "statement": "Given an integer N, consider every permutation of 1 through N arranged in a cycle, and let its cost be the largest bitwise XOR of two cyclically adjacent entries. The task is to report the smallest cost achievable over all N! permutations and how many permutations attain it, modulo 998244353, across many queries whose N values sum to at most 200000.",
+ "tags": [],
+ "patterns": [
+  "bit-manipulation",
+  "combinatorics",
+  "permutation-counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270425,
+  "pattern_confidence": {
+   "bit-manipulation": 0.9,
+   "combinatorics": 0.9,
+   "permutation-counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

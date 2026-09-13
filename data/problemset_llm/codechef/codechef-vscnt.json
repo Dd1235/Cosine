@@ -1,0 +1,31 @@
+{
+ "id": "codechef-vscnt",
+ "title": "Virtual Sets Counting",
+ "slug": "vscnt",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/VSCNT",
+ "source_topic": "IICPC Codefest",
+ "source_tags": [],
+ "statement": "A rooted tree on N vertices is given with Q updates, each toggling one vertex into or out of a set T. The virtual tree of a set is its minimal superset closed under lowest common ancestors, and the score of T counts the sets whose virtual tree is exactly T. After every toggle the score modulo 998244353 must be reported, with N and Q summing to 200000.",
+ "tags": [],
+ "patterns": [
+  "virtual-tree",
+  "lca",
+  "euler-tour",
+  "ordered-set"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270425,
+  "pattern_confidence": {
+   "virtual-tree": 0.9,
+   "lca": 0.9,
+   "euler-tour": 0.9,
+   "ordered-set": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

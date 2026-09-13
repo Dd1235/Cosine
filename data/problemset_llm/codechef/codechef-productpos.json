@@ -1,0 +1,29 @@
+{
+ "id": "codechef-productpos",
+ "title": "Product Positive",
+ "slug": "productpos",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/PRODUCTPOS",
+ "source_topic": "IICPC Codefest",
+ "source_tags": [],
+ "statement": "Two players alternate moves on an array of up to 200,000 entries, each equal to 1 or -1. A move deletes any contiguous subarray whose product equals 1, joining the remaining pieces; whoever cannot move loses. For each of up to 10,000 test cases, with the total length bounded by 200,000, the task is to name the winner and, when the first player wins, output one winning opening deletion.",
+ "tags": [],
+ "patterns": [
+  "game-theory",
+  "parity-argument",
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270425,
+  "pattern_confidence": {
+   "game-theory": 0.9,
+   "parity-argument": 0.9,
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}
