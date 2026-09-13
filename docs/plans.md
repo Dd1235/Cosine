@@ -281,21 +281,31 @@ source-page ingest + `scripts/publish_external.py` + tests, 65 staged
 statements (`data/analysis/external-staging/`), batch **C** (6 CodeChef
 problems) published — corpus 3,513.
 
-**Solved and reviewed, not yet published.** `data/analysis/external-batches/`
-holds every solver output (`<batch>/<id>.json` + `verify_<slug>.py`) and every
-skeptic verdict (`<batch>/skeptic.json`):
+**Published from this work (single aggregate, 2026-09-13):** batches A, B, D —
+24 problems — plus the earlier batch C (6). Corpus 3,537. Collections: WF 2024
+10/12, Codefest 9/9, WF 2022 5/6, WF 2023 10/11. Every proposal and review is in
+`data/analysis/external-batches/`.
 
-| batch | what | solved | skeptic |
-| --- | --- | ---: | --- |
-| A | 6 staged CodeChef/WF2024 | 6 | done — 5 approved, `kattis-kindergarten2` **needs_work** (search is quadratic on an adversarial family; labels fine, complexity claim false) |
-| B | WF2024 remaining 9 | 9 | see `B/skeptic.json` if present; otherwise run it |
-| D | Luxor WF 2022+2023, 12 | 7 | not yet. **Unsolved-not-attempted** (agents lost mid-session): `arecurringproblem` 9.5, `aleaiactaest` 6.8, `jetlag` 7.1, `bridgingthegap` 6.7, `carlsvacation` 5.3 |
-| E | Asia regionals, 38 | 7 | not yet. Solved: freefood, sgcoin, hoppers, moscowdream, finalexam2, alchemy101, countingpalindromes. **Still to solve (31):** Singapore `bitwise conveyorbelts largesttriangle magicalstring nonprimefactors prolongedpassword rectangularcity slidingblocks wiknow`; Danang `abstractpainting bananaproblem datingtime easyquery fairbandwidthsharing generatingnumbers hanjie inspectingillumination justiceforants keepitsorted latinsquare`; Can Tho `beautifulsquare canthoexpressway div2mul2mul3 edgeremoval greatestpermutation hexagoncoloring intelligenceexchange jugglingsequence kingdomofhamsters lazystudents milkteabattle` |
+**Held by the skeptic (labels fine, solution does not meet the limits):**
+`kattis-kindergarten2` (branching search quadratic on a constructed family),
+`kattis-thesilkroad` (linear neighbour scan → Θ(n²) on descending input; the
+successor structure is the fix), `kattis-bridgingthegap` (DP is O(n²/c) space —
+2 GB at n=10⁴, c=2). Each stays staged and counts as "not yet indexed".
 
-**Deliberately not attempted this session** (session budget was the
-constraint; the solvers that were running for the D/E remainders above were
-lost when the session was compacted and were not relaunched): the hardest
-Asia problems `keepitsorted` 8.4, `beautifulsquare` 8.0, `div2mul2mul3` 9.2,
+**Batch E (Asia regionals, 38): 7 solved, 0 reviewed, 31 unsolved.** Solved:
+freefood, sgcoin, hoppers, moscowdream, finalexam2, alchemy101,
+countingpalindromes. Still to solve — Singapore `bitwise conveyorbelts
+largesttriangle magicalstring nonprimefactors prolongedpassword rectangularcity
+slidingblocks wiknow`; Danang `abstractpainting bananaproblem datingtime
+easyquery fairbandwidthsharing generatingnumbers hanjie inspectingillumination
+justiceforants keepitsorted latinsquare`; Can Tho `beautifulsquare
+canthoexpressway div2mul2mul3 edgeremoval greatestpermutation hexagoncoloring
+intelligenceexchange jugglingsequence kingdomofhamsters lazystudents
+milkteabattle`. The three Asia collections are drafted in
+`_tooling/contests-draft.json` and are spliced by
+`aggregate_external_batches.py` (drop `--collections=`) once E publishes.
+
+**Deliberately not attempted** (session budget): the hardest Asia problems `keepitsorted` 8.4, `beautifulsquare` 8.0, `div2mul2mul3` 9.2,
 `magicalstring` 9.0, `justiceforants` 9.1, `milkteabattle` 8.6; and a second attempt at
 `kattis-kindergarten2` starting from the skeptic's adversarial family
 (described in `external-batches/A/skeptic.json`). Unsolved problems stay
