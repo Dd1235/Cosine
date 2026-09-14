@@ -58,7 +58,7 @@ function harness({ empty = false } = {}) {
       pushState: (_a, _b, address) => { addresses.push(address); ops.push(['push', address]); },
     },
     collections: [{ id: 'india-prelims', name: 'ICPC India Prelims', count: 5 }],
-    collectionSpoilers: false, document: dom.document,
+    document: dom.document,
     resultsEl: { innerHTML: '', appendChild() {} },
     applyMode() {}, hideFeedback() {}, syncDifficultyControls() {}, renderCollectionControls() {},
     updatePatternPill() {}, syncJudgeControls() {}, reissueCurrentView() {}, runSearch() {},
@@ -179,7 +179,6 @@ function harness({ empty = false } = {}) {
 (async () => {
   const { ctx, made } = harness({ empty: true });
   ctx.sortDir = 'desc';
-  ctx.collectionSpoilers = true;
   ctx.activeCollections.add('india-prelims');
   ctx.activeTiers.add('lc-hard');
   await ctx.runSimilar({ id: 'source', title: 'Source' });
@@ -187,7 +186,6 @@ function harness({ empty = false } = {}) {
   assert.ok(relax, 'the empty view offers a way out');
   relax.listeners.click[0]();
   assert.equal(ctx.sortDir, null, 'difficulty order is a filter and is cleared with them');
-  assert.equal(ctx.collectionSpoilers, false, 'the spoiler blackout belongs to a collection that is gone');
   assert.equal(ctx.activeCollections.size, 0);
   assert.equal(ctx.activeTiers.size, 0);
   assert.equal(ctx.activePattern, '');

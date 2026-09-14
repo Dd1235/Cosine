@@ -111,7 +111,10 @@ html[data-theme="light"] body::before {
 
 main {
   position: relative;
-  z-index: 1;
+  /* Above the footer, which is a sibling at z-index 1. The competition picker
+     overflows out of this element, and at equal z-index the later sibling wins,
+     so the footer used to paint over the open listbox. */
+  z-index: 2;
   max-width: 760px;
   margin: 0 auto;
   padding: 2.4rem 1.25rem 5rem;
@@ -1963,7 +1966,6 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   box-shadow: var(--shadow);
 }
 .collection-picker[hidden] { display: none; }
-/* Provenance, not a hint — so it is never inside .hide-spoilers' reach. */
 .competition-tag {
   font: inherit;
   font-family: var(--mono);
@@ -2011,9 +2013,6 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .result-meta .difficulty.cses-confidence-medium { border-style: dashed; }
 .result-meta .difficulty.cses-confidence-low { border-style: dotted; }
 .pyq-attempt { font-size: .8rem; margin-top: 6px; }
-.spoiler-notice { display: none; opacity: .7; }
-.hide-spoilers .spoiler-content, .hide-spoilers .difficulty, .hide-spoilers .score-bar, .hide-spoilers .note-mark { display: none !important; }
-.hide-spoilers .spoiler-notice { display: inline; }
 .similar-empty { list-style: none; padding: 20px 0; }
 .similar-explanation { opacity: .85; }
 .result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

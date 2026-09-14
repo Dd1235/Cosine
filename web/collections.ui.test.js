@@ -50,8 +50,10 @@ assert.equal(ctx.resourceAvailabilityNote('inaccessible'), ' · inaccessible');
 assert.equal(ctx.resourceAvailabilityNote('not-verified'), ' · not verified');
 assert.equal(ctx.resourceAvailabilityNote(undefined), '');
 
-// The panel sentence flips with the view, not with when the panel was built.
-assert.match(ctx.collectionNote(null), /^Verified collection membership/);
+// Only the similarity view carries a sentence, and which view it is has to be
+// read at render time rather than when the panel was built. A plain collection
+// view says nothing: the chip already names the competition.
+assert.equal(ctx.collectionNote(null), '', 'a collection view needs no caveat');
 assert.match(ctx.collectionNote({ id: 'codeforces-1-a' }), /^Related practice/);
 ctx.currentSimilar = { id: 'codeforces-1-a' };
 assert.match(ctx.collectionNote(), /^Related practice/, 'defaults to the live view');

@@ -34,7 +34,6 @@ function harness(search = '') {
     activeTiers: new Set(), activeRanges: new Map(), activeAcceptance: null,
     bootRanges: [], sortDir: null, activePattern: '',
     currentSimilar: null, similarLibrary: null, practiceMode: false,
-    collectionSpoilers: false,
     libAged: null, libOldest: false, libRecall: null, libNotes: null,
     currentFilter: 'all', currentQuery: '', currentTotal: 0, currentOffset: 0,
     bootNeedsAuth: false, lastAppliedSearch: search,
@@ -88,7 +87,6 @@ function harness(search = '') {
   assert.equal(ctx.libNotes, 'yes');
   assert.equal(ctx.input.value, 'graph');
 
-  ctx.collectionSpoilers = true;
   apply('?q=trees');
   assert.equal(ctx.activeCollections.size, 0, 'collections');
   assert.equal(ctx.activePlatforms.size, 0, 'judges');
@@ -100,7 +98,6 @@ function harness(search = '') {
   assert.equal(ctx.currentSimilar, null, 'similar');
   assert.equal(ctx.similarLibrary, null, 'similar library');
   assert.equal(ctx.practiceMode, false, 'practice');
-  assert.equal(ctx.collectionSpoilers, false, 'spoilers');
   assert.equal(ctx.libAged, null, 'aged');
   assert.equal(ctx.libOldest, false, 'oldest');
   assert.equal(ctx.libRecall, null, 'recall');

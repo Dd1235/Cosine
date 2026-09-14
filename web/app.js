@@ -115,7 +115,6 @@ let currentFilter = filterSelect.value || "all";
 let activePattern = "";
 const activeCollections = new Set();
 let collections = [];
-let collectionSpoilers = false;
 let currentSimilar = null;
 let similarLibrary = null;
 let practiceMode = false;
@@ -677,12 +676,11 @@ function resourceAvailabilityNote(availability) {
   return ` · ${String(availability).replace(/[_-]/g, ' ')}`;
 }
 
-// One sentence, two meanings, and which one applies depends on the view — so
-// it is computed rather than written once when the panel is built.
+// Only the similarity view needs a caveat: a recommendation is not a PYQ, and
+// saying so is the honest part. A collection view needs no sentence — the chip
+// already says which competition you are looking at.
 function collectionNote(similar = currentSimilar) {
-  return similar
-    ? 'Related practice · recommendations are not necessarily PYQs.'
-    : 'Verified collection membership · open originals to attempt without hints.';
+  return similar ? 'Related practice · recommendations are not necessarily PYQs.' : '';
 }
 
 function renderCollectionControls(loaded = collectionsLoaded) {
@@ -796,7 +794,6 @@ function moveCollectionFocus(delta, absolute) {
 function addCollection(id) {
   if (!id || activeCollections.has(id)) return;
   activeCollections.add(id);
-  collectionSpoilers = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -805,7 +802,6 @@ function addCollection(id) {
 
 function removeCollection(id) {
   if (!activeCollections.delete(id)) return;
-  collectionSpoilers = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -823,7 +819,6 @@ function renderCollectionPanel() {
   const open = new Set([...panel.querySelectorAll('details[open]')].map(d => d.dataset.collection));
   panel.hidden = activeCollections.size === 0;
   panel.innerHTML = '';
-  if (resultsEl) resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers && !compareMode);
   if (!activeCollections.size) return;
   const heading = document.createElement('div');
   heading.className = 'collection-heading';
@@ -831,14 +826,7 @@ function renderCollectionPanel() {
   note.id = 'collection-note';
   note.textContent = collectionNote();
   heading.appendChild(note);
-  const reveal = document.createElement('button');
-  reveal.type = 'button';
-  reveal.className = 'lib-chip';
-  reveal.textContent = collectionSpoilers ? 'hide hints' : 'reveal hints & difficulty';
-  reveal.setAttribute('aria-pressed', String(collectionSpoilers));
-  reveal.addEventListener('click', () => { collectionSpoilers = !collectionSpoilers; renderCollectionControls(); });
-  heading.appendChild(reveal);
-  panel.appendChild(heading);
+  if (note.textContent) panel.appendChild(heading);
   for (const id of activeCollections) {
     const collection = collectionById(id);
     if (!collection) continue;
@@ -1815,9 +1803,6 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
   }
   if (practice) {
     activeCollections.clear();
-    // Nothing is being kept spoiler-free any more: this is a recommendation
-    // list, not the contest you are sitting.
-    collectionSpoilers = false;
     similarLibrary = null;
     libAged = null;
     libOldest = false;
@@ -1913,7 +1898,6 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
           // "Clear filters" has to clear the controls too, or the difficulty
           // row and the competition chips keep claiming a filter that is gone.
           sortDir = null;
-          collectionSpoilers = false;
           similarLibrary = null;
           libAged = null;
           libOldest = false;
@@ -2267,11 +2251,10 @@ CORPUS
                that band.
 
   PYQs         add one or more competition collections. These
-               combine with every other filter. Hints and
-               difficulty start hidden; open the original to
-               attempt, or reveal hints when you want them.
-               Resource links remain available even when a
-               round has no searchable problem statements.
+               combine with every other filter, and a card shows
+               which competition it came from. Resource links
+               stay available even when a round has no
+               searchable problem statements.
 
   ac           pick a LeetCode tier and an acceptance-rate
                range appears under it: "hard" + "ac 10% to 30%"
@@ -2720,8 +2703,6 @@ function platformBadge(platform) {
 // so the only way to discover that a problem you found by searching was an
 // ICPC World Finals question was to already have the collection selected.
 //
-// Deliberately NOT spoiler-content: "this was WF 2024" is provenance, not a
-// hint — it tells you nothing about how to solve it, and hiding it would defeat
 // the point of showing it in the first place.
 function competitionTag(competitions) {
   const list = competitions || [];
@@ -2754,7 +2735,6 @@ function renderHitsList(container, hits, opts = {}) {
   // :compare ignores the contest filter on the server — it is a ranker lens,
   // not a browse — so hiding hints there would blank half the comparison for a
   // filter that isn't being applied.
-  container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers && !compareMode);
   // The resources panel is rendered by the chip lifecycle, which runs before a
   // view resolves — so its one sentence is refreshed here, where we finally
   // know whether these results are collection members or recommendations.
@@ -2839,7 +2819,7 @@ function renderHitsList(container, hits, opts = {}) {
     if (!ranked) bar.classList.add("hidden");
 
     const matched = document.createElement("div");
-    matched.className = "result-matched spoiler-content";
+    matched.className = "result-matched";
     if ((hit.matchedTerms || []).length) {
       for (const t of hit.matchedTerms) {
         const chip = document.createElement("span");
@@ -2865,8 +2845,8 @@ function renderHitsList(container, hits, opts = {}) {
     // bands mean now lives in :help, where someone actually goes to ask.
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
-      <p class="tags spoiler-content"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
-      <p class="patterns spoiler-content"><strong>patterns:</strong> ${(hit.problem.patterns || [])
+      <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
+      <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
         .join(" ")}</p>
       <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
@@ -2887,7 +2867,7 @@ function renderHitsList(container, hits, opts = {}) {
     });
     if (opts.similarMode && (hit.sharedTechniques || []).length) {
       const explanation = document.createElement("p");
-      explanation.className = "similar-explanation spoiler-content"; // a technique list is a hint
+      explanation.className = "similar-explanation";
       explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
       detail.prepend(explanation);
     }
@@ -2955,10 +2935,6 @@ function renderHitsList(container, hits, opts = {}) {
         link.textContent = "open original problem →";
         attempt.appendChild(link);
       }
-      const notice = document.createElement("span");
-      notice.className = "spoiler-notice";
-      notice.textContent = " · hints and difficulty hidden";
-      attempt.appendChild(notice);
       li.appendChild(attempt);
     }
     if (!libraryMode) li.appendChild(bar);
@@ -3507,7 +3483,6 @@ function applyUrlState(params) {
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
-  collectionSpoilers = false;
   libAged = null;
   libOldest = false;
   libRecall = null;

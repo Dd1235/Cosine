@@ -80,7 +80,6 @@ const ctx = vm.createContext({
   setTimeout: (fn) => { timers.push(fn); },
   collectionsLoaded: true,
   activeCollections: new Set(),
-  collectionSpoilers: false,
   currentOffset: 0,
   inactiveCollections: () => ([
     { id: 'icpc-world-finals-2024', name: 'ICPC World Finals 2024', count: 10 },
