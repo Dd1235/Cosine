@@ -1,0 +1,24 @@
+{
+ "id": "codechef-gpd",
+ "status": "solved",
+ "solution": "Root the tree at R and give every node its own version of a binary trie over the 31-bit keys: version(u) is version(parent(u)) with key(u) inserted by path copying, so version(u) holds exactly the keys on the path u -> R, and a node added later simply builds its version off its parent's. A test (v, k) is then two greedy descents in version(v): follow k's bit at each level when it exists to minimise the xor, follow the opposite bit to maximise it, which is optimal because a decision at a higher bit outweighs everything below it. Persistence is what makes this work under the forced-online encoding - an offline DFS carrying one mutable trie is unavailable - and only the path from the new leaf is copied, so each insertion is 31 new nodes. Total O((N+Q) * 31) time and trie nodes, roughly 9M nodes for the limits, with each query answered in O(31). Verified against a parent-walking brute force on the official sample and 400 random trees, including the encode/decode round trip of the online protocol.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Stations form a tree rooted at the chief's station, each holding an encryption key, and new stations attach to existing ones as queries run. A security test names a station and a key k and asks for the smallest and largest value of key xor k over the stations on the path to the root. Values arrive xored with the previous answer, so the 200,000 operations must be answered online.",
+ "patterns": [
+  "trie",
+  "bit-manipulation"
+ ],
+ "pattern_confidence": {
+  "trie": 0.95,
+  "bit-manipulation": 0.8
+ },
+ "tags": [
+  "tree",
+  "data-structures",
+  "xor",
+  "online-queries"
+ ],
+ "source_text_sha256": "d5b3de9368c8b51ca2ad91978f00089fed7d1f242d0a5d2928d7252b0d7b391b",
+ "verify_script": "batchC/verify_gpd.py",
+ "notes": "The curated 'Trie' filing is right, but only half the problem: the trie has to be PERSISTENT (one version per tree node, path copying), and the vocabulary has no 'persistent-trie' or 'persistent-data-structure' key - 'persistent-segment-tree' is the only persistence word in `canonical` and it names a different structure, so I left it off rather than mislabel one of its two carriers. That is the one genuine gap here; a searcher typing 'persistent trie' will not find this problem. Deliberately omitted: 'dfs' (the initial N-1 edges need a traversal from R so each parent's version exists before its child's - the sample lists them top-down but nothing guarantees it - yet that is build scaffolding, not the idea), 'hash-map' (ids run to 2^31-1 and arrive arbitrarily, so they must be mapped to indices) and 'greedy' (the bitwise descent is internal to the trie technique). 'binary-lifting'/'lca' do not apply: min/max xor over an ancestor range is not mergeable across jump ranges without storing a structure per jump. The online encoding is load-bearing - it is exactly what rules out the standard offline 'DFS with a single insert/erase trie' solution - but 'offline-queries' would be the opposite of the truth and there is no 'online' label."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-ways-to-split-a-string",
+  "url": "https://leetcode.com/problems/number-of-ways-to-split-a-string/",
+  "observed_at": "2026-09-11T07:22:18.577393+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a binary string s , you can split s into 3 non-empty strings s1 , s2 , and s3 where s1 + s2 + s3 = s . \n\n Return the number of ways s can be split such that the number of ones is the same in s1 , s2 , and s3 . Since the answer may be too large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"10101\"\n Output: 4\n Explanation: There are four ways to split s in 3 parts where each part contain the same number of letters '1'.\n\"1|010|1\"\n\"1|01|01\"\n\"10|10|1\"\n\"10|1|01\"\n \n\n Example 2: \n\n \n Input: s = \"1001\"\n Output: 0\n \n\n Example 3: \n\n \n Input: s = \"0000\"\n Output: 3\n Explanation: There are three ways to split s in 3 parts.\n\"0|0|00\"\n\"0|00|0\"\n\"00|0|0\"\n \n\n \u00a0 \n Constraints: \n\n \n 3 <= s.length <= 10 5 \n s[i] is either '0' or '1' .",
+  "statement_sha256": "242f32dac8492c417621734f447af24402996d48b206f7c7daf0af38b4a9c936",
+  "raw_sha256": "9c7bab82b8352a0b27ef167ed76bf2e0a48cc4fa2e73b74490ead8b76f5d01c1",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

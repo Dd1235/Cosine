@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-student-attendance-record-ii",
+  "url": "https://leetcode.com/problems/student-attendance-record-ii/",
+  "observed_at": "2026-09-11T07:21:59.148049+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "An attendance record for a student can be represented as a string where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters: \n\n \n 'A' : Absent. \n 'L' : Late. \n 'P' : Present. \n \n\n Any student is eligible for an attendance award if they meet both of the following criteria: \n\n \n The student was absent ( 'A' ) for strictly fewer than 2 days total . \n The student was never late ( 'L' ) for 3 or more consecutive days. \n \n\n Given an integer n , return the number of possible attendance records of length n that make a student eligible for an attendance award. The answer may be very large, so return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 2\n Output: 8\n Explanation: There are 8 records with length 2 that are eligible for an award:\n\"PP\", \"AP\", \"PA\", \"LP\", \"PL\", \"AL\", \"LA\", \"LL\"\nOnly \"AA\" is not eligible because there are 2 absences (there need to be fewer than 2).\n \n\n Example 2: \n\n \n Input: n = 1\n Output: 3\n \n\n Example 3: \n\n \n Input: n = 10101\n Output: 183236316\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 5",
+  "statement_sha256": "1a89fc3e3a96c29b406033e3a03333ae70d6f21e77f0f9c04e006bfb960d46af",
+  "raw_sha256": "d8ce3ecf862986fe37083cb5fc795eeb591fd26b4a8b25ab125cff682ca59e05",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

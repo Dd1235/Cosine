@@ -1,0 +1,20 @@
+Easy Query — ICPC 2019 Asia Danang Regional (Kattis: easyquery)
+Source: https://usaco.guide/problems/kattis-easy-query/solution
+
+Key insight: process each of the 30 bits of the answer independently, deciding
+whether that bit can be set by asking if a qualifying value exists within the
+valid value range at a valid position.
+
+Algorithm:
+1. Wavelet tree to compute su and sv per query — the boundary values for the
+   range constraint.
+2. For each of the 30 bits, a segment tree whose nodes correspond to ranges of
+   distinct values present in the array; each node stores the minimum index at
+   which that value's i-th occurrence appears. Queries are processed in
+   decreasing order of left boundary so the state can be maintained
+   incrementally.
+3. For bit k, test whether there is a value x with x in [su+1, sv-1], bit k of x
+   set, and the i-th occurrence of x at position <= r.
+
+Data structures: one wavelet tree; 30 segment trees (one per bit).
+Time: O(30 (n + q) log n).  Space: O(30 n).

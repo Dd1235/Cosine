@@ -1,0 +1,8 @@
+{
+  "id": "cses-1077",
+  "title": "Sliding Window Cost",
+  "source_url": "https://cses.fi/problemset/task/1077",
+  "observed_at": "2026-09-11T06:53:50.939763+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate for each window of k elements, from left to right, the minimum total cost of making all elements equal.\n\nYou can increase or decrease each element with cost x where x is the difference between the new and the original value. The total cost is the sum of such costs.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nOutput n-k+1 values: the costs.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n2 4 3 5 8 1 2 1\n\n\nOutput:\n\n2 2 5 7 7 1",
+  "statement_sha256": "0e53b7c8490012d26dc1e0517ea647595122af532d5356b84e2e937c4c796e35"
+}

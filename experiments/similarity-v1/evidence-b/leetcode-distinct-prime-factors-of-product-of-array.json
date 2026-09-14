@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-distinct-prime-factors-of-product-of-array",
+  "url": "https://leetcode.com/problems/distinct-prime-factors-of-product-of-array/",
+  "observed_at": "2026-09-11T07:22:12.639110+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an array of positive integers nums , return the number of distinct prime factors in the product of the elements of nums . \n\n Note that: \n\n \n A number greater than 1 is called prime if it is divisible by only 1 and itself. \n An integer val1 is a factor of another integer val2 if val2 / val1 is an integer. \n \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [2,4,3,7,10,6]\n Output: 4\n Explanation: \nThe product of all the elements in nums is: 2 * 4 * 3 * 7 * 10 * 6 = 10080 = 2 5 * 3 2 * 5 * 7.\nThere are 4 distinct prime factors so we return 4.\n \n\n Example 2: \n\n \n Input: nums = [2,4,8,16]\n Output: 1\n Explanation: \nThe product of all the elements in nums is: 2 * 4 * 8 * 16 = 1024 = 2 10 .\nThere is 1 distinct prime factor so we return 1.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 4 \n 2 <= nums[i] <= 1000",
+  "statement_sha256": "3c0e0f46b5e9b7fe265709770e4ccf9ac8908b04df451fe8f274329f6d015fbd",
+  "raw_sha256": "75b8b07e7ee52bd8532a892d3b57bdb3ee4eb50e874cde01cc647ad1497b4350",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

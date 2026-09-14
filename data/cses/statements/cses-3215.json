@@ -1,0 +1,8 @@
+{
+  "id": "cses-3215",
+  "title": "Bouncing Ball Steps",
+  "source_url": "https://cses.fi/problemset/task/3215",
+  "observed_at": "2026-09-11T06:54:55.233618+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a ball at the top-left corner of an n \\times m grid. The rows of the grid are numbered 1,2,\\dots,n, and the columns are numbered 1,2,\\dots,m.\n\nThe ball is initially moving diagonally away from the top-left corner. At every step, it moves one cell. Whenever the ball hits the border of the grid, it changes its direction.\n\nWhat is the location of the ball after k steps and how many times has it changed direction?\n\nInput\n\nThe first line has an integer t: the number of tests.\n\nAfter this, there are t lines. Each line has three integers n, m and k: the size of the grid and the number of steps.\n\nOutput\n\nFor each test, print three integers: the location of the ball and the number of direction changes.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n2 \\le n,m \\le 10^9\n\n0 \\le k \\le 10^{18}\n\n\nExample\n\nInput:\n\n6\n3 4 0\n3 4 1\n3 4 2\n3 4 3\n3 4 4\n42 1337 123456789\n\n\nOutput:\n\n1 1 0\n2 2 0\n3 3 1\n2 4 2\n1 3 3\n34 300 3101295",
+  "statement_sha256": "3c3c8d596f2ec5f07fd3e378d49ca0eb5d266b65b00f51d869af84b6723b871c"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-smallest-all-ones-multiple",
+  "url": "https://leetcode.com/problems/smallest-all-ones-multiple/",
+  "observed_at": "2026-09-11T07:22:14.914352+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a positive integer k . \n\n Find the smallest integer n divisible by k that consists of only the digit 1 in its decimal representation (e.g., 1, 11, 111, ...). \n\n Return an integer denoting the number of digits in the decimal representation of n . If no such n exists, return -1 . \n\n \u00a0 \n Example 1: \n\n \n Input: k = 3 \n\n Output: 3 \n\n Explanation: \n\n n = 111 because 111 is divisible by 3, but 1 and 11 are not. The length of n = 111 is 3. \n \n\n Example 2: \n\n \n Input: k = 7 \n\n Output: 6 \n\n Explanation: \n\n n = 111111 . The length of n = 111111 is 6. \n \n\n Example 3: \n\n \n Input: k = 2 \n\n Output: -1 \n\n Explanation: \n\n There does not exist a valid n that is a multiple of 2. \n \n\n \u00a0 \n Constraints: \n\n \n 2 <= k <= 10 5",
+  "statement_sha256": "43f73a83d61e2a1a1e1d5440c32a54a2d427a23d69328a0f1d9eb41bc9d773bf",
+  "raw_sha256": "7fe148b52c163911860252664033e44ffaa50d9971943b4dec07a9f815ef3a64",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

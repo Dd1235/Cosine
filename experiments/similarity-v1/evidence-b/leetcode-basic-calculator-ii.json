@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-basic-calculator-ii",
+  "url": "https://leetcode.com/problems/basic-calculator-ii/",
+  "observed_at": "2026-09-11T07:21:49.939854+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s which represents an expression, evaluate this expression and return its value .\u00a0 \n\n The integer division should truncate toward zero. \n\n You may assume that the given expression is always valid. All intermediate results will be in the range of [-2 31 , 2 31 - 1] . \n\n Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval() . \n\n \u00a0 \n Example 1: \n Input: s = \"3+2*2\"\n Output: 7\n Example 2: \n Input: s = \" 3/2 \"\n Output: 1\n Example 3: \n Input: s = \" 3+5 / 2 \"\n Output: 5\n \n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 3 * 10 5 \n s consists of integers and operators ('+', '-', '*', '/') separated by some number of spaces. \n s represents a valid expression. \n All the integers in the expression are non-negative integers in the range [0, 2 31 - 1] . \n The answer is guaranteed to fit in a 32-bit integer .",
+  "statement_sha256": "c3204d4159ad0f7a96b36c41d13411875d40443692d28bd4506c7ed81c2711aa",
+  "raw_sha256": "5f321664b8a65f4fc42246ec7e237f434bdcd1191147587f2e92b74f313856cc",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -27,5 +27,18 @@
       "connected-components": 0.95,
       "grid-traversal": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1192",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "9c2657dc47069e1c153083847740edc3d341aa9bfe6045924ce7950f4c13379c",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

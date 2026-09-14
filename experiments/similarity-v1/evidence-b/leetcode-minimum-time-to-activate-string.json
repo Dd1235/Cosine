@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-time-to-activate-string",
+  "url": "https://leetcode.com/problems/minimum-time-to-activate-string/",
+  "observed_at": "2026-09-11T07:21:55.350172+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s of length n and an integer array order , where order is a permutation of the numbers in the range [0, n - 1] . \n\n Starting from time t = 0 , replace the character at index order[t] in s with '*' at each time step. \n\n A substring is valid if it contains at least one '*' . \n\n A string is active if the total number of valid substrings is greater than or equal to k . \n\n Return the minimum time t at which the string s becomes active . If it is impossible, return -1. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abc\", order = [1,0,2], k = 2 \n\n Output: 0 \n\n Explanation: \n\n \n \n \n t \n order[t] \n Modified s \n Valid Substrings \n Count \n Active \n (Count >= k) \n \n \n \n \n 0 \n 1 \n \"a*c\" \n \"*\" , \"a*\" , \"*c\" , \"a*c\" \n 4 \n Yes \n \n \n \n\n The string s becomes active at t = 0 . Thus, the answer is 0. \n \n\n Example 2: \n\n \n Input: s = \"cat\", order = [0,2,1], k = 6 \n\n Output: 2 \n\n Explanation: \n\n \n \n \n t \n order[t] \n Modified s \n Valid Substrings \n Count \n Active \n (Count >= k) \n \n \n \n \n 0 \n 0 \n \"*at\" \n \"*\" , \"*a\" , \"*at\" \n 3 \n No \n \n \n 1 \n 2 \n \"*a*\" \n \"*\" , \"*a\" , \" *a*\" , \" a*\" , \"*\" \n 5 \n No \n \n \n 2 \n 1 \n \"***\" \n All substrings (contain '*' ) \n 6 \n Yes \n \n \n \n\n The string s becomes active at t = 2 . Thus, the answer is 2. \n \n\n Example 3: \n\n \n Input: s = \"xy\", order = [0,1], k = 4 \n\n Output: -1 \n\n Explanation: \n\n Even after all replacements, it is impossible to obtain k = 4 valid substrings. Thus, the answer is -1. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n == s.length <= 10 5 \n order.length == n \n 0 <= order[i] <= n - 1 \n s consists of lowercase English letters. \n order is a permutation of integers from 0 to n - 1 . \n 1 <= k <= 10 9",
+  "statement_sha256": "950f9c17c101101978c9808da037d89f57a5c39594d7eb7248067a9c0542a546",
+  "raw_sha256": "7e965675d222a6f41d8be8bc08558fcce0e374361b86edfb116157b54859a407",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1131",
+  "title": "Tree Diameter",
+  "source_url": "https://cses.fi/problemset/task/1131",
+  "observed_at": "2026-09-11T06:53:30.787690+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes.\n\nThe diameter of a tree is the maximum distance between two nodes. Your task is to determine the diameter of the tree.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint one integer: the diameter of the tree.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n3\n\n\nExplanation: The diameter corresponds to the path 2 \\rightarrow 1 \\rightarrow 3 \\rightarrow 5.",
+  "statement_sha256": "b67b2eef148917852e2d27bac91cfdcabaa79f118a09918067d8b990f67fd8af"
+}

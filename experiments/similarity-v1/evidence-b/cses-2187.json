@@ -1,0 +1,10 @@
+{
+  "id": "cses-2187",
+  "url": "https://cses.fi/problemset/task/2187",
+  "observed_at": "2026-09-11T07:21:50.634160+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the number of valid bracket sequences of length n when a prefix of the sequence is given.\n\nInput\n\nThe first input line has an integer n.\n\nThe second line has a string of k characters: the prefix of the sequence.\n\nOutput\n\nPrint the number of sequences modulo 10^9+7.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n6\n(()\n\n\nOutput:\n\n2\n\n\nExplanation: There are two possible sequences: (())() and (()()).",
+  "statement_sha256": "3b9ac0c4314fa422f1be972da024bb926570b4f94d45eb41a90097739e2ce2f3",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

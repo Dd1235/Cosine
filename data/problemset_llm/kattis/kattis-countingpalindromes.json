@@ -1,0 +1,39 @@
+{
+ "id": "kattis-countingpalindromes",
+ "title": "Counting Palindromes",
+ "slug": "countingpalindromes",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/countingpalindromes",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "Given a positive integer n up to 10^18, a prime p of at most one thousand, and a residue k below p, the task is to count how many palindromes have exactly n digits and leave remainder k when divided by p, modulo 1000000007. Palindromes are non-negative integers without leading zeroes that read the same in both directions, so the digit count rules out enumerating them.",
+ "tags": [],
+ "patterns": [
+  "palindrome",
+  "modular-arithmetic",
+  "number-theory",
+  "modular-exponentiation",
+  "counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "palindrome": 0.9,
+   "modular-arithmetic": 0.9,
+   "number-theory": 0.9,
+   "modular-exponentiation": 0.9,
+   "counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.9,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

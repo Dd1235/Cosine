@@ -1,0 +1,8 @@
+{
+  "id": "cses-1072",
+  "title": "Two Knights",
+  "source_url": "https://cses.fi/problemset/task/1072",
+  "observed_at": "2026-09-11T06:52:40.509929+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count for k=1,2,\\ldots,n the number of ways two knights can be placed on a k \\times k chessboard so that they do not attack each other.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint n integers: the results.\n\nConstraints\n\n\n1 \\le n \\le 10000\n\n\nExample\n\nInput:\n\n8\n\n\nOutput:\n\n0\n6\n28\n96\n252\n550\n1056\n1848",
+  "statement_sha256": "b424784e06fbace1ae359f201f691c2fc44617ff03da61415f5a1be5f4f0cf89"
+}

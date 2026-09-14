@@ -1,0 +1,8 @@
+{
+  "id": "cses-3158",
+  "title": "Bus Companies",
+  "source_url": "https://cses.fi/problemset/task/3158",
+  "observed_at": "2026-09-11T06:54:46.503606+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m bus companies. Each bus company operates in specific cities and sells tickets for a specific price. Buying a ticket from a bus company allows you to travel between any two cities that the company operates in.\n\nDetermine the cost of the cheapest route from Syrj\u00e4l\u00e4 to every city.\n\nInput\n\nThe first line has two integers n and m: the number of cities and bus companies. The cities are numbered 1,2,\\dots,n, and city 1 is Syrj\u00e4l\u00e4.\n\nThe next line has m integers c_1, c_2,\\dots, c_m: the ticket costs for each bus company.\n\nAfter that, there are m pairs of lines describing the cities for each bus company.\n\nThe first line of each pair has a single integer k: the number of cities the bus company operates in.\n\nThe second line of each pair has k distinct integers a_1, a_2,\\dots, a_k: the cities the bus company operates in.\n\nYou can assume that it is possible to travel from Syrj\u00e4l\u00e4 to all other cities.\n\nOutput\n\nPrint n integers: the cheapest route costs from Syrj\u00e4l\u00e4 to cities 1,2,\\dots, n.\n\nConstraints\n\n\n1 \\le n, m \\le 10^5\n\n1 \\le c \\le 10^9\n\n2 \\le k \\le n\n\n1 \\le a \\le n\n\nthe sum of all k is at most 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n5 3\n4 3 2\n3\n1 4 3\n2\n5 1\n4\n2 3 4 5\n\n\nOutput:\n\n0 5 4 4 3",
+  "statement_sha256": "5c313791a916a5844f7de8760a7869db2949f7dda450c58af67b7282a7641177"
+}

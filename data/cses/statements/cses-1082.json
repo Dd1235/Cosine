@@ -1,0 +1,8 @@
+{
+  "id": "cses-1082",
+  "title": "Sum of Divisors",
+  "source_url": "https://cses.fi/problemset/task/1082",
+  "observed_at": "2026-09-11T06:53:33.784822+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nLet \\sigma(n) denote the sum of divisors of an integer n. For example, \\sigma(12)=1+2+3+4+6+12=28.\n\nYour task is to calculate the sum \\sum_{i=1}^n \\sigma(i) modulo 10^9+7.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint \\sum_{i=1}^n \\sigma(i) modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^{12}\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n21",
+  "statement_sha256": "4207f5cdd4adbba3f4cd903c58777d6572b3014d21b6bcb56b80c8887e4cc91b"
+}

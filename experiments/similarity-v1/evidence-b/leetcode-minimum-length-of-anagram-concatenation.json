@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-length-of-anagram-concatenation",
+  "url": "https://leetcode.com/problems/minimum-length-of-anagram-concatenation/",
+  "observed_at": "2026-09-11T07:22:19.937641+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s , which is known to be a concatenation of anagrams of some string t . \n\n Return the minimum possible length of the string t . \n\n An anagram is formed by rearranging the letters of a string. For example, \"aab\", \"aba\", and, \"baa\" are anagrams of \"aab\". \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abba\" \n\n Output: 2 \n\n Explanation: \n\n One possible string t could be \"ba\" . \n \n\n Example 2: \n\n \n Input: s = \"cdef\" \n\n Output: 4 \n\n Explanation: \n\n One possible string t could be \"cdef\" , notice that t can be equal to s . \n \n\n Example 2: \n\n \n Input: s = \"abcbcacabbaccba\" \n\n Output: 3 \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consist only of lowercase English letters.",
+  "statement_sha256": "e7099a5eaa8a56ee4ccf9f0343fd10b50d1cd6da253db69fc282be7061b55470",
+  "raw_sha256": "e1b3a496bd703e9f4f157018939019f2973a246a9a9effd43bd1000ecb716a50",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

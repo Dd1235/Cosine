@@ -26,5 +26,18 @@
       "parity-argument": 0.9,
       "distance-matrix": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3357",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "374950578c5a6c05622b0d424c8b8120d05321e1ee79e6a249136823e737ce6f",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

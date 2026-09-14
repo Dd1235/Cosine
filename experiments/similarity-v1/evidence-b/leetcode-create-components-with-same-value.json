@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-create-components-with-same-value",
+  "url": "https://leetcode.com/problems/create-components-with-same-value/",
+  "observed_at": "2026-09-11T07:21:47.593191+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There is an undirected tree with n nodes labeled from 0 to n - 1 . \n\n You are given a 0-indexed integer array nums of length n where nums[i] represents the value of the i th node. You are also given a 2D integer array edges of length n - 1 where edges[i] = [a i , b i ] indicates that there is an edge between nodes a i and b i in the tree. \n\n You are allowed to delete some edges, splitting the tree into multiple connected components. Let the value of a component be the sum of all nums[i] for which node i is in the component. \n\n Return the maximum number of edges you can delete, such that every connected component in the tree has the same value. \n\n \u00a0 \n Example 1: \n \n \n Input: nums = [6,2,2,2,6], edges = [[0,1],[1,2],[1,3],[3,4]] \n Output: 2 \n Explanation: The above figure shows how we can delete the edges [0,1] and [3,4]. The created components are nodes [0], [1,2,3] and [4]. The sum of the values in each component equals 6. It can be proven that no better deletion exists, so the answer is 2.\n \n\n Example 2: \n\n \n Input: nums = [2], edges = []\n Output: 0\n Explanation: There are no edges to be deleted.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 2 * 10 4 \n nums.length == n \n 1 <= nums[i] <= 50 \n edges.length == n - 1 \n edges[i].length == 2 \n 0 <= edges[i][0], edges[i][1] <= n - 1 \n edges represents a valid tree.",
+  "statement_sha256": "24782606eaba68ae3508fd37712666d867aa85226ceaf9111e981868430e02cc",
+  "raw_sha256": "7f47f8f9131ca2109c4ed6f068f9ca0de777919a9d6fd0426c49151e044f5f47",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

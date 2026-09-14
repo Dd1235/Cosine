@@ -1,0 +1,8 @@
+{
+  "id": "cses-1087",
+  "title": "Shortest Subsequence",
+  "source_url": "https://cses.fi/problemset/task/1087",
+  "observed_at": "2026-09-11T06:54:50.515590+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a DNA sequence consisting of characters A, C, G, and T.\n\nYour task is to find the shortest DNA sequence that is not a subsequence of the original sequence.\n\nInput\n\nThe only input line contains a DNA sequence with n characters.\n\nOutput\n\nPrint the shortest DNA sequence that is not a subsequence of the original sequence. If there are several solutions, you may print any of them.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nACGTACGT\n\n\nOutput:\n\nAAA",
+  "statement_sha256": "c31a9fec4435dba37aa1079b922ea2a70d37b805740f7b52ef24e1ae0b927836"
+}

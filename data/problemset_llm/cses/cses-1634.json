@@ -24,5 +24,18 @@
       "unbounded-knapsack": 0.98,
       "dynamic-programming": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1634",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "7b295160f1d5275cb631e417af4898371aa195e2b8523705a745cdb2ffae76bc",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

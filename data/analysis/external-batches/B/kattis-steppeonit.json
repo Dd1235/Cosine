@@ -1,0 +1,28 @@
+{
+ "id": "kattis-steppeonit",
+ "status": "solved",
+ "solution": "This is the vertex-restricted f-center problem on an edge-weighted tree: choose f villages minimising the largest distance from any village to its nearest chosen one. Binary search on the answer R (integer, 0 .. sum of edge weights <= 1e9) and test feasibility with a linear bottom-up pass that computes the minimum number of radius-R centers covering the tree. Each vertex u carries two aggregates over its subtree: need[u], the distance from u to the deepest still-uncovered vertex, and cov[u], the largest leftover radius R - dist(u,c) of an already-placed center c that still reaches u; if cov[u] >= need[u] the whole subtree is covered, otherwise a center is placed at u only when forced, i.e. at the root or when need[u] + w(u,parent) > R. Deferring each center to the highest vertex that still covers the deepest uncovered descendant is optimal by an exchange argument (any center covering that descendant can be slid up to u without losing coverage), and the count is monotone in R, so the binary search is valid. Since the input numbers every vertex after its parent, a reverse index scan is already a post-order and no recursion is needed; total cost is O(n log W) ~ 3e6 steps for n = 100000.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A country's villages are connected by roads so that exactly one path joins any two villages, each road taking a given travel time. A fire department must choose f of the villages to hold fire engines. The task is to report the smallest possible value of the largest travel time from any village to its nearest chosen village, with up to 100,000 villages.",
+ "patterns": [
+  "binary-search-answer",
+  "greedy",
+  "tree-dp",
+  "binary-search"
+ ],
+ "pattern_confidence": {
+  "binary-search-answer": 0.92,
+  "greedy": 0.92,
+  "tree-dp": 0.7,
+  "binary-search": 0.85
+ },
+ "tags": [
+  "tree",
+  "graph",
+  "greedy",
+  "binary-search"
+ ],
+ "source_text_sha256": "a4dbd25ceb0e95d8cd7dd7a0b9e4b9173498da5a29c49ead04384ebd10d8bfc1",
+ "verify_script": "batchB/verify_steppeonit.py",
+ "notes": "Verified: both official samples reproduce (8 and 0), and fast() matches an exhaustive C(n,f)-over-all-center-sets brute force on 4800 random trees (n<=10, mixed path-like and random shapes, weights 1..20) with zero mismatches; n=100000 runs in 0.58s in pure Python. binary-search-answer is a genuine carrier here rather than the usual false positive: the feasibility test is the non-obvious part (minimum radius-R vertex cover of a tree via the forced-placement greedy), not a trivial scan. tree-dp is the weakest label at 0.7 -- the feasibility pass is a greedy decision rule, but it is driven by two per-subtree aggregates combined bottom-up, which is the corpus's usual tree-dp+greedy shape. Deliberately omitted: dfs (pure scaffolding, and not even required since v_i < i makes a reverse index loop a valid post-order) and tree-center (its algorithm, the diameter midpoint, solves only the f=1 case and does not generalise). Vocabulary gap: there is no canonical slug for the k-center / p-center problem on a tree, nor for 'minimum radius-R dominating set on a tree'; queries like 'k-center tree' or 'cover tree with k centers' currently have nothing exact to land on."
+}

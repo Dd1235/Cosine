@@ -1,0 +1,8 @@
+{
+  "id": "cses-2104",
+  "title": "Pattern Positions",
+  "source_url": "https://cses.fi/problemset/task/2104",
+  "observed_at": "2026-09-11T06:53:41.299408+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string and patterns, find for each pattern the first position (1-indexed) where it appears in the string.\n\nInput\n\nThe first input line has a string of length n.\n\nThe next input line has an integer k: the number of patterns. Finally, there are k lines that describe the patterns.\n\nThe string and the patterns consist of characters a\u2013z.\n\nOutput\n\nPrint the first position for each pattern (or -1 if it does not appear at all).\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le k \\le 5 \\cdot 10^5\n\nthe total length of the patterns is at most 5 \\cdot 10^5\n\n\nExample\n\nInput:\n\naybabtu\n3\nbab\nabc\na\n\n\nOutput:\n\n3\n-1\n1",
+  "statement_sha256": "d0b68bf525cb378fb058656bcf7e53fe2afe8933ed766ba7eef345e0bc9a1a08"
+}

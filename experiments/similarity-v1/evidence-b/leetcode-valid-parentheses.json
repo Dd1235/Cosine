@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-valid-parentheses",
+  "url": "https://leetcode.com/problems/valid-parentheses/",
+  "observed_at": "2026-09-11T07:21:42.073604+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s containing just the characters '(' , ')' , '{' , '}' , '[' and ']' , determine if the input string is valid. \n\n An input string is valid if: \n\n \n Open brackets must be closed by the same type of brackets. \n Open brackets must be closed in the correct order. \n Every close bracket has a corresponding open bracket of the same type. \n \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"()\" \n\n Output: true \n \n\n Example 2: \n\n \n Input: s = \"()[]{}\" \n\n Output: true \n \n\n Example 3: \n\n \n Input: s = \"(]\" \n\n Output: false \n \n\n Example 4: \n\n \n Input: s = \"([])\" \n\n Output: true \n \n\n Example 5: \n\n \n Input: s = \"([)]\" \n\n Output: false \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 4 \n s consists of parentheses only '()[]{}' .",
+  "statement_sha256": "d0cb951a1ca98739a2abf85f1d68eba53632ab2d5931f04e8972bdfc089b9fc7",
+  "raw_sha256": "044300a076f9e4034607af0d4323beb8dc0907d77d8264dcededf06bc547ef69",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

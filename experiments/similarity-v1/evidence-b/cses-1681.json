@@ -1,0 +1,10 @@
+{
+  "id": "cses-1681",
+  "url": "https://cses.fi/problemset/task/1681",
+  "observed_at": "2026-09-11T07:21:44.205086+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game has n levels, connected by m teleporters, and your task is to get from level 1 to level n. The game has been designed so that there are no directed cycles in the underlying graph. In how many ways can you complete the game?\n\nInput\n\nThe first input line has two integers n and m: the number of levels and teleporters. The levels are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the teleporters. Each line has two integers a and b: there is a teleporter from level a to level b.\n\nOutput\n\nPrint one integer: the number of ways you can complete the game. Since the result may be large, print it modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 5\n1 2\n2 4\n1 3\n3 4\n1 4\n\n\nOutput:\n\n3",
+  "statement_sha256": "9162b0f2df5d537fee765384457928d1a0760c47fa4cadb77d215f4cac8743d5",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

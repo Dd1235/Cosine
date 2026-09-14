@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-operations-to-form-subset-sum-ii",
+  "url": "https://leetcode.com/problems/minimum-operations-to-form-subset-sum-ii/",
+  "observed_at": "2026-09-11T07:22:22.959840+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums and an integer sum . \n\n In one operation , choose an element with current value x and replace it with either 2 * x or floor(x / 2) . \n\n For each element, multiplication and division operations may be performed in any order. \n\n Return the minimum number of operations needed so that some subset of the resulting array has a sum exactly equal to sum . If it is impossible, return -1. \n\n The floor() function returns the integer part of the division. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [10,2], sum = 13 \n\n Output: 3 \n\n Explanation: \n\n \n Divide nums[0] = 10 once: 10 \u2192 5 , costing 1 operation. \n Multiply nums[1] = 2 twice: 2 \u2192 4 \u2192 8 , costing 2 operations. \n After these operations, nums = [5, 8] . The subset {5, 8} sums to 13 using 3 operations in total. \n \n \n\n Example 2: \n\n \n Input: nums = [6,3], sum = 8 \n\n Output: 2 \n\n Explanation: \u200b\u200b\u200b\u200b\u200b\u200b\u200b \n\n \n Turn nums[1] = 3 into 2 using 2 operations:\n\n \n Divide nums[1] to get 1. \n Multiply nums[1] = 1 to get 2. \n \n \n After these operations, nums = [6, 2] . The subset {6, 2} sums to 8 using 2 operations in total. \n \n \n\n Example 3: \n\n \n Input: nums = [2,2], sum = 7 \n\n Output: -1 \n\n Explanation: \n\n \n No sequence of operations lets a subset of nums sum to 7, so the answer is -1. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 100 \n 1 <= nums[i] <= 500 \n 1 <= sum <= 5000",
+  "statement_sha256": "85e81354c7a78f27ad7d5046d913c82e2be3d2da206b9e9617378fec0d8f988d",
+  "raw_sha256": "c197a3c61af52e24dd07a8be65b48d7398a2f549c808cdd1df1f602d6ab7652a",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

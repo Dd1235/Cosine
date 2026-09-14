@@ -1,0 +1,28 @@
+{
+  "id": "codechef-mst101",
+  "status": "solved",
+  "solution": "Because the weights are exactly the ranks 1..M with M=C(N,2), f(W) is just the sum of the ranks Kruskal accepts, so the task reduces to choosing which ranks r_1<...<r_{N-1} are the merging ones. Before rank r_i, i-1 merges have happened and all r_i-1 earlier edges must lie inside the components those merges built, whose largest possible capacity is one blob of size i; hence i <= r_i <= C(i,2)+1, and conversely any strictly increasing r obeying that bound is realizable by growing a single blob 1,2,...,N, spending r_i on the edge that attaches vertex i+1 to the blob and every other rank on a still-unused pair inside the blob. Summing the two extreme vectors gives the achievable K as exactly the contiguous range [N(N-1)/2, (N-1)+N(N-1)(N-2)/6] (the caps grow with i, so each r_i can be raised one unit at a time and every intermediate sum is hit); anything outside prints -1, which is common here since K may be as large as N^3 while the maximum is only about N^3/6. To hit a given K, start from r_i=i and raise the r_i greedily from the largest index down to its cap C(i,2)+1 until the deficit K-N(N-1)/2 is consumed, then emit the matrix in O(N^2) per test, so O(T*N^2) <= 500*2500 overall.",
+  "solution_confidence": 0.97,
+  "statement_summary": "Given two integers N and K, the task is to build an N by N symmetric matrix with zero diagonal whose above-diagonal entries are a permutation of 1 through N(N-1)/2, so that the minimum spanning tree of the complete weighted graph it describes has total weight exactly K. Up to 500 cases have N at most 50 and K at most N cubed; report -1 when impossible.",
+  "patterns": [
+    "constructive-algorithm",
+    "minimum-spanning-tree",
+    "kruskal",
+    "greedy"
+  ],
+  "pattern_confidence": {
+    "constructive-algorithm": 0.97,
+    "minimum-spanning-tree": 0.95,
+    "kruskal": 0.9,
+    "greedy": 0.6
+  },
+  "tags": [
+    "graph",
+    "matrix",
+    "constructive-algorithm",
+    "greedy"
+  ],
+  "source_text_sha256": "ab2912e2fdf0b6406b692e13991ecc7c7169ca8cf9d3d71aca79281cc188bdf7",
+  "verify_script": "batchA/verify_mst101.py",
+  "notes": "Verified two independent ways: exhaustive permutation search over all weight assignments for N=2,3,4, and an exact state-space DP over (component size, edges already inside it) multisets for N=2..7 -- both reproduce the closed-form range [N(N-1)/2, (N-1)+N(N-1)(N-2)/6] exactly (N=3 gives the degenerate 3..3, matching the statement's -1 answers for K=2 and K=4). The constructor was then checked against an independent Kruskal for every N<=12 and every K in 1..N^3, plus spot checks at N=13,20,33,49,50; 500 worst-case builds take 0.06s. 'union-find' was deliberately left off: Kruskal is the reasoning device, but the construction itself never runs a DSU. 'greedy' is listed at lower confidence -- raising the rank vector from the top down is a genuine greedy exchange step, though a small one next to the constructive core. No canonical label expresses the real key idea (MST weight = sum of the ranks of the accepted edges, so the question becomes which rank sets are Kruskal-realizable); 'kruskal' is the closest carrier."
+}

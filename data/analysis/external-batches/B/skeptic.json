@@ -1,0 +1,221 @@
+{
+ "reviewer": "independent-opus-skeptic",
+ "reviewed_at": "2026-09-13",
+ "batch": "B",
+ "reviews": [
+  {
+   "id": "kattis-bingoforthewin",
+   "status": "approved",
+   "keep": [
+    "combinatorics",
+    "counting",
+    "hash-map"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "e704aba8210e71e2b3f951f2bc8df75d7fb6ad16adc3ad7210a9363210f438ef",
+   "review_rationale": "Re-derived from scratch: calls of a value are consumed in increasing player index, so the final copy of every value goes to its slowest holder; the last call overall is the last copy of whatever value is called last, so P(i last) = (sum of m_v over values whose slowest holder is i)/(n*k). Both samples reproduce and my own closed form matched an exhaustive enumeration of every distinct ordering of the multiset on 126 cases including all-duplicate sheets. O(n*k) = 1e5, 0.03s at the limits; no adversarial instance exists.",
+   "issues": [
+    "hash-map is the weakest kept label - the proposer notes sorting the (value, player) pairs is an equally valid route, which is the usual sign of scaffolding; kept only because the corpus consistently labels value-keyed frequency grouping this way (172 carriers).",
+    "Real vocabulary gap: the answer is a plain uniform-random-order probability with no DP, and the taxonomy aliases 'probabilities' to probability-dp, so there is no correct carrier for a non-DP probability argument. combinatorics is standing in."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-citizenship",
+   "status": "approved",
+   "keep": [
+    "prefix-sum",
+    "sliding-window",
+    "brute-force"
+   ],
+   "drop": [],
+   "add": [
+    {
+     "label": "monotonic-queue",
+     "why": "The shipped reference solution IS a monotonic deque: for each residue class mod 365 it runs a width-y sliding-window maximum over the stride-365 subsequence f(365j+r), and that is what delivers the O(365y) bound. Keeping sliding-window while omitting monotonic-queue is inconsistent, and a monotonic-queue searcher landing on a textbook sliding-window-maximum is well served.",
+     "confidence": 0.6
+    }
+   ],
+   "independent_band": "medium",
+   "source_text_sha256": "4a429e879b66af83684bbb96a9b79d8132e6f2e73909276d1e4bf3755184c28e",
+   "review_rationale": "Wrote an independent scan-every-candidate solver and it agreed with theirs on 400 randomized cases; both samples reproduce. I independently confirmed the non-monotonicity claim by hand on their counterexample (out-days per period 85/86/87/88 on 0006-03-28..31 against a limit of 86), so omitting binary-search-answer is correct. The proven candidate window [L+1, L+1+365y] is tight: my adversarial single-trip d=365 y=1000 instance lands exactly on the upper bound. Timing is flat at 0.20s in pure Python across four adversarial shapes (extreme answer, residue-drifting trips, a 5000-year trip, 500 same-residue trips) - genuinely O(365y), no hidden quadratic.",
+   "issues": [
+    "The solution field justifies omitting monotonic-queue by saying the naive O(365y^2) recheck (3.65e8 probes) fits in C++, but then keeps sliding-window, which is the same optimization. Resolved by adding monotonic-queue rather than dropping sliding-window."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-doubleshorsebackwrestling",
+   "status": "approved",
+   "keep": [
+    "greedy",
+    "line-sweep",
+    "heap",
+    "exchange-argument"
+   ],
+   "drop": [
+    {
+     "label": "sorting",
+     "why": "Names the scaffolding, not the technique. The only sort is putting the coordinates into descending order so the sweep can run, which line-sweep already carries. Nothing about the sort order is an insight here (contrast the corpus's exchange-argument sorting problems), and sorting already has 332 carriers, so this adds noise to a broad label without adding a real query route."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "31acac279255e7c5ba9ed9dcb07047f6ba5f43e74c98e527483b0a25962fa400",
+   "review_rationale": "Re-derived the whole reduction and it is right: pairable iff l_i+l_j <= s <= u_i+u_j, the N/P/Z split by s/2 is exact, and an N-P pair is exactly an intersection of [2l-s, 2u-s] with [s-2u, s-2l]. I also proved the parity claim the proposer only asserted: total pairs = floor((M+z)/2) where M is the number of matched N/P riders and z the original number of jokers, so maximizing M really is the sole objective. The joker tie-break is sound for a reason worth recording: jokers have left endpoint 0, so once a joker enters the P-role pool it never leaves, making all pooled jokers interchangeable for future P-role use and the N-role capacity y the only discriminator - popping the smallest y is provably right, and preferring a real (expiring) partner over a durable joker is right for the same reason. Sample reproduces; my own 34,000 structured adversarial cases (tiny universes, nested N/P intervals, joker-heavy, all-Z parity, plus 220 exact bitmask-DP checks at n=15-16) found no mismatch. Reading the code, every element is pushed and popped O(1) times and the dead-joker skip amortizes, so O(n log n) is real; four adversarial n=2e5 families run in 0.09-0.21s.",
+   "issues": [
+    "Coordinator applied the skeptic's own one-line summary fix (2026-09-13); solution and labels were already approved by the reviewer.",
+    "statement_summary uses raw bracket/subscript notation ('an integer interval [l_i,u_i]'), which the batch's other eight summaries avoid in favour of bare prose. Rewrite as e.g. 'known only to lie between a given lower and upper bound'. This is the only blocker - the solution and the remaining labels are approved.",
+    "verify_script points at an ephemeral scratchpad path (/private/tmp/claude-501/.../batchB/verify_doubleshorsebackwrestling.py) instead of batchB/verify_doubleshorsebackwrestling.py like the other seven. The file does exist in the batch directory; the recorded path will not survive.",
+    "Agreed with omitting bipartite-matching / max-flow: the problem is a general-graph matching but no matching algorithm runs, and those labels would mislead at n=2e5."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-flippingcontainer",
+   "status": "approved",
+   "keep": [
+    "graph-modeling",
+    "parity-argument",
+    "number-theory",
+    "gcd",
+    "modular-inverse",
+    "exchange-argument"
+   ],
+   "drop": [
+    {
+     "label": "eulerian-path",
+     "why": "Scaffolding for a proof, not a technique that runs. Euler's circuit theorem is cited once to show that per-edge traversal counts with even degrees on a connected arc can be realised as some closed walk; no Eulerian trail is ever constructed, no Hierholzer is implemented, and the problem does not ask for one. eulerian-path has only 7 carriers in the corpus (Mail Delivery, Teleporters Path, De Bruijn Sequence, ...), all genuine build-an-Euler-trail problems; a searcher for that term would not be glad to land on a coin-problem-with-congruences. Adding this would dilute one of the taxonomy's most precise labels."
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "5b4176a1e98f7130a3bceebb4639d83c48920a9e64dea754e37d763b72126bfe",
+   "review_rationale": "I re-derived the model independently and every step holds: tipping east moves the centre by (E+U)/2 = (S-N)/2 so doubled units are exact; the two transpositions make the six orientations a 6-cycle with well-defined per-edge weights S-b, S-c, S-a repeated; a closed walk on a cycle has one constant circulation f, giving t_e >= |f| and t_e == f (mod 2); f=2 is dominated by f=0 and f=3 by f=1, leaving all-odd and all-even-on-an-arc, and the 28 arcs through the start are exactly the (i,j) with i+j <= 6. All four samples reproduce. I added a much wider cross-check than the shipped one - 8 dimension triples with sides up to 13, BFS bound raised to 420, 8712 targets in a 33x33 window - with zero mismatches. Complexity is genuinely independent of the target: 8 hand-picked extreme calls and 300 random max-size calls all finish in under 0.09s, so the claimed O(1)-in-x,y bound survives adversarial targets at 1e18.",
+   "issues": [
+    "Correctness rests on a re-derivation, not the official editorial, and the machine check only covers small dimensions and small targets; the large-target behaviour rests on the coefficient bound argument. The bound (smallest weight's coefficient below 2*w_max <= 6000) is generous and was itself brute-checked, so this is acceptable, but it is where a defect would hide.",
+    "Vocabulary gap confirmed: no slug for Cayley-graph / group-of-moves modelling, and none for bounded-denomination minimum-coin representation. graph-modeling is carrying both."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-friendlyrivalry",
+   "status": "approved",
+   "keep": [
+    "kruskal",
+    "union-find",
+    "subset-sum",
+    "dynamic-programming",
+    "minimum-spanning-tree",
+    "connected-components"
+   ],
+   "drop": [
+    {
+     "label": "geometry",
+     "why": "Names the surroundings. The plane supplies nothing but a metric: coordinates become squared-integer edge weights in one line and no geometric reasoning, predicate or algorithm is ever used - no closest-pair sweep or divide-and-conquer, no orientation test, no hull. The solution is entirely Prim + DSU threshold components + a bitset subset-sum. The corpus's geometry label is already noisy (it sits on Tree Distances I and Book of Evil, which are pure tree-diameter problems); adding a graph/DP problem because its input happens to be points makes that worse."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "f20ba20dbce7d826a0560e41b78d4a65ee75c5a68e61fdbd8b3fcce0313e378f",
+   "review_rationale": "Re-derived and confirmed the chain: a split has bichromatic closest pair >= d iff every component of the sub-d threshold graph is monochromatic, so feasibility is a subset-sum of component sizes hitting n; and I proved the step the proposal asserts, that the optimum is always an MST edge weight (for any cross pair the MST path's max edge bounds their distance, so the minimum cross MST edge equals the minimum cross pair distance), which is what licenses restricting the sweep to the 2n-1 Prim edges. All three samples reproduce. Beyond their random tests I ran 650 structured adversarial cases - equal-size far clusters, lattice grids with maximal ties, equally spaced collinear points, unequal two-cluster splits - cross-checking the MST solver, the all-pairs variant, and exhaustive balanced partitions, with zero mismatches and the emitted team's true minimum cross distance always equal to the reported value. Seven adversarial n=500 layouts all finish in 0.18-0.35s.",
+   "issues": [
+    "Agreed with omitting binary-search-answer. Feasibility is monotone so a binary search would be legal, but the ascending Kruskal sweep answers it in one pass and never runs one; labelling it would be exactly the false positive that plagues that label's 279 carriers.",
+    "Agreed with omitting closest-pair: the optimised quantity is a bichromatic closest pair but no closest-pair algorithm is used."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-maxwellsdemon",
+   "status": "approved",
+   "keep": [
+    "xor-basis",
+    "gaussian-elimination",
+    "parity-argument",
+    "number-theory",
+    "gcd",
+    "geometry"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "64f3dc8ca9eb01ab41ca5a52670eb1f2819ad82dc05ab48401f2ba508e388087",
+   "review_rationale": "I re-derived the crux myself and it is correct: at the centre wall, passing through with velocity -|vx| into the far chamber and reflecting with +|vx| produce the identical |x(t)| triangle wave, so the arrival set S_i is decision-independent; passes only flip a chamber, so the reachable parity vectors are exactly the GF(2) span of the chi(t) seen so far and the answer is the first time the span swallows eps. The period bound checks out arithmetically (lcm of 2w/|vx| and 2h/|vy| is 4wh/gcd(2w|vy|, 2h|vx|), and P = 4wh/gcd g_i <= 160000). Both samples reproduce and their three-way verification, including a genuinely independent bouncing-particle simulator that branches on pass/reflect, is the right check for this problem. On complexity I built the worst instance I could and could not beat theirs: w=200, h=199, d=100, one slow particle forcing P=79600 plus 199 horizontal particles at y=d with |vx|=199 gives 7,880,601 events, while a 300-sample random search over max-size parameters peaked at 62,272. About 8e6 events with integer-normalised time keys is comfortable in C++, and the basis work is bounded because the rank grows at most 200 times.",
+   "issues": [
+    "Coordinator applied the skeptic's own one-line summary fix (2026-09-13); solution and labels were already approved by the reviewer.",
+    "statement_summary is 72 words, over the 40-70 limit. Trimming two words (e.g. 'Find the earliest time when all red particles can be left and all blue right, or report impossibility') fixes it. This is the only blocker; the solution and every label are approved.",
+    "verify_script points at an ephemeral scratchpad path (/private/tmp/claude-501/.../batchB/verify_maxwellsdemon.py) rather than batchB/verify_maxwellsdemon.py. The file exists in the batch directory.",
+    "The shipped solve() re-tests eps against the basis at every one of the up-to-8e6 event times, which would be ~1.6e9 steps at scale. The solution field states the correct version (test only when the rank grows, at most 200 times), so the complexity claim stands, but the reference code does not implement what the claim describes.",
+    "geometry at 0.6 is the weakest kept label. Kept because the reflection-unfolding / triangle-wave argument is a genuine geometric transformation and the corpus already carries geometry on physics-flavoured problems, but it is a judgement call and I dropped the same label on friendlyrivalry where the plane supplies only a metric."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-steppeonit",
+   "status": "approved",
+   "keep": [
+    "binary-search-answer",
+    "binary-search",
+    "greedy",
+    "tree-dp"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "a4dbd25ceb0e95d8cd7dd7a0b9e4b9173498da5a29c49ead04384ebd10d8bfc1",
+   "review_rationale": "binary-search-answer survives the strict test: the feasibility oracle is the minimum radius-R dominating set of a weighted tree, computed by a forced-placement bottom-up greedy over two per-subtree aggregates, and I verified the aggregate argument myself (if cov[u] >= need[u] then every uncovered vertex in the subtree is within R via u, since dist(c,v') <= (R-cov[u]) + dist(u,v') <= R). That oracle is emphatically the interesting part and there is no direct route to the answer, so this is a genuine carrier rather than one of the label's 277 false positives. Both samples reproduce; the greedy matched exhaustive C(n,f) search and a second, differently-formulated exact oracle on 8800 trees across six adversarial shapes. On complexity the feasibility pass is a single reverse index scan with O(1) work per vertex - there is no nested search to blow up - and 30 binary-search steps over a range bounded by the weight sum give ~3e6 steps total; pure Python runs n=1e5 in 0.32-0.49s on pure paths, stars, caterpillars and deep random trees.",
+   "issues": [
+    "tree-dp at 0.7 is the weakest label: the pass is a greedy decision rule, not an optimisation over subtree states. Kept because it is genuinely two values aggregated bottom-up per subtree, which is the corpus's usual tree-dp + greedy shape, and a tree-dp searcher would not be misled.",
+    "binary-search is redundant with binary-search-answer (the taxonomy's family regex adds it automatically), but keeping it matches what apply_families.js would write anyway.",
+    "Vocabulary gap confirmed: no slug for p-center / k-center on a tree, nor for minimum radius-R dominating set."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-thesilkroad",
+   "status": "needs_work",
+   "keep": [
+    "dynamic-programming",
+    "segment-tree",
+    "coordinate-compression",
+    "offline-queries"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "9e7dcc7a226b5684ffb1029b07f005cc14cd905a7e2a73c825f523cbc2325645",
+   "review_rationale": "The model is right and I confirmed it by hand on every sample day, including the reading correction: day 3 = 35 is only reachable if a robot collects every store it walks over, and day 6 = 60 needs the second robot to sweep left over the store the first robot did not take. The arm decomposition is exactly right - cost (r-l)+min(p-l,r-p) is 2x one arm and 1x the other, giving the five gap states. But the complexity claim does not survive an adversarial instance. The claimed O(n log n) online solution finds the previous and next occupied position by a linear scan over the compressed array, so feeding the positions in decreasing order (perfectly legal - locations need only be distinct) costs exactly n^2/2 scan steps: I measured 499,500 / 1,999,000 / 7,998,000 / 31,996,000 / 199,990,000 at n = 1000 / 2000 / 4000 / 8000 / 20000, i.e. 2e10 at n = 2e5, against ~340,000 for random order. Wall time follows: 0.24s / 0.64s / 1.78s / 5.72s descending versus 0.29s / 0.55s / 1.18s / 2.61s random. This is fatal in any language and the fix is small - an ordered set or a Fenwick-indexed successor over the occupied flags - so needs_work rather than rejected.",
+   "issues": [
+    "BLOCKER: solve_segtree's neighbour lookup is a linear scan, making the claimed O(n log n) solution Theta(n^2) on descending input (2e10 steps at n=2e5, measured exactly as n^2/2). Replace with a successor structure over occupied positions.",
+    "The only test of that code path, stress_segtree, is defined but never called - the if __name__ block runs sample() and stress() and exits. The O(n log n) solution was therefore never executed by the shipped verifier. I ran it myself: it is correct, agreeing with the straight-line DP on 500 cases at n<=60.",
+    "There is no n=2e5 timing test for this problem at all, the only one of the nine without a scale measurement. That is how the quadratic scan survived.",
+    "Unmeasured second risk: the 125-op max-plus merge over 2 leaf rebuilds x 18 levels x 2e5 days is ~9e8 operations even after the scan is fixed. Probably fine for a World Finals limit in C++, but it has never been timed.",
+    "The solution field asserts 'adding a robot or store rewrites one leaf (plus the next occupied leaf, whose gap shrank) ... O(n log n)' without saying how the next occupied leaf is found, which is precisely the step that is not O(log n) as implemented.",
+    "Labels themselves are sound and I keep all four; offline-queries is genuine rather than scaffolding, since the up-to-1e8 coordinates must all be read before day 1 to build the tree."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-towerofnoiha",
+   "status": "approved",
+   "keep": [
+    "divide-and-conquer",
+    "bit-manipulation"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "3ef07b7add9573dae41abe4a6470cfae46461e058e51edd8d8e1c9cfa5cb0dd9",
+   "review_rationale": "All three samples reproduce. The shipped script's default only checks n<=8 (510 pairs), so I extended it: exhaustive against the ordered-stack BFS for every k at n<=9 (1022 pairs, zero mismatches) plus 189 random k at n=10, 11 and 12, also zero. The claimed O(n) holds under adversarial k: with a genuine 200000-bit binary k the carry-array variant runs in 0.03s (all-zeros, all-ones), 0.12s (random) and 0.25s (alternating, the case where the answer is 199999 bits), so nothing degrades to big-integer quadratic behaviour. The label set is thin for a very-hard problem but I could not find a defensible addition that is not scaffolding.",
+   "issues": [
+    "The notes claim the cross-check covers 'every k with n <= 9 ... plus 120 random k at n = 10', but the shipped script's default run is n<=8 with no n=10 loop and no scale timing. The claims are true - I ran them - but the artefact did not demonstrate them. Either raise the default N or restate the notes.",
+    "Acknowledged and accepted: the proof that no other pre-lift configuration (e.g. parking two large B disks) can beat the four plans is inferred from exhaustive small-n agreement, not proved.",
+    "Recall gap rather than a labelling error: two labels on a World Finals problem is thin, but the missing concepts (recursive state decoding from an index, exhaustive case analysis, arbitrary-precision binary arithmetic) have no canonical slug, and inventing coverage by adding greedy or brute-force would dilute large labels for nothing. bit-manipulation is the weaker of the two - it covers bitwise decoding of k and the powers-of-two carry pass, not the XOR/mask tricks that term usually retrieves."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "Six approved, three needs_work. Every source_text_sha256 matches sha256 of the corresponding staging source_text; all nine verifier scripts run clean; all nine solutions reproduce every official sample and I re-derived each one independently rather than reading the proposal's argument back. Only one substantive defect: kattis-thesilkroad's claimed O(n log n) online solution is Theta(n^2) on decreasing-position input because it finds neighbouring occupied positions by a linear scan (exactly n^2/2 = 2e10 steps at n=2e5, measured), and the one test that would have exercised that code path is defined but never called - it is also the only problem in the batch with no scale timing at all. The other two needs_work are one-line summary-format fixes (bracket/subscript notation on doubleshorsebackwrestling, 72 words on maxwellsdemon) with approved solutions and labels. Complexity claims for the other eight all survive adversarial construction: steppeonit's feasibility oracle is a true single linear pass (0.49s at n=1e5 on paths/stars/caterpillars), citizenship is flat at 0.20s across four adversarial shapes with the proven candidate window shown to be exactly tight, doubles is 0.09-0.21s on four n=2e5 families, friendlyrivalry 0.18-0.35s on seven n=500 layouts, flippingcontainer under 0.09s on 300 max-size targets, towerofnoiha 0.25s at n=2e5, and I could not beat the proposer's own 7.9e6-event worst case for maxwellsdemon. Label surgery: four drops, one add. Three of the drops are the sub-0.6-confidence labels flagged for strict review - eulerian-path on flippingcontainer (a proof lemma, and it would dilute a 7-carrier label whose members are all genuine build-an-Euler-trail problems), sorting on doubleshorsebackwrestling (subsumed by line-sweep), geometry on friendlyrivalry (the plane supplies only a metric). The fourth, geometry on maxwellsdemon at 0.6, I kept, and I want that inconsistency on the record: the reflection-unfolding argument there is a real geometric transformation whereas friendlyrivalry's points become edge weights in one line, but the corpus's geometry label is already noisy enough (it sits on Tree Distances I and Book of Evil) that a future pass may want to revisit both. The one add is monotonic-queue on citizenship, resolving the proposal's own inconsistency of keeping sliding-window while calling the deque optional. Both binary-search-answer rulings go the proposer's way and both are right for the stated reason: steppeonit keeps it because the oracle (minimum radius-R dominating set on a weighted tree) is the entire difficulty, friendlyrivalry omits it because the ascending Kruskal sweep never runs a search even though feasibility is monotone. I independently confirmed citizenship's non-monotonicity by hand, so its omission is forced rather than stylistic. Two process notes for the batch: doubleshorsebackwrestling and maxwellsdemon record verify_script as an ephemeral /private/tmp scratchpad path instead of batchB/..., and both towerofnoiha's and thesilkroad's notes describe verification coverage the shipped scripts do not actually run (I re-ran both claims myself; towerofnoiha's hold, thesilkroad's segment-tree path is correct but untimed). Recurring vocabulary gaps worth a taxonomy issue: non-DP probability arguments (the alias 'probabilities' points at probability-dp, which is wrong for bingoforthewin), p-center / k-center on a tree, dynamic-DP via a segment tree of max-plus transition matrices, Cayley-graph modelling of a move group, bounded-denomination minimum-coin representation, and periodicity / reflection-unfolding."
+}

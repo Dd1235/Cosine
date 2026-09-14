@@ -1,0 +1,39 @@
+{
+ "id": "kattis-aleaiactaest",
+ "title": "Alea Iacta Est",
+ "slug": "aleaiactaest",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/aleaiactaest",
+ "source_topic": "ICPC / World Finals 2023",
+ "source_tags": [],
+ "statement": "Given at most six dice, each with six faces bearing letters or digits, and a dictionary of up to 200000 words of that same length, all dice are rolled; a roll succeeds when the top symbols can be rearranged into a dictionary word. Otherwise any subset may be kept and the rest rerolled. Report the expected number of rolls under optimal play, or that no word is reachable.",
+ "tags": [],
+ "patterns": [
+  "expected-value-dp",
+  "probability-dp",
+  "bitmask-dp",
+  "state-compression",
+  "dynamic-programming"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "expected-value-dp": 0.9,
+   "probability-dp": 0.9,
+   "bitmask-dp": 0.9,
+   "state-compression": 0.9,
+   "dynamic-programming": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.8,
+  "label": "hard",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:50+00:00"
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1741",
+  "title": "Area of Rectangles",
+  "source_url": "https://cses.fi/problemset/task/1741",
+  "observed_at": "2026-09-11T06:53:45.470523+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n rectangles, your task is to determine the total area of their union.\n\nInput\n\nThe first line has an integer n: the number of rectangles.\n\nAfter that, there are n lines describing the rectangles. Each line has four integers x_1, y_1, x_2 and y_2: a rectangle begins at point (x_1,y_1) and ends at point (x_2,y_2).\n\nOutput\n\nPrint the total area covered by the rectangles.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n-10^6 \\le x_1 < x_2 \\le 10^6\n\n-10^6 \\le y_1 < y_2 \\le 10^6\n\n\nExample\n\nInput:\n\n3\n1 3 4 5\n3 1 7 4\n5 3 8 6\n\n\nOutput:\n\n24",
+  "statement_sha256": "1e83f0bee5cef184c8879f8845957c78ced75897f815c374c457fe95a2e6f20c"
+}

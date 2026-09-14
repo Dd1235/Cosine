@@ -1,0 +1,8 @@
+{
+  "id": "cses-3222",
+  "title": "Sliding Window Distinct Values",
+  "source_url": "https://cses.fi/problemset/task/3222",
+  "observed_at": "2026-09-11T06:53:50.220722+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the number of distinct values in each window of k elements, from left to right.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the numbers of distinct values.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n1 2 3 2 5 2 2 2\n\n\nOutput:\n\n3 2 3 2 2 1",
+  "statement_sha256": "62c86378b4938e6589ccdbe0fb4baec70b7c3673eda51b2b401a37b0bff94a86"
+}

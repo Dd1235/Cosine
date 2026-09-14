@@ -1,0 +1,8 @@
+{
+  "id": "cses-1157",
+  "title": "Mex Grid Queries",
+  "source_url": "https://cses.fi/problemset/task/1157",
+  "observed_at": "2026-09-11T06:54:59.228465+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a two-dimensional grid whose rows and columns are 1-indexed. Each square contains the smallest nonnegative integer that does not appear to the left on the same row or above on the same column.\n\nYour task is to calculate the value at square (y,x).\n\nInput\n\nThe only input line contains two integers y and x.\n\nOutput\n\nPrint one integer: the value at square (y,x).\n\nConstraints\n\n\n1 \\le y,x \\le 10^9\n\n\nExample\n\nInput:\n\n3 5\n\n\nOutput:\n\n6",
+  "statement_sha256": "4162232127964d5c3df81b607797ee6dfa50d1ac11de9b4139adb5c406df9f34"
+}

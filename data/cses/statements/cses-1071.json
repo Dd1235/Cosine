@@ -1,0 +1,8 @@
+{
+  "id": "cses-1071",
+  "title": "Number Spiral",
+  "source_url": "https://cses.fi/problemset/task/1071",
+  "observed_at": "2026-09-11T06:52:40.461268+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA number spiral is an infinite grid whose upper-left square has number 1. Here are the first five layers of the spiral:\n\nYour task is to find out the number in row y and column x.\n\nInput\n\nThe first input line contains an integer t: the number of tests.\n\nAfter this, there are t lines, each containing integers y and x.\n\nOutput\n\nFor each test, print the number in row y and column x.\n\nConstraints\n\n\n1 \\le t \\le 10^5\n\n1 \\le y,x \\le 10^9\n\n\nExample\n\nInput:\n\n3\n2 3\n1 1\n4 2\n\n\nOutput:\n\n8\n1\n15",
+  "statement_sha256": "5f260ce415a425ef75289a9ad0e04dbb03089dde61fb485c02ce91c3d1839b77"
+}

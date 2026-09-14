@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-regular-expression-matching",
+  "url": "https://leetcode.com/problems/regular-expression-matching/",
+  "observed_at": "2026-09-11T07:21:53.154586+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an input string s \u00a0and a pattern p , implement regular expression matching with support for '.' and '*' where: \n\n \n '.' Matches any single character.\u200b\u200b\u200b\u200b \n '*' Matches zero or more of the preceding element. \n \n\n Return a boolean indicating whether the matching covers the entire input string (not partial). \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"aa\", p = \"a\"\n Output: false\n Explanation: \"a\" does not match the entire string \"aa\".\n \n\n Example 2: \n\n \n Input: s = \"aa\", p = \"a*\"\n Output: true\n Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes \"aa\".\n \n\n Example 3: \n\n \n Input: s = \"ab\", p = \".*\"\n Output: true\n Explanation: \".*\" means \"zero or more (*) of any character (.)\".\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length\u00a0<= 20 \n 1 <= p.length\u00a0<= 20 \n s contains only lowercase English letters. \n p contains only lowercase English letters, '.' , and\u00a0 '*' . \n It is guaranteed for each appearance of the character '*' , there will be a previous valid character to match.",
+  "statement_sha256": "5bd4fed369408767fc743f23c96071b0f9114710f02a058b8994b87d65835e89",
+  "raw_sha256": "4c14887593c4a2386d87c6d15abd74e09e9382fb69e19e72c533d96434179d78",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

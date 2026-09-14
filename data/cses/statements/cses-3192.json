@@ -1,0 +1,8 @@
+{
+  "id": "cses-3192",
+  "title": "K Subset Xors",
+  "source_url": "https://cses.fi/problemset/task/3192",
+  "observed_at": "2026-09-11T06:54:40.217014+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Consider the xors of all 2^n subsets of the array (including the empty subset with xor equal to zero).\n\nYour task is to find the k smallest subset xors.\n\nInput\n\nThe first line has two integers n and k: the size of the array and the number of subset xors k.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint k integers: the k smallest subset xors in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k \\le \\min(2^n, 2 \\cdot 10^5)\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 9\n3 5 14 8\n\n\nOutput:\n\n0 0 3 3 5 5 6 6 8",
+  "statement_sha256": "f4fce9fb36acf289b9fe8c1d466911418f345570db23d15919ba4d46bcff1493"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-powx-n",
+  "url": "https://leetcode.com/problems/powx-n/",
+  "observed_at": "2026-09-11T07:22:03.375751+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Implement pow(x, n) , which calculates x raised to the power n (i.e., x n ). \n\n \u00a0 \n Example 1: \n\n \n Input: x = 2.00000, n = 10\n Output: 1024.00000\n \n\n Example 2: \n\n \n Input: x = 2.10000, n = 3\n Output: 9.26100\n \n\n Example 3: \n\n \n Input: x = 2.00000, n = -2\n Output: 0.25000\n Explanation: 2 -2 = 1/2 2 = 1/4 = 0.25\n \n\n \u00a0 \n Constraints: \n\n \n -100.0 < x < 100.0 \n -2 31 <= n <= 2 31 -1 \n n is an integer. \n Either x is not zero or n > 0 . \n -10 4 <= x n <= 10 4",
+  "statement_sha256": "22eaafc693e17c06a15369e86c5d3c1ffc8f3c8eb8349533c039019252835196",
+  "raw_sha256": "6b683e6076c3297d2fe72b5c2763ac64cf6207b42b8873d68abdbbac4245b3ab",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

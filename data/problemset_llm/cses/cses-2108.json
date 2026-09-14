@@ -29,5 +29,18 @@
       "prefix-sum": 0.85,
       "suffix-automaton": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2108",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "82463d302dff18d018ba58d17fe8acb0164bc636e43119274dcdd26333d31dc9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

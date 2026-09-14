@@ -12,6 +12,9 @@ const {
 } = require("../search/difficulty");
 const { logEvent } = require("../telemetry");
 
+const { createCollections } = require("../collections");
+const { SimilarIndex } = require("../search/similar");
+
 const VALID_FILTERS = new Set(["all", "done", "notdone"]);
 // Pattern labels are slugs (see data/pattern_taxonomy.json); anything else is ignored.
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -52,9 +55,9 @@ async function timedSearch(index, q, k, offset = 0, opts = {}) {
 
 async function loadUserState(userId) {
   const result = await db.query(
-    `SELECT problem_id, done, bookmarked, recall
+    `SELECT problem_id, done, bookmarked, recall, done_at, bookmarked_at, updated_at
        FROM user_problem_state
-      WHERE user_id = $1 AND (done OR bookmarked)`,
+      WHERE user_id = $1 AND (done OR bookmarked OR recall IS NOT NULL)`,
     [userId]
   );
   const done = new Set();
@@ -62,12 +65,14 @@ async function loadUserState(userId) {
   // Carried so a rated problem shows its rating in ordinary search results,
   // not only inside the library.
   const recall = new Map();
+  const dates = new Map();
   for (const row of result.rows) {
+    dates.set(row.problem_id, row);
     if (row.done) done.add(row.problem_id);
     if (row.bookmarked) bookmarked.add(row.problem_id);
     if (row.recall) recall.set(row.problem_id, row.recall);
   }
-  return { done, bookmarked, recall };
+  return { done, bookmarked, recall, dates };
 }
 
 // Canonical taxonomy labels with per-label problem counts, grouped by
@@ -113,9 +118,12 @@ function buildPatternsPayload(problems) {
   return { version: 1, totalProblems: (problems || []).length, categories, groups };
 }
 
-function createSearchRouter({ indexes, defaultRanker, problems }) {
+function createSearchRouter({ indexes, defaultRanker, problems, collectionRegistry }) {
   const router = express.Router();
   const patternsPayload = buildPatternsPayload(problems);
+  const collections = createCollections(problems, collectionRegistry);
+  const similarIndex = new SimilarIndex(problems, indexes.dense);
+  router.get("/collections", (_req,res) => res.json(collections.payload()));
   // "Everything you have" is exactly the corpus — asking for more just made the
   // gRPC leg serialize a nonsense k over the wire.
   const FULL_PAGE_SIZE = problems.length;
@@ -148,7 +156,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
 
   router.get("/search", async (req, res) => {
     const q = (req.query.q || "").toString();
-    const k = Number.parseInt(req.query.k, 10) || 10;
+    const k = Math.max(1, Math.min(problems.length || 1, Number.parseInt(req.query.k, 10) || 10));
     const offset = Math.max(0, Number.parseInt(req.query.offset, 10) || 0);
     const filterRaw = (req.query.filter || "all").toString().toLowerCase();
     const filter = VALID_FILTERS.has(filterRaw) ? filterRaw : "all";
@@ -156,6 +164,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
     const pattern = SLUG_RE.test(patternRaw) ? patternRaw : "";
     const platforms = parsePlatforms(req.query.platform, KNOWN_PLATFORMS);
     const bands = parseSelection(req.query.difficulty);
+    const contests = collections.parse(req.query.contest);
     // Sorting is only offered inside one judge — see difficulty.js. When it is
     // refused, say why rather than quietly returning relevance order.
     const wantSort = parseSort(req.query.sort);
@@ -215,7 +224,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
       const userState = req.user ? await loadUserState(req.user.id) : null;
       const effectiveFilter = userState ? filter : "all";
 
-      const hasFilter = effectiveFilter !== "all" || !!pattern || platforms.size > 0 || bands.size > 0;
+      const hasFilter = effectiveFilter !== "all" || !!pattern || platforms.size > 0 || bands.size > 0 || contests.size > 0;
 
       let hits, total, latencyMs;
       if (!q.trim() && hasFilter) {
@@ -228,14 +237,14 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
         const browsed = problems.filter((p) => {
           if (pattern && !(p.patterns || []).includes(pattern)) return false;
           if (platforms.size && !platforms.has(p.platform)) return false;
-          if (!passesDifficulty(p, bands)) return false;
+          if (!passesDifficulty(p, bands) || !collections.passes(p, contests)) return false;
           if (effectiveFilter === "all") return true;
           const isDone = userState.done.has(p.id);
           return effectiveFilter === "done" ? isDone : !isDone;
         });
         // No query means nothing is ranked, so ordering the whole set costs no
         // relevance and paging stays coherent.
-        const ordered = sortDir ? sortByDifficulty(browsed, sortDir) : browsed;
+        const ordered = sortDir ? sortByDifficulty(browsed, sortDir) : collections.order(browsed, contests);
         latencyMs = +(Number(process.hrtime.bigint() - t) / 1e6).toFixed(3);
         total = ordered.length;
         hits = ordered.slice(offset, offset + k).map((problem) => ({ problem, score: 0, matchedTerms: [] }));
@@ -252,7 +261,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
         const filtered = full.hits.filter((h) => {
           if (pattern && !(h.problem.patterns || []).includes(pattern)) return false;
           if (platforms.size && !platforms.has(h.problem.platform)) return false;
-          if (!passesDifficulty(h.problem, bands)) return false;
+          if (!passesDifficulty(h.problem, bands) || !collections.passes(h.problem, contests)) return false;
           if (effectiveFilter === "all") return true;
           const isDone = userState.done.has(h.problem.id);
           return effectiveFilter === "done" ? isDone : !isDone;
@@ -278,6 +287,8 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
           recall: userState.recall.get(h.problem.id),
         }));
       }
+
+      hits = hits.map(h => ({ ...h, competitions: collections.memberships.get(collections.canonical(h.problem.id)) || [] }));
 
       // searchId ties later outcome beacons (result_open, load_more,
       // search_feedback) back to the exact query + ranker that produced them.
@@ -313,6 +324,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
         filter: effectiveFilter,
         pattern: pattern || undefined,
         platform: platforms.size ? [...platforms].sort() : undefined,
+        contest: [...contests],
         difficulty: bands.size ? String(req.query.difficulty).toLowerCase() : undefined,
         sort: sortDir ? `difficulty-${sortDir}` : undefined,
         // The client hides "load more" on this shape: the window is fixed.
@@ -325,37 +337,75 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
     }
   });
 
-  // "Find similar problems": doc-to-doc cosine over the precomputed vectors.
-  // Pure stored-vector math — the embedding model is not involved, so this is
-  // sync and fast (~1 ms full-corpus scan).
+  // Similarity is a persistent, filtered view. Rank first, filter the full
+  // set, then page; metadata and progress never influence shared scores.
   router.get("/similar/:problemId", async (req, res) => {
-    const dense = indexes.dense;
-    if (!dense) {
-      return res.status(503).json({ error: "dense ranker unavailable — run `npm run embed` and restart" });
-    }
-    const k = Math.min(50, Number.parseInt(req.query.k, 10) || 10);
-
+    const k = Math.max(1, Math.min(problems.length || 1, Number.parseInt(req.query.k, 10) || 20));
+    const offset = Math.max(0, Number.parseInt(req.query.offset, 10) || 0);
+    const sourceId = collections.canonical(req.params.problemId);
+    const platforms = parsePlatforms(req.query.platform, KNOWN_PLATFORMS);
+    const contests = collections.parse(req.query.contest);
+    const bands = parseSelection(req.query.difficulty);
+    const pattern = String(req.query.pattern || '');
+    const filter = String(req.query.filter || 'all');
+    const library = ['all','done','bookmarked'].includes(req.query.library) ? req.query.library : null;
+    const recall = ['again','hard','medium','easy','none'].includes(req.query.recall) ? req.query.recall : null;
+    const ageDays = Number.parseInt(req.query.aged, 10);
+    const cutoff = Number.isInteger(ageDays) && ageDays > 0 && ageDays <= 3650 ? Date.now()-ageDays*86400000 : null;
+    const oldest = req.query.order === 'oldest';
+    const sort = parseSort(req.query.sort);
+    const sortDir = sort && sortableJudge(platforms, SORTABLE_JUDGES) ? sort : null;
     try {
       const t = process.hrtime.bigint();
-      const result = dense.similar(req.params.problemId, k);
-      const latencyMs = +(Number(process.hrtime.bigint() - t) / 1e6).toFixed(3);
-      if (!result) return res.status(404).json({ error: "unknown problem id" });
-
-      let { hits } = result;
-      const userState = req.user ? await loadUserState(req.user.id) : null;
-      if (userState) {
-        hits = hits.map((h) => ({
-          ...h,
-          done: userState.done.has(h.problem.id),
-          bookmarked: userState.bookmarked.has(h.problem.id),
-          recall: userState.recall.get(h.problem.id),
-        }));
+      const result = similarIndex.similar(sourceId);
+      if (!result) return res.status(404).json({ error: 'unknown problem id' });
+      const state = req.user ? await loadUserState(req.user.id) : null;
+      const practice = req.query.practice === '1';
+      const sourceCollections = new Set((collections.memberships.get(sourceId) || []).map(c => c.id));
+      const sourceProblem = problems.find(p => p.id === sourceId);
+      const nativeContest = p => p?.platform === 'codeforces' ? p.id.match(/^codeforces-\d+-/)?.[0]
+        : p?.platform === 'leetcode' && /(?:Weekly|Biweekly) Contest/i.test(p.source_topic || '') ? p.source_topic : null;
+      const sourceNative = nativeContest(sourceProblem);
+      const seen = new Set([sourceId]);
+      let hits = result.hits.filter(h => {
+        const p = h.problem, id = collections.canonical(p.id);
+        if (seen.has(id)) return false;
+        seen.add(id);
+        if (practice && ((sourceCollections.size && collections.passes(p, sourceCollections)) || (sourceNative && nativeContest(p) === sourceNative))) return false;
+        if (platforms.size && !platforms.has(p.platform)) return false;
+        if (!collections.passes(p, contests) || !passesDifficulty(p, bands)) return false;
+        if (pattern && !(p.patterns || []).includes(pattern)) return false;
+        if (state) {
+          const done = state.done.has(p.id), saved = state.bookmarked.has(p.id);
+          if (practice && done) return false;
+          const dates = state.dates.get(p.id);
+          const when = library === 'bookmarked' ? dates?.bookmarked_at : dates?.done_at || dates?.bookmarked_at;
+          if (cutoff && (!when || new Date(when).getTime()>cutoff)) return false;
+          if (filter === 'done' && !done || filter === 'notdone' && done) return false;
+          if (library === 'all' && !done && !saved || library === 'done' && !done || library === 'bookmarked' && !saved) return false;
+          if (recall === 'none' && state.recall.has(p.id)) return false;
+          if (recall && recall !== 'none' && state.recall.get(p.id) !== recall) return false;
+        }
+        return true;
+      });
+      if (oldest && state && library) {
+        const when = h => { const d=state.dates.get(h.problem.id); return new Date((library === "bookmarked" ? d?.bookmarked_at : d?.done_at) || d?.updated_at || 0).getTime(); };
+        hits.sort((a,b)=>when(a)-when(b));
       }
-      logEvent("similar", { visitor: req.visitor, userId: req.user?.id, props: { problemId: req.params.problemId, latencyMs } });
-      res.json({ problemId: req.params.problemId, source: result.source, ranker: "dense", latencyMs, k, total: result.total, hits });
-    } catch (err) {
-      res.status(502).json({ error: err.message || "similar failed" });
-    }
+      const total = hits.length;
+      if (sortDir) hits = sortByDifficulty(hits.slice(0,k), sortDir, h => h.problem);
+      else hits = hits.slice(offset,offset+k);
+      hits = hits.map(h => ({ ...h,
+        ...(state ? {done: state.done.has(h.problem.id), bookmarked: state.bookmarked.has(h.problem.id), recall: state.recall.get(h.problem.id)} : {}),
+        competitions: collections.memberships.get(collections.canonical(h.problem.id)) || [],
+      }));
+      const latencyMs = +(Number(process.hrtime.bigint()-t)/1e6).toFixed(3);
+      logEvent('similar', {visitor:req.visitor,userId:req.user?.id,props:{problemId:sourceId,latencyMs}});
+      res.json({ problemId:sourceId, source:result.source, ranker:result.ranker, hits,total,k,offset,latencyMs, practice,
+        sortWindow:sortDir ? k : undefined, contest:[...contests],
+        sortRefused:sort && !sortDir ? 'pick exactly one judge with a difficulty scale' : undefined,
+        emptyReason: total ? undefined : 'No related problems match these filters. Clear a filter to broaden the search.' });
+    } catch(err) { res.status(502).json({error:err.message || 'similar failed'}); }
   });
 
   // Compare mode: the same query across several rankers, side by side.
@@ -364,7 +414,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
   router.get("/compare", async (req, res) => {
     const q = (req.query.q || "").toString();
     const exp = expandQuery(q);
-    const k = Number.parseInt(req.query.k, 10) || 10;
+    const k = Math.max(1, Math.min(problems.length || 1, Number.parseInt(req.query.k, 10) || 10));
     const requested = (req.query.rankers || "")
       .toString()
       .toLowerCase()
@@ -375,7 +425,7 @@ function createSearchRouter({ indexes, defaultRanker, problems }) {
     const settled = await Promise.all(
       names.map(async (name) => {
         try {
-          const { hits, latencyMs } = await timedSearch(indexes[name], exp.query, k);
+          const { hits, latencyMs } = await timedSearch(indexes[name], exp.query, k, 0, { raw: q });
           return { ranker: name, latencyMs, hits };
         } catch (err) {
           return { ranker: name, latencyMs: null, error: err.message || "failed", hits: [] };

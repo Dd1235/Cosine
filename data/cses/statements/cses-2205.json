@@ -1,0 +1,8 @@
+{
+  "id": "cses-2205",
+  "title": "Gray Code",
+  "source_url": "https://cses.fi/problemset/task/2205",
+  "observed_at": "2026-09-11T06:52:41.755737+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA Gray code is a list of all 2^n bit strings of length n, where any two successive strings differ in exactly one bit (i.e., their Hamming distance is one).\n\nYour task is to create a Gray code for a given length n.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint 2^n lines that describe the Gray code. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 16\n\n\nExample\n\nInput:\n\n2\n\n\nOutput:\n\n00\n01\n11\n10",
+  "statement_sha256": "7a8c40b1d1cd451157a0f997da22bac38138a9947eb977c4b7ca1c81c9cc364d"
+}

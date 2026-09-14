@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-palindrome-partitioning-ii",
+  "url": "https://leetcode.com/problems/palindrome-partitioning-ii/",
+  "observed_at": "2026-09-11T07:22:07.265136+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s , partition s such that every substring of the partition is a palindrome . \n\n Return the minimum cuts needed for a palindrome partitioning of s . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"aab\"\n Output: 1\n Explanation: The palindrome partitioning [\"aa\",\"b\"] could be produced using 1 cut.\n \n\n Example 2: \n\n \n Input: s = \"a\"\n Output: 0\n \n\n Example 3: \n\n \n Input: s = \"ab\"\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 2000 \n s consists of lowercase English letters only.",
+  "statement_sha256": "3ac8e951e52bb012f54837ab6ffc6e748403fb8319e1b6f4aa748d763f007266",
+  "raw_sha256": "cfd13aaf683627fc3c5dab15b8ca944bd91136d8f8a335882da087b94c900400",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

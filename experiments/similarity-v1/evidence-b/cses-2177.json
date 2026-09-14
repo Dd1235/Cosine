@@ -1,0 +1,10 @@
+{
+  "id": "cses-2177",
+  "url": "https://cses.fi/problemset/task/2177",
+  "observed_at": "2026-09-11T07:21:55.336591+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected graph, your task is to choose a direction for each edge so that the resulting directed graph is strongly connected.\n\nInput\n\nThe first input line has two integers n and m: the number of nodes and edges. The nodes are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the edges. Each line has two integers a and b: there is an edge between nodes a and b.\n\nYou may assume that the graph is simple, i.e., there are at most one edge between two nodes and every edge connects two distinct nodes.\n\nOutput\n\nPrint m lines describing the directions of the edges. Each line has two integers a and b: there is an edge from node a to node b. You can print any valid solution.\n\nIf there are no solutions, only print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n3 3\n1 2\n1 3\n2 3\n\n\nOutput:\n\n1 2\n2 3\n3 1",
+  "statement_sha256": "aee5d10f63d401e09b9091e2c75aff0b6e0bde7b302961aff17a06892295784d",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

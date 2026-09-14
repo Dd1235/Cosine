@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-dp-e",
+  "url": "https://atcoder.jp/contests/dp/tasks/dp_e",
+  "observed_at": "2026-09-11T07:22:11.425555+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N items, numbered 1, 2, \\ldots, N.\r\nFor each i (1 \\leq i \\leq N), Item i has a weight of w_i and a value of v_i.\r\n\nTaro has decided to choose some of the N items and carry them home in a knapsack.\r\nThe capacity of the knapsack is W, which means that the sum of the weights of items taken must be at most W.\r\n\nFind the maximum possible sum of the values of items that Taro takes home.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n1 \\leq N \\leq 100\r\n\n1 \\leq W \\leq 10^9\r\n\n1 \\leq w_i \\leq W\r\n\n1 \\leq v_i \\leq 10^3\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN W\r\nw_1 v_1\r\nw_2 v_2\r\n:\r\nw_N v_N\r\n\nOutput\nPrint the maximum possible sum of the values of items that Taro takes home.\r\n\nSample Input 1\n3 8\r\n3 30\r\n4 50\r\n5 60\r\n\nSample Output 1\n90\r\n\nItems 1 and 3 should be taken.\r\nThen, the sum of the weights is 3 + 5 = 8, and the sum of the values is 30 + 60 = 90.\r\n\nSample Input 2\n1 1000000000\r\n1000000000 10\r\n\nSample Output 2\n10\r\n\nSample Input 3\n6 15\r\n6 5\r\n5 6\r\n6 4\r\n6 6\r\n3 5\r\n7 2\r\n\nSample Output 3\n17\r\n\nItems 2, 4 and 5 should be taken.\r\nThen, the sum of the weights is 5 + 6 + 3 = 14, and the sum of the values is 6 + 6 + 5 = 17.",
+  "statement_sha256": "baf7e87972e059789f16297bd813bae6e94d3837ed9b9ce7346775d26088b888",
+  "raw_sha256": "b8401ad53807a4912cd67194ba86018757221f2c485f127de53f8a3fbd6c6284",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

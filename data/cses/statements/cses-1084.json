@@ -1,0 +1,8 @@
+{
+  "id": "cses-1084",
+  "title": "Apartments",
+  "source_url": "https://cses.fi/problemset/task/1084",
+  "observed_at": "2026-09-11T06:53:11.617356+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n applicants and m free apartments. Your task is to distribute the apartments so that as many applicants as possible will get an apartment.\n\nEach applicant has a desired apartment size, and they will accept any apartment whose size is close enough to the desired size.\n\nInput\n\nThe first input line has three integers n, m, and k: the number of applicants, the number of apartments, and the maximum allowed difference.\n\nThe next line contains n integers a_1, a_2, \\ldots, a_n: the desired apartment size of each applicant. If the desired size of an applicant is x, they will accept any apartment whose size is between x-k and x+k.\n\nThe last line contains m integers b_1, b_2, \\ldots, b_m: the size of each apartment.\n\nOutput\n\nPrint one integer: the number of applicants who will get an apartment.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n0 \\le k \\le 10^9\n\n1 \\le a_i, b_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 3 5\n60 45 80 60\n30 60 75\n\n\nOutput:\n\n2",
+  "statement_sha256": "6107d7a6d3f89a00721e9ecf4dd5c30cd13f4cc52ab1c8ad32bfe6597b399f21"
+}

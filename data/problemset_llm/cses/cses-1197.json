@@ -25,5 +25,18 @@
       "cycle-detection": 0.95,
       "negative-cycle-detection": 0.97
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1197",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "0efa39a587cd8f054c870e08321ce9b1d21c97f0592836c9f405e3d6aadfe310",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

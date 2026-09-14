@@ -26,5 +26,18 @@
       "bit-manipulation": 0.95,
       "game-theory": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1730",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "61acfa91ce41d68e51b779dd394d9688e68ace300c77ea713e450b39a0a23253",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

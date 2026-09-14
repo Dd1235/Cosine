@@ -1,0 +1,10 @@
+{
+  "id": "cses-3419",
+  "url": "https://cses.fi/problemset/task/3419",
+  "observed_at": "2026-09-11T07:22:15.517935+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to construct an n \\times n grid where each square has the smallest nonnegative integer that does not appear to the left on the same row or above on the same column.\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint the grid according to the example.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n0 1 2 3 4\n1 0 3 2 5\n2 3 0 1 6\n3 2 1 0 7\n4 5 6 7 0",
+  "statement_sha256": "52ccd566e5c216376d72e65cdea4b173e34a15be62de12b634c8e1d0171f0493",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

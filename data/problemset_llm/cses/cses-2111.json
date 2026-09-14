@@ -25,5 +25,18 @@
       "convolution": 0.9,
       "fft": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2111",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e3cacaa2147091032bdbe90190b3eee0527cb38bfb6da4a29b0efafb693dc6b5",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -21,5 +21,18 @@
     "pattern_confidence": {
       "dynamic-programming": 0.98
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1746",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f39078f2cc95d15ea28b8cac2c1ec71a13231b49f08186ffa56318f9d21f3c43",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

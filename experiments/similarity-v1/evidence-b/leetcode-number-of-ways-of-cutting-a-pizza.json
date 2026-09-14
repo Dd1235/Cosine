@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-ways-of-cutting-a-pizza",
+  "url": "https://leetcode.com/problems/number-of-ways-of-cutting-a-pizza/",
+  "observed_at": "2026-09-11T07:22:00.416488+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a rectangular pizza represented as a rows x cols \u00a0matrix containing the following characters: 'A' (an apple) and '.' (empty cell) and given the integer k . You have to cut the pizza into k pieces using k-1 cuts.\u00a0 \n\n For each cut you choose the direction: vertical or horizontal, then you choose a cut position at the cell boundary and cut the pizza into two pieces. If you cut the pizza vertically, give the left part of the pizza to a person. If you cut the pizza horizontally, give the upper part of the pizza to a person. Give the last piece of pizza to the last person. \n\n Return the number of ways of cutting the pizza such that each piece contains at least one apple.\u00a0 Since the answer can be a huge number, return this modulo 10^9 + 7. \n\n \u00a0 \n Example 1: \n\n \n\n \n Input: pizza = [\"A..\",\"AAA\",\"...\"], k = 3\n Output: 3 \n Explanation: The figure above shows the three ways to cut the pizza. Note that pieces must contain at least one apple.\n \n\n Example 2: \n\n \n Input: pizza = [\"A..\",\"AA.\",\"...\"], k = 3\n Output: 1\n \n\n Example 3: \n\n \n Input: pizza = [\"A..\",\"A..\",\"...\"], k = 1\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= rows, cols <= 50 \n rows ==\u00a0pizza.length \n cols ==\u00a0pizza[i].length \n 1 <= k <= 10 \n pizza consists of characters 'A' \u00a0and '.' only.",
+  "statement_sha256": "82a76cf92bbdf7d3816d9b8a3ebf4dcb9877aa776cebea08165eca364f9dbdb2",
+  "raw_sha256": "2796ac2394cdf4f55ae968b0dadfd5a338f7845d7728d2e0bab76537c9294097",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

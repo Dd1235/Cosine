@@ -1,0 +1,8 @@
+{
+  "id": "cses-3400",
+  "title": "Raab Game II",
+  "source_url": "https://cses.fi/problemset/task/3400",
+  "observed_at": "2026-09-11T06:54:48.610809+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a two player game where each player has n cards numbered 1,2,\\dots,n. On each turn both players place one of their cards on the table. The player who placed the higher card gets one point. If the cards are equal, neither player gets a point. The game continues until all cards have been played.\n\nYou are given the number of cards n and the players' scores at the end of the game, a and b. Your task is to count the number of possible games with that outcome.\n\nInput\n\nThe first line contains one integer t: the number of tests.\n\nThen there are t lines, each with three integers n, a and b.\n\nOutput\n\nFor each test case print the number of possible games modulo 10^9+7.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n1 \\le n \\le 5000\n\n0 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n3 1 2\n2 0 1\n5 2 2\n9 3 5\n4 4 1\n\n\nOutput:\n\n6\n0\n4200\n976757050\n0",
+  "statement_sha256": "fa16398fd8a92e219b511aaf8ce5b367d563bb19c9be0ffc4836abd3a052d9da"
+}

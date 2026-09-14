@@ -1,0 +1,8 @@
+{
+  "id": "cses-1684",
+  "title": "Giant Pizza",
+  "source_url": "https://cses.fi/problemset/task/1684",
+  "observed_at": "2026-09-11T06:53:24.721951+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nUolevi's family is going to order a large pizza and eat it together. A total of n family members will join the order, and there are m possible toppings. The pizza may have any number of toppings.\n\nEach family member gives two wishes concerning the toppings of the pizza. The wishes are of the form \"topping x is good/bad\". Your task is to choose the toppings so that at least one wish from everybody becomes true (a good topping is included in the pizza or a bad topping is not included).\n\nInput\n\nThe first input line has two integers n and m: the number of family members and toppings. The toppings are numbered 1,2,\\dots,m.\n\nAfter this, there are n lines describing the wishes. Each line has two wishes of the form \"+ x\" (topping x is good) or \"- x\" (topping x is bad).\n\nOutput\n\nPrint a line with m symbols: for each topping \"+\" if it is included and \"-\" if it is not included. You can print any valid solution.\n\nIf there are no valid solutions, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n1 \\le n,m \\le 10^5\n\n1 \\le x \\le m\n\n\nExample\n\nInput:\n\n3 5\n+ 1 + 2\n- 1 + 3\n+ 4 - 2\n\n\nOutput:\n\n- + + + -",
+  "statement_sha256": "8d025ac7743dbb1549039536d0b38d5a6764f1cf6b7ae739c657f40f9cd359e4"
+}

@@ -24,5 +24,18 @@
       "palindrome-dp": 0.95,
       "manacher": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3138",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "dc2879c35bccc16f37e2693709dbd44411e90631a742cfd3e9c3cb0faae876b0",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

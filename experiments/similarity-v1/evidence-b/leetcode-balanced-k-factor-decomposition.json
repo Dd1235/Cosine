@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-balanced-k-factor-decomposition",
+  "url": "https://leetcode.com/problems/balanced-k-factor-decomposition/",
+  "observed_at": "2026-09-11T07:22:12.602249+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two integers n and k . \n\n Split the number n into exactly k positive integers such that the product of these integers is equal to n . \n\n Return any one split in which the maximum difference between any two numbers is minimized . You may return the result in any order. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 100, k = 2 \n\n Output: [10,10] \n\n Explanation: \n\n The split [10, 10] yields 10 * 10 = 100 and a max-min difference of 0, which is minimal. \n \n\n Example 2: \n\n \n Input: n = 44, k = 3 \n\n Output: [2,2,11] \n\n Explanation: \n\n \n Split [1, 1, 44] yields a difference of 43 \n Split [1, 2, 22] yields a difference of 21 \n Split [1, 4, 11] yields a difference of 10 \n Split [2, 2, 11] yields a difference of 9 \n \n\n Therefore, [2, 2, 11] is the optimal split with the smallest difference 9. \n \n\n \u00a0 \n Constraints: \n\n \n 4 <= n <= 10 5 \n 2 <= k <= 5 \n k is strictly less than the total number of positive divisors of n .",
+  "statement_sha256": "27a1754ea8a0901a8a7bfd8d44363812c80ee5a0dbc4fb2570dd3a13f2d1c148",
+  "raw_sha256": "9c81b46f8739705b0f990f15532848672e2817b125bcbee5dbd0f5b34dfbf1ef",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

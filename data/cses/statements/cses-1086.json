@@ -1,0 +1,8 @@
+{
+  "id": "cses-1086",
+  "title": "Writing Numbers",
+  "source_url": "https://cses.fi/problemset/task/1086",
+  "observed_at": "2026-09-11T06:54:54.376815+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou would like to write a list of positive integers 1,2,3,\\ldots using your computer. However, you can press each key 0\u20139 at most n times during the process.\n\nWhat is the last number you can write?\n\nInput\n\nThe only input line contains the value of n.\n\nOutput\n\nPrint the last number you can write.\n\nConstraints\n\n\n1 \\le n \\le 10^{18}\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n12\n\n\nExplanation: You can write the numbers 1,2,\\ldots,12. This requires that you press key 1 five times, so you cannot write the number 13.",
+  "statement_sha256": "cf86338c22b1fdf56fb1d43887a9059b1d12951901e5e7a7ab2243d606c322a8"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2115",
+  "title": "Bit Substrings",
+  "source_url": "https://cses.fi/problemset/task/2115",
+  "observed_at": "2026-09-11T06:54:58.587901+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a bit string of length n. Your task is to calculate for each k between 0  \\ldots n the number of non-empty substrings that contain exactly k ones.\n\nFor example, if the string is 101, there are:\n\n\n1 substring that contains 0 ones: 0\n\n4 substrings that contain 1 one: 01, 1, 1, 10\n\n1 substring that contains 2 ones: 101\n\n0 substrings that contain 3 ones\n\n\nInput\n\nThe only input line contains a binary string of length n.\n\nOutput\n\nPrint n+1 values as specified above.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n101\n\n\nOutput:\n\n1 4 1 0",
+  "statement_sha256": "01d1440e45b486db411f30961ba3233bb5f242d1766b58c299796df417451253"
+}

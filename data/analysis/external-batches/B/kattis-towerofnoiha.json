@@ -1,0 +1,25 @@
+{
+ "id": "kattis-towerofnoiha",
+ "status": "solved",
+ "solution": "Decode k bit by bit (most significant bit = largest disk) with the Hanoi recursion, tracking the (source, auxiliary, target) role permutation, which gives the rod of every disk; after the dump, rod C holds the sorted C_old block with the sorted A_old block on top, so the only possible inversion is at the junction between big = the largest disk that was on A and small = the top of C_old. If A or C_old is empty or big < small the position is a regular Hanoi state and the answer is the classic largest-disk-first distance to the perfect tower: for d = n..1, if disk d is not on the current target add 2^(d-1) and switch the target to the third rod. Otherwise the inversion vanishes exactly when big is lifted off C and the position is regular from then on, so the optimum is the minimum over four plans: optionally park next (the smallest disk larger than big on B) on the empty rod A after gathering B's smaller disks onto the A_old block; then gather every disk smaller than big that sits above the junction onto one rod (a regular subgame whose exponents are ranks inside that subset), lift big onto the other rod t in {A, B} (+1), and add the regular distance of the resulting regular state. Every term is a sum of O(n) powers of two, so each candidate is a per-bit count array normalised by a single carry pass and the candidates are compared as bit strings; the whole thing is O(n) for n = 200000 with no big-integer arithmetic.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A Tower of Hanoi with n disks has had its first k optimal moves played, then the whole stack on the first rod was dropped, order preserved, onto the third rod, possibly putting larger disks above smaller ones. Using only legal moves, which never place a disk on a smaller one, find the minimum number of moves to finish. Both k and the answer are binary; n can reach 200,000.",
+ "patterns": [
+  "divide-and-conquer",
+  "bit-manipulation"
+ ],
+ "pattern_confidence": {
+  "divide-and-conquer": 0.8,
+  "bit-manipulation": 0.7
+ },
+ "tags": [
+  "recursion",
+  "math",
+  "bit-manipulation",
+  "case-analysis",
+  "big-integer"
+ ],
+ "source_text_sha256": "3ef07b7add9573dae41abe4a6470cfae46461e058e51edd8d8e1c9cfa5cb0dd9",
+ "verify_script": "batchB/verify_towerofnoiha.py",
+ "notes": "Verified: the three official samples reproduce (0, 110, 11); fast() matches a BFS over ordered stacks for every k with n <= 9 (1022 states, 0 mismatches) plus 120 random k at n = 10; the O(n) carry-array variant agrees bit for bit with the exact-integer variant; n = 200000 runs in 0.35 s in pure Python. All four candidate plans are needed (over n <= 9 the 'park next on A, then lift big onto B' plan is the unique optimum in 24 cases). The structure follows SnapDragon's published WF 2024 solution, re-derived and re-implemented here; the proof that no other pre-lift configuration (e.g. parking two large B disks) can win is inferred from the exhaustive small-n check rather than proved. Labels are thin because the vocabulary has no slug for recursion / recursive state decoding or for case analysis: the corpus's own Tower of Hanoi entry (cses-2165) carries divide-and-conquer plus a non-canonical 'recursive-solution', so divide-and-conquer is used as the family label for the largest-disk-first Hanoi recursion; bit-manipulation covers decoding the state from k's bits and assembling the binary answer from powers of two with a carry pass. Omitted: brute-force (choosing the best of four plans is scaffolding), constructive-algorithm (the task asks for a count, not a move sequence), greedy."
+}

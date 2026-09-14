@@ -27,5 +27,18 @@
       "state-space-search": 0.9,
       "gcd-check": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3213",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "15e83a5838a97901a58640620b5991bf33d694bd29d89629af32b183bf15622a",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

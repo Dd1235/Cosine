@@ -24,5 +24,18 @@
       "counting": 0.95,
       "constructive-algorithm": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1755",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "3fd427593d1412bfd510a4f152c30db158ba34929a54336f8edef89f155a27e9",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

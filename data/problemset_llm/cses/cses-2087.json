@@ -25,5 +25,18 @@
       "prefix-sum": 0.9,
       "knuth-optimization": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2087",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "20b50be9b9323b692fea4a3febf9479bfadb802ee1a733f56ff75c701c21d644",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

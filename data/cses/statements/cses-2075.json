@@ -1,0 +1,8 @@
+{
+  "id": "cses-2075",
+  "title": "Reversal Sorting",
+  "source_url": "https://cses.fi/problemset/task/2075",
+  "observed_at": "2026-09-11T06:54:58.578944+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have an array that contains a permutation of integers 1,2,\\dots,n. Your task is to sort the array in increasing order by reversing subarrays. You can construct any solution that has at most n reversals.\n\nInput\n\nThe first input line has an integer n: the size of the array. The array elements are numbered 1,2,\\dots,n.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nFirst print an integer k: the number of reversals.\n\nAfter that, print k lines that describe the reversals. Each line has two integers a and b: you reverse a subarray from position a to position b.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n4\n2 3 1 4\n\n\nOutput:\n\n2\n1 3\n2 3",
+  "statement_sha256": "47cdbe59f3aca73b676946646f85a63a4b6a49684029c0a5f6f481c591166309"
+}

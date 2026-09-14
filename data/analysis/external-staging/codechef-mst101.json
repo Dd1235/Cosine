@@ -1,0 +1,12 @@
+{
+  "id": "codechef-mst101",
+  "platform": "codechef",
+  "title": "MST Problem",
+  "slug": "mst101",
+  "source_url": "https://www.codechef.com/problems/MST101",
+  "source_topic": "IICPC Codefest",
+  "source_text": "You are given an integer $N$. You call a matrix $W$ of size $N \\times N$ good if it satisfies each of the following conditions: - $W_{(i, j)} = W_{(j, i)}$ - $W_{(i, i)} = 0$ - The set $\\{W_{(i, j)} | 1 \\le i < j \\le N \\}$ forms a permutation of the integers from $1$ to $\\frac{N \\cdot (N - 1)}{2}$. --- For a good matrix, define $f(W)$ in the following way: - Consider a complete weighted undirected graph on $N$ vertices with the weight between the $i$-th vertex and the $j$-th vertex (for $i < j$) being $W_{(i, j)}$. - $f(W)$ is defined as the weight of the minimum spanning tree of this graph. --- You are given $2$ integers $N$ and $K$. Does there exist a good matrix $W$ such that $f(W) = K$. Print such a matrix if it exists, and $-1$ otherwise. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - The first and only line of each test case contains $2$ integers - $N$ and $K$. Output For each test case, output the following: - If there does not exist a valid matrix $W$, output $-1$. - otherwise, output $N$ lines each containing $N$ integers; the $j$-th integer of the $i$-th line should be $W_{(i, j)}$ Constraints - $1 \\le T \\le 500$ - $2 \\le N \\le 50$ - $1 \\le K \\le N^3$ Sample Input 5 2 1 2 8 3 2 3 3 3 4 Sample Output 0 1 1 0 -1 -1 0 1 2 1 0 3 2 3 0 -1",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

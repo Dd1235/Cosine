@@ -1,0 +1,8 @@
+{
+  "id": "cses-1699",
+  "title": "Flight Route Requests",
+  "source_url": "https://cses.fi/problemset/task/1699",
+  "observed_at": "2026-09-11T06:54:45.806884+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities with airports but no flight connections. You are given m requests which routes should be possible to travel.\n\nYour task is to determine the minimum number of one-way flight connections which makes it possible to fulfil all requests.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and requests. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the requests. Each line has two integers a and b: there has to be a route from city a to city b. Each request is unique.\n\nOutput\n\nPrint one integer: the minimum number of flight connections.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a, b \\le n\n\n\nExample\n\nInput:\n\n4 5\n1 2\n2 3\n2 4\n3 1\n3 4\n\n\nOutput:\n\n4\n\n\nExplanation: You can create the connections 1 \\rightarrow 2, 2 \\rightarrow 3, 2 \\rightarrow 4 and 3 \\rightarrow 1. Then you can also fly from city 3 to city 4 using the route 3 \\rightarrow 1 \\rightarrow 2 \\rightarrow 4.",
+  "statement_sha256": "55328dc871e1e06976b38163373bc2d52ea98d9d85ea862fadb60202b9ed2b43"
+}

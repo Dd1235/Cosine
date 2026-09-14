@@ -1,0 +1,33 @@
+{
+ "id": "codechef-xrqrs",
+ "title": "Xor Queries",
+ "slug": "xrqrs",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/XRQRS",
+ "source_topic": "Trie",
+ "source_tags": [],
+ "statement": "An initially empty integer array supports five interleaved operations: appending a value at the end, deleting the last k values, and three queries over a contiguous index range, namely reporting the stored value that maximizes its xor with a given x, counting values at most x, and returning the k-th smallest. Up to 500000 operations arrive, each value at most 500000, and every query must be answered.",
+ "tags": [],
+ "patterns": [
+  "persistent-segment-tree",
+  "persistent-trie",
+  "trie",
+  "order-statistics",
+  "segment-tree"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789236544,
+  "pattern_confidence": {
+   "persistent-segment-tree": 0.9,
+   "persistent-trie": 0.9,
+   "trie": 0.9,
+   "order-statistics": 0.9,
+   "segment-tree": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

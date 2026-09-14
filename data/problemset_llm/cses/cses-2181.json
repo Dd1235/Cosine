@@ -26,5 +26,18 @@
       "state-compression": 0.85,
       "profile-dp": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2181",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "1492c40d4861e146683ba4ca60ef329cb4d919d25131908ea0532e4e7f630fca",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

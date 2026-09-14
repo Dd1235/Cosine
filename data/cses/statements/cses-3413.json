@@ -1,0 +1,8 @@
+{
+  "id": "cses-3413",
+  "title": "Filled Subgrid Count I",
+  "source_url": "https://cses.fi/problemset/task/3413",
+  "observed_at": "2026-09-11T06:54:47.573370+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a grid of letters. Your task is to calculate, for each letter, the number of square subgrids whose each letter is the same.\n\nInput\n\nThe first line has two integers n and k: the size of the grid and the number of letters. The letters are the first k uppercase letters.\n\nAfter this, there are n lines that describe the grid. Each line has n letters.\n\nOutput\n\nPrint k lines: for each letter, the number of subgrids.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n1 \\le k \\le 26\n\n\nExample\n\nInput:\n\n5 3\nABBBC\nBBBBC\nBCAAA\nAAAAA\nAAAAA\n\n\nOutput:\n\n21\n10\n3",
+  "statement_sha256": "60733bddbeca0bff0afe08827725b47695af39be4744a0cbce6999135b8643d2"
+}

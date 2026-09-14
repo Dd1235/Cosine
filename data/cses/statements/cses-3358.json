@@ -1,0 +1,8 @@
+{
+  "id": "cses-3358",
+  "title": "Split into Two Paths",
+  "source_url": "https://cses.fi/problemset/task/3358",
+  "observed_at": "2026-09-11T06:54:46.838749+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an acyclic directed graph with n nodes and m edges.\n\nDetermine whether two paths can be formed in the graph such that each node of the graph appears in exactly one of the paths. Note that all edges of the graph do not need to appear in the paths.\n\nInput\n\nThe first line has two integers n and m: the number of nodes and the number of edges. The nodes are numbered 1, 2, \\dots, n.\n\nAfter this, there are m lines which describe the edges.\nEach line has two integers a and b: there is an edge in the graph from node a to node b.\n\nOutput\n\nFirst print the line YES if the paths can be formed, or NO otherwise.\n\nIf the paths can be formed, print them on the following two lines.\n\nAt the beginning of both lines, print the amount of nodes in the path and then the nodes of the path in order. There must be an edge in the graph between subsequent nodes. One of the paths may contain zero nodes.\n\nIf there exist multiple solutions, you can print any solution.\n\nConstraints\n\n\n2 \\le n \\le 2\\cdot10^5\n\n0 \\le m \\le 5\\cdot 10^5\n\n\nExample 1\n\nInput:\n\n5 4\n1 2\n1 4\n3 4\n4 5\n\n\nOutput:\n\nYES\n2 1 2\n3 3 4 5\n\nExample 2\n\nInput:\n\n5 4\n1 2\n1 3\n1 4\n1 5\n\n\nOutput:\n\nNO",
+  "statement_sha256": "7aa036dae0b8c0ef7669b97b3befddfd18b2939ed3ed21b5528cddf5c6b4fdb7"
+}

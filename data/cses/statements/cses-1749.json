@@ -1,0 +1,8 @@
+{
+  "id": "cses-1749",
+  "title": "List Removals",
+  "source_url": "https://cses.fi/problemset/task/1749",
+  "observed_at": "2026-09-11T06:53:27.644552+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a list consisting of n integers. Your task is to remove elements from the list at given positions, and report the removed elements.\n\nInput\n\nThe first input line has an integer n: the initial size of the list. During the process, the elements are numbered 1,2,\\dots,k where k is the current size of the list.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the contents of the list.\n\nThe last line has n integers p_1,p_2,\\dots,p_n: the positions of the elements to be removed.\n\nOutput\n\nPrint the elements in the order they are removed.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le p_i \\le n-i+1\n\n\nExample\n\nInput:\n\n5\n2 6 1 4 2\n3 1 3 1 1\n\n\nOutput:\n\n1 2 2 6 4\n\n\nExplanation: The contents of the list are [2,6,1,4,2], [2,6,4,2], [6,4,2], [6,4], [4] and [].",
+  "statement_sha256": "b83e351a06d8f457f42be337841b8cb3c7ec0f58ee6cc0749dde1c522840acb1"
+}

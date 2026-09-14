@@ -27,5 +27,18 @@
       "modular-exponentiation": 0.95,
       "precomputation": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1079",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "056029eb643727a3f2b1cdf2e72b936c438cc5a57be4b7e1bda919491654c21c",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

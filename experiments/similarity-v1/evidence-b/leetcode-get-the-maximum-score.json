@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-get-the-maximum-score",
+  "url": "https://leetcode.com/problems/get-the-maximum-score/",
+  "observed_at": "2026-09-11T07:22:14.182046+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two sorted arrays of distinct integers nums1 and nums2 . \n\n A valid path is defined as follows: \n\n \n Choose array nums1 or nums2 to traverse (from index-0). \n Traverse the current array from left to right. \n If you are reading any value that is present in nums1 and nums2 you are allowed to change your path to the other array. (Only one repeated value is considered in the valid path). \n \n\n The score is defined as the sum of unique values in a valid path. \n\n Return the maximum score you can obtain of all possible valid paths . Since the answer may be too large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n \n \n Input: nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]\n Output: 30\n Explanation: Valid paths:\n[2,4,5,8,10], [2,4,5,8,9], [2,4,6,8,9], [2,4,6,8,10], (starting from nums1)\n[4,6,8,9], [4,5,8,10], [4,5,8,9], [4,6,8,10] (starting from nums2)\nThe maximum is obtained with the path in green [2,4,6,8,10] .\n \n\n Example 2: \n\n \n Input: nums1 = [1,3,5,7,9], nums2 = [3,5,100]\n Output: 109\n Explanation: Maximum sum is obtained with the path [1,3,5,100] .\n \n\n Example 3: \n\n \n Input: nums1 = [1,2,3,4,5], nums2 = [6,7,8,9,10]\n Output: 40\n Explanation: There are no common elements between nums1 and nums2.\nMaximum sum is obtained with the path [6,7,8,9,10].\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums1.length, nums2.length <= 10 5 \n 1 <= nums1[i], nums2[i] <= 10 7 \n nums1 and nums2 are strictly increasing.",
+  "statement_sha256": "182e832d16b89ea0c550f3d9f6ceb2afb9be3592e0cf27e0c66ce5a20a1e81c1",
+  "raw_sha256": "f263d279623c0be4620e14fcb6d31340f21e673fd8f433f514b9269057679c67",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

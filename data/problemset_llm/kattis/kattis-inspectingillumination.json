@@ -1,0 +1,35 @@
+{
+ "id": "kattis-inspectingillumination",
+ "title": "Inspecting Illumination",
+ "slug": "inspectingillumination",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/inspectingillumination",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "A butler faces switches, each controlling exactly one of an equal number of light sources, but the pairing is unknown. In one round he may flip any non-empty set of switches and is then told, in arbitrary order, which sources changed state. With up to a thousand switches and at most thirty-two rounds allowed, he must report which switch drives each source.",
+ "tags": [],
+ "patterns": [
+  "interactive",
+  "divide-and-conquer",
+  "bit-manipulation"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "interactive": 0.9,
+   "divide-and-conquer": 0.9,
+   "bit-manipulation": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.2,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

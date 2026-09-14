@@ -1,0 +1,8 @@
+{
+  "id": "cses-1068",
+  "title": "Weird Algorithm",
+  "source_url": "https://cses.fi/problemset/task/1068",
+  "observed_at": "2026-09-11T06:52:39.933286+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an algorithm that takes as input a positive integer n. If n is even, the algorithm divides it by two, and if n is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until n is one. For example, the sequence for n=3 is as follows:\n 3 \\rightarrow 10 \\rightarrow 5 \\rightarrow 16 \\rightarrow 8 \\rightarrow 4 \\rightarrow 2 \\rightarrow 1\nYour task is to simulate the execution of the algorithm for a given value of n.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint a line that contains all values of n during the algorithm.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n3 10 5 16 8 4 2 1",
+  "statement_sha256": "eaf2ac59c36a70d69c95684f795c93c503e7d1eb0f5478ac0dbb2f4768a945f3"
+}

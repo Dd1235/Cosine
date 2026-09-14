@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-profitable-schemes",
+  "url": "https://leetcode.com/problems/profitable-schemes/",
+  "observed_at": "2026-09-11T07:22:11.542004+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There is a group of n members, and a list of various crimes they could commit. The i th crime generates a profit[i] and requires group[i] members to participate in it. If a member participates in one crime, that member can't participate in another crime. \n\n Let's call a profitable scheme any subset of these crimes that generates at least minProfit profit, and the total number of members participating in that subset of crimes is at most n . \n\n Return the number of schemes that can be chosen. Since the answer may be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 5, minProfit = 3, group = [2,2], profit = [2,3]\n Output: 2\n Explanation: To make a profit of at least 3, the group could either commit crimes 0 and 1, or just crime 1.\nIn total, there are 2 schemes. \n\n Example 2: \n\n \n Input: n = 10, minProfit = 5, group = [2,3,5], profit = [6,7,8]\n Output: 7\n Explanation: To make a profit of at least 5, the group could commit any crimes, as long as they commit one.\nThere are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2). \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 100 \n 0 <= minProfit <= 100 \n 1 <= group.length <= 100 \n 1 <= group[i] <= 100 \n profit.length == group.length \n 0 <= profit[i] <= 100",
+  "statement_sha256": "859a9a7046d8080ec4c703958474f915ba5c06321eaa6929cebade5008c3c16f",
+  "raw_sha256": "edb287291e8205265968c8ad2b28bca516d6d60b4af5100b5880cfbde6976562",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

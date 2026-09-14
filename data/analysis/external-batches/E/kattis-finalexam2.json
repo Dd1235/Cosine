@@ -1,0 +1,20 @@
+{
+  "id": "kattis-finalexam2",
+  "status": "solved",
+  "solution": "Hanh's answers are all correct but shifted up by one line: line i of his sheet carries the answer to question i+1, and line n is blank. Line i is graded against the key for question i, so he scores a point on line i exactly when key[i] equals key[i+1], and the blank last line always scores zero. The answer is therefore the number of adjacent equal pairs in the key, computed in one O(n) pass over at most 1000 characters. Both samples reproduce (AAAA gives 3, ADBBCA gives 1), and the one-pass count was cross-checked against a literal simulation that builds the shifted sheet and grades it line by line, over 20000 random keys plus every key of length up to 8 on a two-letter alphabet, with no mismatch.",
+  "solution_confidence": 0.99,
+  "statement_summary": "A student knew every answer on an n-question multiple-choice exam but recorded each answer one line too early, so the answer to each question landed on the line belonging to the previous question and the final line was left blank. Given the answer key as a sequence of at most one thousand letters, the task is to report how many lines the student still scored.",
+  "patterns": [
+    "simulation"
+  ],
+  "pattern_confidence": {
+    "simulation": 0.45
+  },
+  "tags": [
+    "string",
+    "implementation"
+  ],
+  "source_text_sha256": "35ec96c6a85bc5423e6b88f8a005c80e9b8661717ee5d081b2301d031cd749dd",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_finalexam2.py",
+  "notes": "Stated plainly: pure implementation. The single insight is an off-by-one -- line i holds question i+1's answer -- after which the answer is the count of adjacent equal characters in the key. 'simulation' is the lone label at 0.45 confidence because the straightforward accepted solution literally reconstructs the misaligned answer sheet and grades it; 'counting' was the other candidate (the answer is a count of matching positions) and either is defensible, but naming both on a 1.5-difficulty problem would be padding. Deliberately NOT labelled string-matching, sliding-window or two-pointers: comparing consecutive characters is not any of those. Vocabulary gap: no canonical 'implementation' / 'ad-hoc' slug; it is carried in tags instead."
+}

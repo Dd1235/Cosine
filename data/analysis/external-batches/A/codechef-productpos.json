@@ -1,0 +1,26 @@
+{
+  "id": "codechef-productpos",
+  "status": "solved",
+  "solution": "Every legal deletion removes a subarray containing an even number of -1s, so the parity of the total count m of -1s is invariant, and the only positions with no move are the empty array and a lone -1. Exhaustive memoised search over all arrays with n <= 14 shows the losing positions are exactly the empty array and the shapes 1^k (-1) 1^k, i.e. a single -1 sitting in the exact centre of an otherwise all-+1 array. Hence if m is even Alice deletes the whole array (its product is 1) and hands Bob the empty array; if m is odd she must leave one centred -1, which means keeping either the first -1 q1 or the last qm and deleting the contiguous block holding the other m-1 of them while trimming surplus +1s off the ends. With a = #(+1) before q1, b = #(+1) after qm, g = the +1 gap between q1 and q2 and h = the gap between q_{m-1} and qm, keeping q1 is possible iff a <= g + b and keeping qm iff b <= h + a; both can fail only if 0 > g + h, so for m >= 3 one always works, and for m == 1 (where g = h = 0) exactly one works unless a == b, which is precisely the centred P-position where Bob wins. The whole decision plus the construction is a single scan, O(n) per test and O(sum N) = 2*10^5 overall.",
+  "solution_confidence": 0.95,
+  "statement_summary": "Two players alternate moves on an array of up to 200,000 entries, each equal to 1 or -1. A move deletes any contiguous subarray whose product equals 1, joining the remaining pieces; whoever cannot move loses. For each of up to 10,000 test cases, with the total length bounded by 200,000, the task is to name the winner and, when the first player wins, output one winning opening deletion.",
+  "patterns": [
+    "game-theory",
+    "parity-argument",
+    "constructive-algorithm"
+  ],
+  "pattern_confidence": {
+    "game-theory": 0.95,
+    "parity-argument": 0.85,
+    "constructive-algorithm": 0.75
+  },
+  "tags": [
+    "array",
+    "game-theory",
+    "math"
+  ],
+  "source_text_sha256": "b536417e89379f29ef75dae1a3a56b2a20451de37db88f01d79658a4b02c1944",
+  "verify_script": "batchA/verify_productpos.py",
+  "notes": "Verified exhaustively against a memoised brute force over every +-1 array with n <= 14 (all 32766 arrays: winner matches, and the emitted (L,R) is always a legal product-1 deletion leaving a losing position), plus 400 random arrays with n <= 17 at three different -1 densities, plus all four statement samples. On samples 1 and 4 my move differs from the printed one ((2,3) vs (1,2) and (3,4) vs (2,3)) but both are checked to leave a losing position -- the problem is special-judged, so any valid winning move is accepted. Deliberately NOT labelled grundy-numbers: there is no game-sum decomposition, the position is never split into independent subgames, and the answer is a closed-form P-position shape rather than an xor of Grundy values. Also not game-dp: the DP/memoised search was only the offline tool used to discover the shape, not part of the O(n) solution. constructive-algorithm carries the lower confidence because the winner test alone is trivial; the label is earned by the required explicit (L,R) construction, which is the actual work.",
+  "sibling": "codechef-productneg is the same game with product -1 instead of 1; it already carries ['game-theory','parity-argument'] in data/problemset_llm/codechef/codechef-productneg.json"
+}

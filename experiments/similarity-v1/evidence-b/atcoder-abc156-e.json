@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc156-e",
+  "url": "https://atcoder.jp/contests/abc156/tasks/abc156_e",
+  "observed_at": "2026-09-11T07:22:17.304273+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere is a building with n rooms, numbered 1 to n.\r\n\nWe can move from any room to any other room in the building.\r\n\nLet us call the following event a move: a person in some room i goes to another room j~ (i \\neq j).\r\n\nInitially, there was one person in each room in the building.\r\n\nAfter that, we know that there were exactly k moves happened up to now.\r\n\nWe are interested in the number of people in each of the n rooms now. How many combinations of numbers of people in the n rooms are possible?\r\n\nFind the count modulo (10^9 + 7).\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n3 \\leq n \\leq 2 \\times 10^5\r\n\n2 \\leq k \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nn k\r\n\nOutput\nPrint the number of possible combinations of numbers of people in the n rooms now, modulo (10^9 + 7).\r\n\nSample Input 1\n3 2\r\n\nSample Output 1\n10\r\n\nLet c_1, c_2, and c_3 be the number of people in Room 1, 2, and 3 now, respectively. There are 10 possible combination of (c_1, c_2, c_3):\r\n\n(0, 0, 3)\r\n\n(0, 1, 2)\r\n\n(0, 2, 1)\r\n\n(0, 3, 0)\r\n\n(1, 0, 2)\r\n\n(1, 1, 1)\r\n\n(1, 2, 0)\r\n\n(2, 0, 1)\r\n\n(2, 1, 0)\r\n\n(3, 0, 0)\r\n\nFor example, (c_1, c_2, c_3) will be (0, 1, 2) if the person in Room 1 goes to Room 2 and then one of the persons in Room 2 goes to Room 3.\r\n\nSample Input 2\n200000 1000000000\r\n\nSample Output 2\n607923868\r\n\nPrint the count modulo (10^9 + 7).\r\n\nSample Input 3\n15 6\r\n\nSample Output 3\n22583772",
+  "statement_sha256": "9261176af5edb898f82b15ea4278ba0f1a1f4c88a9ed90874ba0dee9a26650e2",
+  "raw_sha256": "3adefff8f2ca5c6bdb042025a36ab405aeb170c7fe2d3c7720d4c978ede7e40e",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

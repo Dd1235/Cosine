@@ -1,0 +1,8 @@
+{
+  "id": "cses-3411",
+  "title": "All Manhattan Distances",
+  "source_url": "https://cses.fi/problemset/task/3411",
+  "observed_at": "2026-09-11T06:53:43.960307+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a set of points, calculate the sum of all Manhattan distances between two point pairs.\n\nInput\n\nThe first line has an integer n: the number of points.\n\nThe following n lines describe the points. Each line has two integers x and y. You can assume that each point is distinct.\n\nOutput\n\nPrint the sum of all Manhattan distances.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le x, y \\le 10^9\n\n\nExample\n\nInput:\n\n5\n1 1\n3 2\n2 4\n2 1\n4 5\n\n\nOutput:\n\n36",
+  "statement_sha256": "4209a99fdb5e8ece859b16465ee8d24c06b6c4f2e9d117868c8a1ea2dc1a793f"
+}

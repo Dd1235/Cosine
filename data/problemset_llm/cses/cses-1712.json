@@ -25,5 +25,18 @@
       "modular-exponentiation": 0.98,
       "exponentiation-by-squaring": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1712",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "a3004e27fbd4a084ee9ddd8b1b8c6e09375c08029b4f09a4df95f8f4fadadc25",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

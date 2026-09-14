@@ -26,5 +26,18 @@
       "monotonic-queue": 0.95,
       "online-processing": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3221",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "fef4b549942de7cba445bc9d6b416b54d6e374bd871bc59fbc656c644c33b88c",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

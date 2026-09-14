@@ -1,0 +1,8 @@
+{
+  "id": "cses-3424",
+  "title": "Distinct Sums Grid",
+  "source_url": "https://cses.fi/problemset/task/3424",
+  "observed_at": "2026-09-11T06:54:42.174328+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nCreate an n \\times n grid that fulfills the following requirements:\n\n\nEach integer 1 \\dots n appears n times in the grid.\n\nIf we create a set that consists of all sums in rows and columns, there are 2n distinct values.\n\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint a grid that fulfills the requirements. You can print any valid solution. If there are no solutions, print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n2 3 1 1 1 \n1 5 5 3 3 \n2 3 5 2 4 \n5 4 5 4 1 \n2 3 4 4 2\n\n\nExplanation: Each integer 1 \\dots 5 appears 5 times, and the sums in rows and columns are \\{8,11,12,14,15,16,17,18,19,20\\}.",
+  "statement_sha256": "a78426760c2c8819bdf52eed9ebe61dac3e4e19745481e61f466efbd96e7af9d"
+}

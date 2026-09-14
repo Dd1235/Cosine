@@ -1,0 +1,8 @@
+{
+  "id": "cses-1692",
+  "title": "De Bruijn Sequence",
+  "source_url": "https://cses.fi/problemset/task/1692",
+  "observed_at": "2026-09-11T06:53:25.243649+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to construct a minimum-length bit string that contains all possible substrings of length n. For example, when n=2, the string 00110 is a valid solution, because its substrings of length 2 are 00, 01, 10 and 11.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint a minimum-length bit string that contains all substrings of length n. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 15\n\n\nExample\n\nInput:\n\n2\n\n\nOutput:\n\n00110",
+  "statement_sha256": "00344f24282186a9cb19b2fb01ecf49ebf4284f8f4281f68ee03617ab1a6df06"
+}

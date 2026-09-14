@@ -29,5 +29,18 @@
       "tree-hashing": 0.9,
       "dfs": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1701",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "d0473f9d3ef034001af62869822f9e6068eeaa863648a54b1741fb8ce9652252",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

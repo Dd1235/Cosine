@@ -28,6 +28,8 @@
 // Every suggestion carries the count it would produce, so the caller can say
 // "214 problems" instead of applying a filter that might select nothing.
 
+const { CSES_LABELS, csesBand } = require("./difficulty");
+
 const RATED = {
   codeforces: { short: "cf", step: 100, reach: 200 },
   atcoder: { short: "atc", step: 200, reach: 200 },
@@ -127,6 +129,16 @@ function suggestLevel(signals, problems) {
   }
   const lc = signals.leetcode && leetcodeSuggestion(signals.leetcode.byDifficulty, problems || []);
   if (lc && lc.count > 0) out.leetcode = lc;
+  const band = signals.cses?.band;
+  if (Number.isInteger(band) && band >= 1 && band <= 5) {
+    const label = CSES_LABELS[band - 1];
+    const count = (problems || []).filter((p) => csesBand(p) === band).length;
+    if (count > 0) out.cses = {
+      difficulty: `cses-${label.toLowerCase()}`,
+      why: `your selected CSES estimate: ${label}`,
+      count,
+    };
+  }
   return out;
 }
 

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3112",
+  "title": "Hidden Integer",
+  "source_url": "https://cses.fi/problemset/task/3112",
+  "observed_at": "2026-09-11T06:54:38.643506+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a hidden integer x. Your task is to find the value of x.\n\nTo do this, you can ask questions: you can choose an integer y and you will be told if y < x.\n\nInteraction\n\nThis is an interactive problem. Your code will interact with the grader using standard input and output. You can start asking questions right away.\n\nOn your turn, you can print one of the following:\n\n\n\"?\\ y\", where 1 \\le y \\le 10^9: ask if y < x. The grader will return YES if y < x and NO otherwise.\n\n\"!\\ x\": report that the hidden integer is x. Your program must terminate after this.\n\n\nEach line should be followed by a line break. You must make sure the output gets flushed after printing each line.\n\nConstraints\n\n\n1 \\le x \\le 10^9\n\nyou can ask at most 30 questions of type ?\n\n\nExample\n? 3\nYES\n? 6\nYES\n? 7\nNO\n! 7",
+  "statement_sha256": "09cb8ff7b5191b9c9c39b4ecb1f42fb5542563623e74d8ed117f4a682d3a13a2"
+}

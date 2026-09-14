@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-partition-array-into-two-arrays-to-minimize-sum-difference",
+  "url": "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/",
+  "observed_at": "2026-09-11T07:21:51.180825+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums of 2 * n integers. You need to partition nums into two arrays of length n to minimize the absolute difference of the sums of the arrays. To partition nums , put each element of nums into one of the two arrays. \n\n Return the minimum possible absolute difference . \n\n \u00a0 \n Example 1: \n \n \n Input: nums = [3,9,7,3]\n Output: 2\n Explanation: One optimal partition is: [3,9] and [7,3].\nThe absolute difference between the sums of the arrays is abs((3 + 9) - (7 + 3)) = 2.\n \n\n Example 2: \n\n \n Input: nums = [-36,36]\n Output: 72\n Explanation: One optimal partition is: [-36] and [36].\nThe absolute difference between the sums of the arrays is abs((-36) - (36)) = 72.\n \n\n Example 3: \n \n \n Input: nums = [2,-1,0,4,-2,-9]\n Output: 0\n Explanation: One optimal partition is: [2,4,-9] and [-1,0,-2].\nThe absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1 + 0 + -2)) = 0.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 15 \n nums.length == 2 * n \n -10 7 <= nums[i] <= 10 7",
+  "statement_sha256": "2114bba9b9c7c9f848d2afd38bd9a54e50b6cd38f2ccc58b7fc2b5e902f092a8",
+  "raw_sha256": "93b6af3181398c069637a20c461765ac168ad30bf39eeadfc772ff1f11f82bf6",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

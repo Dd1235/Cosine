@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-frequency-of-an-element-after-performing-operations-ii",
+  "url": "https://leetcode.com/problems/maximum-frequency-of-an-element-after-performing-operations-ii/",
+  "observed_at": "2026-09-11T07:22:02.876022+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums and two integers k and numOperations . \n\n You must perform an operation numOperations times on nums , where in each operation you: \n\n \n Select an index i that was not selected in any previous operations. \n Add an integer in the range [-k, k] to nums[i] . \n \n\n Return the maximum possible frequency of any element in nums after performing the operations . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,4,5], k = 1, numOperations = 2 \n\n Output: 2 \n\n Explanation: \n\n We can achieve a maximum frequency of two by: \n\n \n Adding 0 to nums[1] , after which nums becomes [1, 4, 5] . \n Adding -1 to nums[2] , after which nums becomes [1, 4, 4] . \n \n \n\n Example 2: \n\n \n Input: nums = [5,11,20,20], k = 5, numOperations = 1 \n\n Output: 2 \n\n Explanation: \n\n We can achieve a maximum frequency of two by: \n\n \n Adding 0 to nums[1] . \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 9 \n 0 <= k <= 10 9 \n 0 <= numOperations <= nums.length",
+  "statement_sha256": "810000ca037e5541741ce5ac3cf3959e40ac8ded3886ee1158f2d1a1b77ce998",
+  "raw_sha256": "18f587764b068f9ae2c14cecd524ec3b895a1f57a92ca29c8a305e00686d8de4",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

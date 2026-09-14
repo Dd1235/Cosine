@@ -1,0 +1,8 @@
+{
+  "id": "cses-1638",
+  "title": "Grid Paths I",
+  "source_url": "https://cses.fi/problemset/task/1638",
+  "observed_at": "2026-09-11T06:53:17.525732+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider an n \\times n grid whose squares may have traps. It is not allowed to move to a square with a trap.\n\nYour task is to calculate the number of paths from the upper-left square to the lower-right square. You can only move right or down.\n\nInput\n\nThe first input line has an integer n: the size of the grid.\n\nAfter this, there are n lines that describe the grid. Each line has n characters: . denotes an empty cell, and * denotes a trap.\n\nOutput\n\nPrint the number of paths modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n\nExample\n\nInput:\n\n4\n....\n.*..\n...*\n*...\n\n\nOutput:\n\n3",
+  "statement_sha256": "1a62bb0a9fb5c08581ab9957b5ef74de4de8410c2495a322c6af063771a8b95a"
+}

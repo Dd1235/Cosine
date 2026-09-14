@@ -27,5 +27,18 @@
       "fenwick-tree": 0.9,
       "coordinate-compression": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1734",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "a4bcfccfc7660ae9cf6af9cc64fc4149b6fdf700a80e1600f8f7be95284062ab",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

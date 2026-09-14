@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-last-substring-in-lexicographical-order",
+  "url": "https://leetcode.com/problems/last-substring-in-lexicographical-order/",
+  "observed_at": "2026-09-11T07:22:18.765285+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s , return the last substring of s in lexicographical order . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abab\"\n Output: \"bab\"\n Explanation: The substrings are [\"a\", \"ab\", \"aba\", \"abab\", \"b\", \"ba\", \"bab\"]. The lexicographically maximum substring is \"bab\".\n \n\n Example 2: \n\n \n Input: s = \"leetcode\"\n Output: \"tcode\"\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 4 * 10 5 \n s contains only lowercase English letters.",
+  "statement_sha256": "b8e00b90271e792f4a384f8430aff3bac72a4906f097296ae11e65500287f74a",
+  "raw_sha256": "df6c09ada25975e7cf9ef3d42bcdcb1ea10ef4e0de9454ad902cb674c243e461",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

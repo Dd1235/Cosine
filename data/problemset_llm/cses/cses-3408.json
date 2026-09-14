@@ -26,5 +26,18 @@
       "union-find": 0.93,
       "offline-queries": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3408",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "ddc3fa6517bf2197eb09fb85c605fd613be70915914a706ce252251b082359a7",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

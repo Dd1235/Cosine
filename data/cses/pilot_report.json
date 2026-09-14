@@ -1,0 +1,19 @@
+{
+  "selected": "review_only",
+  "held_out": {
+    "mae": 0.4666666666666667,
+    "within_one": 1.0,
+    "two_band_errors": []
+  },
+  "baseline": {
+    "mae": 0.4666666666666667,
+    "within_one": 1.0,
+    "two_band_errors": []
+  },
+  "statistics_benefit": false,
+  "unresolved_two_band_errors": [],
+  "cross_cohort_status": "pending: no verified release cohorts",
+  "publication_ready": false,
+  "pilot_numerical_gate": true,
+  "note": "Full 400-task independent review, cohort check, and adjudication are separate required publication gates."
+}

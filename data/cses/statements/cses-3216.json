@@ -1,0 +1,8 @@
+{
+  "id": "cses-3216",
+  "title": "Bouncing Ball Cycle",
+  "source_url": "https://cses.fi/problemset/task/3216",
+  "observed_at": "2026-09-11T06:54:55.235127+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a ball at the top-left corner of an n \\times m grid. The rows of the grid are numbered 1,2,\\dots,n, and the columns are numbered 1,2,\\dots,m.\n\nThe ball is initially moving diagonally away from the top-left corner. At every step, it moves one cell. Whenever the ball hits the border of the grid, it changes its direction.\n\nAfter how many steps has the ball reached its initial location again? What is the number of distinct cells it has visited?\n\nInput\n\nThe first line has an integer t: the number of tests.\n\nAfter this, there are t lines. Each line has two integers n, m: the size of the grid.\n\nOutput\n\nFor each test, print two integers: the number of steps and the number of visited cells.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n2 \\le n,m \\le 10^9\n\n\nExample\n\nInput:\n\n4\n3 4\n2 2\n19 18\n42 1337\n\n\nOutput:\n\n12 6\n2 2\n612 171\n109552 28077",
+  "statement_sha256": "38ab696dd30078d617c719b6030e84f9e361f1966881d55c1c13050ea1b3b3f9"
+}

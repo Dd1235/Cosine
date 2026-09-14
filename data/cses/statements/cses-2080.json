@@ -1,0 +1,8 @@
+{
+  "id": "cses-2080",
+  "title": "Fixed-Length Paths I",
+  "source_url": "https://cses.fi/problemset/task/2080",
+  "observed_at": "2026-09-11T06:53:32.585705+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a tree of n nodes, your task is to count the number of distinct paths that consist of exactly k edges.\n\nInput\n\nThe first input line contains two integers n and k: the number of nodes and the path length. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint one integer: the number of paths.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 2\n1 2\n2 3\n3 4\n3 5\n\n\nOutput:\n\n4",
+  "statement_sha256": "3394e2e3c204e3e1269a392bb83699cf18229a9de90e86339f9d9cf520840f1f"
+}

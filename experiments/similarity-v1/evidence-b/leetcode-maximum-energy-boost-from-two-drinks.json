@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-energy-boost-from-two-drinks",
+  "url": "https://leetcode.com/problems/maximum-energy-boost-from-two-drinks/",
+  "observed_at": "2026-09-11T07:21:58.318955+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two integer arrays energyDrinkA and energyDrinkB of the same length n by a futuristic sports scientist. These arrays represent the energy boosts per hour provided by two different energy drinks, A and B, respectively. \n\n You want to maximize your total energy boost by drinking one energy drink per hour . However, if you want to switch from consuming one energy drink to the other, you need to wait for one hour to cleanse your system (meaning you won't get any energy boost in that hour). \n\n Return the maximum total energy boost you can gain in the next n hours. \n\n Note that you can start consuming either of the two energy drinks. \n\n \u00a0 \n Example 1: \n\n \n Input: energyDrinkA = [1,3,1], energyDrinkB = [3,1,1] \n\n Output: 5 \n\n Explanation: \n\n To gain an energy boost of 5, drink only the energy drink A (or only B). \n \n\n Example 2: \n\n \n Input: energyDrinkA = [4,1,1], energyDrinkB = [1,1,3] \n\n Output: 7 \n\n Explanation: \n\n To gain an energy boost of 7: \n\n \n Drink the energy drink A for the first hour. \n Switch to the energy drink B and we lose the energy boost of the second hour. \n Gain the energy boost of the drink B in the third hour. \n \n \n\n \u00a0 \n Constraints: \n\n \n n == energyDrinkA.length == energyDrinkB.length \n 3 <= n <= 10 5 \n 1 <= energyDrinkA[i], energyDrinkB[i] <= 10 5",
+  "statement_sha256": "4a42259bccc83c00b72e32bdef8810ee13771d7031a2c299d381a6e6284691f4",
+  "raw_sha256": "26ff8e10bf87d56f2521ab5d98463179b252e7c6ca67beb55558dfad3de2c624",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

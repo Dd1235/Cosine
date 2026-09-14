@@ -1,0 +1,307 @@
+{
+  "reviewer_id": "independent_evaluator_c",
+  "method": "Initial independent statement-only assessment; explicitly marked follow-up records use primary author solution evidence and local correctness/runtime checks. Still blind to assessor judgments, project statistics, proposed scores and production corpus labels. Follow-up web search accidentally surfaced unrelated third-party judge points/percentages, not used for judgments; absolute blindness to all public proxies cannot be claimed. Difficulty reflects prerequisites, insight, composition and implementation, not source solve rates.",
+  "rubric": {
+    "1": "Foundation: direct simulation/basic observation",
+    "2": "Standard: one standard technique",
+    "3": "Intermediate: nontrivial insight or combination",
+    "4": "Advanced: specialized technique or substantial composition",
+    "5": "Expert: demanding optimization/proof/implementation"
+  },
+  "reviews": [
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1070",
+      "band": 1,
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "For n>=4 output evens followed by odds; within groups gaps are two and the boundary is safe. Handle n=1 and impossible n=2,3 separately. A small constructive observation."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3399",
+      "band": 2,
+      "complexity": "O(n) time and space per test",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Feasible scores are a=b=0 or a,b both positive with a+b<=n. Keep n-a-b matching cards, and cyclically shift the remaining a+b sorted cards to realize exactly a wins and b losses. Equal card sums rule out only one player having positive score."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3311",
+      "band": 1,
+      "complexity": "O(nm) time, O(nm) output storage",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Process cells row-major and choose a character different from its old character and already-written top and left neighbors. At most three of four letters are excluded, so a choice always exists; later neighbors enforce their own constraints."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2217",
+      "band": 3,
+      "complexity": "O(n+m) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "The round count is one plus the number of inversions between positions of consecutive values. Swapping x and y changes only pairs indexed by x-1,x,y-1,y; deduplicate these before subtracting and restoring contributions."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1632",
+      "band": 3,
+      "complexity": "O(n log n) time, O(k+n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Sort movies by finishing time and assign each accepted movie to the member with latest finishing time at most its start, using a multiset. The exchange argument for this choice is the extra step beyond single-person scheduling."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3421",
+      "band": 2,
+      "complexity": "O(n log n) deterministic time by sorting, O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "For each distinct value with frequency f, choose none or one of its f occurrences. Every such selection has one order inherited from the array, so multiply (f+1) and subtract one for the empty subsequence. The counting product is the key simple observation."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3359",
+      "band": 3,
+      "complexity": "O(n^2) time, O(n) frontier space plus O(n^2) input",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Maintain the set of positions on the current anti-diagonal reachable by the lexicographically best prefix. Among their right/down successors keep only the smallest next letter, deduplicating positions. Every cell is considered only a constant number of times; storing full path strings per cell would be too costly at n=3000."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2181",
+      "band": 3,
+      "complexity": "O(m*3^n) conservative time bound, O(3^n+2^n) precomputed-transition space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Profile DP across columns tracks which of the at most ten cells are occupied by horizontal dominoes. Generate valid next masks by filling uncovered cells vertically or horizontally and reuse transitions across 1000 columns."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1748",
+      "band": 3,
+      "complexity": "O(n log n) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Compress values and process left to right, setting ways[i]=1+sum of earlier ways at strictly smaller values. A Fenwick tree stores modular sums; equal values must not enter the query."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1673",
+      "band": 3,
+      "complexity": "O(nm) time, O(n+m) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Use longest-path Bellman-Ford from node 1 and detect relaxations on iteration n that can reach n; reverse reachability prevents unrelated positive cycles from producing false unbounded answers. n*m<=12.5 million permits this."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1684",
+      "band": 3,
+      "complexity": "O(n+m) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Translate each pair of wishes into a 2-SAT clause, build the implication graph, find SCCs, reject a variable sharing its component with its negation and assign in SCC order. Specialized prerequisite but otherwise a direct 2-SAT application."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1711",
+      "band": 4,
+      "complexity": "O(mF) flow plus O(mF) extraction, F<=m; O(n+m) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Give every teleporter unit capacity, compute max flow, then decompose positive integral flow into source-sink paths, avoiding stray flow cycles. The output requirement adds nontrivial reconstruction to the max-flow reduction; m<=1000 permits augmenting-path flow."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3304",
+      "band": 3,
+      "complexity": "O((n+q) log n) time and O(n log n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "A monotone stack finds each index's next strictly greater building. Visible buildings in [a,b] follow this successor chain; binary lifting counts jumps that remain at most b, then includes the initial building."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1133",
+      "band": 3,
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Compute subtree sizes and one root distance sum, then reroot across parent-child edges using ans[child]=ans[parent]+n-2*size[child]. Requires a tree DP invariant and two traversals for n=200000."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2081",
+      "band": 4,
+      "complexity": "O(n log n) time with linear depth-frequency pair counting per component; O(n) auxiliary space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Centroid-decompose the tree. For each centroid count pairs of depths whose sums are in the target interval, subtracting pairs inside each child subtree. Depth-frequency prefix sums allow each decomposition level to be processed linearly, giving a scalable alternative to quadratic pair counting."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3396",
+      "band": 2,
+      "complexity": "O(M log log M + t*g*pi(sqrt P)) conservative time, O(M) space; M=ceil(sqrt(2*10^12)), g tested candidates",
+      "confidence": "medium",
+      "unresolved": false,
+      "solution_rationale": "Sieve primes through ceil(sqrt(2*10^12)) and test successive odd candidates by prime trial division through their square roots. Bertrand's postulate ensures this sieve bound covers the next prime. With only 20 inputs this avoids requiring probabilistic primality; precise candidate-gap/runtime is not benchmarked."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1732",
+      "band": 2,
+      "complexity": "O(n) time and space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Compute the prefix function or Z array and report proper prefix lengths matching the suffix. This is a direct application of a standard linear string-matching primitive at length one million."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2109",
+      "band": 4,
+      "complexity": "O(26n) time and space using fixed alphabet transitions",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Build a suffix automaton, propagate occurrence counts through suffix links, and DP total substring multiplicity reachable along transitions. Walk transitions in alphabet order, subtracting whole multiplicity blocks; at each state its occurrence count accounts for copies of the current string."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3430",
+      "band": 4,
+      "complexity": "O(n log^2 X) time, O(X) space, X=100001",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Use a segment Li Chao tree on integer x in [0,100000]. Range insertion decomposes [l,r] into covered nodes and performs ordinary Li Chao insertion within them; a query takes the maximum along its root-to-leaf path. Specialized line-envelope data structure with range restrictions and empty-answer handling."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2138",
+      "band": 3,
+      "complexity": "O((n+m) ceil(n/64)) word operations; O(n^2/8) bytes, about 313 MB at maximum n",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Process the DAG in reverse topological order, unioning successor reachability bitsets and including each vertex itself. Scalar counts double-count overlaps, while bit parallelism makes 50000-bit sets feasible within 512 MB."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2133",
+      "band": 4,
+      "complexity": "O((m+k) log k log n) time with rollback DSU; O(n+(m+k) log k) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Convert every edge lifetime into an interval of event times. Put intervals in a segment tree over time and traverse it with rollback union-find while reporting component counts at leaves. Deletions require the offline transformation and reversible data structure."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3224",
+      "band": 2,
+      "complexity": "O(n log k) time, O(k) active state plus input storage",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Maintain frequencies and an ordered set of (negative frequency,value) pairs. Remove the old pair before each frequency change and insert the new pair; the first element gives the required tie-broken mode."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3112",
+      "band": 2,
+      "complexity": "O(log 10^9) queries, O(1) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Maintain an inclusive interval for the hidden integer and ask whether its midpoint is smaller than x. Binary search takes ceil(log2(10^9))=30 questions; flush output and stop after reporting the singleton."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3140",
+      "band": 4,
+      "complexity": "O(n^2) local simulation time, O(n) space, at most 4n operations",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Obtain an initial inversion count with a length-one reversal. Reversing [1,n] then [2,n] rotates the last value x to the front; the net inversion change is 2x-n-1, revealing x. After n-1 rotations infer the remaining value, then pancake-sort the now-known permutation using at most 2n-3 reversals. Total at most 4n-4 for n>=2, with immediate termination on zero and n=1 handled separately."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3192",
+      "band": 4,
+      "complexity": "O(nB+B^2+kB) time, O(B+k) output-inclusive space, B=30",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Build a reduced XOR basis whose increasing pivot order enumerates distinct xor values in sorted binary-index order. Every distinct xor has multiplicity 2^(n-rank); cap this multiplicity at k, and emit the first ceil(k/multiplicity) combinations with repeats. Rank, ordering and duplicate multiplicity must all be justified."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3422",
+      "band": 3,
+      "complexity": "O(n) time and space, plus constant brute force for n<=4",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Start with any permutation c. For each invalid position i, swap with a position j satisfying c[j] not in {a[i],b[i]} and c[i] not in {a[j],b[j]}. At most four j are forbidden because a,b,c are permutations, so inspecting any five positions finds one for n>=5. The swap fixes i without creating an invalid j; brute force n<=4. Requires a short combinatorial repair proof."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-2418",
+      "band": 5,
+      "complexity": "Conservative O((nm)^2) time and O((nm)^2) temporary-string space for the inspected recursive split/string implementation; n,m<=50. This is not a claim of the optimal linear construction.",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Use the rectangular-grid Hamiltonian endpoint classification: bipartite color compatibility plus narrow-grid exceptions for widths one, two and three. Normalize orientation, peel two-column strips and splice their Hamiltonian cycles into the remainder, or split along a separating row/column with feasible connector endpoints. Small rectangles have explicit verified path templates. The inspected implementation realizes these cases and transforms directions back. The classification and constructive composition support Expert.",
+      "original_statement_only_band": 5,
+      "sources": [
+        {
+          "url": "https://github.com/ssevR/cses/blob/69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5/Additional_Problems/Grid_Path_Construction/main.cpp",
+          "author": "ssevR",
+          "commit": "69250e6e9d85786bd3bb7f94b27f31ac0bb6d5a5",
+          "sha256": "5fb58772b4a309b80d471b6c3fca0fd8acabaeee8ac5c260d48bd534dcbe118b",
+          "type": "primary author implementation inspected and locally checked; no CSES submission verdict independently retrieved"
+        },
+        {
+          "url": "https://abc864197532.github.io/2021/09/15/cses-additional-sol/#2418-Grid-Path-Construction",
+          "type": "primary author constructive explanation"
+        },
+        {
+          "url": "https://epubs.siam.org/doi/10.1137/0211056",
+          "type": "original paper abstract confirms necessary/sufficient rectangular-grid endpoint characterization; full paper not inspected"
+        }
+      ],
+      "verification": {
+        "checks": "17840 cases: all endpoint pairs for dimensions through 6x6 plus 10000 seeded random cases through 50x50. All 7973 returned paths passed independent bounds, distinct-cell, length and endpoint checks. 1816 cases with area<=16 also matched exhaustive Hamiltonian-search existence decisions.",
+        "runtime": "Whole check including process launches and Python validation took 3.57 seconds locally; batches contain at most 100 tests.",
+        "script": "/private/tmp/check_gridpath_c.py"
+      },
+      "evidence_stage": "source-assisted blind-to-assessors verification"
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-1705",
+      "band": 4,
+      "complexity": "O((n+m) log(n+m)+q log(n+m)) time and O((n+m) log(n+m)) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Build vertex-biconnected components and their block-cut tree. A forbidden articulation disconnects a and b exactly when its node lies on their block-cut-tree path; LCA distances answer this, with explicit a=c or b=c handling."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3414",
+      "band": 3,
+      "complexity": "O(n^2) time, O(n+k) auxiliary space plus input storage",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Maintain each column's upward run length of its current letter. For each row, split into equal-letter runs and use a monotone stack to sum subarray minima of those heights, adding to that letter's answer. This counts rectangles by bottom edge in O(n^2), avoiding a separate full scan for every letter."
+    },
+    {
+      "reviewer": "independent_evaluator_c",
+      "id": "cses-3157",
+      "band": 3,
+      "complexity": "O(n^2) time and O(n) space",
+      "confidence": "high",
+      "unresolved": false,
+      "solution_rationale": "Rounds equal one plus descents in the inverse permutation, so the distribution is Eulerian numbers. Inserting the largest value gives A(n,d)=(d+1)A(n-1,d)+(n-d)A(n-1,d-1), computable quadratically for n=5000."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2181",
+  "title": "Counting Tilings",
+  "source_url": "https://cses.fi/problemset/task/2181",
+  "observed_at": "2026-09-11T06:53:19.813352+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of ways you can fill an n \\times m grid using 1 \\times 2 and 2 \\times 1 tiles.\n\nInput\n\nThe only input line has two integers n and m.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10\n\n1 \\le m \\le 1000\n\n\nExample\n\nInput:\n\n4 7\n\n\nOutput:\n\n781",
+  "statement_sha256": "1492c40d4861e146683ba4ca60ef329cb4d919d25131908ea0532e4e7f630fca"
+}

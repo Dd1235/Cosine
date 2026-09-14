@@ -1,0 +1,8 @@
+{
+  "id": "cses-3303",
+  "title": "Nearest Shops",
+  "source_url": "https://cses.fi/problemset/task/3303",
+  "observed_at": "2026-09-11T06:54:42.872645+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads. Each road is bidirectional and connects two cities. It is also known that k cities have an anime shop.\n\nIf you live in a city, you of course know the local anime shop well if there is one. You would like to find the nearest anime shop that is not in your city.\n\nFor each city, determine the minimum distance to another city that has an anime shop.\n\nInput\n\nThe first line has three integers n, m and k: the number of cities, roads and anime shops. The cities are numbered 1,2,\\dots,n.\n\nThe next line contains k integers: the cities that have an anime shop.\n\nFinally, there are m lines that describe the roads. Each line has two integers a and b: there is a road between cities a and b.\n\nOutput\n\nPrint n integers: for each city, the minimum distance to another city with an anime shop. If there is no such city, print -1 instead.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^5\n\n0 \\le m \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n9 6 4\n2 4 5 7\n1 2\n1 3\n1 8\n2 4\n3 4\n5 6\n\n\nOutput:\n\n1 1 1 1 -1 1 -1 2 -1",
+  "statement_sha256": "f591e509ace2bc8dd781e227cf65be95619e877f28eb687bdd469cd7b27d758b"
+}

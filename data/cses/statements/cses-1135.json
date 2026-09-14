@@ -1,0 +1,8 @@
+{
+  "id": "cses-1135",
+  "title": "Distance Queries",
+  "source_url": "https://cses.fi/problemset/task/1135",
+  "observed_at": "2026-09-11T06:53:31.314622+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes.\n\nYour task is to process q queries of the form: what is the distance between nodes a and b?\n\nInput\n\nThe first input line contains two integers n and q: the number of nodes and queries. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nFinally, there are q lines describing the queries. Each line contains two integer a and b: what is the distance between nodes a and b?\n\nOutput\n\nPrint q integers: the answer to each query.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n1 2\n1 3\n3 4\n3 5\n1 3\n2 5\n1 4\n\n\nOutput:\n\n1\n3\n2",
+  "statement_sha256": "349f8fefca501ed912dfc9fe1e853a28c6ccf74df8d5e473c14161b026dcb3bd"
+}

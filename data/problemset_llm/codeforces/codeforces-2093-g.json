@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2093-g",
+  "title": "Shorten the Array",
+  "slug": "2093-g",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2093/problem/G",
+  "source_topic": "Codeforces / Contest 2093",
+  "source_tags": [
+    "binary search",
+    "bitmasks",
+    "data structures",
+    "dfs and similar",
+    "greedy",
+    "strings",
+    "trees",
+    "two pointers"
+  ],
+  "statement": "Find the shortest contiguous subarray containing a pair whose XOR is at least k. There are up to 200000 elements with values and threshold at most 10^9; return -1 if no qualifying pair exists.",
+  "tags": [],
+  "patterns": [
+    "trie",
+    "bit-manipulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "trie": 0.9,
+      "bit-manipulation": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/competition-refresh-review.json"
+  },
+  "difficulty": 1900
+}

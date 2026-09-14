@@ -1,0 +1,33 @@
+{
+ "id": "codechef-avgshort",
+ "title": "Short in Average",
+ "slug": "avgshort",
+ "platform": "codechef",
+ "source_url": "https://www.codechef.com/problems/AVGSHORT",
+ "source_topic": "Graph Level-1",
+ "source_tags": [],
+ "statement": "Given a directed weighted graph with up to 500 nodes and 1000 arcs whose weights lie between 1 and 100, and two distinct nodes A and B, the task is to find the smallest possible average edge weight of a walk from A to B, where the walk may reuse edges and its length need not be bounded. Output is -1 when no walk exists.",
+ "tags": [],
+ "patterns": [
+  "bellman-ford",
+  "binary-search-answer",
+  "cycle-detection",
+  "shortest-path",
+  "binary-search"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789236544,
+  "pattern_confidence": {
+   "bellman-ford": 0.9,
+   "binary-search-answer": 0.9,
+   "cycle-detection": 0.9,
+   "shortest-path": 0.9,
+   "binary-search": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null
+}

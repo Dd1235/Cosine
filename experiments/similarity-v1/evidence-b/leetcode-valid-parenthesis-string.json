@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-valid-parenthesis-string",
+  "url": "https://leetcode.com/problems/valid-parenthesis-string/",
+  "observed_at": "2026-09-11T07:21:57.617826+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s containing only three types of characters: '(' , ')' and '*' , return true if s is valid . \n\n The following rules define a valid string: \n\n \n Any left parenthesis '(' must have a corresponding right parenthesis ')' . \n Any right parenthesis ')' must have a corresponding left parenthesis '(' . \n Left parenthesis '(' must go before the corresponding right parenthesis ')' . \n '*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string \"\" . \n \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"()\"\n Output: true\n \n\n Example 2: \n\n \n Input: s = \"(*)\"\n Output: true\n \n\n Example 3: \n\n \n Input: s = \"(*))\"\n Output: true\n \n\n Example 4: \n\n \n Input: s = \"(\"\n Output: false\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 100 \n s[i] is '(' , ')' or '*' .",
+  "statement_sha256": "3c27c12939c1261626cbd8d2559968add7449bcb4fc94fb6924885814556b6c8",
+  "raw_sha256": "0a041cd24e630ac47f107bcc2c81f4d256cc70fe7495015dbe5cb786c471a89d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1724",
+  "title": "Graph Paths II",
+  "source_url": "https://cses.fi/problemset/task/1724",
+  "observed_at": "2026-09-11T06:53:36.560023+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a directed weighted graph having n nodes and m edges. Your task is to calculate the minimum path length from node 1 to node n with exactly k edges.\n\nInput\n\nThe first input line contains three integers n, m and k: the number of nodes and edges, and the length of the path. The nodes are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the edges. Each line contains three integers a, b and c: there is an edge from node a to node b with weight c.\n\nOutput\n\nPrint the minimum path length. If there are no such paths, print -1.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le m \\le n(n-1)\n\n1 \\le k \\le 10^9\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n3 4 8\n1 2 5\n2 3 4\n3 1 1\n3 2 2\n\n\nOutput:\n\n27",
+  "statement_sha256": "f81912994b28b56f3be54c847375305651e92f60ad4f5121e1fe17e07eaf8cd8"
+}

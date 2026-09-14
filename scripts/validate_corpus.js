@@ -16,6 +16,7 @@ const path = require("path");
 const { CORPUS_ROOT, DEFAULT_PLATFORMS } = require("../server/data");
 const {
   MODEL_ID,
+  matchesEmbeddingRecipe,
   DTYPE,
   DIMS,
   corpusHash,
@@ -109,6 +110,41 @@ function checkProblem({ rel, platform, basename, problem }, taxonomy, driftCount
       && typeof problem.difficulty !== "number") {
     err(`${rel}: ${platform} difficulty must be a number, got ${typeof problem.difficulty}`);
   }
+  if (problem.cses_difficulty != null) {
+    const d = problem.cses_difficulty;
+    if (platform !== "cses" || typeof d !== "object" || Array.isArray(d)) {
+      err(`${rel}: cses_difficulty must be a CSES-only object`);
+    } else {
+      if (!Number.isInteger(d.band) || d.band < 1 || d.band > 5) err(`${rel}: CSES band must be 1..5`);
+      if (!["low", "medium", "high"].includes(d.confidence)) err(`${rel}: CSES confidence must be low/medium/high`);
+      if (typeof d.method !== "string" || !d.method.trim()) err(`${rel}: CSES method version required`);
+      if (!Array.isArray(d.evidence) || !d.evidence.length || d.evidence.some((e) => typeof e !== "string" || !e.trim())) {
+        err(`${rel}: CSES evidence must contain nonempty references or reasoning`);
+      }
+    }
+  }
+  // Kattis publishes its own 1.0-10.0 difficulty score. It is NOT `difficulty`:
+  // that field holds the judge's own named tier and Kattis has no tier, so it
+  // stays null and the score is carried separately, with the host and the date
+  // it was read -- Kattis recomputes the score as more people solve a problem,
+  // so an undated score is a number with no claim attached to it.
+  if (problem.kattis_difficulty != null) {
+    const k = problem.kattis_difficulty;
+    if (platform !== "kattis" || typeof k !== "object" || Array.isArray(k)) {
+      err(`${rel}: kattis_difficulty must be a Kattis-only object`);
+    } else {
+      if (typeof k.score !== "number" || !Number.isFinite(k.score) || k.score < 0 || k.score > 10) {
+        err(`${rel}: Kattis score must be a number 0..10`);
+      }
+      if (typeof k.host !== "string" || !k.host.trim()) err(`${rel}: Kattis host required`);
+      if (typeof k.observed_at !== "string" || !k.observed_at.trim()) {
+        err(`${rel}: Kattis observed_at required`);
+      }
+      if (k.label != null && !["easy", "medium", "hard"].includes(k.label)) {
+        err(`${rel}: Kattis label must be easy/medium/hard`);
+      }
+    }
+  }
   if (typeof problem.slug === "string" && !SLUG_RE.test(problem.slug)) {
     err(`${rel}: slug "${problem.slug}" is not slug-shaped`);
   }
@@ -194,6 +230,9 @@ function checkArtifact(problems) {
     return;
   }
   const { manifest, matrix } = artifact;
+  if (!matchesEmbeddingRecipe(manifest.recipe)) {
+    err("embeddings recipe mismatch — run `npm run embed`");
+  }
   if (manifest.model !== MODEL_ID || manifest.dtype !== DTYPE || manifest.dims !== DIMS) {
     err(`embeddings manifest model/dtype/dims (${manifest.model}/${manifest.dtype}/${manifest.dims}) != pinned (${MODEL_ID}/${DTYPE}/${DIMS})`);
   }
@@ -261,6 +300,8 @@ function main() {
   const byId = checkCrossFile(entries);
   const queryCount = checkBenchQueries(new Set(byId.keys()));
   checkArtifact(entries.map((e) => e.problem));
+  const { validateRegistry } = require('../server/collections');
+  for (const message of validateRegistry(require('../data/contests.json'), entries.map(e => e.problem))) err(message);
   reportDrift(driftCounts);
   if (process.argv.includes("--gaps")) printGaps(driftCounts);
 

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-value-of-an-alternating-sequence",
+  "url": "https://leetcode.com/problems/maximum-value-of-an-alternating-sequence/",
+  "observed_at": "2026-09-11T07:22:23.859454+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given three integers n , s , and m . \n\n A sequence seq of integers of length n is considered valid if: \n\n \n seq[0] = s . \n The sequence is alternating , meaning that either:\n \n seq[0] > seq[1] < seq[2] > ... , or \n seq[0] < seq[1] > seq[2] < ... . \n \n \n For every adjacent pair, |seq[i] - seq[i - 1]| <= m . \n \n\n A sequence of length 1 is considered alternating. \n\n Return the maximum possible element that can appear in any valid sequence. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 4, s = 3, m = 5 \n\n Output: 12 \n\n Explanation: \n\n \n One valid sequence is [3, 8, 7, 12] . \n The maximum element in the sequence is 12. \n \n \n\n Example 2: \n\n \n Input: n = 2, s = 4, m = 3 \n\n Output: 7 \n\n Explanation: \n\n \n One valid sequence is [4, 7] . \n The maximum element in the sequence is 7. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n, s <= 10 9 \n 1 <= m <= 10 5",
+  "statement_sha256": "6f43cd6c5b3469908edafcd39169a4d1296bd57b2440bcd9f0679525d8ff013e",
+  "raw_sha256": "bf450cffd8dfe78e340a3ea07af0ab05b74a3e56f5edd31a2dbd0a67ac8411e3",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

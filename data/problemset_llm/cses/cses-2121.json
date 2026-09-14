@@ -26,5 +26,18 @@
       "capacity-scaling": 0.85,
       "shortest-path-augmentation": 0.8
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2121",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e0b75440a90a8b30d11feb3a8a85fb2038ffb360c8cc6463d06c15bba2612d08",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

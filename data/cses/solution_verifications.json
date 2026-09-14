@@ -1,0 +1,313 @@
+{
+  "note": "Proof verification supplements original assessment scores without replacing them; selected before held-out evaluation.",
+  "reviews": [
+    {
+      "id": "cses-2174",
+      "resolved": true,
+      "solution_rationale": "Largest-digit subtraction is optimal: induction gives monotone optimal cost, since the maximum digit of k-1 is at least maximumDigit(k)-1. Compress the deterministic descent into decimal suffix blocks. Store cost and negative overshoot for suffix length, incoming last digit and maximum external prefix digit. Compose ten smaller blocks; only at most nine units are lost across a decimal boundary. The independent drain implementation exercises this recurrence without iterating n times.",
+      "complexity": "O(D*10^3) preprocessing with O(D*10^2) canonical block states; D<=19. Use 64-bit costs.",
+      "evidence_file": "data/cses/specialist_a.json"
+    },
+    {
+      "id": "cses-2427",
+      "resolved": true,
+      "solution_rationale": "The actual mbfibat implementation handles n1,2 directly and all six normalized n3 letter arrangements. For n>=4, normalize the empty pair to the right, then move the first misplaced B pair out and bring a later A pair into its position. The sole adjacent-BA remainder has a three-move repair. Each ordinary iteration fixes another A in the prefix; output itself costs quadratic characters. Detailed finite cases and legal disjoint pair moves establish an implementable construction under the1000-move allowance.",
+      "complexity": "O(n^2) time including scanning/output, O(n) moves and O(n^2) stored output.",
+      "evidence_file": "data/cses/specialist_a.json"
+    },
+    {
+      "id": "cses-2207",
+      "resolved": true,
+      "solution_rationale": "Use g(n)=mex{g(i) XOR g(n-i):1<=i<n-i}; losing iff g(n)=0. Compute through1999 and classify n>=2000 as first within the stated n<=10^6 domain. This shortcut has an explicit finite computational basis: Achim Flammenkamp reports Grundy values through2^35, with42 zero values including heap0 and largest zero at1222. The mrsac7 author implementation uses the same2000 cutoff. Do not describe eventual positivity as a proved theorem for unbounded n.",
+      "complexity": "O(B^2) preprocessing with timestamped mex, B=2000; O(t) queries and O(B) memory. The cited set-based code adds a logarithmic factor.",
+      "evidence_file": "data/cses/specialist_a.json"
+    },
+    {
+      "id": "cses-1148",
+      "resolved": true,
+      "solution_rationale": "For each bottom row form empty-cell heights. Assign each interval uniquely to its rightmost minimum with previous strictly smaller and next smaller-or-equal boundaries. If its left/right choices are L,R, the number of width-w intervals is min(w,L,R,L+R-w) for1<=w<L+R. Every height1..h contributes. This trapezoid has three affine pieces: rectangle-add slope/intercept on the height-width answer plane, then take two-dimensional prefix sums. The downloaded author code implements an equivalent two horizontal integrations and one vertical suffix integration.",
+      "complexity": "O(nm) time and O(nm) memory, including the mandatory nm outputs.",
+      "evidence_file": "data/cses/specialist_a.json"
+    },
+    {
+      "id": "cses-2418",
+      "resolved": true,
+      "solution_rationale": "Rectangular-grid Hamilton paths have a complete endpoint feasibility characterization, beyond checkerboard parity: one-row endpoint restrictions, two-row separating endpoints, and three-row exceptional placements. The inspected implementation normalizes orientation, rejects forbidden cases, uses explicit small templates, then removes two-column strips and splices them into a boundary edge or splits into two feasible endpoint rectangles. Rotation/reflection remaps the resulting moves. This is a substantial case-based construction, not generic exponential Hamiltonian search.",
+      "complexity": "Conservative bound for inspected recursive string implementation: O(nm(n+m)) time and space upper bound; output length nm-1. n,m<=50. Template lookup is constant.",
+      "evidence_file": "data/cses/specialist_a.json"
+    },
+    {
+      "id": "cses-3424",
+      "resolved": true,
+      "solution_rationale": "For n>=5 use 1-based A[i][1]=n and A[i][j]=i if j>i, otherwise i-1. Let r=floor(n/2), c=3 for odd n and n/2+2 for even n. Swap A[2][1] with A[2][c], then A[r+1][n] with A[r+2][n]. For n=4 use rows [3,2,3,4], [4,1,1,2], [4,1,2,4], [3,2,1,3]. Reject n<=3.",
+      "complexity": "O(n^2) time and output space; O(n) auxiliary space is possible by applying swaps during output.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3401",
+      "resolved": true,
+      "solution_rationale": "For a maximum piece bound R, let t_i=ceil(a_i/R), C=sum t_i, and Lmin=min floor(a_i/t_i). For K total pieces, define L0(K) as the Kth largest value in the multiset {floor(a_i/j):1<=j<=a_i}. The best minimum length compatible with R and K is min(L0(K),Lmin), provided C<=K. Enumerate O(n+m) relevant (C,R,Lmin) states by a max-heap of ceil(a_i/t_i), increasing all counts tied at the current R before recording a lower R. Stop when C>n+m. Generate L0(K) by merging each stick's decreasing quotient sequence with another heap. For increasing K, activate states with C<=K; two compressed Fenwick-min trees answer min_{Lmin<=L0}(R-Lmin) and min_{Lmin>=L0}(R)-L0. Their minimum is the answer for K=n+1..n+m.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3109",
+      "resolved": true,
+      "solution_rationale": "Sort the array and output the sum of its first m entries as the initial state. A noninitial combination is represented by its smallest displaced position s: selected indices before s equal 1..s-1, while the suffix of selected indices is an immutable linked list beginning with v>s. A heap state stores its sum, s and this tail. Child one increases v by one if it remains below the next selected index (or at most n). Child two, when s>1, prepends index s as the new selected index for position s-1, preserving the old tail. Update sums by the corresponding single-element replacement. Seed the heap by increasing selected index m to m+1; pop and expand until k sums are output.",
+      "complexity": "O(n log n+k log k) time, O(n+k) space. Each heap state has at most two children and each child allocates at most one immutable tail node.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3175",
+      "resolved": true,
+      "solution_rationale": "Keep unused values ordered and greedily take the smallest value whose difference from the previous value is not one while more than six remain. Exhaustively test the final at-most-six values in lexicographic order, also checking the fixed preceding value. The first valid completion is the answer; reject only if the small exhaustive case has none.",
+      "complexity": "O(n log n) time, O(n) space with an ordered set; final tail has at most 6!=720 permutations.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3218",
+      "resolved": true,
+      "solution_rationale": "Translate to displacements from the top-left corner and order x>=y>=0. Handle (1,0) with3 and (1,1),(2,2) with4. Otherwise take d=max(ceil(x/2),ceil((x+y)/3)) and increase d by one if its parity differs from x+y. The origin naturally yields zero.",
+      "complexity": "O(1) time and space per query.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3216",
+      "resolved": true,
+      "solution_rationale": "Let A=n-1,B=m-1,g=gcd(A,B),p=A/g,q=B/g,L=lcm(A,B). Return time is2L. The number of distinct visited cells is L+1-(p-1)(q-1)/2; use wide integers and compute the lcm by division before multiplication.",
+      "complexity": "O(log min(n,m)) time, O(1) space per test.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3425",
+      "resolved": true,
+      "solution_rationale": "Enumerate and sort all subset sums with masks in two halves. Maintain an integer interval [lo,hi] containing more subset sums than integer positions, initially [0,total]. For a midpoint, count sums <=mid using a monotone two-pointer scan across the sorted half lists. Keep an overfull half and its cumulative count below lo. Once lo=hi, recover two different half-mask pairs summing to that value. Delete common elements from their two full masks and output the remaining disjoint subsets.",
+      "complexity": "O(2^(n/2)*(n+log(total+1))) time and O(2^(n/2)) space; the given total<2^n makes the time O(n*2^(n/2)). Deterministic.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3358",
+      "resolved": true,
+      "solution_rationale": "Topologically number the vertices1..n. After covering1..i, store S_i: possible other path endpoints j, with i the most recently added endpoint and0 representing an empty path. Begin S_1={0}. For v=i+1, find a witness h in S_i with edge h->v, permitting h=0 unconditionally. Preserve all old states only if edge i->v exists; otherwise clear them. If a witness exists, add state i and record parent[i]=h. Reject if the set becomes empty. Reconstruct from any final other endpoint j: nodes j+1..current share one path color; set current=j, j=parent[j] and flip the color, repeating until zero. Output each color in topological order.",
+      "complexity": "O(n+m) time and space, including reconstruction. Membership uses a Boolean/epoch array; incoming edges are scanned once and states are inserted and removed at most once.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-3149",
+      "resolved": true,
+      "solution_rationale": "Peel all coinless leaves to obtain the minimal coin-containing subtree T and let E be its edge count. Multi-source traversal from T gives each vertex v its unique attachment p(v) in T and distance d(v) to T. Preprocess LCA distances on T or the original tree. For each query return 2E+d(a)+d(b)-dist(p(a),p(b)).",
+      "complexity": "O(n log n+q log n) time, O(n log n) space with binary-lifting LCA.",
+      "evidence_file": "data/cses/specialist_b.json"
+    },
+    {
+      "id": "cses-1068",
+      "resolved": true,
+      "solution_rationale": "Directly simulate the stated even/odd operation, outputting every state; use 64-bit values because intermediates can exceed the input bound. No algorithmic reduction required.",
+      "complexity": "O(L) time for L emitted values; O(1) auxiliary space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1625",
+      "resolved": true,
+      "solution_rationale": "Backtrack self-avoiding paths with fixed directions, reject premature arrival at the destination, and prune states where blocked opposite neighbors and open other neighbors split the remaining grid. The 48-step all-wildcard case makes effective geometric pruning essential; no polynomial worst-case bound is claimed.",
+      "complexity": "Exponential search, loose O(3^48) bound; O(49) search state. Practical feasibility depends on pruning.",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3419",
+      "resolved": true,
+      "solution_rationale": "At each cell mark values already seen to its left and above, then scan for the mex. There are fewer than 2n forbidden values, and n<=100 makes direct cubic simulation comfortably sufficient; an XOR formula is unnecessary.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2183",
+      "resolved": true,
+      "solution_rationale": "After sorting, maintain that every sum in [0,S] is achievable. A coin above S+1 exposes the first gap; otherwise extend S by the coin. The short greedy coverage invariant is the main observation.",
+      "complexity": "O(n log n) time, O(n) storage",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2169",
+      "resolved": true,
+      "solution_rationale": "Sort intervals by left endpoint increasing and right endpoint decreasing, then make two Fenwick sweeps on compressed right endpoints to count containing and contained intervals. The tie ordering is essential; duplicate intervals are excluded by the statement.",
+      "complexity": "O(n log n) time and O(n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1644",
+      "resolved": true,
+      "solution_rationale": "For right endpoint r maximize prefix[r] minus the minimum prefix among indices r-b through r-a. Maintain this moving minimum with a deque; negative values rule out a positive-only two-pointer argument.",
+      "complexity": "O(n) time and space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2413",
+      "resolved": true,
+      "solution_rationale": "Track two width-two frontier types: the top row joined into one block or split into two. Enumerating extension choices gives joined_next=2*joined+split and split_next=joined+4*split, both initialized to one. Deriving the small state space is the key insight.",
+      "complexity": "O(max n+t) time, O(max n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3314",
+      "resolved": true,
+      "solution_rationale": "For each mountain, nearest heights at least its own bound the interval of possible lower destinations. Process mountains by increasing height, querying a range-max segment tree over that interval for the best previously computed route, then add one. Batch equal heights or rely on excluding them via the barriers.",
+      "complexity": "O(n log n) time, O(n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2220",
+      "resolved": true,
+      "solution_rationale": "Digit DP counts values up to a bound using position, last digit, tightness and a not-started state. Subtract counts up to a-1; zero and leading zeroes need explicit treatment for bounds up to 10^18.",
+      "complexity": "O(D*10^2) time, O(D*10) space for D<=19",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1194",
+      "resolved": true,
+      "solution_rationale": "First multi-source BFS computes earliest monster arrival. A second BFS for the player only enters cells strictly earlier than monsters and records parents for an escape path. The adversarial timing reduction and reconstruction combine standard graph techniques.",
+      "complexity": "O(nm) time and space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1160",
+      "resolved": true,
+      "solution_rationale": "Decompose the functional graph into cycles and incoming trees. Record cycle component, entry, cycle index and depth; binary lifting checks tree ancestors and reaches cycle entries. Distinguish tree destinations, cycle destinations and disconnected components.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1692",
+      "resolved": true,
+      "solution_rationale": "Use (n-1)-bit strings as vertices and n-bit strings as edges, then print an Euler tour with the initial prefix. The 2^n+n-1 length meets the substring-count lower bound. Requires the non-obvious Eulerian graph reduction.",
+      "complexity": "O(2^n+n) time and space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1646",
+      "resolved": true,
+      "solution_rationale": "Build 64-bit prefix sums; each inclusive query is prefix[b]-prefix[a-1]. A direct standard prefix-sum application at n,q<=200000.",
+      "complexity": "O(n+q) time, O(n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2184",
+      "resolved": true,
+      "solution_rationale": "Build persistent value-segment trees over array prefixes storing coin sums. For each range repeatedly set S to the sum of coins at most S+1 until it stops changing; then S+1 is the missing sum. Positive values force geometric progress over successive expansions, but nested logarithms and persistent-memory constants require care at 200000 queries.",
+      "complexity": "O(n log A+q log Smax log A) time, O(n log A) space, A<=10^9",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2134",
+      "resolved": true,
+      "solution_rationale": "Heavy-light decomposition maps each path to logarithmically many array segments; a max segment tree supports point changes and segment queries. Substantial composition and tree indexing for n,q<=200000.",
+      "complexity": "O(n+q log^2 n) time, O(n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1095",
+      "resolved": true,
+      "solution_rationale": "Binary modular exponentiation handles 200000 exponents up to 10^9; initialize the accumulator to one, covering exponent zero including 0^0. One standard algorithm.",
+      "complexity": "O(t log B) time, O(1) auxiliary space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3154",
+      "resolved": true,
+      "solution_rationale": "Gaussian elimination over the prime field: pivot nonzero entries, invert pivots, eliminate, detect inconsistent zero rows and set free variables to zero before back substitution. Rectangular and singular systems add bookkeeping but this is one standard linear-algebra algorithm.",
+      "complexity": "O(n*m*min(n,m)+min(n,m)*log P) time, O(nm) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3138",
+      "resolved": true,
+      "solution_rationale": "An online palindromic tree maintains the longest palindromic suffix after each character, whose length is exactly the requested answer. Construct suffix links and transition nodes carefully; at most n+2 nodes suffice.",
+      "complexity": "O(26n) time and space for fixed alphabet implementation",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2189",
+      "resolved": true,
+      "solution_rationale": "Evaluate the sign of the cross product of p2-p1 and p3-p1 using wide integer arithmetic. A direct orientation primitive without a larger geometry algorithm.",
+      "complexity": "O(t) time, O(1) auxiliary space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1741",
+      "resolved": true,
+      "solution_rationale": "Sweep vertical rectangle edges and maintain the covered y-length in a coordinate-compressed segment tree using coverage counts and child lengths. Multiply covered length by each x gap. Overlaps and elementary interval lengths make this more than a basic range-sum tree.",
+      "complexity": "O(n log n) time, O(n) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2087",
+      "resolved": true,
+      "solution_rationale": "Each school serves a contiguous interval optimally at its weighted median. Precompute interval weighted-median costs in O(n^2) using monotone median pointers and prefix moments, then partition into k intervals using divide-and-conquer DP optimization from the Monge cost. This requires both the median reduction and optimization proof.",
+      "complexity": "O(n^2+k n log n) time, O(n^2+n) space; implementation constants matter at n=3000",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3220",
+      "resolved": true,
+      "solution_rationale": "Generate the array, initialize one k-element sum, and slide by subtracting the outgoing value and adding the incoming one, xoring each sum. Use 64-bit arithmetic for the generator product and sums; a ring buffer stores outgoing values.",
+      "complexity": "O(n) time, O(k) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3227",
+      "resolved": true,
+      "solution_rationale": "Independently derived and implemented: each bar has a maximal interval [L,R] containing no smaller bar. Its valid contribution for window start s is height times the interval/window intersection length. This trapezoid has at most three nonzero linear pieces. Add these restricted lines to one segment Li Chao tree and query every start. Every such rectangle is valid, and the minimum bar of every optimal window rectangle supplies a containing maximal interval, proving equality. Runtime checks resolve the earlier implementation concern.",
+      "complexity": "O(n log^2 n) time and O(n) space.",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3273",
+      "resolved": true,
+      "solution_rationale": "Xor each queried color with its index parity. Adjacent equal original colors become a change in the transformed sequence; extend the odd cycle to index n+1 using known color 1, giving opposite transformed endpoints. Bisect an interval with opposite endpoint values until adjacent; no global monotonicity is needed. One initial query plus at most ceil(log2 n) new questions fits 20.",
+      "complexity": "O(log n) queries and O(1) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3191",
+      "resolved": true,
+      "solution_rationale": "Insert values into a binary linear basis over GF(2), then greedily xor pivots from high bit to low whenever the answer increases. This specialized but single algebraic primitive replaces exponential subset enumeration.",
+      "complexity": "O(nB) time, O(B) space with B=30",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3141",
+      "resolved": true,
+      "solution_rationale": "Use a superset zeta transform of value frequencies to count elements containing each mask. For each mask 2^count-1 counts nonempty subsets whose AND contains that mask; superset Mobius inversion yields exact AND counts. Requires understanding two Boolean-lattice transforms.",
+      "complexity": "O(B*2^B+n) time and O(2^B) space, B=ceil(log2(n+1))",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2423",
+      "resolved": true,
+      "solution_rationale": "Require area divisible by three and both dimensions greater than one. An odd-by-odd rectangle with a side three is impossible: every tile must use exactly one middle-row cell and two adjacent outer-row cells, forcing even outer-row lengths. All other even-area cases decompose into 2-by-3 tiles. Remaining odd cases use one verified 9-by-5 template plus even-area strips. Greedily color neighboring tile IDs; each tromino has at most eight boundary edges, so 26 colors suffice. This finite case construction supports Advanced rather than the earlier unresolved Expert band.",
+      "complexity": "O(nm) time and space per grid.",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-3408",
+      "resolved": true,
+      "solution_rationale": "Process weights in Kruskal order. For each query's edges of one weight test that they form a forest after contracting all strictly lighter graph edges, using a temporary/rollback DSU; only then union the whole graph weight batch globally. Total query edges at most m makes the offline batching efficient.",
+      "complexity": "O(m log m + m log n + q) time with rollback DSU, O(n+m+q) space",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-1685",
+      "resolved": true,
+      "solution_rationale": "Condense SCCs. DFS from sources records one reachable sink per vertex and one originating source. Greedily take disjoint recorded source-sink pairs. Every unpaired source reaches a paired sink, and every unpaired sink is reached by a paired source. Cycle the paired paths, pair remaining sinks with remaining sources, and attach any excess to the core. These invariants prove strong connectivity with max(source_count,sink_count) added edges; no quadratic reachability graph is needed. The completed proof supports Advanced rather than the earlier provisional Expert band.",
+      "complexity": "O(n+m) with adjacency vectors; inspected code uses sets and takes O(n+m log n). O(n+m) space.",
+      "evidence_file": "data/cses/evaluation_development.json"
+    },
+    {
+      "id": "cses-2429",
+      "resolved": true,
+      "solution_rationale": "Represent A and B as two partial permutations and use inclusion-exclusion over equal-position collisions. Eligible forced collisions fall into three classes: both entries missing, only A missing with the B value unused in A, and the symmetric class. Choose i,j,k collisions; assign i distinct values unused in both permutations, then multiply factorials for the remaining holes and sign (-1)^(i+j+k). The three classes and free-value intersection capture all dependencies. Requires a substantial grouped inclusion-exclusion derivation, supporting the original Expert judgment.",
+      "complexity": "O(n^2+(c0+1)(c1+1)(c2+1)) time and O(n^2) space in inspected code, where c0+c1+c2<=n; at n=500 the triple loop has fewer than 4.8 million iterations.",
+      "evidence_file": "data/cses/evaluation_development.json"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1112",
+  "title": "Required Substring",
+  "source_url": "https://cses.fi/problemset/task/1112",
+  "observed_at": "2026-09-11T06:53:40.792764+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to calculate the number of strings of length n having a given pattern of length m as their substring. All strings consist of characters A\u2013Z.\n\nInput\n\nThe first input line has an integer n: the length of the final string.\n\nThe second line has a pattern of length m.\n\nOutput\n\nPrint the number of strings modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n1 \\le m \\le 100\n\n\nExample\n\nInput:\n\n6\nABCDB\n\n\nOutput:\n\n52\n\n\nExplanation: The final string will be of the form ABCDBx or xABCDB where x is any character between A\u2013Z.",
+  "statement_sha256": "c884ca203d159498e9ae7f60266f04a53b4a330cd6370fd787a0cc8edc1d70b3"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1144",
+  "title": "Salary Queries",
+  "source_url": "https://cses.fi/problemset/task/1144",
+  "observed_at": "2026-09-11T06:53:27.669818+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA company has n employees with certain salaries. Your task is to keep track of the salaries and process queries.\n\nInput\n\nThe first input line contains two integers n and q: the number of employees and queries. The employees are numbered 1,2,\\ldots,n.\n\nThe next line has n integers p_1,p_2,\\ldots,p_n: each employee's salary.\n\nAfter this, there are q lines describing the queries. Each line has one of the following forms:\n\n\n! k x: change the salary of employee k to x\n\n? a b: count the number of employees whose salary is between a \\ldots b\n\n\nOutput\n\nPrint the answer to each ? query.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le p_i \\le 10^9\n\n1 \\le k \\le n\n\n1 \\le x \\le 10^9\n\n1 \\le a \\le b \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n3 7 2 2 5\n? 2 3\n! 3 6\n? 2 3\n\n\nOutput:\n\n3\n2",
+  "statement_sha256": "8f5bf4b223f435171f4ee3c6a6be3ac829f8d4edb1a7e1a2a3396f531c9030e1"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3397",
+  "title": "Permutation Order",
+  "source_url": "https://cses.fi/problemset/task/3397",
+  "observed_at": "2026-09-11T06:53:35.217822+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nLet p(n,k) denote the kth permutation (in lexicographical order) of 1 \\dots n. For example, p(4,1)=[1,2,3,4] and p(4,2)=[1,2,4,3].\n\nYour task is to process two types of tests:\n\n\nGiven n and k, find p(n,k)\n\nGiven n and p(n,k), find k\n\n\nInput\n\nThe first line has an integer t: the number of tests.\n\nEach test is either \"1 n k\" or \"2 n p(n,k)\".\n\nOutput\n\nFor each test, print the answer according to the example.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n1 \\le n \\le 20\n\n1 \\le k \\le n!\n\n\nExample\n\nInput:\n\n6\n1 4 1\n1 4 2\n2 4 1 2 3 4\n2 4 1 2 4 3\n1 5 42\n2 5 2 4 5 3 1\n\n\nOutput:\n\n1 2 3 4\n1 2 4 3\n1\n2\n2 4 5 3 1\n42",
+  "statement_sha256": "4c007ace9176fe33b9fcb9f1d24983feded63502ff0fa2780636793701e198df"
+}

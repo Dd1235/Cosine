@@ -1,0 +1,8 @@
+{
+  "id": "cses-2426",
+  "title": "Programmers and Artists",
+  "source_url": "https://cses.fi/problemset/task/2426",
+  "observed_at": "2026-09-11T06:54:57.316526+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA company wants to hire a programmers and b artists.\n\nThere are a total of n applicants, and each applicant can become either a programmer or an artist. You know each applicant's programming and artistic skills.\n\nYour task is to select the new employees so that the sum of their skills is maximum.\n\nInput\n\nThe first input line has three integers a, b and n: the required number of programmers and artists, and the total number of applicants.\n\nAfter this, there are n lines that describe the applicants. Each line has two integers x and y: the applicant's programming and artistic skills.\n\nOutput\n\nPrint one integer: the maximum sum of skills.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a,b \\le n\n\na+b \\le n\n\n1 \\le x,y \\le 10^9\n\n\nExample\n\nInput:\n\n2 1 4\n3 7\n9 8\n1 5\n4 2\n\n\nOutput:\n\n20\n\n\nExplanation: An optimal solution is to hire two programmers with skills 9 and 4 and one artist with skill 7. The sum of the skills is 9+4+7=20.",
+  "statement_sha256": "5fc2cf61aa7d8d8277115f1cffc1ae8f87c0fd028190ed021602cce4a79747bc"
+}

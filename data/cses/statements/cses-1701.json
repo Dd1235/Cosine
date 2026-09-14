@@ -1,0 +1,8 @@
+{
+  "id": "cses-1701",
+  "title": "Tree Isomorphism II",
+  "source_url": "https://cses.fi/problemset/task/1701",
+  "observed_at": "2026-09-11T06:54:45.818300+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven two (not rooted) trees, your task is to find out if they are isomorphic, i.e., it is possible to draw them so that they look the same.\n\nInput\n\nThe first input line has an integer t: the number of tests. Then, there are t tests described as follows:\n\nThe first line has an integer n: the number of nodes in both trees. The nodes are numbered 1,2,\\dots,n.\n\nThen, there are n-1 lines describing the edges of the first tree, and finally n-1 lines describing the edges of the second tree.\n\nOutput\n\nFor each test, print \"YES\", if the trees are isomorphic, and \"NO\" otherwise.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n2 \\le n \\le 10^5\n\nthe sum of all values of n is at most 10^5\n\n\nExample\n\nInput:\n\n2\n3\n1 2\n2 3\n1 2\n1 3\n3\n1 2\n2 3\n1 3\n3 2\n\n\nOutput:\n\nYES\nYES",
+  "statement_sha256": "d0473f9d3ef034001af62869822f9e6068eeaa863648a54b1741fb8ce9652252"
+}

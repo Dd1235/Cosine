@@ -27,5 +27,18 @@
       "manhattan-distance": 0.9,
       "nearest-neighbor-search": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3306",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f7e9e95c22b3db67d95d134e0eca0dc1f94e0df835c104187d52910214c32b7a",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "id": "cses-3193",
+  "url": "https://cses.fi/problemset/task/3193",
+  "observed_at": "2026-09-11T07:22:12.600290+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, count the number of subsets whose elements' product is a square number.\n\nAlso count the empty subset with product equal to one.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1, x_2,\\dots, x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the answer to the problem modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n1 \\le x_i \\le 5000\n\n\nExample\n\nInput:\n\n4\n2 2 3 6\n\n\nOutput:\n\n4",
+  "statement_sha256": "44176045dc8b96f7a1bebc56a6e4ec90c230fe95eabbd51a2ac5bc879cff8897",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

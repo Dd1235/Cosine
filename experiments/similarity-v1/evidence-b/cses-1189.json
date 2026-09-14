@@ -1,0 +1,10 @@
+{
+  "id": "cses-1189",
+  "url": "https://cses.fi/problemset/task/1189",
+  "observed_at": "2026-09-11T07:22:00.538065+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n children around a round table. For each child, you know the amount of food they currently have and the amount of food they want. The total amount of food in the table is correct.\n\nAt each step, a child can give one unit of food to his or her neighbour. What is the minimum number of steps needed?\n\nInput\n\nThe first input line contains an integer n: the number of children.\n\nThe next line has n integers a_1,a_2,\\ldots,a_n: the current amount of food for each child.\n\nThe last line has n integers b_1,b_2,\\ldots,b_n: the required amount of food for each child.\n\nOutput\n\nPrint one integer: the minimum number of steps.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a_i, b_i \\le 10^6\n\n\nExample\n\nInput:\n\n3\n3 5 0\n2 4 2\n\n\nOutput:\n\n2\n\n\nExplanation: Child 1 gives one unit of food to child 3, and child 2 gives one unit of food to child 3.",
+  "statement_sha256": "2a399ed6cf7e8099e4c9657d74d3d7776f285f012d4536feb312a6d0a3ed5fe8",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

@@ -29,5 +29,18 @@
       "counting": 0.9,
       "multinomial-coefficient": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1715",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "6dcdfbc8955cb39b64f8b3af9c3a8dd5c90c98124bed53e24a047360562e4728",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

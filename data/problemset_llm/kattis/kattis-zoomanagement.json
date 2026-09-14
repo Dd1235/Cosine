@@ -1,0 +1,37 @@
+{
+ "id": "kattis-zoomanagement",
+ "title": "Zoo Management",
+ "slug": "zoomanagement",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/zoomanagement",
+ "source_topic": "ICPC / World Finals 2022",
+ "source_tags": [],
+ "statement": "Each of up to 400000 enclosures holds one animal type and has a desired final type, the targets being a permutation of the initial types, and tunnels join some pairs of enclosures. One move simultaneously shifts a chosen set of animals to adjacent enclosures so that the moved animals permute among themselves, with no tunnel reused, which forbids swapping two neighbours. Decide whether repeated moves can reach the desired arrangement.",
+ "tags": [],
+ "patterns": [
+  "bridges",
+  "articulation-points",
+  "parity-argument",
+  "string-matching"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "bridges": 0.9,
+   "articulation-points": 0.9,
+   "parity-argument": 0.9,
+   "string-matching": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.4,
+  "label": "hard",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:48+00:00"
+ }
+}

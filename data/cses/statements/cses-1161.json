@@ -1,0 +1,8 @@
+{
+  "id": "cses-1161",
+  "title": "Stick Divisions",
+  "source_url": "https://cses.fi/problemset/task/1161",
+  "observed_at": "2026-09-11T06:54:59.916232+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have a stick of length x and you want to divide it into n sticks, with given lengths, whose total length is x.\n\nOn each move you can take any stick and divide it into two sticks. The cost of such an operation is the length of the original stick.\n\nWhat is the minimum cost needed to create the sticks?\n\nInput\n\nThe first input line has two integers x and n: the length of the stick and the number of sticks in the division.\n\nThe second line has n integers d_1,d_2,\\ldots,d_n: the length of each stick in the division.\n\nOutput\n\nPrint one integer: the minimum cost of the division.\n\nConstraints\n\n\n1 \\le x \\le 10^9\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\\sum d_i = x\n\n\nExample\n\nInput:\n\n8 3\n2 3 3\n\n\nOutput:\n\n13\n\n\nExplanation: You first divide the stick of length 8 into sticks of length 3 and 5 (cost 8). After this, you divide the stick of length 5 into sticks of length 2 and 3 (cost 5). The total cost is 8+5=13.",
+  "statement_sha256": "39f76fb42413c2ade4e8222e33f8f565feedd63202139e1ae44169c13ddf9c1f"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-addition-to-make-integer-beautiful",
+  "url": "https://leetcode.com/problems/minimum-addition-to-make-integer-beautiful/",
+  "observed_at": "2026-09-11T07:22:14.569929+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two positive integers n and target . \n\n An integer is considered beautiful if the sum of its digits is less than or equal to target . \n\n Return the minimum non-negative integer x such that n + x is beautiful . The input will be generated such that it is always possible to make n beautiful. \n\n \u00a0 \n Example 1: \n\n \n Input: n = 16, target = 6\n Output: 4\n Explanation: Initially n is 16 and its digit sum is 1 + 6 = 7. After adding 4, n becomes 20 and digit sum becomes 2 + 0 = 2. It can be shown that we can not make n beautiful with adding non-negative integer less than 4.\n \n\n Example 2: \n\n \n Input: n = 467, target = 6\n Output: 33\n Explanation: Initially n is 467 and its digit sum is 4 + 6 + 7 = 17. After adding 33, n becomes 500 and digit sum becomes 5 + 0 + 0 = 5. It can be shown that we can not make n beautiful with adding non-negative integer less than 33.\n \n\n Example 3: \n\n \n Input: n = 1, target = 1\n Output: 0\n Explanation: Initially n is 1 and its digit sum is 1, which is already smaller than or equal to target.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 12 \n 1 <= target <= 150 \n The input will be generated such that it is always possible to make n beautiful.",
+  "statement_sha256": "9f1899ad2d9e8e9862a48dacd38b12deebf99a4aa77bda3cfdf0fb7d9d1bbdee",
+  "raw_sha256": "da67929d6de10738c34ee3c1bbcfabd46a1733cd7dcbc2643806d15858926195",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

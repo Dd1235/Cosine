@@ -275,6 +275,10 @@ def platform_from_url(url: str) -> str:
         return "codeforces"
     if "cses.fi" in host:
         return "cses"
+    if host in {"codechef.com", "www.codechef.com"}:
+        return "codechef"
+    if host in {"open.kattis.com", "icpc.kattis.com"}:
+        return "kattis"
     if "atcoder.jp" in host:
         return "atcoder"
     return host.replace("www.", "")
@@ -307,6 +311,9 @@ def base_from_url(item: UrlItem, cf_cache: dict[tuple[int, str], dict[str, Any]]
         return cses_metadata(item)
     if platform == "atcoder":
         return atcoder_metadata(item)
+    if platform in {"codechef", "kattis"}:
+        from external_judges import metadata
+        return metadata(item.url, item.source_topic)
     title = urlparse(item.url).path.strip("/").split("/")[-1] or item.url
     return {
         "id": slugify(f"{platform}-{title}"),
@@ -393,6 +400,8 @@ def leetcode_metadata(item: UrlItem) -> dict[str, Any]:
 
 def codeforces_problem_key(url: str) -> tuple[int, str] | None:
     m = re.search(r"/problemset/problem/(\d+)/([A-Za-z0-9]+)", url)
+    if not m:
+        m = re.search(r"/(?:contest|gym)/(\d+)/problem/([A-Za-z0-9]+)", url)
     if not m:
         return None
     return int(m.group(1)), m.group(2)
@@ -770,7 +779,7 @@ def main() -> int:
     ap.add_argument(
         "--platform",
         action="append",
-        choices=["leetcode", "codeforces", "cses"],
+        choices=["leetcode", "codeforces", "cses", "atcoder", "codechef", "kattis"],
         help="Filter URLs by platform. Can be repeated.",
     )
     ap.add_argument(

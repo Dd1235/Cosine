@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-sum-of-numbers-with-units-digit-k",
+  "url": "https://leetcode.com/problems/sum-of-numbers-with-units-digit-k/",
+  "observed_at": "2026-09-11T07:22:09.058295+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given two integers num and k , consider a set of positive integers with the following properties: \n\n \n The units digit of each integer is k . \n The sum of the integers is num . \n \n\n Return the minimum possible size of such a set, or -1 if no such set exists. \n\n Note: \n\n \n The set can contain multiple instances of the same integer, and the sum of an empty set is considered 0 . \n The units digit of a number is the rightmost digit of the number. \n \n\n \u00a0 \n Example 1: \n\n \n Input: num = 58, k = 9\n Output: 2\n Explanation: \nOne valid set is [9,49], as the sum is 58 and each integer has a units digit of 9.\nAnother valid set is [19,39].\nIt can be shown that 2 is the minimum possible size of a valid set.\n \n\n Example 2: \n\n \n Input: num = 37, k = 2\n Output: -1\n Explanation: It is not possible to obtain a sum of 37 using only integers that have a units digit of 2.\n \n\n Example 3: \n\n \n Input: num = 0, k = 7\n Output: 0\n Explanation: The sum of an empty set is considered 0.\n \n\n \u00a0 \n Constraints: \n\n \n 0 <= num <= 3000 \n 0 <= k <= 9",
+  "statement_sha256": "2bddd9b1cdbcda3922cfe2ab172e77d81efe4233c97f8a734f29dedf291e5f7e",
+  "raw_sha256": "8278d79dd66bf02108fcb8a85bef110eca6792164ae9ce50ccbd6ba8220faafa",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

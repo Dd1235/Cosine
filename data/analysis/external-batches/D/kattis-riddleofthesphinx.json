@@ -1,0 +1,23 @@
+{
+ "id": "kattis-riddleofthesphinx",
+ "status": "solved",
+ "solution": "Interactive and adversarial: the hidden triple (A,B,C) must be recovered from five queries whose replies are linear forms a*A+b*B+c*C, at most one of which is a lie. Ask the three unit queries (1,0,0), (0,1,0), (0,0,1) giving x, y, z, then (1,1,1) giving s, and let d = s-(x+y+z). If d = 0 no lie can be hiding among those four, because corrupting exactly one of them breaks the identity, so the answer is (x,y,z) and the mandatory fifth round is a throwaway query. If d != 0 the single lie is already spent, so the fifth reply is honest, and the truth must be one of exactly four candidates (x,y,z), (x+d,y,z), (x,y+d,z), (x,y,z+d) according to which round lied; asking (1,2,3) separates them because their values are v, v+d, v+2d, v+3d with d != 0 and distinct nonzero weights. Constant work, five rounds, and the argument uniquely pins the triple even against an adaptive sphinx.",
+ "solution_confidence": 0.97,
+ "statement_summary": "An interactive, adversarial riddle hides three nonnegative integers, the leg counts of three mythical creatures. The program asks exactly five questions; each supplies three coefficients between 0 and 10 and receives the claimed total legs of that many creatures. At most one of the five answers may be an outright lie, and which one is unknown. Afterwards the program must print the three exact counts.",
+ "patterns": [
+  "interactive",
+  "constructive-algorithm"
+ ],
+ "pattern_confidence": {
+  "interactive": 0.98,
+  "constructive-algorithm": 0.82
+ },
+ "tags": [
+  "interactive",
+  "math",
+  "constructive-algorithm"
+ ],
+ "source_text_sha256": "7a524e90087682ed94c414c8074fa4e8280d0b92206787dcae6032e1d701b52f",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchD/verify_riddleofthesphinx.py",
+ "notes": "Genuinely interactive and adaptive: the sphinx answers online and may lie once, so a fixed query set has to be self-checking - this is why 'interactive' plus 'constructive-algorithm' (designing the five queries so one corrupted reply is both detected and corrected) are the two real labels. Vocabulary gap: nothing in the canonical list names error-detecting/error-correcting queries or solving an overdetermined linear system with one faulty equation; those would be the precise labels. Deliberately NOT labelled: 'binary-search' or 'binary-search-answer' (no monotone search at all), 'gaussian-elimination' (the system is unit vectors, no elimination), 'brute-force' (checking four candidates is scaffolding, not the idea). Trap the verifier records: repeating (1,1,1) as the fifth query fails - truths (1,5,0) and (5,1,0) produce identical transcripts - so the fifth query needs distinct nonzero weights."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-vowels-of-all-substrings",
+  "url": "https://leetcode.com/problems/vowels-of-all-substrings/description/",
+  "observed_at": "2026-09-11T07:21:59.473040+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string word , return the sum of the number of vowels ( 'a' , 'e' , 'i' , 'o' , and 'u' ) in every substring of word . \n\n A substring is a contiguous (non-empty) sequence of characters within a string. \n\n Note: Due to the large constraints, the answer may not fit in a signed 32-bit integer. Please be careful during the calculations. \n\n \u00a0 \n Example 1: \n\n \n Input: word = \"aba\"\n Output: 6\n Explanation: \nAll possible substrings are: \"a\", \"ab\", \"aba\", \"b\", \"ba\", and \"a\".\n- \"b\" has 0 vowels in it\n- \"a\", \"ab\", \"ba\", and \"a\" have 1 vowel each\n- \"aba\" has 2 vowels in it\nHence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6. \n \n\n Example 2: \n\n \n Input: word = \"abc\"\n Output: 3\n Explanation: \nAll possible substrings are: \"a\", \"ab\", \"abc\", \"b\", \"bc\", and \"c\".\n- \"a\", \"ab\", and \"abc\" have 1 vowel each\n- \"b\", \"bc\", and \"c\" have 0 vowels each\nHence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.\n \n\n Example 3: \n\n \n Input: word = \"ltcd\"\n Output: 0\n Explanation: There are no vowels in any substring of \"ltcd\".\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= word.length <= 10 5 \n word consists of lowercase English letters.",
+  "statement_sha256": "3dcb00e39ea132e2e606f0a8b9585b243cdc1b83624a4205557d5ec884c5d09f",
+  "raw_sha256": "01f06dcfb0763a73a76ace8348b28854c6ee35bd324531f0df20c92ef5c89138",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -24,5 +24,18 @@
       "bridges": 1,
       "tarjan": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2076",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5e809679657550b9b6de586eac9f1d1425704e04820943b6575910d7e343bbde",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

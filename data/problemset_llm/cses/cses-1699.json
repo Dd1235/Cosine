@@ -25,5 +25,18 @@
       "condensation-graph": 0.9,
       "minimum-edge-addition": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1699",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "55328dc871e1e06976b38163373bc2d52ea98d9d85ea862fadb60202b9ed2b43",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

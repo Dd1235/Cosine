@@ -27,5 +27,18 @@
       "matrix-exponentiation": 0.95,
       "shortest-path": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1724",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f81912994b28b56f3be54c847375305651e92f60ad4f5121e1fe17e07eaf8cd8",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1674",
+  "title": "Subordinates",
+  "source_url": "https://cses.fi/problemset/task/1674",
+  "observed_at": "2026-09-11T06:53:30.302010+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven the structure of a company, your task is to calculate for each employee the number of their subordinates.\n\nInput\n\nThe first input line has an integer n: the number of employees. The employees are numbered 1,2,\\dots,n, and employee 1 is the general director of the company.\n\nAfter this, there are n-1 integers: for each employee 2,3,\\dots,n their direct boss in the company.\n\nOutput\n\nPrint n integers: for each employee 1,2,\\dots,n the number of their subordinates.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n5\n1 1 2 3\n\n\nOutput:\n\n4 1 1 0 0",
+  "statement_sha256": "303ec243aad4aaf22a061ec534e665d5507136e408c259d25ba8151f439db89a"
+}

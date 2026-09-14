@@ -1,0 +1,10 @@
+{
+  "id": "cses-1754",
+  "url": "https://cses.fi/problemset/task/1754",
+  "observed_at": "2026-09-11T07:22:16.797313+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have two coin piles containing a and b coins. On each move, you can either remove one coin from the left pile and two coins from the right pile, or two coins from the left pile and one coin from the right pile.\n\nYour task is to efficiently find out if you can empty both the piles.\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter this, there are t lines, each of which has two integers a and b: the numbers of coins in the piles.\n\nOutput\n\nFor each test, print \"YES\" if you can empty the piles and \"NO\" otherwise.\n\nConstraints\n\n\n1 \\le t \\le 10^5\n\n0 \\le a, b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n2 1\n2 2\n3 3\n\n\nOutput:\n\nYES\nNO\nYES",
+  "statement_sha256": "9db8cffb4d85236aac2ea082cf57709982f7445ccdcb1d848038f1d169a762ef",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

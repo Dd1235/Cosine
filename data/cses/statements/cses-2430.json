@@ -1,0 +1,8 @@
+{
+  "id": "cses-2430",
+  "title": "Binary Subsequences",
+  "source_url": "https://cses.fi/problemset/task/2430",
+  "observed_at": "2026-09-11T06:54:56.616177+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to find a minimum length bit string that has exactly n distinct subsequences.\n\nFor example, a correct solution for n=6 is 101 whose distinct subsequences are 0, 1, 01, 10, 11 and 101.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint one bit string: a solution to the task. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n6\n\n\nOutput:\n\n101",
+  "statement_sha256": "13db1510edc1d05345981e0a541bbac95665ef302afd208e738bed4db30689f6"
+}

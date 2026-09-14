@@ -1,0 +1,8 @@
+{
+  "id": "cses-1073",
+  "title": "Towers",
+  "source_url": "https://cses.fi/problemset/task/1073",
+  "observed_at": "2026-09-11T06:53:13.515099+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given n cubes in a certain order, and your task is to build towers using them. Whenever two cubes are one on top of the other, the upper cube must be smaller than the lower cube.\n\nYou must process the cubes in the given order. You can always either place the cube on top of an existing tower, or begin a new tower. What is the minimum possible number of towers?\n\nInput\n\nThe first input line contains an integer n: the number of cubes.\n\nThe next line contains n integers k_1,k_2,\\ldots,k_n: the sizes of the cubes.\n\nOutput\n\nPrint one integer: the minimum number of towers.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n3 8 2 1 5\n\n\nOutput:\n\n2",
+  "statement_sha256": "ad164f852f191a2e646eabdd2cf0dadf01b05450adf908606a2d693dd70a39d2"
+}

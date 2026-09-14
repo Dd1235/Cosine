@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc167-e",
+  "url": "https://atcoder.jp/contests/abc167/tasks/abc167_e",
+  "observed_at": "2026-09-11T07:21:45.548796+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N blocks arranged in a row. Let us paint these blocks.\r\n\nWe will consider two ways to paint the blocks different if and only if there is a block painted in different colors in those two ways.\r\n\nFind the number of ways to paint the blocks under the following conditions:\r\n\nFor each block, use one of the M colors, Color 1 through Color M, to paint it. It is not mandatory to use all the colors.\r\n\nThere may be at most K pairs of adjacent blocks that are painted in the same color.\r\n\nSince the count may be enormous, print it modulo 998244353.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n1 \\leq N, M \\leq 2 \\times 10^5\r\n\n0 \\leq K \\leq N - 1\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN M K\r\n\nOutput\nPrint the answer.\r\n\nSample Input 1\n3 2 1\r\n\nSample Output 1\n6\r\n\nThe following ways to paint the blocks satisfy the conditions: 112, 121, 122, 211, 212, and 221. Here, digits represent the colors of the blocks.\r\n\nSample Input 2\n100 100 0\r\n\nSample Output 2\n73074801\r\n\nSample Input 3\n60522 114575 7559\r\n\nSample Output 3\n479519525",
+  "statement_sha256": "20863f52da9d69f78767c1307aaaecaa6e585c972fde1d91ad6142ac6d2a8426",
+  "raw_sha256": "43bf55d47fa919e0245a141286385724cb0df736f08b79a1e85bda2a698a4044",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

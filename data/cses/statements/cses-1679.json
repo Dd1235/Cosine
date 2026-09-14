@@ -1,0 +1,8 @@
+{
+  "id": "cses-1679",
+  "title": "Course Schedule",
+  "source_url": "https://cses.fi/problemset/task/1679",
+  "observed_at": "2026-09-11T06:53:22.923127+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have to complete n courses. There are m requirements of the form \"course a has to be completed before course b\". Your task is to find an order in which you can complete the courses.\n\nInput\n\nThe first input line has two integers n and m: the number of courses and requirements. The courses are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the requirements. Each line has two integers a and b: course a has to be completed before course b.\n\nOutput\n\nPrint an order in which you can complete the courses. You can print any valid order that includes all the courses.\n\nIf there are no solutions, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 3\n1 2\n3 1\n4 5\n\n\nOutput:\n\n3 4 1 5 2",
+  "statement_sha256": "e631a514eaa785502b6ca17bbf409c963e95567af6e5b8763226adbd6a4a5bd0"
+}

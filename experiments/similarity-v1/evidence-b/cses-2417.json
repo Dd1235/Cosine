@@ -1,0 +1,10 @@
+{
+  "id": "cses-2417",
+  "url": "https://cses.fi/problemset/task/2417",
+  "observed_at": "2026-09-11T07:22:22.436192+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a list of n positive integers, your task is to count the number of pairs of integers that are coprime (i.e., their greatest common divisor is one).\n\nInput\n\nThe first input line has an integer n: the number of elements.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the list.\n\nOutput\n\nPrint one integer: the answer for the task.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le x_i \\le 10^6\n\n\nExample\n\nInput:\n\n8\n5 4 20 1 16 17 5 15\n\n\nOutput:\n\n19",
+  "statement_sha256": "ff550000692a286e4e1774985c35d65edd0cafb129e71bd9b379d0ede9627867",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

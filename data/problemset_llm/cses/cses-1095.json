@@ -22,5 +22,18 @@
     "pattern_confidence": {
       "modular-exponentiation": 0.98
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1095",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "49949077fd4b64901e6ec3000ed6592435a95dabe48c714fb7e200c3ee02c907",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

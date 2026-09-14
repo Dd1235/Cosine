@@ -1,0 +1,8 @@
+{
+  "id": "cses-1716",
+  "title": "Distributing Apples",
+  "source_url": "https://cses.fi/problemset/task/1716",
+  "observed_at": "2026-09-11T06:53:35.022868+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n children and m apples that will be distributed to them. Your task is to count the number of ways this can be done.\n\nFor example, if n=3 and m=2, there are 6 ways: [0,0,2], [0,1,1], [0,2,0], [1,0,1], [1,1,0] and [2,0,0].\n\nInput\n\nThe only input line has two integers n and m.\n\nOutput\n\nPrint the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n,m \\le 10^6\n\n\nExample\n\nInput:\n\n3 2\n\n\nOutput:\n\n6",
+  "statement_sha256": "8bcf83fbde9528d55381aa6bbe13c1fa23106b803b644b5595d395284ecc9c04"
+}

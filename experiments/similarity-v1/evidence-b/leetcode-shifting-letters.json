@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-shifting-letters",
+  "url": "https://leetcode.com/problems/shifting-letters/",
+  "observed_at": "2026-09-11T07:21:51.260926+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s of lowercase English letters and an integer array shifts of the same length. \n\n Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that 'z' becomes 'a' ). \n\n \n For example, shift('a') = 'b' , shift('t') = 'u' , and shift('z') = 'a' . \n \n\n Now for each shifts[i] = x , we want to shift the first i + 1 letters of s , x times. \n\n Return the final string after all such shifts to s are applied . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abc\", shifts = [3,5,9]\n Output: \"rpl\"\n Explanation: We start with \"abc\".\nAfter shifting the first 1 letters of s by 3, we have \"dbc\".\nAfter shifting the first 2 letters of s by 5, we have \"igc\".\nAfter shifting the first 3 letters of s by 9, we have \"rpl\", the answer.\n \n\n Example 2: \n\n \n Input: s = \"aaa\", shifts = [1,2,3]\n Output: \"gfd\"\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consists of lowercase English letters. \n shifts.length == s.length \n 0 <= shifts[i] <= 10 9",
+  "statement_sha256": "8275706855fb3f682bff836c6400c190bf513ae2c096e79462eb7ec5fa7744a4",
+  "raw_sha256": "5d4a96ae07e2aa5f3345968e6e5218f3b6bdaf318c7f8ca13826cb5746339442",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

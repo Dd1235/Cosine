@@ -1,0 +1,41 @@
+{
+ "id": "kattis-easyquery",
+ "title": "Easy Query",
+ "slug": "easyquery",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/easyquery",
+ "source_topic": "ICPC / The 2019 Asia Danang Regional Contest",
+ "source_tags": [],
+ "statement": "An array of up to two hundred thousand integers is given together with as many queries. Each query names a contiguous range and a window of positions within that range once the range has been sorted, and asks for the sum of three bitwise ors: over the values occurring at least once, at least twice, and at least three times inside that sorted window. The array is never modified.",
+ "tags": [],
+ "patterns": [
+  "segment-tree",
+  "persistent-segment-tree",
+  "offline-queries",
+  "bit-manipulation",
+  "order-statistics",
+  "coordinate-compression"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "segment-tree": 0.9,
+   "persistent-segment-tree": 0.9,
+   "offline-queries": 0.9,
+   "bit-manipulation": 0.9,
+   "order-statistics": 0.9,
+   "coordinate-compression": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.8,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:38+00:00"
+ }
+}

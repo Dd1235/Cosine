@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc129-e",
+  "url": "https://atcoder.jp/contests/abc129/tasks/abc129_e",
+  "observed_at": "2026-09-11T07:22:06.284376+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given a positive integer L in base two.\r\nHow many pairs of non-negative integers (a, b) satisfy the following conditions?\r\n\na + b \\leq L\r\n\na + b = a \\text{ XOR } b\r\n\nSince there can be extremely many such pairs, print the count modulo 10^9 + 7.\r\n\n What is XOR?\r\n\nThe XOR of integers A and B, A \\text{ XOR } B, is defined as follows:\r\n\nWhen A \\text{ XOR } B is written in base two, the digit in the 2^k's place (k \\geq 0) is 1 if either A or B, but not both, has 1 in the 2^k's place, and 0 otherwise.\r\n\nFor example, 3 \\text{ XOR } 5 = 6. (In base two: 011 \\text{ XOR } 101 = 110.)\r\n\nConstraints\r\n\nL is given in base two, without leading zeros.\r\n\n1 \\leq L < 2^{100\\ 001}\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nL\r\n\nOutput\nPrint the number of pairs (a, b) that satisfy the conditions, modulo 10^9 + 7.\r\n\nSample Input 1\n10\r\n\nSample Output 1\n5\r\n\nFive pairs (a, b) satisfy the conditions: (0, 0), (0, 1), (1, 0), (0, 2) and (2, 0).\r\n\nSample Input 2\n1111111111111111111\r\n\nSample Output 2\n162261460",
+  "statement_sha256": "1dc036db1e1d7fdfaabb58c9cea0cf8ec922613d4e6beba0198a4d8579d07aae",
+  "raw_sha256": "2b36d9c0c5e197698af3f12e0ddf5764ae8cfe936d60f116c89205bddc70d430",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

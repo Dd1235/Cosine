@@ -1,0 +1,8 @@
+{
+  "id": "cses-1633",
+  "title": "Dice Combinations",
+  "source_url": "https://cses.fi/problemset/task/1633",
+  "observed_at": "2026-09-11T06:53:16.700238+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of ways to construct sum n by throwing a dice one or more times. Each throw produces an outcome between 1 and  6.\n\nFor example, if n=3, there are 4 ways:\n\n\n1+1+1\n\n1+2\n\n2+1\n\n3\n\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n\n\nOutput:\n\n4",
+  "statement_sha256": "ece13ae58c40752fa23a9d828c31378f94a03dc85fdbeef2e94298681a869af0"
+}

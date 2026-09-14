@@ -1,0 +1,8 @@
+{
+  "id": "cses-1623",
+  "title": "Apple Division",
+  "source_url": "https://cses.fi/problemset/task/1623",
+  "observed_at": "2026-09-11T06:52:42.030018+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n apples with known weights. Your task is to divide the apples into two groups so that the difference between the weights of the groups is minimal.\n\nInput\n\nThe first input line has an integer n: the number of apples.\n\nThe next line has n integers p_1,p_2,\\dots,p_n: the weight of each apple.\n\nOutput\n\nPrint one integer: the minimum difference between the weights of the groups.\n\nConstraints\n\n\n1 \\le n \\le 20\n\n1 \\le p_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n3 2 7 4 1\n\n\nOutput:\n\n1\n\n\nExplanation: Group 1 has weights 2, 3 and 4 (total weight 9), and group 2 has weights 1 and 7 (total weight 8).",
+  "statement_sha256": "95fb5edbe08d0318369d51dfacece57985eff3fae895b1bb5f7a4ae32bc42ae5"
+}

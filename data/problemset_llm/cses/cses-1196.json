@@ -26,5 +26,18 @@
       "dijkstra": 0.95,
       "best-first-search": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1196",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "bebf4fcc5d997165c425e7226214138a8adec1ff0a47a9f8ac81dcdb8c3ac5b6",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

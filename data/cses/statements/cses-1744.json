@@ -1,0 +1,8 @@
+{
+  "id": "cses-1744",
+  "title": "Rectangle Cutting",
+  "source_url": "https://cses.fi/problemset/task/1744",
+  "observed_at": "2026-09-11T06:53:18.572244+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an a \\times b rectangle, your task is to cut it into squares. On each move you can select a rectangle and cut it into two rectangles in such a way that all side lengths remain integers. What is the minimum possible number of moves?\n\nInput\n\nThe only input line has two integers a and b.\n\nOutput\n\nPrint one integer: the minimum number of moves.\n\nConstraints\n\n\n1 \\le a,b \\le 500\n\n\nExample\n\nInput:\n\n3 5\n\n\nOutput:\n\n3",
+  "statement_sha256": "717479a3476e57a1c6f4a3b97762aff8cbe394ea048f6d8f8c992c19617a162d"
+}

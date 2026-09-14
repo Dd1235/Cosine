@@ -1,0 +1,8 @@
+{
+  "id": "cses-3415",
+  "title": "All Letter Subgrid Count I",
+  "source_url": "https://cses.fi/problemset/task/3415",
+  "observed_at": "2026-09-11T06:54:47.886382+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a grid of letters. Your task is to calculate the number of square subgrids that contain all the letters.\n\nInput\n\nThe first line has two integers n and k: the size of the grid and the number of letters. The letters are the first k uppercase letters.\n\nAfter this, there are n lines that describe the grid. Each line has n letters.\n\nOutput\n\nPrint the number of subgrids.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n1 \\le k \\le 26\n\n\nExample\n\nInput:\n\n5 3\nABBBC\nBBBBC\nBCAAA\nAAAAA\nAAAAA\n\n\nOutput:\n\n15",
+  "statement_sha256": "1a89c4c1b6041f300ad264374a7e64daf8891a448210a96a752259e429a41257"
+}

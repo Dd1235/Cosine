@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-manhattan-distance-after-all-moves",
+  "url": "https://leetcode.com/problems/maximum-manhattan-distance-after-all-moves/",
+  "observed_at": "2026-09-11T07:22:20.936686+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string moves consisting of the characters 'U' , 'D' , 'L' , 'R' , and '_' . \n\n Starting from the origin (0, 0) , each character represents one move on a 2D plane: \n\n \n 'U' : Move up by 1 unit. \n 'D' : Move down by 1 unit. \n 'L' : Move left by 1 unit. \n 'R' : Move right by 1 unit. \n '_' : Can be independently replaced with any one of 'U' , 'D' , 'L' , or 'R' . \n \n\n Return the maximum Manhattan distance from the origin that can be achieved after all moves have been performed. \n\n \u00a0 \n Example 1: \n\n \n Input: moves = \"L_D_\" \n\n Output: 4 \n\n Explanation: \n\n One optimal choice is: \n\n \n 'L' : (0, 0) -> (-1, 0) \n '_' treated as 'D' : (-1, 0) -> (-1, -1) \n 'D' : (-1, -1) -> (-1, -2) \n '_' treated as 'L' : (-1, -2) -> (-2, -2) \n \n\n The final Manhattan distance from the origin is |0 - (-2)| + |0 - (-2)| = 4 . \n \n\n Example 2: \n\n \n Input: moves = \"U_R\" \n\n Output: 3 \n\n Explanation: \n\n One optimal choice is: \n\n \n 'U' : (0, 0) -> (0, 1) \n '_' treated as 'U' : (0, 1) -> (0, 2) \n 'R' : (0, 2) -> (1, 2) \n \n\n The final Manhattan distance from the origin is |0 - 1| + |0 - 2| = 3 . \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= moves.length <= 10 5 \n moves consists of only 'U' , 'D' , 'L' , 'R' , and '_' .",
+  "statement_sha256": "ff05ee16b4e13113735fc0b70d56e1754920410b0b1edd4a935adce15ccd39f3",
+  "raw_sha256": "99c58f47f0f81723e32f258e66d2458d83f2008a38d4b5b593133436bcb3fb5c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

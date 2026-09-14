@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-pairs-of-nodes",
+  "url": "https://leetcode.com/problems/count-pairs-of-nodes/",
+  "observed_at": "2026-09-11T07:22:01.826845+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an undirected graph defined by an integer n , the number of nodes, and a 2D integer array edges , the edges in the graph, where edges[i] = [u i , v i ] indicates that there is an undirected edge between u i and v i . You are also given an integer array queries . \n\n Let incident(a, b) be defined as the number of edges that are connected to either node a or b . \n\n The answer to the j th query is the number of pairs of nodes (a, b) that satisfy both of the following conditions: \n\n \n a < b \n incident(a, b) > queries[j] \n \n\n Return an array answers such that answers.length == queries.length and answers[j] is the answer of the j th query . \n\n Note that there can be multiple edges between the same two nodes. \n\n \u00a0 \n Example 1: \n \n \n Input: n = 4, edges = [[1,2],[2,4],[1,3],[2,3],[2,1]], queries = [2,3]\n Output: [6,5]\n Explanation: The calculations for incident(a, b) are shown in the table above.\nThe answers for each of the queries are as follows:\n- answers[0] = 6. All the pairs have an incident(a, b) value greater than 2.\n- answers[1] = 5. All the pairs except (3, 4) have an incident(a, b) value greater than 3.\n \n\n Example 2: \n\n \n Input: n = 5, edges = [[1,5],[1,5],[3,4],[2,5],[1,3],[5,1],[2,3],[2,5]], queries = [1,2,3,4,5]\n Output: [10,10,9,8,6]\n \n\n \u00a0 \n Constraints: \n\n \n 2 <= n <= 2 * 10 4 \n 1 <= edges.length <= 10 5 \n 1 <= u i , v i <= n \n u i != v i \n 1 <= queries.length <= 20 \n 0 <= queries[j] < edges.length",
+  "statement_sha256": "c8428f1aa9d49af1912afaf34f15a613107be149efc935cf484fc016be5f500c",
+  "raw_sha256": "3f94f1c36840e32c650f20b6d56250536b948d08899d43955c51fd4642266e14",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

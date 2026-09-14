@@ -4,11 +4,33 @@ const crypto = require("crypto");
 
 // Single source of truth for the dense ranker's model identity. The committed
 // corpus artifact and the query-time embedder MUST come from the same
-// {model, dtype} pair or query/doc similarities silently drift — the manifest
-// records both and boot refuses to register dense on mismatch.
+// embedding recipe or query/doc similarities silently drift — the manifest
+// records model, tokenizer, package, dtype, pooling and singleton policy.
 const MODEL_ID = "Xenova/all-MiniLM-L6-v2";
 const DTYPE = "q8"; // quantized ONNX weights (~23 MB) — fits a 512 MB instance
 const DIMS = 384;
+const RECIPE_VERSION = 2;
+
+// This identity is shared by offline documents and online queries. Singleton
+// inference prevents dynamic batch padding from changing quantized vectors.
+function embeddingRecipe() {
+  return {
+    version: RECIPE_VERSION,
+    model: MODEL_ID,
+    tokenizer: MODEL_ID,
+    dtype: DTYPE,
+    package: installedPackageVersion(),
+    pooling: "mean",
+    normalize: true,
+    inferenceBatchSize: 1,
+    textFields: "title+statement+tags+patterns",
+  };
+}
+
+function matchesEmbeddingRecipe(recipe) {
+  const expected = embeddingRecipe();
+  return recipe != null && Object.keys(expected).every((key) => recipe[key] === expected[key]);
+}
 
 const ARTIFACT_DIR = path.join(__dirname, "..", "..", "data", "embeddings");
 const VECTORS_FILE = "corpus.f32"; // raw little-endian Float32Array, row i = doc i
@@ -41,13 +63,17 @@ async function createEmbedder() {
   // embed(texts) -> Float32Array(texts.length * DIMS), L2-normalized rows,
   // so cosine similarity between any two rows is a plain dot product.
   return async function embed(texts) {
-    const out = await extractor(texts, { pooling: "mean", normalize: true });
-    const [batch, dims] = out.dims;
-    if (batch !== texts.length || dims !== DIMS) {
-      throw new Error(`unexpected embedding shape [${out.dims}] for batch of ${texts.length}`);
+    const matrix = new Float32Array(texts.length * DIMS);
+    for (let i = 0; i < texts.length; i++) {
+      const out = await extractor([texts[i]], { pooling: "mean", normalize: true });
+      const [batch, dims] = out.dims;
+      if (batch !== 1 || dims !== DIMS) {
+        throw new Error(`unexpected embedding shape [${out.dims}] for singleton`);
+      }
+      // Copy out of tensor-backed ORT memory before the next inference.
+      matrix.set(out.data, i * DIMS);
     }
-    // Copy out of the tensor view so we never hold backing ORT memory.
-    return new Float32Array(out.data);
+    return matrix;
   };
 }
 
@@ -85,6 +111,8 @@ function installedPackageVersion() {
 
 module.exports = {
   MODEL_ID,
+  embeddingRecipe,
+  matchesEmbeddingRecipe,
   DTYPE,
   DIMS,
   ARTIFACT_DIR,

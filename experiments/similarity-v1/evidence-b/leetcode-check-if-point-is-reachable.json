@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-check-if-point-is-reachable",
+  "url": "https://leetcode.com/problems/check-if-point-is-reachable/",
+  "observed_at": "2026-09-11T07:21:45.883738+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There exists an infinitely large grid. You are currently at point (1, 1) , and you need to reach the point (targetX, targetY) using a finite number of steps. \n\n In one step , you can move from point (x, y) to any one of the following points: \n\n \n (x, y - x) \n (x - y, y) \n (2 * x, y) \n (x, 2 * y) \n \n\n Given two integers targetX and targetY representing the X-coordinate and Y-coordinate of your final position, return true if you can reach the point from (1, 1) using some number of steps, and false otherwise . \n\n \u00a0 \n Example 1: \n\n \n Input: targetX = 6, targetY = 9\n Output: false\n Explanation: It is impossible to reach (6,9) from (1,1) using any sequence of moves, so false is returned.\n \n\n Example 2: \n\n \n Input: targetX = 4, targetY = 7\n Output: true\n Explanation: You can follow the path (1,1) -> (1,2) -> (1,4) -> (1,8) -> (1,7) -> (2,7) -> (4,7).\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= targetX, targetY\u00a0<= 10 9",
+  "statement_sha256": "104f5f36af62904ad1dfe742a5f418eab2367efaddbbdb577d2d524584e5c2b2",
+  "raw_sha256": "16e6cc48e513e5361a9e3a2aa9babfb718ac9d087fd6ee5918ae42fbdc292bdf",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

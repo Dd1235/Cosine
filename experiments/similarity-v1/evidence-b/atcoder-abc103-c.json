@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc103-c",
+  "url": "https://atcoder.jp/contests/abc103/tasks/abc103_c",
+  "observed_at": "2026-09-11T07:21:42.593389+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given N positive integers a_1, a_2, ..., a_N.\r\n\nFor a non-negative integer m, let f(m) = (m\\ mod\\ a_1) + (m\\ mod\\ a_2) + ... + (m\\ mod\\ a_N).\r\n\nHere, X\\ mod\\ Y denotes the remainder of the division of X by Y.\r\n\nFind the maximum value of f.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n2 \\leq N \\leq 3000\r\n\n2 \\leq a_i \\leq 10^5\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\na_1 a_2 ... a_N\r\n\nOutput\nPrint the maximum value of f.\r\n\nSample Input 1\n3\r\n3 4 6\r\n\nSample Output 1\n10\r\n\nf(11) = (11\\ mod\\ 3) + (11\\ mod\\ 4) + (11\\ mod\\ 6) = 10 is the maximum value of f.\r\n\nSample Input 2\n5\r\n7 46 11 20 11\r\n\nSample Output 2\n90\r\n\nSample Input 3\n7\r\n994 518 941 851 647 2 581\r\n\nSample Output 3\n4527",
+  "statement_sha256": "748cd29f0597a4373d46ae6bbab3880f1bfa8c080117c317606018eb1f6bbc3b",
+  "raw_sha256": "cea397f6d74b3052f1078249df272a86414dd9d95e8021a1591580a192b7e07c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

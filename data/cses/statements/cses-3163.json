@@ -1,0 +1,8 @@
+{
+  "id": "cses-3163",
+  "title": "Range Interval Queries",
+  "source_url": "https://cses.fi/problemset/task/3163",
+  "observed_at": "2026-09-11T06:53:28.193711+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array x of n integers, your task is to process q queries of the form: how many integers i satisfy a \\le i \\le b and c \\le x_i \\le d?\n\nInput\n\nThe first line has two integers n and q: the number of values and queries.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nFinally, there are q lines describing the queries. Each line has four integers a, b, c and d: how many integers i satisfy a \\le i \\le b and c \\le x_i \\le d?\n\nOutput\n\nPrint the result of each query.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le a \\le b \\le n\n\n1 \\le c \\le d \\le 10^9\n\n\nExample\n\nInput:\n\n8 4\n3 2 4 5 1 1 5 3\n2 4 2 4\n5 6 2 9\n1 8 1 5\n3 3 4 4\n\n\nOutput:\n\n2\n0\n8\n1",
+  "statement_sha256": "e8333687ac7bd4f2e341dc54ff1dcd652d33c7a21b738a813b404acc838b751b"
+}

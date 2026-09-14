@@ -1,0 +1,8 @@
+{
+  "id": "cses-1693",
+  "title": "Teleporters Path",
+  "source_url": "https://cses.fi/problemset/task/1693",
+  "observed_at": "2026-09-11T06:53:25.545003+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game has n levels and m teleporters between them. You win the game if you move from level 1 to level n using every teleporter exactly once.\n\nCan you win the game, and what is a possible way to do it?\n\nInput\n\nThe first input line has two integers n and m: the number of levels and teleporters. The levels are numbered 1,2,\\dots,n.\n\nThen, there are m lines describing the teleporters. Each line has two integers a and b: there is a teleporter from level a to level b.\n\nYou can assume that each pair (a,b) in the input is distinct.\n\nOutput\n\nPrint m+1 integers: the sequence in which you visit the levels during the game. You can print any valid solution.\n\nIf there are no solutions, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 6\n1 2\n1 3\n2 4\n2 5\n3 1\n4 2\n\n\nOutput:\n\n1 3 1 2 4 2 5",
+  "statement_sha256": "dc10e75a8767e2f6d45152edb081d13465e9d315dc5728038486dec4218fd711"
+}

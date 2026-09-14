@@ -1,0 +1,8 @@
+{
+  "id": "cses-1631",
+  "title": "Reading Books",
+  "source_url": "https://cses.fi/problemset/task/1631",
+  "observed_at": "2026-09-11T06:53:15.059822+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n books, and Kotivalo and Justiina are going to read them all. For each book, you know the time it takes to read it.\n\nThey both read each book from beginning to end, and they cannot read a book at the same time. What is the minimum total time required?\n\nInput\n\nThe first input line has an integer n: the number of books.\n\nThe second line has n integers t_1,t_2,\\dots,t_n: the time required to read each book.\n\nOutput\n\nPrint one integer: the minimum total time.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le t_i \\le 10^9\n\n\nExample\n\nInput:\n\n3\n2 8 3\n\n\nOutput:\n\n16",
+  "statement_sha256": "c70a9f209b9a7a4c4fd1ab50211716319f37e86e09ac9d4994b6d3f3caa87a22"
+}

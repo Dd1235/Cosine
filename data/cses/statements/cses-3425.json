@@ -1,0 +1,8 @@
+{
+  "id": "cses-3425",
+  "title": "Same Sum Subsets",
+  "source_url": "https://cses.fi/problemset/task/3425",
+  "observed_at": "2026-09-11T06:54:59.392559+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a set of n positive integers, your task is to choose two disjoint subsets of the elements that have the same sum.\n\nInput\n\nThe first line has an integer n: the set size.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the set elements.\n\nOutput\n\nFor both subsets, first print the size of the subset and then its contents. You can print any valid solution. If there is no solution, print IMPOSSIBLE.\n\nConstraints\n\n\n3 \\le n \\le 40\n\n\\sum_{i=1}^{n} x_i \\le 2^{n}-2\n\n\nExample\n\nInput:\n\n6\n1 2 3 5 7 8\n\n\nOutput:\n\n2\n2 3\n1\n5\n\n\nExplanation: The first subset is \\{2,3\\} and the second subset is \\{5\\}.",
+  "statement_sha256": "5a94db688912d02bb7812126131e8a6783d12ce5486a7755b4951f643cd78683"
+}

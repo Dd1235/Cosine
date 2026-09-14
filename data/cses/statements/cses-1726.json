@@ -1,0 +1,8 @@
+{
+  "id": "cses-1726",
+  "title": "Moving Robots",
+  "source_url": "https://cses.fi/problemset/task/1726",
+  "observed_at": "2026-09-11T06:53:38.130039+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nEach square of an 8 \\times 8 chessboard has a robot. Each robot independently moves k steps, and there can be many robots on the same square.\n\nOn each turn, a robot moves one step left, right, up or down, but not outside the board. It randomly chooses a direction among those where it can move.\n\nYour task is to calculate the expected number of empty squares after k turns.\n\nInput\n\nThe only input line has an integer k.\n\nOutput\n\nPrint the expected number of empty squares rounded to six decimal places (rounding half to even).\n\nConstraints\n\n\n1 \\le k \\le 100\n\n\nExample\n\nInput:\n\n10\n\n\nOutput:\n\n23.120740",
+  "statement_sha256": "27b17796d7c2867bcd60933efc09aa36150b8e949adeaf190d62ecb75e6df582"
+}

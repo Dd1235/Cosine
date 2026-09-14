@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-rectangle-area",
+  "url": "https://leetcode.com/problems/rectangle-area/",
+  "observed_at": "2026-09-11T07:21:56.235589+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given the coordinates of two rectilinear rectangles in a 2D plane, return the total area covered by the two rectangles . \n\n The first rectangle is defined by its bottom-left corner (ax1, ay1) and its top-right corner (ax2, ay2) . \n\n The second rectangle is defined by its bottom-left corner (bx1, by1) and its top-right corner (bx2, by2) . \n\n \u00a0 \n Example 1: \n \n \n Input: ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2\n Output: 45\n \n\n Example 2: \n\n \n Input: ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2\n Output: 16\n \n\n \u00a0 \n Constraints: \n\n \n -10 4 <= ax1 <= ax2 <= 10 4 \n -10 4 <= ay1 <= ay2 <= 10 4 \n -10 4 <= bx1 <= bx2 <= 10 4 \n -10 4 <= by1 <= by2 <= 10 4",
+  "statement_sha256": "cb2f1aec6639be8ad2eca1cf841611c31779dc071e059ae77f0b49507eaf7825",
+  "raw_sha256": "001202a1a56fbc4666d1d2c7707bd674f84012dd242ea19a31c39d0a839d0884",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

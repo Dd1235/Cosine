@@ -1,0 +1,8 @@
+{
+  "id": "cses-1140",
+  "title": "Projects",
+  "source_url": "https://cses.fi/problemset/task/1140",
+  "observed_at": "2026-09-11T06:53:19.779336+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n projects you can attend. For each project, you know its starting and ending days and the amount of money you would get as reward. You can only attend one project during a day.\n\nWhat is the maximum amount of money you can earn?\n\nInput\n\nThe first input line contains an integer n: the number of projects.\n\nAfter this, there are n lines. Each such line has three integers a_i, b_i, and p_i: the starting day, the ending day, and the reward.\n\nOutput\n\nPrint one integer: the maximum amount of money you can earn.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a_i \\le b_i \\le 10^9\n\n1 \\le p_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n2 4 4\n3 6 6\n6 8 2\n5 7 3\n\n\nOutput:\n\n7",
+  "statement_sha256": "816eed02c4f25c72c15599ba2a7c18f0f355695e01a914cbcd632bd1a1590c18"
+}

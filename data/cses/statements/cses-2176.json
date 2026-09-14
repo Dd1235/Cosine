@@ -1,0 +1,8 @@
+{
+  "id": "cses-2176",
+  "title": "Counting Bishops",
+  "source_url": "https://cses.fi/problemset/task/2176",
+  "observed_at": "2026-09-11T06:54:48.910398+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of ways k bishops can be placed on an n \\times n chessboard so that no two bishops attack each other.\n\nTwo bishops attack each other if they are on the same diagonal.\n\nInput\n\nThe only input line has two integers n and k: the board size and the number of bishops.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 500\n\n1 \\le k \\le n^2\n\n\nExample\n\nInput:\n\n5 4\n\n\nOutput:\n\n2728",
+  "statement_sha256": "be0006eb8b5c4a13f96b8bd59ddea6350199bcf234368357175950035bd080fa"
+}

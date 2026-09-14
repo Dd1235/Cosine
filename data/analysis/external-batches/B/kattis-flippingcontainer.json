@@ -1,0 +1,35 @@
+{
+ "id": "kattis-flippingcontainer",
+ "status": "solved",
+ "solution": "Track the footprint centre in doubled units and the orientation (E,N,U) as a permutation of (a,b,c) with S=a+b+c: an x-flip moves cx by +-(S-N) and swaps E,U; a y-flip moves cy by +-(S-E) and swaps N,U. The two transpositions make the six orientations a hexagon whose edges alternate x/y and carry the weights S-b,S-c,S-a,S-b,S-c,S-a in order from the start, so a flip sequence is a closed walk from the start vertex; with t_e traversals and signed count sigma_e per edge the cost is sum t_e, the displacement is sum sigma_e*w_e per axis, |sigma_e|<=t_e and sigma_e=t_e (mod 2). On a cycle graph a closed walk has clockwise-minus-counterclockwise equal to one constant f on every edge, hence every t_e=f (mod 2) and t_e>=|f|, and the traversed edges must form an arc containing the start (Euler circuit existence gives the converse); f=2 is dominated by f=0 on the full hexagon and f=3 by f=1, so only two cases remain: all six sigma_e odd with cost sum|sigma_e|, or all sigma_e even inside one of the 28 arcs through the start with cost sum max(|sigma_e|,2). Each case splits into an independent x and y coin problem 'write 2x as sum sigma_e*w_e over at most three weights of fixed parity, minimising a convex cost', solved exactly: the smallest weight's coefficient is bounded by 2*w_max by an exchange argument, and for each of its ~4000 values the remaining two weights are a linear congruence (gcd test for impossibility, modular inverse for the residue) whose solution set is an arithmetic progression on which the convex cost is minimised at a breakpoint. Total work is about 6*4000*30 congruence solves regardless of |x|,|y|<=1e18; 'impossible' when no case admits a representation.",
+ "solution_confidence": 0.9,
+ "statement_summary": "A cuboid container with three distinct side lengths, at most 1000 each, can only be moved by tipping it 90 degrees over one of its four bottom edges. Determine the minimum number of such flips that carry it by a given east-west and north-south displacement, each up to 10^18 in magnitude, so that it ends with exactly its starting orientation, or report that the target is unreachable.",
+ "patterns": [
+  "graph-modeling",
+  "parity-argument",
+  "number-theory",
+  "gcd",
+  "modular-inverse",
+  "exchange-argument",
+  "eulerian-path"
+ ],
+ "pattern_confidence": {
+  "graph-modeling": 0.9,
+  "parity-argument": 0.9,
+  "number-theory": 0.85,
+  "gcd": 0.75,
+  "modular-inverse": 0.65,
+  "exchange-argument": 0.65,
+  "eulerian-path": 0.55
+ },
+ "tags": [
+  "math",
+  "graph",
+  "number-theory",
+  "geometry",
+  "implementation"
+ ],
+ "source_text_sha256": "5b4176a1e98f7130a3bceebb4639d83c48920a9e64dea754e37d763b72126bfe",
+ "verify_script": "batchB/verify_flippingcontainer.py",
+ "notes": "Verified: all four official samples reproduce (2, 4, 40, impossible); the closed-form solver matches an exhaustive BFS over (orientation, cx, cy) on 18 random dimension triples (sides 1..7) for every target in a 29x29 or 41x41 window (25,000+ targets, zero mismatches, BFS bound raised from 170 to 260 with no change); the 2-weight and 3-weight 1-D subroutines match brute enumeration on 3,400 random instances; x,y=1e18 answers in 0.1s. Derived independently, not from the official editorial, so the exact wording of the intended solution may differ, but the model is proven (cycle-graph circulation + Euler) and machine-checked. Labels come from the derived solution: graph-modeling (orientations as the S3 hexagon, flips as closed walks) and parity-argument (constant circulation f, sigma=t mod 2, only f in {0,1} survive) are the deciding ideas; number-theory/gcd/modular-inverse are the linear-congruence coin problem that makes 1e18 feasible; exchange-argument bounds the small-weight coefficient; eulerian-path is the weakest label -- Euler's circuit theorem is what turns per-edge counts back into an actual flip sequence, i.e. it is the correctness argument rather than a routine that runs. Deliberately omitted: bfs (only the brute force; unusable at 1e18), binary-search-answer (no monotone feasibility test), dynamic-programming, simulation. Vocabulary gap: no slug for 'Cayley graph / group-of-moves modelling' or for 'minimum-coin representation with bounded denominations (Frobenius-style)', which is the natural query for the 1-D subproblem."
+}

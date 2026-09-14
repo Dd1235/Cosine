@@ -1,0 +1,28 @@
+{
+  "id": "kattis-abstractpainting",
+  "status": "solved",
+  "solution": "Colour the C horizontal edges along the top border and the R vertical edges along the left border freely, 3^(R+C) ways, then fill the unit squares in row-major order. When a square's top and left edges are already coloured there are exactly two ways to colour its bottom and right edges well: if top and left agree, bottom and right must be equal to each other and different from that colour (two choices of the second colour); if top and left differ, bottom and right must be that same pair of colours in one of the two orders. Each square thus contributes an independent factor of two and fixes the top edge of the square below it and the left edge of the square to its right, and every one of the 2RC+R+C edges is assigned exactly once, so the count is exactly 3^(R+C) * 2^(R*C) mod 1e9+7. The published program computes that by multiplying by three R+C times and by two R*C times, so it is O(R*C) <= 28000 multiplications per test case with T <= 5 and O(1) space; with binary exponentiation the same formula is O(log(RC)).",
+  "solution_confidence": 0.99,
+  "solution_source": {
+    "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/abstractpainting.cpp",
+    "kind": "accepted C++ solution (third-party repo)",
+    "used": "Compiled and run: it reproduces the sample (18, 108, 108). Its loop is literally 3^(R+C)*2^(R*C) mod 1e9+7; I derived that formula independently and checked it three ways in E/verify_abstractpainting.py -- exhaustive 3^(#edges) enumeration for R,C <= 3, a 3^R-state profile DP over columns for all R,C <= 4 plus random sizes to 5x7, and a transcription of the published loop against the closed form for every R in 1..14 against C in 1..12, 1999, 2000. The compiled binary was also driven over 396 (R,C) pairs including the maximum 14x2000 and matched the closed form on all of them."
+  },
+  "statement_summary": "A rectangular canvas is divided into unit squares, and every edge of every square must be painted red, green or blue. A painting is good when each square uses exactly two of the three colours on its four edges, each colour on exactly two of them. The task is to count good paintings modulo one billion and seven, for grids of up to fourteen rows and two thousand columns.",
+  "patterns": [
+    "combinatorics",
+    "counting"
+  ],
+  "pattern_confidence": {
+    "combinatorics": 0.9,
+    "counting": 0.6
+  },
+  "tags": [
+    "math",
+    "combinatorics",
+    "grid"
+  ],
+  "source_text_sha256": "9038a44a185194c079ba9514710549810d5516e474e42b15753e3d51ee35c0f1",
+  "verify_script": "E/verify_abstractpainting.py",
+  "notes": "Not an implementation problem: the whole difficulty is the counting argument, and once you have it the code is two loops. 'combinatorics' is the label that earns its place (the product argument -- free border edges times two completions per square); 'counting' is kept at 0.6 because the deliverable really is a closed-form count and the corpus pairs the two 22 times. Deliberately NOT labelled dynamic-programming, profile-dp, bitmask-dp or state-compression, even though R <= 14 with C <= 2000 is exactly the shape that baits a 3^R broken-profile DP over columns -- that DP works (it is implementation 3 in the verify script and agrees everywhere) but it is not what solves the problem, and mislabelling it would put this in front of people looking for profile DP practice. 'modular-exponentiation' was also considered and dropped: the published code does not use fast exponentiation at all, it just multiplies R*C times, so the modulus is output formatting rather than a technique. The published source contains no text addressed to a reader or an agent; it is a bare competitive-programming file with an unused freopen helper."
+}

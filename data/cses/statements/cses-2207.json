@@ -1,0 +1,8 @@
+{
+  "id": "cses-2207",
+  "title": "Grundy's Game",
+  "source_url": "https://cses.fi/problemset/task/2207",
+  "observed_at": "2026-09-11T06:53:38.727138+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a heap of n coins and two players who move alternately. On each move, a player chooses a heap and divides into two nonempty heaps that have a different number of coins. The player who makes the last move wins the game.\n\nYour task is to find out who wins if both players play optimally.\n\nInput\n\nThe first input line contains an integer t: the number of tests.\n\nAfter this, there are t lines that describe the tests. Each line has an integer n: the number of coins in the initial heap.\n\nOutput\n\nFor each test case, print \"first\" if the first player wins the game and \"second\" if the second player wins the game.\n\nConstraints\n\n\n1 \\le t \\le 10^5\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\n3\n6\n7\n8\n\n\nOutput:\n\nfirst\nsecond\nfirst",
+  "statement_sha256": "487b90307a324721f05dd391d73ba1fa814274719c570e98cc8c020f58611e48"
+}

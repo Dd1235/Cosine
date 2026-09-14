@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc121-d",
+  "url": "https://atcoder.jp/contests/abc121/tasks/abc121_d",
+  "observed_at": "2026-09-11T07:21:43.408687+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nLet f(A, B) be the exclusive OR of A, A+1, ..., B. Find f(A, B).\r\n\nWhat is exclusive OR?\r\n\nThe bitwise exclusive OR of integers c_1, c_2, ..., c_n (let us call it y) is defined as follows:\r\n\nWhen y is written in base two, the digit in the 2^k's place (k \\geq 0) is 1 if, the number of integers among c_1, c_2, ...c_m whose binary representations have 1 in the 2^k's place, is odd, and 0 if that count is even.\r\n\nFor example, the exclusive OR of 3 and 5 is 6. (When written in base two: the exclusive OR of 011 and 101 is 110.)\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n0 \\leq A \\leq B \\leq 10^{12}\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nA B\r\n\nOutput\nCompute f(A, B) and print it.\r\n\nSample Input 1\n2 4\r\n\nSample Output 1\n5\r\n\n2, 3, 4 are 010, 011, 100 in base two, respectively.\r\nThe exclusive OR of these is 101, which is 5 in base ten.\r\n\nSample Input 2\n123 456\r\n\nSample Output 2\n435\r\n\nSample Input 3\n123456789012 123456789012\r\n\nSample Output 3\n123456789012",
+  "statement_sha256": "738ce13263c7516ebad79539a9d3426499a5395efa65ad919babf72dac3ee858",
+  "raw_sha256": "fb11114aa93d88d0d7d905c78d531ceb3f807a6ca247b1b3a501302844e59106",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

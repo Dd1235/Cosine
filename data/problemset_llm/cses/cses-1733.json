@@ -24,5 +24,18 @@
       "kmp": 0.98,
       "string-period": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1733",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "8d6629803fcb04fc0fedd559e76b31dba1132db9bb514afb8994940a0b627561",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

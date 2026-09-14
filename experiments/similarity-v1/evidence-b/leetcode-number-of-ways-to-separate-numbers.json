@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-ways-to-separate-numbers",
+  "url": "https://leetcode.com/problems/number-of-ways-to-separate-numbers/",
+  "observed_at": "2026-09-11T07:21:42.966092+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You wrote down many positive integers in a string called num . However, you realized that you forgot to add commas to seperate the different numbers. You remember that the list of integers was non-decreasing and that no integer had leading zeros. \n\n Return the number of possible lists of integers that you could have written down to get the string num . Since the answer may be large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: num = \"327\"\n Output: 2\n Explanation: You could have written down the numbers:\n3, 27\n327\n \n\n Example 2: \n\n \n Input: num = \"094\"\n Output: 0\n Explanation: No numbers can have leading zeros and all numbers must be positive.\n \n\n Example 3: \n\n \n Input: num = \"0\"\n Output: 0\n Explanation: No numbers can have leading zeros and all numbers must be positive.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= num.length <= 3500 \n num consists of digits '0' through '9' .",
+  "statement_sha256": "b5e06559b3d36a43dba1546cc514a7713ea684d15f4a0faf2784a9d3ce37753c",
+  "raw_sha256": "e254a8890fdce938da738c5d05c75823bb223c4c15b220045f54848f093ba35c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

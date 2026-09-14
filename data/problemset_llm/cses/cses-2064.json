@@ -28,5 +28,18 @@
       "modular-arithmetic": 0.95,
       "dynamic-programming": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2064",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e7d0077c774a61b6ee4c4b21bc0304d918a5faa7482514b159977b5ee7ef8633",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

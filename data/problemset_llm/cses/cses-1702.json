@@ -26,5 +26,18 @@
       "divide-and-conquer": 0.95,
       "dfs": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1702",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5d2ac0ebbcf9a9bd704f3378c6a0ea4ee2e66e899c321b1f3b014ca1fb690e2e",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

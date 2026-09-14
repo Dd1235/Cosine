@@ -1,0 +1,8 @@
+{
+  "id": "cses-3426",
+  "title": "Sliding Window Xor",
+  "source_url": "https://cses.fi/problemset/task/3426",
+  "observed_at": "2026-09-11T06:53:49.731390+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the bitwise xor of each window of k elements, from left to right.\n\nIn this problem the input data is large and it is created using a generator.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThe next line contains four integers x, a, b and c: the input generator parameters. The input is generated as follows:\n\n\nx_1=x\n\nx_i=(ax_{i-1}+b) \\bmod c for i=2,3,\\dots,n\n\n\nOutput\n\nPrint the xor of all window xors.\n\nConstraints\n\n\n1 \\le k \\le n \\le 10^7\n\n0 \\le x, a, b \\le 10^9\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n8 5\n3 7 1 11\n\n\nOutput:\n\n0\n\n\nExplanation: The input array is [3,0,1,8,2,4,7,6]. The windows are [3,0,1,8,2], [0,1,8,2,4], [1,8,2,4,7] and [8,2,4,7,6], and their xors are 8, 15, 8 and 15. Thus, the answer is 8 \\oplus 15 \\oplus 8 \\oplus 15 = 0.",
+  "statement_sha256": "099e385b03ff2a8654e59bb68897a248e708d60ec6f8e50fd6ba35a13c2c0fdf"
+}

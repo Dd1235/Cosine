@@ -1,0 +1,8 @@
+{
+  "id": "cses-1137",
+  "title": "Subtree Queries",
+  "source_url": "https://cses.fi/problemset/task/1137",
+  "observed_at": "2026-09-11T06:53:31.860216+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a rooted tree consisting of n nodes. The nodes are numbered 1,2,\\ldots,n, and node 1 is the root. Each node has a value.\n\nYour task is to process following types of queries:\n\n\nchange the value of node s to x\n\ncalculate the sum of values in the subtree of node s\n\n\nInput\n\nThe first input line contains two integers n and q: the number of nodes and queries. The nodes are numbered 1,2,\\ldots,n.\n\nThe next line has n integers v_1,v_2,\\ldots,v_n: the value of each node.\n\nThen there are n-1 lines describing the edges. Each line contans two integers a and b: there is an edge between nodes a and b.\n\nFinally, there are q lines describing the queries. Each query is either of the form \"1 s x\" or \"2 s\".\n\nOutput\n\nPrint the answer to each query of type 2.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le a,b, s \\le n\n\n1 \\le v_i, x \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n4 2 5 2 1\n1 2\n1 3\n3 4\n3 5\n2 3\n1 5 3\n2 3\n\n\nOutput:\n\n8\n10",
+  "statement_sha256": "c6882d84423024b66f48e6e3e2eaeeea3bc54bc95b9d2314fab9b87f427e7939"
+}

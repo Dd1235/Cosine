@@ -1,0 +1,8 @@
+{
+  "id": "cses-3150",
+  "title": "Distinct Values Sum",
+  "source_url": "https://cses.fi/problemset/task/3150",
+  "observed_at": "2026-09-11T06:54:50.706342+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array x_1,x_2,\\dots,x_n. Let d(a,b) denote the number of distinct values in the subarray x_a,x_{a+1},\\dots,x_b.\n\nYour task is to calculate the sum \\sum_{a=1}^n \\sum_{b=a}^n d(a,b), i.e., the sum of d(a,b) for all subarrays.\n\nInput\n\nThe first line has an integer n: the array size.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the array contents.\n\nOutput\n\nPrint one integer: the required sum.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n1 2 3 1 1\n\n\nOutput:\n\n29\n\n\nExplanation: In this array, 6 subarrays have 1 distinct value, 4 subarrays have 2 distinct values and 5 subarrays have 3 distinct values. Thus, the sum is 6\\cdot1+4\\cdot2+5\\cdot3=29.",
+  "statement_sha256": "83b968eed189b7ebdbec49209ea859f33e18b7d960b1c7233f1a45b9bb67b196"
+}

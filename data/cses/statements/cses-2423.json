@@ -1,0 +1,8 @@
+{
+  "id": "cses-2423",
+  "title": "Filling Trominos",
+  "source_url": "https://cses.fi/problemset/task/2423",
+  "observed_at": "2026-09-11T06:54:42.318024+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to fill an n \\times m grid using L-trominos (three squares that have an L-shape). For example, here is one way to fill a 4 \\times 6 grid:\n\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter that, there are t lines that describe the tests. Each line has two integers n and m.\n\nOutput\n\nFor each test, print YES if there is a solution, and NO otherwise.\n\nIf there is a solution, also print n lines that each contain m letters between A\u2013Z. Adjacent squares must have the same letter exactly when they belong to the same tromino. You can print any valid solution.\n\nConstraints\n\n\n1 \\le t \\le 100\n\n1 \\le n,m \\le 100\n\n\nExample\n\nInput:\n\n2\n4 6\n4 7\n\n\nOutput:\n\nYES\nAADDBB\nACCDEB\nBCAEEC\nBBAACC\nNO",
+  "statement_sha256": "91342817ad223675b35f3b819e20715a9dbd40ff50ef834e67debfaa8d3d964d"
+}

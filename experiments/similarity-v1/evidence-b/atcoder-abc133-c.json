@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc133-c",
+  "url": "https://atcoder.jp/contests/abc133/tasks/abc133_c",
+  "observed_at": "2026-09-11T07:22:08.926894+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given two non-negative integers L and R.\r\nWe will choose two integers i and j such that L \\leq i < j \\leq R.\r\nFind the minimum possible value of (i \\times j) \\text{ mod } 2019.\r\n\nConstraints\r\n\nAll values in input are integers.\r\n\n0 \\leq L < R \\leq 2 \\times 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nL R\r\n\nOutput\nPrint the minimum possible value of (i \\times j) \\text{ mod } 2019 when i and j are chosen under the given condition.\r\n\nSample Input 1\n2020 2040\r\n\nSample Output 1\n2\r\n\nWhen (i, j) = (2020, 2021), (i \\times j) \\text{ mod } 2019  = 2.\r\n\nSample Input 2\n4 5\r\n\nSample Output 2\n20\r\n\nWe have only one choice: (i, j) = (4, 5).",
+  "statement_sha256": "19a21b836a9038d8e0d69a6d4d91f015d60c547b22f3824b22bc31443553a7c3",
+  "raw_sha256": "5a8b5986a2cf848b14b10f4cbcdb659660d076bbe1ca0f51a5c4b27eb0aa4e6c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

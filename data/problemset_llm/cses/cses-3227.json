@@ -26,5 +26,18 @@
       "sliding-window": 0.9,
       "largest-rectangle-in-histogram": 0.93
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3227",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "b85b87bd61533c8a44a6734241b32027045098812a97aadf38dc1267b6833b89",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

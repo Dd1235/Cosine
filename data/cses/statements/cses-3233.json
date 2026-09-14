@@ -1,0 +1,8 @@
+{
+  "id": "cses-3233",
+  "title": "All Subarray Xors",
+  "source_url": "https://cses.fi/problemset/task/3233",
+  "observed_at": "2026-09-11T06:54:40.044668+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find all integers that are the xor sum in some subarray.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nFirst print an integer k: the number of distinct integers that are the xor sum in some subarray.\n\nAfter this print k integers: the xor sums in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le x_i \\le 10^6\n\n\nExample\n\nInput:\n\n4\n5 1 5 9\n\n\nOutput:\n\n7\n1 4 5 8 9 12 13",
+  "statement_sha256": "0c91694acbf50e9db5ac8017ce1bac3472db3caf0552f448b8cb96550fa11a58"
+}

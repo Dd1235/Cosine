@@ -1,0 +1,8 @@
+{
+  "id": "cses-3194",
+  "title": "Xor Pyramid Diagonal",
+  "source_url": "https://cses.fi/problemset/task/3194",
+  "observed_at": "2026-09-11T06:54:40.770732+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a xor pyramid where each number is the xor of lower-left and lower-right numbers. Here is an example pyramid:\n\nGiven the bottom row of the pyramid, your task is to find the leftmost number of each row.\n\nInput\n\nThe first line has an integer n: the size of the pyramid.\n\nThe next line has n integers a_1,a_2,\\dots,a_n: the bottom row of the pyramid.\n\nOutput\n\nPrint n integers: the leftmost numbers of the rows from bottom to top.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a_i \\le 10^9\n\n\nExample\n\nInput:\n\n8\n2 10 5 12 9 5 1 5\n\n\nOutput:\n\n2 8 7 1 11 4 15 9",
+  "statement_sha256": "14bb4bbc16786b1f67c11f6fd1e8fa77d6320ee34d4eeed788401483cf6e8c37"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1745",
+  "title": "Money Sums",
+  "source_url": "https://cses.fi/problemset/task/1745",
+  "observed_at": "2026-09-11T06:53:18.776682+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins with certain values. Your task is to find all money sums you can create using these coins.\n\nInput\n\nThe first input line has an integer n: the number of coins.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the values of the coins.\n\nOutput\n\nFirst print an integer k: the number of distinct money sums. After this, print all possible sums in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le x_i \\le 1000\n\n\nExample\n\nInput:\n\n4\n4 2 5 2\n\n\nOutput:\n\n9\n2 4 5 6 7 8 9 11 13",
+  "statement_sha256": "2c9f218e80366abc820eff4b55c32460e274ca6eae66cfd7c911dbdd7767c3bc"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3218",
+  "title": "Knight Moves Queries",
+  "source_url": "https://cses.fi/problemset/task/3218",
+  "observed_at": "2026-09-11T06:54:55.874926+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a knight on an infinite chessboard. The rows and columns are 1-indexed.\n\nYour task is to efficiently process queries of the form: when the knight starts at position (x,y), what is the minimum number of moves the knight needs to do to reach the top-left corner.\n\nInput\n\nThe first line has an integer n: the number of queries.\n\nAfter this, there are n lines. Each line has two integers x and y: the knight position.\n\nOutput\n\nFor each query, print the minimum number of moves.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le x, y \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 1\n2 3\n4 1\n42 1337\n\n\nOutput:\n\n0\n1\n3\n669",
+  "statement_sha256": "f06abdb2b4503e738c04914cf02d9751903b47692d5a08540fc6822cfef9dbed"
+}

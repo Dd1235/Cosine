@@ -1,3 +1,4 @@
+const { createCollections } = require("../collections");
 const express = require("express");
 const { logEvent } = require("../telemetry");
 const db = require("../db");
@@ -92,8 +93,13 @@ function validProblemId(id) {
   return typeof id === "string" && PROBLEM_ID_RE.test(id);
 }
 
-function createUserStateRouter({ problems } = {}) {
+function createUserStateRouter({ problems, collectionRegistry } = {}) {
   const router = express.Router();
+  const collections = createCollections(problems || [], collectionRegistry);
+  router.param('problemId', (req, _res, next, id) => {
+    req.params.problemId = collections.canonical(id);
+    next();
+  });
   const problemsById = new Map((problems || []).map((p) => [p.id, p]));
 
   // Searching inside your own saved problems. Not the ranker — a saved list has
@@ -233,7 +239,8 @@ function createUserStateRouter({ problems } = {}) {
         const problem = problemsById.get(row.problem_id);
         if (!problem) continue; // dangling row from a removed corpus entry
         if (wanted.size && !wanted.has(problem.platform)) continue;
-        if (!passesDifficulty(problem, bands)) continue;
+        if (!passesDifficulty(problem, bands) || !collections.passes(problem, collections.parse(req.query.contest))) continue;
+        if (req.query.pattern && !(problem.patterns || []).includes(String(req.query.pattern))) continue;
         if (doneFilter === "done" && !row.done) continue;
         if (doneFilter === "notdone" && row.done) continue;
         if (queryTerms.length) {
@@ -262,6 +269,7 @@ function createUserStateRouter({ problems } = {}) {
         }
         items.push({
           problem,
+          competitions: collections.memberships.get(collections.canonical(problem.id)) || [],
           done: row.done,
           bookmarked: row.bookmarked,
           markedAt: (viewAt || row.updated_at || new Date()).toISOString(),

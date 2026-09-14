@@ -1,0 +1,37 @@
+{
+ "id": "kattis-conveyorbelts",
+ "title": "Conveyor Belts",
+ "slug": "conveyorbelts",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/conveyorbelts",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A factory has up to three hundred junctions linked by one-way conveyor belts that each take one minute to traverse. Producers sit on the first K junctions, the jth emitting an item every K minutes, and all of a producer's items must follow one fixed route to the final junction. No belt may carry two items at once; the task is to report how many producers can stay running.",
+ "tags": [],
+ "patterns": [
+  "max-flow",
+  "graph-modeling",
+  "layered-graph",
+  "dinic"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "max-flow": 0.9,
+   "graph-modeling": 0.9,
+   "layered-graph": 0.9,
+   "dinic": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.7,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

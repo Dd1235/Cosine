@@ -22,5 +22,18 @@
     "pattern_confidence": {
       "max-flow": 0.98
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1711",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "8df23cc51c2774198c91925b0cbe1f390cf48e6d6445eedccc3e5b7229035dad",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

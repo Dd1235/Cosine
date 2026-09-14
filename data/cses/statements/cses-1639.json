@@ -1,0 +1,8 @@
+{
+  "id": "cses-1639",
+  "title": "Edit Distance",
+  "source_url": "https://cses.fi/problemset/task/1639",
+  "observed_at": "2026-09-11T06:53:18.214094+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThe edit distance between two strings is the minimum number of operations required to transform one string into the other.\n\nThe allowed operations are:\n\n\nAdd one character to the string.\n\nRemove one character from the string.\n\nReplace one character in the string.\n\n\nFor example, the edit distance between LOVE and MOVIE is 2, because you can first replace L with M, and then add I.\n\nYour task is to calculate the edit distance between two strings.\n\nInput\n\nThe first input line has a string that contains n characters between A\u2013Z.\n\nThe second input line has a string that contains m characters between A\u2013Z.\n\nOutput\n\nPrint one integer: the edit distance between the strings.\n\nConstraints\n\n\n1 \\le n,m \\le 5000\n\n\nExample\n\nInput:\n\nLOVE\nMOVIE\n\n\nOutput:\n\n2",
+  "statement_sha256": "6d4b4d01c3bb001051d844f4e5da7761ac91f98128a174c199916fe34d4d54dc"
+}

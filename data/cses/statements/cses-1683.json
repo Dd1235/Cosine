@@ -1,0 +1,8 @@
+{
+  "id": "cses-1683",
+  "title": "Planets and Kingdoms",
+  "source_url": "https://cses.fi/problemset/task/1683",
+  "observed_at": "2026-09-11T06:53:24.540787+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA game has n planets, connected by m teleporters. Two planets a and b belong to the same kingdom exactly when there is a route both from a to b and from b to a. Your task is to determine for each planet its kingdom.\n\nInput\n\nThe first input line has two integers n and m: the number of planets and teleporters. The planets are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines describing the teleporters. Each line has two integers a and b: you can travel from planet a to planet b through a teleporter.\n\nOutput\n\nFirst print an integer k: the number of kingdoms. After this, print for each planet a kingdom label between 1 and k. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 6\n1 2\n2 3\n3 1\n3 4\n4 5\n5 4\n\n\nOutput:\n\n2\n1 1 1 2 2",
+  "statement_sha256": "e79bad5afaa71d5b22dc067a7588287aa13daf6e0702ccdb3c6ce475944db156"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2425",
+  "title": "Stack Weights",
+  "source_url": "https://cses.fi/problemset/task/2425",
+  "observed_at": "2026-09-11T06:54:53.310174+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou have n coins, each of which has a distinct weight.\n\nThere are two stacks which are initially empty. On each step you move one coin to a stack. You never remove a coin from a stack.\n\nAfter each move, your task is to determine which stack is heavier (if we can be sure that either stack is heavier).\n\nInput\n\nThe first input line has an integer n: the number of coins. The coins are numbered 1,2,\\dots,n. You know that coin i is always heavier than coin i-1, but you don't know their exact weights.\n\nAfter this, there are n lines that describe the moves. Each line has two integers c and s: move coin c to stack s (1 = left, 2 = right).\n\nOutput\n\nAfter each move, print < if the right stack is heavier, > if the left stack is heavier, and ? if we can't know which stack is heavier.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n3\n2 1\n3 2\n1 1\n\n\nOutput:\n\n>\n<\n?\n\n\nExplanation: After the last move, if the coins are [2,3,4], the left stack is heavier, but if the coins are [1,2,5], the right stack is heavier.",
+  "statement_sha256": "17f8e64657cb347e90a7746c65f163ae2e36200f92e4b62f89f08dc0a4667e27"
+}

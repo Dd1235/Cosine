@@ -1,0 +1,8 @@
+{
+  "id": "cses-3191",
+  "title": "Maximum Xor Subset",
+  "source_url": "https://cses.fi/problemset/task/3191",
+  "observed_at": "2026-09-11T06:54:40.067112+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to find the maximum xor sum of a subset.\n\nInput\n\nThe first line has an integer n: the size of the array.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the maximum xor sum of a subset.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n4\n1 6 12 6\n\n\nOutput:\n\n13",
+  "statement_sha256": "3bbb44cf385ed38bfdeb541e2c418984248db855d788edf944dca1e90a556fa6"
+}

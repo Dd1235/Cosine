@@ -1,0 +1,8 @@
+{
+  "id": "cses-1622",
+  "title": "Creating Strings",
+  "source_url": "https://cses.fi/problemset/task/1622",
+  "observed_at": "2026-09-11T06:52:41.734163+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, your task is to generate all different strings that can be created using its characters.\n\nInput\n\nThe only input line has a string of length n. Each character is between a\u2013z.\n\nOutput\n\nFirst print an integer k: the number of strings. Then print k lines: the strings in alphabetical order.\n\nConstraints\n\n\n1 \\le n \\le 8\n\n\nExample\n\nInput:\n\naabac\n\n\nOutput:\n\n20\naaabc\naaacb\naabac\naabca\naacab\naacba\nabaac\nabaca\nabcaa\nacaab\nacaba\nacbaa\nbaaac\nbaaca\nbacaa\nbcaaa\ncaaab\ncaaba\ncabaa\ncbaaa",
+  "statement_sha256": "fbe560852f6b272b47d15b928171303f0cb67a6b729a3fc8036b8e3e5a39ddc2"
+}

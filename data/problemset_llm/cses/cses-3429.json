@@ -28,5 +28,18 @@
       "query-max-at-point": 0.85,
       "li-chao-tree": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3429",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "eaf8a91c37980309e206efb15a26d89d71345faf12683352b5d7ed3c92ce3f35",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

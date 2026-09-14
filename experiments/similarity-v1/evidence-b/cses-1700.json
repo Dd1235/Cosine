@@ -1,0 +1,10 @@
+{
+  "id": "cses-1700",
+  "url": "https://cses.fi/problemset/task/1700",
+  "observed_at": "2026-09-11T07:21:52.196864+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven two rooted trees, your task is to find out if they are isomorphic, i.e., it is possible to draw them so that they look the same.\n\nInput\n\nThe first input line has an integer t: the number of tests. Then, there are t tests described as follows:\n\nThe first line has an integer n: the number of nodes in both trees. The nodes are numbered 1,2,\\dots,n, and node 1 is the root.\n\nThen, there are n-1 lines describing the edges of the first tree, and finally n-1 lines describing the edges of the second tree.\n\nOutput\n\nFor each test, print \"YES\", if the trees are isomorphic, and \"NO\" otherwise.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n2 \\le n \\le 10^5\n\nthe sum of all values of n is at most 10^5\n\n\nExample\n\nInput:\n\n2\n3\n1 2\n2 3\n1 2\n1 3\n3\n1 2\n2 3\n1 3\n3 2\n\n\nOutput:\n\nNO\nYES",
+  "statement_sha256": "7ae08504d27686e4e9877807037cc2f56830bb6f43e6071238008f013872e954",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

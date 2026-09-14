@@ -1,0 +1,29 @@
+{
+  "id": "codechef-vscnt",
+  "status": "solved",
+  "solution": "score(T) is 0 unless T is already LCA-closed; otherwise build the virtual forest on T (parent of v = nearest proper ancestor of v inside T) and the answer is 2^B where B counts vertices of T with at least two virtual children. Correctness: every leaf of that forest must lie in S because nothing else can generate it, a vertex with one virtual child is never the LCA of two elements of f(S) so it must lie in S too, and a vertex with two or more virtual children always has two child subtrees containing forced leaves, so it appears in f(S) for free and may be chosen or not. To maintain this online, keep T in a set ordered by DFS entry time and let cnt[u] be the number of adjacent pairs in that order whose LCA is u; the standard virtual-tree fact gives cnt[u] = number of virtual children of u for u in T, so B = #{u : cnt[u] >= 2} and T is LCA-closed exactly when no adjacent pair has its LCA outside T. A toggle of x touches only the two adjacent pairs around x plus x's own cnt block, so each query is O(log N) with O(1) LCA, giving O((N + Q) log N) over sums of 2*10^5.",
+  "solution_confidence": 0.95,
+  "statement_summary": "A rooted tree on N vertices is given with Q updates, each toggling one vertex into or out of a set T. The virtual tree of a set is its minimal superset closed under lowest common ancestors, and the score of T counts the sets whose virtual tree is exactly T. After every toggle the score modulo 998244353 must be reported, with N and Q summing to 200000.",
+  "patterns": [
+    "virtual-tree",
+    "lca",
+    "euler-tour",
+    "ordered-set",
+    "combinatorics"
+  ],
+  "pattern_confidence": {
+    "virtual-tree": 0.95,
+    "lca": 0.9,
+    "euler-tour": 0.75,
+    "ordered-set": 0.7,
+    "combinatorics": 0.7
+  },
+  "tags": [
+    "tree",
+    "combinatorics",
+    "data-structure"
+  ],
+  "source_text_sha256": "36b7eb88a4d0215e46e264c419fbb0ac9e823dc620fc42ab9cec302b917da7f5",
+  "verify_script": "batchA/verify_vscnt.py",
+  "notes": "Verified: both samples reproduce exactly, and the incremental solver was cross-checked against a from-scratch recompute and against subset-enumeration brute force on ~850 random small trees (n <= 9, plus star and path shapes) with zero mismatches. Deliberately omitted: sparse-table / binary-lifting (LCA scaffolding), modular-exponentiation (a precomputed power-of-two table), tree-flattening (the DFS order is used only for set ordering, not for range queries over a flattened array), and offline-queries (answers are required after each update, and the method is fully online). No binary-search-answer and no dp-on-dag here. The taxonomy has no label for the specific 'adjacent pair in DFS order' incremental-virtual-tree maintenance trick; euler-tour plus ordered-set is the closest pair."
+}

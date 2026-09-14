@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-the-number-of-possible-ways-for-an-event",
+  "url": "https://leetcode.com/problems/find-the-number-of-possible-ways-for-an-event/",
+  "observed_at": "2026-09-11T07:21:43.862052+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given three integers n , x , and y . \n\n An event is being held for n performers. When a performer arrives, they are assigned to one of the x stages. All performers assigned to the same stage will perform together as a band, though some stages might remain empty . \n\n After all performances are completed, the jury will award each band a score in the range [1, y] . \n\n Return the total number of possible ways the event can take place. \n\n Since the answer may be very large, return it modulo 10 9 + 7 . \n\n Note that two events are considered to have been held differently if either of the following conditions is satisfied: \n\n \n Any performer is assigned a different stage. \n Any band is awarded a different score. \n \n\n \u00a0 \n Example 1: \n\n \n Input: n = 1, x = 2, y = 3 \n\n Output: 6 \n\n Explanation: \n\n \n There are 2 ways to assign a stage to the performer. \n The jury can award a score of either 1, 2, or 3 to the only band. \n \n \n\n Example 2: \n\n \n Input: n = 5, x = 2, y = 1 \n\n Output: 32 \n\n Explanation: \n\n \n Each performer will be assigned either stage 1 or stage 2. \n All bands will be awarded a score of 1. \n \n \n\n Example 3: \n\n \n Input: n = 3, x = 3, y = 4 \n\n Output: 684 \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n, x, y <= 1000",
+  "statement_sha256": "25df2c28f289600787ca765778f496531218d191384df7be952edc293f817969",
+  "raw_sha256": "eda48a8e8120dbde7337df2169468802a80e40246256f4d70c152a4868e7b36d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

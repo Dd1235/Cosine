@@ -26,5 +26,18 @@
       "cycle-detection": 0.97,
       "directed-graph": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1678",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "12d021e2a2d45b21e2c0656aefdf444454756fb4be0ca4fbc334def457a97871",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3213",
+  "title": "Water Containers Moves",
+  "source_url": "https://cses.fi/problemset/task/3213",
+  "observed_at": "2026-09-11T06:54:52.802139+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are two water containers: container A has volume a and container B has volume b. Your want to measure x units of water using the containers.\n\nInitially both containers are empty. On each move, you can fill a container, empty a container or move water from a container to another container. When you move water, you must always fill or empty at least one container. After the moves, container A must have x units of water.\n\nFind a sequence of moves where the total amount of moved water is minimum or state that it is impossible to measure the water.\n\nInput\n\nThe only line has three integers a, b and x.\n\nOutput\n\nFirst print two integers n and m: the number of moves and the total amount of water moved. After that print a sequence of n moves. Each move must move at least one unit of water and be one of the following:\n\n\nFILL A: fill container A\n\nFILL B: fill container B\n\nEMPTY A: empty container A\n\nEMPTY B: empty container B\n\nMOVE A B: move water from container A to container B\n\nMOVE B A: move water from container B to container A\n\n\nIf it is not possible to measure the water, only print -1.\n\nConstraints\n\n\n1 \\le a, b, x \\le 1000\n\n\nExample\n\nInput:\n\n5 3 4\n\n\nOutput:\n\n6 19\nFILL A\nMOVE A B\nEMPTY B\nMOVE A B\nFILL A\nMOVE A B",
+  "statement_sha256": "15e83a5838a97901a58640620b5991bf33d694bd29d89629af32b183bf15622a"
+}

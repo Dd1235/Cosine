@@ -1,0 +1,8 @@
+{
+  "id": "cses-3423",
+  "title": "Permutation Prime Sums",
+  "source_url": "https://cses.fi/problemset/task/3423",
+  "observed_at": "2026-09-11T06:54:42.624289+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n, create two permutations a and b of size n such that a_i+b_i is prime for i=1,2,\\dots,n.\n\nInput\n\nThe only line has an integer n.\n\nOutput\n\nPrint two permutations. You can print any valid solution. If there are no solutions, print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\n5\n\n\nOutput:\n\n2 1 3 5 4\n5 1 4 2 3  \n\n\nExplanation: The sums are 2+5=7, 1+1=2, 3+4=7, 5+2=7 and 4+3=7 which all are primes.",
+  "statement_sha256": "0bac39843b53fc76f053d7730d10446e76c858d14b887691788bf678fcaff185"
+}

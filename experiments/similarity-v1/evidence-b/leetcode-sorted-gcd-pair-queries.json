@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-sorted-gcd-pair-queries",
+  "url": "https://leetcode.com/problems/sorted-gcd-pair-queries/",
+  "observed_at": "2026-09-11T07:21:45.742911+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums of length n and an integer array queries . \n\n Let gcdPairs denote an array obtained by calculating the GCD of all possible pairs (nums[i], nums[j]) , where 0 <= i < j < n , and then sorting these values in ascending order. \n\n For each query queries[i] , you need to find the element at index queries[i] in gcdPairs . \n\n Return an integer array answer , where answer[i] is the value at gcdPairs[queries[i]] for each query. \n\n The term gcd(a, b) denotes the greatest common divisor of a and b . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [2,3,4], queries = [0,2,2] \n\n Output: [1,2,2] \n\n Explanation: \n\n gcdPairs = [gcd(nums[0], nums[1]), gcd(nums[0], nums[2]), gcd(nums[1], nums[2])] = [1, 2, 1] . \n\n After sorting in ascending order, gcdPairs = [1, 1, 2] . \n\n So, the answer is [gcdPairs[queries[0]], gcdPairs[queries[1]], gcdPairs[queries[2]]] = [1, 2, 2] . \n \n\n Example 2: \n\n \n Input: nums = [4,4,2,1], queries = [5,3,1,0] \n\n Output: [4,2,1,1] \n\n Explanation: \n\n gcdPairs sorted in ascending order is [1, 1, 1, 2, 2, 4] . \n \n\n Example 3: \n\n \n Input: nums = [2,2], queries = [0,0] \n\n Output: [2,2] \n\n Explanation: \n\n gcdPairs = [2] . \n \n\n \u00a0 \n Constraints: \n\n \n 2 <= n == nums.length <= 10 5 \n 1 <= nums[i] <= 5 * 10 4 \n 1 <= queries.length <= 10 5 \n 0 <= queries[i] < n * (n - 1) / 2",
+  "statement_sha256": "736d09bf741b23bb0248194c0e776cefaea49791fb8fac5a3d9e0a88e06b227b",
+  "raw_sha256": "a92eac1991de0e6d10b846d522c079f4f7765b4dcf7250bd79c840e7c721727e",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

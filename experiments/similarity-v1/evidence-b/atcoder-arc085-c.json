@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-arc085-c",
+  "url": "https://atcoder.jp/contests/arc085/tasks/arc085_c",
+  "observed_at": "2026-09-11T07:21:43.401563+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nWe have N gemstones labeled 1 through N.\r\n\nYou can perform the following operation any number of times (possibly zero).\r\n\nSelect a positive integer x, and smash all the gems labeled with multiples of x.\r\n\nThen, for each i, if the gem labeled i remains without getting smashed, you will receive a_i yen (the currency of Japan).\r\nHowever, a_i may be negative, in which case you will be charged money.\r\n\nBy optimally performing the operation, how much yen can you earn?\r\n\nConstraints\r\n\nAll input values are integers.\r\n\n1 \\leq N \\leq 100\r\n\n|a_i| \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\na_1 a_2 ... a_N\r\n\nOutput\nPrint the maximum amount of money that can be earned.\r\n\nSample Input 1\n6\r\n1 2 -6 4 5 3\r\n\nSample Output 1\n12\r\n\nIt is optimal to smash Gem 3 and 6.\r\n\nSample Input 2\n6\r\n100 -100 -100 -100 100 -100\r\n\nSample Output 2\n200\r\n\nSample Input 3\n5\r\n-1 -2 -3 -4 -5\r\n\nSample Output 3\n0\r\n\nIt is optimal to smash all the gems.\r\n\nSample Input 4\n2\r\n-1000 100000\r\n\nSample Output 4\n99000",
+  "statement_sha256": "59ad68a25a55a0e37ecdf838e3f5c7a7115dd64354272f0416e9ecf8ee307512",
+  "raw_sha256": "2660e36a45085b74230b0eb1ff1742274a5a471d3047cd369211d2e6e3a4e81c",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

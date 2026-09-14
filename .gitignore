@@ -8,3 +8,9 @@ docs/implementation
 __pycache__/
 data/formwise.xlsx
 CLAUDE.md
+PROJECT_CONTEXT.local.md
+data/cache/*.json.lock
+
+# Study notes and early brainstorms — local only, same as docs/implementation
+docs/learning
+system_design

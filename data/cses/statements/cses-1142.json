@@ -1,0 +1,8 @@
+{
+  "id": "cses-1142",
+  "title": "Advertisement",
+  "source_url": "https://cses.fi/problemset/task/1142",
+  "observed_at": "2026-09-11T06:54:52.089632+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA fence consists of n vertical boards. The width of each board is 1 and their heights may vary.\n\nYou want to attach a rectangular advertisement to the fence. What is the maximum area of such an advertisement?\n\nInput\n\nThe first input line contains an integer n: the width of the fence.\n\nAfter this, there are n integers k_1,k_2,\\ldots,k_n: the height of each board.\n\nOutput\n\nPrint one integer: the maximum area of an advertisement.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k_i \\le 10^9\n\n\nExample\n\nInput:\n\n8\n4 1 5 3 3 2 4 1\n\n\nOutput:\n\n10",
+  "statement_sha256": "81a657b43455af2c5fa75aa4a48810afbc5d1d299f4a728f5f5d2f1f8dc168b7"
+}

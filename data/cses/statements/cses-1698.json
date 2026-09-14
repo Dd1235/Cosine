@@ -1,0 +1,8 @@
+{
+  "id": "cses-1698",
+  "title": "Swap Round Sorting",
+  "source_url": "https://cses.fi/problemset/task/1698",
+  "observed_at": "2026-09-11T06:54:56.589466+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array containing a permutation of numbers 1,2,\\dots,n, and your task is to sort the array using swap rounds. On each swap round, you can choose any number of distinct pairs of elements and swap each pair.\n\nYour task is to find the minimum number of rounds and show how you can choose the pairs in each round.\n\nInput\n\nThe first input line has an integer n: the size of the array.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the initial permutation.\n\nOutput\n\nFirst print an integer k: the minimum number of rounds.\n\nThen, for each round, print the number of swaps and the indices of each swap. You can print any valid solution.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n5\n5 2 1 3 4\n\n\nOutput:\n\n2\n2\n1 3\n4 5\n1\n3 5\n\n\nExplanation: The initial array is [5,2,1,3,4]. After round 1, the array becomes [1,2,5,4,3]. After round 2, the array becomes [1,2,3,4,5].",
+  "statement_sha256": "d2ec1d4044f49b2fff444579eb5f86d84e1bc6b024ef6c710e9dcdb60e2a182e"
+}

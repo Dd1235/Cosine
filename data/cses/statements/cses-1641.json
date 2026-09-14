@@ -1,0 +1,8 @@
+{
+  "id": "cses-1641",
+  "title": "Sum of Three Values",
+  "source_url": "https://cses.fi/problemset/task/1641",
+  "observed_at": "2026-09-11T06:53:15.588691+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers, and your task is to find three values (at distinct positions) whose sum is x.\n\nInput\n\nThe first input line has two integers n and x: the array size and the target sum.\n\nThe second line has n integers a_1,a_2,\\dots,a_n: the array values.\n\nOutput\n\nPrint three integers: the positions of the values. If there are several solutions, you may print any of them. If there are no solutions, print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n1 \\le x,a_i \\le 10^9\n\n\nExample\n\nInput:\n\n4 8\n2 7 5 1\n\n\nOutput:\n\n1 3 4",
+  "statement_sha256": "c041304b89d997245bad703101bab56c588bb44b281ed6f30c043ab5a23fe1ba"
+}

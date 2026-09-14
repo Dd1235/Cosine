@@ -4,13 +4,17 @@ Stage problems from a contest link.
 
     python3 scripts/ingest_contest.py https://leetcode.com/contest/weekly-contest-513/
     python3 scripts/ingest_contest.py https://codeforces.com/contest/2248
+    python3 scripts/ingest_contest.py "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202024"
+    python3 scripts/ingest_contest.py "https://open.kattis.com/contests/a3krcf"
+    python3 scripts/ingest_contest.py --print-registry --dry-run "https://open.kattis.com/problem-sources/..."
     python3 scripts/ingest_contest.py --retry-pending
     python3 scripts/ingest_contest.py --dry-run <url>
 
-This only STAGES: it appends URLs to Problems/urls_contests.txt and, for
-Codeforces, merges statements into the shared cache. Annotation, embedding and
-validation stay separate commands, and nothing here ever commits — same
-discipline as scripts/refresh_corpus.sh. The script prints the next steps.
+This only STAGES: it appends URLs to Problems/urls_contests.txt, merges
+Codeforces statements into the shared cache, and writes Kattis statements to
+data/analysis/external-staging/. Annotation, embedding and validation stay
+separate commands, and nothing here ever commits — same discipline as
+scripts/refresh_corpus.sh. The script prints the next steps.
 
 WHY THE TWO JUDGES BEHAVE DIFFERENTLY
 
@@ -44,6 +48,15 @@ A weekly/biweekly contest is four problems worth 3/4/5/6 points. Q1 (credit 3)
 is the warm-up and is nearly always Easy, and this corpus is deliberately
 hard-focused. `credit` is used rather than the difficulty label because it is
 structural and available immediately, while the label can still move.
+
+WHY KATTIS STOPS AT A STAGING FILE
+
+Kattis ICPC problems carry no rating, no tag list and no editorial, so nothing
+on the page can label them — someone has to solve the problem. Those labels go
+through the propose/skeptic-review pipeline in data/analysis/external-*.json,
+and publication is scripts/publish_external.py. So Kattis ingest writes a
+statement plus the Kattis difficulty to data/analysis/external-staging/ and
+stops; nothing it writes is searchable.
 """
 
 from __future__ import annotations
@@ -56,8 +69,11 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote, unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from annotate_problem_urls import html_to_text, request_text, slugify  # noqa: E402
+from cache_io import atomic_write_json, merge_json_map
 from update_problem_urls import LEETCODE_GRAPHQL_URL, request_json  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -126,9 +142,21 @@ def parse_contest_url(raw: str) -> tuple[str, Any]:
     m = re.search(r"leetcode\.com/contest/([a-z0-9-]+)", s, re.I)
     if m:
         return "leetcode", m.group(1)
-    m = re.search(r"codeforces\.com/(?:contest|contests)/(\d+)", s, re.I)
+    m = re.search(r"codeforces\.com/(?:contest|contests|gym)/(\d+)", s, re.I)
     if m:
         return "codeforces", int(m.group(1))
+    # A Kattis source name is human text in the path ("ICPC%20World%20Finals%202024"),
+    # so the name is everything up to the next path separator, percent-decoded.
+    m = re.search(r"(icpc|open)\.kattis\.com/problem-sources/([^/?#]+)", s, re.I)
+    if m:
+        return "kattis-source", {"kind": "kattis-source",
+                                 "host": f"{m.group(1).lower()}.kattis.com",
+                                 "name": unquote(m.group(2))}
+    m = re.search(r"(icpc|open)\.kattis\.com/contests/([A-Za-z0-9_.-]+)", s, re.I)
+    if m:
+        return "kattis-contest", {"kind": "kattis-contest",
+                                  "host": f"{m.group(1).lower()}.kattis.com",
+                                  "id": m.group(2)}
     raise ValueError(f"unrecognised contest url: {raw}")
 
 
@@ -208,11 +236,12 @@ def row_to_entry(r: dict[str, Any]) -> tuple[str, dict[str, Any]] | None:
         "rating": r.get("rating"),
         "tags": r.get("tags") or [],
         "statement": statement[:6000],
-        "url": f"https://codeforces.com/problemset/problem/{cid}/{index}",
+        "url": (f"https://codeforces.com/gym/{cid}/problem/{index}" if int(cid) >= 100000
+                else f"https://codeforces.com/problemset/problem/{cid}/{index}"),
     }
 
 
-def build_hf_index() -> dict[str, int]:
+def build_hf_index(write: bool = True) -> dict[str, int]:
     """One full pass over the dataset recording key -> row offset.
 
     Paging all ~9,500 rows takes ~25 minutes and the datasets-server 502s on
@@ -235,15 +264,15 @@ def build_hf_index() -> dict[str, int]:
                 index.setdefault(got[0], offset + i)
         if offset and offset % (PAGE * 20) == 0:
             print(f"    scanned {offset}/{total}, indexed {len(index)}")
-    HF_INDEX.parent.mkdir(parents=True, exist_ok=True)
-    HF_INDEX.write_text(json.dumps(
-        {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-         "rows": total, "keys": index}, indent=0) + "\n")
+    if write:
+        atomic_write_json(HF_INDEX,
+            {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+             "rows": total, "keys": index})
     print(f"  indexed {len(index)} problems")
     return index
 
 
-def load_hf_index(force_refresh: bool = False) -> dict[str, int]:
+def load_hf_index(force_refresh: bool = False, write: bool = True) -> dict[str, int]:
     cached = read_json(HF_INDEX, None)
     if cached and not force_refresh:
         try:
@@ -253,15 +282,15 @@ def load_hf_index(force_refresh: bool = False) -> dict[str, int]:
             print(f"  key index is {age.days} days old — refreshing")
         except (KeyError, ValueError):
             pass
-    return build_hf_index()
+    return build_hf_index(write=write)
 
 
-def hf_lookup(wanted: set[str], force_refresh: bool = False) -> dict[str, dict[str, Any]]:
+def hf_lookup(wanted: set[str], force_refresh: bool = False, write: bool = True) -> dict[str, dict[str, Any]]:
     """Resolve wanted `codeforces-<id>-<index>` keys to full rows, consulting
     the cached key index so an unavailable problem costs nothing."""
     if not wanted:
         return {}
-    index = load_hf_index(force_refresh)
+    index = load_hf_index(force_refresh, write=write)
     hits = {k: index[k] for k in wanted if k in index}
     if not hits:
         return {}
@@ -281,17 +310,8 @@ def hf_lookup(wanted: set[str], force_refresh: bool = False) -> dict[str, dict[s
 
 
 def merge_statements(entries: dict[str, dict[str, Any]]) -> int:
-    """MERGE, never overwrite. fetch_codeforces.py and fetch_codeforces_named.py
-    both truncate this file; running either for a contest would wipe the cache
-    every other ingest depends on."""
-    if not entries:
-        return 0
-    cache = read_json(CF_STATEMENTS, {})
-    before = len(cache)
-    cache.update(entries)
-    CF_STATEMENTS.parent.mkdir(parents=True, exist_ok=True)
-    CF_STATEMENTS.write_text(json.dumps(cache, ensure_ascii=False, indent=1) + "\n")
-    return len(cache) - before
+    """Merge under a shared lock and publish with atomic replacement."""
+    return merge_json_map(CF_STATEMENTS, entries)
 
 
 def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str,
@@ -310,7 +330,10 @@ def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str
     if not wanted:
         return stats
 
-    found = hf_lookup(wanted)
+    cached = read_json(CF_STATEMENTS, {})
+    found = {k: cached[k] for k in wanted
+             if k in cached and len(cached[k].get("statement", "").strip()) >= 80}
+    found.update(hf_lookup(wanted - set(found), write=not dry_run))
     missing = sorted(wanted - set(found))
     stats["staged"] = len(found)
     stats["queued"] = len(missing)
@@ -329,6 +352,219 @@ def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str
     return stats
 
 
+# ── Kattis ───────────────────────────────────────────────────────────────────
+#
+# Kattis is staged differently from the other two judges, and deliberately.
+#
+# LeetCode and Codeforces problems go into Problems/urls_contests.txt and are
+# annotated in bulk. Kattis problems are ICPC PYQs: there is no rating, no tag
+# list and no editorial, so the label has to come from someone actually solving
+# the problem. That pipeline (solve -> propose -> independent skeptic review ->
+# publish) reads and writes data/analysis/external-*.json, so ingest here stops
+# at a STAGING FILE — statement only, difficulty null — and publication is
+# scripts/publish_external.py. Nothing this script writes is searchable.
+#
+# The table is parsed ROW-WISE, never column-wise. Kattis renders the difficulty
+# as a span inside the same <td> as its number, and a page that hides the column
+# for some rows (or gains a column) would silently shift a position-indexed
+# parse, pinning the wrong difficulty on every problem below it. Pairing inside
+# the row cannot be off by one.
+#
+# The refusal is the same fail-closed posture as scripts/external_judges.py: if
+# the markers this parse depends on are not on the page, Kattis has changed its
+# markup and the honest answer is to write nothing rather than stage whatever a
+# loosened regex happens to match.
+
+STAGING = ROOT / "data" / "analysis" / "external-staging"
+KATTIS_MIN_TEXT = 150
+KATTIS_FETCH_DELAY = 1.5  # seconds between statement fetches
+
+KATTIS_ROW_RE = re.compile(r"<tr\b.*?</tr>", re.S | re.I)
+# The closing quote matters: a row also links /problems/<slug>/en and
+# /problems/<slug>/statistics, and only the bare path is the title link.
+KATTIS_SOURCE_LINK_RE = re.compile(
+    r'href="/problems/([A-Za-z0-9_.-]+)"[^>]*>\s*(.*?)\s*</a>', re.S)
+KATTIS_CONTEST_LINK_RE = re.compile(
+    r'href="/contests/[A-Za-z0-9_.-]+/problems/([A-Za-z0-9_.-]+)"[^>]*>\s*(.*?)\s*</a>', re.S)
+KATTIS_DIFFICULTY_RE = re.compile(
+    r'difficulty_number[^"]*difficulty_(easy|medium|hard)"\s*>\s*(\d+\.\d)', re.S)
+KATTIS_DIFFICULTY_MARKER = 'data-name="difficulty_data"'
+KATTIS_HELD_DATE_RE = re.compile(r"\(([A-Z][a-z]+)\s+(\d{1,2}),\s*(\d{4})\)\s*$")
+MONTHS = {m: i for i, m in enumerate(
+    ["January", "February", "March", "April", "May", "June", "July",
+     "August", "September", "October", "November", "December"], start=1)}
+
+
+def kattis_page_title(page: str) -> str:
+    """The source/contest heading, without Kattis's "Problems from" prefix.
+    Contest pages carry a second <h1>Problems</h1>; it is not the name."""
+    for raw in re.findall(r"<h1[^>]*>(.*?)</h1>", page, re.S):
+        text = html_to_text(raw)
+        if text and text.lower() != "problems":
+            return re.sub(r"^Problems from\s+", "", text).strip()
+    return ""
+
+
+def parse_kattis_source_page(page: str) -> list[dict[str, Any]]:
+    """Rows of a /problem-sources/<name> table, in page order, each carrying
+    its OWN difficulty. Refuses a page that does not look like that table."""
+    if KATTIS_DIFFICULTY_MARKER not in page:
+        raise ValueError("no difficulty column on this page — Kattis markup changed; "
+                         "refusing to guess at the table shape")
+    rows: list[dict[str, Any]] = []
+    for block in KATTIS_ROW_RE.findall(page):
+        link = KATTIS_SOURCE_LINK_RE.search(block)
+        if not link:
+            continue
+        hit = KATTIS_DIFFICULTY_RE.search(block)
+        rows.append({
+            "slug": link.group(1),
+            "title": html_to_text(link.group(2)),
+            "difficulty": {"score": float(hit.group(2)), "label": hit.group(1)} if hit else None,
+        })
+    if not rows:
+        raise ValueError("no problem rows on this page — refusing to stage nothing")
+    return rows
+
+
+def parse_kattis_contest_page(page: str) -> list[dict[str, Any]]:
+    """Rows of a /contests/<id>/problems table.
+
+    A contest table is NOT the source table: it links
+    /contests/<id>/problems/<slug> rather than /problems/<slug>, and it has no
+    difficulty column at all — so these rows stage with no kattis_difficulty
+    rather than with a fabricated one. The statement still comes from the
+    canonical https://<host>/problems/<slug>."""
+    rows: list[dict[str, Any]] = []
+    for block in KATTIS_ROW_RE.findall(page):
+        link = KATTIS_CONTEST_LINK_RE.search(block)
+        if not link:
+            continue
+        rows.append({"slug": link.group(1), "title": html_to_text(link.group(2)),
+                     "difficulty": None})
+    if not rows:
+        raise ValueError("no problem rows on this contest page — refusing to stage nothing")
+    return rows
+
+
+def kattis_source_topic(name: str) -> str:
+    """"ICPC World Finals 2024" -> "ICPC / World Finals 2024", the shape the
+    already-published kattis-billboards record uses."""
+    if re.search(r"\bICPC\b", name, re.I):
+        rest = re.sub(r"\s{2,}", " ", re.sub(r"\bICPC\b", "", name, count=1, flags=re.I)).strip()
+        return f"ICPC / {rest or name}"
+    return f"Kattis / {name}"
+
+
+def kattis_registry_entry(spec: dict[str, Any], url: str, display: str,
+                          rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """A data/contests.json skeleton. PRINTED, never written: the registry is a
+    reviewed file and a collection claim (which contest, which stage, which
+    problems) is exactly the kind of thing a script should not assert on its
+    own."""
+    name, held = display, None
+    date = KATTIS_HELD_DATE_RE.search(display)
+    if date and date.group(1) in MONTHS:
+        held = f"{date.group(3)}-{MONTHS[date.group(1)]:02d}-{int(date.group(2)):02d}"
+        name = display[:date.start()].strip()
+    return {
+        "id": slugify(name),
+        "name": name,
+        "family": "icpc",
+        "stage": "world-finals" if re.search(r"world\s*finals", name, re.I) else "regional",
+        "problems": [f"kattis-{r['slug']}" for r in rows],
+        "evidence": [url],
+        "held_date": held,
+        "resources": [{"title": "Kattis problem source", "url": url,
+                       "kind": "judge", "availability": "public"}],
+        "observed_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+    }
+
+
+def staged_source_text(slug: str) -> str | None:
+    """The staged statement for a slug, if one is already on disk and usable.
+    A short file is a failed fetch, not a cache hit — re-fetch it."""
+    staged = read_json(STAGING / f"kattis-{slug}.json", None)
+    if not isinstance(staged, dict):
+        return None
+    text = staged.get("source_text") or ""
+    return text if len(text) >= KATTIS_MIN_TEXT else None
+
+
+def ingest_kattis(spec: dict[str, Any], dry_run: bool,
+                  print_registry: bool = False, topic: str | None = None) -> dict[str, int]:
+    # Both imported here, not at module scope: fetch_statements imports this
+    # module for its statement cache, and external_judges pulls in the OpenAI
+    # annotation module — neither belongs in the import cycle or the fast path.
+    import external_judges
+    from fetch_statements import strip_agent_canaries
+
+    host = spec["host"]
+    if spec["kind"] == "kattis-source":
+        url = f"https://{host}/problem-sources/{quote(spec['name'])}"
+        page = request_text(url)
+        rows = parse_kattis_source_page(page)
+    else:
+        url = f"https://{host}/contests/{spec['id']}/problems"
+        page = request_text(url)
+        rows = parse_kattis_contest_page(page)
+
+    display = kattis_page_title(page) or spec.get("name") or spec.get("id") or host
+    topic = topic or kattis_source_topic(display)
+    print(f"\n{display}  ({len(rows)} problems)")
+
+    stats = {"present": 0, "cached": 0, "staged": 0, "skipped": 0, "canaries": 0}
+    observed = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    fetched_any = False
+    for position, row in enumerate(rows, start=1):
+        slug, pid = row["slug"], f"kattis-{row['slug']}"
+        if already_in_corpus(pid, "kattis"):
+            stats["present"] += 1
+            print(f"    have  {slug:<28} {row['title'][:34]}   (in the corpus)")
+            continue
+        if staged_source_text(slug) is not None:
+            stats["cached"] += 1
+            print(f"    have  {slug:<28} {row['title'][:34]}   (already staged)")
+            continue
+        if dry_run:
+            stats["staged"] += 1
+            print(f"    STAGE {slug:<28} {row['title'][:34]}")
+            continue
+
+        if fetched_any:
+            time.sleep(KATTIS_FETCH_DELAY)
+        fetched_any = True
+        try:
+            record = external_judges.metadata(f"https://{host}/problems/{slug}", topic)
+        except ValueError as exc:
+            stats["skipped"] += 1
+            print(f"    skip {slug}: {exc}")
+            continue
+
+        # Third-party text is data, not instructions — the same reason
+        # fetch_statements.py strips these before anything annotates them.
+        record["source_text"], stripped = strip_agent_canaries(record["source_text"])
+        stats["canaries"] += stripped
+        if row["difficulty"]:
+            record["kattis_difficulty"] = {**row["difficulty"], "host": host,
+                                           "observed_at": observed}
+        record["contest_source"] = {"host": host,
+                                    "name": spec.get("name") or spec.get("id"),
+                                    "position": position}
+        atomic_write_json(STAGING / f"{pid}.json", record)
+        stats["staged"] += 1
+        note = f"  [{row['difficulty']['score']} {row['difficulty']['label']}]" if row["difficulty"] else ""
+        print(f"    NEW   {slug:<28} {row['title'][:34]}{note}")
+
+    if stats["canaries"]:
+        print(f"  stripped {stats['canaries']} agent-directed sentence(s) from staged statements")
+    if print_registry:
+        print("\n  data/contests.json entry (review before pasting):")
+        entry = kattis_registry_entry(spec, url, display, rows)
+        for line in json.dumps(entry, ensure_ascii=False, indent=2).splitlines():
+            print(f"    {line}")
+    return stats
+
 # ── the pending queue ────────────────────────────────────────────────────────
 
 def queue_pending(items: list[dict[str, Any]]) -> None:
@@ -342,7 +578,7 @@ def queue_pending(items: list[dict[str, Any]]) -> None:
             continue
         pend["problems"].append({**it, "first_seen": now})
     pend["count"] = len(pend["problems"])
-    PENDING.write_text(json.dumps(pend, ensure_ascii=False, indent=1) + "\n")
+    atomic_write_json(PENDING, pend)
 
 
 def retry_pending(dry_run: bool) -> dict[str, int]:
@@ -365,7 +601,7 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
     if found:
         print(f"  {len(found)} already in the statement cache")
     missing = {p["id"] for p in live if p["id"] not in found}
-    found.update(hf_lookup(missing))
+    found.update(hf_lookup(missing, write=not dry_run))
     if not dry_run:
         merge_statements(found)
         by_contest: dict[int, list[str]] = {}
@@ -376,7 +612,7 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
         remaining = [p for p in live if p["id"] not in found]
         pend["problems"] = remaining
         pend["count"] = len(remaining)
-        PENDING.write_text(json.dumps(pend, ensure_ascii=False, indent=1) + "\n")
+        atomic_write_json(PENDING, pend)
 
     for key in sorted(found):
         print(f"    NEW   {key}  {found[key]['title'][:40]}")
@@ -391,19 +627,23 @@ def retry_pending(dry_run: bool) -> dict[str, int]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("urls", nargs="*", help="contest URLs (leetcode.com/contest/... or codeforces.com/contest/N)")
+    ap.add_argument("urls", nargs="*", help="contest URLs (leetcode.com/contest/..., "
+                    "codeforces.com/contest/N, or a Kattis problem-source/contest page)")
     ap.add_argument("--retry-pending", action="store_true", help="re-check queued Codeforces problems")
     ap.add_argument("--dry-run", action="store_true", help="report what would be staged; write nothing")
     ap.add_argument("--refresh-index", action="store_true",
                     help="rebuild the open-r1 key index now instead of waiting for it to age out")
+    ap.add_argument("--print-registry", action="store_true",
+                    help="also print a data/contests.json entry skeleton for each Kattis page")
+    ap.add_argument("--topic", help="override the source_topic staged on Kattis records")
     args = ap.parse_args()
 
     if not args.urls and not args.retry_pending and not args.refresh_index:
         ap.error("give a contest URL, --retry-pending, or --refresh-index")
 
-    totals = {"new": 0, "queued": 0}
+    totals = {"new": 0, "queued": 0, "skipped": 0}
     if args.refresh_index:
-        build_hf_index()
+        build_hf_index(write=not args.dry_run)
     if args.retry_pending:
         out = retry_pending(args.dry_run)
         totals["new"] += out["staged"]
@@ -419,6 +659,10 @@ def main() -> int:
             if judge == "leetcode":
                 st = ingest_leetcode(ident, args.dry_run)
                 totals["new"] += st["new"]
+            elif judge in ("kattis-source", "kattis-contest"):
+                st = ingest_kattis(ident, args.dry_run, args.print_registry, args.topic)
+                totals["new"] += st["staged"]
+                totals["skipped"] += st["skipped"]
             else:
                 print(f"\nCodeforces contest {ident}")
                 probs = cf_contest_problems(ident)
@@ -430,7 +674,8 @@ def main() -> int:
         time.sleep(0.3)
 
     print(f"\n{totals['new']} problem(s) staged" +
-          (f", {totals['queued']} waiting on a statement" if totals["queued"] else ""))
+          (f", {totals['queued']} waiting on a statement" if totals["queued"] else "") +
+          (f", {totals['skipped']} skipped (gated/incomplete page)" if totals["skipped"] else ""))
     if args.dry_run:
         print("(dry run — nothing written)")
         return 0
@@ -441,7 +686,10 @@ next:
   python3 scripts/apply_source_tags.py --write        # judge tags -> taxonomy (LeetCode tags land days later)
   python3 scripts/backfill_acceptance_rate.py --write  # metadata only, no re-embed needed
   npm run embed && npm run validate                   # embed FIRST: validate checks corpusHash
-  git diff --stat && git add -A && git commit && git push""")
+  # Kattis stops at staging: solve and label each problem, record the skeptic
+  # review in data/analysis/external-review.json, then
+  #   python3 scripts/publish_external.py --batch <name>  [--write]
+  git diff --stat  # review and commit selected files; deployment requires local approval""")
     return 0
 
 

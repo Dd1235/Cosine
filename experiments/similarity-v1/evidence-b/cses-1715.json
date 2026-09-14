@@ -1,0 +1,10 @@
+{
+  "id": "cses-1715",
+  "url": "https://cses.fi/problemset/task/1715",
+  "observed_at": "2026-09-11T07:21:59.141587+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, your task is to calculate the number of different strings that can be created using its characters.\n\nInput\n\nThe only input line has a string of length n. Each character is between a\u2013z.\n\nOutput\n\nPrint the number of different strings modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\naabac\n\n\nOutput:\n\n20",
+  "statement_sha256": "6dcdfbc8955cb39b64f8b3af9c3a8dd5c90c98124bed53e24a047360562e4728",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

@@ -1,0 +1,35 @@
+{
+ "id": "kattis-slidingblocks",
+ "title": "Sliding Blocks",
+ "slug": "slidingblocks",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/slidingblocks",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A board starts with one block, and a move injects a new block from one of the four edges along a chosen row or column; it slides until it bumps into an existing block, and a move adding nothing is illegal. Given a target arrangement of up to four hundred thousand blocks whose cells form a tree under adjacency, the task is to decide reachability and list the moves.",
+ "tags": [],
+ "patterns": [
+  "topological-sort",
+  "graph-modeling",
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "topological-sort": 0.9,
+   "graph-modeling": 0.9,
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.7,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

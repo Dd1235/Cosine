@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-of-substrings-containing-every-vowel-and-k-consonants-i",
+  "url": "https://leetcode.com/problems/count-of-substrings-containing-every-vowel-and-k-consonants-i/",
+  "observed_at": "2026-09-11T07:21:58.329537+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string word and a non-negative integer k . \n\n Return the total number of substrings of word that contain every vowel ( 'a' , 'e' , 'i' , 'o' , and 'u' ) at least once and exactly k consonants. \n\n \u00a0 \n Example 1: \n\n \n Input: word = \"aeioqq\", k = 1 \n\n Output: 0 \n\n Explanation: \n\n There is no substring with every vowel. \n \n\n Example 2: \n\n \n Input: word = \"aeiou\", k = 0 \n\n Output: 1 \n\n Explanation: \n\n The only substring with every vowel and zero consonants is word[0..4] , which is \"aeiou\" . \n \n\n Example 3: \n\n \n Input: word = \" ieaouqqieaouqq \", k = 1 \n\n Output: 3 \n\n Explanation: \n\n The substrings with every vowel and one consonant are: \n\n \n word[0..5] , which is \"ieaouq\" . \n word[6..11] , which is \"qieaou\" . \n word[7..12] , which is \"ieaouq\" . \n \n \n\n \u00a0 \n Constraints: \n\n \n 5 <= word.length <= 250 \n word consists only of lowercase English letters. \n 0 <= k <= word.length - 5",
+  "statement_sha256": "4c9a2673f79b9062fc91b2b1befff5f3b8c49d36e11e5c513f039c5344f2aa83",
+  "raw_sha256": "0c999ec5b094bca77dbd06fa65a1966750c82f4653168dd8ea504c76d031fc8f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

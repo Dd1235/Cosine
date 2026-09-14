@@ -1,0 +1,35 @@
+{
+ "id": "kattis-bingoforthewin",
+ "title": "Bingo for the Win!",
+ "slug": "bingoforthewin",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/bingoforthewin",
+ "source_topic": "ICPC / World Finals 2024",
+ "source_tags": [],
+ "statement": "In a speed variant of bingo, n players each hold a sheet of k numbers, not necessarily distinct, ranked by reaction speed. All n times k sheet numbers are called in uniformly random order, and each call goes to the fastest player still holding an uncrossed copy. With n at most 100 and k at most 1000, the task is to report each player's probability of finishing last.",
+ "tags": [],
+ "patterns": [
+  "combinatorics",
+  "counting",
+  "hash-map"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "combinatorics": 0.9,
+   "counting": 0.9,
+   "hash-map": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 3.6,
+  "label": "medium",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:29+00:00"
+ }
+}

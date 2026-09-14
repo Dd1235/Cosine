@@ -1,0 +1,8 @@
+{
+  "id": "cses-2106",
+  "title": "Repeating Substring",
+  "source_url": "https://cses.fi/problemset/task/2106",
+  "observed_at": "2026-09-11T06:53:41.512999+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA repeating substring is a substring that occurs in two (or more) locations in the string. Your task is to find the longest repeating substring in a given string.\n\nInput\n\nThe only input line has a string of length n that consists of characters a\u2013z.\n\nOutput\n\nPrint the longest repeating substring. If there are several possibilities, you can print any of them. If there is no repeating substring, print -1.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n\nExample\n\nInput:\n\ncabababc\n\n\nOutput:\n\nabab",
+  "statement_sha256": "30bd06227692f6d75f8f02733cdab00167f3fb16e35d29b52bdac30f7d7f3a11"
+}

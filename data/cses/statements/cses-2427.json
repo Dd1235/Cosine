@@ -1,0 +1,8 @@
+{
+  "id": "cses-2427",
+  "title": "Letter Pair Move Game",
+  "source_url": "https://cses.fi/problemset/task/2427",
+  "observed_at": "2026-09-11T06:54:54.676227+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are 2n boxes in a line. Two adjacent boxes are empty, and all other boxes have a letter \"A\" or \"B\". Both letters appear in exactly n-1 boxes.\n\nYour task is to move the letters so that all letters \"A\" appear before any letter \"B\". On each turn you can choose any two adjacent boxes that have a letter and move the letters to the two adjacent empty boxes, preserving their order.\n\nIt can be proven that either there is a solution that consists of at most 10n turns or there are no solutions.\n\nInput\n\nThe first line has an integer n: there are 2n boxes.\n\nThe second line has a string of 2n characters which describes the starting position. Each character is \"A\", \"B\" or \".\" (empty box).\n\nOutput\n\nFirst print an integer k: the number of turns. After this, print k lines that describe the moves. You can print any solution, as long as k \\le 1000.\n\nIf there are no solutions, print only \"-1\".\n\nConstraints\n\n\n1 \\le n \\le 100\n\n\nExample 1\n\nInput:\n\n3\nAB..BA\n\n\nOutput:\n\n2\nABBA..\nA..ABB\n\nExample 2\n\nInput:\n\n3\nABAB..\n\n\nOutput:\n\n-1",
+  "statement_sha256": "e8208076addb07883a10563db81042f3f7b062e647ae6bbecac46b5fff05f7fb"
+}

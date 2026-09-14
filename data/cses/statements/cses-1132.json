@@ -1,0 +1,8 @@
+{
+  "id": "cses-1132",
+  "title": "Tree Distances I",
+  "source_url": "https://cses.fi/problemset/task/1132",
+  "observed_at": "2026-09-11T06:53:30.630581+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a tree consisting of n nodes.\n\nYour task is to determine for each node the maximum distance to another node.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint n integers: for each node 1,2,\\ldots,n, the maximum distance to another node.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n2 3 2 3 3",
+  "statement_sha256": "128da827d68c9f80cc05eea181b0c82521106decb66859a3a387881dc728d9e9"
+}

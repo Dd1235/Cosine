@@ -1,0 +1,8 @@
+{
+  "id": "cses-2073",
+  "title": "Substring Reversals",
+  "source_url": "https://cses.fi/problemset/task/2073",
+  "observed_at": "2026-09-11T06:53:46.519100+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string, your task is to process operations where you reverse a substring of the string. What is the final string after all the operations?\n\nInput\n\nThe first input line has two integers n and m: the length of the string and the number of operations. The characters of the string are numbered 1,2,\\dots,n.\n\nThe next line has a string of length n that consists of characters A\u2013Z.\n\nFinally, there are m lines that describe the operations. Each line has two integers a and b: you reverse a substring from position a to position b.\n\nOutput\n\nPrint the final string after all the operations.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n7 2\nAYBABTU\n3 4\n4 7\n\n\nOutput:\n\nAYAUTBB",
+  "statement_sha256": "60d1d450a2c7e7678a34c5d3e55035d8f4a821f476dff9edad5823347eaa102b"
+}

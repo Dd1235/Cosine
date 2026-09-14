@@ -1,0 +1,37 @@
+{
+ "id": "kattis-largesttriangle",
+ "title": "Largest Triangle",
+ "slug": "largesttriangle",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/largesttriangle",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "Given up to five thousand points with non-negative integer coordinates bounded by forty million, the task is to report the area of the largest triangle whose three corners are chosen among those points, or zero when no non-degenerate triangle exists. The points need not be distinct, arrive in no particular order and may include long collinear runs, and the reported area is accepted within a small absolute error.",
+ "tags": [],
+ "patterns": [
+  "convex-hull",
+  "rotating-calipers",
+  "geometry",
+  "two-pointers"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "convex-hull": 0.9,
+   "rotating-calipers": 0.9,
+   "geometry": 0.9,
+   "two-pointers": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.4,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

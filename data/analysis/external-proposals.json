@@ -1,0 +1,1631 @@
+{
+  "reviewer": "root-first-pass",
+  "status": "awaiting-independent-skeptic",
+  "problems": [
+    {
+      "id": "codechef-amat",
+      "patterns": [
+        "constructive-algorithm"
+      ],
+      "solution": "Each diagonal entry equals twice its original element; output B[i][i]/2. The input guarantees consistency and positive integral solutions. O(N^2) input time, O(N) stored answer.",
+      "statement_summary": "Reconstruct a positive integer array of length at most 10 from its pairwise-sum matrix, where entry (i,j) equals A[i]+A[j]."
+    },
+    {
+      "id": "codechef-productneg",
+      "patterns": [
+        "game-theory",
+        "parity-argument"
+      ],
+      "solution": "Each legal move removes an odd number of negative entries, toggling the parity of their count. A move exists exactly while any negative remains, so the number of moves has fixed parity equal to the original negative count. Odd count wins; deleting any single negative is a winning first move. O(N).",
+      "statement_summary": "Two players alternately delete a contiguous subarray with product -1 from an array of up to 200000 values in {-1,1}. Determine the winner and a winning first deletion when one exists."
+    },
+    {
+      "id": "codechef-makezero7",
+      "patterns": [
+        "constructive-algorithm",
+        "parity-argument",
+        "greedy"
+      ],
+      "solution": "Absolute subtraction preserves pairwise parity differences, hence mixed parity requires at least one paid modulo. Repeatedly subtract the ceiling of the midpoint of current min/max in absolute value until all entries coincide or the range is {0,1}; each step halves the maximum spread. Equal entries are zeroed with one free subtraction. For {0,1}, apply absolute subtraction by 3, modulo 3, then absolute subtraction by 1 twice: {0,1}->{3,2}->{0,2}->{1}->{0}. N>=3 permits X=3. At most ceil(log2 N)+4<=14 operations, O(N log N). Same-parity inputs cannot end in mixed {0,1}, so cost zero; otherwise cost one.",
+      "statement_summary": "Turn an array of N values in [1,N], with N at most 1000, into zeroes using free absolute subtraction by a common value and paid common-modulus operations. Minimize paid operations and output at most 15 operations."
+    },
+    {
+      "id": "codechef-expprod2",
+      "patterns": [
+        "dynamic-programming",
+        "modular-arithmetic"
+      ],
+      "solution": "Maintain S=sum of prefix products and W=sum of last-value times prefix product. Appending x gives fnew=f*(last+x), hence Snew=M*W+s1*S and Wnew=s1*W+s2*S, where s1=sum x and s2=sum x^2. Initialize S=M,W=s1 at length one. Closed-form power sums modulo prime and O(N) transitions satisfy total N<=200000.",
+      "statement_summary": "Sum the product of adjacent pair sums over every length-N array with entries in [1,M], modulo 998244353. Total N is at most 200000 and M may be 10^9."
+    },
+    {
+      "id": "codechef-jump12",
+      "patterns": [
+        "dynamic-programming",
+        "difference-array",
+        "prefix-sum"
+      ],
+      "solution": "Shortest path DP is dp[i]=A[i]+min(dp[i-1],dp[i-2]), so delta[i]=A[i]-max(delta[i-1],0). Delta is in [1-M,M]. Store count per delta; each old delta contributes its count to an interval of M new deltas, updated with a difference array in O(M). Maintain sum of dp over prefixes: Tnew=M*Told+countOld*s1-M*sum(count[d]*max(d,0)). Initialize length2 with count[d]=M for d=1..M, T=2*M*s1. Sum N<=400, M<=400 permits O(NM).",
+      "statement_summary": "Sum minimum path costs across all length-N arrays of values in [1,M]. A path starts at index 1, ends at N, and advances one or two positions, paying each visited value. N and M are at most 400."
+    },
+    {
+      "id": "kattis-billboards",
+      "patterns": [
+        "greedy",
+        "geometry",
+        "binary-search"
+      ],
+      "solution": "At each current left boundary, find for each remaining sponsor its earliest cut accumulating 1/n of its original total integral; assign the interval ending at the earliest of these cuts to that sponsor. Every other sponsor loses at most 1/n of its own original value, so the invariant guarantees all remaining shares fit. Compute integrals by trapezoid prefix sums, binary-search the segment containing target cumulative integral, solve its monotone quadratic (stable root/linear case). Last sponsor gets the remainder. O(totalSegments+n^2 log(maxSegments)), O(totalSegments), suitable n<=5000 totalSegments<=500000 and 12s native limit.",
+      "statement_summary": "Partition a billboard into contiguous sections, one per sponsor, so every sponsor receives at least 1/n of its own total value. Each valuation is a nonnegative piecewise-linear function; there are at most 5000 sponsors and 500000 total breakpoints."
+    },
+    {
+      "id": "codechef-cyclicxor",
+      "batch": "A",
+      "patterns": [
+        "bit-manipulation",
+        "combinatorics",
+        "permutation-counting",
+        "constructive-algorithm",
+        "modular-arithmetic",
+        "parity-argument",
+        "graph-modeling"
+      ],
+      "pattern_confidence": {
+        "bit-manipulation": 0.95,
+        "combinatorics": 0.92,
+        "permutation-counting": 0.88,
+        "constructive-algorithm": 0.8,
+        "modular-arithmetic": 0.75,
+        "parity-argument": 0.6,
+        "graph-modeling": 0.55
+      },
+      "tags": [
+        "math",
+        "combinatorics",
+        "bit-manipulation",
+        "permutation",
+        "constructive-algorithm"
+      ],
+      "solution": "Read the permutation as a Hamiltonian cycle on {1..N} and split the vertices by the top bit: H = 2^floor(log2 N), high = {H..N} of size M = N-H+1, low = {1..H-1} of size L = H-1. Any cycle crosses that cut an even number of times (>= 2) and every crossing edge has bit log2(H) set, so the answer is at least H; since (H+j) xor x = H + (j xor x) for x < H, a crossing costs exactly H only for the K = M-1 matched pairs {j, H+j}, and all non-crossing edges are automatically below H. If M >= 3 the answer is H and the count is a sum over t of C(K,2t) choices of used pairs times (2t-1)!!*2^(t-1)*(t-1)! ways for the two endpoint matchings to glue into a single cycle times (M-t-1)!/(t-1)! and (L-t-1)!/(t-1)! path systems on the two sides; if M == 1 the lone vertex H must take crossings H^1 and H^2 so the answer is H+2 with (N-3)! cycles, and if M == 2 no two crossings of cost <= H+1 hit distinct low vertices so the answer is again H+2 with 3*(N-4)! + (N-5)! cycles (the second term is the case where H and H+1 are non-adjacent and vertex 1 is a singleton). N=2 and N=3 are degenerate and answer (3,2) and (3,6). Multiply cycles by 2N (rotations times reflections) for the permutation count; O(N) factorial precompute and O(M) per test.",
+      "statement_summary": "Given an integer N, consider every permutation of 1 through N arranged in a cycle, and let its cost be the largest bitwise XOR of two cyclically adjacent entries. The task is to report the smallest cost achievable over all N! permutations and how many permutations attain it, modulo 998244353, across many queries whose N values sum to at most 200000.",
+      "source_text_sha256": "807ca348c528460b3485cb6b2947d3b900ad5afd5554446992817192323bd594",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_cyclicxor.py"
+    },
+    {
+      "id": "codechef-mst101",
+      "batch": "A",
+      "patterns": [
+        "constructive-algorithm",
+        "minimum-spanning-tree",
+        "kruskal",
+        "greedy"
+      ],
+      "pattern_confidence": {
+        "constructive-algorithm": 0.97,
+        "minimum-spanning-tree": 0.95,
+        "kruskal": 0.9,
+        "greedy": 0.6
+      },
+      "tags": [
+        "graph",
+        "matrix",
+        "constructive-algorithm",
+        "greedy"
+      ],
+      "solution": "Because the weights are exactly the ranks 1..M with M=C(N,2), f(W) is just the sum of the ranks Kruskal accepts, so the task reduces to choosing which ranks r_1<...<r_{N-1} are the merging ones. Before rank r_i, i-1 merges have happened and all r_i-1 earlier edges must lie inside the components those merges built, whose largest possible capacity is one blob of size i; hence i <= r_i <= C(i,2)+1, and conversely any strictly increasing r obeying that bound is realizable by growing a single blob 1,2,...,N, spending r_i on the edge that attaches vertex i+1 to the blob and every other rank on a still-unused pair inside the blob. Summing the two extreme vectors gives the achievable K as exactly the contiguous range [N(N-1)/2, (N-1)+N(N-1)(N-2)/6] (the caps grow with i, so each r_i can be raised one unit at a time and every intermediate sum is hit); anything outside prints -1, which is common here since K may be as large as N^3 while the maximum is only about N^3/6. To hit a given K, start from r_i=i and raise the r_i greedily from the largest index down to its cap C(i,2)+1 until the deficit K-N(N-1)/2 is consumed, then emit the matrix in O(N^2) per test, so O(T*N^2) <= 500*2500 overall.",
+      "statement_summary": "Given two integers N and K, the task is to build an N by N symmetric matrix with zero diagonal whose above-diagonal entries are a permutation of 1 through N(N-1)/2, so that the minimum spanning tree of the complete weighted graph it describes has total weight exactly K. Up to 500 cases have N at most 50 and K at most N cubed; report -1 when impossible.",
+      "source_text_sha256": "ab2912e2fdf0b6406b692e13991ecc7c7169ca8cf9d3d71aca79281cc188bdf7",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_mst101.py"
+    },
+    {
+      "id": "codechef-productpos",
+      "batch": "A",
+      "patterns": [
+        "game-theory",
+        "parity-argument",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "game-theory": 0.95,
+        "parity-argument": 0.85,
+        "constructive-algorithm": 0.75
+      },
+      "tags": [
+        "array",
+        "game-theory",
+        "math"
+      ],
+      "solution": "Every legal deletion removes a subarray containing an even number of -1s, so the parity of the total count m of -1s is invariant, and the only positions with no move are the empty array and a lone -1. Exhaustive memoised search over all arrays with n <= 14 shows the losing positions are exactly the empty array and the shapes 1^k (-1) 1^k, i.e. a single -1 sitting in the exact centre of an otherwise all-+1 array. Hence if m is even Alice deletes the whole array (its product is 1) and hands Bob the empty array; if m is odd she must leave one centred -1, which means keeping either the first -1 q1 or the last qm and deleting the contiguous block holding the other m-1 of them while trimming surplus +1s off the ends. With a = #(+1) before q1, b = #(+1) after qm, g = the +1 gap between q1 and q2 and h = the gap between q_{m-1} and qm, keeping q1 is possible iff a <= g + b and keeping qm iff b <= h + a; both can fail only if 0 > g + h, so for m >= 3 one always works, and for m == 1 (where g = h = 0) exactly one works unless a == b, which is precisely the centred P-position where Bob wins. The whole decision plus the construction is a single scan, O(n) per test and O(sum N) = 2*10^5 overall.",
+      "statement_summary": "Two players alternate moves on an array of up to 200,000 entries, each equal to 1 or -1. A move deletes any contiguous subarray whose product equals 1, joining the remaining pieces; whoever cannot move loses. For each of up to 10,000 test cases, with the total length bounded by 200,000, the task is to name the winner and, when the first player wins, output one winning opening deletion.",
+      "source_text_sha256": "b536417e89379f29ef75dae1a3a56b2a20451de37db88f01d79658a4b02c1944",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_productpos.py"
+    },
+    {
+      "id": "codechef-vscnt",
+      "batch": "A",
+      "patterns": [
+        "virtual-tree",
+        "lca",
+        "euler-tour",
+        "ordered-set",
+        "combinatorics"
+      ],
+      "pattern_confidence": {
+        "virtual-tree": 0.95,
+        "lca": 0.9,
+        "euler-tour": 0.75,
+        "ordered-set": 0.7,
+        "combinatorics": 0.7
+      },
+      "tags": [
+        "tree",
+        "combinatorics",
+        "data-structure"
+      ],
+      "solution": "score(T) is 0 unless T is already LCA-closed; otherwise build the virtual forest on T (parent of v = nearest proper ancestor of v inside T) and the answer is 2^B where B counts vertices of T with at least two virtual children. Correctness: every leaf of that forest must lie in S because nothing else can generate it, a vertex with one virtual child is never the LCA of two elements of f(S) so it must lie in S too, and a vertex with two or more virtual children always has two child subtrees containing forced leaves, so it appears in f(S) for free and may be chosen or not. To maintain this online, keep T in a set ordered by DFS entry time and let cnt[u] be the number of adjacent pairs in that order whose LCA is u; the standard virtual-tree fact gives cnt[u] = number of virtual children of u for u in T, so B = #{u : cnt[u] >= 2} and T is LCA-closed exactly when no adjacent pair has its LCA outside T. A toggle of x touches only the two adjacent pairs around x plus x's own cnt block, so each query is O(log N) with O(1) LCA, giving O((N + Q) log N) over sums of 2*10^5.",
+      "statement_summary": "A rooted tree on N vertices is given with Q updates, each toggling one vertex into or out of a set T. The virtual tree of a set is its minimal superset closed under lowest common ancestors, and the score of T counts the sets whose virtual tree is exactly T. After every toggle the score modulo 998244353 must be reported, with N and Q summing to 200000.",
+      "source_text_sha256": "36b7eb88a4d0215e46e264c419fbb0ac9e823dc620fc42ab9cec302b917da7f5",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_vscnt.py"
+    },
+    {
+      "id": "kattis-kindergarten2",
+      "batch": "A",
+      "patterns": [
+        "graph-modeling",
+        "topological-sort",
+        "functional-graph",
+        "constructive-algorithm",
+        "tin-tout-ancestor-check"
+      ],
+      "pattern_confidence": {
+        "graph-modeling": 0.9,
+        "topological-sort": 0.9,
+        "functional-graph": 0.8,
+        "constructive-algorithm": 0.85,
+        "tin-tout-ancestor-check": 0.5
+      },
+      "tags": [
+        "graph",
+        "tree",
+        "dfs",
+        "constructive-algorithm"
+      ],
+      "solution": "Kid i is jealous of j_i and likes l_i, and an order is safe iff for every i either pos[j_i] < pos[i] or pos[i] < pos[l_i] < pos[j_i]; so each kid picks one of two precedence-edge sets -- j_i -> i, or the pair i -> l_i and l_i -> j_i -- and any topological order of an acyclic union is an answer. Because j_i < i for i >= 2, the jealousy map is an out-degree-1 functional graph: a tree rooted at kid 1 plus one back edge, so if every kid starts on the first option the only cycle is the root path 1..j_1 together with that edge. At least one kid on that cycle must be flipped to the second option; flipping v deletes j_v -> v and adds v -> l_v and l_v -> j_v, which produces a fresh cycle exactly when j_v can still reach l_v down the tree (l_v a descendant of j_v along an unbroken path), and that smaller cycle is resolved by the same rule recursively. Branching over the still-cuttable edges of the current cycle is complete -- every solution must delete one of them -- so correctness of both the order and the 'impossible' verdict follows, which is what the brute force confirms. Each search node is one O(n) pass and only touches its own cycle, whose edges are never revisited deeper; with DFS numbering plus a structure for the 'still reachable' test the intended implementation is O(n) to O(n log n), and in testing the search never exceeded 9 nodes, so n = 200000 is comfortable (0.4 s even in Python).",
+      "statement_summary": "Each of n kids is jealous of one other kid and likes another; everyone except the coolest envies someone cooler, so the jealousy relation is a tree plus one extra edge. A kid may misbehave if the envied kid goes later and the liked kid does not go strictly in between. With n up to 200000, a safe order must be produced, or impossibility reported.",
+      "source_text_sha256": "a65a2d7dac82eb80b8d94d75b63739479b349c4b01939c936a1bd9a2e9160dda",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_kindergarten2.py"
+    },
+    {
+      "id": "kattis-whereaminow",
+      "batch": "A",
+      "patterns": [
+        "interactive",
+        "grid-traversal",
+        "dfs",
+        "graph-modeling",
+        "connected-components"
+      ],
+      "pattern_confidence": {
+        "interactive": 0.97,
+        "grid-traversal": 0.9,
+        "dfs": 0.85,
+        "graph-modeling": 0.68,
+        "connected-components": 0.6
+      },
+      "tags": [
+        "interactive",
+        "grid",
+        "graph",
+        "dfs"
+      ],
+      "solution": "Maintain the set of states (cell, heading) still consistent with the readings so far. Every survivor reports the same distance each round, so one action sequence planned in the robot's own relative frame is simultaneously legal and meaningful for all of them - in particular a step is safe for everybody exactly when the current reading is nonzero - and since left/right/step are injective on states the set can only shrink by observation splits. Depth-first explore the robot's 4-connected open component in that relative frame: three turns at each newly entered cell reveal its four neighbours, and every reading also exposes a whole ray of open cells plus the wall behind it; that is about 6*r*c rounds (measured worst case 60202 on a fully open 100x100 map), inside the 100000-round budget. Two states are indistinguishable forever exactly when a rotation by a multiple of 90 degrees plus a translation carries one open component onto the other, state to state (reflections are excluded because turning is handed) - checked against explicit Moore-machine minimisation - so once exploration completes the survivors are precisely one such class. Answer 'yes' the moment all survivors share a cell; otherwise walk to a square that every surviving isometry maps to the same cell (the fixed point of a rotationally symmetric room, which is why an ambiguous start is not yet a 'no') and answer 'no' only when no such square exists. O(r*c) interaction rounds; the offline side is the component/congruence precomputation, O(r*c) with 2-D hashing of the rotated component (or Hopcroft minimisation of the 4*r*c-state machine).",
+      "statement_summary": "A robot sits on a known grid map of up to 100 by 100 open and wall squares, at an unknown open square facing an unknown cardinal direction. Each round it learns how many open squares lie ahead before the next wall, then turns left or right, or steps forward. Within 100000 rounds it must report its exact current square, or declare that its position can never be determined.",
+      "source_text_sha256": "175cc145ceb1378448b59a1499f1c66ccf303f6c43e1f885da84269d4c69f783",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_whereaminow.py"
+    },
+    {
+      "id": "codechef-avgshort",
+      "batch": "C",
+      "patterns": [
+        "bellman-ford",
+        "binary-search-answer",
+        "cycle-detection"
+      ],
+      "pattern_confidence": {
+        "bellman-ford": 0.93,
+        "binary-search-answer": 0.88,
+        "cycle-detection": 0.6
+      },
+      "tags": [
+        "graph"
+      ],
+      "solution": "Binary search the answer lambda and reweight every arc w -> w - lambda; a walk from A to B with average below lambda exists exactly when the shortest *walk* under the reweighted costs is negative. That test is Bellman-Ford run on the subgraph of vertices reachable from A and able to reach B: it returns true either when dist[B] < 0, or when a relaxation still fires after |V| rounds, i.e. a negative cycle sits on some A->B route and can be looped arbitrarily many times so the average tends to that cycle's mean. Correctness follows from decomposing any walk into one simple A->B path plus cycles: by the mediant inequality (a1+a2)/(b1+b2) >= min(a1/b1, a2/b2) the walk's ratio is at least the smallest ratio among the pieces, so the infimum equals min(best simple path ratio, best mean of a usable cycle) and the reweighted shortest-walk sign is monotone in lambda. Weights are 1..100 so the answer lies in [1,100] and about 40-50 bisection steps clear the 1e-6 requirement, giving O(log(1/eps) * N * M) per test (<= ~2.5e7 with N<=500, M<=1000, and far less in practice because Bellman-Ford exits early). The infimum need not be attained -- sample 2 answers 1.0, the mean of the 2<->3 cycle, which no finite walk achieves -- and -1 is printed when B is unreachable from A.",
+      "statement_summary": "Given a directed weighted graph with up to 500 nodes and 1000 arcs whose weights lie between 1 and 100, and two distinct nodes A and B, the task is to find the smallest possible average edge weight of a walk from A to B, where the walk may reuse edges and its length need not be bounded. Output is -1 when no walk exists.",
+      "source_text_sha256": "d9d64f9bd565a946a14c0a2ac328a6023e70bba3c70d08007743d16cb7646ddc",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_avgshort.py"
+    },
+    {
+      "id": "codechef-gpd",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "bit-manipulation"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95,
+        "bit-manipulation": 0.8
+      },
+      "tags": [
+        "tree",
+        "data-structures",
+        "xor",
+        "online-queries"
+      ],
+      "solution": "Root the tree at R and give every node its own version of a binary trie over the 31-bit keys: version(u) is version(parent(u)) with key(u) inserted by path copying, so version(u) holds exactly the keys on the path u -> R, and a node added later simply builds its version off its parent's. A test (v, k) is then two greedy descents in version(v): follow k's bit at each level when it exists to minimise the xor, follow the opposite bit to maximise it, which is optimal because a decision at a higher bit outweighs everything below it. Persistence is what makes this work under the forced-online encoding - an offline DFS carrying one mutable trie is unavailable - and only the path from the new leaf is copied, so each insertion is 31 new nodes. Total O((N+Q) * 31) time and trie nodes, roughly 9M nodes for the limits, with each query answered in O(31). Verified against a parent-walking brute force on the official sample and 400 random trees, including the encode/decode round trip of the online protocol.",
+      "statement_summary": "Stations form a tree rooted at the chief's station, each holding an encryption key, and new stations attach to existing ones as queries run. A security test names a station and a key k and asks for the smallest and largest value of key xor k over the stations on the path to the root. Values arrive xored with the previous answer, so the 200,000 operations must be answered online.",
+      "source_text_sha256": "d5b3de9368c8b51ca2ad91978f00089fed7d1f242d0a5d2928d7252b0d7b391b",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_gpd.py"
+    },
+    {
+      "id": "codechef-nplflf",
+      "batch": "C",
+      "patterns": [
+        "trie"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95
+      },
+      "tags": [
+        "string",
+        "data-structure"
+      ],
+      "solution": "A common suffix of length l is exactly a depth-l node in a trie built over the REVERSED strings, and the number of collection members sharing that suffix is the number of live strings whose reversed path passes through that node. Adding or removing a string walks its one root-to-leaf path and adds or subtracts 1 from cnt at each node touched; since every Add is removable at most once, the total node work is O(sum|s|) <= 2*10^5. For each depth l keep freq[l][c] = how many depth-l nodes currently have count c together with best[l], the running maximum; because every update moves one count by exactly +/-1, the maximum either rises to the new value or, when the sole holder of the maximum drops, falls by exactly one (that node now sits at best-1), so best[l] is maintained in O(1) per touched node. An Ask (k,l) is then answered in O(1) as best[l] >= k, treating depths beyond the deepest node as 0. Total O(q + sum|s|) time and O(sum|s|) memory, well within q, sum|s| <= 10^5.",
+      "statement_summary": "A collection of strings starts empty and is transformed by a sequence of operations: append a new string, delete the string inserted by a specified earlier operation, or report whether at least k strings currently in the collection share one common suffix of length l. Every such question is answered yes or no. The number of operations and the total length of all added strings are each at most 100000.",
+      "source_text_sha256": "3a2190bcd9213757dc3fed88f9f9c3a827f493cd42c89c15d740506dc6768b83",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_nplflf.py"
+    },
+    {
+      "id": "codechef-rebxor",
+      "batch": "C",
+      "patterns": [
+        "trie",
+        "prefix-xor"
+      ],
+      "pattern_confidence": {
+        "trie": 0.95,
+        "prefix-xor": 0.95
+      },
+      "tags": [
+        "bit-manipulation",
+        "xor",
+        "arrays"
+      ],
+      "solution": "Let P[i] be the XOR of the first i elements, so the XOR of a segment (l,r) is P[r]^P[l-1]. Sweep left to right keeping a 30-bit binary trie of P[0..r-1]; querying it with P[r] by greedily descending toward the opposite bit at each level gives the best segment ending at r, and a running maximum turns that into left[k] = best single segment inside the first k elements. Running the same sweep on the reversed array gives right[k] = best segment inside the suffix starting at k, and the answer is max over split points k of left[k] + right[k+1], which is exact because the constraint r1 < l2 means every valid pair is separated by exactly such a split and each side is maximized independently. The greedy trie descent is optimal because fixing a higher bit to 1 outweighs every lower bit combined. Total cost is O(N log max(A)) time and trie nodes, about 1.2e7 for N = 4*10^5, well inside the limits.",
+      "statement_summary": "Given an array of up to four hundred thousand non-negative integers below one billion, the task is to pick two non-empty contiguous segments that do not overlap, the first ending strictly before the second begins, and report the largest achievable sum of the bitwise XOR of each segment's elements. The array size rules out inspecting every pair of candidate segments.",
+      "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_rebxor.py"
+    },
+    {
+      "id": "codechef-trptstic",
+      "batch": "C",
+      "patterns": [
+        "binary-search-answer",
+        "prefix-sum"
+      ],
+      "pattern_confidence": {
+        "binary-search-answer": 0.88,
+        "prefix-sum": 0.93
+      },
+      "tags": [
+        "matrix",
+        "grid",
+        "binary-search",
+        "prefix-sum"
+      ],
+      "solution": "People are interchangeable and constrained only by per-room capacity, so a radius d works for a mentor in cell (r,c) exactly when A[r][c] >= 1 (the mentor must fit in his own room) and the total capacity of the (2d+1)x(2d+1) Chebyshev square centred on (r,c), clipped to the grid, is at least K+1; the answer is the smallest such d over all legal centres, and -1 when the whole grid holds fewer than K+1 people. That predicate is monotone in d because the square only grows, which licenses a binary search on d over [0, max(N,M)]. Each candidate d is tested by building a 2D prefix-sum table once and asking, for every cell with capacity at least 1, whether its clipped square sums to K+1 or more - an O(1) query per centre, so O(NM) per test. Total cost is O(NM log max(N,M)), about 2*10^7 operations for the worst allowed sum of N*M = 10^6, and O(NM) memory. The naive cell-by-cell square sum is far too slow (up to 10^6 centres times a square of up to 10^6 cells), and dropping the A[r][c] >= 1 check is wrong: on [[3,0,0,0,3]] with K=5 the illegal centre (0,2) would report 2 instead of the correct 4.",
+      "statement_summary": "A school books a hotel whose rooms form an N by M grid, each with a stated capacity. One mentor and K students must be housed, and the task is the smallest Chebyshev distance from the mentor's room to the farthest room holding a student. The answer is -1 if total capacity is below K+1. The sum of N times M over all tests stays within one million.",
+      "source_text_sha256": "3089dda2c0ebd4e0e1c4fdac8c2e9f9de3a1b5b12eec047c963d205c6ab00416",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_trptstic.py"
+    },
+    {
+      "id": "codechef-xrqrs",
+      "batch": "C",
+      "patterns": [
+        "persistent-segment-tree",
+        "trie",
+        "order-statistics"
+      ],
+      "pattern_confidence": {
+        "persistent-segment-tree": 0.92,
+        "trie": 0.88,
+        "order-statistics": 0.8
+      },
+      "tags": [
+        "bit-manipulation",
+        "xor",
+        "range-query"
+      ],
+      "solution": "Values satisfy 1 <= x <= 5*10^5 < 2^19, so build a persistent binary trie over 19-bit values -- equivalently a persistent segment tree over the value domain [0, 2^19) -- with root[i] the version holding the array prefix a[1..i]; each append copies only the 19 nodes on one root-to-leaf path, and \"delete last k\" is just popping k root pointers, since older versions are still intact. Every range query descends root[R] and root[L-1] in lockstep and uses the per-node count difference cnt[R]-cnt[L-1], which is exactly the multiset of a[L..R] because node counts are additive over prefixes. Max-xor greedily takes the child opposite to x's current bit whenever that difference is positive, which is optimal because a higher bit outweighs all lower bits combined; count-of-<=x adds the whole 0-child difference at each set bit of x and follows the 1-child, then adds the equal-value leaf; the k-th smallest compares k with the 0-child difference and descends. All operations are O(log C) = 19 steps, giving O(M log C) ~ 10^7 time and ~10^7 nodes for M = 5*10^5. Verified against an O(n)-per-query brute force on the sample and on 550 random query streams over both narrow and full value ranges.",
+      "statement_summary": "An initially empty integer array supports five interleaved operations: appending a value at the end, deleting the last k values, and three queries over a contiguous index range, namely reporting the stored value that maximizes its xor with a given x, counting values at most x, and returning the k-th smallest. Up to 500000 operations arrive, each value at most 500000, and every query must be answered.",
+      "source_text_sha256": "9acb33c311cd0aa5d3b234bbe8ac51cd957f2fff94e50994ded1ceb9d726089a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_xrqrs.py"
+    },
+    {
+      "id": "kattis-bingoforthewin",
+      "batch": "B",
+      "patterns": [
+        "combinatorics",
+        "counting",
+        "hash-map"
+      ],
+      "pattern_confidence": {
+        "combinatorics": 0.75,
+        "counting": 0.8,
+        "hash-map": 0.6
+      },
+      "tags": [
+        "math",
+        "combinatorics",
+        "hash-map"
+      ],
+      "solution": "Key observation: for a fixed value v, the r-th time v is called it is taken by the fastest player whose cumulative multiplicity of v reaches r, so the final (m_v-th) occurrence of v always goes to the slowest player holding v, where m_v is v's total multiplicity over all sheets. Every one of the n*k calls is claimed by exactly one player, so the player who claims the very last call is exactly the player who finishes last, and that call is the final occurrence of whichever value is called last. Since the order is a uniformly random permutation of the multiset, each of the n*k tokens is equally likely to be last, hence P(player i finishes last) = (sum of m_v over values v whose slowest holder is i) / (n*k). Implementation: one pass over all n*k numbers building a hash map value -> (total count, largest player index holding it), then one pass over the map accumulating counts per owner; O(n*k) time and O(distinct values) memory, trivially within limits for n <= 100, k <= 1000. Both samples reproduce exactly (0, 1/2, 1/2 and four 1/4s), and the closed form was checked against an exhaustive simulation over all distinct multiset orderings on 520+ random instances with heavy duplicate values.",
+      "statement_summary": "In a speed variant of bingo, n players each hold a sheet of k numbers, not necessarily distinct, ranked by reaction speed. All n times k sheet numbers are called in uniformly random order, and each call goes to the fastest player still holding an uncrossed copy. With n at most 100 and k at most 1000, the task is to report each player's probability of finishing last.",
+      "source_text_sha256": "e704aba8210e71e2b3f951f2bc8df75d7fb6ad16adc3ad7210a9363210f438ef",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_bingoforthewin.py"
+    },
+    {
+      "id": "kattis-citizenship",
+      "batch": "B",
+      "patterns": [
+        "prefix-sum",
+        "sliding-window",
+        "brute-force"
+      ],
+      "pattern_confidence": {
+        "prefix-sum": 0.92,
+        "sliding-window": 0.8,
+        "brute-force": 0.7
+      },
+      "tags": [
+        "intervals",
+        "prefix-sum",
+        "sliding-window",
+        "dates"
+      ],
+      "solution": "Every year has 365 days with fixed month lengths, so map each date to the integer day index 365*Y + cum[M-1] + (D-1); then every 12-month period is exactly 365 days and, applying on day A, period k is [A-365k, A-365k+364] for k=1..y. Mark the days covered by the n travel ranges and prefix-sum them, so the out-of-country count f(x) of any 365-day window is O(1); the requirement is max_{k=1..y} f(A-365k) <= 365-d. A must exceed the last input day L, and at A = L+1+365y every period lies entirely after L and is trip-free, so the answer is one of the at most 365y+1 candidates in [L+1, L+1+365y] and is found by scanning them in increasing order. The predicate is not monotone in A (advancing A drops a present day from a period and may add a travel day), so binary searching the date is invalid -- a random search found instances that are feasible on one day and infeasible the next. For a fixed residue A mod 365 the y period starts are y consecutive terms of the stride-365 sequence f(365j+r), so a monotonic-deque sliding-window maximum per residue answers all candidates in O(365y) total (the direct O(365y*y) = 3.7e8 check also fits comfortably in C++).",
+      "statement_summary": "A prospective citizen must have spent at least d days inside the country in each of the y consecutive 12-month periods counted backwards from the application date, where every year has 365 days with fixed month lengths. Given up to 500 disjoint, sorted date ranges during which the person was abroad, the task is to report the earliest application date strictly after the final listed date.",
+      "source_text_sha256": "4a429e879b66af83684bbb96a9b79d8132e6f2e73909276d1e4bf3755184c28e",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_citizenship.py"
+    },
+    {
+      "id": "kattis-doubleshorsebackwrestling",
+      "batch": "B",
+      "patterns": [
+        "greedy",
+        "line-sweep",
+        "heap",
+        "exchange-argument",
+        "sorting"
+      ],
+      "pattern_confidence": {
+        "greedy": 0.95,
+        "line-sweep": 0.85,
+        "heap": 0.8,
+        "exchange-argument": 0.75,
+        "sorting": 0.6
+      },
+      "tags": [
+        "intervals",
+        "matching",
+        "greedy",
+        "sweep",
+        "constructive"
+      ],
+      "solution": "Riders i,j are pairable iff l_i+l_j <= s <= u_i+u_j. Split riders by s/2: N (l > s/2), P (u < s/2) and Z (interval straddles s/2). N-N and P-P are never pairable, Z-Z always are, and with t=2l-s, y=2u-s for N and u0=s-2u, x=s-2l for P, an N-P pair is pairable iff the intervals [t,y] and [u0,x] intersect; a Z pairs with an N iff its x >= t and with a P iff its y >= u0, so a Z is a joker that may act once as a P-side interval [0,x] or an N-side interval [0,y]. Maximizing matched N/P riders is optimal (leftover Zs pair among themselves, parity works out), so sweep the coordinate downward with two max-heaps keyed by left endpoint: at each coordinate the elements whose interval ends there must be matched now or never; pair expiring N with expiring P first, otherwise give each expiring element the active opposite-side interval with the largest left endpoint (soonest to expire), and only if none exists the joker with the smallest capacity in its other role. An exchange argument shows each such choice is safe; leftover jokers are paired in twos. O(n log n) for n = 2e5.",
+      "statement_summary": "There are n riders, each with a true rating known only to lie between a given integer lower and upper bound. Two riders may form a doubles team if some choice of ratings within their bounds sums exactly to a target s. Given up to 200000 riders with bounds up to 1e9, the task is to form the maximum number of disjoint teams and output one such set of pairs.",
+      "source_text_sha256": "31acac279255e7c5ba9ed9dcb07047f6ba5f43e74c98e527483b0a25962fa400",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_doubleshorsebackwrestling.py"
+    },
+    {
+      "id": "kattis-flippingcontainer",
+      "batch": "B",
+      "patterns": [
+        "graph-modeling",
+        "parity-argument",
+        "number-theory",
+        "gcd",
+        "modular-inverse",
+        "exchange-argument",
+        "eulerian-path"
+      ],
+      "pattern_confidence": {
+        "graph-modeling": 0.9,
+        "parity-argument": 0.9,
+        "number-theory": 0.85,
+        "gcd": 0.75,
+        "modular-inverse": 0.65,
+        "exchange-argument": 0.65,
+        "eulerian-path": 0.55
+      },
+      "tags": [
+        "math",
+        "graph",
+        "number-theory",
+        "geometry",
+        "implementation"
+      ],
+      "solution": "Track the footprint centre in doubled units and the orientation (E,N,U) as a permutation of (a,b,c) with S=a+b+c: an x-flip moves cx by +-(S-N) and swaps E,U; a y-flip moves cy by +-(S-E) and swaps N,U. The two transpositions make the six orientations a hexagon whose edges alternate x/y and carry the weights S-b,S-c,S-a,S-b,S-c,S-a in order from the start, so a flip sequence is a closed walk from the start vertex; with t_e traversals and signed count sigma_e per edge the cost is sum t_e, the displacement is sum sigma_e*w_e per axis, |sigma_e|<=t_e and sigma_e=t_e (mod 2). On a cycle graph a closed walk has clockwise-minus-counterclockwise equal to one constant f on every edge, hence every t_e=f (mod 2) and t_e>=|f|, and the traversed edges must form an arc containing the start (Euler circuit existence gives the converse); f=2 is dominated by f=0 on the full hexagon and f=3 by f=1, so only two cases remain: all six sigma_e odd with cost sum|sigma_e|, or all sigma_e even inside one of the 28 arcs through the start with cost sum max(|sigma_e|,2). Each case splits into an independent x and y coin problem 'write 2x as sum sigma_e*w_e over at most three weights of fixed parity, minimising a convex cost', solved exactly: the smallest weight's coefficient is bounded by 2*w_max by an exchange argument, and for each of its ~4000 values the remaining two weights are a linear congruence (gcd test for impossibility, modular inverse for the residue) whose solution set is an arithmetic progression on which the convex cost is minimised at a breakpoint. Total work is about 6*4000*30 congruence solves regardless of |x|,|y|<=1e18; 'impossible' when no case admits a representation.",
+      "statement_summary": "A cuboid container with three distinct side lengths, at most 1000 each, can only be moved by tipping it 90 degrees over one of its four bottom edges. Determine the minimum number of such flips that carry it by a given east-west and north-south displacement, each up to 10^18 in magnitude, so that it ends with exactly its starting orientation, or report that the target is unreachable.",
+      "source_text_sha256": "5b4176a1e98f7130a3bceebb4639d83c48920a9e64dea754e37d763b72126bfe",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_flippingcontainer.py"
+    },
+    {
+      "id": "kattis-friendlyrivalry",
+      "batch": "B",
+      "patterns": [
+        "kruskal",
+        "union-find",
+        "subset-sum",
+        "dynamic-programming",
+        "minimum-spanning-tree",
+        "connected-components",
+        "geometry"
+      ],
+      "pattern_confidence": {
+        "kruskal": 0.88,
+        "union-find": 0.92,
+        "subset-sum": 0.95,
+        "dynamic-programming": 0.85,
+        "minimum-spanning-tree": 0.72,
+        "connected-components": 0.8,
+        "geometry": 0.55
+      },
+      "tags": [
+        "geometry",
+        "graph",
+        "sorting",
+        "dynamic-programming"
+      ],
+      "solution": "The answer is some pairwise distance d, and a balanced split has bichromatic closest pair at least d exactly when every pair closer than d is monochromatic, i.e. when every connected component of the threshold graph on edges shorter than d lies wholly inside one team; so d is feasible iff the multiset of those component sizes has a sub-multiset summing to exactly n. Merging components can only shrink the set of reachable subset sums, so feasibility is monotone in d and no binary search is needed: sweep the edges in increasing length with a DSU (Kruskal), and just before absorbing each distinct length w test subset sum n over the current component sizes with a bitset DP, keeping the last w that passes. Those threshold components are identical to the components of any MST of the complete graph restricted to edges below the threshold (cut property), so only the 2n-1 MST edges matter and Prim in O((2n)^2) supplies them; the winning check's DP reconstruction names the blue team. Squared distances stay exact 64-bit integers (max 8e18) and sqrt is applied only when printing. Overall O(n^2 log n) time: Prim is O(n^2), sorting 2n-1 edges is O(n log n), and the at most 2n subset-sum checks cost O(n * n/64) each.",
+      "statement_summary": "Given 2n distinct points in the plane with integer coordinates, the task is to split them into two teams of exactly n points each so that the smallest Euclidean distance between any two points on opposite teams is as large as possible. One must report that optimal distance together with the membership of one team, for n up to 500.",
+      "source_text_sha256": "f20ba20dbce7d826a0560e41b78d4a65ee75c5a68e61fdbd8b3fcce0313e378f",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_friendlyrivalry.py"
+    },
+    {
+      "id": "kattis-maxwellsdemon",
+      "batch": "B",
+      "patterns": [
+        "xor-basis",
+        "gaussian-elimination",
+        "parity-argument",
+        "number-theory",
+        "gcd",
+        "geometry"
+      ],
+      "pattern_confidence": {
+        "xor-basis": 0.9,
+        "gaussian-elimination": 0.75,
+        "parity-argument": 0.85,
+        "number-theory": 0.8,
+        "gcd": 0.75,
+        "geometry": 0.6
+      },
+      "tags": [
+        "geometry",
+        "linear-algebra",
+        "gf2",
+        "parity",
+        "number-theory",
+        "periodicity",
+        "reflection",
+        "physics",
+        "events"
+      ],
+      "solution": "Whether or not the demon lets a particle through, it returns to the centre wall every 2w/|vx| and its y-motion is an independent triangle wave of period 2h, so the set S_i of times at which particle i stands at (0,d) is fixed in advance and does not depend on any decision; each S_i is at most two arithmetic progressions found by solving the linear congruence 2w*vy*k = vx*(+-d - py) + vy*px (mod 2h|vx|) with the extended gcd, and its period is 4wh/g_i with g_i = gcd(2w|vy|, 2h|vx|). Every pass flips a particle's chamber, so only the parity of its passes matters: with eps_i = 1 iff particle i starts on the wrong side, the demon must choose a set D of trigger times such that the XOR over t in D of the bitmask chi(t) = {i : t in S_i} equals eps (all-or-none makes each time a single indivisible vector), and the answer is the least T such that eps lies in the GF(2) span of {chi(t) : t <= T}. Because all periods share the numerator 4wh, the whole event pattern repeats with period P = 4wh/gcd(g_i) <= 160000, so enumerating events in [0,P), grouping equal times, inserting each new bitmask into an xor-basis in time order and testing eps whenever the rank grows gives the earliest T, and eps never entering the span means impossible (a particle with vx = 0 on the wrong side is the simplest case). The event count is sum 2*g_i/gcd(g) which is at most about 1e7 (w=200, h=199, horizontal particles at y=d), each handled with a hash-dedup and a 200-bit reduction, so the whole thing runs in roughly O(E log E + (distinct vectors)*n^2/64), comfortably within limits in C++.",
+      "statement_summary": "Two adjacent w-by-h chambers share a centre wall where a demon sits at height d. Up to 200 red or blue point particles with integer positions and velocities bounce elastically inside their chambers; whenever the demon chooses, every particle at its position crosses the wall, all or none. Find the earliest time when all red particles can be left and all blue right, or report impossibility.",
+      "source_text_sha256": "64f3dc8ca9eb01ab41ca5a52670eb1f2819ad82dc05ab48401f2ba508e388087",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_maxwellsdemon.py"
+    },
+    {
+      "id": "kattis-steppeonit",
+      "batch": "B",
+      "patterns": [
+        "binary-search-answer",
+        "greedy",
+        "tree-dp",
+        "binary-search"
+      ],
+      "pattern_confidence": {
+        "binary-search-answer": 0.92,
+        "greedy": 0.92,
+        "tree-dp": 0.7,
+        "binary-search": 0.85
+      },
+      "tags": [
+        "tree",
+        "graph",
+        "greedy",
+        "binary-search"
+      ],
+      "solution": "This is the vertex-restricted f-center problem on an edge-weighted tree: choose f villages minimising the largest distance from any village to its nearest chosen one. Binary search on the answer R (integer, 0 .. sum of edge weights <= 1e9) and test feasibility with a linear bottom-up pass that computes the minimum number of radius-R centers covering the tree. Each vertex u carries two aggregates over its subtree: need[u], the distance from u to the deepest still-uncovered vertex, and cov[u], the largest leftover radius R - dist(u,c) of an already-placed center c that still reaches u; if cov[u] >= need[u] the whole subtree is covered, otherwise a center is placed at u only when forced, i.e. at the root or when need[u] + w(u,parent) > R. Deferring each center to the highest vertex that still covers the deepest uncovered descendant is optimal by an exchange argument (any center covering that descendant can be slid up to u without losing coverage), and the count is monotone in R, so the binary search is valid. Since the input numbers every vertex after its parent, a reverse index scan is already a post-order and no recursion is needed; total cost is O(n log W) ~ 3e6 steps for n = 100000.",
+      "statement_summary": "A country's villages are connected by roads so that exactly one path joins any two villages, each road taking a given travel time. A fire department must choose f of the villages to hold fire engines. The task is to report the smallest possible value of the largest travel time from any village to its nearest chosen village, with up to 100,000 villages.",
+      "source_text_sha256": "a4dbd25ceb0e95d8cd7dd7a0b9e4b9173498da5a29c49ead04384ebd10d8bfc1",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_steppeonit.py"
+    },
+    {
+      "id": "kattis-thesilkroad",
+      "batch": "B",
+      "patterns": [
+        "dynamic-programming",
+        "segment-tree",
+        "coordinate-compression",
+        "offline-queries"
+      ],
+      "pattern_confidence": {
+        "dynamic-programming": 0.92,
+        "segment-tree": 0.88,
+        "coordinate-compression": 0.75,
+        "offline-queries": 0.7
+      },
+      "tags": [
+        "dynamic-programming",
+        "segment-tree",
+        "data-structures",
+        "offline-queries"
+      ],
+      "solution": "A robot that walks and returns must have visited exactly some interval [l,r] containing its start p, costing (r-l)+min(p-l,r-p) and collecting every store inside, so the day's answer is a choice of pairwise-disjoint intervals, one robot each, maximising collected tenges minus travel. Sweeping the sorted positions gives a five-state DP: each gap between consecutive positions is uncovered, or is part of an interval's left arm or right arm, with the arm traversed once or twice (the two arms are 2x/1x or 1x/2x), and the arm-to-arm switch must land exactly on a robot. Because the transitions live only at points, the whole day is a max-plus product of 5x5 matrices, so coordinate-compress all n positions up front and keep them in a segment tree of such matrices; adding a robot or store rewrites one leaf (plus the next occupied leaf, whose gap shrank) and the root's out-row gives the answer. O(n log n) with a 125-op merge. Verified: reproduces the sample exactly, and matches a brute force that lets each robot pick any interval with overlaps allowed on 8000 random cases, which also confirms the disjointness claim.",
+      "statement_summary": "Robots and stores holding money are added one per day to distinct positions along a line. Each day every store is refilled and every robot returns to its start; a robot collects every store it walks over, paying one tenge per meter moved, and each store pays out at most once. After each of up to 200000 days, report the maximum achievable total profit.",
+      "source_text_sha256": "9e7dcc7a226b5684ffb1029b07f005cc14cd905a7e2a73c825f523cbc2325645",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_thesilkroad.py"
+    },
+    {
+      "id": "kattis-towerofnoiha",
+      "batch": "B",
+      "patterns": [
+        "divide-and-conquer",
+        "bit-manipulation"
+      ],
+      "pattern_confidence": {
+        "divide-and-conquer": 0.8,
+        "bit-manipulation": 0.7
+      },
+      "tags": [
+        "recursion",
+        "math",
+        "bit-manipulation",
+        "case-analysis",
+        "big-integer"
+      ],
+      "solution": "Decode k bit by bit (most significant bit = largest disk) with the Hanoi recursion, tracking the (source, auxiliary, target) role permutation, which gives the rod of every disk; after the dump, rod C holds the sorted C_old block with the sorted A_old block on top, so the only possible inversion is at the junction between big = the largest disk that was on A and small = the top of C_old. If A or C_old is empty or big < small the position is a regular Hanoi state and the answer is the classic largest-disk-first distance to the perfect tower: for d = n..1, if disk d is not on the current target add 2^(d-1) and switch the target to the third rod. Otherwise the inversion vanishes exactly when big is lifted off C and the position is regular from then on, so the optimum is the minimum over four plans: optionally park next (the smallest disk larger than big on B) on the empty rod A after gathering B's smaller disks onto the A_old block; then gather every disk smaller than big that sits above the junction onto one rod (a regular subgame whose exponents are ranks inside that subset), lift big onto the other rod t in {A, B} (+1), and add the regular distance of the resulting regular state. Every term is a sum of O(n) powers of two, so each candidate is a per-bit count array normalised by a single carry pass and the candidates are compared as bit strings; the whole thing is O(n) for n = 200000 with no big-integer arithmetic.",
+      "statement_summary": "A Tower of Hanoi with n disks has had its first k optimal moves played, then the whole stack on the first rod was dropped, order preserved, onto the third rod, possibly putting larger disks above smaller ones. Using only legal moves, which never place a disk on a smaller one, find the minimum number of moves to finish. Both k and the answer are binary; n can reach 200,000.",
+      "source_text_sha256": "3ef07b7add9573dae41abe4a6470cfae46461e058e51edd8d8e1c9cfa5cb0dd9",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_towerofnoiha.py"
+    },
+    {
+      "id": "kattis-aleaiactaest",
+      "batch": "D",
+      "patterns": [
+        "expected-value-dp",
+        "probability-dp",
+        "bitmask-dp",
+        "state-compression",
+        "dijkstra"
+      ],
+      "pattern_confidence": {
+        "expected-value-dp": 0.95,
+        "probability-dp": 0.8,
+        "bitmask-dp": 0.65,
+        "state-compression": 0.5,
+        "dijkstra": 0.4
+      },
+      "tags": [
+        "probability",
+        "expected-value",
+        "dice",
+        "optimal-strategy",
+        "markov-decision-process",
+        "bitmask",
+        "fixed-point-iteration",
+        "hash-map"
+      ],
+      "solution": "A position is the tuple of top symbols on the d <= 6 dice, and a move keeps a subset K of them and rerolls the rest, so the value of a move depends only on the kept partial hand; the state space is the keep-set lattice of at most 7^d partial hands (each die free or pinned to one of its faces) over at most 6^d full tuples, with h(q) = 1 + sum_t Pr[t|q] V(t) and V(t) = 0 if the multiset of t is a dictionary word, else min over the 2^d - 1 proper sub-hands q of t of h(q); the answer is h(empty). A full tuple wins iff its sorted symbol string is in a hash set of the sorted dictionary words, which is the whole of the O(w d) input processing, and the answer is 'impossible' exactly when no tuple wins. The recursion is cyclic (rerolling can return the same tuple), so it is a stochastic-shortest-path MDP with unit costs and is solved as the least nonnegative fixed point: either value iteration from V = 0, or -- exactly, in one pass -- Dijkstra order, since q is a sub-hand of each of its completions so V(t) <= h(q) always, and popping the smallest tentative key h(q) = (1 + sum_known Pr V) / (1 - Pr[unknown]) finalises every still-unknown completion at that same value. Value iteration also suffices because the strategy 'fix one winning assignment and keep each die once it shows its target' bounds every answer by E[max of d independent Geom(1/6)] <= 13.9378, so the horizon tail decays like (5/6)^k and ~140 sweeps reach 1e-10. Cost is O(6^d * 2^d) = about 2.9e6 state-move pairs plus O(w d), trivially inside the limits.",
+      "statement_summary": "Given at most six dice, each with six faces bearing letters or digits, and a dictionary of up to 200000 words of that same length, all dice are rolled; a roll succeeds when the top symbols can be rearranged into a dictionary word. Otherwise any subset may be kept and the rest rerolled. Report the expected number of rolls under optimal play, or that no word is reachable.",
+      "source_text_sha256": "e808bc7795b36e30d5035c2be1fe8872e22976a557c1f8e51cb0489180df3885",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_aleaiactaest.py"
+    },
+    {
+      "id": "kattis-arecurringproblem",
+      "batch": "D",
+      "patterns": [
+        "counting",
+        "lexicographic-order",
+        "dynamic-programming",
+        "memoization",
+        "linear-recurrence",
+        "combinatorics"
+      ],
+      "pattern_confidence": {
+        "counting": 0.95,
+        "lexicographic-order": 0.93,
+        "dynamic-programming": 0.9,
+        "memoization": 0.9,
+        "linear-recurrence": 0.72,
+        "combinatorics": 0.6
+      },
+      "tags": [
+        "math",
+        "dp",
+        "combinatorics",
+        "sequence"
+      ],
+      "solution": "The first generated value is a_{k+1} = sum_j c_j a_j, so the PLRRs whose generated part starts with t are exactly the ways of writing t as a sum of products of two positive integers, counted by g(t) = sum_{c*a <= t} g(t - c*a) = [x^t] D/(1-D) with D = sum_m d(m) x^m; g grows like 2.46^t, so n <= 10^9 forces t <= 24, and then every order k, every sum of coefficients and every sum of starting values is also at most 24. To count the PLRRs whose generated part starts with a prefix x = (x_1..x_L), re-index so that the generated part is a_1, a_2, ... and the initial values are a_0, a_{-1}, ..., a_{-(r-1)}, and peel off the last coefficient c_r together with the newest unknown initial value a_0: its contribution to the L equations is c*(a_0, prev_1..prev_{L-1}), where prev is the window of L values sitting left of the unknown part (prev = x at the root), giving f(x, prev) = sum over a_0 >= 1, c >= 1 with c*a_0 <= x_1 of f(x - c*(a_0, prev_1..prev_{L-1}), (a_0, prev_1..prev_{L-1})), with f = 1 when x is all zero and 0 once an entry goes negative; x_1 drops by at least one per level, so the depth is at most x_1 <= 24. Make f return a map from the NEXT generated value to a count instead of a bare count (a level lifts each child value by c*prev_L, the entry that falls off when a_0 is prepended; the base case returns {0:1}), memoise on (x, prev), and prune with the exact identity count_L(x,prev) = map_{L-1}(x[:-1], prev[:-1])[x_L], which kills any state whose length-(L-1) projection cannot yield x_L and is what makes the search fast. The driver subtracts g(1), g(2), ... from n to fix the first generated value, then repeatedly reads the map of the current prefix, walks its keys in increasing order subtracting bucket counts, and appends the key whose bucket contains the remaining rank - a lexicographic trie descent with no binary search. Once a bucket holds only a handful of PLRRs the recursion is re-run recording the choices (c_r and a_r are chosen first, so both vectors come out reversed) and those few are sorted by generated tail and then by coefficient vector; comparing 2t+4 generated terms is exact, because two sequences of orders k and k' agreeing on k+k' terms agree forever (their difference is annihilated by the product of the two characteristic polynomials), which also settles the genuine ties such as k=1,c=(2),a=(2) versus k=2,c=(2,1),a=(1,2). No closed-form complexity is known - the judges' own sketch states none - but empirically the memo holds about 5*10^5 states and this pure-Python implementation answers the hardest n <= 10^9 in a few seconds (the problem author's C++ takes 0.29 s against a 20 s limit).",
+      "statement_summary": "A positive linear recurrence relation consists of an order k, k positive coefficients and k positive starting values, each later term being the coefficient-weighted sum of the previous k. All such relations are ranked by the lexicographic order of the terms generated after the starting values, ties broken by the coefficient vector. Given an index up to one billion, output that relation and its first ten generated terms.",
+      "source_text_sha256": "d0d1c3ef203953e847b17ecc3185cae395d92757a4acb368650402dbcd3328af",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_arecurringproblem.py"
+    },
+    {
+      "id": "kattis-bridgingthegap",
+      "batch": "D",
+      "patterns": [
+        "sorting",
+        "greedy",
+        "exchange-argument",
+        "dynamic-programming",
+        "partition-dp"
+      ],
+      "pattern_confidence": {
+        "sorting": 0.95,
+        "greedy": 0.7,
+        "exchange-argument": 0.7,
+        "dynamic-programming": 0.92,
+        "partition-dp": 0.6
+      },
+      "tags": [
+        "array",
+        "sorting",
+        "greedy",
+        "dynamic-programming"
+      ],
+      "solution": "Sort the crossing times ascending. Exchange arguments collapse the search space: every return trip carries exactly one walker, the walkers that ever return form a prefix of the sorted order (the k shuttles), a forward trip that carries s shuttles carries precisely walkers 1..s together with c-s passengers, and a multiset of shuttle counts {s_j} is realisable exactly when sum_j (s_j - 1) = k - 1 with 0 <= s_j <= min(k,c) and max_j s_j = k, the last trip taking all k shuttles over. Since walker i returns #{j : s_j >= i} - 1 times, the return bill telescopes to sum_j (t_1+...+t_{s_j}) minus (t_1+...+t_k), so each trip simply pays for the shuttles riding on it; the forward bill is the sum of trip maxima, got by ordering the trips by passenger capacity c-s and giving them consecutive blocks of the passenger list starting at the slowest walker, a trip with no passenger costing t_s instead. A single DP over (passengers already ferried, running value of sum (s_j - 1)) that sweeps s in increasing order therefore ranges over all admissible schedules at once, and k never has to be enumerated because k is just the number of walkers still on the near side when the DP stops. At most n/c trips carry no shuttle and k is at most that plus one, so the table is O(n * (n/c) * min(c, n/c)) = O(n^2) in the worst case c ~ sqrt(n), roughly 2*10^8 operations at n = c = 10^4, well inside the limits and far smaller in practice since most states are unreachable.",
+      "statement_summary": "A group of n walkers must cross a bridge at night sharing a single torch, and the bridge holds at most c walkers at a time. Each walker has a crossing time, a group moves at its slowest member's pace, and the torch must be carried back for the next group. The task is the minimum total time until everyone is across, with n and c up to ten thousand.",
+      "source_text_sha256": "c59e4b4f31066b6c4eb03a4ec9bf245ab102f7dc210200e7e5cdf3636291843a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_bridgingthegap.py"
+    },
+    {
+      "id": "kattis-carlsvacation",
+      "batch": "D",
+      "patterns": [
+        "geometry",
+        "ternary-search"
+      ],
+      "pattern_confidence": {
+        "geometry": 0.97,
+        "ternary-search": 0.6
+      },
+      "tags": [
+        "geometry",
+        "math",
+        "optimization",
+        "shortest-path"
+      ],
+      "solution": "Every lateral face is planar and convex, so the surface distance from an apex to a point U on its base boundary is just the straight 3-D distance r(U) = sqrt(h^2 + |c-U|^2) (c = base centre); equivalently the lateral surface is a cone, every geodesic out of the cone point is radial, and such a geodesic never crosses a lateral edge. Unfolding the single face containing U about its base edge e makes that distance planar: |A' - U| with A' = midpoint(e) - sqrt(h^2+(s/2)^2) * outward_normal(e), i.e. the apex rotated flat ACROSS the edge (the outward image m + slant*n gives identical distances, since it is the mirror of A' in line e and U lies on e, but the unfolded path then bounces off e instead of crossing it, which silently breaks every crossing test). The answer is min over U on base 1's boundary and V on base 2's boundary of r1(U) + |U-V| + r2(V), using the plain straight ground distance with no obstacle test: it lower-bounds any walk (take U = last point on base 1, V = first point after it on base 2), and since r is 1-Lipschitz in ground distance, a minimiser whose segment cuts a convex base can be slid to where the segment leaves that base without increasing the value, so the minimum is attained by a legal walk. Fixing one base edge of each pyramid leaves min over U in e1, V in e2 of |A'-U| + |U-V| + |V-B'|, a jointly convex objective (a sum of norms of affine maps) on a product of two segments; run it over all 16 edge pairs, each solved by nested ternary search or in closed form - straight |A'B'| when the segment meets e1 and then e2, otherwise a base corner pins one endpoint (where r equals the lateral edge sqrt(h^2+s^2/2)) and the other is the classic reflect-and-clamp point-segment-point minimisation. Total work is O(1) for the single test case.",
+      "statement_summary": "Two right square pyramids stand on a plane, each described by one directed base edge with the solid to its left and by a height; their bases overlap in zero area. An ant travels only across the pyramids' lateral surfaces and the ground. The problem asks for the minimum distance it walks between the two apexes, within an absolute or relative error of one part in a million.",
+      "source_text_sha256": "542328b0cbe470d39f29c2f914a9b0d150769e822f0debf62023b0e4d012e287",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_carlsvacation.py"
+    },
+    {
+      "id": "kattis-jetlag",
+      "batch": "D",
+      "patterns": [
+        "greedy",
+        "constructive-algorithm",
+        "interval-scheduling"
+      ],
+      "pattern_confidence": {
+        "greedy": 0.95,
+        "constructive-algorithm": 0.85,
+        "interval-scheduling": 0.6
+      },
+      "tags": [
+        "greedy",
+        "intervals",
+        "scheduling",
+        "constructive"
+      ],
+      "solution": "Sleep can only happen inside the free gaps [0,b_1], [e_1,b_2], ..., [e_{n-1},b_n], and a sleep [s,t] forces the next one to begin in [2t-s, 3t-2s], while the final sleep instead needs 3t-2s >= e_n to stay functional through the last activity. The reduction that cracks it: a sleep starting at s in the gap [L,R] may end at any t in (s,R], and the union of the windows [2t-s, 3t-2s] over those t is exactly the single interval [s+2, 3R-2s], so the set of legal next STARTS depends only on where a sleep began, not on where it ended, and that set only grows as s shrinks; since every activity lasts at least a minute, any gap's left end L already satisfies L >= (previous gap's right end)+1 >= s+2, so the earliest usable start of a gap is exactly L and one start per gap suffices. The problem therefore collapses to a single left-to-right sweep: gap [L,R] has reach 3R-2L, it is reachable iff the running maximum reach over earlier reachable gaps is at least L, and a schedule exists iff some reachable gap has reach >= e_n, with gap [0,b_1] required to exist because minute 0 is a forced sleep (b_1 = 0 is immediately impossible). Rebuild the schedule by walking back the predecessor that held the running maximum and letting each chosen gap sleep [L, L+ceil((next-L)/3)], the shortest sleep that reaches the next chain element (or e_n), which is also short enough that the rested period ends by that next start. O(n) time and memory with no sorting (the input is already ordered), and the chain uses each gap at most once, so p <= n <= 200000, far inside the 10^6 output cap.",
+      "statement_summary": "Up to 200000 activities occupy disjoint intervals of a timeline reaching ten billion minutes, and all must be attended in full, so sleep is only possible between them. The attendee must fall asleep at minute zero; after sleeping k minutes they cannot sleep for k minutes and must be asleep again within a further k. The task is to print any valid sleep schedule or report impossibility.",
+      "source_text_sha256": "7cb85befec94defa44d561e16abceb99e83caf9d6bb205c3a10b017637f8d332",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_jetlag.py"
+    },
+    {
+      "id": "kattis-riddleofthesphinx",
+      "batch": "D",
+      "patterns": [
+        "interactive",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "interactive": 0.98,
+        "constructive-algorithm": 0.82
+      },
+      "tags": [
+        "interactive",
+        "math",
+        "constructive-algorithm"
+      ],
+      "solution": "Interactive and adversarial: the hidden triple (A,B,C) must be recovered from five queries whose replies are linear forms a*A+b*B+c*C, at most one of which is a lie. Ask the three unit queries (1,0,0), (0,1,0), (0,0,1) giving x, y, z, then (1,1,1) giving s, and let d = s-(x+y+z). If d = 0 no lie can be hiding among those four, because corrupting exactly one of them breaks the identity, so the answer is (x,y,z) and the mandatory fifth round is a throwaway query. If d != 0 the single lie is already spent, so the fifth reply is honest, and the truth must be one of exactly four candidates (x,y,z), (x+d,y,z), (x,y+d,z), (x,y,z+d) according to which round lied; asking (1,2,3) separates them because their values are v, v+d, v+2d, v+3d with d != 0 and distinct nonzero weights. Constant work, five rounds, and the argument uniquely pins the triple even against an adaptive sphinx.",
+      "statement_summary": "An interactive, adversarial riddle hides three nonnegative integers, the leg counts of three mythical creatures. The program asks exactly five questions; each supplies three coefficients between 0 and 10 and receives the claimed total legs of that many creatures. At most one of the five answers may be an outright lie, and which one is unknown. Afterwards the program must print the three exact counts.",
+      "source_text_sha256": "7a524e90087682ed94c414c8074fa4e8280d0b92206787dcae6032e1d701b52f",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_riddleofthesphinx.py"
+    },
+    {
+      "id": "kattis-schedule",
+      "batch": "D",
+      "patterns": [
+        "constructive-algorithm",
+        "combinatorics"
+      ],
+      "pattern_confidence": {
+        "constructive-algorithm": 0.95,
+        "combinatorics": 0.9
+      },
+      "tags": [
+        "combinatorics",
+        "math"
+      ],
+      "solution": "Treat the schedule as a w-by-n matrix over {1,2}; column i is team i's choices. Two people (i,a),(j,b) meet in week t iff column i is a and column j is b there, and with virtual meetings at week 0 and week w+1 the isolation of a pair is at most k exactly when every k consecutive weeks inside [1,w] contain a meeting, so isolation <= k means every window of k consecutive rows realises all four patterns (1,1),(1,2),(2,1),(2,2) for every pair of columns, i.e. is a binary strength-2 covering array. Window [1,k] alone forces n <= maxn(k), and conversely repeating a valid k-row covering array with period k makes every k-window contain each of its rows exactly once, so the answer is the smallest k in [4,w] with maxn(k) >= n and infinity if none exists. Normalising row 1 to all 1s (complementing a column just swaps that team's two members) turns the columns into sets S_i of the remaining k-1 rows that must pairwise intersect and be pairwise incomparable, so by Milner's theorem on intersecting antichains maxn(k) = C(k-1, ceil(k/2)), attained by taking all ceil(k/2)-subsets of a (k-1)-element ground set; the values run 3, 4, 10, 15, 35, 56, 126, ... so n <= 10^4 always needs k <= 17. The algorithm scans k = 4..w, emits the first n such subsets as columns and repeats them periodically, costing O(n*w) output time. A brute force over all schedules for n <= 4, w <= 6 and an exhaustive maximum-clique computation of maxn(k) for k <= 7 both match the formula.",
+      "statement_summary": "A company has n two-person teams; each week exactly one member of each team is in the office. For two people on different teams, isolation is the longest gap between consecutive weeks both are present, with the two ends counted as gaps too. Over w weeks, minimise the largest isolation over all cross-team pairs and output such a schedule, or report infinity; n reaches 10000 and w at most 52.",
+      "source_text_sha256": "d76f8b339c0c592316fb73f4a1c8cf21a6ad1ce995c4c3cbef291a29999333c9",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_schedule.py"
+    },
+    {
+      "id": "kattis-threekindsofdice",
+      "batch": "D",
+      "patterns": [
+        "convex-hull",
+        "geometry",
+        "sorting"
+      ],
+      "pattern_confidence": {
+        "convex-hull": 0.95,
+        "geometry": 0.7,
+        "sorting": 0.5
+      },
+      "tags": [
+        "geometry",
+        "convex-hull",
+        "probability",
+        "optimization",
+        "math"
+      ],
+      "solution": "Because a die is rolled uniformly, score(D3,D) is the average of score(f,D) over D3's faces, so both quantities are linear in D3's face distribution: map each candidate face value v to the plane point P(v) = (score(v,D1), score(v,D2)), where score(v,D) = (#{f<v} + 0.5*#{f=v})/|D|. Those two coordinates are step functions of v, so only O(n) distinct points exist (every face value f, every f+1, and 1, which covers both landing on a face and landing inside a gap), and the set of achievable (score(D3,D1), score(D3,D2)) pairs is exactly the convex hull of those points -- any rational convex combination is realisable as a real die, and the optima sit at a hull vertex or on one hull edge, so their weights are rational and attained. The two answers are then 2D linear-programming queries on the hull: minimise y subject to x >= 1/2 (walk the lower hull, taking the best vertex with x >= 1/2 and the interpolation of the edge crossing x = 1/2), and, by the symmetric query on the points reflected to (-y,-x), maximise x subject to y <= 1/2. Feasibility is free since D1 itself gives the hull point (1/2, score(D1,D2)). Sorting the values and building the hull is O(n log n) for n up to 1e5, well inside the limits.",
+      "statement_summary": "Two dice are given as lists of face values, each rolled uniformly, and one of them beats the other more than half the time. A third die of any size may be built. Report the smallest score it can get against the weaker die while still tying or beating the stronger, and the largest score against the stronger while not beating the weaker. Each die has up to 100000 faces.",
+      "source_text_sha256": "fb09d013fd0c7e54da4c0580808085b93c3f5f3119f914848eabbaeb3cb73c6b",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_threekindsofdice.py"
+    },
+    {
+      "id": "kattis-tiltingtiles",
+      "batch": "D",
+      "patterns": [
+        "chinese-remainder-theorem",
+        "string-matching",
+        "cycle-detection",
+        "simulation"
+      ],
+      "pattern_confidence": {
+        "chinese-remainder-theorem": 0.9,
+        "string-matching": 0.8,
+        "cycle-detection": 0.7,
+        "simulation": 0.7
+      },
+      "tags": [
+        "grid",
+        "permutation",
+        "string",
+        "math"
+      ],
+      "solution": "Two consecutive tilts on the same axis collapse (X after X equals X, and X after its opposite equals X, since both preserve each row's or column's tile sequence), so only axis-alternating words matter; moreover the occupied-cell shape becomes invariant under any repeated 4-cycle of directions after at most two tilts (after L then U the row counts are the sorted partition and the shape is a Young diagram that the cycle merely reflects). It therefore suffices to try the 8 rotationally periodic sequences (4 starting directions x 2 orientations): simulate a constant burn-in, after which the next four tilts act as a fixed permutation sigma of the occupied cells. For each of the 4 phases, decompose sigma into cycles; the target is reachable iff some single k >= 0 rotates every cycle's color string onto the target's, and the valid k for one cycle form an arithmetic progression k0 + j*p (p = the string's minimal period), found by locating the target's cycle string inside the doubled source cycle string. Combining the per-cycle congruences k = k0 (mod p) with CRT decides the answer; configurations from the burn-in prefix are compared directly. O(h*w) with a small constant (8 sequences x 4 phases, ~64 tilt passes over 250000 cells), and the CRT is done prime power by prime power so the lcm never has to be built.",
+      "statement_summary": "An h-by-w grid holds colored tiles on some of its cells; tilting the board left, right, up or down slides every tile as far as it can go in that direction, and tiles of the same color are indistinguishable. Given a starting arrangement and a target arrangement, decide whether any finite sequence of tilts turns the first into the second, for grids as large as 500 by 500.",
+      "source_text_sha256": "8092a31099046fd2ab5f02719ad45e00846c49ec53767642e10b3cb387d481f6",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_tiltingtiles.py"
+    },
+    {
+      "id": "kattis-turningred",
+      "batch": "D",
+      "patterns": [
+        "graph-modeling",
+        "connected-components",
+        "modular-arithmetic",
+        "dfs"
+      ],
+      "pattern_confidence": {
+        "graph-modeling": 0.95,
+        "connected-components": 0.9,
+        "modular-arithmetic": 0.88,
+        "dfs": 0.6
+      },
+      "tags": [
+        "graph",
+        "math",
+        "dfs"
+      ],
+      "solution": "Write colours R,G,B as 0,1,2; pressing a button adds 1 (mod 3) to each light it controls, so if x_j is the number of presses of button j, light i ends red exactly when the sum of x over the buttons controlling it equals d_i = (-c_i) mod 3. Only residues matter and the cheapest realisation of residue r on a button is r presses, so the task is to minimise sum x_j with x_j in {0,1,2} subject to a Z_3 system whose every equation touches at most two variables -- that is the whole content of 'each light is controlled by at most two buttons'. Read it as a graph with buttons as vertices: a two-button light is an edge with x_u + x_v = d, a one-button light pins x_u = d, and a light with no button is feasible only if d = 0. Within one connected component the root's value determines all others by propagating x_v = d - x_u, so there are only three candidate assignments per component, and components are independent and their costs add; try all three, discard the inconsistent ones and keep the cheapest, reporting impossible if some component admits none. Because the relation is a sum rather than a difference the value flips sign on every step, so an odd cycle pins the root (2t = const has a unique root mod 3) while an even cycle imposes a root-independent check -- the three-way enumeration covers both without a case split. Total work is O(3(l+b)) = O(l+b), comfortably inside l <= 2*10^5, b <= 2l.",
+      "statement_summary": "Each of up to 200,000 lights shows red, green, or blue, and each of up to twice that many buttons cycles every light it is wired to from red to green to blue and back to red. Crucially, no light is wired to more than two buttons. The task is to report the fewest total button presses that turn every light red, or to report that doing so is impossible.",
+      "source_text_sha256": "f82a321fd908600baf0cf6f9d19439336822ab568bc7d2d48749838231c41d7d",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_turningred.py"
+    },
+    {
+      "id": "kattis-waterworld",
+      "batch": "D",
+      "patterns": [
+        "geometry"
+      ],
+      "pattern_confidence": {
+        "geometry": 0.95
+      },
+      "tags": [
+        "geometry",
+        "math",
+        "matrix"
+      ],
+      "solution": "The image is cut into n segments of equal HEIGHT, i.e. equal slabs of the rotation-axis coordinate z, and the rotation into m equal wedges of d = 360/m degrees. By Archimedes' hat-box theorem the area of a spherical zone between two planes perpendicular to the axis is 2*pi*R*(height), independent of latitude, so every one of the n*m cells has exactly the same area 4*pi*R^2/(n*m) - the longer equatorial sides and the longer polar sides cancel, which is what the statement's remark about curvature is hinting at. The water fraction of the sphere is therefore the plain unweighted arithmetic mean of the n*m given percentages; no trigonometric weights are involved. Reading and averaging the matrix is O(n*m) time and O(1) extra space, at most 10^6 integers.",
+      "statement_summary": "A rotating spherical planet is imaged along its central vertical line, split into n segments of equal image height, while the rotation is analysed in m equal angular steps covering 360 degrees, dividing the surface into n times m areas. Given each area's integer water-coverage percentage, with n and m up to 1000, report the percentage of the entire surface covered by water within 10^-6.",
+      "source_text_sha256": "f62276a231019e0d6265ac902e8761a3418092ca7748285ee2a3b3e2a07fbbff",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_waterworld.py"
+    },
+    {
+      "id": "kattis-zoomanagement",
+      "batch": "D",
+      "patterns": [
+        "bridges",
+        "articulation-points",
+        "parity-argument",
+        "bridge-tree",
+        "string-matching"
+      ],
+      "pattern_confidence": {
+        "bridges": 0.92,
+        "articulation-points": 0.65,
+        "parity-argument": 0.9,
+        "bridge-tree": 0.5,
+        "string-matching": 0.6
+      },
+      "tags": [
+        "graph",
+        "permutation",
+        "math"
+      ],
+      "solution": "A move sends each chosen animal to a neighbouring enclosure whose animal also moves, so it is a permutation whose cycles are vertex-disjoint simple cycles of the graph, and the ban on reusing a tunnel forbids 2-cycles; the reachable arrangements are therefore the orbit of the group generated by rotations of simple cycles of length at least 3. Every cycle lies inside one bridgeless component, so animals never cross a bridge and each 2-edge-connected component is decided independently, a singleton having to already hold its target. A component that is exactly one cycle of length L admits only its L rotations, checked in linear time by searching the target sequence inside the doubled initial sequence (n is 4e5, so the naive O(L^2) rotation scan is too slow). Any other 2-edge-connected component generates A_N, and S_N as soon as it contains an even cycle, which happens exactly when some block is not an odd cycle (a 2-connected non-cycle graph contains a theta subgraph, whose three cycles cannot all be odd); so multiset equality suffices unless every block is an odd cycle and all types in the component are distinct, in which case the induced permutation must also be even, a repeated type supplying an odd stabiliser element that removes the parity obstruction. Bridges, 2-edge-connected components and blocks all come out of one Tarjan low-link pass, so the whole check is O(n + m).",
+      "statement_summary": "Each of up to 400000 enclosures holds one animal type and has a desired final type, the targets being a permutation of the initial types, and tunnels join some pairs of enclosures. One move simultaneously shifts a chosen set of animals to adjacent enclosures so that the moved animals permute among themselves, with no tunnel reused, which forbids swapping two neighbours. Decide whether repeated moves can reach the desired arrangement.",
+      "source_text_sha256": "b9637509fd65bea7e538b88fb13ef398bc8f72d333bb515399adcfb1d1470636",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_zoomanagement.py"
+    },
+    {
+      "id": "kattis-alchemy101",
+      "batch": "E",
+      "patterns": [
+        "bit-manipulation",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "bit-manipulation": 0.92,
+        "constructive-algorithm": 0.75
+      },
+      "tags": [
+        "math",
+        "bit-manipulation",
+        "xor"
+      ],
+      "solution": "Maximising the chosen subset S of {1..m} with xor(S) = m is the same as minimising the discarded set T = {1..m} \\ S, because xor(T) = X(m) xor m where X(m) is the xor of 1..m, which has the closed form [m, 1, m+1, 0] indexed by m mod 4. Let v = X(m) xor m. If v = 0 the whole range already works and the answer is all m substances; otherwise v always falls in [1, m] (v = 1 when m = 2 mod 4, v = m when m = 3 mod 4, v = m-1 when m = 1 mod 4 and m > 1), so discarding the single substance v is optimal and the answer has size m-1. A size-m answer is impossible whenever v is nonzero, and for a given size m-1 the discarded element is forced, so the optimal set is unique and printing it ascending is the lexicographically smallest list -- the statement's tie-break is vacuous. Each test is O(m) to emit, O(1) to decide, so t <= 1000 tests with m <= 1000 print at most about a million integers. All three samples reproduce, exhaustive subset enumeration for every m up to 16 matches the closed form exactly (and confirms a unique maximum-size subset in each case), and for every m up to 1000 the constructed set was checked to be distinct, in range, of the predicted size and to xor to m.",
+      "statement_summary": "Substances are numbered by positive integers and combining two yields the substance whose number is their bitwise xor. Only substances one through m are available and none may be reused. For each of up to one thousand test cases, with m at most one thousand, the task is to report the largest collection whose xor equals m, choosing the lexicographically smallest such list.",
+      "source_text_sha256": "fee9f1b8181dea399488dad3001e1f8fff1693190e7294b1a12be617e0fa5a6d",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_alchemy101.py"
+    },
+    {
+      "id": "kattis-countingpalindromes",
+      "batch": "E",
+      "patterns": [
+        "palindrome",
+        "modular-arithmetic",
+        "number-theory",
+        "modular-exponentiation",
+        "counting",
+        "digit-dp"
+      ],
+      "pattern_confidence": {
+        "palindrome": 0.88,
+        "modular-arithmetic": 0.95,
+        "number-theory": 0.9,
+        "modular-exponentiation": 0.72,
+        "counting": 0.8,
+        "digit-dp": 0.55
+      },
+      "tags": [
+        "math",
+        "number-theory",
+        "palindrome",
+        "counting",
+        "modular-arithmetic"
+      ],
+      "solution": "An n-digit palindrome is fixed by its first h = ceil(n/2) digits, and digit at position i (1-indexed) contributes d_i*(10^(n-i) + 10^(i-1)) mod p, except the middle digit of an odd n, which contributes d*10^((n-1)/2), and the leading digit, which ranges over 1..9 instead of 0..9 (n = 1 is the special case where the single digit runs over 0..9, so 0 counts). Counting assignments whose weighted sum is k mod p is a product of per-position generating functions in the commutative group algebra Z[Z_p], i.e. cyclic convolutions of length p: each free position multiplies the running vector by sum_{d=0..9} t^(d*c_j mod p). The trick that beats n <= 10^18 is that for j >= 1 the weight c_j = 10^j + 10^(n-1-j) mod p depends only on j mod L, where L = ord_p(10) <= p-1 < 1000 (take L = 1 for p = 2 and p = 5, where 10^t = 0 for t >= 1), so the bulk of the positions is one period-product P raised to floor(T/L) by binary exponentiation times the T mod L leftover factors, with the leading digit and the odd-n middle digit multiplied in as two separate sparse factors. Because the group algebra is commutative the positions can be reordered freely, which is what makes the grouping by residue legitimate. Cost is O(10*L*p) to build P plus O(p^2 log n) for the exponentiation (about 7e7 operations at p = 997), and memory O(p); using a p x p transition matrix instead would be p^3 log n and far too slow, so the circulant/polynomial form matters. Verified: exhaustive enumeration of every palindrome for n <= 7 against 18 primes and every residue, agreement with an independent O(n*10*p) position-by-position DP for n up to 10000 (including p = 983 and p = 977 where ord_p(10) is 982 and 976, so several full periods plus a remainder), and for n = 10^18 the residues sum to 9*10^(h-1) mod 1e9+7 as they must.",
+      "statement_summary": "Given a positive integer n up to 10^18, a prime p of at most one thousand, and a residue k below p, the task is to count how many palindromes have exactly n digits and leave remainder k when divided by p, modulo 1000000007. Palindromes are non-negative integers without leading zeroes that read the same in both directions, so the digit count rules out enumerating them.",
+      "source_text_sha256": "43be264fb168451e0927b5f719b08ce8243a39b5b0ac37810daf1c76ce353558",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_countingpalindromes.py"
+    },
+    {
+      "id": "kattis-finalexam2",
+      "batch": "E",
+      "patterns": [
+        "simulation"
+      ],
+      "pattern_confidence": {
+        "simulation": 0.45
+      },
+      "tags": [
+        "string",
+        "implementation"
+      ],
+      "solution": "Hanh's answers are all correct but shifted up by one line: line i of his sheet carries the answer to question i+1, and line n is blank. Line i is graded against the key for question i, so he scores a point on line i exactly when key[i] equals key[i+1], and the blank last line always scores zero. The answer is therefore the number of adjacent equal pairs in the key, computed in one O(n) pass over at most 1000 characters. Both samples reproduce (AAAA gives 3, ADBBCA gives 1), and the one-pass count was cross-checked against a literal simulation that builds the shifted sheet and grades it line by line, over 20000 random keys plus every key of length up to 8 on a two-letter alphabet, with no mismatch.",
+      "statement_summary": "A student knew every answer on an n-question multiple-choice exam but recorded each answer one line too early, so the answer to each question landed on the line belonging to the previous question and the final line was left blank. Given the answer key as a sequence of at most one thousand letters, the task is to report how many lines the student still scored.",
+      "source_text_sha256": "35ec96c6a85bc5423e6b88f8a005c80e9b8661717ee5d081b2301d031cd749dd",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_finalexam2.py"
+    },
+    {
+      "id": "kattis-freefood",
+      "batch": "E",
+      "patterns": [
+        "interval-union",
+        "brute-force"
+      ],
+      "pattern_confidence": {
+        "interval-union": 0.95,
+        "brute-force": 0.7
+      },
+      "tags": [
+        "intervals",
+        "array",
+        "counting",
+        "easy"
+      ],
+      "solution": "Each event is a closed interval of days, so the answer is the size of the union of at most 100 intervals contained in [1,365]. Because the day range is tiny and fixed, the intended solution is to keep a 365-slot boolean array, mark every day from s_i to t_i for each event, and count the marked slots; overlaps take care of themselves since marking is idempotent. This costs O(N*365) time and O(365) memory. A difference array (+1 at s_i, -1 at t_i+1, prefix sum, count positive entries) or a sort-and-merge of the intervals gives the same answer in O(N log N) and is what the same problem would need if the day bound were large.",
+      "statement_summary": "Given up to 100 events, each occupying a contiguous range of days within a calendar year, count how many distinct days fall inside at least one event's range. Every event runs from a start day to an end day inclusive, and the ranges may overlap or nest arbitrarily. Since days are bounded by 365, the requested count is exactly the size of the union of the given intervals.",
+      "source_text_sha256": "30361881692e291c1478e5575a5f25c43fdb00a715761245f1f8458b4e3fd8bc",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_freefood.py"
+    },
+    {
+      "id": "kattis-hoppers",
+      "batch": "E",
+      "patterns": [
+        "bipartite-graph",
+        "connected-components",
+        "parity-argument"
+      ],
+      "pattern_confidence": {
+        "bipartite-graph": 0.95,
+        "connected-components": 0.9,
+        "parity-argument": 0.6
+      },
+      "tags": [
+        "graph",
+        "bipartite",
+        "dfs",
+        "connectivity"
+      ],
+      "solution": "Infection moves exactly two edges at a time, so the set a compromised host reaches is the set of vertices joined to it by an even-length walk. In a connected graph that set is everything iff the graph has an odd cycle; if the component is bipartite the infection never leaves the starting host's colour class. So one host can infect all N iff the whole graph is connected and non-bipartite. Let k be the number of connected components, counting isolated vertices: joining components in a tree with k-1 edges preserves bipartiteness, so the answer is k-1 when some component already contains an odd cycle and k otherwise (the extra edge is added inside one colour class, always possible since N>=3). One DFS/BFS pass that 2-colours every component computes both facts in O(N+M) for N,M up to 5*10^5.",
+      "statement_summary": "In an undirected network of up to five hundred thousand hosts and links, an infected host infects every host lying exactly two links away, and each newly infected host then spreads the same way. The task is to report the minimum number of additional links that must be installed so that compromising one suitably chosen host eventually infects every host in the network.",
+      "source_text_sha256": "44e8f34c5a2041e2173a7e47ec4ee24492546cd57667c19df8a49c198874c0a4",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_hoppers.py"
+    },
+    {
+      "id": "kattis-moscowdream",
+      "batch": "E",
+      "patterns": [
+        "brute-force"
+      ],
+      "pattern_confidence": {
+        "brute-force": 0.5
+      },
+      "tags": [
+        "math",
+        "implementation"
+      ],
+      "solution": "Choosing the problem set means picking x easy, y medium and z hard proposals with 1 <= x <= a, 1 <= y <= b, 1 <= z <= c and x + y + z = n. Such a triple exists exactly when a, b and c are all at least 1 (so one of each is available) and 3 <= n <= a + b + c: the minimum reachable total is 3 and the maximum is a + b + c, and every total in between is reachable because raising one coordinate at a time changes the sum by one. The answer is therefore the single test a >= 1 and b >= 1 and c >= 1 and 3 <= n <= a + b + c, evaluated in O(1); with a, b, c <= 10 and n <= 20 the equivalent triple loop over at most 11^3 candidates is also well within limits. Both samples reproduce, and the closed form was checked against the brute force over the entire input space (all 11 * 11 * 11 * 20 inputs) with no mismatch.",
+      "statement_summary": "A committee has collected a easy, b medium and c hard problem proposals and wants to assemble a set of exactly n problems that contains at least one problem of each of the three difficulties. Given the four integers, where each pool holds at most ten proposals and n is at most twenty, the task is to report whether such a selection is possible.",
+      "source_text_sha256": "d9dc956535448d7b548663db1213a253c9365c2e7b95a0b4b89ce7258567f5a5",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_moscowdream.py"
+    },
+    {
+      "id": "kattis-sgcoin",
+      "batch": "E",
+      "patterns": [
+        "constructive-algorithm",
+        "modular-arithmetic"
+      ],
+      "pattern_confidence": {
+        "constructive-algorithm": 0.9,
+        "modular-arithmetic": 0.85
+      },
+      "tags": [
+        "hashing",
+        "math",
+        "construction",
+        "ad-hoc"
+      ],
+      "solution": "The given hash is H(prev,T,tok) = (v*7 + tok) mod p with p = 1e9+7, where v is the polynomial-31 hash of the transaction string seeded with prev. The token enters linearly with coefficient 1, so there is no search at all: fix any transaction string T, compute v, pick a target of the form k*1e7 (the valid hash values are the 100 positive multiples of 1e7 that are at most p-1), and the required token is forced as tok = (target - 7v) mod p. The only side condition is tok <= 1e9-1, which excludes just the 7 residues 1e9..1e9+6, so trying successive targets finds one immediately. Do this once to forge block A from the input hash, then again with A's hash as prev to forge block B, giving O(|T|) total work.",
+      "statement_summary": "A blockchain block is valid when a specified polynomial hash of the previous block's hash value, a transaction string and a token produces a positive value with seven trailing zeros modulo 1000000007. Given the current last hash value, the task is to output two chained blocks, printing a transaction string and token for a block appended to it and for a second appended to that, with each token below one billion.",
+      "source_text_sha256": "7e0a93c59329c158694da003e869295ab368c08f6afedf250477314a8df96608",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_sgcoin.py"
+    },
+    {
+      "id": "kattis-abstractpainting",
+      "batch": "E",
+      "patterns": [
+        "combinatorics",
+        "counting"
+      ],
+      "pattern_confidence": {
+        "combinatorics": 0.9,
+        "counting": 0.6
+      },
+      "tags": [
+        "math",
+        "combinatorics",
+        "grid"
+      ],
+      "solution": "Colour the C horizontal edges along the top border and the R vertical edges along the left border freely, 3^(R+C) ways, then fill the unit squares in row-major order. When a square's top and left edges are already coloured there are exactly two ways to colour its bottom and right edges well: if top and left agree, bottom and right must be equal to each other and different from that colour (two choices of the second colour); if top and left differ, bottom and right must be that same pair of colours in one of the two orders. Each square thus contributes an independent factor of two and fixes the top edge of the square below it and the left edge of the square to its right, and every one of the 2RC+R+C edges is assigned exactly once, so the count is exactly 3^(R+C) * 2^(R*C) mod 1e9+7. The published program computes that by multiplying by three R+C times and by two R*C times, so it is O(R*C) <= 28000 multiplications per test case with T <= 5 and O(1) space; with binary exponentiation the same formula is O(log(RC)).",
+      "statement_summary": "A rectangular canvas is divided into unit squares, and every edge of every square must be painted red, green or blue. A painting is good when each square uses exactly two of the three colours on its four edges, each colour on exactly two of them. The task is to count good paintings modulo one billion and seven, for grids of up to fourteen rows and two thousand columns.",
+      "source_text_sha256": "9038a44a185194c079ba9514710549810d5516e474e42b15753e3d51ee35c0f1",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_abstractpainting.py"
+    },
+    {
+      "id": "kattis-beautifulsquare",
+      "batch": "E",
+      "patterns": [
+        "constructive-algorithm",
+        "parity-argument",
+        "grid-traversal"
+      ],
+      "pattern_confidence": {
+        "constructive-algorithm": 0.96,
+        "parity-argument": 0.86,
+        "grid-traversal": 0.5
+      },
+      "tags": [
+        "grid",
+        "construction",
+        "parity",
+        "hamiltonian-path",
+        "ad-hoc"
+      ],
+      "solution": "The square is a Hamiltonian path of the n x n grid graph that is forced to start at the given cell, since consecutive labels must share an edge. Colour the cells like a chessboard: a Hamiltonian path on n*n cells alternates colours, so when n is odd the (n*n+1)/2 cells with r+c even outnumber the others by one and the path must begin and end on that majority colour, which makes the answer NO exactly when n is odd and r+c is odd; for even n the grid has a Hamiltonian cycle, so every start cell works. Otherwise the published solution constructs the path by case analysis: it first walks straight from (r,c) along its column to the top or bottom border (the direction chosen by the parity of r), then boustrophedon-sweeps the strip of columns on one side of the start column and finally the remaining rectangle, the split being arranged so each piece is traversed along an even-length direction and therefore ends on the cell adjacent to the next piece. Filling is O(n^2) time and O(n^2) space per test case, so at most 10^6 cell writes over all t <= 100 cases with n <= 100.",
+      "statement_summary": "Given a square grid of up to one hundred rows and the cell that must hold the number one, the task is to write every integer from one to the number of cells, each once, so that consecutive integers occupy cells sharing an edge, or to report that this is impossible. Up to one hundred grids are asked about, and the starting cell decides feasibility.",
+      "source_text_sha256": "df5b1de242a2d704493484a41f02db52962bf46f3f914354a94cdf5eeb2258a3",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_beautifulsquare.py"
+    },
+    {
+      "id": "kattis-bitwise",
+      "batch": "E",
+      "patterns": [
+        "bit-manipulation",
+        "greedy"
+      ],
+      "pattern_confidence": {
+        "bit-manipulation": 0.95,
+        "greedy": 0.9
+      },
+      "tags": [
+        "bit-manipulation",
+        "greedy",
+        "array",
+        "optimization"
+      ],
+      "solution": "The answer is assembled one bit at a time from bit 29 downwards: keep a mask, and for each bit test whether the circle can be split into K contiguous sections whose ORs all contain every bit of mask|bit, keeping the bit whenever it can, which is maximal because a mask that survives beats any value that first differs from it at a higher bit. The feasibility test for a mask X is a greedy sweep from a fixed starting cut: extend the running OR until it contains X, cut there, repeat; shortest-first maximises the number of sections, and if that count reaches K the surplus sections can be merged into neighbours to give exactly K, since merging only adds bits. The sweep must be tried from several starting cuts, but at most 31 of them matter: the section holding A_1 can have its start slid forward to the last position p whose suffix OR A[p..N] is unchanged, the skipped elements falling into the preceding section where they can only add bits, so a useful start is either position 1 or a position where A[p] contributes a fresh bit to the suffix OR, and a 30-bit value can gain a bit at most 30 times. Total cost is 30 bits times at most 31 starts times an O(N) sweep, about 4.6*10^8 word operations at N = 5*10^5, in O(N) space with only the array and a 31-entry start list held. Nothing is binary searched: the outer loop is a greedy bit construction, and feasibility is monotone under submask inclusion, not under the numeric order of X.",
+      "statement_summary": "A circle of up to five hundred thousand non-negative integers must be cut into exactly K contiguous non-empty sections, each section's power being the bitwise OR of the integers it contains. The task is to report the largest bitwise AND of the K powers achievable over all such divisions, where K is given and a section may wrap around the end of the circle.",
+      "source_text_sha256": "c7a5d9b3138dd255dad0cfef3bd7de4a5d20b67e02353042b4d188df3f2cfe67",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_bitwise.py"
+    },
+    {
+      "id": "kattis-canthoexpressway",
+      "batch": "E",
+      "patterns": [
+        "geometry",
+        "segment-intersection"
+      ],
+      "pattern_confidence": {
+        "geometry": 0.95,
+        "segment-intersection": 0.45
+      },
+      "tags": [
+        "geometry",
+        "convex-polygon",
+        "half-plane",
+        "intersection",
+        "ad-hoc"
+      ],
+      "solution": "Write f(P) = a*Px + b*Py for the linear form defining the two parallel lines and let lo and hi be the smaller and larger of the two constants. The strip is exactly the preimage of the interval from lo to hi under f, so the polygon and the strip share positive area precisely when the projection interval of the polygon, from the minimum to the maximum of f over its vertices, overlaps that interval in positive length: a convex polygon with interior has a chord of positive length on every line strictly between its own supporting lines, and integrating those chords over an interval of positive length gives positive area, while a strip that only touches the polygon meets it in a point or a single edge, both of measure zero. The published solution evaluates the same predicate by sign tests rather than by projecting: it answers YES if some edge strictly straddles one of the two lines, or some edge joins a vertex lying on one line to a vertex lying on the other, or some vertex lies strictly between the lines, and NO otherwise, which enumerates exactly the ways the projections can overlap in positive length. Everything stays in exact integers, with f bounded by about two million and its pairwise products by four times ten to the twelfth, so the 64-bit products the code uses are necessary. Each query is O(k) with k at most six and O(1) extra space, so all ten thousand queries cost at most about sixty thousand operations.",
+      "statement_summary": "For up to ten thousand independent queries, each supplying a strip bounded by two distinct parallel lines with small integer coefficients and a convex polygon of three to six integer vertices in either orientation, the task is to decide whether the strip and the polygon share a region of positive area. Meeting only at a single point or along one whole edge does not count.",
+      "source_text_sha256": "a1f4c3f143936e61ff8042b9bd0f85ff4594c2c26200e9a3df092179dd769088",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_canthoexpressway.py"
+    },
+    {
+      "id": "kattis-conveyorbelts",
+      "batch": "E",
+      "patterns": [
+        "max-flow",
+        "graph-modeling",
+        "layered-graph",
+        "dinic"
+      ],
+      "pattern_confidence": {
+        "max-flow": 0.95,
+        "graph-modeling": 0.92,
+        "layered-graph": 0.85,
+        "dinic": 0.7
+      },
+      "tags": [
+        "graph",
+        "max-flow",
+        "scheduling",
+        "modular-arithmetic"
+      ],
+      "solution": "Producer j emits at minutes x*K+j and its route is fixed, so the item born at minute x*K+j occupies the (d+1)-st belt of its route during minute x*K+j+d; that belt is therefore busy exactly at the minutes congruent to j+d modulo K, and two items collide on a belt precisely when their producer-plus-depth values agree modulo K. That collapses the whole time axis into a phase in Z_K and turns the capacity rule into arc-disjointness on a time-expanded graph: make a node (v,p) for each junction v and phase p, and give every belt a to b one unit-capacity arc (a,p) -> (b,(p+1) mod K) per phase, each arc standing for the single resource 'that belt during the minutes of phase p'. Add a source with a unit edge into (j, j mod K) for each producer and an infinite edge from every (N,p) to a sink; an integral flow decomposes into arc-disjoint source-sink paths, which are exactly a set of simultaneously legal routes (including the degenerate one for a producer already sitting at junction N, and including the case of one producer's own consecutive items, which would have to reuse a single belt-phase arc to clash), so the maximum flow is the answer. Dinic's algorithm is the practical choice: at most N*K+2 = 90002 nodes and M*K = 300000 unit arcs, and since the flow value is at most K = 300 the number of phases is bounded by K, giving O(K*M*K) = O(K^2*M) about 9*10^7 operations worst case and O((N+M)*K) memory.",
+      "statement_summary": "A factory has up to three hundred junctions linked by one-way conveyor belts that each take one minute to traverse. Producers sit on the first K junctions, the jth emitting an item every K minutes, and all of a producer's items must follow one fixed route to the final junction. No belt may carry two items at once; the task is to report how many producers can stay running.",
+      "source_text_sha256": "8afdf5bd9380030948253b1f695b077abcbe8c6f5d051413083964fd487be69a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_conveyorbelts.py"
+    },
+    {
+      "id": "kattis-datingtime",
+      "batch": "E",
+      "patterns": [
+        "brute-force"
+      ],
+      "pattern_confidence": {
+        "brute-force": 0.5
+      },
+      "tags": [
+        "math",
+        "implementation",
+        "geometry"
+      ],
+      "solution": "Measure time as minutes t after midnight; the minute hand sits at 6t degrees and the hour hand at 0.5t, so their signed separation is 5.5t mod 360 and the displayed angle equals alpha exactly when 5.5t is congruent to alpha or to -alpha modulo 360. Doubling that congruence shows 11t must be an integer, so every qualifying instant falls on a multiple of one eleventh of a minute and a full day contains only 22, 44 and 22 of them for alpha equal to 0, 90 and 180. The published program finds them by walking the 24 hours and, for each, solving 5.5m = 30*(h mod 12) +- alpha for the minute offset m by cases on the hour, holding m exactly as a quotient and a remainder over 11 and discarding any m of 60 or more; a candidate is counted when its whole-minute part lies inside the window, except at the closing minute, where a nonzero remainder places the instant strictly after the window and is rejected. That endpoint rule is what makes the inclusive bounds correct, since the fractional part can only push an instant later. Each query costs O(24) time and O(1) space, trivially inside the limits for t <= 100 queries.",
+      "statement_summary": "Given a start time, an end time and an angle that is zero, ninety or a hundred and eighty degrees, the task is to count the instants in the closed interval at which the hour and minute hands of a continuously moving analogue clock form exactly that angle. Both times fall within one day, and up to one hundred such queries are asked.",
+      "source_text_sha256": "286074ee310571b7872ac8aca3fe0f4be3320eb663934c17a34900b9a50152e3",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_datingtime.py"
+    },
+    {
+      "id": "kattis-easyquery",
+      "batch": "E",
+      "patterns": [
+        "segment-tree",
+        "persistent-segment-tree",
+        "offline-queries",
+        "bit-manipulation",
+        "order-statistics",
+        "coordinate-compression"
+      ],
+      "pattern_confidence": {
+        "segment-tree": 0.95,
+        "persistent-segment-tree": 0.85,
+        "offline-queries": 0.95,
+        "bit-manipulation": 0.9,
+        "order-statistics": 0.9,
+        "coordinate-compression": 0.72
+      },
+      "tags": [
+        "array",
+        "range-query",
+        "data-structures",
+        "bitmask",
+        "offline"
+      ],
+      "solution": "For each query let L and R be the u-th and v-th smallest values of the subarray; the editorial reaches them with a wavelet tree, but a persistent segment tree over the compressed values answers the same order-statistic, rank and multiplicity queries and is what was implemented and tested. If L equals R the window is a single repeated value and the answer is immediate; otherwise every value strictly between L and R contributes its entire multiplicity, because its sorted block lies between L's block, which reaches position u, and R's block, which begins at or before v, so only L and R are clipped and their clipped counts follow from two rank queries - a step the editorial's prose leaves out, although its code performs it. What remains is, for i equal to 1, 2 and 3, the bitwise or of the values strictly between L and R occurring at least i times in the subarray, and the bits are independent: bit k is set exactly when some qualifying value carries it. Processing queries offline in decreasing left endpoint, maintain for every value the position of its i-th occurrence at or after the current left endpoint, so 'occurs at least i times in the range' becomes 'that position is at most r'; one segment tree per pair of level and bit over the compressed value axis, holding the minimum of those positions across the values carrying that bit, answers each bit with a single range-minimum over the compressed interval strictly between L and R. Advancing the left endpoint by one shifts exactly one value's three tracked positions, so maintenance is O(1) structures touched per bit per step. Total cost is O(30 (n+q) log n) time and O(30 n) space, which fits the summed limits of two hundred thousand on n and on q.",
+      "statement_summary": "An array of up to two hundred thousand integers is given together with as many queries. Each query names a contiguous range and a window of positions within that range once the range has been sorted, and asks for the sum of three bitwise ors: over the values occurring at least once, at least twice, and at least three times inside that sorted window. The array is never modified.",
+      "source_text_sha256": "f1febf7cf906d4e44e25888d731cf5d9b08d4038cad633e862c68b5d942275c1",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_easyquery.py"
+    },
+    {
+      "id": "kattis-edgeremoval",
+      "batch": "E",
+      "patterns": [
+        "minimum-spanning-tree",
+        "kruskal",
+        "union-find"
+      ],
+      "pattern_confidence": {
+        "minimum-spanning-tree": 0.97,
+        "kruskal": 0.92,
+        "union-find": 0.85
+      },
+      "tags": [
+        "graph",
+        "mst",
+        "union-find",
+        "greedy",
+        "sorting"
+      ],
+      "solution": "Sort the edges by weight and run Kruskal one whole weight class at a time, keeping a DSU that has absorbed everything strictly lighter. An edge of the class whose endpoints are already in the same component lies in no minimum spanning tree and can never create an alternative one, so it is kept for free; the rest join distinct components, and since they all share a weight the MST is unique only if they form a forest, so exactly the ones that close a cycle among themselves are deleted. That set is optimal: in any surviving graph with a unique MST, every non-tree edge must be strictly heavier than its whole tree path (otherwise swapping gives a second MST), so its endpoints are already joined by lighter edges and it is one of the free edges, bounding the survivors by (n-1) plus the number of free edges; the construction reaches that bound, and because only cycle-closing edges are dropped the graph stays connected and every weight prefix keeps exactly the components it had, so the classes really are independent. A disconnected input is detected by a preliminary union of all edges and answered with -1. Sorting dominates, giving O(m log m) time and O(n+m) space for m up to 3*10^5 summed over test cases.",
+      "statement_summary": "A student has drawn an undirected weighted graph that may admit several minimum spanning trees. He wants to delete as few edges as possible so that exactly one minimum spanning tree remains; the weight deleted is irrelevant. The task is to report that minimum count and one such set of edges, or to report that the graph is disconnected. Graphs carry up to three hundred thousand edges.",
+      "source_text_sha256": "cddee36503766a6d69788a215acaf6c324a228fa04a589a617b5d38cfe2a61eb",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_edgeremoval.py"
+    },
+    {
+      "id": "kattis-generatingnumbers",
+      "batch": "E",
+      "patterns": [
+        "greedy"
+      ],
+      "pattern_confidence": {
+        "greedy": 0.85
+      },
+      "tags": [
+        "math",
+        "digits",
+        "greedy",
+        "optimization"
+      ],
+      "solution": "Increments only raise a number and a rearrangement cannot change how many digits it has, so the cheapest route to a c-digit target first climbs to the smallest c-digit number, 10^(c-1), at a fixed toll of 5(c-1)^2+4(c-1) instructions, and then assembles the target's digit multiset one digit at a time: increment the units digit from zero up to the wanted value, then spend one rearrangement to shove it aside. The published code collapses that into a closed form: the base toll, plus for each digit its value plus one, with three rebates - the leading 1 of 10^(c-1) already supplies one digit '1' free, the last digit placed needs no closing rearrangement, and when the target contains no digit 1 at all the spare 1 is grown into the leading digit instead. Targets shaped as a digit d followed by zeros are the exception for d of at least 2, since the only way in is an increment from (d-1) followed by nines, so they cost the base toll plus d-1 plus 10(c-1), one less when d is 2; the case d equal to 1 is not an exception at all, because 10^(c-1) is where the climb already ends and so costs exactly the base toll. Single-digit targets cost x-1. Each of the up to 1000 queries is therefore answered in O(number of digits) = O(1) time and O(1) space. A 0-1 BFS over the true state graph (v -> v+1 at cost 1, v -> its digit-multiset class at cost 1, class -> every member at cost 0, restricted to numbers with at most c digits, which is safe because digit count never decreases) reproduces the formula exactly for every x of at most seven digits, all 9,999,999 of them, with zero mismatches. Inputs of eight to ten digits are not checked against the search, which would not fit in memory; they rest on the toll being linear in the digit count, which the seven checked decades establish but do not prove.",
+      "statement_summary": "Starting from the number one, a machine may either add one to its current value or rearrange that value's decimal digits into any order that does not begin with a zero. For up to a thousand targets, each as large as one billion, the task is to report the fewest such instructions needed to turn one into the given target.",
+      "source_text_sha256": "bc54c5d351aef2a9fcdd123127c6b8817d5a9098697ad8ad43f742fe271af009",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_generatingnumbers.py"
+    },
+    {
+      "id": "kattis-hanjie",
+      "batch": "E",
+      "patterns": [
+        "brute-force",
+        "backtracking"
+      ],
+      "pattern_confidence": {
+        "brute-force": 0.85,
+        "backtracking": 0.8
+      },
+      "tags": [
+        "grid",
+        "backtracking",
+        "brute-force"
+      ],
+      "solution": "The board is at most six by six, so the solutions can simply be enumerated. The published program lays the rows down one at a time: within a row it places the clue's blocks left to right in every position that keeps them in order with at least one white cell between consecutive blocks, recursing on the triple (row, next free column, index of the next block), and an empty clue leaves the row white. Every row it completes therefore satisfies its own clue by construction, so when all rows are down it only has to read the run lengths off each of the c columns and compare them with the column clues, incrementing the counter on a full match. The enumeration is exhaustive because the correspondence between a line matching a clue and an ordered choice of block start positions is a bijection. The widest row has only ten placements (a clue of two singletons in six columns is the maximum), bounding the search by ten to the sixth leaves and O(r*c) work per leaf, roughly three times ten to the seventh operations worst case; that adversarial input measured 0.08 s, and space is O(r*c).",
+      "statement_summary": "A nonogram board with at most six rows and six columns comes with a clue for every row and every column: the lengths, in order, of the maximal blocks of black cells in that line, with at least one white cell separating consecutive blocks. The task is to count the black-and-white colourings of the board that satisfy every row clue and every column clue simultaneously.",
+      "source_text_sha256": "781070738675484599e6080ab259e36668b4026612113c90fe27a0e98499539d",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_hanjie.py"
+    },
+    {
+      "id": "kattis-inspectingillumination",
+      "batch": "E",
+      "patterns": [
+        "interactive",
+        "divide-and-conquer",
+        "bit-manipulation"
+      ],
+      "pattern_confidence": {
+        "interactive": 0.98,
+        "divide-and-conquer": 0.8,
+        "bit-manipulation": 0.88
+      },
+      "tags": [
+        "interactive",
+        "permutation",
+        "divide-and-conquer",
+        "bit-manipulation",
+        "queries"
+      ],
+      "solution": "A query returns the image of the queried switch set under the hidden permutation, so a fixed family of sets that separates every switch index is enough to identify each source's switch. The published solution runs the segment-tree recursion over the switch range and asks, once per depth, a single query holding the union of all left-child intervals at that depth; because those are pairwise disjoint and disjoint from every right-child interval at the same depth, the depth-(d+1) reply cleanly splits the set of sources already attributed to a node into the part driven by its left half (present in that reply) and the part driven by its right half (absent), and recursing to the leaves names the switch of every source. That is one query per level, ceiling(log2 n)+1, which is at most 11 for n up to 1000 and well inside the budget of 32; the queries are non-adaptive and carry exactly the same information as asking, for each bit position, the set of switches whose index has that bit set. Correctness needs no assumption about lamp state because the reply reports which sources were toggled, not whether they are lit. Work is O(n log n) time and O(n log n) space for the per-depth query sets. A transcription driven against a simulated interactor recovers the permutation for every permutation with n at most 6 and for 400 random sizes up to 1000, never exceeding 11 queries, and always agrees with the bitwise solution.",
+      "statement_summary": "A butler faces switches, each controlling exactly one of an equal number of light sources, but the pairing is unknown. In one round he may flip any non-empty set of switches and is then told, in arbitrary order, which sources changed state. With up to a thousand switches and at most thirty-two rounds allowed, he must report which switch drives each source.",
+      "source_text_sha256": "371ede1015a033e6b55cee54c474993775374aa98bfb2607b17f072a54b548c3",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_inspectingillumination.py"
+    },
+    {
+      "id": "kattis-intelligenceexchange",
+      "batch": "E",
+      "patterns": [
+        "dijkstra",
+        "shortest-path"
+      ],
+      "pattern_confidence": {
+        "dijkstra": 0.95,
+        "shortest-path": 0.9
+      },
+      "tags": [
+        "graph",
+        "shortest-path",
+        "dijkstra",
+        "counting"
+      ],
+      "solution": "Run Dijkstra four times, from each house and each school, and then classify every vertex and every edge once. A walker occupies a point p only at time dist(house, p), and only when dist(house, p) + dist(p, school) equals the shortest distance; the school vertex is additionally occupied at every later time because they wait there forever. So a vertex counts when it lies on shortest paths of both and the two arrival times are equal, or when it is one walker's school, lies on the other's shortest paths, and the other passes it no earlier than its owner arrives. Since every weight is positive, an edge can lie on a given walker's shortest paths in at most one direction, so the only interior meetings are head-on: if one enters at time a and the other enters from the far end at time c on an edge of length w, they cross at the single point reached at time (a+c+w)/2, which is strictly inside the edge exactly when the absolute difference of a and c is below w, the boundary case being a vertex meeting already counted. Infinitely many meeting points can only come from traversing a whole edge together, which requires a vertex with equal arrival times having an incident edge on both walkers' shortest paths in the same direction; any finite answer is at most n+m, far under the stated billion threshold, so that test is exactly when to print -1. Four Dijkstras dominate: O((n+m) log n) time and O(n+m) space for n, m up to 5*10^5.",
+      "statement_summary": "Two students leave home at the same moment and walk to their schools across a weighted undirected graph, each taking some shortest route at the same speed and staying at school after arriving. The task is to count the distinct locations, on edges as well as at vertices, where the two could be present simultaneously, or report that the count would exceed a billion.",
+      "source_text_sha256": "54b366085e7585ef001f34fb8e2a1b51cf920ef0f45700cd4c1248f5a165102a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_intelligenceexchange.py"
+    },
+    {
+      "id": "kattis-jugglingsequence",
+      "batch": "E",
+      "patterns": [
+        "binary-search",
+        "order-statistics",
+        "binary-search-answer"
+      ],
+      "pattern_confidence": {
+        "binary-search": 0.8,
+        "order-statistics": 0.75,
+        "binary-search-answer": 0.6
+      },
+      "tags": [
+        "math",
+        "sequence",
+        "recurrence",
+        "binary-search",
+        "order-statistics"
+      ],
+      "solution": "The recurrence is self-similar: the term equals its own index exactly at the indices b = (3^k+1)/2, that is 1, 2, 5, 14, 41, and so on, and the block of indices from b to 3b-2 interleaves a descending run b, b-1, down to 1 with an ascending run 2b, 2b+1, up to 3b-2, after which index 3b-1 holds the value 3b-1 and starts the next block. The first n terms are therefore a multiset built from O(log n) explicit integer intervals, two per complete block plus a truncated pair for the final partial block, so the number of terms not exceeding x is a short sum of interval intersections and the m-th smallest is the least x whose count reaches m, located by binary search over the value range up to 3n. Correctness rests entirely on the block identity, which follows by induction from the two-case rule, and the partial block needs no special casing at its right end because the value that continues the ascending run past 3b-2 is exactly the next block's opening value. Each query costs O(log^2 n) time and O(log n) space, so all 10^4 queries at n = 10^18 finish in a fraction of a second, and the largest reachable answer is about 1.5n, still inside signed 64-bit.",
+      "statement_summary": "A sequence begins at one, and each later term is formed from the previous one by adding the index when the term does not exceed it and subtracting the index otherwise. Given a length and a rank, each up to a quintillion, the task is to report which value occupies that rank once the first terms are sorted in non-decreasing order, for up to ten thousand queries.",
+      "source_text_sha256": "1baa75b157b07a96da2f434597d1909d428d1d0c712cf2453f045b606b5f8a50",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_jugglingsequence.py"
+    },
+    {
+      "id": "kattis-largesttriangle",
+      "batch": "E",
+      "patterns": [
+        "convex-hull",
+        "rotating-calipers",
+        "geometry",
+        "two-pointers"
+      ],
+      "pattern_confidence": {
+        "convex-hull": 0.96,
+        "rotating-calipers": 0.9,
+        "geometry": 0.9,
+        "two-pointers": 0.7
+      },
+      "tags": [
+        "geometry",
+        "convex-hull",
+        "rotating-calipers",
+        "two-pointers"
+      ],
+      "solution": "The maximum-area triangle over a point set always has all three vertices on the convex hull, so the first step is a monotone-chain hull that drops duplicates and collinear points, leaving h <= N strictly convex vertices (if fewer than three survive the answer is 0). For each hull vertex a taken as the root, the largest triangle rooted at a is found by a rotating-calipers-style sweep: as the second vertex b walks forward around the hull, the best apex c is non-decreasing, because for a fixed base a-b the distance from c to that line is unimodal around a convex polygon, so one monotone pointer that advances c while the area does not decrease finds the optimum in amortised O(h) per root. Running that for every root gives O(N log N) for the sort and hull plus O(h^2) <= 25 million cross products at N = 5000, in O(N) memory. Areas are carried as twice-the-area integer cross products, which reach about 3.2*10^15 for coordinates bounded by 4*10^7, so 64-bit arithmetic is required and the halving is done only when printing. The tempting single-pass O(h) calipers variant that advances a, b and c together is unsound (Keikha et al. 2017, cited by the judges on slide 49), which is why the per-root loop is not collapsed.",
+      "statement_summary": "Given up to five thousand points with non-negative integer coordinates bounded by forty million, the task is to report the area of the largest triangle whose three corners are chosen among those points, or zero when no non-degenerate triangle exists. The points need not be distinct, arrive in no particular order and may include long collinear runs, and the reported area is accepted within a small absolute error.",
+      "source_text_sha256": "ed86c96bc500bba62022508398c7ae93d1e9af5eb7852b237a9d2b9cad5588a3",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_largesttriangle.py"
+    },
+    {
+      "id": "kattis-latinsquare",
+      "batch": "E",
+      "patterns": [
+        "bipartite-matching",
+        "constructive-algorithm",
+        "graph-modeling",
+        "hall-theorem"
+      ],
+      "pattern_confidence": {
+        "bipartite-matching": 0.95,
+        "constructive-algorithm": 0.75,
+        "graph-modeling": 0.7,
+        "hall-theorem": 0.6
+      },
+      "tags": [
+        "matrix",
+        "grid",
+        "graph",
+        "bipartite",
+        "matching",
+        "construction"
+      ],
+      "solution": "Every pre-filled value is guaranteed to occupy exactly one cell in each row and each column, so the k written values together leave exactly n-k empty cells in every row and every column: the empty cells form an (n-k)-regular bipartite graph between rows and columns. A regular bipartite graph satisfies Hall's condition and therefore has a perfect matching, and deleting a perfect matching leaves a graph that is still regular, so the missing values can be placed one at a time without ever backtracking - for each unused value, build the graph of currently empty cells, run Kuhn's augmenting-path matching, and write the value into the matched cells. That argument also shows the answer is never NO, which is why the published code always prints YES and has its NO branch commented out. At most n values each cost one maximum matching over at most n squared edges, an O(n^4) worst-case bound, though the regularity keeps it near 2.6 n^3 edge visits on the densest input (n=100, k=0); space is O(n^2).",
+      "statement_summary": "A square grid of side at most one hundred is partly filled: some values have already been written, each exactly as many times as the grid has rows and never twice in a row or column. The task is to fill the remaining empty cells so every value appears exactly once in each row and column, or to report that no completion exists.",
+      "source_text_sha256": "500d133fd37fac5ee62414b28f345fb25fb0ee772d565ca55d40f56e1d5585e1",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_latinsquare.py"
+    },
+    {
+      "id": "kattis-magicalstring",
+      "batch": "E",
+      "patterns": [
+        "interval-scheduling",
+        "dynamic-programming"
+      ],
+      "pattern_confidence": {
+        "interval-scheduling": 0.88,
+        "dynamic-programming": 0.92
+      },
+      "tags": [
+        "string",
+        "intervals",
+        "dynamic-programming",
+        "scheduling",
+        "optimization"
+      ],
+      "solution": "A converted character is absorbed into its asterisk immediately and asterisks never merge with anything, so every operation collapses an interval of the ORIGINAL string and the collapsed intervals are pairwise disjoint; an interval is collapsible exactly when its length is 3 to 5 and exactly one of its positions differs from the common letter of the others, the longer shapes being limited to x-z-x-x, x-x-z-x and x-x-z-x-x because the input already has no run of three. Maximality of the run that collapses adds an ordering constraint rather than a shape constraint: if the character immediately outside an end of the interval equals its common letter, that position must already be an asterisk, so the chosen interval touching that end must be collapsed first. The answer is therefore weighted interval scheduling with a budget of K intervals and weight equal to length, restricted to selections that admit a valid order, which holds exactly when every blocked end has the adjacent interval chosen and no adjacent pair blocks each other -- a mutual block is a 2-cycle and is the only possible cycle, since dependencies only ever run between neighbouring intervals along the line. A left-to-right DP over (next free position, operations used, and a flag saying whether an interval ends at the previous position and whether it still needs its right neighbour) enforces all of that, and because each interval eats at least three characters only min(K, n/3) operations matter, giving O(n*min(K,n/3)) time and memory, about 10^6 states for n = K = 1000 and trivially inside the limits for 50 test cases. Greedy and any incremental-in-K argument both fail here, which the judges' own example shows.",
+      "statement_summary": "A string of lowercase letters contains no run of three or more equal characters. An operation rewrites one character so that a run of at least three equal characters appears; that maximal run collapses into an asterisk, which is inert and never rewritten or absorbed. Using at most a thousand operations on a string of at most a thousand characters, the task is to maximise how many characters are absorbed.",
+      "source_text_sha256": "99957975c28a7bcd9e2d9d3dc23cdca1c288dfb203fddfd3bbb0ac4a0646d047",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_magicalstring.py"
+    },
+    {
+      "id": "kattis-milkteabattle",
+      "batch": "E",
+      "patterns": [
+        "interactive",
+        "game-theory",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "interactive": 0.97,
+        "game-theory": 0.88,
+        "constructive-algorithm": 0.7
+      },
+      "tags": [
+        "interactive",
+        "game-theory",
+        "adversarial",
+        "strategy",
+        "harmonic-series",
+        "math"
+      ],
+      "solution": "Mark the cups 1, k+1, 2k+1, ... up to index n; there are m = ceil(n/k) of them and, because they are spaced exactly k apart, every window of k consecutive cups contains exactly one marked cup, so pouring only into marked cups turns the problem into the abstract game: distribute at most x litres among m slots, then the opponent zeroes one slot of its choice. That abstraction is also an upper bound on any strategy, because the opponent can restrict itself to the m windows covering the disjoint blocks of k cups (clipping the last window to end at cup n, which only destroys more), and then the maximum inside a block behaves exactly like a single slot. In the m-slot game the optimum is x times one plus the harmonic number of m-1: if u slots are still alive at a common level v, pouring x/u into each and losing one keeps the quantity v plus x times the harmonic number of u invariant, and the last surviving slot is topped up by the final free pour. The published solution realises exactly that: about 1900 rounds level all m marked cups towards x (refilling whichever was just drained and splitting the remaining x equally makes the common level approach x geometrically at rate 1-1/m), then at most 99 rounds pour x/u into the u slots the opponent has not yet drained, shrinking u to one, and the final pour adds x. It sends at most 1999 POUR lines, exactly x litres per round, and runs in O(rounds * m) time and O(m) space. One caveat about the published code specifically: it fixes its round budget at 1900 levelling rounds and 99 knock-out rounds, which reaches the optimum against any minimising opponent but falls to about 0.73 of it against an opponent that merely wastes turns, at k equal to 1 and n at least 47. A wasted opponent round only raises the survivors' level, so a split that reserves a few hundred knock-out rounds instead meets the bound against every opponent and is the version worth learning from.",
+      "statement_summary": "In an interactive, adaptive game with at most fifty cups, one player repeatedly distributes at most a fixed number of litres of milk tea among cups, after which opponents empty a window of consecutive cups of a fixed length, at most ten. He may instead end with a last distribution nobody drinks, and within two thousand rounds must guarantee some cup holds essentially the largest amount any strategy can force.",
+      "source_text_sha256": "c4cf0e0b5c2708ce3d5e0548e2611007f7b5f2bdc086720ea5b35bec4db279f9",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_milkteabattle.py"
+    },
+    {
+      "id": "kattis-nonprimefactors",
+      "batch": "E",
+      "patterns": [
+        "sieve",
+        "number-theory",
+        "divisor-enumeration",
+        "prime-factorization"
+      ],
+      "pattern_confidence": {
+        "sieve": 0.95,
+        "number-theory": 0.85,
+        "divisor-enumeration": 0.7,
+        "prime-factorization": 0.6
+      },
+      "tags": [
+        "math",
+        "number-theory",
+        "sieve",
+        "divisors",
+        "precomputation"
+      ],
+      "solution": "If i = p1^q1 * ... * pm^qm then i has exactly (q1+1)...(qm+1) divisors of which exactly m are prime, so NPF(i) = d(i) - omega(i), where d counts divisors and omega counts distinct prime divisors; that identity reproduces all four samples (100 -> 9-2 = 7, 13 -> 2-1 = 1, 12 -> 6-2 = 4, 2018 -> 4-2 = 2). Both tables are precomputed once for every value up to 2*10^6 by sieving rather than per query: the harmonic loop 'for each d, bump a counter at every multiple of d' gives d(i) in O(M log M), and the same loop restricted to primes gives omega(i) in O(M log log M) -- equivalently, skipping the primes in the first loop accumulates NPF directly. Each query is then a single array lookup, so the whole program is O(M log M + Q) time and O(M) memory; NPF never exceeds 283 on this range, so a 16-bit table of 2*10^6 entries (4 MB) is enough. The deciding constraint is the query count: with Q up to 3*10^6 and i up to 2*10^6, per-query trial division costs about 240 divisions on average and up to 1400 for a prime, so roughly 5*10^8 divisions in total even when memoised over the at most 2*10^6 distinct inputs, too slow for the 1 s limit, and the sheer I/O volume forces buffered or unformatted reading and writing.",
+      "statement_summary": "For each of up to three million queries the task is to report how many divisors of a given integer are not themselves prime, where that integer is at least two and at most two million. Because the queries greatly outnumber the distinct possible inputs and the input and output volume is very large, an answer must be produced in effectively constant time per query.",
+      "source_text_sha256": "603e1f6229dfabe597efcfdfcf06358bbaf64fbacb34699dd70bb7b6e80a990d",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_nonprimefactors.py"
+    },
+    {
+      "id": "kattis-prolongedpassword",
+      "batch": "E",
+      "patterns": [
+        "functional-graph",
+        "cycle-detection",
+        "matrix-exponentiation"
+      ],
+      "pattern_confidence": {
+        "functional-graph": 0.82,
+        "cycle-detection": 0.78,
+        "matrix-exponentiation": 0.35
+      },
+      "tags": [
+        "string",
+        "queries",
+        "recursion",
+        "functional-graph",
+        "cycle"
+      ],
+      "solution": "f is an iterated morphism (a D0L system): every letter c is rewritten as the fixed word T_c, and since every |T_c| >= 2 the expansion of a single letter after k rounds has length at least 2^k. Because every queried position is at most 10^15 < 2^50, at any level deeper than 50 the position is forced to lie inside the expansion of the FIRST character, so the top K-50 steps of the descent are the deterministic map g(c) = first letter of T_c, a functional graph on 26 nodes; folding it by rho/cycle detection (tail plus cycle is at most 26) yields g^(K-50)(S[0]) in O(26) time, which replaces S by that one letter and K by 50. With K' = min(K,50) the lengths L[k][c] = |f^k(c)| are then built bottom-up with saturating addition capped just above 10^15 (so the true value is recovered exactly whenever it is below the cap, which is all the descent ever compares against), one prefix pass over S decides which letter of S owns each query, and each query walks down at most 50 levels, scanning the at most 50 children per level to find the one containing the remaining offset. The whole answer for a query is thus read off without ever materialising the string, and the per-query work is bounded because the fold above level 50 is forced rather than chosen. Time is O(|S| + 26*K'*maxT + M*K'*maxT), about 3 million operations at |S| = 10^6, K = 10^15, M = 1000, and space is O(|S| + 26*K') for the prefix sums and the small length table.",
+      "statement_summary": "A password starts as a lowercase string of up to a million letters and is grown by simultaneously replacing every letter with a fixed word assigned to that letter, each word at least two letters long, repeating that substitution as many as a quadrillion times. For up to a thousand forgotten positions, none beyond a quadrillion, the task is to report which letter stands at each of those positions.",
+      "source_text_sha256": "13a82e680759b6af659116823751dc766ac3f71e3319778b32e8667e08ea380a",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_prolongedpassword.py"
+    },
+    {
+      "id": "kattis-slidingblocks",
+      "batch": "E",
+      "patterns": [
+        "topological-sort",
+        "graph-modeling",
+        "constructive-algorithm"
+      ],
+      "pattern_confidence": {
+        "topological-sort": 0.97,
+        "graph-modeling": 0.92,
+        "constructive-algorithm": 0.85
+      },
+      "tags": [
+        "grid",
+        "tree",
+        "graph",
+        "constructive",
+        "simulation"
+      ],
+      "solution": "Root the target tree at the pre-placed block. Every legal history keeps the placed set connected and containing the root, because each new block must touch an existing one, so the placed set is always a root-closed subtree; hence the neighbour a new block bumps into can never be one of its children (a child's own path to the root would run through the still-absent block), and must be its parent. That pins each block's move exactly: it enters from the edge opposite its parent, travelling along its own row when the parent is horizontally adjacent and its own column otherwise, and it imposes two ordering constraints - the parent goes first, and the block itself goes before every target block on the ray from it to its entry edge. Those constraints are both necessary (just shown) and sufficient (following any order that respects them, each block finds its parent present and its ray clear, so it stops exactly where it must), so the answer is any topological order of the constraint digraph and impossibility is precisely a cycle, detected by Kahn's algorithm. Writing the ray constraints out is quadratic in the number of blocks, so every row and column gets prefix and suffix chains of auxiliary nodes and a block points at one chain node standing for its whole ray, keeping the graph at O(B) nodes and edges. Sorting blocks along rows and columns dominates, giving O(B log B) time and O(B) space, and the board is never materialised, which matters because N and M reach 4*10^5 while only B cells are occupied.",
+      "statement_summary": "A board starts with one block, and a move injects a new block from one of the four edges along a chosen row or column; it slides until it bumps into an existing block, and a move adding nothing is illegal. Given a target arrangement of up to four hundred thousand blocks whose cells form a tree under adjacency, the task is to decide reachability and list the moves.",
+      "source_text_sha256": "eabab634f9d6a69bd3e3b64e5bb19b5984a789f65677cacedf4d2ec82134df90",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_slidingblocks.py"
+    },
+    {
+      "id": "kattis-wiknow",
+      "batch": "E",
+      "patterns": [
+        "segment-tree",
+        "sparse-table",
+        "lexicographic-order"
+      ],
+      "pattern_confidence": {
+        "segment-tree": 0.85,
+        "sparse-table": 0.8,
+        "lexicographic-order": 0.8
+      },
+      "tags": [
+        "array",
+        "subsequence",
+        "data-structures",
+        "range-query",
+        "sweep"
+      ],
+      "solution": "Only extremal occurrences matter: if indices c<d<e<f witness A,B,A,B, then replacing c by the last occurrence of A before d and e by that occurrence's immediate successor, and f by the last occurrence of B anywhere, still leaves a witness, so the ordered pair (A,B) is achievable exactly when some index u lies strictly between two CONSECUTIVE occurrences p<q of A and the last occurrence of the value at u is beyond q. That turns the whole search into one range-maximum query per occurrence-gap over the array IM[i] = last occurrence of S[i], and the gaps number N-1 in total across all values, so a sparse table (or the debrief's event-sorted segment tree over the same reduction) answers each in O(1) after an O(N log N) build. The smallest achievable A is then the smallest value owning a gap whose IM-maximum exceeds that gap's right end, and for that single A one linear scan of the span from its first to its last occurrence, carrying the next occurrence of A, yields the smallest qualifying B - which is the part the debrief never addresses, since it argues existence only and the problem actually demands the lexicographically smallest pair. Correctness of the reduction is the two-line exchange argument above in both directions; a witness quadruple maps to such a (p,u,q) triple, and any such triple is itself a witness. Cost is O(N log N) time and O(N log N) space for the sparse table, or O(N) space if a segment tree is used instead, which clears N = 400000 comfortably (0.5 s in plain Python on the worst shapes tried). Verified on all three samples, against exhaustive O(N^4) quadruple search on 40000 random sequences with small alphabets, and against an independent cubic reference on 400 longer ones plus adversarial single-value-spanning shapes.",
+      "statement_summary": "A message is a sequence of up to four hundred thousand positive integers, none larger than the length of the sequence. The task is to decide whether some two distinct values appear in the repeating order A, B, A, B as a not necessarily contiguous subsequence, and if so to report the lexicographically smallest such ordered pair, otherwise to report that no such pair exists.",
+      "source_text_sha256": "d88282713074acc20b1465a208d89fbe1e0a2bf416586a42115d7712169851d7",
+      "proposer": "opus-solver",
+      "verify_script": "scripts/research/verify_wiknow.py"
+    }
+  ]
+}

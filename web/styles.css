@@ -354,6 +354,8 @@ html[data-theme="light"] .theme-toggle {
   align-items: center;
   gap: 0.3rem;
   flex-wrap: wrap;
+  /* The competition picker hangs off this row. */
+  position: relative;
 }
 
 .judge-label {
@@ -393,7 +395,7 @@ html[data-theme="light"] .theme-toggle {
 
 /* All four on because nobody has filtered yet — true, but it shouldn't shout
    like a deliberate selection does. */
-.judge-row.all-on .judge-chip.active {
+.judge-row.all-on .judge-chip[data-platform].active {
   border-color: var(--border-strong);
   background: none;
   font-weight: 400;
@@ -1927,4 +1929,110 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   #search-form::before { display: none; }
   main { padding: 1.2rem 0.75rem 4rem; }
   .tagline { font-size: 0.75rem; }
+}
+
+/* Competition membership is a facet; resources remain separate from problems. */
+.collection-heading, .cses-level-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cses-level-row { margin: 10px 0; font-size: .8rem; }
+.cses-level-row > label { flex-shrink: 0; }
+/* The chips are members of the judge row's flex line, not a box inside it —
+   display:contents keeps them wrapping with the judge chips they sit beside. */
+.collection-chips { display: contents; }
+.judge-chip.judge-add { color: var(--text-dim); border-style: dashed; }
+.collection-picker {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 15rem;
+  max-width: min(30rem, 100%);
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  box-shadow: var(--shadow);
+}
+.collection-picker[hidden] { display: none; }
+/* Provenance, not a hint — so it is never inside .hide-spoilers' reach. */
+.competition-tag {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent-2);
+  background: none;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-chip);
+  padding: 0 0.3rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.competition-tag:hover,
+.competition-tag:focus-visible { border-style: solid; color: var(--text); }
+.collection-option {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: .8rem;
+  text-align: left;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--r-chip);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+.collection-option:hover,
+.collection-option:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--accent-dim);
+}
+.collection-resources { margin: 12px 0; padding: 12px; border: 1px solid var(--border, #7775); border-radius: 6px; font-size: .8rem; line-height: 1.6; }
+.collection-resources details { margin-top: 8px; }
+.collection-resources summary { cursor: pointer; overflow-wrap: anywhere; }
+.collection-resources ul { margin: 6px 0; padding-left: 20px; }
+.collection-heading { justify-content: space-between; }
+.cses-level-row[hidden], .collection-resources[hidden] { display: none; }
+#cses-level-note { opacity: .7; font-size: .75rem; }
+.cses-estimate { white-space: normal; }
+/* The band is an estimate; the border says how much the two reviews agreed —
+   solid when both chose it, dashed when they were a band apart, dotted when a
+   specialist check had to settle it. */
+.result-meta .difficulty.cses-confidence-medium { border-style: dashed; }
+.result-meta .difficulty.cses-confidence-low { border-style: dotted; }
+.cses-provenance { font-size: 0.85rem; color: var(--text-dim); }
+.pyq-attempt { font-size: .8rem; margin-top: 6px; }
+.spoiler-notice { display: none; opacity: .7; }
+.hide-spoilers .spoiler-content, .hide-spoilers .difficulty, .hide-spoilers .score-bar, .hide-spoilers .note-mark { display: none !important; }
+.hide-spoilers .spoiler-notice { display: inline; }
+.similar-empty { list-style: none; padding: 20px 0; }
+.similar-explanation { opacity: .85; }
+.result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 720px) {
+  .cses-level-row select { font-size: 16px; max-width: 100%; }
+  .judge-chip.collection-chip { white-space: normal; text-align: left; }
+  .collection-resources { overflow-wrap: anywhere; }
+  /* No room to float a menu over a 350px column: it takes the next row of the
+     judge stack instead, with options at the same tap height as the chips. */
+  .collection-picker {
+    position: static;
+    flex-basis: 100%;
+    max-width: 100%;
+    max-height: 60vh;
+  }
+  .collection-option { min-height: 34px; display: flex; align-items: center; }
+}
+@media (max-width: 720px) {
+  /* Keep the short My Level / clear actions together below the full groups. */
+  .difficulty-row { flex-direction: row; align-items: center; }
 }

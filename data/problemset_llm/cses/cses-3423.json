@@ -26,5 +26,18 @@
       "greedy": 0.85,
       "constructive-algorithm": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3423",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "0bac39843b53fc76f053d7730d10446e76c858d14b887691788bf678fcaff185",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

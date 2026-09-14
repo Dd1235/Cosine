@@ -27,5 +27,18 @@
       "shortest-path": 0.95,
       "path-reconstruction": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1194",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f4c94e78aad9693219dc8409a7f8201abd46326bf9fef01c3cb6d6ccd11a7044",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

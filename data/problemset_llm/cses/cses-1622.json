@@ -26,5 +26,18 @@
       "permutation-generation": 0.93,
       "lexicographic-order": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1622",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "fbe560852f6b272b47d15b928171303f0cb67a6b729a3fc8036b8e3e5a39ddc2",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-2078",
+  "title": "Eulerian Subgraphs",
+  "source_url": "https://cses.fi/problemset/task/2078",
+  "observed_at": "2026-09-11T06:53:47.267795+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an undirected graph that has n nodes and m edges.\n\nWe consider subgraphs that have all nodes of the original graph and some of its edges. A subgraph is called Eulerian if each node has even degree.\n\nYour task is to count the number of Eulerian subgraphs modulo 10^9+7.\n\nInput\n\nThe first input line has two integers n and m: the number of nodes and edges. The nodes are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines that describe the edges. Each line has two integers a and b: there is an edge between nodes a and b. There is at most one edge between two nodes, and each edge connects two distinct nodes.\n\nOutput\n\nPrint the number of Eulerian subgraphs modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n0 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n4 3\n1 2\n1 3\n2 3\n\n\nOutput:\n\n2\n\n\nExplanation: You can either keep or remove all edges, so there are two possible Eulerian subgraphs.",
+  "statement_sha256": "c09c2c75fb7c86282f9c235cbe6841ac7758b127af8c6bfe643fcca15551731a"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cses-2206",
+  "url": "https://cses.fi/problemset/task/2206",
+  "observed_at": "2026-09-11T07:22:26.631352+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n buildings on a street, numbered 1,2,\\dots,n. Each building has a pizzeria and an apartment.\n\nThe pizza price in building k is p_k. If you order a pizza from building a to building b, its price (with delivery) is p_a+|a-b|.\n\nYour task is to process two types of queries:\n\n\nThe pizza price p_k in building k becomes x.\n\nYou are in building k and want to order a pizza. What is the minimum price?\n\n\nInput\n\nThe first input line has two integers n and q: the number of buildings and queries.\n\nThe second line has n integers p_1,p_2,\\dots,p_n: the initial pizza price in each building.\n\nFinally, there are q lines that describe the queries. Each line is either \"1 k x\" or \"2 k\".\n\nOutput\n\nPrint the answer for each query of type 2.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le p_i, x \\le 10^9\n\n1 \\le k \\le n\n\n\nExample\n\nInput:\n\n6 3\n8 6 4 5 7 5\n2 2\n1 5 1\n2 2\n\n\nOutput:\n\n5\n4",
+  "statement_sha256": "b7d351227ad5e5ca3a2ed479d2067c78655696bf57cf7c4b143b2d1dbaaf6a64",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-3398",
+  "title": "Permutation Rounds",
+  "source_url": "https://cses.fi/problemset/task/3398",
+  "observed_at": "2026-09-11T06:53:35.207581+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a sorted array [1,2,\\dots,n] and a permutation p_1,p_2,\\dots,p_n. On each round, all elements move according to the permutation: the element at position i moves to position p_i.\n\nAfter how many rounds is the array sorted again for the first time?\n\nInput\n\nThe first line has an integer n.\n\nThe next line contains n integers p_1,p_2,\\dots,p_n.\n\nOutput\n\nPrint the number of rounds modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n8\n5 3 2 6 4 1 8 7\n\n\nOutput:\n\n4\n\n\nExplanation: The array changes as follows after the rounds:\n\n\nRound 1: [6,3,2,5,1,4,8,7]\n\nRound 2: [4,2,3,1,6,5,7,8]\n\nRound 3: [5,3,2,6,4,1,8,7]\n\nRound 4: [1,2,3,4,5,6,7,8]",
+  "statement_sha256": "5c17e067227e7b9ad3931958a017b186f5d251d9891bf424f99c18b11ec2eed0"
+}

@@ -25,5 +25,18 @@
       "multi-source-bfs": 0.98,
       "shortest-path": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3303",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f591e509ace2bc8dd781e227cf65be95619e877f28eb687bdd469cd7b27d758b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

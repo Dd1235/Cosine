@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-total-appeal-of-a-string",
+  "url": "https://leetcode.com/problems/total-appeal-of-a-string/",
+  "observed_at": "2026-09-11T07:22:19.955277+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "The appeal of a string is the number of distinct characters found in the string. \n\n \n For example, the appeal of \"abbca\" is 3 because it has 3 distinct characters: 'a' , 'b' , and 'c' . \n \n\n Given a string s , return the total appeal of all of its substrings . \n\n A substring is a contiguous sequence of characters within a string. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"abbca\"\n Output: 28\n Explanation: The following are the substrings of \"abbca\":\n- Substrings of length 1: \"a\", \"b\", \"b\", \"c\", \"a\" have an appeal of 1, 1, 1, 1, and 1 respectively. The sum is 5.\n- Substrings of length 2: \"ab\", \"bb\", \"bc\", \"ca\" have an appeal of 2, 1, 2, and 2 respectively. The sum is 7.\n- Substrings of length 3: \"abb\", \"bbc\", \"bca\" have an appeal of 2, 2, and 3 respectively. The sum is 7.\n- Substrings of length 4: \"abbc\", \"bbca\" have an appeal of 3 and 3 respectively. The sum is 6.\n- Substrings of length 5: \"abbca\" has an appeal of 3. The sum is 3.\nThe total sum is 5 + 7 + 7 + 6 + 3 = 28.\n \n\n Example 2: \n\n \n Input: s = \"code\"\n Output: 20\n Explanation: The following are the substrings of \"code\":\n- Substrings of length 1: \"c\", \"o\", \"d\", \"e\" have an appeal of 1, 1, 1, and 1 respectively. The sum is 4.\n- Substrings of length 2: \"co\", \"od\", \"de\" have an appeal of 2, 2, and 2 respectively. The sum is 6.\n- Substrings of length 3: \"cod\", \"ode\" have an appeal of 3 and 3 respectively. The sum is 6.\n- Substrings of length 4: \"code\" has an appeal of 4. The sum is 4.\nThe total sum is 4 + 6 + 6 + 4 = 20.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consists of lowercase English letters.",
+  "statement_sha256": "7fc10ff430e588480e3c8946485cf2020e37980747aa8d9cea656cc8705a46d1",
+  "raw_sha256": "a43e4ce322784b44a53ae0031be523db07014f08616707809d6fa360890451f1",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

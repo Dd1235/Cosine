@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2044-g2",
+  "title": "Medium Demon Problem (hard version)",
+  "slug": "2044-g2",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2044/problem/G2",
+  "source_topic": "Codeforces / Contest 2044",
+  "source_tags": [
+    "dfs and similar",
+    "dp",
+    "dsu",
+    "graphs",
+    "implementation",
+    "trees"
+  ],
+  "statement": "Each of up to 200000 vertices starts with one item and simultaneously sends one item to its fixed successor each year whenever nonempty. Multiple items may accumulate. Find the first year whose pre-transfer item counts equal the previous year.",
+  "tags": [],
+  "patterns": [
+    "functional-graph",
+    "topological-sort",
+    "subtree-dp",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "functional-graph": 0.9,
+      "topological-sort": 0.9,
+      "subtree-dp": 0.9,
+      "dynamic-programming": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/competition-refresh-review.json"
+  },
+  "difficulty": 1900
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-sum-of-three-numbers-divisible-by-three",
+  "url": "https://leetcode.com/problems/maximum-sum-of-three-numbers-divisible-by-three/",
+  "observed_at": "2026-09-11T07:22:07.409738+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums . \n\n Your task is to choose exactly three integers from nums such that their sum is divisible by three. \n\n Return the maximum possible sum of such a triplet. If no such triplet exists, return 0. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [4,2,3,1] \n\n Output: 9 \n\n Explanation: \n\n The valid triplets whose sum is divisible by 3 are: \n\n \n (4, 2, 3) with a sum of 4 + 2 + 3 = 9 . \n (2, 3, 1) with a sum of 2 + 3 + 1 = 6 . \n \n\n Thus, the answer is 9. \n \n\n Example 2: \n\n \n Input: nums = [2,1,5] \n\n Output: 0 \n\n Explanation: \n\n No triplet forms a sum divisible by 3, so the answer is 0. \n \n\n \u00a0 \n Constraints: \n\n \n 3 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 5",
+  "statement_sha256": "bdf5a91df602d8f049ad95bf01c39b233452b4a09af1db4829a09a0a33e4e15b",
+  "raw_sha256": "1eed7e048e0f2c3aaed50cb19c1825d374317b6e2f0dfa2e14f06bfba50b36a7",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

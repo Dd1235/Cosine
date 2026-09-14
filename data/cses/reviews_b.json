@@ -1,0 +1,3206 @@
+{
+  "reviewer": "independent-agent-b",
+  "reviews": [
+    {
+      "id": "cses-1068",
+      "band": 1,
+      "solution_rationale": "Directly simulate the prescribed parity rule using wide integers until reaching one.",
+      "complexity": "O(L) time, O(1) auxiliary space for L emitted steps",
+      "statement_sha256": "eaf2ac59c36a70d69c95684f795c93c503e7d1eb0f5478ac0dbb2f4768a945f3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1625",
+      "band": 4,
+      "solution_rationale": "Enumerate self-avoiding paths while enforcing the description; prune early arrival and local corridor splits that disconnect unvisited cells. These strong geometric pruning rules are essential to the one-second limit.",
+      "complexity": "Exponential backtracking, O(48) stack; fixed 7 by 7 board",
+      "statement_sha256": "1557aab4f914c5e178968671f2ad89cca82a8bc8ddd504ff5b440d15c24a27b4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3419",
+      "band": 1,
+      "solution_rationale": "For each cell mark values to its left and above and scan for the mex; n at most 100 permits direct construction without discovering the XOR formula.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "52ccd566e5c216376d72e65cdea4b173e34a15be62de12b634c8e1d0171f0493",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2183",
+      "band": 2,
+      "solution_rationale": "Sort coins and maintain that every sum through S is reachable. A next coin greater than S+1 exposes the first gap; otherwise extend S.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "54da1b7151b9ff48a3826ccd20876f07a8c9cbdbd4acc48019a5c003c554ec06",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2169",
+      "band": 3,
+      "solution_rationale": "Sort left endpoints ascending and right endpoints descending, compress right endpoints, and use Fenwick counts in two passes. Tie ordering preserves inclusive containment.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "7ee8c8112e2e68a4becf2617614cdb15538923ddd7f9b7e25117a551dd5f8c4c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1644",
+      "band": 3,
+      "solution_rationale": "Express each candidate as a prefix-sum difference and maintain a monotone deque of prefix minima whose indices lie in the allowed length window.",
+      "complexity": "O(n) time, O(n) space",
+      "statement_sha256": "3dcd5d08af305522eee943a0ae22a7ba356b877843de3fd81431c73220de5d5d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2413",
+      "band": 3,
+      "solution_rationale": "Derive two boundary states for whether the two top cells share a block. Extend them with the recurrences joined'=2 joined+split and split'=joined+4 split, then precompute.",
+      "complexity": "O(max n+t) time, O(max n) space",
+      "statement_sha256": "e418cf2942853afbd9d473d9a5edd4468b839830df0d281ca47b8f1e11908915",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3314",
+      "band": 3,
+      "solution_rationale": "Find nearest mountains at least as high on both sides with stacks. Process heights ascending and range-query the best previously computed route inside these barriers; process equal heights together to enforce strict descent.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "62e4d4e570f5266b0671efaf75e8946aedde60bd73e096bfd7619ea7d95d0371",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2220",
+      "band": 3,
+      "solution_rationale": "Digit DP counts values up to each bound using previous digit, tightness and a not-started state. Leading zeros and zero itself need separate treatment.",
+      "complexity": "O(log b * 10^2) time, O(log b * 10) space",
+      "statement_sha256": "fddd3369f6ce44df53c08378f593f99297e400b3ee73de58929421ceb6ede981",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1194",
+      "band": 3,
+      "solution_rationale": "Multi-source BFS gives earliest monster arrival. BFS the player only through cells reached strictly before monsters and reconstruct an escape to the boundary.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "f4c94e78aad9693219dc8409a7f8201abd46326bf9fef01c3cb6d6ccd11a7044",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1160",
+      "band": 4,
+      "solution_rationale": "Decompose the functional graph into cycles and incoming trees, store depth, component and cycle position, and build binary lifting. Distinguish tree ancestry from forward cyclic distance for each query.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "ee0c8a06208de3083bbae6362d41f93adc8061cca6b54a0b43af50dd6da4106b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1692",
+      "band": 4,
+      "solution_rationale": "Represent length-n bit strings as edges between their length-(n-1) prefixes and suffixes. An Euler circuit emits every edge once; append the initial n-1 bits to obtain optimal length.",
+      "complexity": "O(2^n) time and space",
+      "statement_sha256": "00344f24282186a9cb19b2fb01ecf49ebf4284f8f4281f68ee03617ab1a6df06",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1646",
+      "band": 2,
+      "solution_rationale": "Precompute wide-integer prefix sums and answer each range by subtraction.",
+      "complexity": "O(n+q) time, O(n) space",
+      "statement_sha256": "cac359f70526ebde91efd0e9ce302e2a9dc36e8fd74f5536207520fa1699ec97",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2184",
+      "band": 4,
+      "solution_rationale": "Build persistent value-domain sum trees for array prefixes. Within a queried range repeatedly sum all coins at most the current reachable bound plus one until it stops increasing. Newly useful coins force geometric progress over at most O(log S) iterations.",
+      "complexity": "O((n+q log S) log V) time, O(n log V) space",
+      "statement_sha256": "f37b6f342dd6a6c87affe47a6aec2f576f7ef934e65f1109cd21585ea1c2373f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2134",
+      "band": 4,
+      "solution_rationale": "Heavy-light decomposition reduces each tree path to logarithmically many segment-tree intervals supporting point assignment and range maximum.",
+      "complexity": "O(n+q log^2 n) time, O(n) space",
+      "statement_sha256": "b77699245095a04b74d44c0aee29a6ac1630da4d8a90a41aefcea485543427eb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1095",
+      "band": 2,
+      "solution_rationale": "Binary modular exponentiation repeatedly squares the base and multiplies selected powers; initialize the answer to one to cover exponent zero.",
+      "complexity": "O(n log b) time, O(1) auxiliary space",
+      "statement_sha256": "49949077fd4b64901e6ec3000ed6592435a95dabe48c714fb7e200c3ee02c907",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3154",
+      "band": 4,
+      "solution_rationale": "Perform Gaussian elimination over the prime field, choosing nonzero pivots and modular inverses. Detect inconsistent zero rows and set free variables before back substitution.",
+      "complexity": "O(nm min(n,m)+min(n,m) log P) time, O(nm) space",
+      "statement_sha256": "850bc1986ee81d5be15f66386de9458e103a6d6cdf28c056402e7c72751f6ea2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3138",
+      "band": 4,
+      "solution_rationale": "An eertree tracks the longest palindromic suffix after each appended character through suffix links. Its suffix length directly gives each answer; this requires a specialist palindrome structure.",
+      "complexity": "O(n alphabet) time, O(n) space with fixed alphabet",
+      "statement_sha256": "dc2879c35bccc16f37e2693709dbd44411e90631a742cfd3e9c3cb0faae876b0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2189",
+      "band": 2,
+      "solution_rationale": "Use the sign of the cross product of p2-p1 and p3-p1, retaining sufficiently wide exact integer arithmetic.",
+      "complexity": "O(t) time, O(1) auxiliary space",
+      "statement_sha256": "f9a93781643d421237eebf2b803e32c0c4de0b3c22eed02959596e3c1b0da8b5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1741",
+      "band": 4,
+      "solution_rationale": "Sweep vertical rectangle edges and maintain total covered y-length in a coordinate-compressed segment tree with cover counts; multiply by each x-gap.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "1e83f0bee5cef184c8879f8845957c78ced75897f815c374c457fe95a2e6f20c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2087",
+      "band": 4,
+      "solution_rationale": "An optimal school serves a contiguous interval at its weighted median. Precompute interval costs with prefix weighted sums and moving medians; apply monotone divide-and-conquer optimization to the k-partition DP.",
+      "complexity": "O(n^2+kn log n) time, O(n^2) space",
+      "statement_sha256": "20b50be9b9323b692fea4a3febf9479bfadb802ee1a733f56ff75c701c21d644",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3220",
+      "band": 2,
+      "solution_rationale": "Generate values and maintain a rolling sum with a circular buffer; xor each complete window sum using wide integers.",
+      "complexity": "O(n) time, O(k) space",
+      "statement_sha256": "d23b48bcd9dfbe3c1d232f21a1f20540b237008ac6062e006f4286c789a0cb1e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3227",
+      "band": 5,
+      "solution_rationale": "Monotone stacks give the maximal span where each height is a minimum. Its height times overlap with a moving length-k window is a piecewise-linear trapezoid. Insert its linear pieces over their valid window-index ranges into a segment Li Chao structure and query the maximum for every window.",
+      "complexity": "O(n log^2 n) time, O(n log n) space",
+      "statement_sha256": "b85b87bd61533c8a44a6734241b32027045098812a97aadf38dc1267b6833b89",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3273",
+      "band": 3,
+      "solution_rationale": "View chair n+1 as chair 1, whose color violates alternation over the odd interval. Query midpoints and retain a subinterval whose endpoint colors disagree with the alternating parity prediction; the final adjacent pair is equal.",
+      "complexity": "O(log n) queries and time, O(1) space",
+      "statement_sha256": "4de894db064e512423fd9fd97887c130133d9a930d53d8b8741b07c90a968614",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3191",
+      "band": 4,
+      "solution_rationale": "Insert numbers into a GF(2) linear basis using leading bits, then greedily xor basis vectors from high bits downward to maximize the result.",
+      "complexity": "O(n log V) time, O(log V) space",
+      "statement_sha256": "3bbb44cf385ed38bfdeb541e2c418984248db855d788edf944dca1e90a556fa6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3141",
+      "band": 4,
+      "solution_rationale": "Superset zeta transform counts elements containing each mask. Exponentiate these counts to count nonempty subsets with AND containing that mask, then apply superset Mobius inversion.",
+      "complexity": "O(B 2^B+n) time, O(2^B) space",
+      "statement_sha256": "82847a982d824b4afe4f1b4e9544e69849259ffe1753dcb24e4cde18c583def3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2423",
+      "band": 5,
+      "solution_rationale": "Use rectangular tiling classification and combine constant-size L-tromino templates with even strips; assign each tromino a color avoiding already adjacent pieces. Specialist uncertainty: the exact odd-side obstruction and complete base-template set require derivation before implementation; straightforward area divisibility is insufficient.",
+      "complexity": "O(nm) per test with finite base tilings",
+      "statement_sha256": "91342817ad223675b35f3b819e20715a9dbd40ff50ef834e67debfaa8d3d964d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3408",
+      "band": 4,
+      "solution_rationale": "Sweep edges by weight with Kruskal DSU. Before globally merging a weight, temporarily union each query's edges of that weight using rollback; any cycle makes the query impossible, then roll back its temporary changes.",
+      "complexity": "O((m+total query edges) log n+m log m) time, O(n+m+q) space",
+      "statement_sha256": "ddc3fa6517bf2197eb09fb85c605fd613be70915914a706ce252251b082359a7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1685",
+      "band": 5,
+      "solution_rationale": "Condense SCCs and add max(number of sources, number of sinks) edges unless already strongly connected. Construct reachable source-sink chains and connect their representatives cyclically while attaching unmatched endpoints. Specialist uncertainty: the linear-time matching/chain construction must be verified; arbitrary source-sink pairing is not sufficient.",
+      "complexity": "O(n+m) with a specialist condensation augmentation construction",
+      "statement_sha256": "0edabac998f30ab233e2c3cd2cac81fbf2ce93b55ba0e1755b167edd54f19aef",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2429",
+      "band": 5,
+      "solution_rationale": "View A and B placements as two constrained permutations that must be disjoint. Inclusion-exclusion must handle collisions in cells still available to both and cells occupied by the opposite fixed letter, with factorial completion counts. Specialist uncertainty: I have not established the complete compressed counting recurrence or tight bound for n=500.",
+      "complexity": "Polynomial combinatorial DP, intended O(n^3) or better; bound not fully established",
+      "statement_sha256": "b424542355a294dbb00a20a98a9a50b834c5ccc085afb06cb21383a63128c96a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1070",
+      "band": 2,
+      "solution_rationale": "Print even numbers followed by odd numbers; handle n=1 and reject n=2 or 3. The only cross-parity boundary is safe for n at least 4.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "statement_sha256": "4091c567185c0d98c9f6a288092faba3dcb81d567661221d8343636d694c8407",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3399",
+      "band": 3,
+      "solution_rationale": "Reserve n-a-b equal rounds and cyclically shift the remaining sorted cards by a chosen score count. Feasibility requires a+b<=n and either both scores positive or both zero.",
+      "complexity": "O(n) per test, O(n) space",
+      "statement_sha256": "390423ac56142de21e071a54ffc96424b68d74e9698840a5fefafe7083b55bb5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3311",
+      "band": 2,
+      "solution_rationale": "Process cells in row order and choose among four colors excluding the original color and the already assigned top and left neighbors. At most three colors are forbidden.",
+      "complexity": "O(nm) time, O(nm) space",
+      "statement_sha256": "0479435e5ec64485d7645f7be808d72200d0e2e188eaf3dc6a028dce229da82d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2217",
+      "band": 3,
+      "solution_rationale": "Rounds equal one plus the count of inverted consecutive-value positions. Each swap changes only the pairs adjacent in value to the two swapped numbers; deduplicate these before subtracting and recomputing.",
+      "complexity": "O(n+m) time, O(n) space",
+      "statement_sha256": "fd7915a255906a80b9e5a2af269766dbd7a80ee46f18d0066f80822a8d83f39a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1632",
+      "band": 3,
+      "solution_rationale": "Sort movies by ending time and assign each to the member whose availability is the latest time not exceeding its start, using an ordered multiset.",
+      "complexity": "O(n log n) time, O(k) working space",
+      "statement_sha256": "03622ab4923b4e34031493facf59efce864db838b3bd2dadb34e810599d47ae4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3421",
+      "band": 2,
+      "solution_rationale": "For each distinct value with frequency f choose none or one of its f occurrences. Multiply f+1 across values and subtract the empty subsequence.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "5143bbf210126202089122b5d02b1e01f2108cc23c03f8dd5a4cf287dd96d4fc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3359",
+      "band": 3,
+      "solution_rationale": "Maintain all cells on the current antidiagonal reachable by the best prefix. Extend to right/down neighbors, keep only the smallest next letter, and deduplicate cells.",
+      "complexity": "O(n^2) time, O(n^2) space",
+      "statement_sha256": "0216e35f85e47631ced5f9a94a49373e4c726bd21bfde85c2c32376b383bb210",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2181",
+      "band": 4,
+      "solution_rationale": "Use a column occupancy mask; recursively fill uncovered cells by vertical dominoes or horizontal dominoes entering the next column. Precompute compatible profile transitions.",
+      "complexity": "O(m 3^n) upper-bound time, O(2^n) DP space plus transitions",
+      "statement_sha256": "1492c40d4861e146683ba4ca60ef329cb4d919d25131908ea0532e4e7f630fca",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1748",
+      "band": 3,
+      "solution_rationale": "Coordinate-compress values and use a Fenwick sum tree. Subsequences ending here equal one plus counts ending at strictly smaller values; add this contribution and sum all endpoints.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "fd70ffb68b1cf4d9b22b077e639cf03be1d93775ec5229e4e83467e0e4c3049c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1673",
+      "band": 3,
+      "solution_rationale": "Negate scores and run Bellman-Ford from the start. A further relaxation implies unbounded score only when the affected region can reach the destination; use reverse reachability to filter cycles.",
+      "complexity": "O(nm) time, O(n+m) space",
+      "statement_sha256": "5e0dfa83f292241707ac369c87fcb544a0d4e9a1156404e0b3592f4b666c8b14",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1684",
+      "band": 4,
+      "solution_rationale": "Translate each pair of wishes to a 2-SAT clause and its two implication edges. SCC contradictions detect impossibility; component topological order yields an assignment.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "8d025ac7743dbb1549039536d0b38d5a6764f1cf6b7ae739c657f40f9cd359e4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1711",
+      "band": 4,
+      "solution_rationale": "Treat teleporters as unit-capacity edges and repeatedly augment flow. Decompose the resulting integral flow into start-to-end paths, removing each extracted path and ignoring residual cycles.",
+      "complexity": "O(m^2+nm) time upper bound, O(n+m) space",
+      "statement_sha256": "8df23cc51c2774198c91925b0cbe1f390cf48e6d6445eedccc3e5b7229035dad",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3304",
+      "band": 3,
+      "solution_rationale": "A monotone stack finds each building's next strictly higher successor. Binary lifting counts how many successor jumps remain within each query's right boundary.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "d607679e53cd95b0fe5ced5664aa34a0ea4a127fbc21437ccde49e5bc7fc9cd1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1133",
+      "band": 3,
+      "solution_rationale": "Compute subtree sizes and one root's distance sum, then reroot across each edge using ans[child]=ans[parent]+n-2*size[child].",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "b816ae4e146053e6fc627f33b245be8c361834e44da0a16f098c154aefa4ed6a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2081",
+      "band": 4,
+      "solution_rationale": "Centroid decomposition counts pairs through each centroid using depth frequencies and prefix/range counts. Query each child subtree before adding its depths so pairs within it are deferred to recursion.",
+      "complexity": "O(n log^2 n) time, O(n) space",
+      "statement_sha256": "5bedeb2b9f3f2d0f0b133ca92fa9a32621c4cd36e7a275d9c0010e050a6a984c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3396",
+      "band": 3,
+      "solution_rationale": "Sieve primes through about 10^6, then trial-divide successive odd candidates after each n until prime; small factors reject most composites. Deterministic Miller-Rabin is an alternative but is not forced by the 20 tests at 10^12.",
+      "complexity": "O(t(G sqrt(V)/log V)+sqrt(V) log log V) conservative time",
+      "statement_sha256": "93a0c66fe723902ddb4a031715e868b382409a50da3595cc8fbce7909b326f90",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1732",
+      "band": 2,
+      "solution_rationale": "Compute the KMP prefix function and follow the final prefix's failure-link chain, reversing the collected proper-border lengths.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "f709deb813a2a5340934dc95a98502982a3606fb03187b4ad148b3b65f4d0bab",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2109",
+      "band": 4,
+      "solution_rationale": "Build a suffix automaton, propagate end-position occurrence counts, and compute lexicographic subtree weights counting multiplicities. Walk transitions in character order, subtracting whole weighted branches until locating k.",
+      "complexity": "O(n alphabet) time and space for fixed alphabet",
+      "statement_sha256": "43aae244a8ce7a75df61cbc1029c9e73b33ac4c302993c332f232007a9a7823a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3430",
+      "band": 4,
+      "solution_rationale": "Use a Li Chao segment tree with range-restricted line insertion. Store a line only in segment nodes fully covered by its activity interval; point queries maximize along the root-to-leaf path.",
+      "complexity": "O(n log^2 X) time, O(X) space",
+      "statement_sha256": "afaa7ce18b265d42dd60972f367e7dbe8580dea282f5967ab7b87c0dbd920022",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2138",
+      "band": 4,
+      "solution_rationale": "Process vertices in reverse topological order and OR each successor's reachability bitset, then popcount. Packed bits are essential to meet the large n memory and time limits.",
+      "complexity": "O((n+m)n/w) word operations, O(n^2/w) words",
+      "statement_sha256": "64cdd14cb6bc0b5de9f1d210d674b8dc4e055a758d03c4698e5a1f78bff41af9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2133",
+      "band": 4,
+      "solution_rationale": "Find each edge's lifetime interval, add it to a segment tree over event times, and traverse with rollback DSU while maintaining component count.",
+      "complexity": "O((m+k) log k log n) time, O((m+k) log k+n) space",
+      "statement_sha256": "549f21496f672e81eaffbac89fbc12f7c21e24ce9b0e5db00d603e969cddd6a7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3224",
+      "band": 2,
+      "solution_rationale": "Maintain frequencies and an ordered set keyed by negative frequency then value. Update the entering and leaving elements and report the first key.",
+      "complexity": "O(n log k) time, O(k) space",
+      "statement_sha256": "eb6bcea9efa3638c9c8dee284450275b6f816f129640356a452725c57d4e1d04",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3112",
+      "band": 2,
+      "solution_rationale": "Binary-search the first y for which y<x is false, flushing each query. At most 30 midpoint comparisons isolate the hidden integer.",
+      "complexity": "O(log 10^9) time and queries, O(1) space",
+      "statement_sha256": "09cb8ff7b5191b9c9c39b4ecb1f42fb5542563623e74d8ed117f4a682d3a13a2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3140",
+      "band": 5,
+      "solution_rationale": "Obtain a baseline inversion count, then repeatedly rotate the first element to the end using two reversals. Its inversion-count delta n+1-2*value reveals that element; n rotations recover the permutation and restore it. Pancake-sort the now-known permutation in at most 2(n-1) more reversals.",
+      "complexity": "O(n^2) local time, O(n) space, at most 4n operations",
+      "statement_sha256": "1d2e5cca3169a2df0b1d30ff289576082581aa4bd07153a777a7b5db23ad06a6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3192",
+      "band": 4,
+      "solution_rationale": "Reduce a GF(2) basis to canonical increasing-pivot form so binary indices enumerate distinct xor values in sorted order. Every value repeats 2^(n-rank) times; cap this multiplicity at k when emitting the first k.",
+      "complexity": "O(nB+B^2+kB) time, O(B+k) space",
+      "statement_sha256": "f4fce9fb36acf289b9fe8c1d466911418f345570db23d15919ba4d46bcff1493",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3422",
+      "band": 3,
+      "solution_rationale": "Greedily assign unused values avoiding the two forbidden values per position. If the final few positions get stuck, repair through swaps with earlier positions; only constantly many positions are blocked by any forbidden value. Handle n=2 separately and verify all assignments.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "039830157ef9ab548edb75ba6beb425ee501e1b3f1228c29616d3d1927274da5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2418",
+      "band": 5,
+      "solution_rationale": "Checkerboard endpoint parity is necessary but thin rectangles have additional obstructions. A full solution recursively splits and stitches Hamiltonian paths with special handling for narrow grids. Specialist uncertainty: I have not established the exhaustive endpoint classification and base constructions.",
+      "complexity": "O(nm) for a complete specialist constructive algorithm",
+      "statement_sha256": "b5bb79f4b9e773947a5ccfec68d954c191d3c4069763d96914a15ed99d4980ac",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1705",
+      "band": 4,
+      "solution_rationale": "Build the block-cut tree using low-link biconnected components. Removing c disconnects a and b exactly when its articulation node lies on their block-cut-tree path, tested with LCA distances; endpoints equal to c fail immediately.",
+      "complexity": "O((n+m) log n+q log n) time, O((n+m) log n) space",
+      "statement_sha256": "856ea8e736796c4cb53d73d0d5d9610cf3f988674a0e493c20f8bf3cdaa084bf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3414",
+      "band": 3,
+      "solution_rationale": "Track equal-letter vertical run heights. In each row split into same-letter runs and use a monotone stack to sum suffix minima, adding the number of monochromatic rectangles ending at each cell to that letter's total.",
+      "complexity": "O(n^2) time, O(n) auxiliary space",
+      "statement_sha256": "b664de18395301280c6438eb7656169ee9713037966e05a4b357e64aa9ddbf68",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3157",
+      "band": 3,
+      "solution_rationale": "Rounds are one plus descents of the inverse permutation, so the distribution is Eulerian numbers. Insert the largest item to derive A(n,k)=k*A(n-1,k)+(n-k+1)*A(n-1,k-1).",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "7dcb94a09292f4491b354440ba2ecea267bf089a43a69e71c46fd687ff5cf658",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1069",
+      "band": 1,
+      "solution_rationale": "Scan runs of equal consecutive letters and retain the longest length.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "125e9af34e21c82ef0c1e26209e7945654cc15724c28f64ec5bfb0f5f8a1aff8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1071",
+      "band": 2,
+      "solution_rationale": "Identify the square layer max(x,y); its parity determines which edge runs upward or sideways, giving a closed formula from the neighboring square number.",
+      "complexity": "O(t) time, O(1) space",
+      "statement_sha256": "5f260ce415a425ef75289a9ad0e04dbb03089dde61fb485c02ce91c3d1839b77",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1072",
+      "band": 2,
+      "solution_rationale": "Subtract 4(k-1)(k-2) attacking pairs, contributed by 2 by 3 rectangles, from the number of unordered pairs of board squares.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "b424784e06fbace1ae359f201f691c2fc44617ff03da61415f5a1be5f4f0cf89",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1073",
+      "band": 2,
+      "solution_rationale": "Replace the smallest tower top strictly greater than each cube using upper_bound, or append a tower if none exists.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "ad164f852f191a2e646eabdd2cf0dadf01b05450adf908606a2d693dd70a39d2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1074",
+      "band": 2,
+      "solution_rationale": "Sort and choose a median, then sum absolute differences; a median minimizes total absolute deviation.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "b612c17d2236040a89047ebb3da5f94139d6b7ea3a0ff4e42528ea7ae9899a88",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1075",
+      "band": 4,
+      "solution_rationale": "Inclusion-exclude adjacent-value pairs. A chosen subset of path edges forms runs, each independently orientable, and contracts to n-k items. DP over the path counts selections by edge count weighted by 2 per nonempty run, then sum (-1)^k*(n-k)! times those weights.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "f82d039f7ade4d91a29b8f5674a864ad4b928b7cdfa81758c0342ed6f1bf89bc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1076",
+      "band": 3,
+      "solution_rationale": "Keep lower and upper multisets balanced so the lower side contains the smaller median; update entering and leaving elements with duplicate-safe deletion.",
+      "complexity": "O(n log k) time, O(k) space",
+      "statement_sha256": "2e51d0f14a4a6f737c3e52582a142a6b603fce6d339b45ead46264708b469473",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1077",
+      "band": 3,
+      "solution_rationale": "Maintain balanced multisets around the median and their sums. Cost is median*lower_count-lower_sum+upper_sum-median*upper_count.",
+      "complexity": "O(n log k) time, O(k) space",
+      "statement_sha256": "0e53b7c8490012d26dc1e0517ea647595122af532d5356b84e2e937c4c796e35",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1078",
+      "band": 3,
+      "solution_rationale": "Sort traps and destination, compute binomial monotone path counts, and subtract paths whose first forbidden point is each earlier reachable trap. Precomputed factorials support constant-time combinations.",
+      "complexity": "O(n+m^2) time, O(n+m) space",
+      "statement_sha256": "a52769652d007bb74eb9338b0bda456d1a0672cb89467d4112042479f735ab35",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1079",
+      "band": 2,
+      "solution_rationale": "Precompute factorials and inverse factorials modulo the prime, then evaluate each binomial as a product.",
+      "complexity": "O(A+n+log P) time, O(A) space",
+      "statement_sha256": "056029eb643727a3f2b1cdf2e72b936c438cc5a57be4b7e1bda919491654c21c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1080",
+      "band": 4,
+      "solution_rationale": "Interval DP pairs the leftmost character with a matching position. Multiply counts for the interior and remainder and a binomial factor interleaving their removal operations while ensuring the paired characters are removed after their interior.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "a04f168660e0dd1e04d80ef6df17c9681e6732c4a88af1535e25b5cb58eebf40",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1081",
+      "band": 2,
+      "solution_rationale": "Count input frequencies, scan candidate gcds downward, and sum frequencies at multiples until finding at least two elements.",
+      "complexity": "O(V log V+n) time, O(V) space",
+      "statement_sha256": "4644c54bf580d82082145a608c331306176feaf4fa4ab046d72704ef6b40069d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1082",
+      "band": 3,
+      "solution_rationale": "Swap the divisor summation to sum d*floor(n/d). Group maximal intervals where the quotient is constant and sum d by an arithmetic-series formula modulo the prime.",
+      "complexity": "O(sqrt n) time, O(1) space",
+      "statement_sha256": "4207f5cdd4adbba3f4cd903c58777d6572b3014d21b6bcb56b80c8887e4cc91b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1083",
+      "band": 1,
+      "solution_rationale": "Subtract the supplied values from n(n+1)/2 using a wide integer.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "7d6758083e3680eb59ea8baaa7e87929789c8c1b36d2d9d5f3c8f17fe5844e8b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1084",
+      "band": 2,
+      "solution_rationale": "Sort both sequences and match with two pointers, discarding apartments too small and applicants whose acceptable range has already been passed.",
+      "complexity": "O(n log n+m log m) time, O(n+m) space",
+      "statement_sha256": "6107d7a6d3f89a00721e9ecf4dd5c30cd13f4cc52ab1c8ad32bfe6597b399f21",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1085",
+      "band": 2,
+      "solution_rationale": "Binary-search the maximum allowed subarray sum. Greedily start a new segment only when adding the next positive item would exceed the bound and check at most k segments.",
+      "complexity": "O(n log S) time, O(n) space",
+      "statement_sha256": "b35a91f095862bf1f2db3381244365d82484abb18a3fba51c2ae28ceff09e1cb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1086",
+      "band": 3,
+      "solution_rationale": "Binary-search the last writable integer and count every digit's occurrences from 1 to the candidate using high/current/low positional formulas, treating leading zeros specially and using wide arithmetic.",
+      "complexity": "O(log^2 n) time, O(1) space",
+      "statement_sha256": "cf86338c22b1fdf56fb1d43887a9059b1d12951901e5e7a7ab2243d606c322a8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1087",
+      "band": 3,
+      "solution_rationale": "Greedily split the input whenever all four letters have appeared, append the final letter of every complete block, then append a letter absent from the final incomplete block. Earliest subsequence matching proves optimality.",
+      "complexity": "O(n) time, O(n) space",
+      "statement_sha256": "c31a9fec4435dba37aa1079b922ea2a70d37b805740f7b52ef24e1ae0b927836",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1090",
+      "band": 2,
+      "solution_rationale": "Sort weights and pair the heaviest remaining child with the lightest whenever capacity permits; otherwise send the heaviest alone.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "7671eb3eb4334125f4922cd2b0684f7e2030a6c11351aac98a205f0a3aefbddf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1091",
+      "band": 2,
+      "solution_rationale": "Use a multiset of remaining prices and erase the predecessor of upper_bound(customer budget), or report failure when none exists.",
+      "complexity": "O((n+m) log n) time, O(n) space",
+      "statement_sha256": "935310d626df0d91a29026abb2fc81289f30c1b5966dcb6242ef71c455a30033",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1092",
+      "band": 2,
+      "solution_rationale": "Reject odd total sum; otherwise greedily include descending integers that fit half the total and put the rest in the other set.",
+      "complexity": "O(n) time, O(n) output storage",
+      "statement_sha256": "732e4edfc37a4a6de776c672ccc979c39e1fc1d8e4acd11d5140dca9555b9495",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1093",
+      "band": 2,
+      "solution_rationale": "Use descending 0/1 subset-sum counting to reach half the total. Count only numbers 1 through n-1 so each unordered partition is represented once.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "0d6d8dceb750b57ba8eec56b8467853f632f4d4012b785246f87d97bdc109fbb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1094",
+      "band": 1,
+      "solution_rationale": "Track the required nondecreasing prefix maximum and add each element's deficit below it.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "1c656bf3a4767b3bccb693e5d9f570dccf9d13e5aaa64de8b94f641c29febb97",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1096",
+      "band": 4,
+      "solution_rationale": "The count satisfies a six-term linear recurrence; exponentiate its companion matrix to jump to n as large as 10^18.",
+      "complexity": "O(6^3 log n) time, O(6^2) space",
+      "statement_sha256": "c38b7122da2c3ef9b8f444eccc0584aafd8cd27ceaed01570ad0f08a9edd3c9a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1097",
+      "band": 3,
+      "solution_rationale": "Interval DP stores the current player's score advantage: max(left-value minus remaining advantage, right-value minus remaining advantage). Combine the final advantage with the total sum.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "456bc299ed483698ea601e5103816d62e92bf16ab240a62bc33a2ff5e5a6936c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1098",
+      "band": 3,
+      "solution_rationale": "A heap's Grundy value is its size modulo four for moves removing one to three. Xor the Grundy values and test whether the result is nonzero.",
+      "complexity": "O(total n) time, O(1) space",
+      "statement_sha256": "86149723c737e9954df06feba7dacf1b8a9ed2aed6a72e8b5bd5cf6b7a2b9649",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1099",
+      "band": 3,
+      "solution_rationale": "Xor the counts on even-numbered stairs. Moves on odd stairs can be paired with a restoring move, while changing an even stair realizes the usual Nim reduction; a zero xor is losing.",
+      "complexity": "O(total n) time, O(1) space",
+      "statement_sha256": "2f09aa580ad8260f9012e5128797ca96a07047a9b07a3ed9161f33f70c8deb64",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1110",
+      "band": 4,
+      "solution_rationale": "Use Booth's two-candidate minimum-rotation algorithm on the doubled string, skipping whole sets of starts after a first mismatch.",
+      "complexity": "O(n) time, O(n) space",
+      "statement_sha256": "220540b2b4c07f9fb83e32efdef106fdbf72651c8316d99dfbc4bec1b2946fa0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1111",
+      "band": 4,
+      "solution_rationale": "Manacher's algorithm reuses mirrored palindrome radii inside the rightmost palindrome, handling both parities and returning the largest radius substring.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "3b903cfda8876be23f598c0d1c49e20b6b4d7d025b6dbdcf58135dacd4f1ecf1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1112",
+      "band": 3,
+      "solution_rationale": "Build KMP automaton transitions for the pattern and DP over length and matched-prefix state. Count strings avoiding the terminal state and subtract from 26^n.",
+      "complexity": "O(26nm) time, O(m) DP space plus transitions",
+      "statement_sha256": "c884ca203d159498e9ae7f60266f04a53b4a330cd6370fd787a0cc8edc1d70b3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1113",
+      "band": 4,
+      "solution_rationale": "Invert the Burrows-Wheeler transform by stable occurrence ranks mapping last-column characters to the sorted first column. Follow the LF permutation from the unique sentinel and reverse the recovered characters.",
+      "complexity": "O(n+alphabet) time, O(n) space",
+      "statement_sha256": "779eb972b2e3ba6b3c9dee7ff5283d92764913d2c3c90204e900acdc06171bac",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1130",
+      "band": 3,
+      "solution_rationale": "Postorder tree DP distinguishes a vertex matched to a child from one free for its parent; alternatively greedily match an unmatched leaf to its parent with an exchange proof.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "f4f9c93768274550301063a9efe9290874020f725a32daab8bf760973ebb0cf6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1131",
+      "band": 2,
+      "solution_rationale": "Run a tree traversal from any node to find a farthest endpoint, then traverse from it to obtain the diameter length.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "b67b2eef148917852e2d27bac91cfdcabaa79f118a09918067d8b990f67fd8af",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1132",
+      "band": 3,
+      "solution_rationale": "Find both diameter endpoints and distances from each. A vertex's eccentricity is the maximum of its distances to those endpoints.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "128da827d68c9f80cc05eea181b0c82521106decb66859a3a387881dc728d9e9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1134",
+      "band": 3,
+      "solution_rationale": "Code occurrence counts give degree minus one. Maintain a min-heap of current leaves, connect its minimum to the next code value, update degrees, and finally join the two leaves.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "6b916db708c79c1f9128a1ededab7560732d269580a0a52ae560d5fc488f509a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1135",
+      "band": 3,
+      "solution_rationale": "Precompute depths and binary-lifting ancestors; distance is depth[a]+depth[b]-2*depth[LCA(a,b)].",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "349f8fefca501ed912dfc9fe1e853a28c6ccf74df8d5e473c14161b026dcb3bd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1136",
+      "band": 3,
+      "solution_rationale": "For each path increment its endpoints and decrement its LCA and the LCA's parent. Postorder subtree accumulation converts these differences to per-node path counts.",
+      "complexity": "O((n+m) log n) time, O(n log n) space",
+      "statement_sha256": "c48fd6b85a9a597ef1a7907552470563898d331c1305a596c9c80ab9fc81a098",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1137",
+      "band": 3,
+      "solution_rationale": "Flatten DFS subtrees to contiguous Euler intervals and use Fenwick point updates plus range sums.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "c6882d84423024b66f48e6e3e2eaeeea3bc54bc95b9d2314fab9b87f427e7939",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1138",
+      "band": 3,
+      "solution_rationale": "Flatten the rooted tree. Changing a node adds its value delta to every descendant's root-path sum, so a difference Fenwick tree supports subtree range-add and node point-query.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "3964103d827a9851678e6fd89cda131227301e4d68c9efe5f904f02e33e37e61",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1139",
+      "band": 3,
+      "solution_rationale": "Flatten subtrees into intervals and answer distinct counts offline by right endpoint with a Fenwick tree marking only each color's latest occurrence.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "bd181d8852d84fe7cb48593488adcfba43f2e5ac05ef0caeae64916fa09e8704",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1140",
+      "band": 2,
+      "solution_rationale": "Weighted interval scheduling DP over projects sorted by end day uses binary search for the last project ending strictly before the current start.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "816eed02c4f25c72c15599ba2a7c18f0f355695e01a914cbcd632bd1a1590c18",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1141",
+      "band": 2,
+      "solution_rationale": "Maintain a distinct-element window; each repeated song advances its left end past the previous occurrence, and track the largest window.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "821c8d272b3510e1f44f5b4500f9e3f2be9ee6791289d8889d3557911c2527dc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1142",
+      "band": 3,
+      "solution_rationale": "Monotone stacks find the nearest strictly smaller boundary on both sides of each bar; height times maximal span gives its best rectangle.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "81a657b43455af2c5fa75aa4a48810afbc5d1d299f4a728f5f5d2f1f8dc168b7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1143",
+      "band": 3,
+      "solution_rationale": "Store interval maximum capacity in a segment tree. Descend left first to locate the first sufficient hotel, then subtract the group size at that leaf.",
+      "complexity": "O(n+m log n) time, O(n) space",
+      "statement_sha256": "25fbb8a1bb352cb2a874e51dadc020eeb741deca9d74976bd893d324bbdfe8a1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1144",
+      "band": 3,
+      "solution_rationale": "Compress initial and updated salary values offline. A Fenwick frequency tree supports removing old salaries, adding new ones, and counting values between query bounds.",
+      "complexity": "O((n+q) log(n+q)) time, O(n+q) space",
+      "statement_sha256": "8f5bf4b223f435171f4ee3c6a6be3ac829f8d4edb1a7e1a2a3396f531c9030e1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1145",
+      "band": 2,
+      "solution_rationale": "Maintain the minimum possible tail for each increasing-subsequence length and replace the first tail at least the new value with lower_bound.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "fdee078ad79a829810c16867bdc53ca4501f1438d9e2154e4353c6f6c3ed2a0d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1146",
+      "band": 2,
+      "solution_rationale": "For each bit position count full zero/one periods among 0 through n and add the residual one block.",
+      "complexity": "O(log n) time, O(1) space",
+      "statement_sha256": "3cd6dda31d953cab96ad9e2f82417c67fd13c3b6b01f5aaf69e291cf9620b8ba",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1147",
+      "band": 3,
+      "solution_rationale": "Build histogram heights of consecutive empty cells ending at each row and solve the largest histogram rectangle using a monotone stack.",
+      "complexity": "O(nm) time, O(m) auxiliary space",
+      "statement_sha256": "5731ee316360a09791e6841f8db4151a67900baea69e6e11b4e3d086d2f29803",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1148",
+      "band": 5,
+      "solution_rationale": "For each row assign every histogram interval to a unique minimum bar using asymmetric tie boundaries. Counts of interval widths through that bar form a piecewise-linear trapezoid; add it to all heights up to the bar height through 2D finite differences, then integrate to obtain every size count.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "866fdaf7840353c6060494925702f2603531e69c9679950d1825b83ad1b41b75",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1149",
+      "band": 3,
+      "solution_rationale": "Track the total including empty and each character's previous contribution; appending a character doubles the total and subtracts sequences duplicated since its prior occurrence. Subtract empty at the end, as shown by the example.",
+      "complexity": "O(n) time, O(alphabet) space",
+      "statement_sha256": "9fe8684370a2d1f7d8ae4fab316fdc675cd3650db73b3cf6f48106ac34581345",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1157",
+      "band": 3,
+      "solution_rationale": "Prove by the highest differing bit that the mex recurrence equals (y-1) xor (x-1), then evaluate that expression directly.",
+      "complexity": "O(1) time and space for machine integers",
+      "statement_sha256": "4162232127964d5c3df81b607797ee6dfa50d1ac11de9b4139adb5c406df9f34",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1158",
+      "band": 2,
+      "solution_rationale": "Standard 0/1 knapsack over budget, updating budgets downward for each book to prevent reuse.",
+      "complexity": "O(nx) time, O(x) space",
+      "statement_sha256": "5ea5b46dc3904458ccd3a1d1f61a9bae1ea3b57a96cbcb91dd2a1b2d3cb120a7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1159",
+      "band": 3,
+      "solution_rationale": "Split each bounded multiplicity into binary-sized bundles and run descending 0/1 knapsack over their combined price and pages.",
+      "complexity": "O(nx log K) time, O(x) space",
+      "statement_sha256": "665cfa66c687ff6414670fb6d73523eba10f8291231ff01251bb659687700853",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1161",
+      "band": 2,
+      "solution_rationale": "Reverse cutting into merging. Repeatedly merge the two smallest lengths in a min-heap and add their sum, the optimal Huffman merge pattern.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "39f76fb42413c2ade4e8222e33f8f565feedd63202139e1ae44169c13ddf9c1f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1162",
+      "band": 3,
+      "solution_rationale": "The four answers are inversion count, n minus permutation-cycle count, n minus LIS length, and n minus the longest increasing-value suffix already appearing in order. Compute each with its matching scan or data structure.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "d3c2208a4aeacb9557ce1ca42e34fef77ff0c357be6b14b9ae935c07b7e6b53c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1163",
+      "band": 2,
+      "solution_rationale": "Maintain ordered light positions and a multiset of gap lengths. Each insertion removes one predecessor-successor gap and inserts the two split gaps.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "310d78e5df602639b9d89f3324d8301c55fb624e883598176c837799e821fc33",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1164",
+      "band": 2,
+      "solution_rationale": "Sort by arrival and reuse the room with earliest departure only if it departs strictly earlier; otherwise allocate a new room. Keep original indices for output.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "4f0c6673a4779705b6c72e109cd5eb78b91031f02e970e8781ccd069678ca679",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1188",
+      "band": 3,
+      "solution_rationale": "Segment-tree nodes store boundary bits, equal-run prefix/suffix lengths and best run; point flips recompute merges including runs crossing the midpoint.",
+      "complexity": "O(n+m log n) time, O(n) space",
+      "statement_sha256": "8d5bf012740860829bf5c4df075f29806c7a81fc068cf6e27d20418e3f5cdf23",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1189",
+      "band": 3,
+      "solution_rationale": "Net flows across circular edges equal prefix supply-demand imbalances plus one shared offset. Minimize their total absolute value by choosing the negative median of those prefixes.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "2a399ed6cf7e8099e4c9657d74d3d7776f285f012d4536feb312a6d0a3ed5fe8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1190",
+      "band": 3,
+      "solution_rationale": "Segment-tree nodes store total, maximum prefix, maximum suffix and best subarray sum. Merge across the boundary and allow zero-valued empty choices.",
+      "complexity": "O(n+m log n) time, O(n) space",
+      "statement_sha256": "4c9b723046c20cd78f9a327cafc70c1231da856cf3483e17b62b8cf1f6f9571b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1191",
+      "band": 3,
+      "solution_rationale": "Duplicate the positive array, find each start's longest feasible segment with two pointers, and binary-lift these next-start links to count segments covering n elements from every cyclic start.",
+      "complexity": "O(n log n) time and space",
+      "statement_sha256": "aab9999cabb3dc9ea42b1e954dd085844a0a755adc4b7bfef45ee8c55abbe3eb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1192",
+      "band": 2,
+      "solution_rationale": "Flood-fill each previously unvisited floor cell and count the connected components.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "9c2657dc47069e1c153083847740edc3d341aa9bfe6045924ce7950f4c13379c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1193",
+      "band": 2,
+      "solution_rationale": "BFS from A records predecessor directions; if B is reached, trace back and reverse the directions to return a shortest path.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "27dcbd7cae94b457d7d65bccd930baf76ae7cb9e2adf0848dcc834b6de4917f1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1195",
+      "band": 3,
+      "solution_rationale": "Run Dijkstra from the start and on the reverse graph from the destination; minimize distStart[a]+floor(c/2)+distEnd[b] over every discounted edge.",
+      "complexity": "O((n+m) log n) time, O(n+m) space",
+      "statement_sha256": "56f9050a9e757f3dbd6e88253840932756a1d8b84132d06bcadcee48af85add6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1196",
+      "band": 3,
+      "solution_rationale": "Generalize Dijkstra to accept up to k popped distances per vertex and expand each accepted route. Positive weights make the first k arrivals at the destination the required walk costs, including duplicates.",
+      "complexity": "O(km log(km)) time, O(km+kn) space",
+      "statement_sha256": "bebf4fcc5d997165c425e7226214138a8adec1ff0a47a9f8ac81dcdb8c3ac5b6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1197",
+      "band": 3,
+      "solution_rationale": "Initialize all distances to zero and run Bellman-Ford for n rounds. From any vertex relaxed on the final round follow predecessors n times to enter a negative cycle, then reconstruct it.",
+      "complexity": "O(nm) time, O(n+m) space",
+      "statement_sha256": "0efa39a587cd8f054c870e08321ce9b1d21c97f0592836c9f405e3d6aadfe310",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1202",
+      "band": 3,
+      "solution_rationale": "Augment Dijkstra with shortest-route count and minimum/maximum edge counts. On equal-distance relaxations aggregate these values; strictly positive costs ensure predecessors settle earlier.",
+      "complexity": "O((n+m) log n) time, O(n+m) space",
+      "statement_sha256": "d8bdbad1aaad806c56d49c86dd1bbdeae55d123c347f274b3bcb295a4d3583f8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1203",
+      "band": 4,
+      "solution_rationale": "Keep only edges on shortest start-to-end routes, forming a DAG by positive weights. Build its dominator tree in topological order using LCA of predecessor dominators; ancestors of the destination are precisely mandatory cities.",
+      "complexity": "O((n+m) log n) time, O((n+m) log n) space",
+      "statement_sha256": "ac3defc0db40dfb087b78af71097c61a1b6585df83da66424cc3a4437da7b1bb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1617",
+      "band": 1,
+      "solution_rationale": "Double a modular count n times, because every position independently has two choices.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "ee60bddf7db13d7489f57eb2158a6143c2f65b7b93740a1da35b13d80411bacb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1618",
+      "band": 2,
+      "solution_rationale": "Trailing zeros equal the exponent of five in n!, obtained by summing floor(n/5^j).",
+      "complexity": "O(log n) time, O(1) space",
+      "statement_sha256": "276ca521f0e12a5c217a667d9bbcc0a4cdd54d79966d8783211918616cb21973",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1619",
+      "band": 2,
+      "solution_rationale": "Sort arrival +1 and departure -1 events, scan the active count, and retain its maximum.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "c53dbc06c03c269bd6c32038bffe4e39b363cedad97ee6ca7ac47a9dbbe127e9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1620",
+      "band": 2,
+      "solution_rationale": "Binary-search time; a machine produces floor(time/k_i) items. Cap the sum at t to avoid overflow and test feasibility.",
+      "complexity": "O(n log(t min k)) time, O(n) space",
+      "statement_sha256": "ac3f9ae81ed9078a570d962e0e965c617247550c7791538bf7d6643ad0d6d7f2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1621",
+      "band": 1,
+      "solution_rationale": "Sort the values and count adjacent changes, or insert them into a set and report its size.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "81c4fa7821262e59006699f8632d00ee6de83c20a8432a503698cf01bf1ee7b5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1622",
+      "band": 2,
+      "solution_rationale": "Sort the letters, enumerate unique lexicographic permutations with next_permutation, and compute the count from the factorial divided by repeated-letter factorials.",
+      "complexity": "O(n*K) time and output size, O(n) auxiliary space",
+      "statement_sha256": "fbe560852f6b272b47d15b928171303f0cb67a6b729a3fc8036b8e3e5a39ddc2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1623",
+      "band": 2,
+      "solution_rationale": "Enumerate subsets recursively while carrying their sum and minimize the absolute difference from the complementary sum; n<=20 permits exhaustive search.",
+      "complexity": "O(2^n) time, O(n) stack space",
+      "statement_sha256": "95fb5edbe08d0318369d51dfacece57985eff3fae895b1bb5f7a4ae32bc42ae5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1624",
+      "band": 2,
+      "solution_rationale": "Backtrack one queen per row, tracking occupied columns and both diagonals and skipping reserved squares.",
+      "complexity": "O(8!) time upper bound, O(8) space",
+      "statement_sha256": "98cc501a024e43d774609bdf9ac8a8ebf2c43f8bcf238e25b5931a2683860463",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1628",
+      "band": 3,
+      "solution_rationale": "Enumerate sums in each half, sort one list and count complements with equal_range, including multiplicities.",
+      "complexity": "O(n 2^(n/2)) time, O(2^(n/2)) space",
+      "statement_sha256": "5e25920e6a6aaa5f8f61a93c74d9d75d673f943a631bd9a85d58b5b69f61f3c6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1629",
+      "band": 2,
+      "solution_rationale": "Sort by ending time and greedily select each movie beginning at or after the last selected end.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "18e8d05381a208c7cc2332e2f67224c3706e87f2c1aeb71a9f24c5d1b8c8c8c3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1630",
+      "band": 2,
+      "solution_rationale": "The deadline sum is fixed, so minimize total completion time by sorting durations ascending; a pairwise exchange proves the order.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "16eca938b8d5154fa0ce27ea4dd9f349ae2c8e36eea812dd52001ec0b9da576d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1631",
+      "band": 3,
+      "solution_rationale": "The necessary bounds are the total reading time and twice the longest book; opposite reading orders attain their maximum.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "c70a9f209b9a7a4c4fd1ab50211716319f37e86e09ac9d4994b6d3f3caa87a22",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1633",
+      "band": 2,
+      "solution_rationale": "Set dp[0]=1 and sum the previous six states for each positive total, modulo the prime.",
+      "complexity": "O(n) time, O(1) rolling space",
+      "statement_sha256": "ece13ae58c40752fa23a9d828c31378f94a03dc85fdbeef2e94298681a869af0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1634",
+      "band": 2,
+      "solution_rationale": "Unbounded coin DP minimizes dp[sum-coin]+1 over possible last coins, with infinity marking unreachable sums.",
+      "complexity": "O(nx) time, O(x) space",
+      "statement_sha256": "7b295160f1d5275cb631e417af4898371aa195e2b8523705a745cdb2ffae76bc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1635",
+      "band": 2,
+      "solution_rationale": "Iterate target sums first and add dp[sum-coin] for each possible final coin, thereby counting ordered sequences.",
+      "complexity": "O(nx) time, O(x) space",
+      "statement_sha256": "f7dc209378a928dda96e54217fdd69a19cfc72783a0e93751a31cb2cde475c37",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1636",
+      "band": 2,
+      "solution_rationale": "Iterate denominations first and sums upward so each multiset is counted once, as required by the example despite the statement's wording.",
+      "complexity": "O(nx) time, O(x) space",
+      "statement_sha256": "cee45ca819f7e81770e48b2f83ad2a986c5097c07945acb97e5281bc7b39bbd2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1637",
+      "band": 2,
+      "solution_rationale": "DP each integer from smaller integers obtained by subtracting one of its nonzero decimal digits.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "cb8d9b5cf133acb81237395b64db2244ca12bdcc74111bead13a7a2db7365df7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1638",
+      "band": 2,
+      "solution_rationale": "Grid DP adds ways from top and left for free cells and assigns zero to traps, taking care with a blocked start.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "1a62bb0a9fb5c08581ab9957b5ef74de4de8410c2495a322c6af063771a8b95a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1639",
+      "band": 2,
+      "solution_rationale": "Prefix-pair DP chooses insertion, deletion or match/replacement and uses rolling rows.",
+      "complexity": "O(nm) time, O(min(n,m)) space",
+      "statement_sha256": "6d4b4d01c3bb001051d844f4e5da7761ac91f98128a174c199916fe34d4d54dc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1640",
+      "band": 2,
+      "solution_rationale": "Sort value-index pairs and move two pointers according to the pair sum, returning the original distinct indices.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "0f0d3c7486de5452fdec5b0b3cec4d9599985ac0c902d790e05f17433e54f8de",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1641",
+      "band": 2,
+      "solution_rationale": "Sort value-index pairs, fix the first member, and use two pointers among later positions for the remaining pair.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "c041304b89d997245bad703101bab56c588bb44b281ed6f30c043ab5a23fe1ba",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1642",
+      "band": 3,
+      "solution_rationale": "Sweep the middle boundary, looking up complementary sums of pairs entirely to its left before adding new pairs. This ordering guarantees four distinct indices.",
+      "complexity": "O(n^2) expected time and space",
+      "statement_sha256": "e9df833aa46735d62ded100ae1f254671f2d4d0d8f60d3b08d41cfd43ad3bbd9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1643",
+      "band": 2,
+      "solution_rationale": "Kadane's recurrence keeps the best nonempty sum ending here, either starting anew or extending the prior sum; initialize for all-negative arrays.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "7b372347e9437f5f93ed0b04671a7c2fade10ad8cce305980a3ff38d17701a32",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1645",
+      "band": 2,
+      "solution_rationale": "Maintain an increasing stack of candidate values and indices, popping values at least the current one; the remaining top is the nearest smaller predecessor.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "11d7925531365e41bd10f894a3e6a35956e32aea24ca8d08b42da7dc8f99905e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1647",
+      "band": 2,
+      "solution_rationale": "A minimum sparse table answers each static range using two overlapping power-of-two intervals.",
+      "complexity": "O(n log n+q) time, O(n log n) space",
+      "statement_sha256": "5e92e7034fa617e9e40656446e1f3ac2a56a6ce794b5365c019d6a16cb30e5d0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1648",
+      "band": 2,
+      "solution_rationale": "Maintain a Fenwick sum tree, translating assignments to value differences and ranges to two prefix sums.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "4f1dfa4de3fd2c4be3fafae36d74092515fc24c26247f8090edd922047f5bc34",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1649",
+      "band": 2,
+      "solution_rationale": "A standard minimum segment tree supports point assignment and interval minimum queries.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "6fbe9a02fc4e39d6dab0346103aa019cdf07448a1fe51275262c62719bffdca9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1650",
+      "band": 2,
+      "solution_rationale": "Compute prefix xors; xor of two prefix values cancels everything outside the requested interval.",
+      "complexity": "O(n+q) time, O(n) space",
+      "statement_sha256": "cc2a5af0283ca3a545656b225a433453866a286ce1a31bf480629ce03687071b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1651",
+      "band": 2,
+      "solution_rationale": "Store the difference array in a Fenwick tree; range addition changes only two differences and a point value is a prefix sum.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "ef23418ef4dab2a1e568bdeedb649fc6b8c5cdae62f4dacde12bf2dd8e576bca",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1652",
+      "band": 2,
+      "solution_rationale": "A two-dimensional prefix-count table answers each rectangle by four-term inclusion-exclusion.",
+      "complexity": "O(n^2+q) time, O(n^2) space",
+      "statement_sha256": "266160fe66418a2be59d6f64d887d89066b9ab58e092d4dc722d7a7869dfc73f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1653",
+      "band": 3,
+      "solution_rationale": "For each subset keep the lexicographically smallest pair of rides used and final-ride weight. Add each possible last person, opening a new ride only when necessary; lower final load dominates for equal ride count.",
+      "complexity": "O(n 2^n) time, O(2^n) space",
+      "statement_sha256": "4baa7cfa028073613144f0782b7d39f3efd95fb9968688725d02e5db334492dd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1654",
+      "band": 4,
+      "solution_rationale": "Compute subset and superset zeta sums of frequencies. The third answer is n minus the subset count of the bounded bitwise complement of x.",
+      "complexity": "O(B 2^B+n) time, O(2^B) space",
+      "statement_sha256": "f41b6f0c8c38e2940bb30a1c10dfb339576069c21fe82ce270bf61e46e621653",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1655",
+      "band": 3,
+      "solution_rationale": "Subarray xor is the xor of two prefix xors. Insert prior prefixes in a binary trie and greedily choose opposite bits to maximize each query.",
+      "complexity": "O(nB) time and space",
+      "statement_sha256": "2ec594bb99a61de1fe34b9d4db9002905b6e9effcb3e174b3acb9a12bcf15e8f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1660",
+      "band": 2,
+      "solution_rationale": "Positive elements permit two pointers; shrink while the sum exceeds x and count equality at each right endpoint.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "statement_sha256": "5b69c5e82acd7bd2691e307d539a8d98f90f018da11e2501cbc980920cfbac2a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1661",
+      "band": 2,
+      "solution_rationale": "For each prefix sum S add the frequency of earlier prefix sum S-x, then insert S; include the initial zero prefix.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "6077392c419ba7e37e1250d8cb5cdf2c4feac39d43954746ca7b9e6330cf1789",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1662",
+      "band": 2,
+      "solution_rationale": "Count prior equal prefix residues modulo n, normalizing negative residues; every such pair defines a divisible-sum subarray.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "5377f5994c824fadff569fb4b845d1847f60c23a444bf45dd5017eda419ee1bd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1664",
+      "band": 3,
+      "solution_rationale": "For every arrival time precompute the earliest-ending movie that can be started, then binary-lift repeated greedy choices. Each query takes the largest jumps whose ending time fits its departure.",
+      "complexity": "O((T+n+q) log n) time, O(T log n) space",
+      "statement_sha256": "42a6dbc43dfc2d18e5e104d524483bdb100febed5db2531d18d5e5c1783a3bbb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1665",
+      "band": 4,
+      "solution_rationale": "Sort skills and DP by number of open teams and accumulated penalty. Crossing a skill gap costs gap times open teams; the new coder can start, close, join an open team, or form a singleton, with multiplicities.",
+      "complexity": "O(n^2 x) time, O(nx) space",
+      "statement_sha256": "b160014fc81fafdb6a2775d5b917fb024f977c15a2dcfb04de8488f6fa0e8d20",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1666",
+      "band": 2,
+      "solution_rationale": "Find connected components and connect one representative from each in a chain, using exactly components minus one new roads.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "d7951777c679dd68f0ee2575204dcdb5bf38482ccb996e6113773bcdd8bb5ef3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1667",
+      "band": 2,
+      "solution_rationale": "BFS an unweighted graph from node one and reconstruct the shortest route from stored parents.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "ac12646d35867f4ca7c14b506ec19945b2c79ebb926dfb8d0c4ad13ff25b4999",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1668",
+      "band": 2,
+      "solution_rationale": "BFS or DFS two-colors every connected component, rejecting an edge whose endpoints have equal colors.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "b79c02bb9959637b36a18333763a71d7cf085f63aa3a40d601120b5711505eb4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1669",
+      "band": 2,
+      "solution_rationale": "DFS the undirected graph while ignoring the parent edge; a back edge to an ancestor reconstructs a cycle through parent pointers.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "b171654e0363c5473c07801111c6e0f8b069ecb671af04a19633b83b58f0a48f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1670",
+      "band": 3,
+      "solution_rationale": "BFS the finite permutation state graph with 12 adjacent-swap moves; encode or rank permutations efficiently. Only 9! states exist.",
+      "complexity": "O(9! * 12 * 9) time upper bound, O(9!) space",
+      "statement_sha256": "b1fcf7bcb5d81aca1b54dd994d7df474e74470531e2a4d22ac866952bb794b8d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1671",
+      "band": 2,
+      "solution_rationale": "Dijkstra with a min-heap computes single-source distances for positive directed edges; skip stale heap entries and use wide distances.",
+      "complexity": "O((n+m) log n) time, O(n+m) space",
+      "statement_sha256": "e7dfa017a609b94deee63864541de0f60e5555cc5688dfa11657a820ab39cb05",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1672",
+      "band": 2,
+      "solution_rationale": "Floyd-Warshall over n<=500 computes all-pairs distances. Initialize each undirected pair with its cheapest parallel edge and preserve infinity for unreachable pairs.",
+      "complexity": "O(n^3+q) time, O(n^2) space",
+      "statement_sha256": "990a4ead326e61ec22a6fe380b46d5c949cc3c432d959373c89895f59a683773",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1674",
+      "band": 2,
+      "solution_rationale": "Postorder the hierarchy and sum child subtree sizes; subtract one to exclude the employee itself.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "303ec243aad4aaf22a061ec534e665d5507136e408c259d25ba8151f439db89a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1675",
+      "band": 2,
+      "solution_rationale": "Kruskal sorts repair costs and uses DSU to select edges joining different components. Failure to select n-1 edges means disconnected input.",
+      "complexity": "O(m log m) time, O(n+m) space",
+      "statement_sha256": "51f282d4dcf425e0980cb1997b4f5943a2c63431c7f650ff7feff89c2cefd224",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1676",
+      "band": 2,
+      "solution_rationale": "DSU tracks component sizes. Successful unions decrease the component count and may increase the largest size.",
+      "complexity": "O((n+m) alpha(n)) time, O(n) space",
+      "statement_sha256": "5845777d7cd66ffc54fdf6d549f6954232f59dbaf7f4dc3ecd7decd091ec4402",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1677",
+      "band": 3,
+      "solution_rationale": "Remove all failed edges initially, build DSU on survivors, then process failures backward as additions and reverse the recorded component counts.",
+      "complexity": "O((n+m+k) alpha(n)+(m+k) log m) time, O(n+m) space",
+      "statement_sha256": "48c10f22c54655dbf583715171cdbfef31c97129c6d5a50fc4a342e26f6e8871",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1678",
+      "band": 2,
+      "solution_rationale": "Three-color DFS detects an edge into the active recursion stack, whose parent chain reconstructs a directed cycle.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "12d021e2a2d45b21e2c0656aefdf444454756fb4be0ca4fbc334def457a97871",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1679",
+      "band": 2,
+      "solution_rationale": "Kahn's indegree-zero queue yields a topological order; fewer than n processed courses certifies a directed cycle.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "e631a514eaa785502b6ca17bbf409c963e95567af6e5b8763226adbd6a4a5bd0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1680",
+      "band": 3,
+      "solution_rationale": "Topologically order the DAG and DP the longest reachable path from node one, retaining predecessors for reconstruction to n.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "debdd390156b95e9c6132c62639d6d8a2381bf4b2bf17779c78edba019671ece",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1681",
+      "band": 2,
+      "solution_rationale": "Propagate modular route counts from node one along a topological ordering of the DAG.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "9162b0f2df5d537fee765384457928d1a0760c47fa4cadb77d215f4cac8743d5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1682",
+      "band": 3,
+      "solution_rationale": "Check reachability from node one in both original and reversed graphs. An unvisited vertex supplies a correctly directed witness; if both traversals cover all vertices, all ordered pairs connect.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "6274ddf7ef22596d93222a5d082a2a0d10af911cc19fde53634013c68e6124d5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1683",
+      "band": 3,
+      "solution_rationale": "Compute strongly connected components with Kosaraju's finishing-order traversal followed by reverse-graph floods, then report component IDs.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "e79bad5afaa71d5b22dc067a7588287aa13daf6e0702ccdb3c6ce475944db156",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1686",
+      "band": 3,
+      "solution_rationale": "Condense SCCs, summing all positive coin values within each, then solve a maximum-weight path DP in the resulting DAG with free start and end.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "f7bfc7564cc4e5b4997d6f54c1eba617deb290d463e5e3d3413e3bb7451edc46",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1687",
+      "band": 2,
+      "solution_rationale": "Precompute 2^j-th ancestors and consume the set bits of k; a sentinel handles ancestors above the root.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "05672277306495c6ab91a006298c0ecc1ba30499bd3ced2bbf5968bc2a89fa3a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1688",
+      "band": 3,
+      "solution_rationale": "Binary-lifting LCA first equalizes depths and then raises both nodes from the largest jump downward until their parents coincide.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "3eeb315aff2225c258220d42be18fd8b8b931bf16dad0792c405046a01980340",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1689",
+      "band": 4,
+      "solution_rationale": "Backtrack a knight tour, ordering moves by the fewest onward unvisited moves (Warnsdorff's rule). The heuristic greatly reduces search on this fixed board, but a naive unrestricted traversal is infeasible.",
+      "complexity": "Exponential worst-case backtracking on a fixed 64-square board, O(64) space",
+      "statement_sha256": "abc0c6b09d758d05afb8982d8390596964627a581005bfe86f8fab4c501029c2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1690",
+      "band": 3,
+      "solution_rationale": "Subset DP tracks visited vertices and final city, extending along incoming edges. Require node one in every state and postpone node n to the full mask; preserve parallel-flight multiplicity.",
+      "complexity": "O(2^n m) upper-bound time, O(n 2^n) space",
+      "statement_sha256": "92d51feed27c59cb3058a42e6e3264972e1ee9900af8beba6edc92e4012bd5b4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1691",
+      "band": 3,
+      "solution_rationale": "Check even degrees and run Hierholzer from node one with edge IDs. A resulting walk of exactly m+1 vertices confirms all nonisolated edges were connected to the start.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "c1f8c1c43a06ff9d98fd978343883e2b10a28877bcd5ecf13b23e7314395193b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1693",
+      "band": 3,
+      "solution_rationale": "Check directed Euler-trail degree imbalances at one and n and balance elsewhere, then run Hierholzer and verify all m edges were used with the required endpoints.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "dc10e75a8767e2f6d45152edb081d13465e9d315dc5728038486dec4218fd711",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1694",
+      "band": 4,
+      "solution_rationale": "Model capacities directly as a directed flow network and compute maximum flow with level graphs, residual reverse edges and blocking flows, using wide capacity totals.",
+      "complexity": "O(n^2 m) worst-case time with Dinic, O(n+m) space",
+      "statement_sha256": "36bba9d8f5912ef5bb80fb3dc4b7423dbbcc1d902921a3fe51a9a1d78b7a3ae4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1695",
+      "band": 4,
+      "solution_rationale": "Give each undirected street unit capacity in both directions and compute maximum flow. Residual reachability from the bank identifies the source side of a minimum cut; output original edges crossing it.",
+      "complexity": "O(m^2+nm) time upper bound, O(n+m) space",
+      "statement_sha256": "a5472b91f38b8ccc3122305184d11b0ce6ac1fb5a4ac23bd06b95574b838d3f3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1696",
+      "band": 3,
+      "solution_rationale": "Run augmenting-path bipartite matching from each boy and output the final girl-to-boy matches.",
+      "complexity": "O(nk) time, O(n+m+k) space",
+      "statement_sha256": "ab7d62dd10b18db2875ac136492716ba9e7b98dac6b284089c32d86780e1235e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1697",
+      "band": 3,
+      "solution_rationale": "Havel-Hakimi repeatedly connects the highest remaining degree vertex to vertices with the largest residual degrees, using a heap and temporarily withholding selected neighbors; reject shortages or negative degrees.",
+      "complexity": "O((n+sum x) log n) time, O(n+sum x) space",
+      "statement_sha256": "c46c012062d6ad9eab5fb63e022d66be5176be35b6510650a471af2b244d7dcb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1698",
+      "band": 4,
+      "solution_rationale": "Decompose the permutation into cycles. Each cycle rotation factors into two reflections, each a set of disjoint swaps; combine reflections across cycles. Zero rounds suffice for identity and one exactly when all cycles have length at most two.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "d2ec1d4044f49b2fff444579eb5f86d84e1bc6b024ef6c710e9dcdb60e2a182e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1699",
+      "band": 3,
+      "solution_rationale": "For each weakly connected request component, a DAG can be satisfied by a topological-order chain using size-1 edges. If it has a nontrivial directed cycle, at least size edges are needed and a cycle through the entire component attains this; ignore self requests.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "55328dc871e1e06976b38163373bc2d52ea98d9d85ea862fadb60202b9ed2b43",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1700",
+      "band": 3,
+      "solution_rationale": "Postorder each rooted tree, sort children's canonical IDs, and intern identical vectors in one shared map. Compare the two root IDs.",
+      "complexity": "O(n log n) time, O(n) space per test",
+      "statement_sha256": "7ae08504d27686e4e9877807037cc2f56830bb6f43e6071238008f013872e954",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1701",
+      "band": 3,
+      "solution_rationale": "Find each tree's one or two centers by leaf peeling, then compare rooted canonical forms at possible center correspondences.",
+      "complexity": "O(n log n) time, O(n) space per test",
+      "statement_sha256": "d0473f9d3ef034001af62869822f9e6068eeaa863648a54b1741fb8ce9652252",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1702",
+      "band": 2,
+      "solution_rationale": "Map labels to inorder indices; the next preorder item is each subtree root, whose inorder position splits its children. Recursively emit left, right and root.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "5d2ac0ebbcf9a9bd704f3378c6a0ea4ee2e66e899c321b1f3b014ca1fb690e2e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1703",
+      "band": 5,
+      "solution_rationale": "Construct a dominator tree from node one using DFS numbering, semidominators, ancestor evaluation and buckets. Critical cities are exactly destination ancestors in the dominator tree; SCC condensation alone loses mandatory vertices inside SCCs.",
+      "complexity": "O((n+m) log n) time with Lengauer-Tarjan, O(n+m) space",
+      "statement_sha256": "cd35effaaadbe1a8a34c686d2490747232c9e614d4704ab0c88a513cc23f7193",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1704",
+      "band": 4,
+      "solution_rationale": "List tree leaves in DFS order and pair leaves across opposite halves, with a final attachment for odd count. Every original edge's leaf interval is crossed, removing all bridges in ceil(leaves/2) additions.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "9150ee2c99865070764eab229f67b60846d270672552cb8d9f2b4d424373e578",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1706",
+      "band": 3,
+      "solution_rationale": "Find connected-component sizes; each component must stay together. A bitset subset-sum DP shifted by every component size gives all possible zoo attendance totals; group repeated sizes if needed for speed.",
+      "complexity": "O(n+m+n^2/w) word-operation upper bound, O(n+m) space",
+      "statement_sha256": "0275efaafb8a6c89d9a3b805856af08b54adb41492c9fe719ab503227da635ee",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1707",
+      "band": 3,
+      "solution_rationale": "BFS from every vertex and inspect edges other than parent edges for candidate cycles of dist[u]+dist[v]+1; the minimum over all starts is the girth.",
+      "complexity": "O(n(n+m)) time, O(n+m) space",
+      "statement_sha256": "7f6070e0ea224837557d2062964057c99added1858c085560b8b31bc0010c6a4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1709",
+      "band": 4,
+      "solution_rationale": "Rows and columns form a bipartite graph with one edge per coin. Find maximum matching, then recover a minimum vertex cover using alternating reachability from unmatched rows, and output its selected rows/columns.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "dfa6b3a4883609a0e3f1e274427abb98a6a815edc1d6e920e2d47cf02e7695fc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1712",
+      "band": 3,
+      "solution_rationale": "Compute b^c modulo P-1 and exponentiate a modulo P using Fermat's theorem. Handle a=0 and the genuinely zero exponent b=0,c>0 explicitly rather than confusing a reduced zero with zero.",
+      "complexity": "O(n(log b+log c)) time, O(1) space",
+      "statement_sha256": "a3004e27fbd4a084ee9ddd8b1b8c6e09375c08029b4f09a4df95f8f4fadadc25",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1713",
+      "band": 2,
+      "solution_rationale": "Sieve divisor counts by incrementing every multiple of each positive integer, then answer each query directly.",
+      "complexity": "O(V log V+n) time, O(V) space",
+      "statement_sha256": "0255044d40ad01e6581e99ca00e14df72cc3286fcb28b37678b72a1aacea6105",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1715",
+      "band": 2,
+      "solution_rationale": "Count repeated characters and evaluate n! divided by the factorial of each multiplicity using modular inverses.",
+      "complexity": "O(n+alphabet log P) time, O(n) space",
+      "statement_sha256": "6dcdfbc8955cb39b64f8b3af9c3a8dd5c90c98124bed53e24a047360562e4728",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1716",
+      "band": 2,
+      "solution_rationale": "Stars and bars gives C(n+m-1,m), evaluated through factorials and modular inversion.",
+      "complexity": "O(n+m+log P) time, O(n+m) space",
+      "statement_sha256": "8bcf83fbde9528d55381aa6bbe13c1fa23106b803b644b5595d395284ecc9c04",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1717",
+      "band": 2,
+      "solution_rationale": "Use the derangement recurrence D[n]=(n-1)*(D[n-1]+D[n-2]) with D[0]=1 and D[1]=0.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "ff041a44e6d39694b6e099f4bfc72bb79727d613240e35440623a73775fb905f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1722",
+      "band": 3,
+      "solution_rationale": "Fast doubling computes F(2k) and F(2k+1) from adjacent Fibonacci values, allowing n up to 10^18.",
+      "complexity": "O(log n) time, O(log n) stack space",
+      "statement_sha256": "219b4590716ab19735db77281d18828df2bcccdda9c0c6c9e0b189f9818d53cf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1723",
+      "band": 4,
+      "solution_rationale": "Exponentiate the adjacency-count matrix modulo the prime; its (1,n) entry after k powers counts length-k walks including parallel edges.",
+      "complexity": "O(n^3 log k) time, O(n^2) space",
+      "statement_sha256": "967f5db84b5c5ac37dff436dad39f042ff420a91fd83cf218f5691291d6f7c69",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1724",
+      "band": 4,
+      "solution_rationale": "Exponentiate the edge-weight matrix over the min-plus semiring. Identity has zero diagonal and infinity elsewhere; guarded additions avoid overflow for absent paths.",
+      "complexity": "O(n^3 log k) time, O(n^2) space",
+      "statement_sha256": "f81912994b28b56f3be54c847375305651e92f60ad4f5121e1fe17e07eaf8cd8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1725",
+      "band": 2,
+      "solution_rationale": "Convolve the current sum probability distribution with six equiprobable die outcomes n times, then sum the requested interval and format to six decimals.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "1f92d963c7a6a48286d19d2280b7c02fcfb22ff5498d117b11d0fc83bca95018",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1726",
+      "band": 3,
+      "solution_rationale": "For each starting robot propagate its position probabilities k steps with degree-dependent transitions. A cell is empty with probability the product of one minus each robot's arrival probability; sum over cells by linearity.",
+      "complexity": "O(64^2 k) time, O(64) working space",
+      "statement_sha256": "27b17796d7c2867bcd60933efc09aa36150b8e949adeaf190d62ecb75e6df582",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1727",
+      "band": 2,
+      "solution_rationale": "The maximum's CDF is (j/k)^n. Sum tail probabilities 1-((j-1)/k)^n over j=1..k to obtain the expectation.",
+      "complexity": "O(k log n) time, O(1) space",
+      "statement_sha256": "e9d848964117729bd127bd2696add3d8da09416eb9fa3e689ae116cab822546b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1728",
+      "band": 2,
+      "solution_rationale": "Use linearity over index pairs; for each possible first value count smaller possible second values and divide by r_i*r_j. Small bounds allow direct enumeration.",
+      "complexity": "O(n^2 R) time, O(1) space",
+      "statement_sha256": "f85153249d0cbc8e2d48fea7314bfdd9b3df43d161c9cc9f32c34e668712ea82",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1729",
+      "band": 2,
+      "solution_rationale": "A pile size is winning if any legal move reaches a losing earlier size; initialize zero as losing and fill upward.",
+      "complexity": "O(nk) time, O(n) space",
+      "statement_sha256": "c328874cec9ad087e497c8a57f796bc295ddcdb1667e1fd2d2840c057b822cc4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1730",
+      "band": 3,
+      "solution_rationale": "Apply Nim's xor invariant: a zero xor is losing, while from any nonzero xor a heap can be reduced to restore zero.",
+      "complexity": "O(total n) time, O(1) space",
+      "statement_sha256": "61acfa91ce41d68e51b779dd394d9688e68ace300c77ea713e450b39a0a23253",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1731",
+      "band": 3,
+      "solution_rationale": "Build a dictionary trie. From each string position follow trie edges and add segmentation DP contributions whenever a terminal word is reached.",
+      "complexity": "O(total dictionary length+n^2) time, O(total dictionary length+n) space",
+      "statement_sha256": "51047504378fac220b35ad6105ee0038dbaca2afd7e7c1b6f78e0a9e20278128",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1733",
+      "band": 2,
+      "solution_rationale": "Compute the Z-function. A length p is a period exactly when Z[p]>=n-p; include the full string length.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "8d6629803fcb04fc0fedd559e76b31dba1132db9bb514afb8994940a0b627561",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1734",
+      "band": 3,
+      "solution_rationale": "Sort queries by right endpoint, keep a Fenwick marker at the latest occurrence of every value, and range-sum the markers inside each query.",
+      "complexity": "O((n+q) log n) time, O(n+q) space",
+      "statement_sha256": "a4bcfccfc7660ae9cf6af9cc64fc4149b6fdf700a80e1600f8f7be95284062ab",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1735",
+      "band": 3,
+      "solution_rationale": "Lazy segment tree stores sums and composable assignment/addition tags. Assignment overrides earlier tags, while addition modifies the pending assignment or accumulated add.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "96041a78c730d0691b090f4b2315bfce43a1fbf179fc68e7d17fab6822a80df8",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1736",
+      "band": 3,
+      "solution_rationale": "Represent an update as adding index+(1-a) over its interval. Lazy tags carry slope and intercept; segment sums use precomputed sums of indices.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "27fdd3f9d4cdf01f2bf8bcf1ed4c4fb9e70bf031c08145c36d55232f0c02a525",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1737",
+      "band": 4,
+      "solution_rationale": "A persistent segment tree path-copies nodes for assignments. Each array has its own root pointer; copying an array copies only its root and sum queries traverse the chosen version.",
+      "complexity": "O(n+q log n) time and space",
+      "statement_sha256": "d08760d6a52f33a787c70aede60021cb5d389eeee354370f02a10b57421ffd95",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1739",
+      "band": 3,
+      "solution_rationale": "Maintain a two-dimensional Fenwick tree of tree indicators; toggles add plus or minus one and rectangles use four prefix queries.",
+      "complexity": "O(n^2+q log^2 n) time with linear build, O(n^2) space",
+      "statement_sha256": "34cdf6fc6a5e9099a85af60a9c06ce8263989e07601c333a57c48eb6cc867705",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1740",
+      "band": 3,
+      "solution_rationale": "Sweep x: horizontal starts/ends update y-frequency counts in a Fenwick tree and vertical segments query a y interval. The promise excludes endpoint and parallel intersection complications.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "a296c3eaf84a799aafac4ad3d97adcb0a730be35c3aef1c7621d3b128397b021",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1742",
+      "band": 5,
+      "solution_rationale": "Binary-search the earliest command prefix containing a self-intersection, detecting crossings by sweep line and collinear overlaps by sorted intervals while excluding ordinary consecutive shared endpoints. Then find the earliest contact along the failing segment against prior segments to recover exact distance, including immediate reversals.",
+      "complexity": "O(n log^2 n) time, O(n) space",
+      "statement_sha256": "231fd194e59d9b1bace1606295ad3d2a7b3cda17f81dc0ff0f66bb6232300487",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1743",
+      "band": 3,
+      "solution_rationale": "Greedily choose the smallest character different from the previous one that leaves a feasible multiset. Maintain maximal frequencies; after a chosen prefix, its last character may occupy at most floor(remaining/2) positions and every other count at most ceil(remaining/2).",
+      "complexity": "O(26n) time, O(26) auxiliary space",
+      "statement_sha256": "643e8d58dc5b060cce2dd6f76e6a9549cba94c323b36bb2ca2829894682752a6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1744",
+      "band": 2,
+      "solution_rationale": "Rectangle DP tries every horizontal and vertical first cut; square states cost zero and every split costs one plus both subproblems.",
+      "complexity": "O(ab(a+b)) time, O(ab) space",
+      "statement_sha256": "717479a3476e57a1c6f4a3b97762aff8cbe394ea048f6d8f8c992c19617a162d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1745",
+      "band": 2,
+      "solution_rationale": "Run descending boolean subset-sum DP or a shift-or bitset for each coin, then enumerate all positive reachable sums.",
+      "complexity": "O(nS) time, O(S) space",
+      "statement_sha256": "2c9f218e80366abc820eff4b55c32460e274ca6eae66cfd7c911dbdd7767c3bc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1746",
+      "band": 2,
+      "solution_rationale": "DP by position and ending value, summing previous values v-1,v,v+1 and retaining only the prescribed value when known.",
+      "complexity": "O(nm) time, O(m) space",
+      "statement_sha256": "f39078f2cc95d15ea28b8cac2c1ec71a13231b49f08186ffa56318f9d21f3c43",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1747",
+      "band": 3,
+      "solution_rationale": "Process values ascending; the smallest remaining item must go to one end of the unfinished pyramid. Pay the smaller number of remaining positions to its left or right using Fenwick counts, then remove it.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "9eef756324779dbf21693fb73f104537570faa5bef061ab910ef0612d536d07b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1749",
+      "band": 3,
+      "solution_rationale": "A Fenwick or segment tree stores one for every alive position. Descend by counts to locate the requested kth alive item, output it and clear its marker.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "b83e351a06d8f457f42be337841b8cb3c7ec0f58ee6cc0749dde1c522840acb1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1750",
+      "band": 2,
+      "solution_rationale": "Binary lifting precomputes repeated teleporter jumps; apply the set bits of each k, including the zero-jump case.",
+      "complexity": "O((n+q) log K) time, O(n log K) space",
+      "statement_sha256": "44a6237efea8b47f24da160e2d708865b8e1042c4654d54eb4b925b366b3e1e3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1751",
+      "band": 3,
+      "solution_rationale": "Peel indegree-zero vertices to expose cycles, assign each cycle its size, and process peeled vertices backward with answer[v]=answer[next[v]]+1.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "883e3dc1e02e9beda3f455287afbc1bca77c2b6ac05de6ffe45fa568d7ce21b4",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1752",
+      "band": 4,
+      "solution_rationale": "Root the tree and greedily consider deepest vertices first. Accept a city when its nearest selected office is at distance at least d; centroid-decomposition distance minima support the checks and updates. The deepest-first exchange argument is the nontrivial correctness step.",
+      "complexity": "O(n log^2 n) time, O(n log n) space",
+      "statement_sha256": "a96b499ba7697818c6c2a89c64d78bdd04a2668fcbe796a283076cfa5068f447",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1753",
+      "band": 2,
+      "solution_rationale": "Use KMP prefix-function matching, following the failure link after every full match so overlapping occurrences count.",
+      "complexity": "O(n+m) time, O(m) space",
+      "statement_sha256": "0b99bd32f895e3a8e38490073a921005ea6d75af80d7c32a8f0166f86952912f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1754",
+      "band": 2,
+      "solution_rationale": "Solving the two move-count equations gives feasibility iff a+b is divisible by three and the larger pile is at most twice the smaller.",
+      "complexity": "O(t) time, O(1) space",
+      "statement_sha256": "9db8cffb4d85236aac2ea082cf57709982f7445ccdcb1d848038f1d169a762ef",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1755",
+      "band": 2,
+      "solution_rationale": "At most one character frequency may be odd. Place half of every count on each mirrored side and the odd character in the center.",
+      "complexity": "O(n+alphabet) time, O(n) output space",
+      "statement_sha256": "3fd427593d1412bfd510a4f152c30db158ba34929a54336f8edef89f155a27e9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1756",
+      "band": 1,
+      "solution_rationale": "Orient every edge from smaller label to larger label; labels strictly increase along any directed path, ruling out cycles.",
+      "complexity": "O(m) time, O(1) auxiliary space",
+      "statement_sha256": "37cb1b36c449fedc53cb9fc4da14c0bc3d99d22df17ecd0ec0669d6b22b76006",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-1757",
+      "band": 3,
+      "solution_rationale": "Construct the schedule backward by repeatedly placing the largest currently available sink last. This minimizes the position of course one, then course two, rather than merely taking the smallest available source.",
+      "complexity": "O((n+m) log n) time, O(n+m) space",
+      "statement_sha256": "6c360bf0d90f00c35668c96f73f53730cf6f9487320b5a8563ad8cd3175acc53",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2064",
+      "band": 2,
+      "solution_rationale": "Reject odd n; for n=2k compute the Catalan number C(2k,k)/(k+1) modulo the prime using factorials and inverses.",
+      "complexity": "O(n+log P) time, O(n) space",
+      "statement_sha256": "e7d0077c774a61b6ee4c4b21bc0304d918a5faa7482514b159977b5ee7ef8633",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2072",
+      "band": 4,
+      "solution_rationale": "An implicit treap split by subtree sizes isolates the cut interval; merge prefix, suffix and cut segment in that order.",
+      "complexity": "O((n+m) log n) expected time, O(n) space",
+      "statement_sha256": "f5e8406bd1323556286cb0e51ee3b9184b721c6042ad8da559e4cda5f38a8d3b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2073",
+      "band": 4,
+      "solution_rationale": "Use an implicit treap with subtree sizes and lazy reversal flags, splitting around each requested interval and toggling its orientation.",
+      "complexity": "O((n+m) log n) expected time, O(n) space",
+      "statement_sha256": "60d1d450a2c7e7678a34c5d3e55035d8f4a821f476dff9edad5823347eaa102b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2074",
+      "band": 4,
+      "solution_rationale": "An implicit treap combines subtree sums with lazy reversals. Isolate each interval by splits, toggle or read its sum, then merge back.",
+      "complexity": "O((n+m) log n) expected time, O(n) space",
+      "statement_sha256": "c2aae26684cbd85551a960a6ad00d11f708fc5fd66c8d611d55309ddf02fd808",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2075",
+      "band": 4,
+      "solution_rationale": "Maintain an implicit treap with subtree minima and lazy reversal. At position i find the minimum remaining element's rank, reverse [i,rank], and fix that prefix position; at most n reversals suffice.",
+      "complexity": "O(n log n) expected time, O(n) space",
+      "statement_sha256": "47cdbe59f3aca73b676946646f85a63a4b6a49684029c0a5f6f481c591166309",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2076",
+      "band": 3,
+      "solution_rationale": "DFS discovery times and low-link values identify bridges where low[child]>tin[parent].",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "5e809679657550b9b6de586eac9f1d1425704e04820943b6575910d7e343bbde",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2077",
+      "band": 3,
+      "solution_rationale": "Low-link DFS identifies nonroot articulation vertices with a child unable to reach above them; the root is articulation exactly when it has multiple DFS children.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "3acee106a3d163ef020c76ae4a246c794b37e0be996ca942beebca7eb212d850",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2078",
+      "band": 3,
+      "solution_rationale": "The even-degree edge subsets form the graph's binary cycle space of dimension m-n+components. Compute the component count and output two to that power.",
+      "complexity": "O(n+m+log m) time, O(n+m) space",
+      "statement_sha256": "c09c2c75fb7c86282f9c235cbe6841ac7758b127af8c6bfe643fcca15551731a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2079",
+      "band": 2,
+      "solution_rationale": "Compute subtree sizes and find a vertex whose largest child subtree and outside component both have size at most n/2.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "4475e80399fa585054571349584886a01f6973528f7ed52c0b1e26f6bd0395f1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2080",
+      "band": 4,
+      "solution_rationale": "Centroid-decompose the tree, gathering depth frequencies one child subtree at a time. For each depth d query already processed depth k-d, then add this subtree; recurse to count all paths once.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "3394e2e3c204e3e1269a392bb83699cf18229a9de90e86339f9d9cf520840f1f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2084",
+      "band": 4,
+      "solution_rationale": "DP for killing monster i is min_j(dp[j]+f[j]*s[i]), including the initial skill line. Nonincreasing slopes and nondecreasing query strengths permit a monotone convex hull deque with exact intersection comparisons.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "397a3aebd33d67b70e84d04817918f865b9601ff8b10a685f5641a0494061702",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2085",
+      "band": 4,
+      "solution_rationale": "The same kill-last-monster DP becomes dynamic minimum-line queries at arbitrary strengths. A Li Chao tree handles arbitrary inserted skill slopes and intercepts.",
+      "complexity": "O(n log V) time, O(n) space",
+      "statement_sha256": "fad6449db1f10cdb6ad5e164d14b7c9a0e96edbd18917187198bf483434017aa",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2086",
+      "band": 4,
+      "solution_rationale": "Expand squared prefix-sum differences to dpPrev[j]+S[j]^2-2*S[j]*S[i]+S[i]^2. Positive values give monotone slopes and queries, so a convex hull computes each partition layer linearly.",
+      "complexity": "O(kn) time, O(n) space",
+      "statement_sha256": "55c986bee5b03051ba365bbbafad27a963680463188de0cfd4cb03d422e0761c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2088",
+      "band": 4,
+      "solution_rationale": "Interval split DP adds the interval sum to both child costs. Nonnegative weights satisfy Knuth's quadrangle/monotone-opt conditions, restricting each split search between neighboring optimal splits.",
+      "complexity": "O(n^2) time and space",
+      "statement_sha256": "88bc4af56a8f2d5c22811258bcd2d8547aaa47813ec06017f6815d11748041b3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2101",
+      "band": 4,
+      "solution_rationale": "Build the chronological DSU spanning forest, labeling accepted edges by their day. The maximum edge day on a forest path, found by binary-lifting LCA aggregates, is the first connectivity time; separate components remain impossible.",
+      "complexity": "O((n+m+q) log n) time, O(n log n) space",
+      "statement_sha256": "2c196f0c8bf512cf16bbbf248ee07ed2a82da05290fbe884e14ee2de7ad68f7a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2102",
+      "band": 4,
+      "solution_rationale": "Build an Aho-Corasick automaton of all patterns, scan the text, and propagate visited states upward through failure links. A pattern exists iff its terminal state receives a visit.",
+      "complexity": "O(n+total pattern length) time and space for fixed alphabet",
+      "statement_sha256": "6b9bd641c91cc4a6d2c8d3793c8ccf94f50bcac90aa5d4b6bc56213d461b1870",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2103",
+      "band": 4,
+      "solution_rationale": "Aho-Corasick counts automaton-state visits while scanning the text; reverse BFS accumulation along failure links gives the occurrence count of every terminal pattern, including overlaps.",
+      "complexity": "O(n+total pattern length) time and space for fixed alphabet",
+      "statement_sha256": "9ea6c80a4baa9a627f7a5926612ae00a81c682954f5a09660bc4f5d7bee968b2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2104",
+      "band": 4,
+      "solution_rationale": "Aho-Corasick records minimum ending position for visited states and propagates minima through failure links in reverse BFS order. Subtract each pattern length to recover its first start.",
+      "complexity": "O(n+total pattern length) time and space for fixed alphabet",
+      "statement_sha256": "d0b68bf525cb378fb058656bcf7e53fe2afe8933ed766ba7eef345e0bc9a1a08",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2105",
+      "band": 4,
+      "solution_rationale": "Build a suffix array and LCP array. Each suffix contributes its length minus its LCP with the previous suffix to the distinct-substring count.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "97590ae8fdf2a421d2cfe4b060d4c3e5bfbdc152f883190a3e96386dd825c489",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2106",
+      "band": 4,
+      "solution_rationale": "Construct suffix array and adjacent LCP values; the maximum LCP is the longest substring shared by two suffixes, and its suffix index gives an occurrence.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "30bd06227692f6d75f8f02733cdab00167f3fb16e35d29b52bdac30f7d7f3a11",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2107",
+      "band": 3,
+      "solution_rationale": "Implement both linear Z-window reuse and KMP failure-link prefix-function recurrences, returning the specified zero first entries.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "41bcde622c662c9f726deed47a10933bb4c23daac10a185b90f23a3bbc87d421",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2108",
+      "band": 4,
+      "solution_rationale": "In suffix-array order, suffix i contributes prefixes longer than LCP with its predecessor. Subtract each block's size from k and take the corresponding prefix in the first containing block.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "82463d302dff18d018ba58d17fe8acb0164bc636e43119274dcdd26333d31dc9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2110",
+      "band": 4,
+      "solution_rationale": "Suffix array and LCP identify each suffix's new substring lengths as [LCP+1,suffix length]. Range-add one to these intervals in a difference array and prefix-sum.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "f8b14bf277cc924555ca8a4fd4e1ca5ee067020471d7f788d9d9bf07eef3b9fa",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2111",
+      "band": 4,
+      "solution_rationale": "Convolve apple and banana frequency arrays with FFT or enough NTT moduli plus CRT. Coefficients count pairs and may exceed one standard NTT modulus, requiring exact-width recovery.",
+      "complexity": "O(k log k+n+m) time, O(k) space",
+      "statement_sha256": "e3cacaa2147091032bdbe90190b3eee0527cb38bfb6da4a29b0efafb693dc6b5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2112",
+      "band": 4,
+      "solution_rationale": "Convolve the bit array with its reverse; coefficients at the corresponding offsets count one-bit pairs at each distance.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "984412931a2f86b8f06fc3e048539eeb32be61714a768ea847723fc3491a5614",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2113",
+      "band": 4,
+      "solution_rationale": "Reverse the mask and convolve it with the signal using FFT or suitable exact NTT reconstruction; output coefficients in sliding order, including partial overlaps.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space",
+      "statement_sha256": "fcf8baf5c7ec98268e50b47e7ff93d33bc775f200df072a028f8f11cbced9843",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2115",
+      "band": 4,
+      "solution_rationale": "Count frequencies of prefix one-counts and autocorrelate them by convolution with a reversed copy. Positive offsets count k-one substrings; k=0 is separately sum C(freq,2), avoiding self-pair overcounting.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "01d1440e45b486db411f30961ba3233bb5f242d1766b58c299796df417451253",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2121",
+      "band": 4,
+      "solution_rationale": "Successive shortest augmenting paths with reduced-cost potentials send exactly k units through the capacity/cost network; reverse residual edges permit rerouting and unreachable demand returns -1.",
+      "complexity": "O(km log n) time after initial potentials, O(n+m) space",
+      "statement_sha256": "e0b75440a90a8b30d11feb3a8a85fb2038ffb360c8cc6463d06c15bba2612d08",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2129",
+      "band": 4,
+      "solution_rationale": "Use the Hungarian assignment algorithm with row/column dual potentials and augmenting alternating paths; recover one matched task per employee.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "36407c649f695f0d967a9109cd0758bb4b40a353f4cd9dba97a76afa4f264b66",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2130",
+      "band": 4,
+      "solution_rationale": "Unit-capacity, unit-cost min-cost flow finds k edge-disjoint routes minimizing total length. Decompose positive flow into routes and report failure if k units cannot be sent.",
+      "complexity": "O(km log n) time plus extraction, O(n+m) space",
+      "statement_sha256": "141d713d7971c06b66e72e366c1e55749f902ad8a54772ae6ddc65a56a970667",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2131",
+      "band": 4,
+      "solution_rationale": "Build a row-column flow network with prescribed row and column capacities, unit cell edges and costs equal to negative coin values (or a nonnegative offset). Send the full quota and read selected cells from flow.",
+      "complexity": "O(n^4 log n) time upper bound, O(n^2) space",
+      "statement_sha256": "23bf3cdfe6ad4abe940f8b765c5645d8a8f9d4f3748e1fc382cd526f1d33abce",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2132",
+      "band": 4,
+      "solution_rationale": "L1 isotonic regression has a slope-trick max-heap implementation: insert each value; when the largest breakpoint exceeds it, pay that excess and replace the offending breakpoint with the new value.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "7dd1879b197a912dc562b99ba4b741726ebb5293227016738b94525a3b71881b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2136",
+      "band": 3,
+      "solution_rationale": "Pack each <=30-bit string into an integer and test all pairs with xor and hardware popcount. The roughly 2*10^8 comparisons require tight compiled loops and popcount support; early zero exits help.",
+      "complexity": "O(n^2) machine-word operations, O(n) space",
+      "statement_sha256": "3273c5944284eedff1e1e1b00d78c58a17e8217c115fcac7ff0deade0e10377c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2137",
+      "band": 3,
+      "solution_rationale": "Pack each row into bitsets. For every pair of rows popcount their intersection to get c shared black columns and add c(c-1)/2.",
+      "complexity": "O(n^3/w) word operations, O(n^2/w) words",
+      "statement_sha256": "d9a45582287c5a2cf7ae4b2545b6572f993ed9f641080b38c139774b7cae67ce",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2143",
+      "band": 4,
+      "solution_rationale": "Condense SCCs, compute component reachability bitsets in reverse topological order of the DAG, and answer each query by its destination bit.",
+      "complexity": "O(n+m+(C+M)C/w+q) word-operation time, O(C^2/w+n+m) space",
+      "statement_sha256": "5ea4204ca1ea2f620314e172df8042a708d852625a72c1992679233bfa7b4e27",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2162",
+      "band": 2,
+      "solution_rationale": "Use a queue: move one child to the back and remove the next repeatedly, implementing the alternating elimination directly.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "28a79494f27cf70efba5255048ec7df35b802bc1b666e05ec3890c8ca941f94b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2163",
+      "band": 3,
+      "solution_rationale": "Maintain alive positions in an order-statistic Fenwick tree. Update the removal rank modulo current population by k, find its kth live index, and delete it.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "e03cbaef51c813015b5eb913825445d383bdb2987a495368a87d96ea20e23f94",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2164",
+      "band": 3,
+      "solution_rationale": "The first ceil(n/2) eliminations are every second label with wraparound. Otherwise recurse on the surviving half and map its returned index back, treating odd n's rotation carefully.",
+      "complexity": "O(q log n) time, O(log n) stack space",
+      "statement_sha256": "28533698e4db239af87921430fcbf41c3f71bd88e2911fea4d294833df60285b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2165",
+      "band": 2,
+      "solution_rationale": "Recursively move n-1 disks to the spare peg, move the largest disk, then move the smaller stack to the target. This attains the lower bound of 2^n-1 moves.",
+      "complexity": "O(2^n) time, O(n) stack space",
+      "statement_sha256": "f9578492925850bb66c089631558572a5ff1e9735cb403863083d37fdd55a512",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2166",
+      "band": 3,
+      "solution_rationale": "Segment-tree nodes store total sum and maximum prefix sum. Merge as max(left.prefix,left.sum+right.prefix), preserving query order and allowing the empty prefix.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "86a770f9dc57d58899e1a5a40ace2fe0d47b8ab219f62a91630017d68eb9430f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2168",
+      "band": 2,
+      "solution_rationale": "Sort left endpoints ascending and right endpoints descending. A forward running maximum detects containing earlier ranges and a backward running minimum detects contained later ranges.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "e359d107a69573a8e25c80bca65f8723cc0d2bcf332975e8652d3262ef71a0f2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2174",
+      "band": 5,
+      "solution_rationale": "Unit-by-unit subtraction cannot handle 10^18. A feasible approach needs a proven optimal digit choice and precomputed transitions across decimal blocks carrying the maximum fixed-prefix digit and suffix/borrow state. Specialist uncertainty: I have not established the complete recurrence and its bound.",
+      "complexity": "Poly(log n) digit-block DP intended; exact bound not established",
+      "statement_sha256": "108d198fc021fd40de5131be9f66b9964a3810546c414de5e3618dea03d399cb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2176",
+      "band": 4,
+      "solution_rationale": "Separate board colors, order same-color diagonals by length and DP placements: with j-1 earlier bishops the next diagonal has length-(j-1) available opposite diagonals. Convolve the two color counts and reject k beyond the maximum.",
+      "complexity": "O(n min(k,2n)) time, O(n min(k,2n)) space or rolling rows",
+      "statement_sha256": "be0006eb8b5c4a13f96b8bd59ddea6350199bcf234368357175950035bd080fa",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2177",
+      "band": 4,
+      "solution_rationale": "A strong orientation exists iff the undirected graph is connected and bridgeless. DFS orients tree edges downward and back edges upward; low-link bridge detection certifies impossibility.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "aee5d10f63d401e09b9091e2c75aff0b6e0bde7b302961aff17a06892295784d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2179",
+      "band": 3,
+      "solution_rationale": "Orient non-tree edges during DFS, then choose each child-parent edge direction in postorder to make the child's outdegree even. The final root parity fails exactly for a component with an odd edge count.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "caf6a39ad757f611fbe08144e1769c7d272f259f28b13555e133c48cf3144052",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2180",
+      "band": 4,
+      "solution_rationale": "Sweep columns carrying each row's surplus after reserving one coin per cell. Cancel opposite-sign row surpluses vertically at unit cost, then pay absolute remaining surpluses for moving them one column right. Cancelling before transport avoids two unnecessary horizontal moves.",
+      "complexity": "O(n) time, O(1) working space",
+      "statement_sha256": "28712dad51dbdaff0c19ab7f0c92ae480d75582492e91afb88cb68dc2b1b4add",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2182",
+      "band": 3,
+      "solution_rationale": "Multiply prime-factor contributions for divisor counts and geometric-series sums. Update divisor product iteratively as oldProduct^(k+1)*p^(k(k+1)/2*oldCount), tracking exponent counts modulo P-1 and dividing the triangular product before reduction.",
+      "complexity": "O(n log K) time, O(1) space",
+      "statement_sha256": "21cc228c07d9c8e5e9e2f4ff757347c0882f9fc0973cda36b0eaa8a0aac35f80",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2185",
+      "band": 3,
+      "solution_rationale": "Inclusion-exclude nonempty prime subsets, adding or subtracting floor(n/product). Check product>n/nextPrime before multiplication to avoid overflow and skip zero contributions.",
+      "complexity": "O(k 2^k) time, O(k) stack space",
+      "statement_sha256": "034f2e24ba93f9f1fcfcb2585fd00517d4faab8817f677a83662da37bb31dfcf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2186",
+      "band": 3,
+      "solution_rationale": "For each prefix store all occurring characters' counts relative to one reference character. Two equal difference vectors bound a substring where every globally present character has equal frequency; count equal-vector pairs.",
+      "complexity": "O(26n log n) deterministic time, O(26n) space",
+      "statement_sha256": "7b962bc7a7b0b597aa73c98a175f4ca8a47583658d195a06231987cbcebcfa14",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2187",
+      "band": 3,
+      "solution_rationale": "Reject an invalid prefix, odd total length or excess opens. Use the reflection principle: all completions with the required opens minus completions crossing balance below zero, evaluated as a difference of binomial coefficients.",
+      "complexity": "O(n+log P) time, O(n) space",
+      "statement_sha256": "3b9ac0c4314fa422f1be972da024bb926570b4f94d45eb41a90097739e2ce2f3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2190",
+      "band": 3,
+      "solution_rationale": "Use exact orientation signs for proper crossings and on-segment bounding-box checks for collinear contact or overlap. Avoid multiplying orientation values and use sufficiently wide intermediates.",
+      "complexity": "O(t) time, O(1) space",
+      "statement_sha256": "788826c9b5cce77c9be39048b78d4045cc5c125b87752ff8836aed78a07324c0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2191",
+      "band": 2,
+      "solution_rationale": "The absolute cyclic shoelace cross-product sum is twice the polygon area; accumulate in wide integer arithmetic.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "statement_sha256": "edec26e508181b96267492be03c6254999c7043f744ac277965b85251fd33f06",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2192",
+      "band": 3,
+      "solution_rationale": "First test exact boundary membership on every edge. Otherwise use winding number or half-open ray crossings to avoid double-counting vertices, with integer orientation predicates.",
+      "complexity": "O(nm) time, O(n) space",
+      "statement_sha256": "855daecd9d386e9c3360d31b72a6ad948468bc2c5ef61205d0a70462cd081c69",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2193",
+      "band": 3,
+      "solution_rationale": "Sum gcd(abs(dx),abs(dy)) over edges for boundary lattice points, compute twice area by shoelace, and apply Pick's theorem for the interior count.",
+      "complexity": "O(n log V) time, O(1) auxiliary space",
+      "statement_sha256": "ed16dc7402c66cf85771b1f85313d0b3e65f193b5a2a236482b23bbdb806845d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2194",
+      "band": 4,
+      "solution_rationale": "Closest-pair divide and conquer maintains y-sorted halves and checks only a constant number of neighboring strip points after merging. Use exact squared distances and wide arithmetic.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "d0464e3da20d3640cc5ca718ad8e007e89ba7f304fd4710421b3614f8980979e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2195",
+      "band": 3,
+      "solution_rationale": "Andrew's monotone chain sorts points and removes turns of the wrong orientation. Preserve collinear boundary points because the statement requests all hull points, then deduplicate endpoints.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "0b10c0dff2cb51a1e873fa17d75f09b8046736617bf895f6be6ed691d6ac092c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2205",
+      "band": 2,
+      "solution_rationale": "For i from zero to 2^n-1 print i xor (i>>1) padded to n bits; neighboring values differ in one bit.",
+      "complexity": "O(n 2^n) output time, O(1) auxiliary space",
+      "statement_sha256": "7a8c40b1d1cd451157a0f997da22bac38138a9947eb977c4b7ca1c81c9cc364d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2206",
+      "band": 3,
+      "solution_rationale": "Maintain range minima of p_i-i and p_i+i. At k query the left prefix plus k and right suffix minus k, updating both trees after price changes.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "b7d351227ad5e5ca3a2ed479d2067c78655696bf57cf7c4b143b2d1dbaaf6a64",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2207",
+      "band": 5,
+      "solution_rationale": "Compute Grundy values of small heaps by mex of g[a] xor g[n-a] for unequal splits. Extending to n=10^6 requires a certified finite losing-position classification or other accelerated method; I cannot justify a small empirical cutoff from the statement alone. Specialist uncertainty is material.",
+      "complexity": "O(B^2+t) with a justified cutoff B; cutoff proof not established",
+      "statement_sha256": "487b90307a324721f05dd391d73ba1fa814274719c570e98cc8c020f58611e48",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2208",
+      "band": 2,
+      "solution_rationale": "Exactly the all-even configurations are losing: remove one from every odd heap to reach them, while any move from an all-even configuration creates an odd heap.",
+      "complexity": "O(total n) time, O(1) space",
+      "statement_sha256": "a7c4fb5e5258a49c8933df28eae0cfb6df4904caf279788319cb40d2cfd9e9f6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2209",
+      "band": 4,
+      "solution_rationale": "Burnside's lemma averages m^gcd(n,r) over rotations r. Modular exponentiation and division by n give the number of rotation orbits; divisor/totient grouping can reduce work.",
+      "complexity": "O(n log n) time, O(1) auxiliary space",
+      "statement_sha256": "6343adaf78a1a2d2b7bb445dcd8b55c5b51ced690f32095e84eba9122003974f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2210",
+      "band": 4,
+      "solution_rationale": "Apply Burnside over four rotations. Identity fixes 2^(n^2) grids, half-turn fixes 2^ceil(n^2/2), and quarter-turns each fix 2^ceil(n^2/4); average modulo the prime.",
+      "complexity": "O(log n) time, O(1) space",
+      "statement_sha256": "188216f088da612dd866e6610085fd67f75414f59ecf9f9108fbe870246d6b19",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2214",
+      "band": 3,
+      "solution_rationale": "Emit the largest remaining number while k covers its full inversion contribution. When k is smaller than the remaining size, emit the element k positions above the smallest, then all others ascending, producing exactly k residual inversions.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "statement_sha256": "7e4e1696de2cddb8851f4e39eb20f1da558bccfa1148eb839b7a237cb66f422a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2215",
+      "band": 3,
+      "solution_rationale": "Feasibility is n<=k^2 by the increasing/decreasing subsequence product bound. Split ascending values into descending blocks of size at most k, with one full block of k and at most k blocks, making the largest monotone length exactly k.",
+      "complexity": "O(n) time, O(n) space per test",
+      "statement_sha256": "d215d34c08c4821fc2a78ef3593519d47fdccf60f223dae70b4ecdb8b0130160",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2216",
+      "band": 2,
+      "solution_rationale": "Invert the permutation to positions. A new round is needed exactly when position[v+1]<position[v]; answer one plus these breaks.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "3812c33258a75858c55baeda9d85cb25950e6ffa5026000a2122403e215cdc76",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2228",
+      "band": 3,
+      "solution_rationale": "Inclusion-exclude absent symbols: sum (-1)^i*C(k,i)*(k-i)^n. Precomputed factorials provide binomial coefficients.",
+      "complexity": "O(k log n) time, O(k) space",
+      "statement_sha256": "f93a7fd0dd59a36dd9349cd5cca5eba870c93128750e746073ff624135ca67ed",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2229",
+      "band": 3,
+      "solution_rationale": "Inserting the largest element adds 0 through n-1 inversions. Prefix-sum or sliding-window optimization evaluates this DP transition in constant time per state.",
+      "complexity": "O(nk) time, O(k) space",
+      "statement_sha256": "0ed56e42663557d4ef61ae7ec4da172fc38b2dd116c666b78c9f646fd762a6a5",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2402",
+      "band": 5,
+      "solution_rationale": "Two positions i<j with a_i<a_j and a later value smaller than a_i cannot share a stack. A solution two-colors this conflict graph, but explicitly building all edges can be quadratic; compressed range constraints or specialized stack/DSU processing are needed. Specialist uncertainty: I have not established that efficient implementation.",
+      "complexity": "Near-linear or O(n log n) intended; implicit conflict processing not fully established",
+      "statement_sha256": "1acccfb76fc9f336729eed039cc321205d4505e34fd9c4a318b7d284d1a0b4d6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2414",
+      "band": 4,
+      "solution_rationale": "The smallest sums are a1+a2 and a1+a3. Try one of the first O(n) sums as a2+a3, infer a1, then repeatedly recover the next value from the smallest unused sum and remove its sums with known values, respecting multiplicities.",
+      "complexity": "O(n^3 log n) time, O(n^2) space",
+      "statement_sha256": "ac2ad55d0e73f4d396b83fd48dc3df12a729684b3524b076b7500ee442022c21",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2415",
+      "band": 4,
+      "solution_rationale": "Choose r cyclic vertices, permute them with k cycles using unsigned Stirling numbers, and attach remaining vertices as a rooted forest in r*n^(n-r-1) ways (one when r=n). Accumulate over r while computing Stirling rows and binomial weights.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "346c2e5acebcac94d5c14f1156f014d98d8bfcd4b9acd6ec8732d81287bfd8f1",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2416",
+      "band": 4,
+      "solution_rationale": "Next-greater links partition a queried suffix into prefix-maximum plateaus. Binary lifting stores the cost of complete plateaus; jump through those within b and add the final partial plateau using original prefix sums.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "5840cb2f8b609c1c19d76ddf9ef1db8831dfcba643ae2afb499f6c964633e867",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2417",
+      "band": 3,
+      "solution_rationale": "Count input multiples for every divisor. Either Mobius-weight their pair counts or subtract exact-gcd counts downward; the exact gcd-one count is the answer.",
+      "complexity": "O(V log V+n) time, O(V) space",
+      "statement_sha256": "ff550000692a286e4e1774985c35d65edd0cafb129e71bd9b379d0ede9627867",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2419",
+      "band": 3,
+      "solution_rationale": "The top is a xor-linear combination with coefficients C(n-1,i) modulo two. Lucas's bit criterion says include a_i exactly when i is a submask of n-1.",
+      "complexity": "O(n) time, O(1) auxiliary space",
+      "statement_sha256": "ab99bbd2926fb90e13d0ae61450515904530c75f082290369e6c9af6c05c2c08",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2420",
+      "band": 3,
+      "solution_rationale": "Maintain forward and reverse polynomial hashes in segment trees or Fenwick trees, updating changed characters and normalizing queried powers. Compare independent hashes to control collision risk; this is probabilistic equality checking.",
+      "complexity": "O(n+m log n) time, O(n) space",
+      "statement_sha256": "062ff9b1e60577a14a1cd0b2eafabaa789c7754abc5ae7f21b19aa8fc3412a69",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2421",
+      "band": 4,
+      "solution_rationale": "Inclusion-exclude bonds between consecutive copies of each letter. For frequency f, choosing j remaining blocks contributes (-1)^(f-j)*C(f-1,j-1)/j!; convolve these polynomials over letters, then multiply the total-block coefficient by its factorial and sum.",
+      "complexity": "O(n^2) time, O(n) space",
+      "statement_sha256": "3c2a4b5b2f77425c181ec9a6fa294ff18bf846e7cf78f1b4536f5b2e7ab5d2de",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2422",
+      "band": 2,
+      "solution_rationale": "Binary-search the median value; count table entries <=v with sum_i min(n,floor(v/i)) and compare with (n^2+1)/2.",
+      "complexity": "O(n log(n^2)) time, O(1) space",
+      "statement_sha256": "6ada15b7c080562e8b13a0fa0c965cb4fc0a3c8fc98b776f5bead0607687c684",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2425",
+      "band": 3,
+      "solution_rationale": "Unknown increasing positive weights decompose into positive increments. A stack is certainly heavier iff every suffix difference of coin counts is nonnegative and at least one positive (or the reverse). Inserting coin c adds plus/minus one to suffix indices <=c; lazy min/max detects certainty.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "17f8e64657cb347e90a7746c65f163ae2e36200f92e4b62f89f08dc0a4667e27",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2426",
+      "band": 3,
+      "solution_rationale": "Sort applicants by programming minus artistic skill. An exchange argument places all selected programmers before selected artists; compute best a programming scores in every prefix and best b artistic scores in every suffix with bounded heaps, then maximize over splits.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "5fc2cf61aa7d8d8277115f1cffc1ae8f87c0fd028190ed021602cce4a79747bc",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2427",
+      "band": 5,
+      "solution_rationale": "Use the adjacent empty pair as a movable buffer to place ordered letter pairs and reduce to a small residual puzzle solvable by BFS, respecting the 10n/1000 move bound. Specialist uncertainty: the safe reduction gadgets and unsolvable small cases are not established here.",
+      "complexity": "Polynomial constructive reduction intended, O(n) moves; complete construction uncertain",
+      "statement_sha256": "e8208076addb07883a10563db81042f3f7b062e647ae6bbecac46b5fff05f7fb",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2428",
+      "band": 2,
+      "solution_rationale": "Maintain a sliding window with at most k distinct values. Shrink until valid, then add the window length as the number of valid subarrays ending at the current position.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "43484720b91a5655e49802738ecee3197d974d5b7e4b784935060f10b63d2047",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2430",
+      "band": 4,
+      "solution_rationale": "Let A and B be one plus distinct subsequences ending in each bit, initially (1,1). Appending a bit replaces one coordinate by A+B. For every positive split A+B=n+2 with gcd one, reverse via Euclidean subtraction and choose the split with minimum subtraction count, then reverse the recorded bits.",
+      "complexity": "O(n log n+L) time, O(L) output space",
+      "statement_sha256": "13db1510edc1d05345981e0a541bbac95665ef302afd208e738bed4db30689f6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2431",
+      "band": 2,
+      "solution_rationale": "Subtract complete blocks of d-digit numbers, locate the containing integer and offset inside it, then extract that digit with careful 1-based indexing.",
+      "complexity": "O(q log k) time, O(log k) space",
+      "statement_sha256": "89d83dd78e6ebb01847dbcdc89dbdbb6a5ccb6db69df911e25315de0fb4fd184",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-2432",
+      "band": 3,
+      "solution_rationale": "Construct bipartite flow from rows to columns with unit cell capacities and demanded row/column capacities. Equal total demand and a saturating flow yield the marked cells; otherwise impossible.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "5f205b5261a10eb524ddfa5870bec0e5e5ce1dd9dfafa4ca61bd1b4f51aa9f06",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3108",
+      "band": 4,
+      "solution_rationale": "Start with the sum of negative values, transform choices to toggling nonnegative absolute values, and sort them. A heap enumerates subset sums using the canonical children add-next and replace-last-with-next, preserving multiplicity without duplicates of index subsets.",
+      "complexity": "O(n log n+k log k) time, O(n+k) space",
+      "statement_sha256": "c702d8cd5bdba9afc1e48ad84eb8be422497dca8374582498fad25d3058e627d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3109",
+      "band": 5,
+      "solution_rationale": "After sorting, the first sum is the m smallest values. Best-first generation must enumerate increasing m-index combinations using nonnegative replacement costs without O(m) work or duplicate generation per result. A persistent heap or canonical partition-state enumeration is needed; Specialist uncertainty: I have not established its full transitions and bound.",
+      "complexity": "O((n+k) log(n+k)) intended enumeration; successor representation uncertain",
+      "statement_sha256": "4a91d742a79dc419b297309eb18d75e9f5094b18ea64e81ed9fed851259a8200",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3111",
+      "band": 3,
+      "solution_rationale": "Process tree edges in decreasing speed with DSU. Joining components of sizes A and B contributes speed*A*B because that edge is the bottleneck for all newly connected pairs.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "24ee7c3e3001b80f1dd3b579f46b8cc1023d68ac8f08bd4639c4a9fff3733f7f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3114",
+      "band": 4,
+      "solution_rationale": "Multi-source BFS gives distance to the nearest coin at every vertex. The answer is dist(a,b)+2*minimum nearest-coin distance on path(a,b), queried with binary-lifting path minima and LCA.",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "db43326805f6512efee717e51483c07eec3ee395d5f944851c6d722a02e927b7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3139",
+      "band": 2,
+      "solution_rationale": "Merge-sort the indices using interactive comparisons, which needs fewer than 10^4 comparisons for n<=1000. Assign sorted ranks back to indices and flush each query.",
+      "complexity": "O(n log n) queries and time, O(n) space",
+      "statement_sha256": "9d812daf4c8173c33c4c99a310f3cc085277288120a8eb81a9f4fb2d0dff1c0c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3149",
+      "band": 4,
+      "solution_rationale": "Prune coinless leaves to form the fixed coin Steiner subtree. For each query compute the edge count of its union with a and b via nearest core projections and LCA distances; the shortest covering walk costs twice that edge count minus dist(a,b).",
+      "complexity": "O((n+q) log n) time, O(n log n) space",
+      "statement_sha256": "da5d7ad0df0659ab20c7033d3de73f7203b86d2222f08ce9543ef80f5076819b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3150",
+      "band": 3,
+      "solution_rationale": "Charge each distinct value in a subarray to its first occurrence. Position i contributes (i-previousOccurrence)*(n-i+1), which sums all distinct counts without enumerating subarrays.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "83b968eed189b7ebdbec49209ea859f33e18b7d960b1c7233f1a45b9bb67b196",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3151",
+      "band": 3,
+      "solution_rationale": "Stable-sort value/index pairs. A value moves left at most one position per bubble round, and the maximum original-index minus sorted-index displacement equals the number of required rounds (zero if already sorted).",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "945f45d0560448e39b4973649082f4927c06e8aac4892782eb42a647389394dd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3152",
+      "band": 3,
+      "solution_rationale": "After k left-to-right bubble passes, output is generated by a min-heap initially containing the first k+1 elements: repeatedly pop the minimum and insert the next input, then drain. Each element can migrate left by at most k while large elements propagate right.",
+      "complexity": "O(n log(min(k,n)+1)) time, O(n) space",
+      "statement_sha256": "b668cfd5713674d931fc7da4bc5379b1a60730475aa090865a52b45ef07dd047",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3158",
+      "band": 3,
+      "solution_rationale": "Introduce a node per bus company with city-to-company edges costing its ticket and company-to-city zero-cost edges. Dijkstra on this sparse bipartite graph avoids quadratic company cliques.",
+      "complexity": "O((n+m+sum k) log(n+m)) time, O(n+m+sum k) space",
+      "statement_sha256": "5c313791a916a5844f7de8760a7869db2949f7dda450c58af67b7282a7641177",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3159",
+      "band": 4,
+      "solution_rationale": "Zero requires an equal-sum partition, found by bitset subset-sum with predecessor recovery for newly reachable sums. Maintain the two equal-sum groups, subtract one value from each and return the residual to the larger side until zero remains, producing legal operations.",
+      "complexity": "O(nS/w+S) word-operation time, O(S+n) space",
+      "statement_sha256": "8b262e200f5c536391b103f4088d786322933a32dab155cef22df1ace8f5f3a9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3161",
+      "band": 3,
+      "solution_rationale": "For each divisor count input multiples, giving 2^count-1 subsets whose gcd is divisible by it. Subtract answers of proper multiples in descending order to isolate each exact gcd.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "7c71ba4aae9cb81a4605202b695a53366f34377884659bf3aa5d2a06e27212b0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3163",
+      "band": 3,
+      "solution_rationale": "Turn each query into two value-threshold events, sort elements and events by value, and maintain a Fenwick tree on indices to count the requested index interval.",
+      "complexity": "O((n+q) log(n+q)) time, O(n+q) space",
+      "statement_sha256": "e8333687ac7bd4f2e341dc54ff1dcd652d33c7a21b738a813b404acc838b751b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3169",
+      "band": 4,
+      "solution_rationale": "Factor k. For each prime power p^e, adjacent exponents must have at least one equal to e. A two-state recurrence for full exponent versus one of e smaller exponents is powered by a 2x2 matrix; multiply independent prime contributions.",
+      "complexity": "O(t sqrt(k)+sum distinct prime factors * log n) time, O(sqrt(max k)) sieve space",
+      "statement_sha256": "eb5a3ef234cf4fb95f32816c905f89c1503ce7f36430048e4c3ade8f803690d0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3175",
+      "band": 4,
+      "solution_rationale": "Greedily choose the smallest unused value not consecutive to the previous one until at most six remain, then brute-force that tail in lexicographic order. On at least six unused vertices the forbidden-adjacency graph has minimum allowed degree at least N-3>=N/2, so Dirac's Hamilton-cycle theorem guarantees an extension starting at any chosen value. Handle tiny impossible inputs through the tail search.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "1f60afb071f27359039f255c5f5e6a473440ce29bc1dc1aba77734687d6e2cfd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3190",
+      "band": 3,
+      "solution_rationale": "Track the earliest valid start of a distinct final segment using last occurrences. DP for prefix i is the sum of earlier prefix counts over allowed cuts, answered by modular prefix sums.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "d8d11a5c58395255e11b33d202416d67db1fb6743b1e9d7cdb4d6d36618805a7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3193",
+      "band": 4,
+      "solution_rationale": "Factor each value and encode odd prime exponents in a bit vector over primes <=5000. Gaussian elimination over GF(2) gives rank r; the kernel has 2^(n-r) subsets with square product, including empty.",
+      "complexity": "O(n P^2/w) word-operation upper bound, O(P^2/w+V) space",
+      "statement_sha256": "44176045dc8b96f7a1bebc56a6e4ec90c230fe95eabbd51a2ac5bc879cff8897",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3194",
+      "band": 4,
+      "solution_rationale": "The diagonal entry for row r xors a_i for i submasks of r by binomial parity. Pad to a power of two and perform the subset zeta transform using xor instead of addition.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "14bb4bbc16786b1f67c11f6fd1e8fa77d6320ee34d4eeed788401483cf6e8c37",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3195",
+      "band": 3,
+      "solution_rationale": "Applying 2^b pyramid reductions replaces each value by its xor with the value 2^b positions later. Apply these jump reductions for set bits of n-k and output the surviving k values.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "a3f4cf567511f6c521caf5cc30b8f0e9581be75b9a73b484ce4e501f8730174d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3211",
+      "band": 4,
+      "solution_rationale": "Gaussian elimination on integer xor vectors gives binary linear-basis rank r. The distinct subset xors form its span of size 2^r.",
+      "complexity": "O(nB) time, O(B) space",
+      "statement_sha256": "3631156040ceeebbdbd8ad77335ca4389a160b80ad22eddacbf06ed3122e0dbe",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3213",
+      "band": 3,
+      "solution_rationale": "Run Dijkstra on container-content pairs with six legal operations weighted by actual transferred water. Record parents and stop at the cheapest state with A=x; reachable states have at least one container empty or full.",
+      "complexity": "O(ab log(ab)) time, O(ab) space; only boundary states are reachable",
+      "statement_sha256": "15e83a5838a97901a58640620b5991bf33d694bd29d89629af32b183bf15622a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3214",
+      "band": 2,
+      "solution_rationale": "The jug reachability criterion is x<=a and gcd(a,b) divides x, from invariant divisibility and the Euclidean pouring construction.",
+      "complexity": "O(n log(min(a,b))) time, O(1) space",
+      "statement_sha256": "85611027aeb3631612a3caf80ed1f3c937e5ac26e456dcfa6b3b530884ab554b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3215",
+      "band": 3,
+      "solution_rationale": "Fold k modulo 2(n-1) and 2(m-1) for coordinates. Count positive multiples of each side length through k and subtract common multiples of their lcm so corner bounces count once.",
+      "complexity": "O(t log(min(n,m))) time, O(1) space",
+      "statement_sha256": "3c3c8d596f2ec5f07fd3e378d49ca0eb5d266b65b00f51d869af84b6723b871c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3216",
+      "band": 4,
+      "solution_rationale": "Let A=n-1,B=m-1,g=gcd(A,B),L=lcm(A,B). The return period is 2L; the second half retraces the first. Interior self-crossings in the first half number ((A/g-1)*(B/g-1))/2, so distinct cells equal L+1 minus this count.",
+      "complexity": "O(t log(min(n,m))) time, O(1) space",
+      "statement_sha256": "38ab696dd30078d617c719b6030e84f9e361f1966881d55c1c13050ea1b3b3f9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3217",
+      "band": 2,
+      "solution_rationale": "BFS the board from the top-left corner using the eight knight displacements and output all distances.",
+      "complexity": "O(n^2) time and space",
+      "statement_sha256": "713966bb6ce6e8d9da1414cf2fa5cde22c2da7335ea31a4ea189e7089a6bc65d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3218",
+      "band": 4,
+      "solution_rationale": "Translate to nonnegative displacements and order dx>=dy. Take max(ceil(dx/2),ceil((dx+dy)/3)) and raise it to match parity dx+dy. Exceptions are (1,0)->3, (1,1)->4 and (2,2)->4; (1,1) specifically reflects the nonnegative-quadrant boundary. A constructive attainability proof of the large-displacement bounds is the main prerequisite.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "f06abdb2b4503e738c04914cf02d9751903b47692d5a08540fc6822cfef9dbed",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3219",
+      "band": 2,
+      "solution_rationale": "Only values 0..k can be the mex. Maintain their window frequencies and an ordered set of absent values, reporting its minimum after each slide.",
+      "complexity": "O(n log k) time, O(k) space",
+      "statement_sha256": "52d5812ae971c8ce58faf5e707035166e8b0456e2d513f6b8ec61f6f26721b26",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3221",
+      "band": 2,
+      "solution_rationale": "Generate values and maintain an increasing deque of candidate minima, removing expired indices and dominated values. Xor each full-window minimum.",
+      "complexity": "O(n) time, O(k) space",
+      "statement_sha256": "fef4b549942de7cba445bc9d6b416b54d6e374bd871bc59fbc656c644c33b88c",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3222",
+      "band": 2,
+      "solution_rationale": "Maintain a frequency map and distinct count, updating zero-to-one and one-to-zero transitions as values enter and leave the fixed window.",
+      "complexity": "O(n) expected time, O(k) space",
+      "statement_sha256": "62c86378b4938e6589ccdbe0fb4baec70b7c3673eda51b2b401a37b0bff94a86",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3223",
+      "band": 3,
+      "solution_rationale": "Compress values and use Fenwick frequencies. Removing the leftmost subtracts its smaller followers; adding the new rightmost adds larger prior values, with strict inequalities for duplicates.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "e93f56a798bbac3ffcc3fc716e6a1ffcf9b0abf0ee92c1f0d5f44ed9f1423b8f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3225",
+      "band": 3,
+      "solution_rationale": "Invert the suffix-array permutation and give the first suffix letter a. In suffix order, increase the letter exactly when the rank of the following suffix decreases; use the empty suffix as minimum and reject more than 26 letters.",
+      "complexity": "O(n) time and space",
+      "statement_sha256": "c627517fea45ac4da04335a0837764161098b47f969e5df4913294dcbe726b32",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3226",
+      "band": 3,
+      "solution_rationale": "Segment-tree range queries merge sum, best prefix, best suffix and best subarray in left-to-right order, with empty sums allowed.",
+      "complexity": "O(n+q log n) time, O(n) space",
+      "statement_sha256": "23c4eab15bd99f9c824067549716b72947fde13a4c0fd7e1fdb5156692af2f35",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3228",
+      "band": 3,
+      "solution_rationale": "Query the binary bit planes of original indices (using zero-based labels). Each returned position reveals the bits of its source index, recovering the permutation in ceil(log2 n)<=10 questions.",
+      "complexity": "O(n log n) communication/time, O(n) space",
+      "statement_sha256": "d78edc20def340d770664a40a4b90967b6a900ee1f401e46448bfab43225ebd3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3232",
+      "band": 4,
+      "solution_rationale": "Tournament SCCs are totally ordered. First derive strongly connected tournament counts by subtracting choices of a proper source SCC from all 2^C(n,2) tournaments. Then DP by total vertices and number of SCCs, choosing the labeled first SCC and multiplying by the remaining count.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "5501ff8bc4562721e52ac3b188053d802dcd94e2120cec1aa002b51f2991914a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3233",
+      "band": 4,
+      "solution_rationale": "Frequency-count prefix xors and XOR-convolve the frequency vector with itself using Walsh-Hadamard transform. Positive coefficients indicate pair xors; for zero subtract the n+1 self-pairs so only nonempty subarrays qualify.",
+      "complexity": "O(B 2^B+n) time, O(2^B) space",
+      "statement_sha256": "0c91694acbf50e9db5ac8017ce1bac3472db3caf0552f448b8cb96550fa11a58",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3294",
+      "band": 3,
+      "solution_rationale": "Treat each constraint as an edge enforcing prefix[r]-prefix[l-1]=s. DFS assigns potentials in every component and rejects inconsistent cycles; adjacent prefix differences yield an array within the stated loose magnitude bound.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "661ca0770b18a087b062ad08000bff19beaecd11eab5aa030b9669d252bcf135",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3301",
+      "band": 4,
+      "solution_rationale": "View each prefix sum as a point (i,S_i); best ending average is the maximum slope from a previous point to the current one. Maintain the lower convex hull and binary-search its tangent, breaking equal slopes toward the earliest start.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "651a1a032327b623b5c5e7553d65685599dfa7c5251bdbfa8589cca27bb14193",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3302",
+      "band": 3,
+      "solution_rationale": "Subtract target a from every element; a nonempty subset has the desired average iff its transformed sum is zero. Offset subset-sum counting DP over the bounded negative-to-positive range and subtract empty.",
+      "complexity": "O(n^2 V) time, O(nV) space",
+      "statement_sha256": "b92c286a34b5c3ceb46b53c3f36e46dbeb970750f0eb99ba577159c2063cc795",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3303",
+      "band": 3,
+      "solution_rationale": "Multi-source BFS propagates the two closest distinct shop origins per vertex. A shop city uses the best origin other than itself, while a nonshop uses its closest; keep at most two labels per vertex.",
+      "complexity": "O(n+m) time and space",
+      "statement_sha256": "f591e509ace2bc8dd781e227cf65be95619e877f28eb687bdd469cd7b27d758b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3305",
+      "band": 3,
+      "solution_rationale": "Binary-search a partition taking i Finnish and k-i Swedish scores. Query boundary values until each chosen side dominates the other's next item; the smaller selected boundary is the kth highest, within 100 questions.",
+      "complexity": "O(log n) queries and time, O(log n) cached space",
+      "statement_sha256": "776f3f9bb5c6ecd13652dd6aaff2d07adcd6acc58c685ee4ef6566c9e90ace08",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3306",
+      "band": 4,
+      "solution_rationale": "Perform four sign-reflected coordinate sweeps. In each quadrant a Fenwick maximum of reserved x+y over y prefixes gives a nearest Manhattan candidate; take each free site's minimum and then the maximum over free sites.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space",
+      "statement_sha256": "f7e9e95c22b3db67d95d134e0eca0dc1f94e0df835c104187d52910214c32b7a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3307",
+      "band": 4,
+      "solution_rationale": "Four directional sweeps cover relative quadrants; sort by signed x and query a compressed-y Fenwick maximum of signed x+y for reserved points. Minimize the resulting Manhattan candidates for each free site.",
+      "complexity": "O((n+m) log(n+m)) time, O(n+m) space",
+      "statement_sha256": "e69c2c6e5675c90b5e36aab1e5a981ecd7e096126c2c62bc1bc9086ccbf44712",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3308",
+      "band": 3,
+      "solution_rationale": "Precompute which vertex masks are independent and subset-DP the minimum number of independent color classes covering each mask. Store chosen classes to reconstruct colors; n<=16 supports the exponential algorithm.",
+      "complexity": "O(3^n) time, O(2^n) space",
+      "statement_sha256": "3d4c4deae189225766cc63e3a04ffe0d294f6fff0637b5908ed9d0dfce59057f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3312",
+      "band": 4,
+      "solution_rationale": "Every cell has exactly two allowed new letters, making it a Boolean variable. For every adjacent pair forbid equal-letter choice combinations with 2-SAT clauses; SCC satisfiability and assignment produce the grid or impossibility.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "436cbba98111c5625dd97ce407d52e93aa5fe0d67c30b44b02e5552644323cdf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3355",
+      "band": 3,
+      "solution_rationale": "For each target enumerate all two-square sums up to n and remember one pair per sum. Enumerate another pair and look up n-c^2-d^2; there are O(n) pairs and total n is bounded by 10^7.",
+      "complexity": "O(sum n) time, O(max n) space",
+      "statement_sha256": "e793b0fff8c0c8310cf16b3a208be65e6ab566377145ee45927efb61ad995238",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3356",
+      "band": 3,
+      "solution_rationale": "Maintain ordered occurrence sets per value and each index's previous equal occurrence. Point updates affect only neighboring occurrences; a segment tree of previous-index maxima says [a,b] is distinct exactly when its maximum is below a.",
+      "complexity": "O((n+q) log n) time, O(n) space",
+      "statement_sha256": "3aa317adbad85b5df56eff1083e564e5b03cda23a53014f858807a92249c290e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3357",
+      "band": 3,
+      "solution_rationale": "BFS from each start in the doubled vertex/parity graph. A query is possible iff the shortest walk to b of parity x mod 2 has length <=x, because any extra even length can be added by backtracking an edge.",
+      "complexity": "O(n(n+m)+q) time, O(n^2+m) space",
+      "statement_sha256": "374950578c5a6c05622b0d424c8b8120d05321e1ee79e6a249136823e737ce6f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3358",
+      "band": 4,
+      "solution_rationale": "Minimum vertex-disjoint path cover in a DAG equals n minus maximum matching between left/right vertex copies. Hopcroft-Karp finds the matching; accept cover size at most two and reconstruct successor chains, allowing an empty second path.",
+      "complexity": "O(m sqrt n) time, O(n+m) space",
+      "statement_sha256": "7aa036dae0b8c0ef7669b97b3befddfd18b2939ed3ed21b5528cddf5c6b4fdb7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3360",
+      "band": 3,
+      "solution_rationale": "For each letter record whether a pair of columns has appeared together in an earlier row. A repeated pair witnesses a rectangle, after which that letter needs no more work; before success each pair is processed only once. Packed pair flags keep memory feasible.",
+      "complexity": "O(kn^2+n^2) time upper bound with early stopping, O(kn^2) bits",
+      "statement_sha256": "d407896d2c956aafb539b5c69913af6b75665a07546be2681a64d171e97ed428",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3361",
+      "band": 3,
+      "solution_rationale": "Binary-search average v and maximize prefixSumA-i*v and prefixSumB-j*v independently. Their sum being nonnegative certifies feasible prefixes; retain the maximizing indices and use enough iterations for the tolerance.",
+      "complexity": "O(n log(V/epsilon)) time, O(n) space",
+      "statement_sha256": "122cb1416a86197e18e6b9c50b4a0f06d1e46fc4580005a05165e710a9ca68b3",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3397",
+      "band": 2,
+      "solution_rationale": "Use factorial-number-system blocks to unrank permutations and counts of unused smaller elements to rank them. n<=20 allows simple list deletion and signed 64-bit factorials.",
+      "complexity": "O(t n^2) time, O(n) space",
+      "statement_sha256": "4c007ace9176fe33b9fcb9f1d24983feded63502ff0fa2780636793701e198df",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3398",
+      "band": 3,
+      "solution_rationale": "The permutation order is the lcm of cycle lengths. Factor lengths with a sieve, retain maximum prime exponents, and multiply their powers modulo the prime rather than taking gcds after modular reduction.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "5c17e067227e7b9ad3931958a017b186f5d251d9891bf424f99c18b11ec2eed0",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3400",
+      "band": 4,
+      "solution_rationale": "Choose the n-a-b equal-card labels and count derangements on the remaining a+b labels with a excedances, then multiply by n! for first-player ordering. Derangement Eulerian DP satisfies D(r,j)=j*D(r-1,j)+(r-j)*D(r-1,j-1)+(r-1)*D(r-2,j-1), enabling precomputation.",
+      "complexity": "O(N^2+t) time, O(N+t) space when queries grouped by size",
+      "statement_sha256": "fa16398fd8a92e219b511aaf8ce5b367d563bb19c9be0ffc4836abd3a052d9da",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3401",
+      "band": 5,
+      "solution_rationale": "For an allowed final length interval [L,R], a stick of length a permits piece counts from ceil(a/R) to floor(a/L), so total piece-count feasibility can be checked through sums of these bounds. Producing all m optimal spreads requires coordinated breakpoint/heap optimization beyond separate binary searches. Specialist uncertainty: the complete efficient all-k algorithm is not established.",
+      "complexity": "Near-linear/logarithmic amortized optimization intended; bound uncertain",
+      "statement_sha256": "4787ce0fac05b191e3a442742b840e6f2b30ec226816a8ce90968345b7e57ddd",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3402",
+      "band": 4,
+      "solution_rationale": "Sort values so an optimum pairs along the line. Repeatedly take the minimum adjacent-gap edge, add its cost to the next matching size, remove neighboring candidate edges, and replace the contracted edge cost by left+right-selected using a heap and linked neighbors; this encodes alternating-path exchanges.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "c36f38e394f794a99805db643c1c7b6a2cf9835c08ed2003331d8b0cd7dd50ff",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3403",
+      "band": 2,
+      "solution_rationale": "Standard prefix LCS DP matches equal values or drops one endpoint; backtrack through the table to output an actual common subsequence.",
+      "complexity": "O(nm) time and space",
+      "statement_sha256": "5f87bdab340e66e436b97b756f0532506022a5657b0773a52fdedee8318b657f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3404",
+      "band": 3,
+      "solution_rationale": "Map common values of the second permutation to positions in the first, then reconstruct an LIS of those positions with tail indices and predecessor links.",
+      "complexity": "O((n+m) log n) time, O(n+m) space",
+      "statement_sha256": "0fe88d09cc00ae32a32e03eb8d7ac5d641cfbedd9a58201203135623bbc366e9",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3405",
+      "band": 3,
+      "solution_rationale": "Maintain a two-stack aggregate queue, storing cumulative bitwise OR in each stack. Push generated values, pop expired values, and combine the two stack ORs for each window; this avoids a factor of word bits at n=10^7.",
+      "complexity": "O(n) amortized time, O(k) space",
+      "statement_sha256": "0b85a81765cd8e4c101b25ea170760898105bac4baaf8807b69feae09c67019a",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3406",
+      "band": 3,
+      "solution_rationale": "Check whether n itself is triangular, then use two pointers over triangular numbers to test a two-term representation. Gauss's three-triangular-number theorem bounds the remaining answer by three; exact integer arithmetic avoids root rounding.",
+      "complexity": "O(t sqrt n) time, O(1) space",
+      "statement_sha256": "d02bd2c8fe2c9690b34ec688ff510add412972a21f0a2666d737c90488963308",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3407",
+      "band": 3,
+      "solution_rationale": "Sweep Kruskal weight groups. An edge belongs to some MST iff its endpoints are in different DSU components before any edge of the same weight is merged; evaluate the whole group first.",
+      "complexity": "O(m log m) time, O(n+m) space",
+      "statement_sha256": "17458439d77a285fadff9d2d013ecf4cff31af88df81d9758059919cdf6134f7",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3409",
+      "band": 4,
+      "solution_rationale": "Build one MST and preprocess maximum edge weights on tree paths with LCA. Forcing edge (u,v,w) adds w and removes a maximum-weight edge on its induced cycle, so answer=MSTcost+w-pathMax.",
+      "complexity": "O((n+m) log n) time, O(n log n+m) space",
+      "statement_sha256": "002fb4e738accd66fcfb2213fb035440176977e61d57a9bcb8177cfb88cb9a5b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3410",
+      "band": 2,
+      "solution_rationale": "Track extrema of x+y and x-y; their largest span equals the maximum Manhattan distance after each insertion.",
+      "complexity": "O(n) time, O(1) space",
+      "statement_sha256": "18d4e5a698f23e29a51cffa2fedb75db18a74d8efa6008ad222853b5a4f18d8b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3411",
+      "band": 2,
+      "solution_rationale": "Separate x and y contributions, sort each coordinate, and sum value*i minus the preceding prefix sum. Use an accumulator wider than 64 bits if necessary for the full coordinate and point limits.",
+      "complexity": "O(n log n) time, O(n) space",
+      "statement_sha256": "4209a99fdb5e8ece859b16465ee8d24c06b6c4f2e9d117868c8a1ea2dc1a793f",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3413",
+      "band": 2,
+      "solution_rationale": "For each cell the largest same-letter square ending there is one plus the minimum of top, left and diagonal square sizes when their letters match. Add that size to the cell letter's count.",
+      "complexity": "O(n^2) time, O(n) auxiliary space",
+      "statement_sha256": "60733bddbeca0bff0afe08827725b47695af39be4744a0cbce6999135b8643d2",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3415",
+      "band": 3,
+      "solution_rationale": "For each letter compute the largest square ending at each cell that avoids it using maximal-square DP. A square ending there contains every letter exactly when its side exceeds the maximum of those avoiding sizes; count all feasible larger sides.",
+      "complexity": "O(kn^2) time, O(n^2) space",
+      "statement_sha256": "1a89c4c1b6041f300ad264374a7e64daf8891a448210a96a752259e429a41257",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3416",
+      "band": 4,
+      "solution_rationale": "Fix top and bottom rows and maintain each column's letter bitmask in that strip. A two-pointer window with a two-stack OR aggregate queue counts column intervals whose union contains all k letters in linear time per row pair.",
+      "complexity": "O(n^3) amortized time, O(n) working space",
+      "statement_sha256": "e2d03098faa37358dff1b451dc40d2694f363dc29a61107a929fba1525b99bd6",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3417",
+      "band": 4,
+      "solution_rationale": "Precompute four directional equal-letter runs. Along each diagonal, a top-left corner remains active through min(right,down) positions; a bottom-right corner queries active starts within min(left,up) distance for its letter using Fenwick counts and expiration events.",
+      "complexity": "O(n^2 log n) time, O(n^2) space",
+      "statement_sha256": "23a36433dcd6df16586b666c2bbdf4a7d5cac06b767b8c64cda6c72edd21030e",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3418",
+      "band": 4,
+      "solution_rationale": "Fix top/bottom rows and scan columns. Split where the two horizontal boundary letters disagree or change; within each run count pairs of columns whose entire vertical boundary has that letter. Include width-one and height-one rectangles without duplication.",
+      "complexity": "O(n^3) time, O(n^2) space",
+      "statement_sha256": "38247ab9004e0c507d534147cadb4148bd416fccf4366df6c46aff2bf09f74ab",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3420",
+      "band": 2,
+      "solution_rationale": "Maintain the maximal distinct window ending at each position using last occurrences. Its length equals the number of distinct-element subarrays ending there, so sum those lengths.",
+      "complexity": "O(n) expected time, O(n) space",
+      "statement_sha256": "833e17a5ffaaa212c14a487df46ae46272b86b9e36301c11df1e765d3eb50958",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3423",
+      "band": 3,
+      "solution_rationale": "Sieve primes through 2n. For the current largest unused r choose a prime p in (r,2r], pair every i in [p-r,r] with p-i, then recurse below that interval. Bertrand's postulate guarantees the required prime and both arrays remain permutations.",
+      "complexity": "O(n log log n) time, O(n) space",
+      "statement_sha256": "0bac39843b53fc76f053d7730d10446e76c858d14b887691788bf678fcaff185",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3424",
+      "band": 5,
+      "solution_rationale": "Row and column totals must all be different while every symbol retains multiplicity n, so naive constant-row or Latin-square grids fail. A feasible solution requires a balanced swap construction with disjoint controlled row/column sums and special small-n handling. Specialist uncertainty: no complete construction has been established here.",
+      "complexity": "O(n^2) intended constructive time; complete formula uncertain",
+      "statement_sha256": "a78426760c2c8819bdf52eed9ebe61dac3e4e19745481e61f466efbd96e7af9d",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3425",
+      "band": 4,
+      "solution_rationale": "Randomly sample subset masks and hash their sums until two distinct masks collide. The total-sum bound gives at most 2^n-1 sum buckets, making birthday-scale sampling viable at n<=40. Remove common elements from the colliding subsets; positivity ensures both differences are nonempty. This is randomized expected-time reasoning, not a worst-case guarantee.",
+      "complexity": "O(n 2^(n/2)) expected time, O(2^(n/2)) space",
+      "statement_sha256": "5a94db688912d02bb7812126131e8a6783d12ce5486a7755b4951f643cd78683",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3426",
+      "band": 2,
+      "solution_rationale": "Generate the array into a rolling buffer and maintain window xor by xoring out the leaving value and in the arriving value; xor all complete-window results.",
+      "complexity": "O(n) time, O(k) space",
+      "statement_sha256": "099e385b03ff2a8654e59bb68897a248e708d60ec6f8e50fd6ba35a13c2c0fdf",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3427",
+      "band": 4,
+      "solution_rationale": "Convert segments to lines, sort slopes and build their upper convex envelope, discarding dominated equal slopes. Query increasing integer x with a moving hull pointer, using exact comparisons.",
+      "complexity": "O(n log n+m) time, O(n) space",
+      "statement_sha256": "f81c74d8d9de5ae04551444974f7a78bf8a7e25295a62a22b49a5fe790459d99",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3428",
+      "band": 4,
+      "solution_rationale": "Insert each integer-slope line only over its segment's x interval in a Li Chao segment tree. Point-query all coordinates and return -1 if no inserted segment covers the point.",
+      "complexity": "O(n log^2 m+m log m) time, O(m+n log m) space",
+      "statement_sha256": "d7629138cf08769015478922745a7a5fafb0f46d2503fd0c757170d0edf51a8b",
+      "status": "independent_assessment"
+    },
+    {
+      "id": "cses-3429",
+      "band": 4,
+      "solution_rationale": "Dynamic Li Chao maximum-line insertion compares lines at segment endpoints and midpoint, recursing only where the displaced line can win. Query each x along its root-to-leaf path with wide evaluation arithmetic.",
+      "complexity": "O(n log X) time, O(X) space",
+      "statement_sha256": "eaf8a91c37980309e206efb15a26d89d71345faf12683352b5d7ed3c92ce3f35",
+      "status": "independent_assessment"
+    }
+  ],
+  "reviewer_id": "independent-agent-b"
+}

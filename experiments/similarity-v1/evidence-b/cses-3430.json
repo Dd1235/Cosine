@@ -1,0 +1,10 @@
+{
+  "id": "cses-3430",
+  "url": "https://cses.fi/problemset/task/3430",
+  "observed_at": "2026-09-11T07:22:17.459652+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently process the following types of queries:\n\n\nAdd a line ax+b that is active in range [l,r]\n\nFind the maximum point in any active line at position x\n\n\nInput\n\nThe first line has an integer n: the number of queries.\n\nThe following n lines describe the queries. The format of each line is either \"1 a b l r\" or \"2 x\".\n\nOutput\n\nPrint the answer for each query of type 2. If no line is active, print NO.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le a,b \\le 10^9\n\n0 \\le x \\le 10^5\n\n0 \\le l \\le r \\le 10^5\n\n\nExample\n\nInput:\n\n6\n1 1 2 1 3\n2 3\n2 4\n1 0 4 1 5\n2 3\n2 4\n\n\nOutput:\n\n5\nNO\n5\n4",
+  "statement_sha256": "afaa7ce18b265d42dd60972f367e7dbe8580dea282f5967ab7b87c0dbd920022",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

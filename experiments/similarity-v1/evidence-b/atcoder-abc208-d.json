@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc208-d",
+  "url": "https://atcoder.jp/contests/abc208/tasks/abc208_d",
+  "observed_at": "2026-09-11T07:22:10.126879+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere are N cities and M roads in the Kingdom of Takahashi.\r\n\nThe cities are numbered 1 through N, and the roads are numbered 1 through M. Road i is a one-way road that leads from City A_i to City B_i, and it takes C_i minutes to go through it.\r\n\nLet us define f(s, t, k) as the answer to the following query.\r\n\nCompute the minimum time needed to get from City s to City t. Here, other than the Cities s and t, it is only allowed to pass through Cities 1 through k. If City t is unreachable or s = t, the answer should be 0.\r\n\nCompute f(s,t,k) for all triples s,t,k and print the sum of them. More formally, print \\displaystyle \\sum_{s = 1}^N \\sum_{t = 1}^N \\sum_{k = 1}^N f(s, t, k).\r\n\nConstraints\r\n\n1 \\leq N \\leq 400\r\n\n0 \\leq M \\leq N(N-1)\r\n\n1 \\leq A_i \\leq N (1 \\leq i \\leq M)\r\n\n1 \\leq B_i \\leq N (1 \\leq i \\leq M)\r\n\nA_i \\neq B_i (1 \\leq i \\leq M)\r\n\n1 \\leq C_i \\leq 10^6 (1 \\leq i \\leq M)\r\n\nA_i \\neq A_j or B_i \\neq B_j, if i \\neq j.\r\n\nAll values in input are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN M\r\nA_1 B_1 C_1\r\n\\vdots\r\nA_M B_M C_M\r\n\nOutput\nPrint \\displaystyle \\sum_{s = 1}^N \\sum_{t = 1}^N \\sum_{k = 1}^N f(s, t, k).\r\n\nSample Input 1\n3 2\r\n1 2 3\r\n2 3 2\r\n\nSample Output 1\n25\r\n\nThe triples s,t,k such that f(s,t,k) \\neq 0 are as follows.\r\n\nFor k = 1: f(1,2,1) = 3, f(2,3,1) = 2.\r\n\nFor k = 2: f(1,2,2) = 3, f(2,3,2) = 2, f(1,3,2) = 5.\r\n\nFor k = 3: f(1,2,3) = 3, f(2,3,3) = 2, f(1,3,3) = 5.\r\n\nSample Input 2\n3 0\r\n\nSample Output 2\n0\r\n\nWe have f(s,t,k) = 0 for all s,t,k.\r\n\nSample Input 3\n5 20\r\n1 2 6\r\n1 3 10\r\n1 4 4\r\n1 5 1\r\n2 1 5\r\n2 3 9\r\n2 4 8\r\n2 5 6\r\n3 1 5\r\n3 2 1\r\n3 4 7\r\n3 5 9\r\n4 1 4\r\n4 2 6\r\n4 3 4\r\n4 5 8\r\n5 1 2\r\n5 2 5\r\n5 3 6\r\n5 4 5\r\n\nSample Output 3\n517",
+  "statement_sha256": "4b2e83d132bcfb7c95fa1448b066b71f6f9f470a7fd32860b6d1a6e91bd5a646",
+  "raw_sha256": "cd4099b3cbdb11a96d6c7919e1b724e449e5096aee0f329d087a925ea5354653",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

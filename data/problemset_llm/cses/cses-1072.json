@@ -23,5 +23,18 @@
       "formula-based-counting": 0.95,
       "combinatorics": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1072",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "b424784e06fbace1ae359f201f691c2fc44617ff03da61415f5a1be5f4f0cf89",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-value-of-k-coins-from-piles",
+  "url": "https://leetcode.com/problems/maximum-value-of-k-coins-from-piles/",
+  "observed_at": "2026-09-11T07:22:11.949435+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There are n piles of coins on a table. Each pile consists of a positive number of coins of assorted denominations. \n\n In one move, you can choose any coin on top of any pile, remove it, and add it to your wallet. \n\n Given a list piles , where piles[i] is a list of integers denoting the composition of the i th pile from top to bottom , and a positive integer k , return the maximum total value of coins you can have in your wallet if you choose exactly k coins optimally . \n\n \u00a0 \n Example 1: \n \n \n Input: piles = [[1,100,3],[7,8,9]], k = 2\n Output: 101\n Explanation: \nThe above diagram shows the different ways we can choose k coins.\nThe maximum total we can obtain is 101.\n \n\n Example 2: \n\n \n Input: piles = [[100],[100],[100],[100],[100],[100],[1,1,1,1,1,1,700]], k = 7\n Output: 706\n Explanation:\n The maximum total can be obtained if we choose all coins from the last pile.\n \n\n \u00a0 \n Constraints: \n\n \n n == piles.length \n 1 <= n <= 1000 \n 1 <= piles[i][j] <= 10 5 \n 1 <= k <= sum(piles[i].length) <= 2000",
+  "statement_sha256": "bfb18bc4e95de45d774cfd370a743cf902ce5d6e10e27d6f3ac7fa726bf9d1b5",
+  "raw_sha256": "0136040e16f7a4a166886f1ee0fef899d177f9b12c00e606d24a5823403f75c3",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

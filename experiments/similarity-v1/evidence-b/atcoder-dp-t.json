@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-dp-t",
+  "url": "https://atcoder.jp/contests/dp/tasks/dp_t",
+  "observed_at": "2026-09-11T07:21:44.300868+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nLet N be a positive integer.\r\nYou are given a string s of length N - 1, consisting of < and >.\r\n\nFind the number of permutations (p_1, p_2, \\ldots, p_N) of (1, 2, \\ldots, N) that satisfy the following condition, modulo 10^9 + 7:\r\n\nFor each i (1 \\leq i \\leq N - 1), p_i < p_{i + 1} if the i-th character in s is <, and p_i > p_{i + 1} if the i-th character in s is >.\r\n\nConstraints\r\n\nN is an integer.\r\n\n2 \\leq N \\leq 3000\r\n\ns is a string of length N - 1.\r\n\ns consists of < and >.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN\r\ns\r\n\nOutput\nPrint the number of permutations that satisfy the condition, modulo 10^9 + 7.\r\n\nSample Input 1\n4\r\n<><\r\n\nSample Output 1\n5\r\n\nThere are five permutations that satisfy the condition, as follows:\r\n\n(1, 3, 2, 4)\r\n\n(1, 4, 2, 3)\r\n\n(2, 3, 1, 4)\r\n\n(2, 4, 1, 3)\r\n\n(3, 4, 1, 2)\r\n\nSample Input 2\n5\r\n<<<<\r\n\nSample Output 2\n1\r\n\nThere is one permutation that satisfies the condition, as follows:\r\n\n(1, 2, 3, 4, 5)\r\n\nSample Input 3\n20\r\n>>>><>>><>><>>><<>>\r\n\nSample Output 3\n217136290\r\n\nBe sure to print the number modulo 10^9 + 7.",
+  "statement_sha256": "edb51774ca22c4f1981d0c97165687670f93fe2bf4919ca99c3991a0ea4d148c",
+  "raw_sha256": "47b12f69a8ac79ccdc160c0b973c29d8ac320f3863cc1ac82eca7737b5ede51b",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

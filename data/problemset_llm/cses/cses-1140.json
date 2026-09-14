@@ -27,5 +27,18 @@
       "interval-scheduling": 0.9,
       "dynamic-programming": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1140",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "816eed02c4f25c72c15599ba2a7c18f0f355695e01a914cbcd632bd1a1590c18",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

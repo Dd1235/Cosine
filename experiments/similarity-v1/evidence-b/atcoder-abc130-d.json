@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc130-d",
+  "url": "https://atcoder.jp/contests/abc130/tasks/abc130_d",
+  "observed_at": "2026-09-11T07:22:21.387787+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given a sequence of positive integers of length N, A=a_1,a_2,\u2026,a_{N}, and an integer K.\r\nHow many contiguous subsequences of A satisfy the following condition?\r\n\n(Condition) The sum of the elements in the contiguous subsequence is at least K.\r\n\nWe consider two contiguous subsequences different if they derive from different positions in A, even if they are the same in content.\r\n\nNote that the answer may not fit into a 32-bit integer type.\r\n\nConstraints\r\n\n1 \\leq a_i \\leq 10^5\r\n\n1 \\leq N \\leq 10^5\r\n\n1 \\leq K \\leq 10^{10}\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN K\r\na_1 a_2 ... a_N\r\n\nOutput\nPrint the number of contiguous subsequences of A that satisfy the condition.\r\n\nSample Input 1\n4 10\r\n6 1 2 7\r\n\nSample Output 1\n2\r\n\nThe following two contiguous subsequences satisfy the condition:\r\n\nA[1..4]=a_1,a_2,a_3,a_4, with the sum of 16\r\n\nA[2..4]=a_2,a_3,a_4, with the sum of 10\r\n\nSample Input 2\n3 5\r\n3 3 3\r\n\nSample Output 2\n3\r\n\nNote again that we consider two contiguous subsequences different if they derive from different positions, even if they are the same in content.\r\n\nSample Input 3\n10 53462\r\n103 35322 232 342 21099 90000 18843 9010 35221 19352\r\n\nSample Output 3\n36",
+  "statement_sha256": "5c7723ccdac002fa5d67abcdddeba12feed62c2d9781551c1be383bd689922a6",
+  "raw_sha256": "4b79a4ee8e139cc8e693dd9df7bf22fb9e245204c6052638cb48227d020ec675",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

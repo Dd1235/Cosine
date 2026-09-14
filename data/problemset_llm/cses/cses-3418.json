@@ -26,5 +26,18 @@
       "2d-range-query": 0.9,
       "counting": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3418",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "38247ab9004e0c507d534147cadb4148bd416fccf4366df6c46aff2bf09f74ab",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

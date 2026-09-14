@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-maximum-number-of-non-intersecting-substrings",
+  "url": "https://leetcode.com/problems/find-maximum-number-of-non-intersecting-substrings/",
+  "observed_at": "2026-09-11T07:22:20.153688+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string word . \n\n Return the maximum number of non-intersecting substrings of word that are at least four characters long and start and end with the same letter. \n\n \u00a0 \n Example 1: \n\n \n Input: word = \"abcdeafdef\" \n\n Output: 2 \n\n Explanation: \n\n The two substrings are \"abcdea\" and \"fdef\" . \n \n\n Example 2: \n\n \n Input: word = \"bcdaaaab\" \n\n Output: 1 \n\n Explanation: \n\n The only substring is \"aaaa\" . Note that we cannot also choose \"bcdaaaab\" since it intersects with the other substring. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= word.length <= 2 * 10 5 \n word consists only of lowercase English letters.",
+  "statement_sha256": "2b1e91081b2ff08e4e1fe51f094911a989c7d4c8c264df8cd8730ef35b2c28d1",
+  "raw_sha256": "cfce295f15f1a598dc2d197e1dcf7070c55f91193d75bae73f92da230fb20b40",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

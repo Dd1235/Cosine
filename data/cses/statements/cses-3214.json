@@ -1,0 +1,8 @@
+{
+  "id": "cses-3214",
+  "title": "Water Containers Queries",
+  "source_url": "https://cses.fi/problemset/task/3214",
+  "observed_at": "2026-09-11T06:54:53.120779+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are two water containers: container A has volume a and container B has volume b. You want to measure x units of water using the containers.\n\nInitially both containers are empty. On each move, you can fill a container, empty a container or move water from a container to another container. When you move water, you must always fill or empty at least one container. After the moves, container A must have x units of water.\n\nYour task is to efficiently check if it is possible to measure the water in several cases.\n\nInput\n\nThe first line has integer n: the number of tests.\n\nAfter this, there are n lines. Each line has three integers a, b and x.\n\nOutput\n\nFor each test, print YES if it is possible to measure the water and NO otherwise.\n\nConstraints\n\n\n1 \\le n \\le 1000\n\n1 \\le a, b, x \\le 10^9\n\n\nExample\n\nInput:\n\n7\n5 3 4\n1 1 1\n1 1 2\n2 2 1\n123 456 42\n1000 999 123\n1000 998 123\n\n\nOutput:\n\nYES\nYES\nNO\nNO\nYES\nYES\nNO",
+  "statement_sha256": "85611027aeb3631612a3caf80ed1f3c937e5ac26e456dcfa6b3b530884ab554b"
+}

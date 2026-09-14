@@ -24,5 +24,18 @@
       "bfs": 0.98,
       "shortest-path-unweighted": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1667",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "ac12646d35867f4ca7c14b506ec19945b2c79ebb926dfb8d0c4ad13ff25b4999",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1753",
+  "title": "String Matching",
+  "source_url": "https://cses.fi/problemset/task/1753",
+  "observed_at": "2026-09-11T06:53:39.469718+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string and a pattern, your task is to count the number of positions where the pattern occurs in the string.\n\nInput\n\nThe first input line has a string of length n, and the second input line has a pattern of length m. Both of them consist of characters a\u2013z.\n\nOutput\n\nPrint one integer: the number of occurrences.\n\nConstraints\n\n\n1 \\le n,m \\le 10^6\n\n\nExample\n\nInput:\n\nsaippuakauppias\npp\n\n\nOutput:\n\n2",
+  "statement_sha256": "0b99bd32f895e3a8e38490073a921005ea6d75af80d7c32a8f0166f86952912f"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "kattis-jetlag",
+  "status": "solved",
+  "solution": "Sleep can only happen inside the free gaps [0,b_1], [e_1,b_2], ..., [e_{n-1},b_n], and a sleep [s,t] forces the next one to begin in [2t-s, 3t-2s], while the final sleep instead needs 3t-2s >= e_n to stay functional through the last activity. The reduction that cracks it: a sleep starting at s in the gap [L,R] may end at any t in (s,R], and the union of the windows [2t-s, 3t-2s] over those t is exactly the single interval [s+2, 3R-2s], so the set of legal next STARTS depends only on where a sleep began, not on where it ended, and that set only grows as s shrinks; since every activity lasts at least a minute, any gap's left end L already satisfies L >= (previous gap's right end)+1 >= s+2, so the earliest usable start of a gap is exactly L and one start per gap suffices. The problem therefore collapses to a single left-to-right sweep: gap [L,R] has reach 3R-2L, it is reachable iff the running maximum reach over earlier reachable gaps is at least L, and a schedule exists iff some reachable gap has reach >= e_n, with gap [0,b_1] required to exist because minute 0 is a forced sleep (b_1 = 0 is immediately impossible). Rebuild the schedule by walking back the predecessor that held the running maximum and letting each chosen gap sleep [L, L+ceil((next-L)/3)], the shortest sleep that reaches the next chain element (or e_n), which is also short enough that the rested period ends by that next start. O(n) time and memory with no sorting (the input is already ordered), and the chain uses each gap at most once, so p <= n <= 200000, far inside the 10^6 output cap.",
+  "solution_confidence": 0.94,
+  "statement_summary": "Up to 200000 activities occupy disjoint intervals of a timeline reaching ten billion minutes, and all must be attended in full, so sleep is only possible between them. The attendee must fall asleep at minute zero; after sleeping k minutes they cannot sleep for k minutes and must be asleep again within a further k. The task is to print any valid sleep schedule or report impossibility.",
+  "patterns": [
+    "greedy",
+    "constructive-algorithm",
+    "interval-scheduling"
+  ],
+  "pattern_confidence": {
+    "greedy": 0.95,
+    "constructive-algorithm": 0.85,
+    "interval-scheduling": 0.6
+  },
+  "tags": [
+    "greedy",
+    "intervals",
+    "scheduling",
+    "constructive"
+  ],
+  "source_text_sha256": "7cb85befec94defa44d561e16abceb99e83caf9d6bb205c3a10b017637f8d332",
+  "verify_script": "/Users/dedeepya/Cosine/data/analysis/external-batches/D/verify_jetlag.py",
+  "notes": "The one genuinely hard step is the reduction 'the successor set depends only on the sleep's START, and is the interval [s+2, 3R-2s]'; once that is seen the code is a ten-line max-reach sweep, so 'greedy' is the load-bearing label. 'constructive-algorithm' is for the output contract - a witness schedule, not a yes/no. 'interval-scheduling' at 0.6 by the corpus's own usage (Woodcutters, Vaccination, Movie Festival II): sleep intervals are placed into the free space between fixed intervals by a left-to-right greedy. Deliberately NOT labelled: 'binary-search-answer' (nothing is searched; the sweep is direct), 'dynamic-programming' (the predecessor array is reconstruction bookkeeping, one running maximum, not a DP), 'dp-on-dag' (the gap-to-gap reachability graph is the solution's own construction, not a DAG the statement hands you), 'line-sweep' (single pass over already-sorted gaps, no event queue), 'exchange-argument' (correctness is a dominance argument about one state, not the adjacent-swap ordering argument the corpus tags with that slug), and 'reachability' (the corpus reserves it for graph reachability; the analogue here is Jump Game, which the corpus labels greedy). Traps checked and refuted by verify_jetlag.py: sleeping as long as possible is WRONG - on activities (2,3),(5,8) sleeping the whole first gap [0,2] delays the next legal sleep to minute 4 and dies at reach 7 < 8, while [0,1] then [3,5] reaches 9; and sleeping in every usable gap is unnecessary, the chain skips gaps. Verification: three official samples; an EXHAUSTIVE comparison against a forward BFS brute force over every busy/free pattern on timelines of up to 16 minutes (up to 18 minutes, 131072 instances, during development), which is the full space of shapes at unit granularity; 5600 random instances over five generators at three scales (the rules are not scale invariant, so x3 and x7 copies were tested separately); every produced schedule replayed against the raw statement rules by an independent validator; a second, independently written right-to-left greedy agreeing on all of the above; and an n = 200000, e_n ~ 9*10^9 run confirming O(n) runtime (0.1 s) and p <= 10^6."
+}

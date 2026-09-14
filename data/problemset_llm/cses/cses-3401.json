@@ -12,17 +12,42 @@
     "binary-search"
   ],
   "patterns": [
-    "binary-search-answer",
-    "greedy",
-    "binary-search"
+    "heap",
+    "fenwick-tree",
+    "coordinate-compression",
+    "offline-queries",
+    "segment-tree"
   ],
   "annotation": {
     "version": "problem-patterns-v1",
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777952230,
     "pattern_confidence": {
-      "binary-search-answer": 0.95,
-      "greedy": 0.85
+      "heap": 0.9,
+      "fenwick-tree": 0.9,
+      "coordinate-compression": 0.9,
+      "offline-queries": 0.9,
+      "segment-tree": 0.9
+    },
+    "reviewed_by": "root solution skeptic and independent-agent-b solver; specialist label review2026-09-11"
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3401",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_b.json"
+    ],
+    "statement_sha256": "4787ce0fac05b191e3a442742b840e6f2b30ec226816a8ce90968345b7e57ddd",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_b.json"
     }
   }
 }

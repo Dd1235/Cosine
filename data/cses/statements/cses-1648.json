@@ -1,0 +1,8 @@
+{
+  "id": "cses-1648",
+  "title": "Dynamic Range Sum Queries",
+  "source_url": "https://cses.fi/problemset/task/1648",
+  "observed_at": "2026-09-11T06:53:26.653495+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to process q queries of the following types:\n\n\nupdate the value at position k to u\n\nwhat is the sum of values in range [a,b]?\n\n\nInput\n\nThe first input line has two integers n and q: the number of values and queries.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the array values.\n\nFinally, there are q lines describing the queries. Each line has three integers: either \"1 k u\" or \"2 a b\".\n\nOutput\n\nPrint the result of each query of type 2.\n\nConstraints\n\n\n1 \\le n,q \\le 2 \\cdot 10^5\n\n1 \\le x_i, u \\le 10^9\n\n1 \\le k \\le n\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n8 4\n3 2 4 5 1 1 5 3\n2 1 4\n2 5 6\n1 3 1\n2 1 4\n\n\nOutput:\n\n14\n2\n11",
+  "statement_sha256": "4f1dfa4de3fd2c4be3fafae36d74092515fc24c26247f8090edd922047f5bc34"
+}

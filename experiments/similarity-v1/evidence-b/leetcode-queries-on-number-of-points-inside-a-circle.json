@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-queries-on-number-of-points-inside-a-circle",
+  "url": "https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/",
+  "observed_at": "2026-09-11T07:21:56.257643+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an array points where points[i] = [x i , y i ] is the coordinates of the i th point on a 2D plane. Multiple points can have the same coordinates. \n\n You are also given an array queries where queries[j] = [x j , y j , r j ] describes a circle centered at (x j , y j ) with a radius of r j . \n\n For each query queries[j] , compute the number of points inside the j th circle. Points on the border of the circle are considered inside . \n\n Return an array answer , where answer[j] is the answer to the j th query . \n\n \u00a0 \n Example 1: \n \n \n Input: points = [[1,3],[3,3],[5,3],[2,2]], queries = [[2,3,1],[4,3,1],[1,1,2]]\n Output: [3,2,2]\n Explanation: The points and circles are shown above.\nqueries[0] is the green circle, queries[1] is the red circle, and queries[2] is the blue circle.\n \n\n Example 2: \n \n \n Input: points = [[1,1],[2,2],[3,3],[4,4],[5,5]], queries = [[1,2,2],[2,2,2],[4,3,2],[4,3,3]]\n Output: [2,3,2,4]\n Explanation: The points and circles are shown above.\nqueries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is purple.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= points.length <= 500 \n points[i].length == 2 \n 0 <= x \u200b\u200b\u200b\u200b\u200b\u200bi , y \u200b\u200b\u200b\u200b\u200b\u200bi <= 500 \n 1 <= queries.length <= 500 \n queries[j].length == 3 \n 0 <= x j , y j <= 500 \n 1 <= r j <= 500 \n All coordinates are integers. \n \n\n \u00a0 \n Follow up: Could you find the answer for each query in better complexity than O(n) ?",
+  "statement_sha256": "e9bff3aa4ba54863b1f4d7fe7a414596abcb66e21756b58b0d5214f0dfd786c0",
+  "raw_sha256": "394bd05546e2d3c37aed5a8a8738fc06b78b5694f3d8800a6c55ef8b27ddcae2",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

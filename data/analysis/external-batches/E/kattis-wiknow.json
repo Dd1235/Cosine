@@ -1,0 +1,32 @@
+{
+  "id": "kattis-wiknow",
+  "status": "solved",
+  "solution": "Only extremal occurrences matter: if indices c<d<e<f witness A,B,A,B, then replacing c by the last occurrence of A before d and e by that occurrence's immediate successor, and f by the last occurrence of B anywhere, still leaves a witness, so the ordered pair (A,B) is achievable exactly when some index u lies strictly between two CONSECUTIVE occurrences p<q of A and the last occurrence of the value at u is beyond q. That turns the whole search into one range-maximum query per occurrence-gap over the array IM[i] = last occurrence of S[i], and the gaps number N-1 in total across all values, so a sparse table (or the debrief's event-sorted segment tree over the same reduction) answers each in O(1) after an O(N log N) build. The smallest achievable A is then the smallest value owning a gap whose IM-maximum exceeds that gap's right end, and for that single A one linear scan of the span from its first to its last occurrence, carrying the next occurrence of A, yields the smallest qualifying B - which is the part the debrief never addresses, since it argues existence only and the problem actually demands the lexicographically smallest pair. Correctness of the reduction is the two-line exchange argument above in both directions; a witness quadruple maps to such a (p,u,q) triple, and any such triple is itself a witness. Cost is O(N log N) time and O(N log N) space for the sparse table, or O(N) space if a segment tree is used instead, which clears N = 400000 comfortably (0.5 s in plain Python on the worst shapes tried). Verified on all three samples, against exhaustive O(N^4) quadruple search on 40000 random sequences with small alphabets, and against an independent cubic reference on 400 longer ones plus adversarial single-value-spanning shapes.",
+  "solution_confidence": 0.93,
+  "solution_source": {
+    "url": "https://www.comp.nus.edu.sg/~acmicpc/wiknow.pdf",
+    "kind": "official judges' solution debrief (PDF, text-extracted)",
+    "used": "its reduction (only first/last occurrences of a value can matter, leaving O(N) segments and O(N) queries) was confirmed and re-derived in the sharper consecutive-occurrence form; its data structure was replaced by a sparse table; the lexicographic tie-break, which the debrief does not cover at all, was derived here and brute-forced against exhaustive search on 40000 random sequences"
+  },
+  "statement_summary": "A message is a sequence of up to four hundred thousand positive integers, none larger than the length of the sequence. The task is to decide whether some two distinct values appear in the repeating order A, B, A, B as a not necessarily contiguous subsequence, and if so to report the lexicographically smallest such ordered pair, otherwise to report that no such pair exists.",
+  "patterns": [
+    "segment-tree",
+    "sparse-table",
+    "lexicographic-order"
+  ],
+  "pattern_confidence": {
+    "segment-tree": 0.85,
+    "sparse-table": 0.8,
+    "lexicographic-order": 0.8
+  },
+  "tags": [
+    "array",
+    "subsequence",
+    "data-structures",
+    "range-query",
+    "sweep"
+  ],
+  "source_text_sha256": "d88282713074acc20b1465a208d89fbe1e0a2bf416586a42115d7712169851d7",
+  "verify_script": "E/verify_wiknow.py",
+  "notes": "The debrief solves a DIFFERENT question from the one the statement asks: it stops at deciding whether any A,B,A,B exists and never mentions the lexicographically smallest pair, which is what has to be printed. The minimality half (sweep A upward using one range-max per occurrence gap, then a single linear scan over the winning A's span for the smallest B) is derived here and is the only part that needed brute-force checking; the existence half is the debrief's and is correct. The debrief's own phrasing (segments [imin(S_j), j], queries (u, imax(S_u)), sorted events, segment tree) also works and is O(N log N); the consecutive-occurrence form used here is equivalent and avoids the event sort. Label caveats: line-sweep at 0.6 is the weakest - the corpus mostly uses it for geometry, and here the 'sweep' is the debrief's ordering of add/remove/query events along the index axis, which a searcher may or may not expect; offline-queries likewise describes the debrief's formulation more than the implemented one, where the queries are answered against a static RMQ. Both segment-tree and sparse-table are listed because each is a genuine full solution, not scaffolding, and which one appears depends on which of the two equivalent formulations is followed. Not labelled: two-pointers and greedy (the extremal-occurrence step is an exchange argument, not a greedy choice over candidates), hash-map (values are bounded by N so plain arrays suffice - pure scaffolding). Nothing in the debrief text is addressed to a reader or an agent; it is ordinary prose plus PDF extraction noise (spaced subscripts like 'S i', and one typo where it writes A_u and A_j for S_u and S_j). SKEPTIC EDIT: line-sweep and offline-queries were dropped before publication. Both described the NUS debrief's event/segment formulation rather than the implemented solution, which answers static range maxima over consecutive-occurrence gaps with no sweep and no query batching. In this corpus line-sweep is overwhelmingly a geometry label, and the statement has no queries at all."
+}

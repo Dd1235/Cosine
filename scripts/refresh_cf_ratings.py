@@ -72,6 +72,9 @@ def main() -> int:
             continue
         p = live.get((int(m.group(1)), m.group(2).upper()))
         if not p:
+            # Absence from an API snapshot is not proof a rating has landed.
+            if d.get("difficulty") is None:
+                still_missing.append(d["id"])
             continue
 
         changed = False

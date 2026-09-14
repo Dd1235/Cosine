@@ -30,5 +30,18 @@
       "inclusion-exclusion": 0.85,
       "sos-dp": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3141",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "82847a982d824b4afe4f1b4e9544e69849259ffe1753dcb24e4cde18c583def3",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

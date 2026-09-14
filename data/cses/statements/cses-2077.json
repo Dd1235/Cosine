@@ -1,0 +1,8 @@
+{
+  "id": "cses-2077",
+  "title": "Necessary Cities",
+  "source_url": "https://cses.fi/problemset/task/2077",
+  "observed_at": "2026-09-11T06:53:47.053720+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m roads between them. There is a route between any two cities.\n\nA city is called necessary if there is no route between some other two cities after removing that city (and adjacent roads). Your task is to find all necessary cities.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and roads. The cities are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines that describe the roads. Each line has two integers a and b: there is a road between cities a and b. There is at most one road between two cities, and every road connects two distinct cities.\n\nOutput\n\nFirst print an integer k: the number of necessary cities. After that, print a list of k cities. You may print the cities in any order.\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 5\n1 2\n1 4\n2 4\n3 5\n4 5\n\n\nOutput:\n\n2\n4 5",
+  "statement_sha256": "3acee106a3d163ef020c76ae4a246c794b37e0be996ca942beebca7eb212d850"
+}

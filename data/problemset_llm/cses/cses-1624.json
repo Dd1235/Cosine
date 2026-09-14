@@ -26,5 +26,18 @@
       "bitmasking": 0.9,
       "pruning": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1624",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "98cc501a024e43d774609bdf9ac8a8ebf2c43f8bcf238e25b5931a2683860463",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

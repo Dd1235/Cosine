@@ -1,0 +1,8 @@
+{
+  "id": "cses-3294",
+  "title": "Subarray Sum Constraints",
+  "source_url": "https://cses.fi/problemset/task/3294",
+  "observed_at": "2026-09-11T06:54:52.659769+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to construct an array x_1,x_2,\\dots,x_n consisting of n integers.\n\nThe array must satisfy m constraints of the form (l,r,s): the sum x_l + x_{l+1} + \\dots  + x_r must equal s.\n\nInput\n\nThe first line has two integers n and m: the length of the array and the number of constraints.\n\nThe next m lines each have three integers l, r and s: the description of the constraints.\n\nOutput\n\nIf a solution exists, print YES on the first line.\n\nOn the second line, print n integers x_1, x_2,\\dots, x_n: the contents of the array. All elements of the array must satisfy -10^{15} \\le x_i \\le 10^{15} and the array must satisfy all given constraints. You can print any valid solution.\n\nIf no solution exists, just print NO.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n0 \\le m \\le 2 \\cdot 10^5\n\n1 \\le l \\le r \\le n\n\n-10^9 \\le s \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n1 3 3\n3 5 3\n4 4 -1\n\n\nOutput:\n\nYES\n0 2 1 -1 3",
+  "statement_sha256": "661ca0770b18a087b062ad08000bff19beaecd11eab5aa030b9669d252bcf135"
+}

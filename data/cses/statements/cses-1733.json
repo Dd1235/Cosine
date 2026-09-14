@@ -1,0 +1,8 @@
+{
+  "id": "cses-1733",
+  "title": "Finding Periods",
+  "source_url": "https://cses.fi/problemset/task/1733",
+  "observed_at": "2026-09-11T06:53:40.227710+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA period of a string is a prefix that can be used to generate the whole string by repeating the prefix. The last repetition may be partial. For example, the periods of abcabca are abc, abcabc and abcabca.\n\nYour task is to find all period lengths of a string.\n\nInput\n\nThe only input line has a string of length n consisting of characters a\u2013z.\n\nOutput\n\nPrint all period lengths in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nabcabca\n\n\nOutput:\n\n3 6 7",
+  "statement_sha256": "8d6629803fcb04fc0fedd559e76b31dba1132db9bb514afb8994940a0b627561"
+}

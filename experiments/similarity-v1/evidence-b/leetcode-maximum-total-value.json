@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-total-value",
+  "url": "https://leetcode.com/problems/maximum-total-value/",
+  "observed_at": "2026-09-11T07:22:09.327688+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two integer arrays value and decay , and an integer m . \n\n \n value[i] represents the initial value at index i . \n decay[i] represents how much the value decreases after each selection of index i . \n \n\n You may select any index multiple times. The total number of selections across all indices must not exceed m . \n\n If you select index i for the t th time, where t is 1-indexed, the value gained is value[i] - decay[i] * (t - 1) . \n\n Return the maximum total value you can obtain. Since the answer may be large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: value = [6,5,4], decay = [2,1,1], m = 4 \n\n Output: 19 \n\n Explanation: \n\n One optimal sequence of selections is as follows: \n\n \n By selecting index 0, the value gained is 6. \n By selecting index 1, the value gained is 5. \n By selecting index 2, the value gained is 4. \n By selecting index 0 again, the value gained is 6 - 2 = 4 . \n \n\n The total value is 6 + 5 + 4 + 4 = 19 . No other sequence of at most 4 selections gives a higher total value. \n \n\n Example 2: \n\n \n Input: value = [7,2,2], decay = [3,2,1], m = 2 \n\n Output: 11 \n\n Explanation: \n\n One optimal sequence of selections is as follows: \n\n \n By selecting index 0, the value gained is 7. \n By selecting index 0 again, the value gained is 7 - 3 = 4 . \n \n\n The total value is 7 + 4 = 11 . \n \n\n Example 3: \n\n \n Input: value = [4,3], decay = [5,4], m = 5 \n\n Output: 7 \n\n Explanation: \n\n One optimal sequence of selections is as follows: \n\n \n By selecting index 0, the value gained is 4. \n By selecting index 1, the value gained is 3. \n \n\n The total value is 4 + 3 = 7 . \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= value.length == decay.length <= 10 5 \n 1 <= value[i], decay[i] <= 10 9 \u200b\u200b\u200b\u200b\u200b\u200b\u200b \n 1 <= m <= 10 9",
+  "statement_sha256": "c9baecf82fbcd7eebf06fc180deac1d309ef4ec3afc0f33c51fd3b8cc8a578bb",
+  "raw_sha256": "62a37e0a5e7cf0cd944e26660aa9c90e39bfacc8a9e8be0b6befe9ebe0d6f7d6",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

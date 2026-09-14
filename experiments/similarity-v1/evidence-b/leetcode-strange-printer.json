@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-strange-printer",
+  "url": "https://leetcode.com/problems/strange-printer/",
+  "observed_at": "2026-09-11T07:21:45.210583+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There is a strange printer with the following two special properties: \n\n \n The printer can only print a sequence of the same character each time. \n At each turn, the printer can print new characters starting from and ending at any place and will cover the original existing characters. \n \n\n Given a string s , return the minimum number of turns the printer needed to print it . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"aaabbb\"\n Output: 2\n Explanation: Print \"aaa\" first and then print \"bbb\".\n \n\n Example 2: \n\n \n Input: s = \"aba\"\n Output: 2\n Explanation: Print \"aaa\" first and then print \"b\" from the second place of the string, which will cover the existing character 'a'.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 100 \n s consists of lowercase English letters.",
+  "statement_sha256": "cf14907e4ee468200384750872a4b2a45c552f3eb9ce888f05caccdda0bec8fa",
+  "raw_sha256": "e3078fcf658e0d1c221d40cfafd0d6fdef0807c365dda773a08eb6f7b88d523a",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

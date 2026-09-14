@@ -1,0 +1,8 @@
+{
+  "id": "cses-3357",
+  "title": "Fixed Length Walk Queries",
+  "source_url": "https://cses.fi/problemset/task/3357",
+  "observed_at": "2026-09-11T06:54:44.453101+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an undirected graph with n nodes and m edges. The graph is simple and connected.\n\nYou start at a specific node, and on each turn\nyou must move through an edge to another node.\n\nYour task is to answer q queries of the form: \"is it possible to start at node a and end up on node b after exactly x turns?\"\n\nInput\n\nThe first line contains three integers n, m and q:\nthe number of nodes, edges and queries. The nodes are numbered 1,2,\\dots,n.\n\nAfter this, there are m lines which describe the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nFinally, there are q lines, each describing a query.\nEach line contains three integers a, b and x.\n\nOutput\n\nFor each query, print the answer (YES or NO) on its own line.\n\nConstraints\n\n\n2 \\le n \\le 2500\n\n1 \\le m \\le 5000\n\n1 \\le q \\le 10^5\n\n0 \\le x \\le 10^9\n\n\nExample\n\nInput:\n\n4 5 6\n1 2\n2 3\n1 3\n2 4\n3 4\n1 2 2\n1 4 1\n1 4 5\n2 2 1\n2 2 2\n3 4 8\n\n\nOutput:\n\nYES\nNO\nYES\nNO\nYES\nYES\n\n\nExplanation:\n\n\nIn query 1, a possible route is 1 \\rightarrow 3 \\rightarrow 2.\n\nIn query 3, a possible route is 1 \\rightarrow 3 \\rightarrow 2 \\rightarrow 1 \\rightarrow 3 \\rightarrow 4.\n\nIn query 6, a possible route is 3 \\rightarrow 4 \\rightarrow 2 \\rightarrow 3 \\rightarrow 4 \\rightarrow 2 \\rightarrow 1 \\rightarrow 3 \\rightarrow 4.",
+  "statement_sha256": "374950578c5a6c05622b0d424c8b8120d05321e1ee79e6a249136823e737ce6f"
+}

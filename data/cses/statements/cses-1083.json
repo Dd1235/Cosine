@@ -1,0 +1,8 @@
+{
+  "id": "cses-1083",
+  "title": "Missing Number",
+  "source_url": "https://cses.fi/problemset/task/1083",
+  "observed_at": "2026-09-11T06:52:39.933776+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given all numbers between 1,2,\\ldots,n except one. Your task is to find the missing number.\n\nInput\n\nThe first input line contains an integer n.\n\nThe second line contains n-1 numbers. Each number is distinct and between 1 and n (inclusive).\n\nOutput\n\nPrint the missing number.\n\nConstraints\n\n\n2 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n5\n2 3 1 5\n\n\nOutput:\n\n4",
+  "statement_sha256": "7d6758083e3680eb59ea8baaa7e87929789c8c1b36d2d9d5f3c8f17fe5844e8b"
+}

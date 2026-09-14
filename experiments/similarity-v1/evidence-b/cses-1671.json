@@ -1,0 +1,10 @@
+{
+  "id": "cses-1671",
+  "url": "https://cses.fi/problemset/task/1671",
+  "observed_at": "2026-09-11T07:22:16.668139+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n cities and m flight connections between them. Your task is to determine the length of the shortest route from Syrj\u00e4l\u00e4 to every city.\n\nInput\n\nThe first input line has two integers n and m: the number of cities and flight connections. The cities are numbered 1,2,\\dots,n, and city 1 is Syrj\u00e4l\u00e4.\n\nAfter that, there are m lines describing the flight connections. Each line has three integers a, b and c: a flight begins at city a, ends at city b, and its length is c. Each flight is a one-way flight.\n\nYou can assume that it is possible to travel from Syrj\u00e4l\u00e4 to all other cities.\n\nOutput\n\nPrint n integers: the shortest route lengths from Syrj\u00e4l\u00e4 to cities 1,2,\\dots,n.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n3 4\n1 2 6\n1 3 2\n3 2 3\n1 3 4\n\n\nOutput:\n\n0 5 2",
+  "statement_sha256": "e7dfa017a609b94deee63864541de0f60e5555cc5688dfa11657a820ab39cb05",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

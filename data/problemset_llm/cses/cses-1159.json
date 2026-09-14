@@ -24,5 +24,18 @@
       "bounded-knapsack": 0.98,
       "dynamic-programming": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1159",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "665cfa66c687ff6414670fb6d73523eba10f8291231ff01251bb659687700853",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

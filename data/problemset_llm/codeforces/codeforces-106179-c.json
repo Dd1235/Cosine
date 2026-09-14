@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-106179-c",
+  "title": "XOR LCM",
+  "slug": "106179-c",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/gym/106179/problem/C",
+  "source_topic": "ICPC India Prelims 2025–26",
+  "source_tags": [],
+  "statement": "For each positive c at most 10^7, construct positive a and b at most 10^17 whose XOR-with-c sum equals lcm(a,c)+lcm(b,c). Up to 200000 independent test cases are given.",
+  "tags": [],
+  "patterns": [
+    "constructive-algorithm",
+    "bit-manipulation",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.9,
+      "bit-manipulation": 0.9,
+      "number-theory": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/competition-refresh-review.json"
+  },
+  "difficulty": null
+}

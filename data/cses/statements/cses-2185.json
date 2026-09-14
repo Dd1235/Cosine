@@ -1,0 +1,8 @@
+{
+  "id": "cses-2185",
+  "title": "Prime Multiples",
+  "source_url": "https://cses.fi/problemset/task/2185",
+  "observed_at": "2026-09-11T06:53:33.965322+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given k distinct prime numbers a_1,a_2,\\ldots,a_k and an integer n.\n\nYour task is to calculate how many of the first n positive integers are divisible by at least one of the given prime numbers.\n\nInput\n\nThe first input line has two integers n and k.\n\nThe second line has k prime numbers a_1,a_2,\\ldots,a_k.\n\nOutput\n\nPrint one integer: the number integers within the interval 1,2,\\ldots,n that are divisible by at least one of the prime numbers.\n\nConstraints\n\n\n1 \\le n \\le 10^{18}\n\n1 \\le k \\le 20\n\n2 \\le a_i \\le n\n\n\nExample\n\nInput:\n\n20 2\n2 5\n\n\nOutput:\n\n12\n\n\nExplanation: the 12 numbers are 2,4,5,6,8,10,12,14,15,16,18,20.",
+  "statement_sha256": "034f2e24ba93f9f1fcfcb2585fd00517d4faab8817f677a83662da37bb31dfcf"
+}

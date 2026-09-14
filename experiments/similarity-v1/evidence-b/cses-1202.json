@@ -1,0 +1,10 @@
+{
+  "id": "cses-1202",
+  "url": "https://cses.fi/problemset/task/1202",
+  "observed_at": "2026-09-11T07:21:44.473191+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are going to travel from Syrj\u00e4l\u00e4 to Lehm\u00e4l\u00e4 by plane. You would like to find answers to the following questions:\n\n\nwhat is the minimum price of such a route?\n\nhow many minimum-price routes are there? (modulo 10^9+7)\n\nwhat is the minimum number of flights in a minimum-price route?\n\nwhat is the maximum number of flights in a minimum-price route?\n\n\nInput\n\nThe first input line contains two integers n and m: the number of cities and the number of flights. The cities are numbered 1,2,\\ldots,n. City 1 is Syrj\u00e4l\u00e4, and city n is Lehm\u00e4l\u00e4.\n\nAfter this, there are m lines describing the flights. Each line has three integers a, b, and c: there is a flight from city a to city b with price c. All flights are one-way flights.\n\nYou may assume that there is a route from Syrj\u00e4l\u00e4 to Lehm\u00e4l\u00e4.\n\nOutput\n\nPrint four integers according to the problem statement.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n4 5\n1 4 5\n1 2 4\n2 4 5\n1 3 2\n3 4 3\n\n\nOutput:\n\n5 2 1 2",
+  "statement_sha256": "d8bdbad1aaad806c56d49c86dd1bbdeae55d123c347f274b3bcb295a4d3583f8",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

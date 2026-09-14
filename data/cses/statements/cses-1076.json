@@ -1,0 +1,8 @@
+{
+  "id": "cses-1076",
+  "title": "Sliding Window Median",
+  "source_url": "https://cses.fi/problemset/task/1076",
+  "observed_at": "2026-09-11T06:53:50.756048+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. Your task is to calculate the median of each window of k elements, from left to right.\n\nThe median is the middle element when the elements are sorted. If the number of elements is even, there are two possible medians and we assume that the median is the smaller of them.\n\nInput\n\nThe first line contains two integers n and k: the number of elements and the size of the window.\n\nThen there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint n-k+1 values: the medians.\n\nConstraints\n\n\n1 \\le k \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8 3\n2 4 3 5 8 1 2 1\n\n\nOutput:\n\n3 4 5 5 2 1",
+  "statement_sha256": "2e51d0f14a4a6f737c3e52582a142a6b603fce6d339b45ead46264708b469473"
+}

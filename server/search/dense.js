@@ -1,5 +1,6 @@
 const {
   MODEL_ID,
+  matchesEmbeddingRecipe,
   DTYPE,
   DIMS,
   corpusHash,
@@ -16,7 +17,7 @@ const {
 class DenseIndex {
   // matrix: Float32Array(problems.length * dims), row i = problems[i]
   // embed: async (texts: string[]) => Float32Array(texts.length * dims)
-  constructor(problems, { matrix, dims = DIMS, embed, model = MODEL_ID, dtype = DTYPE }) {
+  constructor(problems, { matrix, dims = DIMS, embed, model = MODEL_ID, dtype = DTYPE, queryCacheSize = 128 }) {
     this.problems = problems;
     this.N = problems.length;
     this.matrix = matrix;
@@ -24,6 +25,8 @@ class DenseIndex {
     this.embed = embed;
     this.model = model;
     this.dtype = dtype;
+    this.queryCacheSize = Number.isFinite(queryCacheSize) ? Math.min(1024, Math.max(0, Math.floor(queryCacheSize))) : 128;
+    this.queryCache = new Map(); // Per-index/model identity; raw input only, never user state.
     this.lastEmbedMs = null;
     this.lastScanMs = null;
 
@@ -51,11 +54,29 @@ class DenseIndex {
     return order;
   }
 
+  async _queryVector(query) {
+    if (!this.queryCacheSize) return this.embed([query]);
+    if (this.queryCache.has(query)) {
+      const cached = this.queryCache.get(query);
+      this.queryCache.delete(query);
+      this.queryCache.set(query, cached);
+      return cached;
+    }
+    const pending = Promise.resolve().then(() => this.embed([query]));
+    this.queryCache.set(query, pending);
+    while (this.queryCache.size > this.queryCacheSize) this.queryCache.delete(this.queryCache.keys().next().value);
+    try { return await pending; }
+    catch (err) {
+      if (this.queryCache.get(query) === pending) this.queryCache.delete(query);
+      throw err;
+    }
+  }
+
   async search(query, k = 10, offset = 0) {
     if (!query || !query.trim()) return { hits: [], total: 0 };
 
     let t = process.hrtime.bigint();
-    const q = await this.embed([query]);
+    const q = await this._queryVector(query);
     this.lastEmbedMs = Number(process.hrtime.bigint() - t) / 1e6;
 
     t = process.hrtime.bigint();
@@ -126,6 +147,10 @@ async function tryCreateDenseIndex(problems, { artifactDir, embed } = {}) {
   }
   const { manifest, matrix } = artifact;
 
+  if (!matchesEmbeddingRecipe(manifest.recipe)) {
+    console.warn("dense: embedding recipe mismatch — run `npm run embed`; skipping dense + hybrid");
+    return null;
+  }
   if (manifest.model !== MODEL_ID || manifest.dtype !== DTYPE || manifest.dims !== DIMS) {
     console.warn(
       `dense: artifact built with ${manifest.model}/${manifest.dtype}/${manifest.dims}d ` +

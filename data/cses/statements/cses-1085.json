@@ -1,0 +1,8 @@
+{
+  "id": "cses-1085",
+  "title": "Array Division",
+  "source_url": "https://cses.fi/problemset/task/1085",
+  "observed_at": "2026-09-11T06:53:16.108154+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array containing n positive integers.\n\nYour task is to divide the array into k subarrays so that the maximum sum in a subarray is as small as possible.\n\nInput\n\nThe first input line contains two integers n and k: the size of the array and the number of subarrays in the division.\n\nThe next line contains n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the maximum sum in a subarray in the optimal division.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le k \\le n\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n2 4 7 3 5\n\n\nOutput:\n\n8\n\n\nExplanation: An optimal division is [2,4],[7],[3,5] where the sums of the subarrays are 6,7,8. The largest sum is the last sum 8.",
+  "statement_sha256": "b35a91f095862bf1f2db3381244365d82484abb18a3fba51c2ae28ceff09e1cb"
+}

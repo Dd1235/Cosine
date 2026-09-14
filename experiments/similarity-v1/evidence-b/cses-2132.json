@@ -1,0 +1,10 @@
+{
+  "id": "cses-2132",
+  "url": "https://cses.fi/problemset/task/2132",
+  "observed_at": "2026-09-11T07:22:23.392240+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array of n integers. You want to modify the array so that it is increasing, i.e., every element is at least as large as the previous element.\n\nOn each move, you can increase or decrease the value of any element by one. What is the minimum number of moves required?\n\nInput\n\nThe first input line contains an integer n: the size of the array.\n\nThen, the second line contains n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint the minimum number of moves.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n3 8 5 6 5\n\n\nOutput:\n\n4",
+  "statement_sha256": "7dd1879b197a912dc562b99ba4b741726ebb5293227016738b94525a3b71881b",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

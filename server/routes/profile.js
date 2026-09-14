@@ -40,6 +40,30 @@ async function loadHandles(userId) {
 function createProfileRouter({ fetchStats = require("../profile").fetchPlatformStats, problems = [] } = {}) {
   const router = express.Router();
 
+  router.get("/preferences/cses-level", requireUser, async (req, res) => {
+    try {
+      const result = await db.query("SELECT cses_band FROM user_preferences WHERE user_id = $1", [req.user.id]);
+      res.set("Cache-Control", "no-store");
+      res.json({ band: result.rows[0]?.cses_band ?? null });
+    } catch (_err) { res.status(500).json({ error: "db_error" }); }
+  });
+
+  router.put("/preferences/cses-level", requireUser, async (req, res) => {
+    const band = req.body?.band;
+    if (band !== null && (!Number.isInteger(band) || band < 1 || band > 5)) {
+      return res.status(400).json({ error: "bad_cses_band" });
+    }
+    try {
+      await db.query(
+        `INSERT INTO user_preferences (user_id, cses_band) VALUES ($1, $2)
+         ON CONFLICT (user_id) DO UPDATE SET cses_band = EXCLUDED.cses_band, updated_at = NOW()`,
+        [req.user.id, band]
+      );
+      res.set("Cache-Control", "no-store");
+      res.json({ band });
+    } catch (_err) { res.status(500).json({ error: "db_error" }); }
+  });
+
   // What the search page needs to offer "at my level", and nothing else.
   //
   // Deliberately cache-only: it reads whatever /profile already stored and
@@ -49,11 +73,12 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
   // has been opened once.
   router.get("/level", requireUser, async (req, res) => {
     try {
-      const cached = await db.query(
-        `SELECT platform, payload, fetched_at FROM user_platform_stats WHERE user_id = $1`,
-        [req.user.id]
-      );
+      const [cached, preferences] = await Promise.all([
+        db.query(`SELECT platform, payload, fetched_at FROM user_platform_stats WHERE user_id = $1`, [req.user.id]),
+        db.query("SELECT cses_band FROM user_preferences WHERE user_id = $1", [req.user.id]),
+      ]);
       const signals = {};
+      if (preferences.rows[0]?.cses_band != null) signals.cses = { band: preferences.rows[0].cses_band };
       for (const row of cached.rows) {
         const stats = secrets.decryptJson(row.payload);
         if (!stats || stats.unavailable) continue;
@@ -62,7 +87,7 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
         if (stats.byDifficulty) signal.byDifficulty = stats.byDifficulty;
         if (signal.rating !== undefined || signal.byDifficulty) signals[row.platform] = signal;
       }
-      res.set("Cache-Control", "private, max-age=300");
+      res.set("Cache-Control", "no-store");
       res.json({ signals, suggest: suggestLevel(signals, problems) });
     } catch (_err) {
       res.status(500).json({ error: "db_error" });

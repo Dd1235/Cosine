@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc430-c",
+  "url": "https://atcoder.jp/contests/abc430/tasks/abc430_c",
+  "observed_at": "2026-09-11T07:22:00.944011+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\n\nIn AtCoder Country, there is a rule that \"a truck driver must take a break of at least B minutes when driving for A minutes or more.\"\n\nYou are given a string S of length N consisting of a and b, and positive integers A and B. Find the number of integer pairs (l,r) that satisfy all of the following conditions.\n\n1\\leq l \\leq r \\leq N\n\nThe number of a in the substring from the l-th character through the r-th character of S is greater than or equal to A.\n\nThe number of b in the substring from the l-th character through the r-th character of S is less than B.\n\nConstraints\n\n1\\leq N \\leq 3\\times 10^5\n\n1 \\leq A,B \\leq N\n\nS is a string of length N consisting of a and b.\n\nAll input numbers are integers.\n\nInput\nThe input is given from Standard Input in the following format:\n\nN A B\nS\n\nOutput\nPrint the answer.\n\nSample Input 1\n11 4 2\nabbaaabaaba\n\nSample Output 1\n3\n\nThe pairs (l,r) that satisfy the conditions are (4,8),(4,9),(5,9), which is three pairs.\n\nSample Input 2\n13 1 2\nbbbbbbbbbbbbb\n\nSample Output 2\n0\n\nThere are no pairs (l,r) that satisfy the conditions.",
+  "statement_sha256": "41233e663eb89043ea9e66ba355cc9eb116802e2b717be0a0162d77eb1b39813",
+  "raw_sha256": "984503163f9dd8f502fc173d4f6fac1b269666c454de99fb9cd614edacf93849",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

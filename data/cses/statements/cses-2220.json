@@ -1,0 +1,8 @@
+{
+  "id": "cses-2220",
+  "title": "Counting Numbers",
+  "source_url": "https://cses.fi/problemset/task/2220",
+  "observed_at": "2026-09-11T06:53:20.003806+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of integers between a and b where no two adjacent digits are the same.\n\nInput\n\nThe only input line has two integers a and b.\n\nOutput\n\nPrint one integer: the answer to the problem.\n\nConstraints\n\n\n0 \\le a \\le b \\le 10^{18}\n\n\nExample\n\nInput:\n\n123 321\n\n\nOutput:\n\n171",
+  "statement_sha256": "fddd3369f6ce44df53c08378f593f99297e400b3ee73de58929421ceb6ede981"
+}

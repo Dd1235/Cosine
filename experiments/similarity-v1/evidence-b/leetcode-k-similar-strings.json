@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-k-similar-strings",
+  "url": "https://leetcode.com/problems/k-similar-strings/",
+  "observed_at": "2026-09-11T07:21:46.093625+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Strings s1 and s2 are k -similar (for some non-negative integer k ) if we can swap the positions of two letters in s1 exactly k times so that the resulting string equals s2 . \n\n Given two anagrams s1 and s2 , return the smallest k for which s1 and s2 are k -similar . \n\n \u00a0 \n Example 1: \n\n \n Input: s1 = \"ab\", s2 = \"ba\"\n Output: 1\n Explanation: The two string are 1-similar because we can use one swap to change s1 to s2: \"ab\" --> \"ba\".\n \n\n Example 2: \n\n \n Input: s1 = \"abc\", s2 = \"bca\"\n Output: 2\n Explanation: The two strings are 2-similar because we can use two swaps to change s1 to s2: \"abc\" --> \"bac\" --> \"bca\".\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s1.length <= 20 \n s2.length == s1.length \n s1 and s2 contain only lowercase letters from the set {'a', 'b', 'c', 'd', 'e', 'f'} . \n s2 is an anagram of s1 .",
+  "statement_sha256": "e5016529969d89f2a5bac62fc4e9cc13c2e98661c3529705c169b8540a2ee8c1",
+  "raw_sha256": "c2e45e3dc42375822c5c7647d9a15c11b256fc27692a73b2e6c53009106d31ba",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

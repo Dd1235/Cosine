@@ -26,5 +26,18 @@
       "circular-list": 0.9,
       "queue": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2163",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "e03cbaef51c813015b5eb913825445d383bdb2987a495368a87d96ea20e23f94",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -24,5 +24,18 @@
       "max-flow": 0.98,
       "min-cut": 0.97
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1695",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "a5472b91f38b8ccc3122305184d11b0ce6ac1fb5a4ac23bd06b95574b838d3f3",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

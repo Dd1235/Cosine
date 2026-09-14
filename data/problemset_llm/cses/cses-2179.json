@@ -26,5 +26,18 @@
       "eulerian-path": 0.9,
       "graph-parity-check": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2179",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "caf6a39ad757f611fbe08144e1769c7d272f259f28b13555e133c48cf3144052",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

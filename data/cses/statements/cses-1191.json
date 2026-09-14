@@ -1,0 +1,8 @@
+{
+  "id": "cses-1191",
+  "title": "Cyclic Array",
+  "source_url": "https://cses.fi/problemset/task/1191",
+  "observed_at": "2026-09-11T06:54:55.204106+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a cyclic array consisting of n values. Each element has two neighbors; the elements at positions n and 1 are also considered neighbors.\n\nYour task is to divide the array into subarrays so that the sum of each subarray is at most k. What is the minimum number of subarrays?\n\nInput\n\nThe first input line contains integers n and k.\n\nThe next line has n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nThere is always at least one division (i.e., no value in the array is larger than k).\n\nOutput\n\nPrint one integer: the minimum number of subarrays.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n1 \\le k \\le 10^{18}\n\n\nExample\n\nInput:\n\n8 5\n2 2 2 1 3 1 2 1\n\n\nOutput:\n\n3\n\n\nExplanation: We can create three subarrays: [2,2,1], [3,1], and [2,1,2] (remember that the array is cyclic).",
+  "statement_sha256": "aab9999cabb3dc9ea42b1e954dd085844a0a755adc4b7bfef45ee8c55abbe3eb"
+}

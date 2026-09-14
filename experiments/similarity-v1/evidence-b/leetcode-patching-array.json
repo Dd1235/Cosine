@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-patching-array",
+  "url": "https://leetcode.com/problems/patching-array/",
+  "observed_at": "2026-09-11T07:21:50.756441+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a sorted integer array nums and an integer n , add/patch elements to the array such that any number in the range [1, n] inclusive can be formed by the sum of some elements in the array. \n\n Return the minimum number of patches required . \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,3], n = 6\n Output: 1\nExplanation:\nCombinations of nums are [1], [3], [1,3], which form possible sums of: 1, 3, 4.\nNow if we add/patch 2 to nums, the combinations are: [1], [2], [3], [1,3], [2,3], [1,2,3].\nPossible sums are 1, 2, 3, 4, 5, 6, which now covers the range [1, 6].\nSo we only need 1 patch.\n \n\n Example 2: \n\n \n Input: nums = [1,5,10], n = 20\n Output: 2\nExplanation: The two patches can be [2, 4].\n \n\n Example 3: \n\n \n Input: nums = [1,2,2], n = 5\n Output: 0\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 1000 \n 1 <= nums[i] <= 10 4 \n nums is sorted in ascending order . \n 1 <= n <= 2 31 - 1",
+  "statement_sha256": "f61b2a5a23e3a529edbfde6cc35a267f45081d52bb780835ddb3535e8ec59e21",
+  "raw_sha256": "a00d0f19f861c660efb3fe0a82543639704d3d031f46c30a1a9ada4175b68d1f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

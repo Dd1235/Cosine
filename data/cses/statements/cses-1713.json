@@ -1,0 +1,8 @@
+{
+  "id": "cses-1713",
+  "title": "Counting Divisors",
+  "source_url": "https://cses.fi/problemset/task/1713",
+  "observed_at": "2026-09-11T06:53:33.409419+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven n integers, your task is to report for each integer the number of its divisors.\n\nFor example, if x=18, the correct answer is 6 because its divisors are 1,2,3,6,9,18.\n\nInput\n\nThe first input line has an integer n: the number of integers.\n\nAfter this, there are n lines, each containing an integer x.\n\nOutput\n\nFor each integer, print the number of its divisors.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le x \\le 10^6\n\n\nExample\n\nInput:\n\n3\n16\n17\n18\n\n\nOutput:\n\n5\n2\n6",
+  "statement_sha256": "0255044d40ad01e6581e99ca00e14df72cc3286fcb28b37678b72a1aacea6105"
+}

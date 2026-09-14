@@ -1,0 +1,8 @@
+{
+  "id": "cses-1139",
+  "title": "Distinct Colors",
+  "source_url": "https://cses.fi/problemset/task/1139",
+  "observed_at": "2026-09-11T06:53:32.409750+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a rooted tree consisting of n nodes. The nodes are numbered 1,2,\\ldots,n, and node 1 is the root. Each node has a color.\n\nYour task is to determine for each node the number of distinct colors in the subtree of the node.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThe next line consists of n integers c_1,c_2,\\ldots,c_n: the color of each node.\n\nThen there are n-1 lines describing the edges. Each line contains two integers a and b: there is an edge between nodes a and b.\n\nOutput\n\nPrint n integers: for each node 1,2,\\ldots,n, the number of distinct colors.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 3 2 2 1\n1 2\n1 3\n3 4\n3 5\n\n\nOutput:\n\n3 1 2 1 1",
+  "statement_sha256": "bd181d8852d84fe7cb48593488adcfba43f2e5ac05ef0caeae64916fa09e8704"
+}

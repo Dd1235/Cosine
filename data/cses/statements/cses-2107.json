@@ -1,0 +1,8 @@
+{
+  "id": "cses-2107",
+  "title": "String Functions",
+  "source_url": "https://cses.fi/problemset/task/2107",
+  "observed_at": "2026-09-11T06:53:42.016196+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nWe consider a string of n characters, indexed 1,2,\\dots,n. Your task is to calculate all values of the following functions:\n\n\nz(i) denotes the maximum length of a substring that begins at position i and is a prefix of the string. In addition, z(1)=0.\n\n\\pi(i) denotes the maximum length of a substring that ends at position i, is a prefix of the string, and whose length is at most i-1.\n\n\nNote that the function z is used in the Z-algorithm, and the function \\pi is used in the KMP algorithm.\n\nInput\n\nThe only input line has a string of length n. Each character is between a\u2013z.\n\nOutput\n\nPrint two lines: first the values of the z function, and then the values of the \\pi function.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nabaabca\n\n\nOutput:\n\n0 0 1 2 0 0 1\n0 0 1 1 2 0 1",
+  "statement_sha256": "41bcde622c662c9f726deed47a10933bb4c23daac10a185b90f23a3bbc87d421"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-expression-add-operators",
+  "url": "https://leetcode.com/problems/expression-add-operators/",
+  "observed_at": "2026-09-11T07:21:50.308447+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string num that contains only digits and an integer target , return all possibilities to insert the binary operators '+' , '-' , and/or '*' between the digits of num so that the resultant expression evaluates to the target value . \n\n Note that operands in the returned expressions should not contain leading zeros. \n\n Note that a number can contain multiple digits. \n\n \u00a0 \n Example 1: \n\n \n Input: num = \"123\", target = 6\n Output: [\"1*2*3\",\"1+2+3\"]\n Explanation: Both \"1*2*3\" and \"1+2+3\" evaluate to 6.\n \n\n Example 2: \n\n \n Input: num = \"232\", target = 8\n Output: [\"2*3+2\",\"2+3*2\"]\n Explanation: Both \"2*3+2\" and \"2+3*2\" evaluate to 8.\n \n\n Example 3: \n\n \n Input: num = \"3456237490\", target = 9191\n Output: []\n Explanation: There are no expressions that can be created from \"3456237490\" to evaluate to 9191.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= num.length <= 10 \n num consists of only digits. \n -2 31 <= target <= 2 31 - 1",
+  "statement_sha256": "fc861f7e2afadbb642d1a3a23c3cb40af0095a3eec6d9beff16b1c7b8beb631f",
+  "raw_sha256": "92f24507b196a45bf2fc299b9289175ccdc79cf479978f45b84a1226fa448509",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

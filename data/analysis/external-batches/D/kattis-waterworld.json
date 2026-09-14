@@ -1,0 +1,21 @@
+{
+ "id": "kattis-waterworld",
+ "status": "solved",
+ "solution": "The image is cut into n segments of equal HEIGHT, i.e. equal slabs of the rotation-axis coordinate z, and the rotation into m equal wedges of d = 360/m degrees. By Archimedes' hat-box theorem the area of a spherical zone between two planes perpendicular to the axis is 2*pi*R*(height), independent of latitude, so every one of the n*m cells has exactly the same area 4*pi*R^2/(n*m) - the longer equatorial sides and the longer polar sides cancel, which is what the statement's remark about curvature is hinting at. The water fraction of the sphere is therefore the plain unweighted arithmetic mean of the n*m given percentages; no trigonometric weights are involved. Reading and averaging the matrix is O(n*m) time and O(1) extra space, at most 10^6 integers.",
+ "solution_confidence": 0.97,
+ "statement_summary": "A rotating spherical planet is imaged along its central vertical line, split into n segments of equal image height, while the rotation is analysed in m equal angular steps covering 360 degrees, dividing the surface into n times m areas. Given each area's integer water-coverage percentage, with n and m up to 1000, report the percentage of the entire surface covered by water within 10^-6.",
+ "patterns": [
+  "geometry"
+ ],
+ "pattern_confidence": {
+  "geometry": 0.95
+ },
+ "tags": [
+  "geometry",
+  "math",
+  "matrix"
+ ],
+ "source_text_sha256": "f62276a231019e0d6265ac902e8761a3418092ca7748285ee2a3b3e2a07fbbff",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchD/verify_waterworld.py",
+ "notes": "The whole problem is one spherical-geometry observation (equal height slabs => equal area, Archimedes' hat-box); the code is a one-line average, so 'geometry' is the only technique that genuinely solves it and extra labels would be decoration. Vocabulary gap: there is no slug for spherical geometry / solid geometry / the hat-box (equal-area zone) result - 'geometry' is the closest canonical key, and 'polygon-area' is planar and would be wrong. Deliberately NOT labelled: no prefix sums, no sweep, no dp. The refuted rival reading is that the n bands are equal steps of latitude ANGLE; verify_waterworld.py shows that weighting gives 50.964 on sample 1 against the required 51.810, and numerically confirms that equal-z bands have equal area while equal-angle bands do not."
+}

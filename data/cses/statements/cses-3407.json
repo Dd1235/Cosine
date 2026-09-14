@@ -1,0 +1,8 @@
+{
+  "id": "cses-3407",
+  "title": "MST Edge Check",
+  "source_url": "https://cses.fi/problemset/task/3407",
+  "observed_at": "2026-09-11T06:54:44.715022+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an undirected weighted graph, determine for each edge if it can be included in a minimum spanning tree.\n\nInput\n\nThe first line has two integers n and m: the number of nodes and edges. The nodes are numbered 1,2,\\dots,n.\n\nThe following m lines describe the edges. Each line has three integers a, b, w: there is an edge between nodes a and b with weight w.\n\nYou can assume that the graph is connected and simple and each edge appears at most once in the graph.\n\nOutput\n\nFor each edge in the input order, print YES if it can be included in the minimum spanning tree and NO otherwise.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le w \\le 10^9\n\n\nExample\n\nInput:\n\n5 6\n1 2 4\n1 3 2\n2 4 2\n3 4 1\n3 5 3\n4 5 3\n\n\nOutput:\n\nNO\nYES\nYES\nYES\nYES\nYES",
+  "statement_sha256": "17458439d77a285fadff9d2d013ecf4cff31af88df81d9758059919cdf6134f7"
+}

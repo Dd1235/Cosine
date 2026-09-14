@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-remove-k-balanced-substrings",
+  "url": "https://leetcode.com/problems/remove-k-balanced-substrings/",
+  "observed_at": "2026-09-11T07:21:57.272125+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s consisting of '(' and ')' , and an integer k . \n\n A string is k-balanced if it is exactly k consecutive '(' followed by k consecutive ')' , i.e., '(' * k + ')' * k . \n\n For example, if k = 3 , k-balanced is \"((()))\" . \n\n You must repeatedly remove all non-overlapping k-balanced substrings from s , and then join the remaining parts. Continue this process until no k-balanced substring exists. \n\n Return the final string after all possible removals. \n\n \u00a0 \n \u200b\u200b\u200b\u200b\u200b\u200b\u200b Example 1: \n\n \n Input: s = \"(())\", k = 1 \n\n Output: \"\" \n\n Explanation: \n\n k-balanced substring is \"()\" \n\n \n \n \n Step \n Current s \n k-balanced \n Result s \n \n \n \n \n 1 \n (()) \n ( () ) \n () \n \n \n 2 \n () \n () \n Empty \n \n \n \n\n Thus, the final string is \"\" . \n \n\n Example 2: \n\n \n Input: s = \"(()(\", k = 1 \n\n Output: \"((\" \n\n Explanation: \n\n k-balanced substring is \"()\" \n\n \n \n \n Step \n Current s \n k-balanced \n Result s \n \n \n \n \n 1 \n (()( \n ( () ( \n (( \n \n \n 2 \n (( \n - \n (( \n \n \n \n\n Thus, the final string is \"((\" . \n \n\n Example 3: \n\n \n Input: s = \"((()))()()()\", k = 3 \n\n Output: \"()()()\" \n\n Explanation: \n\n k-balanced substring is \"((()))\" \n\n \n \n \n Step \n Current s \n k-balanced \n Result s \n \n \n \n \n 1 \n ((()))()()() \n ((())) ()()() \n ()()() \n \n \n 2 \n ()()() \n - \n ()()() \n \n \n \n\n Thus, the final string is \"()()()\" . \n \n\n \u00a0 \n Constraints: \n\n \n 2 <= s.length <= 10 5 \n s consists only of '(' and ')' . \n 1 <= k <= s.length / 2",
+  "statement_sha256": "7b4ef4841d7648eeebfaf7ab5f796e09dc73812e622ba8c8e44451aefb2d0f13",
+  "raw_sha256": "ab4911844ac4ed6000c44a2ba307ebb15cd4b120e6ef3bc7e4cee351ddf4bb43",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

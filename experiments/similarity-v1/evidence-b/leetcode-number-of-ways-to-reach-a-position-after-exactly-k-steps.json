@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-number-of-ways-to-reach-a-position-after-exactly-k-steps",
+  "url": "https://leetcode.com/problems/number-of-ways-to-reach-a-position-after-exactly-k-steps/",
+  "observed_at": "2026-09-11T07:22:17.721216+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two positive integers startPos and endPos . Initially, you are standing at position startPos on an infinite number line. With one step, you can move either one position to the left, or one position to the right. \n\n Given a positive integer k , return the number of different ways to reach the position endPos starting from startPos , such that you perform exactly k steps . Since the answer may be very large, return it modulo 10 9 + 7 . \n\n Two ways are considered different if the order of the steps made is not exactly the same. \n\n Note that the number line includes negative integers. \n\n \u00a0 \n Example 1: \n\n \n Input: startPos = 1, endPos = 2, k = 3\n Output: 3\n Explanation: We can reach position 2 from 1 in exactly 3 steps in three ways:\n- 1 -> 2 -> 3 -> 2.\n- 1 -> 2 -> 1 -> 2.\n- 1 -> 0 -> 1 -> 2.\nIt can be proven that no other way is possible, so we return 3. \n\n Example 2: \n\n \n Input: startPos = 2, endPos = 5, k = 10\n Output: 0\n Explanation: It is impossible to reach position 5 from position 2 in exactly 10 steps.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= startPos, endPos, k <= 1000",
+  "statement_sha256": "3cc8975145c0023d972ba27f5ba2261e34602df6735917c2dd563535ef29281f",
+  "raw_sha256": "3f949b91bf877b87f7494fd67fd33e5c8111ecac51ec363eaddcf34ec106453f",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

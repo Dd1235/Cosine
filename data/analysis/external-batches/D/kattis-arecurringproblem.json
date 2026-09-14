@@ -1,0 +1,32 @@
+{
+ "id": "kattis-arecurringproblem",
+ "status": "solved",
+ "solution": "The first generated value is a_{k+1} = sum_j c_j a_j, so the PLRRs whose generated part starts with t are exactly the ways of writing t as a sum of products of two positive integers, counted by g(t) = sum_{c*a <= t} g(t - c*a) = [x^t] D/(1-D) with D = sum_m d(m) x^m; g grows like 2.46^t, so n <= 10^9 forces t <= 24, and then every order k, every sum of coefficients and every sum of starting values is also at most 24. To count the PLRRs whose generated part starts with a prefix x = (x_1..x_L), re-index so that the generated part is a_1, a_2, ... and the initial values are a_0, a_{-1}, ..., a_{-(r-1)}, and peel off the last coefficient c_r together with the newest unknown initial value a_0: its contribution to the L equations is c*(a_0, prev_1..prev_{L-1}), where prev is the window of L values sitting left of the unknown part (prev = x at the root), giving f(x, prev) = sum over a_0 >= 1, c >= 1 with c*a_0 <= x_1 of f(x - c*(a_0, prev_1..prev_{L-1}), (a_0, prev_1..prev_{L-1})), with f = 1 when x is all zero and 0 once an entry goes negative; x_1 drops by at least one per level, so the depth is at most x_1 <= 24. Make f return a map from the NEXT generated value to a count instead of a bare count (a level lifts each child value by c*prev_L, the entry that falls off when a_0 is prepended; the base case returns {0:1}), memoise on (x, prev), and prune with the exact identity count_L(x,prev) = map_{L-1}(x[:-1], prev[:-1])[x_L], which kills any state whose length-(L-1) projection cannot yield x_L and is what makes the search fast. The driver subtracts g(1), g(2), ... from n to fix the first generated value, then repeatedly reads the map of the current prefix, walks its keys in increasing order subtracting bucket counts, and appends the key whose bucket contains the remaining rank - a lexicographic trie descent with no binary search. Once a bucket holds only a handful of PLRRs the recursion is re-run recording the choices (c_r and a_r are chosen first, so both vectors come out reversed) and those few are sorted by generated tail and then by coefficient vector; comparing 2t+4 generated terms is exact, because two sequences of orders k and k' agreeing on k+k' terms agree forever (their difference is annihilated by the product of the two characteristic polynomials), which also settles the genuine ties such as k=1,c=(2),a=(2) versus k=2,c=(2,1),a=(1,2). No closed-form complexity is known - the judges' own sketch states none - but empirically the memo holds about 5*10^5 states and this pure-Python implementation answers the hardest n <= 10^9 in a few seconds (the problem author's C++ takes 0.29 s against a 20 s limit).",
+ "solution_confidence": 0.96,
+ "statement_summary": "A positive linear recurrence relation consists of an order k, k positive coefficients and k positive starting values, each later term being the coefficient-weighted sum of the previous k. All such relations are ranked by the lexicographic order of the terms generated after the starting values, ties broken by the coefficient vector. Given an index up to one billion, output that relation and its first ten generated terms.",
+ "patterns": [
+  "counting",
+  "lexicographic-order",
+  "dynamic-programming",
+  "memoization",
+  "linear-recurrence",
+  "combinatorics"
+ ],
+ "pattern_confidence": {
+  "counting": 0.95,
+  "lexicographic-order": 0.93,
+  "dynamic-programming": 0.9,
+  "memoization": 0.9,
+  "linear-recurrence": 0.72,
+  "combinatorics": 0.6
+ },
+ "tags": [
+  "math",
+  "dp",
+  "combinatorics",
+  "sequence"
+ ],
+ "source_text_sha256": "d0d1c3ef203953e847b17ecc3185cae395d92757a4acb368650402dbcd3328af",
+ "verify_script": "/Users/dedeepya/Cosine/data/analysis/external-batches/D/verify_arecurringproblem.py",
+ "notes": "Verification: both official samples, plus the solver checked against exhaustive enumeration for EVERY rank n = 1..16333 (all PLRRs whose first generated value is <= 11) with zero mismatches, plus the prefix-counting maps themselves checked against brute-force distributions (counts AND next-value buckets) for all prefixes of length 1..3 with first value <= 10, plus g(t) against the divisor generating function and against |enumeration|. Every answer is re-checked to be a genuine PLRR whose generated part really starts with the descended prefix. Timing (pure Python): 1.5 s at n = 10^9, worst of 10 random 9-digit n was 4.5 s; the judges' limit is 20 s and the author's C++ runs in 0.29 s. Cross-check on the approach: the official 47th ICPC WF solution sketches (Per Austrin et al., problem E, authors Derek Kisman and Matthias Ruhl, solved by 0 teams) and Kisman's published accepted source describe the same peel-one-coefficient counting recursion with the next-value map and the projection prune; the implementation, the exactness argument for the projection identity, the 2t+4 comparison bound and all testing here are my own. Labelling: 'counting' and 'lexicographic-order' carry the actual crux (a counting function over prefixes, driven by a k-th-in-lexicographic-order trie descent); 'memoization' is deliberate - the recursion is top-down over vector states with a projection prune, not a table sweep. Rejected: 'binary-search' (needed only by the weaker variant that returns a single count instead of a map), 'divisor-enumeration' (the divisor function appears in the derivation of g, but the code only loops over pairs with c*a <= x_1, which is scaffolding), and 'brute-force'/'sorting' for the final materialise-and-sort of <= 20 candidates. The vocabulary has no slug for 'find the n-th object by descending a counting DP' or for search pruning, which is the one real gap here."
+}

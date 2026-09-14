@@ -1,0 +1,8 @@
+{
+  "id": "cses-2208",
+  "title": "Another Game",
+  "source_url": "https://cses.fi/problemset/task/2208",
+  "observed_at": "2026-09-11T06:53:39.455220+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere are n heaps of coins and two players who move alternately. On each move, a player selects some of the nonempty heaps and removes one coin from each heap. The player who removes the last coin wins the game.\n\nYour task is to find out who wins if both players play optimally.\n\nInput\n\nThe first input line contains an integer t: the number of tests. After this, t test cases are described:\n\nThe first line contains an integer n: the number of heaps.\n\nThe next line has n integers x_1,x_2,\\ldots,x_n: the number of coins in each heap.\n\nOutput\n\nFor each test case, print \"first\" if the first player wins the game and \"second\" if the second player wins the game.\n\nConstraints\n\n\n1 \\le t \\le 2 \\cdot 10^5\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\nthe sum of all n is at most 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n3\n3\n1 2 3\n2\n2 2\n4\n5 5 4 5\n\n\nOutput:\n\nfirst\nsecond\nfirst",
+  "statement_sha256": "a7c4fb5e5258a49c8933df28eae0cfb6df4904caf279788319cb40d2cfd9e9f6"
+}

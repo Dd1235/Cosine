@@ -1,0 +1,8 @@
+{
+  "id": "cses-1147",
+  "title": "Maximum Building I",
+  "source_url": "https://cses.fi/problemset/task/1147",
+  "observed_at": "2026-09-11T06:54:54.693661+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a map of a forest where some squares are empty and some squares have trees.\n\nWhat is the maximum area of a rectangular building that can be placed in the forest so that no trees must be cut down?\n\nInput\n\nThe first input line contains integers n and m: the size of the forest.\n\nAfter this, the forest is described. Each square is empty (.) or has trees (*).\n\nInput\n\nPrint the maximum area of a rectangular building.\n\nConstraints\n\n\n1 \\le n,m \\le 1000\n\n\nExample\n\nInput:\n\n4 7\n...*.*.\n.*.....\n.......\n......*\n\n\nOutput:\n\n12",
+  "statement_sha256": "5731ee316360a09791e6841f8db4151a67900baea69e6e11b4e3d086d2f29803"
+}

@@ -25,5 +25,18 @@
       "orientation-test": 0.9,
       "sorting": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2195",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "0b10c0dff2cb51a1e873fa17d75f09b8046736617bf895f6be6ed691d6ac092c",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

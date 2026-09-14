@@ -1,0 +1,35 @@
+{
+ "id": "kattis-sgcoin",
+ "title": "SG Coin",
+ "slug": "sgcoin",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/sgcoin",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "A blockchain block is valid when a specified polynomial hash of the previous block's hash, a transaction string and a token yields a positive value with seven trailing zeros modulo 1000000007. Given the current last hash, the task is to output two chained blocks, printing a transaction string and token for one appended to it and for a second appended to that, each token below one billion.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "modular-arithmetic",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "modular-arithmetic": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.7,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

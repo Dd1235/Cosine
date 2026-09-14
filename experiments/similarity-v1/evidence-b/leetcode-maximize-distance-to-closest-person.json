@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximize-distance-to-closest-person",
+  "url": "https://leetcode.com/problems/maximize-distance-to-closest-person/",
+  "observed_at": "2026-09-11T07:21:54.123724+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an array representing a row of seats where seats[i] = 1 represents a person sitting in the i th seat, and seats[i] = 0 represents that the i th seat is empty (0-indexed) . \n\n There is at least one empty seat, and at least one person sitting. \n\n Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized.\u00a0 \n\n Return that maximum distance to the closest person . \n\n \u00a0 \n Example 1: \n \n \n Input: seats = [1,0,0,0,1,0,1]\n Output: 2\n Explanation: \nIf Alex sits in the second open seat (i.e. seats[2]), then the closest person has distance 2.\nIf Alex sits in any other open seat, the closest person has distance 1.\nThus, the maximum distance to the closest person is 2.\n \n\n Example 2: \n\n \n Input: seats = [1,0,0,0]\n Output: 3\n Explanation: \nIf Alex sits in the last seat (i.e. seats[3]), the closest person is 3 seats away.\nThis is the maximum distance possible, so the answer is 3.\n \n\n Example 3: \n\n \n Input: seats = [0,1]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 2 <= seats.length <= 2 * 10 4 \n seats[i] \u00a0is 0 or\u00a0 1 . \n At least one seat is empty . \n At least one seat is occupied .",
+  "statement_sha256": "d8f66355eb21829958ec2b808170e95b6f918de905fa2079b89f69a3c2530a79",
+  "raw_sha256": "24933d80ebcdc98847c4f9d60913bf980d723c53c59d4d30013e6f497cbf626b",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

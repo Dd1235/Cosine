@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-agc033-a",
+  "url": "https://atcoder.jp/contests/agc033/tasks/agc033_a",
+  "observed_at": "2026-09-11T07:21:42.601718+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nYou are given a grid of squares with H horizontal rows and W vertical columns, where each square is painted white or black.\r\nHW characters from A_{11} to A_{HW} represent the colors of the squares.\r\nA_{ij} is # if the square at the i-th row from the top and the j-th column from the left is black, and A_{ij} is . if that square is white.\r\n\nWe will repeatedly perform the following operation until all the squares are black:\r\n\nEvery white square that shares a side with a black square, becomes black.\r\n\nFind the number of operations that will be performed.\r\nThe initial grid has at least one black square.\r\n\nConstraints\r\n\n1 \\leq H,W \\leq 1000\r\n\nA_{ij} is # or ..\r\n\nThe given grid has at least one black square.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nH W\r\nA_{11}A_{12}...A_{1W}\r\n:\r\nA_{H1}A_{H2}...A_{HW}\r\n\nOutput\nPrint the number of operations that will be performed.\r\n\nSample Input 1\n3 3\r\n...\r\n.#.\r\n...\r\n\nSample Output 1\n2\r\n\nAfter one operation, all but the corners of the grid will be black. After one more operation, all the squares will be black.\r\n\nSample Input 2\n6 6\r\n..#..#\r\n......\r\n#..#..\r\n......\r\n.#....\r\n....#.\r\n\nSample Output 2\n3",
+  "statement_sha256": "1e86c0367980475c88dde8f210d187eb4dda780803252496be29e498933ea552",
+  "raw_sha256": "c301f54f12758728fecf8e8059373ff468290bd308cd9e65fadce6bdf5f12ab9",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc186-e",
+  "url": "https://atcoder.jp/contests/abc186/tasks/abc186_e",
+  "observed_at": "2026-09-11T07:22:17.037875+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nWe have N chairs arranged in a circle, one of which is a throne.\r\n\nTakahashi is initially sitting on the chair that is S chairs away from the throne in the clockwise direction. Now, he will repeat the move below.\r\n\nMove: Go to the chair that is K chairs away from the chair he is currently sitting on in the clockwise direction.\r\n\nAfter how many moves will he be sitting on the throne for the first time? If he is never going to sit on it, report -1 instead.\r\n\nYou are asked to solve T test cases.\r\n\nConstraints\r\n\n1\\leq T \\leq 100\r\n\n2\\leq N \\leq 10^9\r\n\n1\\leq S < N\r\n\n1\\leq K \\leq 10^9\r\n\nInput\nInput is given from Standard Input in the following format. The first line is in the format below:\r\n\nT\r\n\nThen, the following T lines represent T test cases. Each of these lines is in the format below:\r\n\nN S K\r\n\nOutput\nFor each test case, print the answer in its own line.\r\n\nSample Input 1\n4\r\n10 4 3\r\n1000 11 2\r\n998244353 897581057 595591169\r\n10000 6 14\r\n\nSample Output 1\n2\r\n-1\r\n249561088\r\n3571\r\n\nIn the first test case, we have 10 chairs, and Takahashi is initially sitting on the chair that is 4 chairs away from the throne in the clockwise direction.\r\nHe will be sitting on the throne after 2 moves of moving 3 chairs in the clockwise direction.\r\n\nIn the second test case, he will never sit on the throne, so we should print -1.",
+  "statement_sha256": "ef9f4dcad305478c560cee2f38c4d189a61ccd8e76f73bf9b23cf39fa1ccc8c0",
+  "raw_sha256": "d80bb3d965431b6590b1110ddfdaa9f8777f978e29d27243f830e270612d9096",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

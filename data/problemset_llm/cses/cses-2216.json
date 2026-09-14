@@ -23,5 +23,18 @@
       "greedy": 0.95,
       "brute-force": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2216",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "3812c33258a75858c55baeda9d85cb25950e6ffa5026000a2122403e215cdc76",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

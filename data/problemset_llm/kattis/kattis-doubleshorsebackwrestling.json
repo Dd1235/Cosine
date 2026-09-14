@@ -1,0 +1,37 @@
+{
+ "id": "kattis-doubleshorsebackwrestling",
+ "title": "Doubles Horseback Wrestling",
+ "slug": "doubleshorsebackwrestling",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/doubleshorsebackwrestling",
+ "source_topic": "ICPC / World Finals 2024",
+ "source_tags": [],
+ "statement": "There are n riders, each with a true rating known only to lie between a given integer lower and upper bound. Two riders may form a doubles team if some choice of ratings within their bounds sums exactly to a target s. Given up to 200000 riders with bounds up to 1e9, the task is to form the maximum number of disjoint teams and output one such set of pairs.",
+ "tags": [],
+ "patterns": [
+  "greedy",
+  "line-sweep",
+  "heap",
+  "exchange-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "greedy": 0.9,
+   "line-sweep": 0.9,
+   "heap": 0.9,
+   "exchange-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.3,
+  "label": "medium",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:23:29+00:00"
+ }
+}

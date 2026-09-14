@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc115-d",
+  "url": "https://atcoder.jp/contests/abc115/tasks/abc115_d",
+  "observed_at": "2026-09-11T07:22:17.721717+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nIn some other world, today is Christmas.\r\n\nMr. Takaha decides to make a multi-dimensional burger in his party. A level-L burger (L is an integer greater than or equal to 0) is the following thing:\r\n\nA level-0 burger is a patty.\r\n\nA level-L burger (L \\geq 1) is a bun, a level-(L-1) burger, a patty, another level-(L-1) burger and another bun, stacked vertically in this order from the bottom.\r\n\nFor example, a level-1 burger and a level-2 burger look like BPPPB and BBPPPBPBPPPBB (rotated 90 degrees), where B and P stands for a bun and a patty.\r\n\nThe burger Mr. Takaha will make is a level-N burger. Lunlun the Dachshund will eat X layers from the bottom of this burger (a layer is a patty or a bun). How many patties will she eat?\r\n\nConstraints\r\n\n1 \\leq N \\leq 50\r\n\n1 \\leq X \\leq ( the total number of layers in a level-N burger )\r\n\nN and X are integers.\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nN X\r\n\nOutput\nPrint the number of patties in the bottom-most X layers from the bottom of a level-N burger.\r\n\nSample Input 1\n2 7\r\n\nSample Output 1\n4\r\n\nThere are 4 patties in the bottom-most 7 layers of a level-2 burger (BBPPPBPBPPPBB).\r\n\nSample Input 2\n1 1\r\n\nSample Output 2\n0\r\n\nThe bottom-most layer of a level-1 burger is a bun.\r\n\nSample Input 3\n50 4321098765432109\r\n\nSample Output 3\n2160549382716056\r\n\nA level-50 burger is rather thick, to the extent that the number of its layers does not fit into a 32-bit integer.",
+  "statement_sha256": "590f52712d50eac21d15cc3ce0669f401a187fe0677728726674fce561765835",
+  "raw_sha256": "55643f9ef08c32dab3f6568ac99a0be751692ae1e72cac9b525745b7877f137d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

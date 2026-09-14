@@ -25,5 +25,18 @@
       "sliding-window": 0.95,
       "berlekamp-massey": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3426",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "099e385b03ff2a8654e59bb68897a248e708d60ec6f8e50fd6ba35a13c2c0fdf",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

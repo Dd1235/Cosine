@@ -23,5 +23,18 @@
       "shortest-cycle-detection": 0.95,
       "bfs": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1707",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "7f6070e0ea224837557d2062964057c99added1858c085560b8b31bc0010c6a4",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

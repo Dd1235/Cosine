@@ -26,5 +26,18 @@
       "nim-game": 0.95,
       "game-theory": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1099",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "2f09aa580ad8260f9012e5128797ca96a07047a9b07a3ed9161f33f70c8deb64",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

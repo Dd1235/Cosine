@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-pizza-with-3n-slices",
+  "url": "https://leetcode.com/problems/pizza-with-3n-slices/",
+  "observed_at": "2026-09-11T07:21:42.171702+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There is a pizza with 3n slices of varying size, you and your friends will take slices of pizza as follows: \n\n \n You will pick any pizza slice. \n Your friend Alice will pick the next slice in the anti-clockwise direction of your pick. \n Your friend Bob will pick the next slice in the clockwise direction of your pick. \n Repeat until there are no more slices of pizzas. \n \n\n Given an integer array slices that represent the sizes of the pizza slices in a clockwise direction, return the maximum possible sum of slice sizes that you can pick . \n\n \u00a0 \n Example 1: \n \n \n Input: slices = [1,2,3,4,5,6]\n Output: 10\n Explanation: Pick pizza slice of size 4, Alice and Bob will pick slices with size 3 and 5 respectively. Then Pick slices with size 6, finally Alice and Bob will pick slice of size 2 and 1 respectively. Total = 4 + 6.\n \n\n Example 2: \n \n \n Input: slices = [8,9,8,6,1,1]\n Output: 16\n Explanation: Pick pizza slice of size 8 in each turn. If you pick slice with size 9 your partners will pick slices of size 8.\n \n\n \u00a0 \n Constraints: \n\n \n 3 * n == slices.length \n 1 <= slices.length <= 500 \n 1 <= slices[i] <= 1000",
+  "statement_sha256": "3beaf319bf19ec8bf547252d77dfb858df1e03311afab0600f188be9fc8eac1b",
+  "raw_sha256": "7afde583e5530e255a386e0f651144f0d1f807ccbca0c59f6accaae8bc4e4c59",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

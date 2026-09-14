@@ -1,0 +1,8 @@
+{
+  "id": "cses-1134",
+  "title": "Pr\u00fcfer Code",
+  "source_url": "https://cses.fi/problemset/task/1134",
+  "observed_at": "2026-09-11T06:54:43.142045+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nA Pr\u00fcfer code of a tree of n nodes is a sequence of n-2 integers that uniquely specifies the structure of the tree.\n\nThe code is constructed as follows: As long as there are at least three nodes left, find a leaf with the smallest label, add the label of its only neighbor to the code, and remove the leaf from the tree.\n\nGiven a Pr\u00fcfer code of a tree, your task is to construct the original tree.\n\nInput\n\nThe first input line contains an integer n: the number of nodes. The nodes are numbered 1,2,\\ldots,n.\n\nThe second line contains n-2 integers: the Pr\u00fcfer code.\n\nOutput\n\nPrint n-1 lines describing the edges of the tree. Each line has to contain two integers a and b: there is an edge between nodes a and b. You can print the edges in any order.\n\nConstraints\n\n\n3 \\le n \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5\n2 2 4\n\n\nOutput:\n\n1 2\n2 3\n2 4\n4 5",
+  "statement_sha256": "6b916db708c79c1f9128a1ededab7560732d269580a0a52ae560d5fc488f509a"
+}

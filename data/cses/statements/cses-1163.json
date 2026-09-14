@@ -1,0 +1,8 @@
+{
+  "id": "cses-1163",
+  "title": "Traffic Lights",
+  "source_url": "https://cses.fi/problemset/task/1163",
+  "observed_at": "2026-09-11T06:53:13.545942+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is a street of length x whose positions are numbered 0,1,\\ldots,x. Initially there are no traffic lights, but n sets of traffic lights are added to the street one after another.\n\nYour task is to calculate the length of the longest passage without traffic lights after each addition.\n\nInput\n\nThe first input line contains two integers x and n: the length of the street and the number of sets of traffic lights.\n\nThen, the next line contains n integers p_1,p_2,\\ldots,p_n: the position of each set of traffic lights. Each position is distinct.\n\nOutput\n\nPrint the length of the longest passage without traffic lights after each addition.\n\nConstraints\n\n\n1 \\le x \\le 10^9\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 < p_i < x\n\n\nExample\n\nInput:\n\n8 3\n3 6 2\n\n\nOutput:\n\n5 3 3",
+  "statement_sha256": "310d78e5df602639b9d89f3324d8301c55fb624e883598176c837799e821fc33"
+}

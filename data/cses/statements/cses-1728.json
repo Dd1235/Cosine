@@ -1,0 +1,8 @@
+{
+  "id": "cses-1728",
+  "title": "Inversion Probability",
+  "source_url": "https://cses.fi/problemset/task/1728",
+  "observed_at": "2026-09-11T06:53:38.130365+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nAn array has n integers x_1,x_2,\\dots,x_n, and each of them has been randomly chosen between 1 and r_i. An inversion is a pair (a,b) where a<b and x_a>x_b.\n\nWhat is the expected number of inversions in the array?\n\nInput\n\nThe first input line contains an integer n: the size of the array.\n\nThe second line contains n integers r_1,r_2,\\dots,r_n: the range of possible values for each array position.\n\nOutput\n\nPrint the expected number of inversions rounded to six decimal places (rounding half to even).\n\nConstraints\n\n\n1 \\le n \\le 100\n\n1 \\le r_i \\le 100\n\n\nExample\n\nInput:\n\n3\n5 2 7\n\n\nOutput:\n\n1.057143",
+  "statement_sha256": "f85153249d0cbc8e2d48fea7314bfdd9b3df43d161c9cc9f32c34e668712ea82"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-number-of-valid-strings-to-form-target-i",
+  "url": "https://leetcode.com/problems/minimum-number-of-valid-strings-to-form-target-i/",
+  "observed_at": "2026-09-11T07:22:28.374601+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an array of strings words and a string target . \n\n A string x is called valid if x is a prefix of any string in words . \n\n Return the minimum number of valid strings that can be concatenated to form target . If it is not possible to form target , return -1 . \n\n \u00a0 \n Example 1: \n\n \n Input: words = [\"abc\",\"aaaaa\",\"bcdef\"], target = \"aabcdabc\" \n\n Output: 3 \n\n Explanation: \n\n The target string can be formed by concatenating: \n\n \n Prefix of length 2 of words[1] , i.e. \"aa\" . \n Prefix of length 3 of words[2] , i.e. \"bcd\" . \n Prefix of length 3 of words[0] , i.e. \"abc\" . \n \n \n\n Example 2: \n\n \n Input: words = [\"abababab\",\"ab\"], target = \"ababaababa\" \n\n Output: 2 \n\n Explanation: \n\n The target string can be formed by concatenating: \n\n \n Prefix of length 5 of words[0] , i.e. \"ababa\" . \n Prefix of length 5 of words[0] , i.e. \"ababa\" . \n \n \n\n Example 3: \n\n \n Input: words = [\"abcdef\"], target = \"xyz\" \n\n Output: -1 \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= words.length <= 100 \n 1 <= words[i].length <= 5 * 10 3 \n The input is generated such that sum(words[i].length) <= 10 5 . \n words[i] consists only of lowercase English letters. \n 1 <= target.length <= 5 * 10 3 \n target consists only of lowercase English letters.",
+  "statement_sha256": "301d2e071e64ec0f51c1e7ed4725daf460cbc4b5d09781fdbccda4feff568659",
+  "raw_sha256": "f71c8b14118ae210c5f1fba2f25fc397453eeabcdf378ca78e743be4404893c6",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

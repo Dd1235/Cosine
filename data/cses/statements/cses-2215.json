@@ -1,0 +1,8 @@
+{
+  "id": "cses-2215",
+  "title": "Monotone Subsequences",
+  "source_url": "https://cses.fi/problemset/task/2215",
+  "observed_at": "2026-09-11T06:54:41.569255+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to create a permutation of numbers 1,2,\\dots,n whose longest monotone subsequence has exactly k elements.\n\nA monotone subsequence is either increasing or decreasing. For example, some monotone subsequences in [2,1,4,5,3] are [2,4,5] and [4,3].\n\nInput\n\nThe first input line has an integer t: the number of tests.\n\nAfter this, there are t lines. Each line has two integers n and k.\n\nOutput\n\nFor each test, print a line that contains the permutation. You can print any valid solution. If there are no solutions, print IMPOSSIBLE.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n1 \\le k \\le n \\le 100\n\n\nExample\n\nInput:\n\n3\n5 3\n5 2\n7 7\n\n\nOutput:\n\n2 1 4 5 3\nIMPOSSIBLE\n1 2 3 4 5 6 7",
+  "statement_sha256": "d215d34c08c4821fc2a78ef3593519d47fdccf60f223dae70b4ecdb8b0130160"
+}

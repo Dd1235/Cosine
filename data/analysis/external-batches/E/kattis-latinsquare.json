@@ -1,0 +1,35 @@
+{
+ "id": "kattis-latinsquare",
+ "status": "solved",
+ "solution": "Every pre-filled value is guaranteed to occupy exactly one cell in each row and each column, so the k written values together leave exactly n-k empty cells in every row and every column: the empty cells form an (n-k)-regular bipartite graph between rows and columns. A regular bipartite graph satisfies Hall's condition and therefore has a perfect matching, and deleting a perfect matching leaves a graph that is still regular, so the missing values can be placed one at a time without ever backtracking - for each unused value, build the graph of currently empty cells, run Kuhn's augmenting-path matching, and write the value into the matched cells. That argument also shows the answer is never NO, which is why the published code always prints YES and has its NO branch commented out. At most n values each cost one maximum matching over at most n squared edges, an O(n^4) worst-case bound, though the regularity keeps it near 2.6 n^3 edge visits on the densest input (n=100, k=0); space is O(n^2).",
+ "solution_confidence": 0.95,
+ "solution_source": {
+  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2019%20ICPC%20Asia%20Danang%20Regional%20Contest/latinsquare.cpp",
+  "kind": "accepted C++ solution (third-party repo)",
+  "used": "Transcribed the matching routine (including its unusual per-phase visited marks) and the value-by-value loop into Python; reproduced the sample output exactly, ran every legal instance for n<=4 (all Latin squares crossed with every kept-value subset, 9,322 cases), random instances up to n=100, and confirmed the published matching routine returns the true maximum on 3,000 random bipartite graphs."
+ },
+ "statement_summary": "A square grid of side at most one hundred is partly filled: some values have already been written, each exactly as many times as the grid has rows and never twice in a row or column. The task is to fill the remaining empty cells so every value appears exactly once in each row and column, or to report that no completion exists.",
+ "patterns": [
+  "bipartite-matching",
+  "constructive-algorithm",
+  "graph-modeling",
+  "hall-theorem"
+ ],
+ "pattern_confidence": {
+  "bipartite-matching": 0.95,
+  "constructive-algorithm": 0.75,
+  "graph-modeling": 0.7,
+  "hall-theorem": 0.6
+ },
+ "tags": [
+  "matrix",
+  "grid",
+  "graph",
+  "bipartite",
+  "matching",
+  "construction"
+ ],
+ "source_text_sha256": "500d133fd37fac5ee62414b28f345fb25fb0ee772d565ca55d40f56e1d5585e1",
+ "verify_script": "E/verify_latinsquare.py",
+ "notes": "The statement offers a NO answer but the guarantee that each written value appears exactly n times with no row/column repeat forces the empty-cell graph to be regular, so a completion always exists; the published code agrees - it computes an 'Ok' flag, then ignores it and prints YES unconditionally, with the NO branch commented out. Exhaustive testing for n<=4 over all 9,322 legal instances found no case needing NO and no failed matching. Its matching routine is a phase-based Kuhn that keeps visited marks across augmentations within a phase and repeats phases until no improvement; that is correct (a failed alternating tree can be excluded from later searches in the same phase) and was confirmed against a textbook Kuhn on 3,000 random graphs. Considered and rejected: 'greedy' - peeling matchings one value at a time is not justified by an exchange argument but by regularity, so hall-theorem carries that idea; 'hungarian-algorithm' and 'max-flow' - the code uses plain Kuhn and the problem is unweighted. hall-theorem is kept at lower confidence since the code never mentions it, but it is the whole correctness proof."
+}

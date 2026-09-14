@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-remove-invalid-parentheses",
+  "url": "https://leetcode.com/problems/remove-invalid-parentheses/",
+  "observed_at": "2026-09-11T07:21:57.272821+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid. \n\n Return a list of unique strings that are valid with the minimum number of removals . You may return the answer in any order . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"()())()\"\n Output: [\"(())()\",\"()()()\"]\n \n\n Example 2: \n\n \n Input: s = \"(a)())()\"\n Output: [\"(a())()\",\"(a)()()\"]\n \n\n Example 3: \n\n \n Input: s = \")(\"\n Output: [\"\"]\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 25 \n s consists of lowercase English letters and parentheses '(' and ')' . \n There will be at most 20 parentheses in s .",
+  "statement_sha256": "cd13d2b6b710ddec970783a8d3e8b83fbfc2092984219acdfb02e8798a37de1d",
+  "raw_sha256": "68e6d6b621ee75f957569f11ca6dab9a878e0a7538964f12fb270dd7dbf8671a",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

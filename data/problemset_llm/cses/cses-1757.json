@@ -26,5 +26,18 @@
       "lexicographically-minimal-order": 0.95,
       "greedy": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1757",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "6c360bf0d90f00c35668c96f73f53730cf6f9487320b5a8563ad8cd3175acc53",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

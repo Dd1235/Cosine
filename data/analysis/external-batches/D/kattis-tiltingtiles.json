@@ -1,0 +1,28 @@
+{
+ "id": "kattis-tiltingtiles",
+ "status": "solved",
+ "solution": "Two consecutive tilts on the same axis collapse (X after X equals X, and X after its opposite equals X, since both preserve each row's or column's tile sequence), so only axis-alternating words matter; moreover the occupied-cell shape becomes invariant under any repeated 4-cycle of directions after at most two tilts (after L then U the row counts are the sorted partition and the shape is a Young diagram that the cycle merely reflects). It therefore suffices to try the 8 rotationally periodic sequences (4 starting directions x 2 orientations): simulate a constant burn-in, after which the next four tilts act as a fixed permutation sigma of the occupied cells. For each of the 4 phases, decompose sigma into cycles; the target is reachable iff some single k >= 0 rotates every cycle's color string onto the target's, and the valid k for one cycle form an arithmetic progression k0 + j*p (p = the string's minimal period), found by locating the target's cycle string inside the doubled source cycle string. Combining the per-cycle congruences k = k0 (mod p) with CRT decides the answer; configurations from the burn-in prefix are compared directly. O(h*w) with a small constant (8 sequences x 4 phases, ~64 tilt passes over 250000 cells), and the CRT is done prime power by prime power so the lcm never has to be built.",
+ "solution_confidence": 0.85,
+ "statement_summary": "An h-by-w grid holds colored tiles on some of its cells; tilting the board left, right, up or down slides every tile as far as it can go in that direction, and tiles of the same color are indistinguishable. Given a starting arrangement and a target arrangement, decide whether any finite sequence of tilts turns the first into the second, for grids as large as 500 by 500.",
+ "patterns": [
+  "chinese-remainder-theorem",
+  "string-matching",
+  "cycle-detection",
+  "simulation"
+ ],
+ "pattern_confidence": {
+  "chinese-remainder-theorem": 0.9,
+  "string-matching": 0.8,
+  "cycle-detection": 0.7,
+  "simulation": 0.7
+ },
+ "tags": [
+  "grid",
+  "permutation",
+  "string",
+  "math"
+ ],
+ "source_text_sha256": "8092a31099046fd2ab5f02719ad45e00846c49ec53767642e10b3cb387d481f6",
+ "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchD/verify_tiltingtiles.py",
+ "notes": "Verified against exhaustive BFS over the reachable set: ~11000 (start, target) pairs on boards from 1x6 up to 4x5, including 'near-miss' targets that sit on a reachable shape with the colors permuted (the case only the CRT step can decide), zero mismatches; all three official samples pass. Two load-bearing lemmas are empirical rather than proved here: (a) the 8 periodic sequences reach everything the full BFS reaches, (b) the occupied-cell shape is 4-cycle-invariant after at most two tilts (measured up to 60x60; a constant burn-in of 4 reproduces every BFS answer), which is what makes the solution O(h*w). Labeling notes: the rotation search is normally implemented with kmp or z-function, but string-matching is the umbrella that fits; prime-factorization/sieve appear only as the device that keeps the CRT moduli from overflowing, so they are not labeled; the vocabulary has no slug for 'permutation cycle decomposition', and cycle-detection is what this corpus uses for following a permutation's cycles (codeforces-1020-b), so that is the label used here. brute-force over the 8 sequences x 4 phases is constant-size scaffolding and is not labeled."
+}

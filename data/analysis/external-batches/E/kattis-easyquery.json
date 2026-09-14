@@ -1,0 +1,38 @@
+{
+  "id": "kattis-easyquery",
+  "status": "solved",
+  "solution": "For each query let L and R be the u-th and v-th smallest values of the subarray; the editorial reaches them with a wavelet tree, but a persistent segment tree over the compressed values answers the same order-statistic, rank and multiplicity queries and is what was implemented and tested. If L equals R the window is a single repeated value and the answer is immediate; otherwise every value strictly between L and R contributes its entire multiplicity, because its sorted block lies between L's block, which reaches position u, and R's block, which begins at or before v, so only L and R are clipped and their clipped counts follow from two rank queries - a step the editorial's prose leaves out, although its code performs it. What remains is, for i equal to 1, 2 and 3, the bitwise or of the values strictly between L and R occurring at least i times in the subarray, and the bits are independent: bit k is set exactly when some qualifying value carries it. Processing queries offline in decreasing left endpoint, maintain for every value the position of its i-th occurrence at or after the current left endpoint, so 'occurs at least i times in the range' becomes 'that position is at most r'; one segment tree per pair of level and bit over the compressed value axis, holding the minimum of those positions across the values carrying that bit, answers each bit with a single range-minimum over the compressed interval strictly between L and R. Advancing the left endpoint by one shifts exactly one value's three tracked positions, so maintenance is O(1) structures touched per bit per step. Total cost is O(30 (n+q) log n) time and O(30 n) space, which fits the summed limits of two hundred thousand on n and on q.",
+  "solution_confidence": 0.88,
+  "solution_source": {
+    "url": "https://usaco.guide/problems/kattis-easy-query/solution",
+    "kind": "third-party editorial (USACO Guide)",
+    "used": "The page carries both a prose summary and a complete C++ solution; only the prose was consulted while solving, and the code was read afterwards during review. Its three load-bearing ideas (split the answer bit by bit, keep per-bit segment trees over the value axis storing the minimum index of a value's i-th occurrence, sweep queries by decreasing left endpoint) were taken from the prose and the rest reconstructed: the order-statistic step was rebuilt with a persistent segment tree instead of the editorial's wavelet tree, and the clipping of the two boundary values, which the prose does not mention, was derived here and only later found to match what the editorial's code already does. The whole thing was transcribed to Python and checked against a sort-and-count brute force on the sample and on ~4700 random and duplicate-heavy cases."
+  },
+  "statement_summary": "An array of up to two hundred thousand integers is given together with as many queries. Each query names a contiguous range and a window of positions within that range once the range has been sorted, and asks for the sum of three bitwise ors: over the values occurring at least once, at least twice, and at least three times inside that sorted window. The array is never modified.",
+  "patterns": [
+    "segment-tree",
+    "persistent-segment-tree",
+    "offline-queries",
+    "bit-manipulation",
+    "order-statistics",
+    "coordinate-compression"
+  ],
+  "pattern_confidence": {
+    "segment-tree": 0.95,
+    "persistent-segment-tree": 0.85,
+    "offline-queries": 0.95,
+    "bit-manipulation": 0.9,
+    "order-statistics": 0.9,
+    "coordinate-compression": 0.72
+  },
+  "tags": [
+    "array",
+    "range-query",
+    "data-structures",
+    "bitmask",
+    "offline"
+  ],
+  "source_text_sha256": "f1febf7cf906d4e44e25888d731cf5d9b08d4038cad633e862c68b5d942275c1",
+  "verify_script": "E/verify_easyquery.py",
+  "notes": "VOCABULARY GAP, as flagged in the task: the editorial's step 1 is a wavelet tree and the corpus has no wavelet-tree slug. It is genuinely load-bearing in the sense that SOMETHING must answer 'u-th smallest in a range' plus the two rank queries, but the wavelet tree specifically is not required: a persistent segment tree over the compressed values does all of it in the same O(log n) and is what was implemented and verified here, so persistent-segment-tree is used as the closest real label rather than inventing a slug. merge-sort-tree would also serve, at O(log^2 n); it is left off to avoid diluting the label set, but a searcher arriving from either term is in the right place. The editorial's PROSE is incomplete in one substantive way beyond the sketchy wavelet step: its bit test is stated only for values strictly inside (s_u, s_v) and the prose never says what to do with s_u and s_v themselves, whose occurrences are cut by the window boundaries and contribute to most answers. That clipping was derived here from two rank queries and is what the duplicate-heavy random tests were aimed at; the editorial's own code does handle it, via wavelet rank counts that return each boundary value with its clipped occurrence count. The gap is in the write-up, not in the published solution. Three occurrence levels are needed, so the real structure is 3*30 trees (or one tree storing three minima per bit); the editorial's code already has this shape, using three segment trees whose nodes carry 30-entry arrays. Also note the u <= v <= r-l+1 guarantee means the window is always non-empty and inside the range, so no degenerate case arises. Label notes: bit-manipulation carries the central idea (an OR is decided bit by bit, and each bit becomes an existence question); offline-queries is required, not optional, because the sweep by decreasing left endpoint is what makes the occurrence positions maintainable; coordinate-compression at 0.72 is close to scaffolding but the value axis IS the segment trees' index space, so it is doing real work. Not labelled: mo-algorithm and sqrt-decomposition (no solution of that shape fits the limits), contribution-technique, counting. Nothing in the editorial text is addressed to a reader or an agent. One practical point neither the prose nor this summary stated: with T up to 2*10^5 test cases, every structure must be sized to the current test's n rather than to the global maximum. Allocating full-size trees per test blows both the time and the memory limit. The editorial's code and the verify script here both size per test."
+}

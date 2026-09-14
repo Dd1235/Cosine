@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-k-reducible-numbers-less-than-n",
+  "url": "https://leetcode.com/problems/count-k-reducible-numbers-less-than-n/",
+  "observed_at": "2026-09-11T07:22:06.299046+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a binary string s representing a number n in its binary form. \n\n You are also given an integer k . \n\n An integer x is called k-reducible if performing the following operation at most k times reduces it to 1: \n\n \n Replace x with the count of set bits in its binary representation. \n \n\n For example, the binary representation of 6 is \"110\" . Applying the operation once reduces it to 2 (since \"110\" has two set bits). Applying the operation again to 2 (binary \"10\" ) reduces it to 1 (since \"10\" has one set bit). \n\n Return an integer denoting the number of positive integers less than n that are k-reducible . \n\n Since the answer may be too large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"111\", k = 1 \n\n Output: 3 \n\n Explanation: \n\n n = 7 . The 1-reducible integers less than 7 are 1, 2, and 4. \n \n\n Example 2: \n\n \n Input: s = \"1000\", k = 2 \n\n Output: 6 \n\n Explanation: \n\n n = 8 . The 2-reducible integers less than 8 are 1, 2, 3, 4, 5, and 6. \n \n\n Example 3: \n\n \n Input: s = \"1\", k = 3 \n\n Output: 0 \n\n Explanation: \n\n There are no positive integers less than n = 1 , so the answer is 0. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 800 \n s has no leading zeros. \n s consists only of the characters '0' and '1' . \n 1 <= k <= 5",
+  "statement_sha256": "cd1d16d945aca794ed7e830a7e33143dc44ae781c24e662f65b83ec8e78a0b28",
+  "raw_sha256": "93e340c4a5ea6ca6ba8dcf76b80572be3544292d566601030414c93f65e30b7d",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

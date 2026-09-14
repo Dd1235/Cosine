@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-restore-the-array",
+  "url": "https://leetcode.com/problems/restore-the-array/",
+  "observed_at": "2026-09-11T07:22:18.345582+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A program was supposed to print an array of integers. The program forgot to print whitespaces and the array is printed as a string of digits s and all we know is that all integers in the array were in the range [1, k] and there are no leading zeros in the array. \n\n Given the string s and the integer k , return the number of the possible arrays that can be printed as s using the mentioned program . Since the answer may be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"1000\", k = 10000\n Output: 1\n Explanation: The only possible array is [1000]\n \n\n Example 2: \n\n \n Input: s = \"1000\", k = 10\n Output: 0\n Explanation: There cannot be an array that was printed this way and has all integer >= 1 and <= 10.\n \n\n Example 3: \n\n \n Input: s = \"1317\", k = 2000\n Output: 8\n Explanation: Possible arrays are [1317],[131,7],[13,17],[1,317],[13,1,7],[1,31,7],[1,3,17],[1,3,1,7]\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consists of only digits and does not contain leading zeros. \n 1 <= k <= 10 9",
+  "statement_sha256": "449b19e3bce9eaed2ddac3afacb063f1e814cc1b3b81a736053038eed597963e",
+  "raw_sha256": "c24ccad7e31e1647f404f34df91cb427d20bb893dcf84d4539a9882d97d5815e",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

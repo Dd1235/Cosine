@@ -1,0 +1,8 @@
+{
+  "id": "cses-2088",
+  "title": "Knuth Division",
+  "source_url": "https://cses.fi/problemset/task/2088",
+  "observed_at": "2026-09-11T06:53:48.090718+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n numbers, your task is to divide it into n subarrays, each of which has a single element.\n\nOn each move, you may choose any subarray and split it into two subarrays. The cost of such a move is the sum of values in the chosen subarray.\n\nWhat is the minimum total cost if you act optimally?\n\nInput\n\nThe first input line has an integer n: the array size. The array elements are numbered 1,2,\\dots,n.\n\nThe second line has n integers x_1,x_2,\\dots,x_n: the contents of the array.\n\nOutput\n\nPrint one integer: the minimum total cost.\n\nConstraints\n\n\n1 \\le n \\le 5000\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n5\n2 7 3 2 5\n\n\nOutput:\n\n43",
+  "statement_sha256": "88bc4af56a8f2d5c22811258bcd2d8547aaa47813ec06017f6815d11748041b3"
+}

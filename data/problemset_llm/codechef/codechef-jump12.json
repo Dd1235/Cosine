@@ -1,0 +1,29 @@
+{
+  "id": "codechef-jump12",
+  "title": "Jumping 1 or 2",
+  "slug": "jump12",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/JUMP12",
+  "source_topic": "IICPC Codefest",
+  "source_tags": [],
+  "statement": "Sum minimum path costs across all length-N arrays of values in [1,M]. A path starts at index 1, ends at N, and advances one or two positions, paying each visited value. N and M are at most 400.",
+  "tags": [],
+  "patterns": [
+    "dynamic-programming",
+    "difference-array",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789110673,
+    "pattern_confidence": {
+      "dynamic-programming": 0.9,
+      "difference-array": 0.9,
+      "prefix-sum": 0.9
+    },
+    "reviewed_by": "independent Codex agent skeptic",
+    "evidence": "data/analysis/external-review.json"
+  },
+  "difficulty": null
+}

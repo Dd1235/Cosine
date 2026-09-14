@@ -1,0 +1,8 @@
+{
+  "id": "cses-2192",
+  "title": "Point in Polygon",
+  "source_url": "https://cses.fi/problemset/task/2192",
+  "observed_at": "2026-09-11T06:53:43.413066+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a polygon of n vertices and a list of m points. Your task is to determine for each point if it is inside, outside or on the boundary of the polygon.\n\nThe polygon consists of n vertices (x_1,y_1),(x_2,y_2),\\dots,(x_n,y_n). The vertices (x_i,y_i) and (x_{i+1},y_{i+1}) are adjacent for i=1,2,\\dots,n-1, and the vertices (x_1,y_1) and (x_n,y_n) are also adjacent.\n\nInput\n\nThe first input line has two integers n and m: the number of vertices in the polygon and the number of points.\n\nAfter this, there are n lines that describe the polygon. The ith such line has two integers x_i and y_i.\n\nYou may assume that the polygon is simple, i.e., it does not intersect itself.\n\nFinally, there are m lines that describe the points. Each line has two integers x and y.\n\nOutput\n\nFor each point, print \"INSIDE\", \"OUTSIDE\" or \"BOUNDARY\".\n\nConstraints\n\n\n3 \\le n,m \\le 1000\n\n1 \\le m \\le 1000\n\n-10^9 \\le x_i, y_i \\le 10^9\n\n-10^9 \\le x, y \\le 10^9\n\n\nExample\n\nInput:\n\n4 3\n1 1\n4 2\n3 5\n1 4\n2 3\n3 1\n1 3\n\n\nOutput:\n\nINSIDE\nOUTSIDE\nBOUNDARY",
+  "statement_sha256": "855daecd9d386e9c3360d31b72a6ad948468bc2c5ef61205d0a70462cd081c69"
+}

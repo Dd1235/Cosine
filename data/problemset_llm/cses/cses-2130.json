@@ -28,5 +28,18 @@
       "dp-on-dag": 0.85,
       "topological-sort": 0.8
     }
+  },
+  "cses_difficulty": {
+    "band": 5,
+    "confidence": "medium",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2130",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "141d713d7971c06b66e72e366c1e55749f902ad8a54772ae6ddc65a56a970667",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

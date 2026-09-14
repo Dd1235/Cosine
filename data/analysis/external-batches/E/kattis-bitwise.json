@@ -1,0 +1,29 @@
+{
+  "id": "kattis-bitwise",
+  "status": "solved",
+  "solution": "The answer is assembled one bit at a time from bit 29 downwards: keep a mask, and for each bit test whether the circle can be split into K contiguous sections whose ORs all contain every bit of mask|bit, keeping the bit whenever it can, which is maximal because a mask that survives beats any value that first differs from it at a higher bit. The feasibility test for a mask X is a greedy sweep from a fixed starting cut: extend the running OR until it contains X, cut there, repeat; shortest-first maximises the number of sections, and if that count reaches K the surplus sections can be merged into neighbours to give exactly K, since merging only adds bits. The sweep must be tried from several starting cuts, but at most 31 of them matter: the section holding A_1 can have its start slid forward to the last position p whose suffix OR A[p..N] is unchanged, the skipped elements falling into the preceding section where they can only add bits, so a useful start is either position 1 or a position where A[p] contributes a fresh bit to the suffix OR, and a 30-bit value can gain a bit at most 30 times. Total cost is 30 bits times at most 31 starts times an O(N) sweep, about 4.6*10^8 word operations at N = 5*10^5, in O(N) space with only the array and a 31-entry start list held. Nothing is binary searched: the outer loop is a greedy bit construction, and feasibility is monotone under submask inclusion, not under the numeric order of X.",
+  "solution_confidence": 0.95,
+  "solution_source": {
+    "url": "https://www.comp.nus.edu.sg/~acmicpc/icpcsg18-analysis_FH.pdf",
+    "kind": "official judges' solution debrief (PDF, text-extracted)",
+    "used": "transcribed the debrief's bit-by-bit greedy and its can(X) sweep into E/verify_bitwise.py; the debrief asserts 'at most 31 starting points' without saying which positions those are, so the suffix-OR criterion is my reconstruction, checked exhaustively against trying all N starts (64000 (array, K, X) triples) and the whole solver checked against brute-force enumeration of every circular K-partition on 7000 random arrays, plus all three statement samples"
+  },
+  "statement_summary": "A circle of up to five hundred thousand non-negative integers must be cut into exactly K contiguous non-empty sections, each section's power being the bitwise OR of the integers it contains. The task is to report the largest bitwise AND of the K powers achievable over all such divisions, where K is given and a section may wrap around the end of the circle.",
+  "patterns": [
+    "bit-manipulation",
+    "greedy"
+  ],
+  "pattern_confidence": {
+    "bit-manipulation": 0.95,
+    "greedy": 0.9
+  },
+  "tags": [
+    "bit-manipulation",
+    "greedy",
+    "array",
+    "optimization"
+  ],
+  "source_text_sha256": "c7a5d9b3138dd255dad0cfef3bd7de4a5d20b67e02353042b4d188df3f2cfe67",
+  "verify_script": "E/verify_bitwise.py",
+  "notes": "binary-search-answer ruled OUT, deliberately, even though the debrief frames the solution as 'given X, can you divide so the AND is at least X'. Two separate reasons. (1) Nothing is searched. The outer loop makes exactly 30 calls, one per bit from high to low, and each call's result is kept or discarded on the spot; there is no interval of candidate answers, no halving, and no monotone predicate over the numeric order. The predicate is in fact NOT numerically monotone: on A = [4,4] with K = 2, feasible(4) is true while feasible(3) is false (verify_bitwise.py asserts this), so a binary search over the value would be unsound. Feasibility is monotone only under submask inclusion, which is what makes the high-to-low bit construction correct. (2) The debrief's own pseudocode is the standard greedy-mask build (ans |= bit when can(ans|bit)), and its own wording is 'greedy the answer'. The feasibility test IS the interesting half of this problem -- the shortest-first sweep plus the reduction from N starting cuts to 31 -- but an interesting can() is not by itself binary-search-answer, so the labels are bit-manipulation (the whole objective and the mask construction) and greedy (both the bit construction and the shortest-first sweep). Also considered and dropped: two-pointers (the sweep is one accumulating pointer with a reset, not a window), constructive-algorithm (the output is a number, not a construction), brute-force (the 31 starts are a proved-small candidate set, not enumeration). Debrief caveats: it is a text extraction of slides, so exponents were flattened -- '5*105' is 5*10^5, '109' is 10^9, 'log(109) = 31' is log2(10^9) rounded up; and its phrase 'until the accumulator exceeds X' must be read as 'until the accumulated OR contains every bit of X', which is what makes the merge argument work. The debrief contains nothing addressed to a reader or an agent. Its claim of O(N*31*31) counts 31 bits rather than 30, harmless. One reconstruction risk remains: the debrief never states which starting points it means, so if the intended set were different from the suffix-OR set, the two nonetheless agree on every case tested here."
+}

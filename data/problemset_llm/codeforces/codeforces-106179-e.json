@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-106179-e",
+  "title": "Counting Is Fun",
+  "slug": "106179-e",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/gym/106179/problem/E",
+  "source_topic": "ICPC India Prelims 2025–26",
+  "source_tags": [],
+  "statement": "Label a rooted tree’s edges by a permutation of 1 through n−1. A tour starts and ends at the root and visits every vertex, while the edge labeled x is forbidden. Incrementing x, initially 1, costs one. Count labelings whose minimum tour cost is exactly c, modulo 998244353, for total n at most 200000.",
+  "tags": [],
+  "patterns": [
+    "dfs",
+    "combinatorics",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789111254,
+    "pattern_confidence": {
+      "dfs": 0.9,
+      "combinatorics": 0.9,
+      "counting": 0.9
+    },
+    "reviewed_by": "root independent proof review",
+    "evidence": "data/analysis/codeforces-106179-e.json"
+  },
+  "difficulty": null
+}

@@ -25,6 +25,7 @@ let libNotes = null;    // "yes" | "no" | null — whether you wrote a note
 let googleClientId = null;       // from /api/rankers; sheet feature hidden while null
 let sheetSyncedThisSession = false;
 let sheetSyncing = false;    // one write at a time; the sync sends everything
+let sheetGeneration = 0;    // increments for every local mutation
 let sheetDirty = false;      // something changed that the sheet hasn't got
 let sheetSyncTimer = null;
 let sheetErrorShown = false; // a background failure is said once, not forever
@@ -112,6 +113,15 @@ let currentUser = null;
 // soft reload, and a hardcoded "all" here would silently disagree with it.
 let currentFilter = filterSelect.value || "all";
 let activePattern = "";
+const activeCollections = new Set();
+let collections = [];
+let collectionSpoilers = false;
+let currentSimilar = null;
+let similarLibrary = null;
+let practiceMode = false;
+let similarCorpusSize = 20000;
+let csesLevel = null;
+let csesLevelSaving = false;
 const activePlatforms = new Set(); // empty = every judge
 let difficultyPayload = { named: [], rated: [], acceptance: null }; // controls, from /api/rankers
 const bootRanges = []; // ?difficulty= ranges parked until the payload names their judge
@@ -148,6 +158,9 @@ form.addEventListener("submit", (e) => {
 });
 
 input.addEventListener("input", () => {
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
   clearTimeout(debounceTimer);
   // Typing a new question ends the drill-down that produced the pattern.
   //
@@ -169,7 +182,7 @@ input.addEventListener("input", () => {
 });
 
 loadMoreEl.addEventListener("click", () => {
-  if (!currentQuery) return;
+  if (!currentQuery && !currentSimilar && !activePattern && !activePlatforms.size && !activeCollections.size) return;
   currentOffset += TOP_K;
   track("load_more", { searchId: currentSearchId, offset: currentOffset, ranker: currentRankerAnswered });
   runSearch(currentQuery, { append: true });
@@ -177,7 +190,8 @@ loadMoreEl.addEventListener("click", () => {
 
 filterSelect.addEventListener("change", () => {
   currentFilter = filterSelect.value;
-  if (currentQuery) runSearch(currentQuery, { append: false });
+  currentOffset = 0;
+  reissueCurrentView();
 });
 
 
@@ -246,6 +260,7 @@ async function populateRankerSelect() {
   }
   syncDifficultyControls();
   if (data.corpusSize) {
+    similarCorpusSize = data.corpusSize;
     const el = document.getElementById("corpus-size");
     if (el) el.textContent = data.corpusSize.toLocaleString();
   }
@@ -268,7 +283,7 @@ libChips.forEach((chip) => {
     input.value = cmd;
     input.focus();
     if (cmd) runSearch(cmd, { append: false });
-    else runSearch("", { append: false });
+    else { currentSimilar = null; similarLibrary = null; practiceMode = false; runSearch("", { append: false }); }
   });
 });
 
@@ -336,9 +351,17 @@ logoutBtn.addEventListener("click", async () => {
   try { localStorage.removeItem("algolens_profile_v1"); } catch (_e) {}
   // Same shared-machine reasoning for the sheet pointer; the token itself was
   // never persisted, so dropping the in-memory state is the whole cleanup.
-  if (typeof cosineSheets !== "undefined") cosineSheets.clearLocal();
+  if (typeof cosineSheets !== "undefined") cosineSheets.clearLocal({ signOut: true });
   sheetSyncedThisSession = false;
   currentUser = null;
+  levelSuggest = null;
+  levelSignalsUser = null;
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  clearTimeout(sheetSyncTimer);
+  sheetDirty = false;
+  loadCsesLevel();
   applyAuthState();
   clearPatternFilter({ reissue: false });
   // Clear results and the input — old results were rendered with bookmark
@@ -347,6 +370,12 @@ logoutBtn.addEventListener("click", async () => {
   currentQuery = "";
   resultsEl.innerHTML = "";
   hideLoadMore();
+  // The URL still carried similar=/practice= from the view we just tore down,
+  // and the collection chips still claimed a filter nothing is applying.
+  // Collections themselves are kept, for the same reason judges are: they are
+  // a standing preference, not account state.
+  renderCollectionControls();
+  syncUrl();
   setStatus("logged out");
 });
 
@@ -393,16 +422,24 @@ async function doSheetSync({ quiet = false } = {}) {
   if (sheetSyncing) return;
   const btn = document.getElementById("sheet-btn");
   sheetSyncing = true;
+  const generation = sheetGeneration;
+  const userId = currentUser && currentUser.id;
+  let succeeded = false;
   if (btn) btn.disabled = true;
   try {
     if (!cosineSheets.connected()) await cosineSheets.connect();
     sheetResumeFailed = false;   // a press is a fresh start for the silent path
     sheetErrorShown = false;
     const res = await fetch("/api/library?type=all");
+    if (!res.ok) throw new Error(`library fetch failed (${res.status})`);
     const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
+    if (!Array.isArray(data.items)) throw new Error("invalid library response");
     const out = await cosineSheets.sync(data.items || [], { interactive: !quiet });
+    if (!currentUser || currentUser.id !== userId) return;
+    succeeded = true;
     sheetSyncedThisSession = true;
-    sheetDirty = false;
+    sheetDirty = sheetGeneration !== generation;
     if (!quiet) {
       // A tidy-up that failed is worth saying even though the sync worked —
       // otherwise the columns silently stay wrong and nobody knows why.
@@ -422,6 +459,9 @@ async function doSheetSync({ quiet = false } = {}) {
     sheetSyncing = false;
     if (btn) btn.disabled = false;
     syncSheetChip();
+    // A debounce may have fired while this write was in flight. Requeue it
+    // after success, but do not repeatedly hammer a failed grant or endpoint.
+    if (succeeded && sheetDirty) scheduleSheetSync();
   }
 }
 
@@ -430,11 +470,16 @@ async function doSheetSync({ quiet = false } = {}) {
 // them costs nothing since the sync always sends the whole library anyway.
 const SHEET_SYNC_DELAY = 4000;
 function markSheetDirty() {
+  sheetGeneration += 1;
   sheetDirty = true;
+  scheduleSheetSync();
+}
+function scheduleSheetSync() {
   if (typeof cosineSheets === "undefined" || !cosineSheets.connected()) return;
   clearTimeout(sheetSyncTimer);
   sheetSyncTimer = setTimeout(async () => {
-    if (!sheetDirty) return;
+    sheetSyncTimer = null;
+    if (!sheetDirty || sheetSyncing) return;
     // A token lasts about an hour, so a long session runs out of one — ask
     // for another the same silent way rather than going quiet until the next
     // reload. Silent only: a background path must never be the thing that
@@ -484,8 +529,9 @@ async function bootstrapAuth() {
   // re-issue once here instead of being silently dropped.
   const wasPending = bootNeedsAuth;
   bootNeedsAuth = false;
-  if (wasPending && currentUser && currentQuery) reissueSearch();
+  if (wasPending && currentUser) reissueCurrentView();
   loadLevelSignals();
+  loadCsesLevel();
   maybeInitSheets();
 }
 
@@ -538,7 +584,7 @@ function setLibPath(path) {
   // "..."`, so the chips showed there too, where clicking one is a no-op
   // (the filter resets the moment a non-library view re-issues).
   if (libAgeRow) {
-    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path);
+    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || !!currentSimilar;
     libAgeRow.hidden = !inLibrary || !currentUser;
     libAgeRow.querySelectorAll(".lib-age").forEach((c) => {
       c.classList.toggle("is-active", String(libAged ?? "") === c.dataset.aged);
@@ -569,6 +615,370 @@ function setLibPath(path) {
 
 bootstrapAuth();
 
+function collectionParam() {
+  return activeCollections.size ? `&contest=${encodeURIComponent([...activeCollections].join(','))}` : '';
+}
+
+function safeResourceUrl(value) {
+  try {
+    const url = new URL(value);
+    return /^https?:$/.test(url.protocol) ? url.href : '';
+  } catch (_err) { return ''; }
+}
+
+// Collections are a facet, so their controls live where the other facets do:
+// one chip per active collection in the judge row, and a "+ competition"
+// button that opens a listbox of the rest. The button only exists once
+// /api/collections has answered with something you could still add, so the row
+// looks exactly as it did before when there is nothing to offer.
+let collectionsLoaded = false;
+
+async function loadCollections() {
+  try {
+    const res = await fetch('/api/collections');
+    if (!res.ok) throw new Error('collections unavailable');
+    const data = await res.json();
+    collections = Array.isArray(data.collections) ? data.collections : [];
+    collectionsLoaded = true;
+    renderCollectionControls();
+  } catch (_err) {
+    // Never drop state on a failed load: a ?contest= link still selected those
+    // collections, and the server is still filtering by them. Chips render by
+    // id, and the add button stays hidden because we have nothing to list.
+    collectionsLoaded = false;
+    renderCollectionControls(false);
+  }
+}
+
+function collectionById(id) {
+  return collections.find(c => c.id === id) || null;
+}
+
+function collectionChipLabel(collection, id) {
+  return collection ? (collection.short || collection.name) : id;
+}
+
+// "resources only" is the honest phrasing for a collection whose problems are
+// all still unindexed — "0 problems" reads like a bug.
+function collectionOptionLabel(collection) {
+  const count = collection.count || 0;
+  const base = count
+    ? `${collection.name} · ${count} problem${count === 1 ? '' : 's'}`
+    : `${collection.name} · resources only`;
+  return collection.unavailableCount ? `${base} · ${collection.unavailableCount} not yet indexed` : base;
+}
+
+// The registry vocabulary is public | inaccessible | not-verified, so "public"
+// is the unremarkable case and gets no suffix. This used to compare against
+// "available", a value the validator never accepts, so every link said
+// "· public".
+function resourceAvailabilityNote(availability) {
+  if (!availability || availability === 'public') return '';
+  return ` · ${String(availability).replace(/[_-]/g, ' ')}`;
+}
+
+// One sentence, two meanings, and which one applies depends on the view — so
+// it is computed rather than written once when the panel is built.
+function collectionNote(similar = currentSimilar) {
+  return similar
+    ? 'Related practice · recommendations are not necessarily PYQs.'
+    : 'Verified collection membership · open originals to attempt without hints.';
+}
+
+function renderCollectionControls(loaded = collectionsLoaded) {
+  renderCollectionChips();
+  renderCollectionPicker(loaded);
+  renderCollectionPanel();
+}
+
+function renderCollectionChips() {
+  const chips = document.getElementById('collection-chips');
+  if (!chips) return;
+  chips.innerHTML = '';
+  for (const id of activeCollections) {
+    const item = collectionById(id);
+    const label = collectionChipLabel(item, id);
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'judge-chip active collection-chip';
+    chip.dataset.collection = id;
+    chip.textContent = `${label} ×`;
+    chip.title = item ? item.name : id;
+    chip.setAttribute('aria-label', `remove ${item ? item.name : id}`);
+    chip.addEventListener('click', () => removeCollection(id));
+    chips.appendChild(chip);
+  }
+}
+
+function inactiveCollections() {
+  return collections.filter(c => !activeCollections.has(c.id));
+}
+
+function renderCollectionPicker(loaded = collectionsLoaded) {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!add || !picker) return;
+  const options = loaded ? inactiveCollections() : [];
+  add.classList.toggle('hidden', options.length === 0);
+  if (!options.length) {
+    closeCollectionPicker({ focus: false });
+    picker.innerHTML = '';
+    return;
+  }
+  picker.innerHTML = '';
+  for (const c of options) {
+    const option = document.createElement('button');
+    option.type = 'button';
+    option.className = 'collection-option';
+    option.setAttribute('role', 'option');
+    option.setAttribute('aria-selected', 'false');
+    option.dataset.collection = c.id;
+    option.textContent = collectionOptionLabel(c);
+    option.addEventListener('click', () => {
+      closeCollectionPicker({ focus: false });
+      addCollection(c.id);
+    });
+    picker.appendChild(option);
+  }
+}
+
+function collectionPickerOptions() {
+  const picker = document.getElementById('collection-picker');
+  return picker ? [...picker.querySelectorAll('.collection-option')] : [];
+}
+
+function openCollectionPicker() {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!add || !picker || add.classList.contains('hidden')) return;
+  picker.hidden = false;
+  add.setAttribute('aria-expanded', 'true');
+  const first = collectionPickerOptions()[0];
+  if (first) first.focus();
+}
+
+function closeCollectionPicker({ focus = false } = {}) {
+  const add = document.getElementById('collection-add');
+  const picker = document.getElementById('collection-picker');
+  if (!picker || picker.hidden) {
+    if (add) add.setAttribute('aria-expanded', 'false');
+    return;
+  }
+  picker.hidden = true;
+  if (add) {
+    add.setAttribute('aria-expanded', 'false');
+    if (focus) add.focus();
+  }
+}
+
+function collectionPickerOpen() {
+  const picker = document.getElementById('collection-picker');
+  return !!picker && !picker.hidden;
+}
+
+function moveCollectionFocus(delta, absolute) {
+  const options = collectionPickerOptions();
+  if (!options.length) return;
+  const current = options.indexOf(document.activeElement);
+  let next;
+  if (absolute === 'first') next = 0;
+  else if (absolute === 'last') next = options.length - 1;
+  else next = (current + delta + options.length) % options.length;
+  options[next].focus();
+}
+
+function addCollection(id) {
+  if (!id || activeCollections.has(id)) return;
+  activeCollections.add(id);
+  collectionSpoilers = false;
+  currentOffset = 0;
+  renderCollectionControls();
+  syncUrl({ push: true });
+  reissueCurrentView();
+}
+
+function removeCollection(id) {
+  if (!activeCollections.delete(id)) return;
+  collectionSpoilers = false;
+  currentOffset = 0;
+  renderCollectionControls();
+  syncUrl({ push: true });
+  // Dropping the last facet is a return to the empty state, not a browse of
+  // nothing — the same fall-through the chip has always had.
+  if (!activeCollections.size && !activePlatforms.size && !activePattern && !currentQuery && !currentSimilar) runSearch('');
+  else reissueCurrentView();
+}
+
+function renderCollectionPanel() {
+  const panel = document.getElementById('collection-resources');
+  if (!panel) return;
+  // Which resource lists were expanded is the reader's state, not ours, and a
+  // re-render happens on every chip change — so it is carried across.
+  const open = new Set([...panel.querySelectorAll('details[open]')].map(d => d.dataset.collection));
+  panel.hidden = activeCollections.size === 0;
+  panel.innerHTML = '';
+  if (resultsEl) resultsEl.classList.toggle('hide-spoilers', activeCollections.size > 0 && !collectionSpoilers && !compareMode);
+  if (!activeCollections.size) return;
+  const heading = document.createElement('div');
+  heading.className = 'collection-heading';
+  const note = document.createElement('span');
+  note.id = 'collection-note';
+  note.textContent = collectionNote();
+  heading.appendChild(note);
+  const reveal = document.createElement('button');
+  reveal.type = 'button';
+  reveal.className = 'lib-chip';
+  reveal.textContent = collectionSpoilers ? 'hide hints' : 'reveal hints & difficulty';
+  reveal.setAttribute('aria-pressed', String(collectionSpoilers));
+  reveal.addEventListener('click', () => { collectionSpoilers = !collectionSpoilers; renderCollectionControls(); });
+  heading.appendChild(reveal);
+  panel.appendChild(heading);
+  for (const id of activeCollections) {
+    const collection = collectionById(id);
+    if (!collection) continue;
+    const details = document.createElement('details');
+    details.dataset.collection = id;
+    if (open.has(id)) details.open = true;
+    const summary = document.createElement('summary');
+    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problem${collection.count === 1 ? "" : "s"}${collection.unavailableCount ? ` · ${collection.unavailableCount} not yet indexed` : ""} · resources`;
+    details.appendChild(summary);
+    const list = document.createElement('ul');
+    for (const resource of collection.resources || []) {
+      const url = safeResourceUrl(resource.url);
+      if (!url) continue;
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = resource.title || resource.kind || 'contest resource';
+      li.appendChild(link);
+      const availability = resourceAvailabilityNote(resource.availability);
+      if (availability) li.appendChild(document.createTextNode(availability));
+      list.appendChild(li);
+    }
+    if (!list.childNodes.length) {
+      const li = document.createElement('li');
+      li.textContent = 'No additional resource links have been verified yet.';
+      list.appendChild(li);
+    }
+    details.appendChild(list);
+    panel.appendChild(details);
+  }
+}
+
+const collectionAddBtn = document.getElementById('collection-add');
+if (collectionAddBtn) {
+  collectionAddBtn.addEventListener('click', () => {
+    if (collectionPickerOpen()) closeCollectionPicker({ focus: true });
+    else openCollectionPicker();
+  });
+  collectionAddBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      openCollectionPicker();
+    }
+  });
+}
+
+const collectionPickerEl = document.getElementById('collection-picker');
+if (collectionPickerEl) {
+  collectionPickerEl.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveCollectionFocus(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveCollectionFocus(-1); }
+    else if (e.key === 'Home') { e.preventDefault(); moveCollectionFocus(0, 'first'); }
+    else if (e.key === 'End') { e.preventDefault(); moveCollectionFocus(0, 'last'); }
+    else if (e.key === 'Escape') { e.preventDefault(); closeCollectionPicker({ focus: true }); }
+    else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const id = document.activeElement && document.activeElement.dataset
+        ? document.activeElement.dataset.collection : null;
+      if (id) { closeCollectionPicker({ focus: false }); addCollection(id); }
+    }
+  });
+  // Tabbing past the last option leaves the listbox, so it should not stay
+  // open behind you.
+  collectionPickerEl.addEventListener('focusout', (e) => {
+    const to = e.relatedTarget;
+    if (to && (collectionPickerEl.contains(to) || to === collectionAddBtn)) return;
+    closeCollectionPicker({ focus: false });
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!collectionPickerOpen()) return;
+    if (collectionPickerEl.contains(e.target) || (collectionAddBtn && collectionAddBtn.contains(e.target))) return;
+    closeCollectionPicker({ focus: false });
+  });
+}
+
+function syncCsesLevelControl() {
+  const row = document.getElementById('cses-level-row');
+  const select = document.getElementById('cses-level-select');
+  if (!row || !select) return;
+  row.hidden = !activePlatforms.has('cses');
+  select.value = csesLevel ? String(csesLevel) : '';
+  select.disabled = csesLevelSaving;
+  const note = document.getElementById('cses-level-note');
+  if (note) note.textContent = currentUser ? 'Your choice is saved to this account.' : 'Saved in this browser · CSES uses its own scale.';
+}
+
+function setCsesLevelSuggestion(band) {
+  csesLevel = Number.isInteger(band) && band >= 1 && band <= 5 ? band : null;
+  if (csesLevel) {
+    const label = cosineDifficulty.bands[csesLevel - 1];
+    const token = cosineDifficulty.tokens[csesLevel - 1];
+    const meta = (difficultyPayload.named || []).find(b => b.id === token);
+    levelSuggest = levelSuggest || {};
+    levelSuggest.cses = { difficulty: token, why: `Your selected CSES band: ${label}`, count: meta ? meta.count : 0 };
+  } else if (levelSuggest) {
+    // Clearing must not leave an empty object behind. loadLevelSignals used to
+    // read any truthy levelSuggest as "already loaded" and skip /api/level, so
+    // a sign-in after a clear would never show the cf/atc/lc "my level" chips.
+    delete levelSuggest.cses;
+    if (!Object.keys(levelSuggest).length) levelSuggest = null;
+  }
+  syncDifficultyControls();
+}
+
+async function loadCsesLevel() {
+  const userId = currentUser && currentUser.id;
+  if (!userId) {
+    let band = null;
+    try { band = Number(localStorage.getItem('cosine_cses_level_anon_v1')); } catch (_err) {}
+    setCsesLevelSuggestion(band);
+    return;
+  }
+  try {
+    const res = await fetch('/api/preferences/cses-level');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(data.band);
+  } catch (_err) {}
+}
+
+const csesLevelSelect = document.getElementById('cses-level-select');
+if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
+  const band = csesLevelSelect.value ? Number(csesLevelSelect.value) : null;
+  if (!currentUser) {
+    try {
+      if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
+      else localStorage.removeItem('cosine_cses_level_anon_v1');
+      setCsesLevelSuggestion(band);
+    } catch (_err) { setStatus('Could not save your CSES level in this browser.'); }
+    return;
+  }
+  const userId = currentUser.id;
+  csesLevelSaving = true;
+  syncCsesLevelControl();
+  try {
+    const res = await fetch('/api/preferences/cses-level', {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ band }),
+    });
+    if (!res.ok) throw new Error(`save failed (${res.status})`);
+    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(band);
+  } catch (err) { setStatus(`CSES level: ${err.message}`); }
+  finally { csesLevelSaving = false; syncCsesLevelControl(); }
+});
+
 // Judge chips. Multi-select on purpose: "codeforces + atcoder" is a real way
 // to think about practice, and the single-pick dropdown this replaced couldn't
 // express it. Lives here rather than in the library bar so anonymous users get
@@ -594,13 +1004,18 @@ function orderNote() {
 // search page wait on leetcode.com. A signed-out user, or one who has never
 // opened the profile page, simply doesn't get the button.
 async function loadLevelSignals() {
-  if (!currentUser || levelSuggest) return;
+  // Keyed by user, not by whether levelSuggest is truthy: the CSES preference
+  // writes into the same object, so truthiness never meant "fetched".
+  if (!currentUser || levelSignalsUser === currentUser.id) return;
+  const userId = currentUser.id;
   try {
     const res = await fetch("/api/level");
     if (!res.ok) return;
     const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
     if (!data.suggest || !Object.keys(data.suggest).length) return;
-    levelSuggest = data.suggest;
+    levelSuggest = { ...data.suggest, ...(csesLevel && levelSuggest?.cses ? { cses: levelSuggest.cses } : {}) };
+    levelSignalsUser = userId;
     syncDifficultyControls();
   } catch (_err) {
     // A missing button is the right failure here — never block the page.
@@ -609,6 +1024,8 @@ async function loadLevelSignals() {
 
 function activeFacets() {
   const bits = [];
+  if (activePattern) bits.push(activePattern);
+  for (const id of activeCollections) bits.push(collections.find(c => c.id === id)?.name || id);
   if (activePlatforms.size) bits.push([...activePlatforms].map((p) => (PLATFORM_LABELS[p] || [p])[0]).join("+"));
   for (const id of activeTiers) {
     const b = (difficultyPayload.named || []).find((x) => x.id === id);
@@ -640,6 +1057,7 @@ const activeTiers = new Set();     // named tiers, e.g. lc-hard
 const activeRanges = new Map();    // judge -> { min, max }
 let activeAcceptance = null;       // { min, max } — leetcode acceptance rate
 let levelSuggest = null;           // judge -> { difficulty, why, count }, from /api/level
+let levelSignalsUser = null;       // whose /api/level answer levelSuggest currently holds
 
 function difficultyParam() {
   const parts = [...activeTiers];
@@ -662,7 +1080,7 @@ function applyDifficultyToken(token) {
   } else if (range) {
     const meta = (difficultyPayload.rated || []).find((r) => r.short === range[1]);
     if (meta) activeRanges.set(meta.judge, { min: Number(range[2]), max: Number(range[3]) });
-  } else if (/^[a-z]{2,3}-[a-z]+$/.test(t)) {
+  } else if (/^[a-z]{2,4}-[a-z]+$/.test(t)) {
     activeTiers.add(t);
   }
 }
@@ -683,6 +1101,7 @@ function levelIsApplied() {
 }
 
 function syncDifficultyControls() {
+  syncCsesLevelControl();
   if (!difficultyRow) return;
   const payloadLoaded =
     (difficultyPayload.named || []).length ||
@@ -763,7 +1182,7 @@ function syncDifficultyControls() {
           (b) =>
             `<button type="button" class="judge-chip difficulty-chip${activeTiers.has(b.id) ? " active" : ""}"` +
             ` data-tier="${escapeHtml(b.id)}"${b.count ? "" : " disabled"}>` +
-            `${escapeHtml(b.label)}<span class="chip-count">${b.count}</span></button>`
+            `${escapeHtml(b.judge === "cses" ? b.label.replace(/\s*\(estimate\)$/i, "") : b.label)}<span class="chip-count">${b.count}</span></button>`
         )
         .join("");
     } else {
@@ -780,7 +1199,7 @@ function syncDifficultyControls() {
         ` aria-label="${escapeHtml(judge)} maximum rating">${opts(cur.max)}</select>`;
     }
     groups.push(
-      `<span class="difficulty-group"><span class="difficulty-label">${escapeHtml(short)}</span>${body}</span>`
+      `<span class="difficulty-group"><span class="difficulty-label">${escapeHtml(judge === "cses" ? "cses estimates" : short)}</span>${body}</span>`
     );
     if (acceptanceHtml && acc && judge === acc.judge) groups.push(acceptanceHtml);
   }
@@ -793,7 +1212,7 @@ function syncDifficultyControls() {
     const typed = (input.value.trim() || currentQuery || "").toLowerCase();
     // A ranking only exists for a real query. `:bookmarks` is a command, and the
     // library sorts the whole saved list — offering it a "top 20" would lie.
-    const searching = !!typed && !(currentUser && libraryCommand(typed));
+    const searching = !!currentSimilar || (!!typed && !(currentUser && libraryCommand(typed)));
     groups.push(
       '<span class="difficulty-group sort-group"><span class="difficulty-label">sort</span>' +
         `<select class="filter-select" id="sort-select" aria-label="sort by difficulty">` +
@@ -933,10 +1352,11 @@ function afterDifficultyChange() {
 // hardcode runSearch, which meant changing a filter inside :bookmarks bounced
 // you back to search results.
 function reissueCurrentView() {
+  if (currentSimilar) return runSimilar(currentSimilar, { append: false });
   const typed = input.value.trim();
   if (currentUser && libraryCommand(typed)) return runSearch(typed, { append: false });
   if (typed || currentQuery) return runSearch(typed || currentQuery, { append: false });
-  if (activePattern || activePlatforms.size) return runBrowse({ append: false });
+  if (activePattern || activePlatforms.size || activeCollections.size) return runBrowse({ append: false });
   return undefined;
 }
 
@@ -972,10 +1392,15 @@ function applyMode() {
 
 async function runSearch(rawQuery, { append = false } = {}) {
   const q = rawQuery.trim();
+  if (currentSimilar && !q) return runSimilar(currentSimilar, { append });
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  rankerSelect.disabled = false;
   // An empty box with a filter still on isn't "nothing to show" — it's a
   // browse. Clearing your query keeps the active label and judges and lists
   // everything they select, which is what they claim to be doing.
-  if (!q && (activePattern || activePlatforms.size)) {
+  if (!q && (activePattern || activePlatforms.size || activeCollections.size)) {
     currentQuery = "";
     if (!append) currentOffset = 0;
     return runBrowse({ append });
@@ -1112,7 +1537,7 @@ async function runSearch(rawQuery, { append = false } = {}) {
   // Sorting reorders a fixed window of the best matches, so the window size
   // replaces the page size — and paging is withdrawn, not silently broken.
   const pageSize = sortDir ? sortWindow : TOP_K;
-  const url = `/api/search?q=${encodeURIComponent(q)}&k=${pageSize}&offset=${sortDir ? 0 : currentOffset}${filterParam}${patternParam}${rankerParam}${platformParam}${bandParam}${sortParam}`;
+  const url = `/api/search?q=${encodeURIComponent(q)}&k=${pageSize}&offset=${sortDir ? 0 : currentOffset}${filterParam}${patternParam}${rankerParam}${platformParam}${bandParam}${sortParam}${collectionParam()}`;
 
   let data;
   try {
@@ -1227,7 +1652,7 @@ async function runBrowse({ append = false } = {}) {
   currentSearchId = null;
   currentRankerAnswered = "";
   const facets = activeFacets();
-  const label = [activePattern, ...facets].filter(Boolean).join(" · ");
+  const label = facets.filter(Boolean).join(" · ");
   if (currentUser) setLibPath(`~/browse ${label}`);
   syncUrl();
 
@@ -1237,7 +1662,7 @@ async function runBrowse({ append = false } = {}) {
   const dp = difficultyParam();
   const bandParam = dp ? `&difficulty=${encodeURIComponent(dp)}` : "";
   const sortParam = sortDir ? `&sort=difficulty-${sortDir}` : "";
-  const url = `/api/search?q=&k=${TOP_K}&offset=${currentOffset}${patternParam}${platformParam}${filterParam}${bandParam}${sortParam}`;
+  const url = `/api/search?q=&k=${TOP_K}&offset=${currentOffset}${patternParam}${platformParam}${filterParam}${bandParam}${sortParam}${collectionParam()}`;
 
   let data;
   try {
@@ -1256,7 +1681,16 @@ async function runBrowse({ append = false } = {}) {
   if (!append) currentTopScore = 0;
   const hits = data.hits || [];
   if (!hits.length) {
-    setStatus(`nothing matches ${label}`);
+    // Three collections are resource-only shells by design — an archive page
+    // and a scoreboard, no indexed problems. "nothing matches" reads like a
+    // broken filter; the panel below it is the whole point of the selection.
+    const active = [...activeCollections].map(collectionById).filter(Boolean);
+    const resourceOnly = active.length === 1 && !(active[0].count || 0) ? active[0] : null;
+    setStatus(
+      currentTotal === 0 && resourceOnly
+        ? `${resourceOnly.name} has no indexed problems yet — its resources are listed below.`
+        : `nothing matches ${label}`
+    );
     resultsEl.innerHTML = "";
     hideLoadMore();
     return;
@@ -1269,7 +1703,6 @@ async function runBrowse({ append = false } = {}) {
 
 async function runLibrary(type, q) {
   const issuedAt = ++lastQueryAt;
-  clearPatternFilter({ reissue: false }); // a saved list isn't a ranked search
   currentSearchId = null;
   currentRankerAnswered = "";
   hideFeedback();
@@ -1292,7 +1725,7 @@ async function runLibrary(type, q) {
     const orderParam = libOldest ? "&order=oldest" : "";
     const recallParam = libRecall ? `&recall=${encodeURIComponent(libRecall)}` : "";
     const qParam = q ? `&q=${encodeURIComponent(q)}` : "";
-    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}${qParam}`);
+    const res = await fetch(`/api/library?type=${encodeURIComponent(type)}${platformParam}${doneParam}${bandParam}${sortParam}${agedParam}${orderParam}${recallParam}${qParam}${collectionParam()}${activePattern ? `&pattern=${encodeURIComponent(activePattern)}` : ""}`);
     data = await res.json();
   } catch (err) {
     if (issuedAt !== lastQueryAt) return;
@@ -1359,46 +1792,143 @@ async function runLibrary(type, q) {
   }
 }
 
-// "Find similar" view: doc-to-doc cosine over the precomputed embeddings.
-// Not a query search — the source problem's stored vector is the query, so
-// there's no text in the input and no load-more.
-async function runSimilar(problem) {
-  const issuedAt = ++lastQueryAt;
-  clearPatternFilter({ reissue: false }); // similar view is vector-driven, not filtered
-  clearPlatformFilter({ reissue: false });
-  currentSearchId = null;
-  currentRankerAnswered = "";
-  hideFeedback();
-  const shortTitle = problem.title.length > 24 ? problem.title.slice(0, 24) + "…" : problem.title;
-  if (currentUser) setLibPath(`~/similar/${problem.id}`);
-  setStatus(`similar to "${shortTitle}" · dense cosine`);
-  hideLoadMore();
-
-  let res, data;
-  try {
-    res = await fetch(`/api/similar/${encodeURIComponent(problem.id)}?k=10`);
-    data = await res.json();
-  } catch (err) {
-    if (issuedAt !== lastQueryAt) return;
-    setStatus(`error: ${err.message || "similar failed"}`);
-    return;
+// Similarity is its own addressable view. Facets apply before pagination.
+async function runSimilar(problem, { append = false, practice = false } = {}) {
+  const entering = !currentSimilar || currentSimilar.id !== problem.id;
+  if (entering) {
+    similarLibrary = currentUser ? libraryCommand(currentQuery)?.type || null : null;
+    practiceMode = false;
   }
-  if (issuedAt !== lastQueryAt) return;
-  if (!res.ok) {
-    setStatus(data.error || "similar unavailable");
-    return;
+  if (practice) {
+    activeCollections.clear();
+    // Nothing is being kept spoiler-free any more: this is a recommendation
+    // list, not the contest you are sitting.
+    collectionSpoilers = false;
+    similarLibrary = null;
+    libAged = null;
+    libOldest = false;
+    libNotes = null;
+    libRecall = null;
+    currentFilter = 'notdone';
+    filterSelect.value = 'notdone';
+    practiceMode = true;
   }
-
-  // Leave query state so load-more / reissue logic doesn't fight this view;
-  // typing or clicking a chip exits back to search.
-  currentQuery = "";
-  currentOffset = 0;
-  currentTotal = 0;
+  currentSimilar = problem;
+  rankerSelect.disabled = true;
+  currentQuery = '';
+  input.value = '';
+  compareMode = false;
+  applyMode();
+  if (!append) currentOffset = 0;
   currentTopScore = 0;
-
-  const lat = typeof data.latencyMs === "number" ? ` · ${data.latencyMs.toFixed(3)}ms` : "";
-  setStatus(`${data.hits.length} similar to "${shortTitle}" · cosine over stored vectors${lat}`);
-  renderHitsList(resultsEl, data.hits, { append: false, startIndex: 0 });
+  currentSearchId = null;
+  currentRankerAnswered = '';
+  hideFeedback();
+  syncDifficultyControls();
+  renderCollectionControls();
+  syncUrl();
+  const issuedAt = ++lastQueryAt;
+  const sourceTitle = problem.title || problem.id;
+  if (currentUser) setLibPath(`~/similar/${problem.id}`);
+  setStatus(`finding related practice for "${sourceTitle}"`);
+  const notesActive = libNotes && typeof cosineSheets !== 'undefined' && cosineSheets.connected();
+  const pageSize = sortDir ? sortWindow : TOP_K;
+  const params = new URLSearchParams({ k: String(notesActive ? similarCorpusSize : pageSize), offset: String(notesActive || sortDir ? 0 : currentOffset) });
+  if (practiceMode) params.set('practice', '1');
+  if (activePlatforms.size) params.set('platform', [...activePlatforms].join(','));
+  if (activePattern) params.set('pattern', activePattern);
+  if (activeCollections.size) params.set('contest', [...activeCollections].join(','));
+  const difficulty = difficultyParam();
+  if (difficulty) params.set('difficulty', difficulty);
+  if (sortDir && !notesActive) params.set('sort', `difficulty-${sortDir}`);
+  if (currentUser) {
+    if (currentFilter !== 'all') params.set('filter', currentFilter);
+    if (similarLibrary) params.set('library', similarLibrary);
+    if (libRecall) params.set('recall', libRecall);
+    if (libAged) params.set('aged', String(libAged));
+    if (libOldest) params.set('order', 'oldest');
+  }
+  try {
+    if (inFlight) inFlight.abort();
+    inFlight = new AbortController();
+    const res = await fetch(`/api/similar/${encodeURIComponent(problem.id)}?${params}`, { signal: inFlight.signal });
+    const data = await res.json();
+    if (issuedAt !== lastQueryAt) return;
+    if (!res.ok) throw new Error(data.error || `similar unavailable (${res.status})`);
+    if (data.source) currentSimilar = data.source;
+    let hits = data.hits || [];
+    currentTotal = data.total || hits.length;
+    if (notesActive) {
+      hits = hits.filter(h => {
+        const has = !!cosineSheets.noteText(h.problem.id).trim();
+        return libNotes === 'yes' ? has : !has;
+      });
+      currentTotal = hits.length;
+      if (sortDir) {
+        hits = hits.slice(0, sortWindow).sort((a, b) => {
+          const av = cosineDifficulty.value(a.problem), bv = cosineDifficulty.value(b.problem);
+          if (av == null || bv == null) return av == null ? (bv == null ? 0 : 1) : -1;
+          return sortDir === 'desc' ? bv - av : av - bv;
+        });
+      } else hits = hits.slice(currentOffset, currentOffset + TOP_K);
+    }
+    currentRankerAnswered = data.ranker || 'dense';
+    const label = (currentSimilar && currentSimilar.title) || sourceTitle;
+    const context = practiceMode
+      ? ` · recommended practice beyond the source contest${currentUser ? ' · not done' : ' · sign in to exclude solved problems'}`
+      : ` · ${activeFacets().join(' · ') || 'all problems'}${similarLibrary ? ` · saved: ${similarLibrary}` : ''}`;
+    if (!hits.length) {
+      if (!append) {
+        resultsEl.innerHTML = '';
+        const empty = document.createElement('li');
+        empty.className = 'similar-empty';
+        // The server knows which filter emptied the list; its sentence is
+        // better than ours whenever it sends one.
+        empty.textContent = `${data.emptyReason || 'No related problems match these filters.'} `;
+        const relax = document.createElement('button');
+        relax.type = 'button';
+        relax.className = 'lib-chip';
+        relax.textContent = 'clear filters and search again';
+        relax.addEventListener('click', () => {
+          activePattern = '';
+          activePlatforms.clear();
+          activeCollections.clear();
+          activeTiers.clear();
+          activeRanges.clear();
+          activeAcceptance = null;
+          // "Clear filters" has to clear the controls too, or the difficulty
+          // row and the competition chips keep claiming a filter that is gone.
+          sortDir = null;
+          collectionSpoilers = false;
+          similarLibrary = null;
+          libAged = null;
+          libOldest = false;
+          libRecall = null;
+          libNotes = null;
+          currentFilter = practiceMode ? 'notdone' : 'all';
+          filterSelect.value = currentFilter;
+          updatePatternPill();
+          syncJudgeControls();
+          syncDifficultyControls();
+          renderCollectionControls();
+          runSimilar(currentSimilar);
+        });
+        empty.appendChild(relax);
+        resultsEl.appendChild(empty);
+      }
+      hideLoadMore();
+      setStatus(`0 related to "${label}"${context}`);
+      return;
+    }
+    renderHitsList(resultsEl, hits, { append, startIndex: currentOffset, unranked: true, similarMode: true, libraryMode: !!similarLibrary });
+    setStatus(`${sortDir ? `top ${hits.length}` : `showing 1–${currentOffset + hits.length}`} of ${currentTotal} related to "${label}"${context}${orderNote()}`);
+    if (sortDir || data.sortWindow) hideLoadMore();
+    else updateLoadMore();
+  } catch (err) {
+    if (err.name === 'AbortError' || issuedAt !== lastQueryAt) return;
+    setStatus(`error: ${err.message || 'similar unavailable'}`);
+    hideLoadMore();
+  }
 }
 
 // "Was this useful?" — the one-line prompt under results. One answer per
@@ -1472,7 +2002,7 @@ function applyPatternFilter(pattern) {
   // words you never typed — and clearing them dead-ended on a blank page. The
   // server browses a filter with no query now, so the box stays yours.
   currentOffset = 0;
-  runSearch(input.value, { append: false });
+  reissueCurrentView();
 }
 
 function clearPatternFilter({ reissue = true } = {}) {
@@ -1480,9 +2010,9 @@ function clearPatternFilter({ reissue = true } = {}) {
   activePattern = "";
   updatePatternPill();
   syncUrl();
-  if (reissue && currentQuery) {
+  if (reissue) {
     currentOffset = 0;
-    runSearch(currentQuery, { append: false });
+    reissueCurrentView();
   }
 }
 
@@ -1490,14 +2020,27 @@ function clearPatternFilter({ reissue = true } = {}) {
 // deep links worked, but only if you typed one by hand, so a refresh threw away
 // your query, your judges and your filter.
 //
-// replaceState, never pushState: runSearch fires on every debounced keystroke,
-// so pushing would bury the real previous page under "g", "gr", "gra". Back
-// still leaves the app in one step, which is what people expect from a search
-// box. Offset is deliberately absent — restoring page 5 would silently refetch
+// replaceState by default: runSearch fires on every debounced keystroke, so
+// pushing would bury the real previous page under "g", "gr", "gra". Back still
+// leaves the app in one step, which is what people expect from a search box.
+//
+// push:true is the one exception, and only adding or removing a competition
+// passes it. Picking a collection is a deliberate, discrete act — you clicked
+// one thing, once — so it earns a history entry, and Back undoes exactly it.
+// Judges and patterns stay on replaceState for now; extending this is a
+// follow-up, not an oversight.
+//
+// Offset is deliberately absent — restoring page 5 would silently refetch
 // everything above it.
-function syncUrl() {
+function syncUrl({ push = false } = {}) {
   const p = new URLSearchParams();
   if (currentQuery) p.set("q", currentQuery);
+  if (currentSimilar) {
+    p.set("similar", currentSimilar.id);
+    if (similarLibrary) p.set("library", similarLibrary);
+    if (practiceMode) p.set("practice", "1");
+  }
+  if (activeCollections.size) p.set("contest", [...activeCollections].join(","));
   if (activePattern) p.set("pattern", activePattern);
   if (activePlatforms.size) p.set("platform", [...activePlatforms].join(","));
   const dParam = difficultyParam();
@@ -1505,7 +2048,7 @@ function syncUrl() {
   if (sortDir) p.set("sort", `difficulty-${sortDir}`);
   // Library-only state, written only when a library view is open so a plain
   // search URL never carries stale revision filters.
-  if (currentUser && libraryCommand(currentQuery)) {
+  if (currentUser && (libraryCommand(currentQuery) || currentSimilar)) {
     if (libAged) p.set("aged", String(libAged));
     if (libOldest) p.set("order", "oldest");
     if (libRecall) p.set("recall", libRecall);
@@ -1514,9 +2057,14 @@ function syncUrl() {
   if (activeRanker) p.set("ranker", activeRanker);
   if (currentUser && currentFilter !== "all") p.set("filter", currentFilter);
   const qs = p.toString();
-  const next = location.pathname + (qs ? `?${qs}` : "") + location.hash;
+  const search = qs ? `?${qs}` : "";
+  const next = location.pathname + search + location.hash;
+  // Whatever we just wrote is, by definition, already applied — popstate
+  // compares against this so a hash change never re-runs the whole view.
+  lastAppliedSearch = search;
   if (next !== location.pathname + location.search + location.hash) {
-    history.replaceState(null, "", next);
+    if (push) history.pushState({ cosine: 1 }, "", next);
+    else history.replaceState(null, "", next);
   }
 }
 
@@ -1555,9 +2103,9 @@ function clearPlatformFilter({ reissue = true } = {}) {
   activePlatforms.clear();
   syncJudgeControls();
   syncUrl();
-  if (reissue && currentQuery) {
+  if (reissue) {
     currentOffset = 0;
-    runSearch(currentQuery, { append: false });
+    reissueCurrentView();
   }
 }
 
@@ -1604,9 +2152,14 @@ const HELP_SECTIONS = [
 
 FIND SIMILAR
   inside an expanded result, "find similar problems" lists the
-  ten problems closest in meaning to that one — neighbours of
-  the problem itself, not of your query. Built for upsolving:
-  open the one that beat you, see its family.
+  related problems with your current filters and saved scope.
+  The source and filters stay in the URL, and results paginate.
+  Shared techniques appear inside expanded cards.
+
+  "practice this idea" broadens beyond the source contest and
+  saved list, keeping your judge, pattern, and difficulty.
+  Signed-in users see problems they have not marked done.
+  Recommendations are distinguished from actual PYQs.
 
 BROWSE
   a filter with no query lists everything it selects. Clear the
@@ -1614,7 +2167,8 @@ BROWSE
   paged.
 
 CORPUS
-  four judges, tagged [lc] [cf] [atc] [cses] on every card.
+  Judge badges identify the original platform. Verified PYQs
+  also include narrow CodeChef and Kattis collections.
   Deliberately hard: no LeetCode Easy, Codeforces and AtCoder
   stratified from 1300 up — the number on the card is the
   rating.`,
@@ -1652,10 +2206,10 @@ CORPUS
   and all of it lands in the URL, so a refresh keeps it and the
   link shares exactly what you see.
 
-  judges       the lc / cses / cf / atc chips above the
-               results, or the [lc] tag on any card. All four
-               are on until you narrow. Turning the last one
-               off returns to all four, so this filter can
+  judges       the platform chips above the results, or the
+               [lc] tag on any card. All judges are included
+               until you narrow. Turning the last one off
+               returns to all judges, so this filter can
                never find nothing. "all ✕" resets.
 
   difficulty   appears under the judges, in each judge's own
@@ -1667,6 +2221,30 @@ CORPUS
                LeetCode results untouched rather than deleting
                them. Drop the judge and its difficulty goes
                with it.
+
+  CSES         five estimated bands, independent of ratings:
+               Foundation, Standard, Intermediate, Advanced,
+               Expert. CSES publishes no difficulty, so these
+               are estimates and every card says so: two
+               independent solution reviews per task, the band
+               is their rounded mean, and 14 specialist checks
+               with a proof or a computation overrode it.
+               Confidence is how far the two reviews agreed —
+               high, both chose the band; medium, one band
+               apart; low, a specialist check settled it. That
+               is agreement between reviews, not human
+               calibration, and it converts to no Codeforces
+               rating. Choose "my CSES level" explicitly; your
+               account saves the choice, or it stays in this
+               browser while signed out. "my level" applies
+               that band.
+
+  PYQs         add one or more competition collections. These
+               combine with every other filter. Hints and
+               difficulty start hidden; open the original to
+               attempt, or reveal hints when you want them.
+               Resource links remain available even when a
+               round has no searchable problem statements.
 
   ac           pick a LeetCode tier and an acceptance-rate
                range appears under it: "hard" + "ac 10% to 30%"
@@ -2036,7 +2614,8 @@ function renderCompare(data, q) {
   const totalHits = results.reduce((s, r) => s + r.hits.length, 0);
   if (totalHits === 0) { setStatus(`0 hits for "${q}"`); compareEl.innerHTML = ""; latencySummaryEl.textContent = ""; return; }
   const expanded = describeExpansion(q, data.expandedQuery);
-  setStatus(`compare: "${q}"${expanded}`);
+  const contestNote = activeCollections.size ? " · collections do not apply to :compare" : "";
+  setStatus(`compare: "${q}"${expanded}${contestNote}`);
   latencySummaryEl.textContent = results.map((r) => `${r.ranker} ${r.latencyMs.toFixed(3)}ms`).join("  ·  ");
   compareEl.innerHTML = "";
   results.forEach((r, idx) => {
@@ -2097,6 +2676,8 @@ const PLATFORM_LABELS = {
   codeforces: ["cf", "Codeforces"],
   atcoder: ["atc", "AtCoder"],
   cses: ["cses", "CSES"],
+  codechef: ["cc", "CodeChef"],
+  kattis: ["kattis", "Kattis"],
 };
 
 function platformBadge(platform) {
@@ -2105,6 +2686,25 @@ function platformBadge(platform) {
   const on = activePlatforms.has(platform);
   return `<button type="button" class="platform-badge${on ? " active" : ""}" data-platform="${escapeHtml(platform)}"
     title="${escapeHtml(on ? `stop filtering to ${full}` : `only ${full}`)}">${escapeHtml(short)}</button>`;
+}
+
+// Where a problem came from, when it came from a contest we track. Three
+// endpoints have shipped hit.competitions for a while and nothing rendered it,
+// so the only way to discover that a problem you found by searching was an
+// ICPC World Finals question was to already have the collection selected.
+//
+// Deliberately NOT spoiler-content: "this was WF 2024" is provenance, not a
+// hint — it tells you nothing about how to solve it, and hiding it would defeat
+// the point of showing it in the first place.
+function competitionTag(competitions) {
+  const list = competitions || [];
+  if (!list.length) return "";
+  const first = list[0];
+  const label = first.short || first.name;
+  const title = list.map((c) => c.name).join(" · ");
+  const more = list.length > 1 ? ` +${list.length - 1}` : "";
+  return `<button type="button" class="competition-tag" data-collection="${escapeHtml(first.id)}"
+    title="${escapeHtml(`${title} — filter to this collection`)}">${escapeHtml(label + more)}</button>`;
 }
 
 // Badge wording deliberately leads with "vs <other>" — the old form put the
@@ -2123,7 +2723,16 @@ function renderHitsList(container, hits, opts = {}) {
   // A browse has no ranking, so a relevance bar would be drawing a number that
   // doesn't exist. Library lists are the same — they're ordered by when you
   // saved something, not by score.
-  const ranked = !opts.unranked && !libraryMode;
+  const ranked = !opts.unranked && !libraryMode && !opts.similarMode;
+  // :compare ignores the contest filter on the server — it is a ranker lens,
+  // not a browse — so hiding hints there would blank half the comparison for a
+  // filter that isn't being applied.
+  container.classList.toggle("hide-spoilers", activeCollections.size > 0 && !collectionSpoilers && !compareMode);
+  // The resources panel is rendered by the chip lifecycle, which runs before a
+  // view resolves — so its one sentence is refreshed here, where we finally
+  // know whether these results are collection members or recommendations.
+  const collectionNoteEl = document.getElementById("collection-note");
+  if (collectionNoteEl) collectionNoteEl.textContent = collectionNote();
   currentTopScore = hits.reduce(
     (m, h) => (typeof h.score === "number" ? Math.max(m, h.score) : m),
     currentTopScore
@@ -2147,7 +2756,7 @@ function renderHitsList(container, hits, opts = {}) {
 
     const meta = document.createElement("span");
     meta.className = "result-meta";
-    const diff = hit.problem.difficulty || "";
+    const diff = cosineDifficulty.format(hit.problem);
     // No raw score on cards. It read as a precise "similarity %" it never was,
     // and the same 4-decimal number meant a BM25 score in one view and a
     // cosine in another. The bar below still shows relative strength; exact
@@ -2155,8 +2764,14 @@ function renderHitsList(container, hits, opts = {}) {
     const trailing = libraryMode ? formatRelative(hit.markedAt) : "";
     // CSES ships no difficulty, so this used to render an empty bordered chip —
     // visible furniture standing in for nothing.
-    const diffHtml = diff === "" ? "" : `<span class="difficulty ${diffClass(diff)}">${escapeHtml(String(diff))}</span>`;
-    let metaHtml = platformBadge(hit.problem.platform) + diffHtml + escapeHtml(trailing);
+    // CSES bands are estimates, so the chip carries how much the two reviews
+    // agreed: the class for CSS, the title for the person reading it.
+    const isCses = hit.problem.platform === "cses";
+    const csesConfidence = isCses ? cosineDifficulty.confidence(hit.problem) : null;
+    const csesClass = `cses-estimate${csesConfidence ? ` cses-confidence-${csesConfidence}` : ""}`;
+    const csesTitle = csesConfidence ? ` title="${escapeHtml(cosineDifficulty.confidenceTitle(csesConfidence))}"` : "";
+    const diffHtml = diff === "" ? "" : `<span class="difficulty ${isCses ? csesClass : diffClass(hit.problem.difficulty)}"${isCses ? csesTitle : ""}>${escapeHtml(String(diff))}</span>`;
+    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
       const hasNotes = note && cosineSheets.userColumns().some((fld) => (note[fld.key] || "").trim());
@@ -2175,6 +2790,12 @@ function renderHitsList(container, hits, opts = {}) {
         togglePlatformFilter(btn.dataset.platform);
       });
     });
+    meta.querySelectorAll(".competition-tag").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        addCollection(btn.dataset.collection);
+      });
+    });
 
     header.appendChild(title);
     header.appendChild(meta);
@@ -2191,7 +2812,7 @@ function renderHitsList(container, hits, opts = {}) {
     if (!ranked) bar.classList.add("hidden");
 
     const matched = document.createElement("div");
-    matched.className = "result-matched";
+    matched.className = "result-matched spoiler-content";
     if ((hit.matchedTerms || []).length) {
       for (const t of hit.matchedTerms) {
         const chip = document.createElement("span");
@@ -2202,14 +2823,33 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     const detail = document.createElement("div");
+    // Only the labels are hints. Blacking out the whole panel also hid the
+    // statement — the thing you are meant to sit and attempt — and the
+    // "find similar / practice this idea" links out of it.
     detail.className = "result-detail hidden";
+    detail.id = `detail-${hit.problem.id}-${startIndex + i}`;
+    title.tabIndex = 0;
+    title.setAttribute("role", "button");
+    title.setAttribute("aria-expanded", "false");
+    title.setAttribute("aria-controls", detail.id);
+    // Where a CSES band came from. Only what the record already carries — the
+    // band, how far the two reviews agreed, when it was reviewed, and whether a
+    // specialist check overrode the mean. Never the reviews themselves. It is
+    // a difficulty hint, so it hides with the other hints.
+    const prov = cosineDifficulty.provenance(hit.problem);
+    const provHtml = !prov ? "" : `<p class="cses-provenance spoiler-content">difficulty: ${escapeHtml(prov.label)} · CSES estimate${
+      prov.confidence ? ` · ${escapeHtml(prov.confidence)} confidence` : ""
+    }${prov.reviewedAt ? ` · reviewed ${escapeHtml(prov.reviewedAt)}` : ""}${
+      prov.overridden ? " · specialist override" : ""
+    } · <a href="https://github.com/Dd1235/Cosine/blob/main/experiments/19-cses-reviewed-bands.md" target="_blank" rel="noopener">how these were made &rarr;</a></p>`;
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
-      <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
-      <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
+      ${provHtml}
+      <p class="tags spoiler-content"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
+      <p class="patterns spoiler-content"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
         .join(" ")}</p>
-      <p><a href="#" class="similar-link">find similar problems &rarr;</a>${
+      <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
         hit.problem.source_url
           ? ` · <a href="${escapeHtml(hit.problem.source_url)}" class="external-link" target="_blank" rel="noopener">open original problem &rarr;</a>`
           : ""
@@ -2220,6 +2860,17 @@ function renderHitsList(container, hits, opts = {}) {
       e.stopPropagation();
       runSimilar(hit.problem);
     });
+    detail.querySelector(".practice-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      runSimilar(hit.problem, { practice: true });
+    });
+    if (opts.similarMode && (hit.sharedTechniques || []).length) {
+      const explanation = document.createElement("p");
+      explanation.className = "similar-explanation spoiler-content"; // a technique list is a hint
+      explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
+      detail.prepend(explanation);
+    }
     detail.querySelectorAll(".pattern-chip").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -2238,6 +2889,7 @@ function renderHitsList(container, hits, opts = {}) {
     header.addEventListener("click", () => {
       const opening = detail.classList.contains("hidden");
       detail.classList.toggle("hidden");
+      title.setAttribute("aria-expanded", String(opening));
       // The outcome signal: someone cared enough to open this result. Logged
       // once per card; position + searchId make CTR-per-ranker computable.
       if (opening && !li.dataset.opened) {
@@ -2249,6 +2901,12 @@ function renderHitsList(container, hits, opts = {}) {
           searchId: currentSearchId || undefined,
           ranker: currentRankerAnswered || undefined,
         });
+      }
+    });
+    title.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        header.click();
       }
     });
     const externalLink = detail.querySelector(".external-link");
@@ -2265,12 +2923,30 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     li.appendChild(header);
+    if (activeCollections.size && !compareMode) {
+      const attempt = document.createElement("div");
+      attempt.className = "pyq-attempt";
+      const original = safeResourceUrl(hit.problem.source_url);
+      if (original) {
+        const link = document.createElement("a");
+        link.href = original;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "open original problem →";
+        attempt.appendChild(link);
+      }
+      const notice = document.createElement("span");
+      notice.className = "spoiler-notice";
+      notice.textContent = " · hints and difficulty hidden";
+      attempt.appendChild(notice);
+      li.appendChild(attempt);
+    }
     if (!libraryMode) li.appendChild(bar);
     if (matched.childNodes.length > 0) li.appendChild(matched);
     li.appendChild(detail);
     container.appendChild(li);
 
-    if (!libraryMode && topScore > 0 && typeof hit.score === "number") {
+    if (ranked && topScore > 0 && typeof hit.score === "number") {
       const pct = Math.max(2, Math.round((hit.score / topScore) * 100));
       requestAnimationFrame(() => {
         fill.style.width = `${pct}%`;
@@ -2483,9 +3159,8 @@ function pickOne() {
 }
 
 function reissueSearch() {
-  if (!currentQuery) return;
   currentOffset = 0;
-  runSearch(currentQuery, { append: false });
+  reissueCurrentView();
 }
 
 // Read-only view of a problem's sheet row. The sheet is the editing surface —
@@ -2785,49 +3460,139 @@ function escapeHtml(s) {
 
 // Deep links, both directions: the URL is read here at boot and written by
 // syncUrl() as you browse, so refresh, bookmark and share all keep the view.
+//
+// applyUrlState is the only reader of the query string, and it runs twice: at
+// boot, and again on every popstate. That second caller is why it CLEARS every
+// facet before parsing — going Back from "?contest=wf&platform=cf" to
+// "?q=graph" is a different view, not that view with the collections still
+// hanging off it. A reader that only ever ran once could get away with
+// assuming the state was already empty; this one cannot.
+//
+// Two things it deliberately never touches. activeRanker is a preference about
+// how to search rather than a description of what you are looking at, and the
+// <select> carrying it is populated asynchronously — re-reading it per
+// navigation would fight that. currentUser is not in the URL at all.
+let lastAppliedSearch = location.search;
+
+function applyUrlState(params) {
+  lastAppliedSearch = location.search;
+  activeCollections.clear();
+  activePlatforms.clear();
+  activeTiers.clear();
+  activeRanges.clear();
+  bootRanges.length = 0;
+  activeAcceptance = null;
+  sortDir = null;
+  activePattern = "";
+  currentSimilar = null;
+  similarLibrary = null;
+  practiceMode = false;
+  collectionSpoilers = false;
+  libAged = null;
+  libOldest = false;
+  libRecall = null;
+  libNotes = null;
+  currentFilter = "all";
+  filterSelect.value = "all";
+
+  const q = (params.get("q") || "").trim();
+  const similarId = (params.get("similar") || "").trim();
+  if (/^[a-z0-9][a-z0-9-]{0,180}$/.test(similarId)) currentSimilar = { id: similarId, title: similarId };
+  const library = params.get("library");
+  if (currentSimilar && ["all", "bookmarked", "done"].includes(library)) { similarLibrary = library; bootNeedsAuth = true; }
+  practiceMode = !!currentSimilar && params.get("practice") === "1";
+  // practice=1 and contest= are a contradiction the server answers with zero
+  // results: practice means "anything BUT the source contest", and runSimilar
+  // clears the collections to say so. A hand-edited or stale link carrying
+  // both is read as practice, and the first syncUrl writes the contest away.
+  if (!practiceMode) {
+    for (const id of (params.get("contest") || "").split(",")) {
+      if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
+    }
+  }
+  const pattern = (params.get("pattern") || "").trim().toLowerCase();
+  const aged = Number.parseInt(params.get("aged") || "", 10);
+  if ([30, 90, 180].includes(aged)) libAged = aged;
+  if ((params.get("order") || "").toLowerCase() === "oldest") libOldest = true;
+  const recall = (params.get("recall") || "").trim().toLowerCase();
+  if (["again", "hard", "medium", "easy", "none"].includes(recall)) libRecall = recall;
+  const notes = (params.get("notes") || "").trim().toLowerCase();
+  if (["yes", "no"].includes(notes)) libNotes = notes;
+  const sort = (params.get("sort") || "").trim().toLowerCase();
+  if (sort === "difficulty-asc" || sort === "difficulty") sortDir = "asc";
+  else if (sort === "difficulty-desc") sortDir = "desc";
+  const filter = (params.get("filter") || "").trim().toLowerCase();
+  if (["done", "notdone"].includes(filter)) {
+    currentFilter = filter;
+    filterSelect.value = filter;
+    bootNeedsAuth = true;
+  }
+  for (const p of (params.get("platform") || "").toLowerCase().split(",")) {
+    if (PLATFORM_LABELS[p.trim()]) activePlatforms.add(p.trim());
+  }
+  // A judge range names its judge by a short form only /api/rankers can
+  // resolve. At boot that payload has not landed yet, so the token is parked;
+  // on a later popstate it has, and the token resolves immediately.
+  const ratedKnown = (difficultyPayload.rated || []).length > 0;
+  for (const tok of (params.get("difficulty") || "").toLowerCase().split(",")) {
+    const t = tok.trim();
+    const range = /^([a-z]{2,4}):(-?\d+)-(-?\d+)$/.exec(t);
+    if (range && range[1] !== "ac" && !ratedKnown) bootRanges.push(range);
+    else applyDifficultyToken(t);
+  }
+  if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(pattern)) activePattern = pattern;
+  input.value = q;
+  if (libraryCommand(q) || (currentSimilar && (libRecall || libAged || libNotes))) bootNeedsAuth = true;
+  return q;
+}
+
+// Which view the parsed state describes. Separate from applyUrlState because
+// popstate needs the controls repainted between the two.
+function dispatchUrlView() {
+  const q = input.value.trim();
+  if (currentSimilar) {
+    input.value = "";
+    runSimilar(currentSimilar);
+  } else if (activePattern) {
+    applyPatternFilter(activePattern);
+  } else if (q || activeCollections.size || activePlatforms.size) {
+    runSearch(q, { append: false });
+  } else {
+    // Nothing selected and nothing typed. Back to a bare URL has to clear the
+    // results too — at boot there are none, on popstate there are.
+    currentQuery = "";
+    currentTotal = 0;
+    currentOffset = 0;
+    resultsEl.innerHTML = "";
+    hideLoadMore();
+    hideFeedback();
+    setStatus("");
+  }
+}
+
 const bootParams = new URLSearchParams(location.search);
 const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();
-const bootQ = (bootParams.get("q") || "").trim();
-const bootPattern = (bootParams.get("pattern") || "").trim().toLowerCase();
-const bootAged = Number.parseInt(bootParams.get("aged") || "", 10);
-if ([30, 90, 180].includes(bootAged)) libAged = bootAged;
-if ((bootParams.get("order") || "").toLowerCase() === "oldest") libOldest = true;
-const bootRecall = (bootParams.get("recall") || "").trim().toLowerCase();
-if (["again", "hard", "medium", "easy", "none"].includes(bootRecall)) libRecall = bootRecall;
-const bootNotes = (bootParams.get("notes") || "").trim().toLowerCase();
-if (["yes", "no"].includes(bootNotes)) libNotes = bootNotes;
-const bootSort = (bootParams.get("sort") || "").trim().toLowerCase();
-if (bootSort === "difficulty-asc" || bootSort === "difficulty") sortDir = "asc";
-else if (bootSort === "difficulty-desc") sortDir = "desc";
-const bootFilter = (bootParams.get("filter") || "").trim().toLowerCase();
-if (["done", "notdone"].includes(bootFilter)) {
-  currentFilter = bootFilter;
-  filterSelect.value = bootFilter;
-  bootNeedsAuth = true;
-}
-for (const p of (bootParams.get("platform") || "").toLowerCase().split(",")) {
-  if (PLATFORM_LABELS[p.trim()]) activePlatforms.add(p.trim());
-}
-for (const tok of (bootParams.get("difficulty") || "").toLowerCase().split(",")) {
-  const t = tok.trim();
-  const range = /^([a-z]{2,4}):(-?\d+)-(-?\d+)$/.exec(t);
-  // A judge range names its judge by a short form only the payload can resolve,
-  // so it waits. "ac" names a quantity, and tiers are already canonical.
-  if (range && range[1] !== "ac") bootRanges.push(range);
-  else applyDifficultyToken(t);
-}
+applyUrlState(bootParams);
+loadCollections();
 syncJudgeControls();
-if (bootQ) input.value = bootQ;
-if (libraryCommand(bootQ)) bootNeedsAuth = true;
-if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(bootPattern)) {
-  applyPatternFilter(bootPattern);
-} else if (bootQ) {
-  runSearch(bootQ, { append: false });
-} else {
-  setStatus("");
-}
+updatePatternPill();
+dispatchUrlView();
+
+// Back / Forward. Without this the address bar and the page disagreed the
+// moment you used either: syncUrl only ever replaced, so the only entries that
+// existed were the ones the browser made, and pressing Back left a collection
+// filtering results that the URL no longer mentioned.
+window.addEventListener("popstate", () => {
+  // A hash-only move (an in-page anchor) is not a change of view.
+  if (location.search === lastAppliedSearch) return;
+  applyUrlState(new URLSearchParams(location.search));
+  syncJudgeControls();
+  updatePatternPill();
+  renderCollectionControls();
+  dispatchUrlView();
+});
 
 // Put the caret where typing actually goes. Pointer-fine only, so mobile
 // keyboards don't spring open on load.

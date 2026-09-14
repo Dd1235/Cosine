@@ -1,0 +1,8 @@
+{
+  "id": "cses-1092",
+  "title": "Two Sets",
+  "source_url": "https://cses.fi/problemset/task/1092",
+  "observed_at": "2026-09-11T06:52:40.475529+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to divide the numbers 1,2,\\ldots,n into two sets of equal sum.\n\nInput\n\nThe only input line contains an integer n.\n\nOutput\n\nPrint \"YES\", if the division is possible, and \"NO\" otherwise.\n\nAfter this, if the division is possible, print an example of how to create the sets. First, print the number of elements in the first set followed by the elements themselves in a separate line, and then, print the second set in a similar way.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample 1\n\nInput:\n\n7\n\n\nOutput:\n\nYES\n4\n1 2 4 7\n3\n3 5 6\n\nExample 2\n\nInput:\n\n6\n\n\nOutput:\n\nNO",
+  "statement_sha256": "732e4edfc37a4a6de776c672ccc979c39e1fc1d8e4acd11d5140dca9555b9495"
+}

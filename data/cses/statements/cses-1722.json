@@ -1,0 +1,8 @@
+{
+  "id": "cses-1722",
+  "title": "Fibonacci Numbers",
+  "source_url": "https://cses.fi/problemset/task/1722",
+  "observed_at": "2026-09-11T06:53:36.557325+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThe Fibonacci numbers can be defined as follows:\n\n\nF_0=0\n\nF_1=1\n\nF_n = F_{n-2}+F_{n-1}\n\n\nYour task is to calculate the value of F_n for a given n.\n\nInput\n\nThe only input line has an integer n.\n\nOutput\n\nPrint the value of F_n modulo 10^9+7.\n\nConstraints\n\n\n0 \\le n \\le 10^{18}\n\n\nExample\n\nInput:\n\n10\n\n\nOutput:\n\n55",
+  "statement_sha256": "219b4590716ab19735db77281d18828df2bcccdda9c0c6c9e0b189f9818d53cf"
+}

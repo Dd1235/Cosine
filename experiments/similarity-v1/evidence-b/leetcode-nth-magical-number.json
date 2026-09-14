@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-nth-magical-number",
+  "url": "https://leetcode.com/problems/nth-magical-number/",
+  "observed_at": "2026-09-11T07:22:15.221897+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "A positive integer is magical if it is divisible by either a or b . \n\n Given the three integers n , a , and b , return the n th magical number. Since the answer may be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n\n \n Input: n = 1, a = 2, b = 3\n Output: 2\n \n\n Example 2: \n\n \n Input: n = 4, a = 2, b = 3\n Output: 6\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 10 9 \n 2 <= a, b <= 4 * 10 4",
+  "statement_sha256": "60b61b6a38efe60b4f9cf627f0a4162d3650103aecddf5dc6e93ffc2aff62764",
+  "raw_sha256": "d870cf96592679a27957f20bd6b467cbb87310dd61e02cba314feeab81af5d9a",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

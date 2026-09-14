@@ -1,0 +1,22 @@
+{
+  "id": "kattis-schedule",
+  "status": "solved",
+  "solution": "Treat the schedule as a w-by-n matrix over {1,2}; column i is team i's choices. Two people (i,a),(j,b) meet in week t iff column i is a and column j is b there, and with virtual meetings at week 0 and week w+1 the isolation of a pair is at most k exactly when every k consecutive weeks inside [1,w] contain a meeting, so isolation <= k means every window of k consecutive rows realises all four patterns (1,1),(1,2),(2,1),(2,2) for every pair of columns, i.e. is a binary strength-2 covering array. Window [1,k] alone forces n <= maxn(k), and conversely repeating a valid k-row covering array with period k makes every k-window contain each of its rows exactly once, so the answer is the smallest k in [4,w] with maxn(k) >= n and infinity if none exists. Normalising row 1 to all 1s (complementing a column just swaps that team's two members) turns the columns into sets S_i of the remaining k-1 rows that must pairwise intersect and be pairwise incomparable, so by Milner's theorem on intersecting antichains maxn(k) = C(k-1, ceil(k/2)), attained by taking all ceil(k/2)-subsets of a (k-1)-element ground set; the values run 3, 4, 10, 15, 35, 56, 126, ... so n <= 10^4 always needs k <= 17. The algorithm scans k = 4..w, emits the first n such subsets as columns and repeats them periodically, costing O(n*w) output time. A brute force over all schedules for n <= 4, w <= 6 and an exhaustive maximum-clique computation of maxn(k) for k <= 7 both match the formula.",
+  "solution_confidence": 0.93,
+  "statement_summary": "A company has n two-person teams; each week exactly one member of each team is in the office. For two people on different teams, isolation is the longest gap between consecutive weeks both are present, with the two ends counted as gaps too. Over w weeks, minimise the largest isolation over all cross-team pairs and output such a schedule, or report infinity; n reaches 10000 and w at most 52.",
+  "patterns": [
+    "constructive-algorithm",
+    "combinatorics"
+  ],
+  "pattern_confidence": {
+    "constructive-algorithm": 0.95,
+    "combinatorics": 0.9
+  },
+  "tags": [
+    "combinatorics",
+    "math"
+  ],
+  "source_text_sha256": "d76f8b339c0c592316fb73f4a1c8cf21a6ad1ce995c4c3cbef291a29999333c9",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchD/verify_schedule.py",
+  "notes": "The crux is an extremal set-theory bound (Milner's theorem on intersecting antichains, equivalently the Katona/Kleitman-Spencer bound on binary strength-2 covering arrays) plus a periodic construction; the vocabulary has no slug for extremal set theory / covering arrays, so 'combinatorics' carries it. Watch the odd-k pitfall: the commonly quoted C(k-1, ceil(k/2)-1) is right only for even k and overcounts for odd k (k=5 would give 6, the true maximum is 4); the exhaustive clique search in the verifier confirms 3, 4, 10, 15 for k = 4..7. No label added for the k = 4..w scan (a 49-step loop) or for the bitset/subset bookkeeping, which are scaffolding. Verifier checks: both samples; maxn(k) against exhaustive maximum clique for k<=7; the formula against exhaustive search over all schedules for n<=4, w<=6; gap-definition vs window-characterisation on 4000 random schedules; and the built n=10^4, w=52 schedule on 20000 sampled pairs (isolation exactly 17)."
+}

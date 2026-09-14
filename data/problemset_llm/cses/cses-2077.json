@@ -24,5 +24,18 @@
       "articulation-points": 0.98,
       "bridges": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2077",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "3acee106a3d163ef020c76ae4a246c794b37e0be996ca942beebca7eb212d850",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

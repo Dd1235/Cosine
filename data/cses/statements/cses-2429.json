@@ -1,0 +1,8 @@
+{
+  "id": "cses-2429",
+  "title": "Grid Completion",
+  "source_url": "https://cses.fi/problemset/task/2429",
+  "observed_at": "2026-09-11T06:54:49.650203+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to create an n \\times n grid whose each row and column has exactly one A and B. Some of the characters have already been placed. In how many ways can you complete the grid?\n\nInput\n\nThe first input line has an integer n: the size of the grid.\n\nAfter this, there are n lines that describe the grid. Each line has n characters: . means an empty square, and A and B show the characters already placed.\n\nYou can assume that every row and column has at most one A and B.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n2 \\le n \\le 500\n\n\nExample\n\nInput:\n\n5\n.....\n..AB.\n.....\nB....\n...A.\n\n\nOutput:\n\n16",
+  "statement_sha256": "b424542355a294dbb00a20a98a9a50b834c5ccc085afb06cb21383a63128c96a"
+}

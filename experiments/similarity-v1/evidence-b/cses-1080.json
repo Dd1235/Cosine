@@ -1,0 +1,10 @@
+{
+  "id": "cses-1080",
+  "url": "https://cses.fi/problemset/task/1080",
+  "observed_at": "2026-09-11T07:21:57.848006+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string consisting of n characters between a and z.\n\nOn each turn, you may remove any two adjacent characters that are equal. Your goal is to construct an empty string by removing all the characters.\n\nIn how many ways can you do this?\n\nInput\n\nThe only input line has a string of length n.\n\nOutput\n\nPrint one integer: the number of ways modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 500\n\n\nExample\n\nInput:\n\naabccb\n\n\nOutput:\n\n3",
+  "statement_sha256": "a04f168660e0dd1e04d80ef6df17c9681e6732c4a88af1535e25b5cb58eebf40",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1145",
+  "title": "Increasing Subsequence",
+  "source_url": "https://cses.fi/problemset/task/1145",
+  "observed_at": "2026-09-11T06:53:19.297642+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array containing n integers. Your task is to determine the longest increasing subsequence in the array, i.e., the longest subsequence where every element is larger than the previous one.\n\nA subsequence is a sequence that can be derived from the array by deleting some elements without changing the order of the remaining elements.\n\nInput\n\nThe first line contains an integer n: the size of the array.\n\nAfter this there are n integers x_1,x_2,\\ldots,x_n: the contents of the array.\n\nOutput\n\nPrint the length of the longest increasing subsequence.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n1 \\le x_i \\le 10^9\n\n\nExample\n\nInput:\n\n8\n7 3 5 3 6 2 9 8\n\n\nOutput:\n\n4",
+  "statement_sha256": "fdee078ad79a829810c16867bdc53ca4501f1438d9e2154e4353c6f6c3ed2a0d"
+}

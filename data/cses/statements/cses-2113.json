@@ -1,0 +1,8 @@
+{
+  "id": "cses-2113",
+  "title": "Signal Processing",
+  "source_url": "https://cses.fi/problemset/task/2113",
+  "observed_at": "2026-09-11T06:53:48.620437+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given two integer sequences: a signal and a mask. Your task is to process the signal by moving the mask through the signal from left to right. At each mask position calculate the sum of products of aligned signal and mask values in the part where the signal and the mask overlap.\n\nInput\n\nThe first input line consists of two integers n and m: the length of the signal and the length of the mask.\n\nThe next line consists of n integers a_1,a_2,\\ldots,a_n defining the signal.\n\nThe last line consists of m integers b_1,b_2,\\ldots,b_m defining the mask.\n\nOutput\n\nPrint n+m-1 integers: the sum of products of aligned values at each mask position from left to right.\n\nConstraints\n\n\n1 \\le n,m \\le 2 \\cdot 10^5\n\n1 \\le a_i,b_i \\le 100\n\n\nExample\n\nInput:\n\n5 3\n1 3 2 1 4\n1 2 3\n\n\nOutput:\n\n3 11 13 10 16 9 4\n\n\nExplanation: For example, at the second mask position the sum of aligned products is 2 \\cdot 1 + 3 \\cdot 3 = 11.",
+  "statement_sha256": "fcf8baf5c7ec98268e50b47e7ff93d33bc775f200df072a028f8f11cbced9843"
+}

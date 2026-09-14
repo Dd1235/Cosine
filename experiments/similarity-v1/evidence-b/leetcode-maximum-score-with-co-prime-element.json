@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-maximum-score-with-co-prime-element",
+  "url": "https://leetcode.com/problems/maximum-score-with-co-prime-element/",
+  "observed_at": "2026-09-11T07:22:05.764569+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums of length n and an integer maxVal . \n\n You may change any element in nums to any positive integer less than or equal to maxVal . Each such change costs 1. \n\n Two integers are co-prime if their greatest common divisor (GCD) is 1. \n\n After all modifications, you must choose an index i such that, nums[i] is co-prime with every other element nums[j] . \n\n Let: \n\n \n selectedValue be the final value of nums[i] after modifications. \n modificationCost be the total number of elements changed. \n \n\n The score is defined as score = selectedValue - modificationCost . \n\n Return the maximum possible score. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [3,4,6], maxVal = 5 \n\n Output: 4 \n\n Explanation: \n\n Change nums[2] from 6 to 5, which costs 1. Choose nums[2] = 5 , since it is co-prime with 3 and 4. \n\n \n selectedValue = 5 \n modificationCost = 1 \n The score is 5 - 1 = 4 \n \n \n\n Example 2: \n\n \n Input: nums = [1,2,3], maxVal = 4 \n\n Output: 3 \n\n Explanation: \n\n No modifications are required. Choose nums[2] = 3 , since it is co-prime with 1 and 2. \n\n \n selectedValue = 3 \n modificationCost = 0 \n The score is 3 - 0 = 3 \n \n \n\n Example 3: \n\n \n Input: nums = [2,2], maxVal = 1 \n\n Output: 1 \n\n Explanation: \n\n Change nums[0] from 2 to 1, which costs 1. Choose nums[1] = 2 , since it is co-prime with 1. \n\n \n selectedValue = 2 \n modificationCost = 1 \n The score is \u200b\u200b\u200b\u200b\u200b\u200b\u200b 2 - 1 = 1 \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 5 \n 1 <= nums[i] <= 10 5 \n 1 <= maxVal <= 10 \u200b\u200b\u200b\u200b\u200b\u200b\u200b5",
+  "statement_sha256": "beda50989cefe780ec1ecd560d3f84038ada44ae42f26bc014a29fe69b185b15",
+  "raw_sha256": "06c877224202dc83f39e2737dae2c4710704fa285597cc9848857e5f43aa6ab3",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

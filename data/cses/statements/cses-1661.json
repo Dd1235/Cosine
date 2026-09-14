@@ -1,0 +1,8 @@
+{
+  "id": "cses-1661",
+  "title": "Subarray Sums II",
+  "source_url": "https://cses.fi/problemset/task/1661",
+  "observed_at": "2026-09-11T06:53:16.146443+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven an array of n integers, your task is to count the number of subarrays having sum x.\n\nInput\n\nThe first input line has two integers n and x: the size of the array and the target sum x.\n\nThe next line has n integers a_1,a_2,\\dots,a_n: the contents of the array.\n\nOutput\n\nPrint one integer: the required number of subarrays.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n-10^9 \\le x,a_i \\le 10^9\n\n\nExample\n\nInput:\n\n5 7\n2 -1 3 5 -2\n\n\nOutput:\n\n2",
+  "statement_sha256": "6077392c419ba7e37e1250d8cb5cdf2c4feac39d43954746ca7b9e6330cf1789"
+}

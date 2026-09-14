@@ -6,6 +6,7 @@
 const { loadProblems } = require("../server/data");
 const {
   MODEL_ID,
+  embeddingRecipe,
   DTYPE,
   DIMS,
   problemText,
@@ -15,6 +16,7 @@ const {
   installedPackageVersion,
 } = require("../server/search/embedding");
 
+// Chunking controls progress reporting only; the embedder runs singleton inference.
 const BATCH_SIZE = 32;
 
 async function main() {
@@ -50,7 +52,8 @@ async function main() {
   }
 
   const manifest = {
-    version: 1,
+    version: 2,
+    recipe: embeddingRecipe(),
     model: MODEL_ID,
     dtype: DTYPE,
     dims: DIMS,

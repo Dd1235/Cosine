@@ -24,5 +24,18 @@
       "digit-dp": 0.98,
       "dynamic-programming": 0.95
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2220",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "fddd3369f6ce44df53c08378f593f99297e400b3ee73de58929421ceb6ede981",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

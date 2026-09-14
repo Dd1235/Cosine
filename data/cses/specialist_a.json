@@ -1,0 +1,73 @@
+{
+  "reviewer_id": "codex-cses-evidence-agent-a",
+  "reviewed_at": "2026-09-11T07:13:49.970037+00:00",
+  "scope": "Supplement to first assessment A, not a second independent reviewer or blinded evaluation. No technique labels changed.",
+  "reviews": [
+    {
+      "id": "cses-2174",
+      "band": 5,
+      "status": "resolved",
+      "solution_rationale": "Largest-digit subtraction is optimal: induction gives monotone optimal cost, since the maximum digit of k-1 is at least maximumDigit(k)-1. Compress the deterministic descent into decimal suffix blocks. Store cost and negative overshoot for suffix length, incoming last digit and maximum external prefix digit. Compose ten smaller blocks; only at most nine units are lost across a decimal boundary. The independent drain implementation exercises this recurrence without iterating n times.",
+      "complexity": "O(D*10^3) preprocessing with O(D*10^2) canonical block states; D<=19. Use 64-bit costs.",
+      "sources": [
+        "https://abc864197532.github.io/2021/09/15/cses-additional-sol/#2174-Removing-Digits-II"
+      ],
+      "verification": "Own block recurrence matches unrestricted digit-choice DP for every n1..10000; n=10^18 computes113502443819651915. scripts/research/verify_cses_specialist_a.py. Author archive analysis was only a heading and supplies no evidence.",
+      "statement_sha256": "108d198fc021fd40de5131be9f66b9964a3810546c414de5e3618dea03d399cb"
+    },
+    {
+      "id": "cses-2427",
+      "band": 5,
+      "status": "resolved",
+      "solution_rationale": "The actual mbfibat implementation handles n1,2 directly and all six normalized n3 letter arrangements. For n>=4, normalize the empty pair to the right, then move the first misplaced B pair out and bring a later A pair into its position. The sole adjacent-BA remainder has a three-move repair. Each ordinary iteration fixes another A in the prefix; output itself costs quadratic characters. Detailed finite cases and legal disjoint pair moves establish an implementable construction under the1000-move allowance.",
+      "complexity": "O(n^2) time including scanning/output, O(n) moves and O(n^2) stored output.",
+      "sources": [
+        "https://github.com/mbfibat/cses-solution/blob/main/Solutions/CSES%202427/main.cpp"
+      ],
+      "verification": "Compiled author code:360 seeded cases covering n1..6,20,50,100; every emitted move and final ordering independently validated; max213 moves. Returned NO only for n<=3. Random tests are not exhaustive impossibility proof.",
+      "statement_sha256": "e8208076addb07883a10563db81042f3f7b062e647ae6bbecac46b5fff05f7fb",
+      "verification_script": "scripts/research/verify_cses_construction_outputs.py --grid-binary <compiled2418> --letter-binary <compiled2427>",
+      "source_code_sha256": "a650a762f31c12aa9a20f459c94604fd7c3c8f9af03b84d6e3250a4ad56d47e7"
+    },
+    {
+      "id": "cses-2207",
+      "band": 4,
+      "status": "resolved_finite_computational_basis",
+      "solution_rationale": "Use g(n)=mex{g(i) XOR g(n-i):1<=i<n-i}; losing iff g(n)=0. Compute through1999 and classify n>=2000 as first within the stated n<=10^6 domain. This shortcut has an explicit finite computational basis: Achim Flammenkamp reports Grundy values through2^35, with42 zero values including heap0 and largest zero at1222. The mrsac7 author implementation uses the same2000 cutoff. Do not describe eventual positivity as a proved theorem for unbounded n.",
+      "complexity": "O(B^2) preprocessing with timestamped mex, B=2000; O(t) queries and O(B) memory. The cited set-based code adds a logarithmic factor.",
+      "sources": [
+        "https://wwwhomes.uni-bielefeld.de/achim/grundy.html",
+        "https://github.com/mrsac7/CSES-Solutions/blob/master/src/2207%20-%20Grundy%27s%20Game.cpp"
+      ],
+      "verification": "Primary computation report specifically covers the full CSES domain; source frequency table for nimber0 shows count42, last1222. No independent recomputation through10^6 claimed.",
+      "statement_sha256": "487b90307a324721f05dd391d73ba1fa814274719c570e98cc8c020f58611e48"
+    },
+    {
+      "id": "cses-1148",
+      "band": 5,
+      "status": "resolved",
+      "solution_rationale": "For each bottom row form empty-cell heights. Assign each interval uniquely to its rightmost minimum with previous strictly smaller and next smaller-or-equal boundaries. If its left/right choices are L,R, the number of width-w intervals is min(w,L,R,L+R-w) for1<=w<L+R. Every height1..h contributes. This trapezoid has three affine pieces: rectangle-add slope/intercept on the height-width answer plane, then take two-dimensional prefix sums. The downloaded author code implements an equivalent two horizontal integrations and one vertical suffix integration.",
+      "complexity": "O(nm) time and O(nm) memory, including the mandatory nm outputs.",
+      "sources": [
+        "https://github.com/HanaYukii/CSES/blob/master/1148.cpp"
+      ],
+      "verification": "Own direct boundary/trapezoid oracle matches brute rectangles at every size on592 exhaustive binary grids (1x4,2x3,3x3). scripts/research/verify_cses_specialist_a.py.",
+      "statement_sha256": "866fdaf7840353c6060494925702f2603531e69c9679950d1825b83ad1b41b75"
+    },
+    {
+      "id": "cses-2418",
+      "band": 5,
+      "status": "resolved",
+      "solution_rationale": "Rectangular-grid Hamilton paths have a complete endpoint feasibility characterization, beyond checkerboard parity: one-row endpoint restrictions, two-row separating endpoints, and three-row exceptional placements. The inspected implementation normalizes orientation, rejects forbidden cases, uses explicit small templates, then removes two-column strips and splices them into a boundary edge or splits into two feasible endpoint rectangles. Rotation/reflection remaps the resulting moves. This is a substantial case-based construction, not generic exponential Hamiltonian search.",
+      "complexity": "Conservative bound for inspected recursive string implementation: O(nm(n+m)) time and space upper bound; output length nm-1. n,m<=50. Template lookup is constant.",
+      "sources": [
+        "https://epubs.siam.org/doi/10.1137/0211056",
+        "https://github.com/ntanthedev/CSES-Problems-set/blob/dbc77ad8d2f7438379c46975f9ecc9dcb069c251/Construction%20Problems/2418_Grid%20Path%20Construction/solution.cpp"
+      ],
+      "verification": "Compiled pinned implementation:1900 endpoint/grid cases, including all pairs for dimensions1..5 and500 seeded dimensions up to50. Independently validated786 YES paths visit each cell once and end correctly. NO answers not brute-verified; primary theorem supports characterization. Archive analysis_en.md is empty beyond heading; it is not evidence.",
+      "statement_sha256": "b5bb79f4b9e773947a5ccfec68d954c191d3c4069763d96914a15ed99d4980ac",
+      "verification_script": "scripts/research/verify_cses_construction_outputs.py --grid-binary <compiled2418> --letter-binary <compiled2427>",
+      "source_code_sha256": "7fdee482bec16d5d106420e6c6e31b4cfd39c2c1fd5de321e1c60023d601615e"
+    }
+  ]
+}

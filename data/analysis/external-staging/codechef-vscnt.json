@@ -1,0 +1,12 @@
+{
+  "id": "codechef-vscnt",
+  "platform": "codechef",
+  "title": "Virtual Sets Counting",
+  "slug": "vscnt",
+  "source_url": "https://www.codechef.com/problems/VSCNT",
+  "source_topic": "IICPC Codefest",
+  "source_text": "You are given a tree $T$ of $N$ vertices. The tree is rooted at $1$. The virtual tree of a subset of vertices $S$, denoted by $f(S)$ is defined as follows: - $f(S)$ is the **minimal** (by size) set satisfying the following conditions: (it can be proven it is unique) - $S \\subseteq f(S)$ - $\\text{lca}(x, y) \\in f(S)$ for all $x, y \\in f(S)$ $\\text{lca(x, y)}$ denotes the lowest common ancestor of $x$ and $y$. --- For a subset $T$, we define $score(T)$ as the number of subsets $S$ such that $f(S) = T$, i.e. $score(T)$ is the number of sets whose virtual tree sets are $T$. The score of the empty set is $1$. --- Initally, let $T$ be empty. Handle $Q$ queries of the following type: - Given a vertex $X$, add $X$ to $T$ if it is not present, and remove $X$ from $T$ otherwise. - Find $score(T)$ after each update. Since the answers may be large, print them modulo $998244353$. Input - The first line of input will contain a single integer $T$, denoting the number of test cases. - Each test case consists of multiple lines of input. - The first line contains $2$ integers - $N$ and $Q$. - The next $N - 1$ lines contain $2$ integers each - $u$ and $v$, representing an edge in the tree. - The next $Q$ lines each contain a single integer - $X$, the vertex to be added or removed from $T$. Output For each test case, output on a new line $Q$ integers, the value of $score(T)$ modulo $998244353$ after each update. Constraints - $1 \\le T \\le 10^4$ - $2 \\le N \\le 2 \\cdot 10^5$ - $1 \\le Q \\le 2 \\cdot 10^5$ - $1 \\le u, v \\le N$ - The given set of edges define a tree. - $1 \\le X \\le N$ - The sum of $N$ and the sum of $Q$ both do not exceed $2 \\cdot 10^5$. Sample Input 2 3 5 1 2 1 3 1 1 2 3 1 6 9 1 2 2 3 2 4 3 5 3 6 6 2 4 5 3 1 6 5 2 Sample Output 1 1 1 0 2 1 1 2 0 4 4 2 2 0",
+  "source_tags": [],
+  "difficulty": null,
+  "rating": null
+}

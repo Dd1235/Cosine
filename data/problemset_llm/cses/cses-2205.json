@@ -26,5 +26,18 @@
       "bit-manipulation": 0.9,
       "backtracking": 0.7
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2205",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "7a8c40b1d1cd451157a0f997da22bac38138a9947eb977c4b7ca1c81c9cc364d",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

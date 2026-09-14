@@ -1,0 +1,12 @@
+const assert = require('node:assert/strict');
+const {metrics,pairedInterval,evaluate} = require('./evaluate');
+assert.equal(metrics(['a','b'],new Map([['a',3]])),null);
+assert.equal(metrics(['a','b'],new Map([['a',3],['b',0]])).ndcg,1);
+assert.deepEqual(pairedInterval([.1,.1]),[.1,.1]);
+const study={records:[{seed:'s',candidates:['a','b'],split:'test',stratum:'hard/sparse'}]};
+const rankings={s:{dense:['a','b'],technique:['b','a']}};
+const judgments={frozen:false,familySplitVerified:false,judgments:[{seed:'s',candidate:'a',grade:3,reviewers:['A','B'],evidence:['proof']}]};
+assert.equal(evaluate(study,rankings,judgments).status,'incomplete-do-not-promote');
+assert.equal(evaluate(study,rankings,judgments).summaries.dense.ndcg,null);
+assert.throws(()=>evaluate(study,rankings,{judgments:[{...judgments.judgments[0],reviewers:['A','A']}]}),/independent/);
+console.log('similarity unjudged, independent review and bootstrap checks passed');

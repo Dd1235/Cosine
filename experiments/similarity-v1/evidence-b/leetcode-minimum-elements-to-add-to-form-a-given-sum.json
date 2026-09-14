@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-minimum-elements-to-add-to-form-a-given-sum",
+  "url": "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/",
+  "observed_at": "2026-09-11T07:22:22.222039+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given an integer array nums and two integers limit and goal . The array nums has an interesting property that abs(nums[i]) <= limit . \n\n Return the minimum number of elements you need to add to make the sum of the array equal to goal . The array must maintain its property that abs(nums[i]) <= limit . \n\n Note that abs(x) equals x if x >= 0 , and -x otherwise. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,-1,1], limit = 3, goal = -4\n Output: 2\n Explanation: You can add -2 and -3, then the sum of the array will be 1 - 1 + 1 - 2 - 3 = -4.\n \n\n Example 2: \n\n \n Input: nums = [1,-10,9,1], limit = 100, goal = 0\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 10 5 \n 1 <= limit <= 10 6 \n -limit <= nums[i] <= limit \n -10 9 <= goal <= 10 9",
+  "statement_sha256": "dd404143092e3b9d07ed2034aaa9d78928628311f7861c7d64f87eed234a8209",
+  "raw_sha256": "bba856f986c00ec4f0383330a0a1c1f53173c6d9df6b75ecc044684e835a8d15",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1203",
+  "title": "Visiting Cities",
+  "source_url": "https://cses.fi/problemset/task/1203",
+  "observed_at": "2026-09-11T06:54:46.299850+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou want to travel from Syrj\u00e4l\u00e4 to Lehm\u00e4l\u00e4 by plane using a minimum-price route. Which cities will you certainly visit?\n\nInput\n\nThe first input line contains two integers n and m: the number of cities and the number of flights. The cities are numbered 1,2,\\ldots,n. City 1 is Syrj\u00e4l\u00e4, and city n is Lehm\u00e4l\u00e4.\n\nAfter this, there are m lines describing the flights. Each line has three integers a, b, and c: there is a flight from city a to city b with price c. All flights are one-way flights.\n\nYou may assume that there is a route from Syrj\u00e4l\u00e4 to Lehm\u00e4l\u00e4.\n\nOutput\n\nFirst print an integer k: the number of cities that are certainly in the route. After this, print the k cities sorted in increasing order.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n1 \\le c \\le 10^9\n\n\nExample\n\nInput:\n\n5 6\n1 2 3\n1 3 4\n2 3 1\n2 4 5\n3 4 1\n4 5 8\n\n\nOutput:\n\n4\n1 3 4 5",
+  "statement_sha256": "ac3defc0db40dfb087b78af71097c61a1b6585df83da66424cc3a4437da7b1bb"
+}

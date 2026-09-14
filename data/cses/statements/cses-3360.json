@@ -1,0 +1,8 @@
+{
+  "id": "cses-3360",
+  "title": "Corner Subgrid Check",
+  "source_url": "https://cses.fi/problemset/task/3360",
+  "observed_at": "2026-09-11T06:53:45.996149+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a grid of letters. Your task is to find subgrids whose height and width is at least two and all the corners have the same letter.\n\nFor each letter, check if there is a valid subgrid whose corners have that letter.\n\nInput\n\nThe first line has two integers n and k: the size of the grid and the number of letters. The letters are the first k uppercase letters.\n\nAfter this, there are n lines that describe the grid. Each line has n letters.\n\nOutput\n\nPrint k lines: for each letter, YES if there is a valid subgrid and NO otherwise.\n\nConstraints\n\n\n1 \\le n \\le 3000\n\n1 \\le k \\le 26\n\n\nExample\n\nInput:\n\n4 5\nAAAA\nCBBC\nCBBE\nAAAA\n\n\nOutput:\n\nYES\nYES\nNO\nNO\nNO",
+  "statement_sha256": "d407896d2c956aafb539b5c69913af6b75665a07546be2681a64d171e97ed428"
+}

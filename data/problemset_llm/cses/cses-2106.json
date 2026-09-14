@@ -27,5 +27,18 @@
       "suffix-array": 0.9,
       "longest-common-prefix": 0.88
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2106",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "30bd06227692f6d75f8f02733cdab00167f3fb16e35d29b52bdac30f7d7f3a11",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

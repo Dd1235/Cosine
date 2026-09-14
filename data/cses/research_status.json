@@ -1,0 +1,28 @@
+{
+  "version": "cses-research-status-v1",
+  "updated_at": "2026-09-12T00:00:00+00:00",
+  "tasks_snapshotted": 400,
+  "first_assessments": 400,
+  "independent_second_assessments": 400,
+  "blinded_evaluation_assessments": 60,
+  "publication_ready": true,
+  "scope": "labelled reviewed estimates; statistical adjustment disabled",
+  "owner_review": {
+    "date": "2026-09-12",
+    "decision": "keep live, labelled with confidence"
+  },
+  "production_changes": true,
+  "pending_specialist_ids": [],
+  "official_release_evidence": {
+    "url": "https://cses.fi/blog/text/3613",
+    "published": "2025-05-11",
+    "finding": "Official announcement says 100 new tasks brought total to 400; no per-task IDs are enumerated, so per-task cohort remains unknown."
+  },
+  "gates_pending": [
+    "verified public count semantics and exact release cohorts before statistical adjustments",
+    "fully independent replication for stronger empirical validation"
+  ],
+  "statistics_arm": "disabled: public counter semantics unverified; procedure in data/cses/README.md",
+  "local_review_bands": 400,
+  "result": "Reviewed-only production integration: held-out30/30 within one band, no two-band errors. Bands ship as labelled estimates carrying confidence; every statistics variant stays disabled by the admissibility gates, so no statistical benefit is claimed."
+}

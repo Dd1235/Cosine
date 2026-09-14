@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-super-pow",
+  "url": "https://leetcode.com/problems/super-pow/",
+  "observed_at": "2026-09-11T07:22:17.012795+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Your task is to calculate a b mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array. \n\n \u00a0 \n Example 1: \n\n \n Input: a = 2, b = [3]\n Output: 8\n \n\n Example 2: \n\n \n Input: a = 2, b = [1,0]\n Output: 1024\n \n\n Example 3: \n\n \n Input: a = 1, b = [4,3,3,8,5,2]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= a <= 2 31 - 1 \n 1 <= b.length <= 2000 \n 0 <= b[i] <= 9 \n b does not contain leading zeros.",
+  "statement_sha256": "d7b38224acdbd28e51257ac8572aab321d1d00383e89ae3dca9e11522b0a754e",
+  "raw_sha256": "5811c2413234162d32faba27c7867ec8884b203169bb8d783b640291e8f340fd",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

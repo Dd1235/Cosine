@@ -1,0 +1,31 @@
+{
+ "id": "kattis-canthoexpressway",
+ "title": "Can Tho Expressway",
+ "slug": "canthoexpressway",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/canthoexpressway",
+ "source_topic": "ICPC / The 2020 Asia Can Tho Regional Contest",
+ "source_tags": [],
+ "statement": "For up to ten thousand independent queries, each supplying a strip bounded by two distinct parallel lines with small integer coefficients and a convex polygon of three to six integer vertices in either orientation, the task is to decide whether the strip and the polygon share a region of positive area. Meeting only at a single point or along one whole edge does not count.",
+ "tags": [],
+ "patterns": [
+  "geometry"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "geometry": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.9,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:25:04+00:00"
+ }
+}

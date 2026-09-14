@@ -26,5 +26,18 @@
       "bipartite-graph-modeling": 0.9,
       "graph-modeling": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3158",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5c313791a916a5844f7de8760a7869db2949f7dda450c58af67b7282a7641177",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

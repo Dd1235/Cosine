@@ -26,5 +26,18 @@
       "cycle-detection": 0.95,
       "longest-path-in-dag-with-negative-edges": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 3,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1673",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "5e0dfa83f292241707ac369c87fcb544a0d4e9a1156404e0b3592f4b666c8b14",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

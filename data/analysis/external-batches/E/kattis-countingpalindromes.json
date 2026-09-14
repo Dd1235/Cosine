@@ -1,0 +1,33 @@
+{
+  "id": "kattis-countingpalindromes",
+  "status": "solved",
+  "solution": "An n-digit palindrome is fixed by its first h = ceil(n/2) digits, and digit at position i (1-indexed) contributes d_i*(10^(n-i) + 10^(i-1)) mod p, except the middle digit of an odd n, which contributes d*10^((n-1)/2), and the leading digit, which ranges over 1..9 instead of 0..9 (n = 1 is the special case where the single digit runs over 0..9, so 0 counts). Counting assignments whose weighted sum is k mod p is a product of per-position generating functions in the commutative group algebra Z[Z_p], i.e. cyclic convolutions of length p: each free position multiplies the running vector by sum_{d=0..9} t^(d*c_j mod p). The trick that beats n <= 10^18 is that for j >= 1 the weight c_j = 10^j + 10^(n-1-j) mod p depends only on j mod L, where L = ord_p(10) <= p-1 < 1000 (take L = 1 for p = 2 and p = 5, where 10^t = 0 for t >= 1), so the bulk of the positions is one period-product P raised to floor(T/L) by binary exponentiation times the T mod L leftover factors, with the leading digit and the odd-n middle digit multiplied in as two separate sparse factors. Because the group algebra is commutative the positions can be reordered freely, which is what makes the grouping by residue legitimate. Cost is O(10*L*p) to build P plus O(p^2 log n) for the exponentiation (about 7e7 operations at p = 997), and memory O(p); using a p x p transition matrix instead would be p^3 log n and far too slow, so the circulant/polynomial form matters. Verified: exhaustive enumeration of every palindrome for n <= 7 against 18 primes and every residue, agreement with an independent O(n*10*p) position-by-position DP for n up to 10000 (including p = 983 and p = 977 where ord_p(10) is 982 and 976, so several full periods plus a remainder), and for n = 10^18 the residues sum to 9*10^(h-1) mod 1e9+7 as they must.",
+  "solution_confidence": 0.92,
+  "statement_summary": "Given a positive integer n up to 10^18, a prime p of at most one thousand, and a residue k below p, the task is to count how many palindromes have exactly n digits and leave remainder k when divided by p, modulo 1000000007. Palindromes are non-negative integers without leading zeroes that read the same in both directions, so the digit count rules out enumerating them.",
+  "patterns": [
+    "palindrome",
+    "modular-arithmetic",
+    "number-theory",
+    "modular-exponentiation",
+    "counting",
+    "digit-dp"
+  ],
+  "pattern_confidence": {
+    "palindrome": 0.88,
+    "modular-arithmetic": 0.95,
+    "number-theory": 0.9,
+    "modular-exponentiation": 0.72,
+    "counting": 0.8,
+    "digit-dp": 0.55
+  },
+  "tags": [
+    "math",
+    "number-theory",
+    "palindrome",
+    "counting",
+    "modular-arithmetic"
+  ],
+  "source_text_sha256": "43be264fb168451e0927b5f719b08ce8243a39b5b0ac37810daf1c76ce353558",
+  "verify_script": "/private/tmp/claude-501/-Users-dedeepya-Cosine/d35bbe98-9789-429d-86f7-c2af7329c583/scratchpad/batchE/verify_countingpalindromes.py",
+  "notes": "number-theory is the load-bearing label: the entire speedup is the periodicity of 10^j mod p, i.e. the multiplicative order of 10, and p = 2 and p = 5 need the separate treatment 10^t = 0 for t >= 1. modular-exponentiation covers the binary exponentiation of the period product (the corpus aliases binary-exponentiation and fast-exponentiation onto that slot). digit-dp is the least certain label at 0.55: the base recurrence really is a DP over digit positions carrying the value mod p as its state, and that operator is what gets exponentiated, but there is no tight/loose upper-bound dimension and a literal digit DP cannot run at n = 10^18, so a searcher expecting classic bounded digit DP may find it a stretch. Deliberately NOT labelled matrix-exponentiation: the transition is a circulant, and a genuine p x p matrix power would be p^3 log n = 6e10 operations and TLE -- only the polynomial/cyclic-convolution form fits, so sending matrix-exponentiation searchers here would mislead about the required form. Also dropped: fft (p <= 1000 makes the O(p^2) convolution ample, no transform needed), combinatorics (no binomial or inclusion-exclusion reasoning; counting already covers it), dynamic-programming as a standalone (it is implied by digit-dp through the taxonomy families). Vocabulary gap: the corpus has no term for the actual data structure of the solution -- multiplication in the group algebra of Z_p, equivalently exponentiating a polynomial modulo x^p - 1 (cyclic convolution); something like cyclic-convolution or polynomial-exponentiation would be the precise label. Verification note: for n = 10^18 no independent reference exists, so that regime is checked only by the residue-sum identity plus the fact that the fast and O(n) routines agree wherever both can run, including across many full periods."
+}

@@ -1,0 +1,499 @@
+{
+ "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202024": {
+  "name": "ICPC World Finals 2024",
+  "problems": [
+   {
+    "slug": "billboards",
+    "title": "Billboards",
+    "difficulty": null,
+    "label": null,
+    "note": "in the corpus"
+   },
+   {
+    "slug": "bingoforthewin",
+    "title": "Bingo for the Win!",
+    "difficulty": 3.6,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "citizenship",
+    "title": "Citizenship",
+    "difficulty": 4.9,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "doubleshorsebackwrestling",
+    "title": "Doubles Horseback Wrestling",
+    "difficulty": 5.3,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "flippingcontainer",
+    "title": "Flipping Container",
+    "difficulty": 8.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "friendlyrivalry",
+    "title": "Friendly Rivalry",
+    "difficulty": 4.5,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "kindergarten2",
+    "title": "Kindergarten",
+    "difficulty": null,
+    "label": null,
+    "note": "already staged"
+   },
+   {
+    "slug": "maxwellsdemon",
+    "title": "Maxwell's Demon",
+    "difficulty": 6.8,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "steppeonit",
+    "title": "Steppe on It",
+    "difficulty": 5.7,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "thesilkroad",
+    "title": "The Silk Road ... with Robots!",
+    "difficulty": 7.4,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "towerofnoiha",
+    "title": "Tower of noiHa",
+    "difficulty": 8.0,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "whereaminow",
+    "title": "Where Am I Now?",
+    "difficulty": null,
+    "label": null,
+    "note": "already staged"
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 30 column 6 (char 805)",
+   "_raw": "    {\n      \"id\": \"icpc-world-finals-2024\",\n      \"name\": \"ICPC World Finals 2024\",\n      \"family\": \"icpc\",\n      \"stage\": \"world-finals\",\n      \"problems\": [\n        \"kattis-billboards\",\n        \"kattis-bingoforthewin\",\n        \"kattis-citizenship\",\n        \"kattis-doubleshorsebackwrestling\",\n        \"kattis-flippingcontainer\",\n        \"kattis-friendlyrivalry\",\n        \"kattis-kindergarten2\",\n   "
+  }
+ },
+ "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022": {
+  "name": "ICPC World Finals 2022",
+  "problems": [
+   {
+    "slug": "zoomanagement",
+    "title": "Zoo Management",
+    "difficulty": 8.4,
+    "label": "hard",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 19 column 6 (char 491)",
+   "_raw": "    {\n      \"id\": \"icpc-world-finals-2022\",\n      \"name\": \"ICPC World Finals 2022\",\n      \"family\": \"icpc\",\n      \"stage\": \"world-finals\",\n      \"problems\": [\n        \"kattis-zoomanagement\"\n      ],\n      \"evidence\": [\n        \"https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022\"\n      ],\n      \"held_date\": null,\n      \"resources\": [\n        {\n          \"title\": \"Kattis problem so"
+  }
+ },
+ "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202023": {
+  "name": "ICPC World Finals 2023",
+  "problems": [
+   {
+    "slug": "arecurringproblem",
+    "title": "A Recurring Problem",
+    "difficulty": 9.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "aleaiactaest",
+    "title": "Alea Iacta Est",
+    "difficulty": 6.8,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "jetlag",
+    "title": "Jet Lag",
+    "difficulty": 7.1,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "schedule",
+    "title": "Schedule",
+    "difficulty": 6.9,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "tiltingtiles",
+    "title": "Tilting Tiles",
+    "difficulty": 8.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "waterworld",
+    "title": "Waterworld",
+    "difficulty": 2.1,
+    "label": "easy",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 24 column 6 (char 618)",
+   "_raw": "    {\n      \"id\": \"icpc-world-finals-2023\",\n      \"name\": \"ICPC World Finals 2023\",\n      \"family\": \"icpc\",\n      \"stage\": \"world-finals\",\n      \"problems\": [\n        \"kattis-arecurringproblem\",\n        \"kattis-aleaiactaest\",\n        \"kattis-jetlag\",\n        \"kattis-schedule\",\n        \"kattis-tiltingtiles\",\n        \"kattis-waterworld\"\n      ],\n      \"evidence\": [\n        \"https://icpc.kattis.com/p"
+  }
+ },
+ "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202022%20and%202023": {
+  "name": "ICPC World Finals 2022 and 2023",
+  "problems": [
+   {
+    "slug": "bridgingthegap",
+    "title": "Bridging the Gap",
+    "difficulty": 6.7,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "carlsvacation",
+    "title": "Carl's Vacation",
+    "difficulty": 5.3,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "riddleofthesphinx",
+    "title": "Riddle of the Sphinx",
+    "difficulty": 3.5,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "threekindsofdice",
+    "title": "Three Kinds of Dice",
+    "difficulty": 5.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "turningred",
+    "title": "Turning Red",
+    "difficulty": 5.6,
+    "label": "hard",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 23 column 6 (char 652)",
+   "_raw": "    {\n      \"id\": \"icpc-world-finals-2022-and-2023\",\n      \"name\": \"ICPC World Finals 2022 and 2023\",\n      \"family\": \"icpc\",\n      \"stage\": \"world-finals\",\n      \"problems\": [\n        \"kattis-bridgingthegap\",\n        \"kattis-carlsvacation\",\n        \"kattis-riddleofthesphinx\",\n        \"kattis-threekindsofdice\",\n        \"kattis-turningred\"\n      ],\n      \"evidence\": [\n        \"https://icpc.kattis.c"
+  }
+ },
+ "https://open.kattis.com/problem-sources/2018%20ICPC%20Asia%20Singapore%20Regional": {
+  "name": "2018 ICPC Asia Singapore Regional",
+  "problems": [
+   {
+    "slug": "bitwise",
+    "title": "Bitwise",
+    "difficulty": 6.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "conveyorbelts",
+    "title": "Conveyor Belts",
+    "difficulty": 4.7,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "freefood",
+    "title": "Free Food",
+    "difficulty": 1.4,
+    "label": "easy",
+    "note": null
+   },
+   {
+    "slug": "hoppers",
+    "title": "Hoppers",
+    "difficulty": 3.5,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "largesttriangle",
+    "title": "Largest Triangle",
+    "difficulty": 6.4,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "magicalstring",
+    "title": "Magical String",
+    "difficulty": 9.0,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "nonprimefactors",
+    "title": "Non-Prime Factors",
+    "difficulty": 5.4,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "prolongedpassword",
+    "title": "Prolonged Password",
+    "difficulty": 7.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "rectangularcity",
+    "title": "Rectangular City",
+    "difficulty": 5.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "sgcoin",
+    "title": "SG Coin",
+    "difficulty": 2.7,
+    "label": "easy",
+    "note": null
+   },
+   {
+    "slug": "slidingblocks",
+    "title": "Sliding Blocks",
+    "difficulty": 7.7,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "wiknow",
+    "title": "Wi Know",
+    "difficulty": 6.0,
+    "label": "hard",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 30 column 6 (char 822)",
+   "_raw": "    {\n      \"id\": \"2018-icpc-asia-singapore-regional\",\n      \"name\": \"2018 ICPC Asia Singapore Regional\",\n      \"family\": \"icpc\",\n      \"stage\": \"regional\",\n      \"problems\": [\n        \"kattis-bitwise\",\n        \"kattis-conveyorbelts\",\n        \"kattis-freefood\",\n        \"kattis-hoppers\",\n        \"kattis-largesttriangle\",\n        \"kattis-magicalstring\",\n        \"kattis-nonprimefactors\",\n        \"kat"
+  }
+ },
+ "https://open.kattis.com/problem-sources/The%202019%20ICPC%20Asia%20Danang%20Regional%20Contest": {
+  "name": "The 2019 ICPC Asia Danang Regional Contest",
+  "problems": [
+   {
+    "slug": "abstractpainting",
+    "title": "Abstract Painting",
+    "difficulty": 4.6,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "bananaproblem",
+    "title": "Banana Problem",
+    "difficulty": 5.8,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "countingpalindromes",
+    "title": "Counting Palindromes",
+    "difficulty": 7.9,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "datingtime",
+    "title": "Dating time",
+    "difficulty": 4.3,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "easyquery",
+    "title": "Easy Query",
+    "difficulty": 7.8,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "fairbandwidthsharing",
+    "title": "Fair Bandwidth Sharing",
+    "difficulty": 5.4,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "generatingnumbers",
+    "title": "Generating Numbers",
+    "difficulty": 7.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "hanjie",
+    "title": "Hanjie",
+    "difficulty": 4.3,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "inspectingillumination",
+    "title": "Inspecting Illumination",
+    "difficulty": 5.2,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "justiceforants",
+    "title": "Justice for Ants",
+    "difficulty": 9.1,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "keepitsorted",
+    "title": "Keep It Sorted",
+    "difficulty": 8.4,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "latinsquare",
+    "title": "Latin Square",
+    "difficulty": 6.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "moscowdream",
+    "title": "Moscow Dream",
+    "difficulty": 1.8,
+    "label": "easy",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 31 column 6 (char 926)",
+   "_raw": "    {\n      \"id\": \"the-2019-icpc-asia-danang-regional-contest\",\n      \"name\": \"The 2019 ICPC Asia Danang Regional Contest\",\n      \"family\": \"icpc\",\n      \"stage\": \"regional\",\n      \"problems\": [\n        \"kattis-abstractpainting\",\n        \"kattis-bananaproblem\",\n        \"kattis-countingpalindromes\",\n        \"kattis-datingtime\",\n        \"kattis-easyquery\",\n        \"kattis-fairbandwidthsharing\",\n    "
+  }
+ },
+ "https://open.kattis.com/problem-sources/The%202020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest": {
+  "name": "The 2020 ICPC Asia Can Tho Regional Contest",
+  "problems": [
+   {
+    "slug": "alchemy101",
+    "title": "Alchemy 101",
+    "difficulty": 3.9,
+    "label": "medium",
+    "note": null
+   },
+   {
+    "slug": "beautifulsquare",
+    "title": "Beautiful Square",
+    "difficulty": 8.0,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "canthoexpressway",
+    "title": "Can Tho Expressway",
+    "difficulty": 5.9,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "div2mul2mul3",
+    "title": "Div 2, Mul 2, Mul 3",
+    "difficulty": 9.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "edgeremoval",
+    "title": "Edge Removal",
+    "difficulty": 5.5,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "finalexam2",
+    "title": "Final Exam",
+    "difficulty": 1.5,
+    "label": "easy",
+    "note": null
+   },
+   {
+    "slug": "greatestpermutation",
+    "title": "Greatest Permutation",
+    "difficulty": 7.1,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "hexagoncoloring",
+    "title": "Hexagon coloring",
+    "difficulty": 6.2,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "intelligenceexchange",
+    "title": "Intelligence Exchange",
+    "difficulty": 6.4,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "jugglingsequence",
+    "title": "Juggling Sequence",
+    "difficulty": 5.7,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "kingdomofhamsters",
+    "title": "Kingdom of Hamsters",
+    "difficulty": 6.3,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "lazystudents",
+    "title": "Lazy Students",
+    "difficulty": 7.3,
+    "label": "hard",
+    "note": null
+   },
+   {
+    "slug": "milkteabattle",
+    "title": "Milk Tea Battle",
+    "difficulty": 8.6,
+    "label": "hard",
+    "note": null
+   }
+  ],
+  "skeleton": {
+   "_parse_error": "Expecting ',' delimiter: line 31 column 6 (char 940)",
+   "_raw": "    {\n      \"id\": \"the-2020-icpc-asia-can-tho-regional-contest\",\n      \"name\": \"The 2020 ICPC Asia Can Tho Regional Contest\",\n      \"family\": \"icpc\",\n      \"stage\": \"regional\",\n      \"problems\": [\n        \"kattis-alchemy101\",\n        \"kattis-beautifulsquare\",\n        \"kattis-canthoexpressway\",\n        \"kattis-div2mul2mul3\",\n        \"kattis-edgeremoval\",\n        \"kattis-finalexam2\",\n        \"kattis"
+  }
+ }
+}

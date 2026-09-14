@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-find-longest-awesome-substring",
+  "url": "https://leetcode.com/problems/find-longest-awesome-substring/",
+  "observed_at": "2026-09-11T07:22:25.057412+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s . An awesome substring is a non-empty substring of s such that we can make any number of swaps in order to make it a palindrome. \n\n Return the length of the maximum length awesome substring of s . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"3242415\"\n Output: 5\n Explanation: \"24241\" is the longest awesome substring, we can form the palindrome \"24142\" with some swaps.\n \n\n Example 2: \n\n \n Input: s = \"12345678\"\n Output: 1\n \n\n Example 3: \n\n \n Input: s = \"213123\"\n Output: 6\n Explanation: \"213123\" is the longest awesome substring, we can form the palindrome \"231132\" with some swaps.\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consists only of digits.",
+  "statement_sha256": "77b6b6564fbcc1f28d6b0f4e65f8bf260a39731ac0c71569a386ff74ac74e4ca",
+  "raw_sha256": "aec997f596c621878e15eb347d321d621d60da3819f5bac2e0dd450e4b5e3c42",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

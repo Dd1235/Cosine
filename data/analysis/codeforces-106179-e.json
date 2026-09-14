@@ -1,0 +1,24 @@
+{
+  "id": "codeforces-106179-e",
+  "title": "Counting Is Fun",
+  "status": "approved",
+  "patterns": [
+    "dfs",
+    "combinatorics",
+    "counting"
+  ],
+  "statement_summary": "Label a rooted tree’s edges by a permutation of 1 through n−1. A tour starts and ends at the root and visits every vertex, while the edge labeled x is forbidden. Incrementing x, initially 1, costs one. Count labelings whose minimum tour cost is exactly c, modulo 998244353, for total n at most 200000.",
+  "solution": "Let m=n-1 and depth(v) be distance from root. Define A(c)=2^(c-1)*(m-c)!*sum_{v!=root,depth(v)>=c} C(depth(v)-1,c-1), with A(m+1)=0. Answer A(c)-A(c+1) modulo998244353. Interpretation: f>=c exactly when edges labeled1..c lie on an ancestor chain and their depths, read in label order, strictly rise then strictly fall. For each chosen chain of c edges there are2^(c-1) such orders; choose its deepest endpoint v and c-1 ancestors, then freely label all remaining edges. Precompute factorials and inverse factorials once; iterative DFS and two linear sums cost O(n), O(n) memory per case.",
+  "review_evidence": {
+    "statement_url": "https://codeforces.com/gym/106179/problem/E",
+    "statement_sha256": "8a4c9e97959420b2bb6045c00600240bcf271d25692f14bf43e895b34dc33d0b",
+    "basis": "Original solution derivation from actual full statement; no official editorial found. Requires independent proof review before corpus insertion.",
+    "oracle": "scripts/research/verify_gym106179_e.py exact0-1 BFS over vertex, visited-mask and x:1930 labeled trees, then30 exhaustive small-tree histograms all agree. Trees up to7 nodes; finite evidence is not a general proof.",
+    "proof_sketch": "While the forbidden edge separates the root-side explored region from an unvisited subtree, useful progress descends toward that subtree. After reaching the deepest outstanding barrier, return barriers can only occur in strictly decreasing depth order. A branch change or an increase after a decrease permits completing the tour without crossing the new forbidden edge. Thus a prefix that continues to force increments has one descent-then-return chain. Choosing which of the c-1 ancestors precede the deepest edge uniquely determines its increasing-then-decreasing order. This traversal characterization needs a second reviewer."
+  },
+  "independent_review": {
+    "reviewer": "root",
+    "proof": "At forbidden edge1, freely visit the entire root component; its opposite subtree remains. A later barrier forces another increment only if it is below the current barrier (shrinking the unvisited subtree), or above it (finish the unvisited region but block return). An incomparable edge can be avoided because its side subtree was already visited. After the first upward barrier all vertices can be visited and only return remains; future barriers must be strict ancestors, since one can wait immediately below the current barrier. Thus forcing c increments is equivalent to the first c edges lying on a single chain with depths increasing then decreasing. Choose the deepest edge, its c-1 ancestors, and independently assign each ancestor before/after the deepest edge. The orders within either side are forced, giving 2^(c-1). This proves the formula; the existing BFS oracle checks the state characterization independently on small trees.",
+    "oracle": "scripts/research/verify_gym106179_e.py"
+  }
+}

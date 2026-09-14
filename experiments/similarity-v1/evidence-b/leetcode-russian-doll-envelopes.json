@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-russian-doll-envelopes",
+  "url": "https://leetcode.com/problems/russian-doll-envelopes/",
+  "observed_at": "2026-09-11T07:22:11.173394+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a 2D array of integers envelopes where envelopes[i] = [w i , h i ] represents the width and the height of an envelope. \n\n One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope's width and height. \n\n Return the maximum number of envelopes you can Russian doll (i.e., put one inside the other) . \n\n Note: You cannot rotate an envelope. \n\n \u00a0 \n Example 1: \n\n \n Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]\n Output: 3\n Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7]).\n \n\n Example 2: \n\n \n Input: envelopes = [[1,1],[1,1],[1,1]]\n Output: 1\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= envelopes.length <= 10 5 \n envelopes[i].length == 2 \n 1 <= w i , h i <= 10 5",
+  "statement_sha256": "ec0e29f90fb3b489bacb7bdebff1f0766322222eb686b6263fdaf3aa9eb86b93",
+  "raw_sha256": "e7b618cee45f4796b9af1e2c909ca842f90ed6b037daef1b935f8708a7614f26",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,242 @@
+{
+ "reviewer": "independent-opus-skeptic",
+ "reviewed_at": "2026-09-13",
+ "batch": "D",
+ "reviews": [
+  {
+   "id": "kattis-waterworld",
+   "status": "approved",
+   "keep": [
+    "geometry"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "review_rationale": "Re-derived independently: the n bands are equal slabs of the axis coordinate, so by Archimedes' hat-box theorem every one of the n*m cells has area 4*pi*R^2/(n*m) and the answer is the unweighted mean; I reproduced 51.809523810 and 10.000000000 by hand from the two samples. The rival equal-latitude-angle reading gives 50.964 on sample 1 and is refuted. O(n*m) = 10^6 integer reads is trivially inside the limits, and the verifier's numeric quadrature confirms equal-z bands are equal-area while equal-angle bands are not.",
+   "issues": [],
+   "summary_ok": true,
+   "source_text_sha256": "f62276a231019e0d6265ac902e8761a3418092ca7748285ee2a3b3e2a07fbbff"
+  },
+  {
+   "id": "kattis-riddleofthesphinx",
+   "status": "approved",
+   "keep": [
+    "interactive",
+    "constructive-algorithm"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "review_rationale": "I re-derived the query design: (1,0,0),(0,1,0),(0,0,1),(1,1,1) with d = s-(x+y+z); corrupting any one of those four forces d != 0, so d = 0 proves all four honest and d != 0 spends the single lie, leaving four candidates whose values under (1,2,3) are v, v+d, v+2d, v+3d and hence separated. All coefficients stay in [0,10] and replies stay under 10^5. The verifier's exhaustive adaptive adversary recovers every triple, and the recorded trap (repeating (1,1,1) confuses (1,5,0) with (5,1,0)) is real. Work is O(1).",
+   "issues": [],
+   "summary_ok": true,
+   "source_text_sha256": "7a524e90087682ed94c414c8074fa4e8280d0b92206787dcae6032e1d701b52f"
+  },
+  {
+   "id": "kattis-turningred",
+   "status": "approved",
+   "keep": [
+    "graph-modeling",
+    "connected-components",
+    "modular-arithmetic",
+    "dfs"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "review_rationale": "Re-derived: presses are additions mod 3, cost of residue r on a button is r, and 'each light is controlled by at most two buttons' turns the GF(3) system into a graph on buttons where each component has exactly three candidate assignments, so scan all three and add component costs. I hand-checked all four samples, including sample 1 where light 8 is an EDGE between two buttons (x5+x6=2, cost 2) rather than two unary pins, giving 8. Complexity is a genuine O(3(l+b)); the 2*10^5 / 4*10^5 stress case runs in 0.5 s. 'dfs' is the propagation engine rather than scaffolding, so it stands, and omitting gaussian-elimination is right because two-variable equations are solved by propagation, not elimination.",
+   "issues": [],
+   "summary_ok": true,
+   "source_text_sha256": "f82a321fd908600baf0cf6f9d19439336822ab568bc7d2d48749838231c41d7d"
+  },
+  {
+   "id": "kattis-zoomanagement",
+   "status": "approved",
+   "keep": [
+    "bridges",
+    "articulation-points",
+    "parity-argument",
+    "string-matching"
+   ],
+   "drop": [
+    {
+     "label": "bridge-tree",
+     "why": "The proposer's own note concedes the solution uses the bridge tree's NODES (the 2-edge-connected components) but never its tree structure - no path, LCA or DP on the contracted tree ever happens. That is the surroundings, not the technique: 'bridges' already carries finding the components, and a searcher for 'bridge-tree' wants problems where the contracted tree is queried."
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "review_rationale": "Checked the group theory rather than trusting it: a move is a set of vertex-disjoint simple cycles of length >= 3, so no animal crosses a bridge; per 2-edge-connected component the group is Z_L for a bare cycle, S_N when some block is not an odd cycle (a 2-connected non-cycle contains a theta subgraph and l1+l2, l2+l3, l1+l3 cannot all be odd), and A_N otherwise - with a repeated colour supplying an odd stabiliser. I hand-verified all four samples, including sample 3 whose permutation is a 5-cycle and therefore even. The verifier's BFS over the true reachable set agrees on all 770 connected graphs up to 5 vertices plus targeted 7/8-vertex structures, and it identifies the generated group directly as A or S.",
+   "issues": [
+    "Coordinator (2026-09-13): the only blocker was a label drop, which publication applies via `keep`; solution and remaining labels were approved by the reviewer.",
+    "Label 'bridge-tree' names the surroundings; dropped.",
+    "The O(n+m) claim is not exercised at scale: the shipped verifier's rotation test is an O(L^2) scan and no instance near n = m = 4*10^5 is run. The linear route (KMP/Z on b+b, Tarjan low-link, DSU over non-bridge edges) is textbook, but the limits claim rests on argument, not measurement.",
+    "Not judge-verified; no submission was made."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "b9637509fd65bea7e538b88fb13ef398bc8f72d333bb515399adcfb1d1470636"
+  },
+  {
+   "id": "kattis-threekindsofdice",
+   "status": "approved",
+   "keep": [
+    "convex-hull",
+    "geometry"
+   ],
+   "drop": [
+    {
+     "label": "sorting",
+     "why": "Scaffolding, and the proposer says so at 0.5: the sort exists only to build the monotone-chain hull and to count faces below a value. Every convex-hull problem sorts; nothing about the ordering carries the idea, which is 'achievable score pairs form a convex polygon, intersect it with a halfplane'. A searcher for 'sorting' would not be glad to land on a 2D-LP problem."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "review_rationale": "Re-derived: score(D3,D) is the average of score(v,D) over D3's faces, so the achievable pairs are exactly the convex hull of P(v) = (score(v,D1), score(v,D2)) over the O(n) candidate values {1} U {f} U {f+1}, and the two answers are 2D LP queries (min y with x >= 1/2; the reflection (x,y)->(-y,-x) turns the second into the same query). Optima sit at a hull vertex or on an edge crossing a rational line, so they are attained by a real die. Exact-Fraction checks reproduce 7/24 and 3/4 and agree with O(N^2) enumeration, explicit die reconstruction and brute force over actual dice. I timed the O(n log n) route on three constructed adversarial families (interleaved distinct values, bimodal 1/10^9 dice, quadratically spaced values) at n = 10^5 per die: 0.22-0.40 s, no degradation.",
+   "issues": [
+    "Coordinator (2026-09-13): the only blocker was a label drop, which publication applies via `keep`; solution and remaining labels were approved by the reviewer.",
+    "Label 'sorting' dropped as scaffolding."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "fb09d013fd0c7e54da4c0580808085b93c3f5f3119f914848eabbaeb3cb73c6b"
+  },
+  {
+   "id": "kattis-schedule",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm",
+    "combinatorics"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "review_rationale": "I re-proved the chain myself. Isolation <= k is exactly 'every k consecutive weeks inside [1,w] contain a meeting', so the schedule must be a binary strength-2 covering array in every k-window; normalising row 1 to all 1s turns the columns into an intersecting antichain on k-1 rows, so maxn(k) = C(k-1, ceil(k/2)) by Milner, and repeating a valid k-row array with period k makes every window contain each row once. I independently checked maxn(5) = 4 by hand (complement each column to size <= 2; 2-subsets of [5] pairwise intersecting max out at a 4-star), which refutes the commonly quoted C(k-1, ceil(k/2)-1) = 6 - the verifier's exhaustive clique search agrees. n <= 10^4 needs k <= 17, and output is O(n*w) = 5.2*10^5 characters.",
+   "issues": [],
+   "summary_ok": true,
+   "source_text_sha256": "d76f8b339c0c592316fb73f4a1c8cf21a6ad1ce995c4c3cbef291a29999333c9"
+  },
+  {
+   "id": "kattis-tiltingtiles",
+   "status": "approved",
+   "keep": [
+    "chinese-remainder-theorem",
+    "string-matching",
+    "cycle-detection",
+    "simulation"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "review_rationale": "I re-derived why only 8 sequences matter: after one horizontal then one vertical tilt the shape is a Young diagram anchored at a corner, so every row is already packed against that side and repeating the same horizontal direction is the identity - the word is forced into a 4-cycle after two tilts, and the first two tilts have exactly 8 choices. This is also why the burn-in is constant, which is what the O(h*w) claim depends on. The shipped verifier does NOT test that: its cross-checks pass burn = 4*(h+w+4). I re-ran its BFS cross-check and near-miss check with a constant burn = 4 (4289 pairs, 0 mismatches) and measured the burn-in on eight adversarial shapes (dense, sparse, checkerboard, staircase, anti-staircase, diagonal, random) at 60x60 through 500x500: never more than 1. 'cycle-detection' for permutation-cycle decomposition matches this corpus's own usage (cses-1751, codeforces-1020-b).",
+   "issues": [
+    "The verifier's cross-checks use burn = 4*(h+w+4), i.e. a burn-in linear in the grid size, so the shipped script never exercises the constant burn-in the complexity claim rests on. I re-ran it with burn = 4 and separately measured the burn-in to 500x500; both hold, so this is a testing gap, not a defect.",
+    "The prime-power CRT is asserted but not implemented in the verifier (its crt() builds the full lcm). On a random 500x500 board I measured 744 cycles, 142 distinct lengths and a 515-bit lcm, so a naive 64-bit CRT would overflow - the proposal's prime-power-by-prime-power note is load-bearing and should survive into any published solution text."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "8092a31099046fd2ab5f02719ad45e00846c49ec53767642e10b3cb387d481f6"
+  },
+  {
+   "id": "kattis-aleaiactaest",
+   "status": "approved",
+   "keep": [
+    "expected-value-dp",
+    "probability-dp",
+    "bitmask-dp",
+    "state-compression"
+   ],
+   "drop": [
+    {
+     "label": "dijkstra",
+     "why": "Optional implementation of one of two solutions, and the proposal concedes plain value iteration also passes. Dijkstra-order solving of a unit-cost SSP is not what a 'dijkstra' searcher wants - they want graph shortest paths, and a dice-expectation MDP with no graph in the statement would be a false positive for essentially all of them. Nothing in the problem requires it."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "review_rationale": "Re-derived the MDP: V(t) = 0 when sorted(t) is a dictionary word, else min over the 2^d-1 proper keep-sets of h(q) = 1 + sum Pr[t|q] V(t), answer h(empty), and the recursion is cyclic so the answer is the least nonnegative fixed point rather than a DAG DP. I confirmed the multiset reading is forced (under a positional reading PEACE needs an E from ABCSCC and sample 1 would print 'impossible'), and independently computed sample 3 as E[max of 3 Geom(1/6)] = 3/(1-q) - 3/(1-q^2) + 1/(1-q^3) = 10.555444..., matching. Three mutually independent solvers agree on 158 random instances, and d = 6 with 6^6 tuples and 63 keep-sets runs in 3.7 s in plain Python. 'state-compression' survives: the state genuinely is a mixed-radix packing of d free-or-pinned dice, which is this corpus's established use of the slug.",
+   "issues": [
+    "Coordinator (2026-09-13): the only blocker was a label drop, which publication applies via `keep`; solution and remaining labels were approved by the reviewer.",
+    "Label 'dijkstra' dropped (0.4, self-described as optional)."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "e808bc7795b36e30d5035c2be1fe8872e22976a557c1f8e51cb0489180df3885"
+  },
+  {
+   "id": "kattis-carlsvacation",
+   "status": "approved",
+   "keep": [
+    "geometry",
+    "ternary-search"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "review_rationale": "The load-bearing claim is airtight and I checked it independently: each lateral face is a triangle containing both the apex and any base-boundary point U, so the straight 3-D segment lies on the surface and the surface distance is exactly sqrt(h^2 + |c-U|^2); the same straight-line bound makes r1(U) + |U-V| + r2(V) a valid lower bound on any walk, and 1-Lipschitzness makes it attained. I wrote my own boundary-sampling solver from scratch and got 60.866651 at N=400 and 60.8666499 at N=2000, converging to the published 60.866649532. Both apex images give the identical objective (they are mirrors across the edge, and U lies on it), so the recorded 'inward vs outward' trap only affects the closed form's crossing test, exactly as the notes say. Work is O(1) over 16 edge pairs.",
+   "issues": [
+    "Only one official sample exists, so the confidence rests on the verifier's mesh-Dijkstra and visibility-graph cross-checks (agreeing to 0.0-0.4%) plus my independent sampling solver rather than on judge data."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "542328b0cbe470d39f29c2f914a9b0d150769e822f0debf62023b0e4d012e287"
+  },
+  {
+   "id": "kattis-arecurringproblem",
+   "status": "approved",
+   "keep": [
+    "counting",
+    "lexicographic-order",
+    "dynamic-programming",
+    "memoization",
+    "linear-recurrence",
+    "combinatorics"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "review_rationale": "The disclosed cross-check against the official sketch and Kisman's source does not substitute for testing here - the tests genuinely exercise the claim. I re-derived the ordering by hand for rank 3: g(1)=1, g(2)=3, and among the three PLRRs with first generated value 2 the generated parts are (2,2,...), (2,3,5,...), (2,4,8,...), so rank 3 is k=2, c=(1,1), a=(1,1) - exactly the sample. I re-ran the verifier in --full mode: every rank n = 1..16333 is checked against exhaustive enumeration with 0 mismatches (the default run only reaches 2693), prefix-count maps are checked against brute-force distributions, and n = 10^9 answers in 1.2 s with 515205 memo states against a 20 s limit. 'linear-recurrence' is subject matter as much as method, but the problem IS about enumerating linear recurrences and the solution uses the k+k'-term agreement fact to break ties, so the query deserves to reach here.",
+   "issues": [
+    "The notes claim exhaustive coverage to n = 16333; the default script run only reaches 2693. The --full flag does reach 16333 and passes, so this is a documentation nit."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "d0d1c3ef203953e847b17ecc3185cae395d92757a4acb368650402dbcd3328af"
+  },
+  {
+   "id": "kattis-jetlag",
+   "status": "approved",
+   "keep": [
+    "greedy",
+    "constructive-algorithm",
+    "interval-scheduling"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "review_rationale": "I re-proved the reduction: for a sleep [s,t] the next start lies in [2t-s, 3t-2s], consecutive windows over t = s+1..R overlap because t >= s+1, so the union is exactly [s+2, 3R-2s], depending only on s; since any later gap has L >= R_prev+1 >= s+2, starting at each gap's left end is optimal and one start per gap suffices. I also checked the reconstruction arithmetic: t = L + ceil((next-L)/3) satisfies both 3t-2L >= next and 2t-L <= next given next-L >= 2, and t <= R whenever the reach admits it. I hand-ran samples 1 and 3 and got valid schedules. The exhaustive T=16 test (32768 instances, all busy/free shapes at unit granularity) plus x3 and x7 rescalings is strong coverage, and n = 200000 with e_n ~ 9*10^9 runs in 0.09 s with p <= n << 10^6.",
+   "issues": [],
+   "summary_ok": true,
+   "source_text_sha256": "7cb85befec94defa44d561e16abceb99e83caf9d6bb205c3a10b017637f8d332"
+  },
+  {
+   "id": "kattis-bridgingthegap",
+   "status": "needs_work",
+   "keep": [
+    "sorting",
+    "greedy",
+    "exchange-argument",
+    "dynamic-programming",
+    "partition-dp"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "review_rationale": "The ANSWER is well established - the derived solver agrees with an assumption-free Dijkstra over (near-side subset, torch side) on ~1100 instances to n=13 and with an independently shaped per-k DP to n=45, 0 mismatches, and the two recorded traps are real. The COMPLEXITY claim does not survive the limits. Its own sentence is self-contradicting: it names c ~ sqrt(n) as the worst case and then quotes '2*10^8 operations at n = c = 10^4', where the true work is ~3.5*10^5; the 2*10^8 figure belongs to c ~ 101. Worse, only time is bounded. The DP table is (n+1) x (2*floor(n/c)+5) cells, i.e. O(n^2/c) SPACE, which peaks at 10^8 cells for the smallest legal c = 2 - 800 MB as int64, 400 MB if only the nd <= 0 half is kept, and 534 MB at c = 3. The verifier's largest timing case is n = 4000; I ran the real limit myself at n = 10^4, c = 2: 14.7 s and 2056 MB peak RSS in Python. Restate the bound as time O(n^2/c * min(c, n/c)) capped near 2*10^8 and space O(n^2/c), and show the c = 2 and c = 3 instances fit the judge's memory before publishing.",
+   "issues": [
+    "Complexity sentence is internally wrong ('2*10^8 operations at n = c = 10^4'; the worst case is c ~ 101, and n = c = 10^4 costs ~3.5*10^5).",
+    "No space bound is claimed. The stated DP needs O(n * n/c) cells: 10^8 at n = 10^4, c = 2; 6.7*10^7 at c = 3. Measured 2056 MB peak RSS for that instance.",
+    "The verifier stops timing at n = 4000; the real limit n = 10^4 is never run, so 'well inside the limits' is unsupported.",
+    "'exchange-argument' is kept but stretched: this corpus's 7 carriers all use it for a sort-by-swap comparator, whereas here it names structural exchange lemmas about schedule shape. The same proposer declined the slug on jetlag for that exact reason.",
+    "No public editorial and no judge submission, so there is no reference answer beyond the brute forces."
+   ],
+   "summary_ok": true,
+   "source_text_sha256": "c59e4b4f31066b6c4eb03a4ec9bf245ab102f7dc210200e7e5cdf3636291843a"
+  }
+ ],
+ "notes": "Status convention: 'approved' = solution re-derived correct, limits hold, label set publishes as proposed; 'needs_work' = solution correct but the listed drop/add must be applied first, or a limits claim is unestablished; 'rejected' = solution or samples wrong. Nothing was rejected: every solution reproduces every published sample and survives the brute forces, and all 12 source_text_sha256 values match sha256 of the staging source_text. Four labels carried proposer confidence below 0.6 and I dropped three of them: zoomanagement 'bridge-tree' (0.5) and aleaiactaest 'dijkstra' (0.4) name the surroundings or an optional route, and threekindsofdice 'sorting' (0.5) is hull scaffolding the proposer already called scaffolding; aleaiactaest 'state-compression' (0.5) survives because the state genuinely is a mixed-radix packing of d free-or-pinned dice, which is this corpus's established use of the slug (73 carriers, almost all paired with bitmask-dp). No label needed adding anywhere, which is unusual and worth saying: these proposals under-label rather than over-label, and the recurring cause is vocabulary gaps the taxonomy does not cover - permutation-group theory (zoomanagement), extremal set theory / covering arrays (schedule), Markov decision processes and value iteration (aleaiactaest), polyhedron unfolding and surface geodesics (carlsvacation), 2D linear programming (threekindsofdice), and 'find the n-th object by descending a counting DP' (arecurringproblem). Six of those would each be a better carrier than anything currently canonical. Not one of the twelve carries 'binary-search-answer', 'dp-on-dag' or 'dsu-on-tree', and three proposals explicitly reason those slugs away - the discipline is real here. On limits: I attacked every complexity claim with constructed instances rather than random ones. Two claims were under-tested by their own scripts. tiltingtiles' shipped cross-checks use a burn-in linear in h+w although the O(h*w) claim needs a constant one; I re-ran with burn = 4 (4289 BFS pairs, 0 mismatches) and measured the burn-in as <= 1 on eight adversarial shapes up to 500x500, so the claim holds. bridgingthegap's claim does not: its complexity sentence is internally wrong, it bounds no space at all, and the DP table is O(n^2/c) cells - I measured 2056 MB at the legal worst case n = 10^4, c = 2, which the verifier never runs (it stops at n = 4000). That is the one finding that should block publication until the bound is restated and the memory checked. Bands: I set mine independently, then compared with the kattis_difficulty scores present in the staging files (2.1 to 9.5). I agree with them everywhere except turningred, which Kattis calls hard at 5.6 and I call medium because once the 'buttons are vertices, lights are edges' model is seen the rest is a three-way enumeration per component, and schedule, which Kattis calls 6.9 and I call very-hard because it is unsolvable without Milner's theorem or a rediscovery of it."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-climbing-stairs",
+  "url": "https://leetcode.com/problems/climbing-stairs/",
+  "observed_at": "2026-09-11T07:21:42.943670+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are climbing a staircase. It takes n steps to reach the top. \n\n Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? \n\n \u00a0 \n Example 1: \n\n \n Input: n = 2\n Output: 2\n Explanation: There are two ways to climb to the top.\n1. 1 step + 1 step\n2. 2 steps\n \n\n Example 2: \n\n \n Input: n = 3\n Output: 3\n Explanation: There are three ways to climb to the top.\n1. 1 step + 1 step + 1 step\n2. 1 step + 2 steps\n3. 2 steps + 1 step\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= n <= 45",
+  "statement_sha256": "69327d554b730c98d6a179d205c7b0885a9c87734356547a420c64decdb710bf",
+  "raw_sha256": "18b00121d4237cdb0be3d90767aa0c97f9f95ace8aa88b18ec4d5f4af0f225ea",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

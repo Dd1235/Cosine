@@ -1,0 +1,8 @@
+{
+  "id": "cses-1737",
+  "title": "Range Queries and Copies",
+  "source_url": "https://cses.fi/problemset/task/1737",
+  "observed_at": "2026-09-11T06:53:29.945267+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to maintain a list of arrays which initially has a single array. You have to process the following types of queries:\n\n\nSet the value a in array k to x.\n\nCalculate the sum of values in range [a,b] in array k.\n\nCreate a copy of array k and add it to the end of the list.\n\n\nInput\n\nThe first input line has two integers n and q: the array size and the number of queries.\n\nThe next line has n integers t_1,t_2,\\ldots,t_n: the initial contents of the array.\n\nFinally, there are q lines describing the queries. The format of each line is one of the following: \"1 k a x\", \"2 k a b\" or \"3 k\".\n\nOutput\n\nPrint the answer to each sum query.\n\nConstraints\n\n\n1 \\le n, q \\le 2 \\cdot 10^5\n\n1 \\le t_i, x \\le 10^9\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n5 6\n2 3 1 2 5\n3 1\n2 1 1 5\n2 2 1 5\n1 2 2 5\n2 1 1 5\n2 2 1 5\n\n\nOutput:\n\n13\n13\n13\n15",
+  "statement_sha256": "d08760d6a52f33a787c70aede60021cb5d389eeee354370f02a10b57421ffd95"
+}

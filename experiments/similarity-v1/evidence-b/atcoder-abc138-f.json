@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc138-f",
+  "url": "https://atcoder.jp/contests/abc138/tasks/abc138_f",
+  "observed_at": "2026-09-11T07:21:42.592969+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nGiven are integers L and R. Find the number, modulo 10^9 + 7, of pairs of integers (x, y) (L \\leq x \\leq y \\leq R) such that the remainder when y is divided by x is equal to y \\text{ XOR } x.\r\n\nWhat is \\text{ XOR }?\r\n\nThe XOR of integers A and B, A \\text{ XOR } B, is defined as follows:\r\n\nWhen A \\text{ XOR } B is written in base two, the digit in the 2^k's place (k \\geq 0) is 1 if either A or B, but not both, has 1 in the 2^k's place, and 0 otherwise.\r\n\nFor example, 3 \\text{ XOR } 5 = 6. (In base two: 011 \\text{ XOR } 101 = 110.)\r\n\nConstraints\r\n\n1 \\leq L \\leq R \\leq 10^{18}\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nL R\r\n\nOutput\nPrint the number of pairs of integers (x, y) (L \\leq x \\leq y \\leq R) satisfying the condition, modulo 10^9 + 7.\r\n\nSample Input 1\n2 3\r\n\nSample Output 1\n3\r\n\nThree pairs satisfy the condition: (2, 2), (2, 3), and (3, 3).\r\n\nSample Input 2\n10 100\r\n\nSample Output 2\n604\r\n\nSample Input 3\n1 1000000000000000000\r\n\nSample Output 3\n68038601\r\n\nBe sure to compute the number modulo 10^9 + 7.",
+  "statement_sha256": "e2df111e8c9edcbaac3362b5f67c1471a6b1d244b61d404b36e2d743985b530c",
+  "raw_sha256": "1d5da2c90a2d2fb95def33021eb7fad2e9c66fba8566bb4d388dcab734291ce2",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

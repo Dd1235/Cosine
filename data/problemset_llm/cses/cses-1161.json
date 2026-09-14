@@ -25,5 +25,18 @@
       "heap": 0.95,
       "optimal-merge-pattern": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1161",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "39f76fb42413c2ade4e8222e33f8f565feedd63202139e1ae44169c13ddf9c1f",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

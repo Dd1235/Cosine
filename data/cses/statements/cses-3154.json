@@ -1,0 +1,8 @@
+{
+  "id": "cses-3154",
+  "title": "System of Linear Equations",
+  "source_url": "https://cses.fi/problemset/task/3154",
+  "observed_at": "2026-09-11T06:53:37.168289+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given n\\cdot(m+1) coefficients a_{i,j} and b_i which form the following n linear equations:\n\n\na_{1,1}x_1 + a_{1,2}x_2 + \\dots + a_{1,m}x_m = b_1 \\pmod {10^9 + 7}\n\na_{2,1}x_1 + a_{2,2}x_2 + \\dots + a_{2,m}x_m = b_2 \\pmod {10^9 + 7}\n\n\\dots\n\na_{n,1}x_1 + a_{n,2}x_2 + \\dots + a_{n,m}x_m = b_n \\pmod {10^9 + 7}\n\n\nYour task is to find any m integers x_1, x_2, \\dots, x_m  that satisfy the given equations.\n\nInput\n\nThe first line has two integers n and m: the number of equations and variables.\n\nThe next n lines each have m+1 integers a_{i,1}, a_{i,2}, \\dots, a_{i,m}, b_i: the coefficients of the i-th equation.\n\nOutput\n\nPrint m integers x_1, x_2,\\dots, x_m: the values of the variables that satisfy the equations. The values must also satisfy 0 \\le x_i < 10^9 + 7. You can print any valid solution. If no solution exists print only -1.\n\nConstraints\n\n\n1 \\le n, m \\le 500\n\n0 \\le a_{i,j}, b_i < 10^9 + 7\n\n\nExample\n\nInput:\n\n3 3\n2 0 1 7\n1 2 0 0\n1 3 1 2\n\n\nOutput:\n\n2 1000000006 3",
+  "statement_sha256": "850bc1986ee81d5be15f66386de9458e103a6d6cdf28c056402e7c72751f6ea2"
+}

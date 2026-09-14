@@ -30,5 +30,18 @@
       "lca": 0.8,
       "minimum-spanning-tree": 1
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/3409",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "002fb4e738accd66fcfb2213fb035440176977e61d57a9bcb8177cfb88cb9a5b",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-basic-calculator",
+  "url": "https://leetcode.com/problems/basic-calculator/",
+  "observed_at": "2026-09-11T07:21:49.970323+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation . \n\n Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval() . \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"1 + 1\"\n Output: 2\n \n\n Example 2: \n\n \n Input: s = \" 2-1 + 2 \"\n Output: 3\n \n\n Example 3: \n\n \n Input: s = \"(1+(4+5+2)-3)+(6+8)\"\n Output: 23\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 3 * 10 5 \n s consists of digits, '+' , '-' , '(' , ')' , and ' ' . \n s represents a valid expression. \n '+' is not used as a unary operation (i.e., \"+1\" and \"+(2 + 3)\" is invalid). \n '-' could be used as a unary operation (i.e., \"-1\" and \"-(2 + 3)\" is valid). \n There will be no two consecutive operators in the input. \n Every number and running calculation will fit in a signed 32-bit integer.",
+  "statement_sha256": "235e82de6d9c23b0a7ca01b8b31445421334f854bb2d199b0f099336b7d2a59a",
+  "raw_sha256": "98f8a8675fc29ea098f844679dc4e825654759742465ad9f4cfd5af5044f734b",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

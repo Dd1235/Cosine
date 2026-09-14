@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-design-add-and-search-words-data-structure",
+  "url": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+  "observed_at": "2026-09-11T07:21:52.310169+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Design a data structure that supports adding new words and finding if a string matches any previously added string. \n\n Implement the WordDictionary class: \n\n \n WordDictionary() \u00a0Initializes the object. \n void addWord(word) Adds word to the data structure, it can be matched later. \n bool search(word) \u00a0Returns true if there is any string in the data structure that matches word \u00a0or false otherwise. word may contain dots '.' where dots can be matched with any letter. \n \n\n \u00a0 \n Example: \n\n \n Input \n[\"WordDictionary\",\"addWord\",\"addWord\",\"addWord\",\"search\",\"search\",\"search\",\"search\"]\n[[],[\"bad\"],[\"dad\"],[\"mad\"],[\"pad\"],[\"bad\"],[\".ad\"],[\"b..\"]]\n Output \n[null,null,null,null,false,true,true,true]\n\n Explanation \nWordDictionary wordDictionary = new WordDictionary();\nwordDictionary.addWord(\"bad\");\nwordDictionary.addWord(\"dad\");\nwordDictionary.addWord(\"mad\");\nwordDictionary.search(\"pad\"); // return False\nwordDictionary.search(\"bad\"); // return True\nwordDictionary.search(\".ad\"); // return True\nwordDictionary.search(\"b..\"); // return True\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= word.length <= 25 \n word in addWord consists of lowercase English letters. \n word in search consist of '.' or lowercase English letters. \n There will be at most 2 dots in word for search queries. \n At most 10 4 calls will be made to addWord and search .",
+  "statement_sha256": "2263285cc826d4b7e843bc05bb933281d2c5e37bbc4af9bfded1d6b4ac84727c",
+  "raw_sha256": "586cd71c322bccbf1ec4e14f6c51cc92493b402f19e8bc90ec89bb5f68a5d4a5",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

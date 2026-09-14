@@ -1,0 +1,20 @@
+{
+ "id": "codechef-nplflf",
+ "status": "solved",
+ "solution": "A common suffix of length l is exactly a depth-l node in a trie built over the REVERSED strings, and the number of collection members sharing that suffix is the number of live strings whose reversed path passes through that node. Adding or removing a string walks its one root-to-leaf path and adds or subtracts 1 from cnt at each node touched; since every Add is removable at most once, the total node work is O(sum|s|) <= 2*10^5. For each depth l keep freq[l][c] = how many depth-l nodes currently have count c together with best[l], the running maximum; because every update moves one count by exactly +/-1, the maximum either rises to the new value or, when the sole holder of the maximum drops, falls by exactly one (that node now sits at best-1), so best[l] is maintained in O(1) per touched node. An Ask (k,l) is then answered in O(1) as best[l] >= k, treating depths beyond the deepest node as 0. Total O(q + sum|s|) time and O(sum|s|) memory, well within q, sum|s| <= 10^5.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A collection of strings starts empty and is transformed by a sequence of operations: append a new string, delete the string inserted by a specified earlier operation, or report whether at least k strings currently in the collection share one common suffix of length l. Every such question is answered yes or no. The number of operations and the total length of all added strings are each at most 100000.",
+ "patterns": [
+  "trie"
+ ],
+ "pattern_confidence": {
+  "trie": 0.95
+ },
+ "tags": [
+  "string",
+  "data-structure"
+ ],
+ "source_text_sha256": "3a2190bcd9213757dc3fed88f9f9c3a827f493cd42c89c15d740506dc6768b83",
+ "verify_script": "batchC/verify_nplflf.py",
+ "notes": "Curated 'Trie' hint holds up: the reversed-string trie is the intended structure, and the deletions are plain counter decrements on the same path (no persistence, no rollback, no offline processing - queries are answered online). Deliberately omitted labels: 'string-hashing'/'hash-map' would describe a genuine alternative (hash every suffix of every added string - sum of suffix counts is still <= 10^5 - keyed by (length, hash) with a per-length maximum), but the trie is the natural and intended route and hashing would be a misleading search hit; 'counting' and 'segment-tree' are not needed because the +/-1 update shape makes the per-depth maximum maintainable with a frequency-of-frequencies array in O(1). The one technique with no canonical slug is that frequency-of-frequencies / count-of-counts maximum trick, which is the only non-obvious step after the trie. Verified: reference implementation matches the sample and agrees with a brute force on 3500 randomized op sequences (including duplicate-heavy and repeated-removal cases); a 10^5-operation stress runs in 0.07s in Python."
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1190",
+  "title": "Subarray Sum Queries",
+  "source_url": "https://cses.fi/problemset/task/1190",
+  "observed_at": "2026-09-11T06:53:28.712376+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nThere is an array consisting of n integers. Some values of the array will be updated, and after each update, your task is to report the maximum subarray sum in the array.\n\nInput\n\nThe first input line contains integers n and m: the size of the array and the number of updates. The array is indexed 1,2,\\ldots,n.\n\nThe next line has n integers: x_1,x_2,\\ldots,x_n: the initial contents of the array.\n\nThen there are m lines describing the changes. Each line has two integers k and x: the value at position k becomes x.\n\nOutput\n\nAfter each update, print the maximum subarray sum. Empty subarrays (with sum 0) are allowed.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n-10^9 \\le x_i \\le 10^9\n\n1 \\le k \\le n\n\n-10^9 \\le x \\le 10^9\n\n\nExample\n\nInput:\n\n5 3\n1 2 -3 5 -1\n2 6\n3 1\n2 -2\n\n\nOutput:\n\n9\n13\n6",
+  "statement_sha256": "4c9b723046c20cd78f9a327cafc70c1231da856cf3483e17b62b8cf1f6f9571b"
+}

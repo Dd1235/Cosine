@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-asteroid-collision",
+  "url": "https://leetcode.com/problems/asteroid-collision/",
+  "observed_at": "2026-09-11T07:21:57.838763+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "We are given an array asteroids of integers representing asteroids in a row. The indices of the asteroid in the array represent their relative position in space. \n\n For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed. \n\n Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet. \n\n \u00a0 \n Example 1: \n\n \n Input: asteroids = [5,10,-5]\n Output: [5,10]\n Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.\n \n\n Example 2: \n\n \n Input: asteroids = [8,-8]\n Output: []\n Explanation: The 8 and -8 collide exploding each other.\n \n\n Example 3: \n\n \n Input: asteroids = [10,2,-5]\n Output: [10]\n Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.\n \n\n Example 4: \n\n \n Input: asteroids = [3,5,-6,2,-1,4]\u200b\u200b\u200b\u200b\u200b\u200b\u200b\n Output: [-6,2,4]\n Explanation: The asteroid -6 makes the asteroid 3 and 5 explode, and then continues going left. On the other side, the asteroid 2 destroys -1. Since 2 and 4 are both moving right, they never collide.\n \n\n \u00a0 \n Constraints: \n\n \n 2 <= asteroids.length <= 10 4 \n -1000 <= asteroids[i] <= 1000 \n asteroids[i] != 0",
+  "statement_sha256": "538210f89bdc57fb628cf49555e8941f6edea7c45d096dc4cdf651a5aa2cd540",
+  "raw_sha256": "e8b9ac49e3011ce24a21eb5cdc917ffcf9e7d248ee516156dd8d6f3c15766d63",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

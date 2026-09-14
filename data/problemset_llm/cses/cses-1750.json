@@ -23,5 +23,18 @@
       "binary-lifting": 0.98,
       "jump-pointer": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1750",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "44a6237efea8b47f24da160e2d708865b8e1042c4654d54eb4b925b366b3e1e3",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

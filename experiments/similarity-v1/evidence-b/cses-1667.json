@@ -1,0 +1,10 @@
+{
+  "id": "cses-1667",
+  "url": "https://cses.fi/problemset/task/1667",
+  "observed_at": "2026-09-11T07:21:46.493600+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nSyrj\u00e4l\u00e4's network has n computers and m connections. Your task is to find out if Uolevi can send a message to Maija, and if it is possible, what is the minimum number of computers on such a route.\n\nInput\n\nThe first input line has two integers n and m: the number of computers and connections. The computers are numbered 1,2,\\dots,n. Uolevi's computer is 1 and Maija's computer is n.\n\nThen, there are m lines describing the connections. Each line has two integers a and b: there is a connection between those computers.\n\nEvery connection is between two different computers, and there is at most one connection between any two computers.\n\nOutput\n\nIf it is possible to send a message, first print k: the minimum number of computers on a valid route. After this, print an example of such a route. You can print any valid solution.\n\nIf there are no routes, print \"IMPOSSIBLE\".\n\nConstraints\n\n\n2 \\le n \\le 10^5\n\n1 \\le m \\le 2 \\cdot 10^5\n\n1 \\le a,b \\le n\n\n\nExample\n\nInput:\n\n5 5\n1 2\n1 3\n1 4\n2 3\n5 4\n\n\nOutput:\n\n3\n1 4 5",
+  "statement_sha256": "ac12646d35867f4ca7c14b506ec19945b2c79ebb926dfb8d0c4ad13ff25b4999",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

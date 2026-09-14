@@ -1,0 +1,8 @@
+{
+  "id": "cses-2216",
+  "title": "Collecting Numbers",
+  "source_url": "https://cses.fi/problemset/task/2216",
+  "observed_at": "2026-09-11T06:53:12.986644+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given an array that contains each number between 1 \\dots n exactly once. Your task is to collect the numbers from 1 to n in increasing order.\n\nOn each round, you go through the array from left to right and collect as many numbers as possible. What will be the total number of rounds?\n\nInput\n\nThe first line has an integer n: the array size.\n\nThe next line has n integers x_1,x_2,\\dots,x_n: the numbers in the array.\n\nOutput\n\nPrint one integer: the number of rounds.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n5\n4 2 1 5 3\n\n\nOutput:\n\n3",
+  "statement_sha256": "3812c33258a75858c55baeda9d85cb25950e6ffa5026000a2122403e215cdc76"
+}

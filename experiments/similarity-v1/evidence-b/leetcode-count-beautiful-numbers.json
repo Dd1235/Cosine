@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-count-beautiful-numbers",
+  "url": "https://leetcode.com/problems/count-beautiful-numbers/",
+  "observed_at": "2026-09-11T07:22:06.710326+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two positive integers, l and r . A positive integer is called beautiful if the product of its digits is divisible by the sum of its digits. \n\n Return the count of beautiful numbers between l and r , inclusive. \n\n \u00a0 \n Example 1: \n\n \n Input: l = 10, r = 20 \n\n Output: 2 \n\n Explanation: \n\n The beautiful numbers in the range are 10 and 20. \n \n\n Example 2: \n\n \n Input: l = 1, r = 15 \n\n Output: 10 \n\n Explanation: \n\n The beautiful numbers in the range are 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10. \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= l <= r < 10 9",
+  "statement_sha256": "5097b3db1a07ee7e857630f01f4c19ea82b8d5ab46943f88ee00b384bd22dacd",
+  "raw_sha256": "71f6c80ac26d12db6b5b1639821a9d47d09bcfd40265b48d963d0ccce01a3018",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1095",
+  "title": "Exponentiation",
+  "source_url": "https://cses.fi/problemset/task/1095",
+  "observed_at": "2026-09-11T06:53:33.105307+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to efficiently calculate values a^b modulo 10^9+7.\n\nNote that in this task we assume that 0^0=1.\n\nInput\n\nThe first input line contains an integer n: the number of calculations.\n\nAfter this, there are n lines, each containing two integers a and b.\n\nOutput\n\nPrint each value a^b modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 2 \\cdot 10^5\n\n0 \\le a,b \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 4\n2 8\n123 123\n\n\nOutput:\n\n81\n256\n921450052",
+  "statement_sha256": "49949077fd4b64901e6ec3000ed6592435a95dabe48c714fb7e200c3ee02c907"
+}

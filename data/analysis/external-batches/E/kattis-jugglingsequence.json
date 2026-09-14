@@ -1,0 +1,32 @@
+{
+ "id": "kattis-jugglingsequence",
+ "status": "solved",
+ "solution": "The recurrence is self-similar: the term equals its own index exactly at the indices b = (3^k+1)/2, that is 1, 2, 5, 14, 41, and so on, and the block of indices from b to 3b-2 interleaves a descending run b, b-1, down to 1 with an ascending run 2b, 2b+1, up to 3b-2, after which index 3b-1 holds the value 3b-1 and starts the next block. The first n terms are therefore a multiset built from O(log n) explicit integer intervals, two per complete block plus a truncated pair for the final partial block, so the number of terms not exceeding x is a short sum of interval intersections and the m-th smallest is the least x whose count reaches m, located by binary search over the value range up to 3n. Correctness rests entirely on the block identity, which follows by induction from the two-case rule, and the partial block needs no special casing at its right end because the value that continues the ascending run past 3b-2 is exactly the next block's opening value. Each query costs O(log^2 n) time and O(log n) space, so all 10^4 queries at n = 10^18 finish in a fraction of a second, and the largest reachable answer is about 1.5n, still inside signed 64-bit.",
+ "solution_confidence": 0.97,
+ "solution_source": {
+  "url": "https://raw.githubusercontent.com/truongcongthanh2000/TrainACM-ICPC-OLP/master/2020%20ICPC%20Asia%20Can%20Tho%20Regional%20Contest/jugglingsequence.cpp",
+  "kind": "accepted C++ solution (third-party repo)",
+  "used": "Compiled and ran it on the sample, then drove the binary from verify_jugglingsequence.py against a brute force that literally iterates the recurrence and sorts: it matches on all 180300 pairs with n <= 600 and on 3000 random pairs up to n = 2*10^4, and matches an independently parameterised interval model (itself checked term by term against the real sequence for every n <= 4000) on 2086 huge queries including n = 10^18 and the block boundaries. 10^4 queries at n = 10^18 run in 0.19s."
+ },
+ "statement_summary": "A sequence begins at one, and each later term is formed from the previous one by adding the index when the term does not exceed it and subtracting the index otherwise. Given a length and a rank, each up to a quintillion, the task is to report which value occupies that rank once the first terms are sorted in non-decreasing order, for up to ten thousand queries.",
+ "patterns": [
+  "binary-search",
+  "order-statistics",
+  "binary-search-answer"
+ ],
+ "pattern_confidence": {
+  "binary-search": 0.8,
+  "order-statistics": 0.75,
+  "binary-search-answer": 0.6
+ },
+ "tags": [
+  "math",
+  "sequence",
+  "recurrence",
+  "binary-search",
+  "order-statistics"
+ ],
+ "source_text_sha256": "1baa75b157b07a96da2f434597d1909d428d1d0c712cf2453f045b606b5f8a50",
+ "verify_script": "E/verify_jugglingsequence.py",
+ "notes": "binary-search-answer is kept at only 0.6 and is the label a reviewer should look at hardest. The counting predicate is not trivial (it needs the whole block decomposition), which is what the trap warning asks for, but the binary search is also avoidable: once you hold O(log n) intervals you can sort them and walk to the m-th value directly. It is labelled because the published solution genuinely searches the value range with a rank test and because 'binary search the answer, count how many are at most x' is how people describe this selection idiom. The real insight, that the recurrence decomposes into period-tripling blocks of two contiguous runs, has no canonical label. The published code's partial-block formula looks off by one (its block list stops at the largest b strictly below n, so the final block can run one index past 3b-2) but is right: that extra index holds 3b-1, which the ascending run generates anyway. n = 1 is special-cased because the block list would otherwise be empty, and nothing overflows since the loop's pw reaches at most 6*10^18 and the binary search's upper bound 3n is at most 3*10^18. Nothing in the source file is addressed to a reader: only commented-out debug prints and a THEMIS-guarded freopen block."
+}

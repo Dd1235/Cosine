@@ -1,0 +1,8 @@
+{
+  "id": "cses-2210",
+  "title": "Counting Grids",
+  "source_url": "https://cses.fi/problemset/task/2210",
+  "observed_at": "2026-09-11T06:53:36.032949+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYour task is to count the number of different n \\times n grids whose each square is black or white.\n\nTwo grids are considered to be different if it is not possible to rotate one of them so that they look the same.\n\nInput\n\nThe only input line has an integer n: the size of the grid.\n\nOutput\n\nPrint one integer: the number of grids modulo 10^9+7.\n\nConstraints\n\n\n1 \\le n \\le 10^9\n\n\nExample\n\nInput:\n\n4\n\n\nOutput:\n\n16456",
+  "statement_sha256": "188216f088da612dd866e6610085fd67f75414f59ecf9f9108fbe870246d6b19"
+}

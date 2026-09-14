@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-out-of-boundary-paths",
+  "url": "https://leetcode.com/problems/out-of-boundary-paths/",
+  "observed_at": "2026-09-11T07:22:13.192222+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn] . You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply at most maxMove moves to the ball. \n\n Given the five integers m , n , maxMove , startRow , startColumn , return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n \n \n Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0\n Output: 6\n \n\n Example 2: \n \n \n Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1\n Output: 12\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= m, n <= 50 \n 0 <= maxMove <= 50 \n 0 <= startRow < m \n 0 <= startColumn < n",
+  "statement_sha256": "3cab7ab93415240101ec7747c7f2423a761cf7b9dffd421a553fd350f5df2fd9",
+  "raw_sha256": "8e1708d143f328bf2ec2a68a2b4af38549674ce17356c04c1eeea339bc04c4cd",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

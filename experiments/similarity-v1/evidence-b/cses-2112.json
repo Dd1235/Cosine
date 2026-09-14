@@ -1,0 +1,10 @@
+{
+  "id": "cses-2112",
+  "url": "https://cses.fi/problemset/task/2112",
+  "observed_at": "2026-09-11T07:21:51.259940+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a binary string of length n. Your task is to calculate, for every k between 1 \\ldots n-1, the number of ways we can choose two positions i and j such that i-j=k and there is a one-bit at both positions.\n\nInput\n\nThe only input line has a string that consists only of characters 0 and 1.\n\nOutput\n\nFor every distance k between 1\\ldots n-1 print the number of ways we can choose two such positions.\n\nConstraints\n\n\n2 \\le n \\le 2 \\cdot 10^5\n\n\nExample\n\nInput:\n\n1001011010\n\n\nOutput:\n\n1 2 3 0 2 1 0 1 0",
+  "statement_sha256": "984412931a2f86b8f06fc3e048539eeb32be61714a768ea847723fc3491a5614",
+  "status": "retrieved_full_statement",
+  "retrieval": "local CSES full statement cache",
+  "constraints_present": true
+}

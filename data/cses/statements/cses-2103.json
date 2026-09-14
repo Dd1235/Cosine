@@ -1,0 +1,8 @@
+{
+  "id": "cses-2103",
+  "title": "Counting Patterns",
+  "source_url": "https://cses.fi/problemset/task/2103",
+  "observed_at": "2026-09-11T06:53:40.770287+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven a string and patterns, count for each pattern the number of positions where it appears in the string.\n\nInput\n\nThe first input line has a string of length n.\n\nThe next input line has an integer k: the number of patterns. Finally, there are k lines that describe the patterns.\n\nThe string and the patterns consist of characters a\u2013z.\n\nOutput\n\nFor each pattern, print the number of positions.\n\nConstraints\n\n\n1 \\le n \\le 10^5\n\n1 \\le k \\le 5 \\cdot 10^5\n\nthe total length of the patterns is at most 5 \\cdot 10^5\n\n\nExample\n\nInput:\n\naybabtu\n3\nbab\nabc\na\n\n\nOutput:\n\n1\n0\n2",
+  "statement_sha256": "9ea6c80a4baa9a627f7a5926612ae00a81c682954f5a09660bc4f5d7bee968b2"
+}

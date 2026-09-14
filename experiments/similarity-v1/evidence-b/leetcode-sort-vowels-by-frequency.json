@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-sort-vowels-by-frequency",
+  "url": "https://leetcode.com/problems/sort-vowels-by-frequency/",
+  "observed_at": "2026-09-11T07:21:59.488470+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given a string s consisting of lowercase English characters. \n\n Rearrange only the vowels in the string so that they appear in non-increasing order of their frequency. \n\n If multiple vowels have the same frequency , order them by the position of their first occurrence in s . \n\n Return the modified string. \n\n Vowels are 'a' , 'e' , 'i' , 'o' , and 'u' . \n\n The frequency of a letter is the number of times it occurs in the string. \n\n \u00a0 \n Example 1: \n\n \n Input: s = \"leetcode\" \n\n Output: \"leetcedo\" \n\n Explanation: \u200b\u200b\u200b\u200b\u200b\u200b\u200b \n\n \n Vowels in the string are ['e', 'e', 'o', 'e'] with frequencies: e = 3 , o = 1 . \n Sorting in non-increasing order of frequency and placing them back into the vowel positions results in \"leetcedo\" . \n \n \n\n Example 2: \n\n \n Input: s = \"aeiaaioooa\" \n\n Output: \"aaaaoooiie\" \n\n Explanation: \u200b\u200b\u200b\u200b\u200b\u200b\u200b \n\n \n Vowels in the string are ['a', 'e', 'i', 'a', 'a', 'i', 'o', 'o', 'o', 'a'] with frequencies: a = 4 , o = 3 , i = 2 , e = 1 . \n Sorting them in non-increasing order of frequency and placing them back into the vowel positions results in \"aaaaoooiie\" . \n \n \n\n Example 3: \n\n \n Input: s = \"baeiou\" \n\n Output: \"baeiou\" \n\n Explanation: \n\n \n Each vowel appears exactly once, so all have the same frequency. \n Thus, they retain their relative order based on first occurrence, and the string remains unchanged. \n \n \n\n \u00a0 \n Constraints: \n\n \n 1 <= s.length <= 10 5 \n s consists of lowercase English letters",
+  "statement_sha256": "e73a5e3d3d2acc1e5535b55368ff9c296bbb578727e54ffc2f55b6c057dddeb3",
+  "raw_sha256": "258f3dd79b2b238d13b5c7988826ae102f9b3a53c7316d69931c0b5b7cfbce90",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

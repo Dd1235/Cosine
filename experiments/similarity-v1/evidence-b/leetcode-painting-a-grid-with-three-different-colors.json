@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-painting-a-grid-with-three-different-colors",
+  "url": "https://leetcode.com/problems/painting-a-grid-with-three-different-colors/",
+  "observed_at": "2026-09-11T07:21:44.982936+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "You are given two integers m and n . Consider an m x n grid where each cell is initially white. You can paint each cell red , green , or blue . All cells must be painted. \n\n Return the number of ways to color the grid with no two adjacent cells having the same color . Since the answer can be very large, return it modulo 10 9 + 7 . \n\n \u00a0 \n Example 1: \n \n \n Input: m = 1, n = 1\n Output: 3\n Explanation: The three possible colorings are shown in the image above.\n \n\n Example 2: \n \n \n Input: m = 1, n = 2\n Output: 6\n Explanation: The six possible colorings are shown in the image above.\n \n\n Example 3: \n\n \n Input: m = 5, n = 5\n Output: 580986\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= m <= 5 \n 1 <= n <= 1000",
+  "statement_sha256": "d1c2392b019f7608e5d9680e085917e248eaaecb3e33ae32942ff594f5dea283",
+  "raw_sha256": "b4584a3e4fb78b2b0115d80003fd65925cc2b79683728ad3559d428e097d86ca",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "codechef-rebxor",
+ "status": "solved",
+ "solution": "Let P[i] be the XOR of the first i elements, so the XOR of a segment (l,r) is P[r]^P[l-1]. Sweep left to right keeping a 30-bit binary trie of P[0..r-1]; querying it with P[r] by greedily descending toward the opposite bit at each level gives the best segment ending at r, and a running maximum turns that into left[k] = best single segment inside the first k elements. Running the same sweep on the reversed array gives right[k] = best segment inside the suffix starting at k, and the answer is max over split points k of left[k] + right[k+1], which is exact because the constraint r1 < l2 means every valid pair is separated by exactly such a split and each side is maximized independently. The greedy trie descent is optimal because fixing a higher bit to 1 outweighs every lower bit combined. Total cost is O(N log max(A)) time and trie nodes, about 1.2e7 for N = 4*10^5, well inside the limits.",
+ "solution_confidence": 0.97,
+ "statement_summary": "Given an array of up to four hundred thousand non-negative integers below one billion, the task is to pick two non-empty contiguous segments that do not overlap, the first ending strictly before the second begins, and report the largest achievable sum of the bitwise XOR of each segment's elements. The array size rules out inspecting every pair of candidate segments.",
+ "patterns": [
+  "trie",
+  "prefix-xor"
+ ],
+ "pattern_confidence": {
+  "trie": 0.95,
+  "prefix-xor": 0.95
+ },
+ "tags": [
+  "bit-manipulation",
+  "xor",
+  "arrays"
+ ],
+ "source_text_sha256": "bb8e447608f1fc0ed13d9fcb4f416c4c21bcdd0b9c8bd5446811c93f4fc4a076",
+ "verify_script": "batchC/verify_rebxor.py",
+ "notes": "Verified: sample gives 6, and solve() matches a 4-nested-loop brute force on 4000 random arrays (n<=8, values up to 1e9). The curated 'Trie' filing is correct here - the binary trie is the load-bearing structure, not a red herring. Deliberately omitted: 'dynamic-programming' (left[]/right[] are plain running maxima over the per-index trie answers, scaffolding rather than a state transition), 'greedy' (the bit-by-bit descent is internal to the trie query), and 'xor-basis' (segments are contiguous, so no linear-algebra span is involved). No canonical label covers the 'split at every index and combine prefix-best with suffix-best' idea, which is the other half of the solution; 'prefix-xor' is the closest the vocabulary gets."
+}

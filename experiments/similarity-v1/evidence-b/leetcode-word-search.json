@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-word-search",
+  "url": "https://leetcode.com/problems/word-search/",
+  "observed_at": "2026-09-11T07:22:13.130095+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given an m x n grid of characters board and a string word , return true if word exists in the grid . \n\n The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once. \n\n \u00a0 \n Example 1: \n \n \n Input: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"\n Output: true\n \n\n Example 2: \n \n \n Input: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"\n Output: true\n \n\n Example 3: \n \n \n Input: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCB\"\n Output: false\n \n\n \u00a0 \n Constraints: \n\n \n m == board.length \n n = board[i].length \n 1 <= m, n <= 6 \n 1 <= word.length <= 15 \n board and word consists of only lowercase and uppercase English letters. \n \n\n \u00a0 \n Follow up: Could you use search pruning to make your solution faster with a larger board ?",
+  "statement_sha256": "1576e76c0aaa30295e9329e8d44bf8bf95c8068e0d3089496165a2834ec83951",
+  "raw_sha256": "340fd3ab4a26f31d6200f8ef50671561501c477304477d52ee9461d5bf703749",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

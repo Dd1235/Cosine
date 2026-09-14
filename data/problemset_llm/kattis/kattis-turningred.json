@@ -1,0 +1,39 @@
+{
+ "id": "kattis-turningred",
+ "title": "Turning Red",
+ "slug": "turningred",
+ "platform": "kattis",
+ "source_url": "https://icpc.kattis.com/problems/turningred",
+ "source_topic": "ICPC / World Finals 2022 and 2023",
+ "source_tags": [],
+ "statement": "Each of up to 200,000 lights shows red, green, or blue, and each of up to twice that many buttons cycles every light it is wired to from red to green to blue and back to red. Crucially, no light is wired to more than two buttons. The task is to report the fewest total button presses that turn every light red, or to report that doing so is impossible.",
+ "tags": [],
+ "patterns": [
+  "graph-modeling",
+  "connected-components",
+  "modular-arithmetic",
+  "dfs",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789270426,
+  "pattern_confidence": {
+   "graph-modeling": 0.9,
+   "connected-components": 0.9,
+   "modular-arithmetic": 0.9,
+   "dfs": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.6,
+  "label": "hard",
+  "host": "icpc.kattis.com",
+  "observed_at": "2026-09-12T13:24:02+00:00"
+ }
+}

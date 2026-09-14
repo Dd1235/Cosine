@@ -1,0 +1,8 @@
+{
+  "id": "cses-2164",
+  "title": "Josephus Queries",
+  "source_url": "https://cses.fi/problemset/task/2164",
+  "observed_at": "2026-09-11T06:53:33.099109+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nConsider a game where there are n children (numbered 1,2,\\dots,n) in a circle. During the game, every second child is removed from the circle, until there are no children left.\n\nYour task is to process q queries of the form: \"when there are n children, who is the kth child that will be removed?\"\n\nInput\n\nThe first input line has an integer q: the number of queries.\n\nAfter this, there are q lines that describe the queries. Each line has two integers n and k: the number of children and the position of the child.\n\nOutput\n\nPrint q integers: the answer for each query.\n\nConstraints\n\n\n1 \\le q \\le 10^5\n\n1 \\le k \\le n \\le 10^9\n\n\nExample\n\nInput:\n\n4\n7 1\n7 3\n2 2\n1337 1313\n\n\nOutput:\n\n2\n6\n1\n1107",
+  "statement_sha256": "28533698e4db239af87921430fcbf41c3f71bd88e2911fea4d294833df60285b"
+}

@@ -1,0 +1,37 @@
+{
+ "id": "kattis-nonprimefactors",
+ "title": "Non-Prime Factors",
+ "slug": "nonprimefactors",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/nonprimefactors",
+ "source_topic": "ICPC / 2018 Asia Singapore Regional",
+ "source_tags": [],
+ "statement": "For each of up to three million queries the task is to report how many divisors of a given integer are not themselves prime, where that integer is at least two and at most two million. Because the queries greatly outnumber the distinct possible inputs and the input and output volume is very large, an answer must be produced in effectively constant time per query.",
+ "tags": [],
+ "patterns": [
+  "sieve",
+  "number-theory",
+  "divisor-enumeration",
+  "prime-factorization"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789304706,
+  "pattern_confidence": {
+   "sieve": 0.9,
+   "number-theory": 0.9,
+   "divisor-enumeration": 0.9,
+   "prime-factorization": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.4,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-12T13:24:12+00:00"
+ }
+}

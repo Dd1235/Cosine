@@ -25,5 +25,24 @@
       "grundy-numbers": 0.98,
       "game-dp": 0.9
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "low",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/2207",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json",
+      "data/cses/specialist_a.json"
+    ],
+    "statement_sha256": "487b90307a324721f05dd391d73ba1fa814274719c570e98cc8c020f58611e48",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11",
+    "override": {
+      "original_band": 5,
+      "reason": "Completed specialist solution and proof review",
+      "evidence": "data/cses/specialist_a.json"
+    }
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "cses-1069",
+  "title": "Repetitions",
+  "source_url": "https://cses.fi/problemset/task/1069",
+  "observed_at": "2026-09-11T06:52:39.933980+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a DNA sequence: a string consisting of characters A, C, G, and T. Your task is to find the longest repetition in the sequence. This is a maximum-length substring containing only one type of character.\n\nInput\n\nThe only input line contains a string of n characters.\n\nOutput\n\nPrint one integer: the length of the longest repetition.\n\nConstraints\n\n\n1 \\le n \\le 10^6\n\n\nExample\n\nInput:\n\nATTCGGGA\n\n\nOutput:\n\n3",
+  "statement_sha256": "125e9af34e21c82ef0c1e26209e7945654cc15724c28f64ec5bfb0f5f8a1aff8"
+}

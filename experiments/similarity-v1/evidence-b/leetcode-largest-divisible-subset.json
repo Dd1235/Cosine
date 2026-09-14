@@ -1,0 +1,11 @@
+{
+  "id": "leetcode-largest-divisible-subset",
+  "url": "https://leetcode.com/problems/largest-divisible-subset/",
+  "observed_at": "2026-09-11T07:22:22.244063+00:00",
+  "retrieval": "LeetCode official GraphQL question.content",
+  "statement": "Given a set of distinct positive integers nums , return the largest subset answer such that every pair (answer[i], answer[j]) of elements in this subset satisfies: \n\n \n answer[i] % answer[j] == 0 , or \n answer[j] % answer[i] == 0 \n \n\n If there are multiple solutions, return any of them. \n\n \u00a0 \n Example 1: \n\n \n Input: nums = [1,2,3]\n Output: [1,2]\n Explanation: [1,3] is also accepted.\n \n\n Example 2: \n\n \n Input: nums = [1,2,4,8]\n Output: [1,2,4,8]\n \n\n \u00a0 \n Constraints: \n\n \n 1 <= nums.length <= 1000 \n 1 <= nums[i] <= 2 * 10 9 \n All the integers in nums are unique .",
+  "statement_sha256": "fcc071de689ab5ad7004d8bc4613316d422ee856b780925498ea2e022fe6204f",
+  "raw_sha256": "0897fae5dfd052d538eb569270ce17ff231632335a62002bc743ac91003c9107",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

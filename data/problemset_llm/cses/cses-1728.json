@@ -26,5 +26,18 @@
       "pairwise-comparison": 0.9,
       "probabilistic-analysis": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 2,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1728",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "f85153249d0cbc8e2d48fea7314bfdd9b3df43d161c9cc9f32c34e668712ea82",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

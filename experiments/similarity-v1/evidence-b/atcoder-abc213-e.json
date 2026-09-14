@@ -1,0 +1,11 @@
+{
+  "id": "atcoder-abc213-e",
+  "url": "https://atcoder.jp/contests/abc213/tasks/abc213_e",
+  "observed_at": "2026-09-11T07:21:41.357410+00:00",
+  "retrieval": "official problem HTML, statement section only",
+  "statement": "Problem Statement\nThere is a town divided into a grid of cells with H rows and W columns. The cell at the i-th row from the top and j-th column from the left is a passable space if S_{i,j} is . and a block if S_{i,j} is #.\r\n\nTakahashi will go from his house to a fish market. His house is in the cell at the top-left corner, and the fish market is in the cell at the bottom-right corner.\r\n\nTakahashi can move one cell up, down, left, or right to a passable cell. He cannot leave the town.\r\nHe cannot enter a block, either. However, his physical strength allows him to destroy all blocks in a square region with 2\\times 2 cells of his choice with one punch, making these cells passable.\r\n\nFind the minimum number of punches needed for Takahashi to reach the fish market.\r\n\nConstraints\r\n\n2 \\leq H,W \\leq 500\r\n\nH and W are integers.\r\n\nS_{i,j} is . or #.\r\n\nS_{1,1} and S_{H,W} are ..\r\n\nInput\nInput is given from Standard Input in the following format:\r\n\nH W\r\nS_{1,1} \\ldots S_{1,W}\r\n\\vdots\r\nS_{H,1} \\ldots S_{H,W}\r\n\nOutput\nPrint the answer.\r\n\nSample Input 1\n5 5\r\n..#..\r\n#.#.#\r\n##.##\r\n#.#.#\r\n..#..\r\n\nSample Output 1\n1\r\n\nHe can reach the fish market by, for example, destroying the blocks in the square region with 2\\times 2 cells marked * below.\r\n\n..#..\r\n#.**#\r\n##**#\r\n#.#.#\r\n..#..\r\n\nIt is not required that all of the 2\\times 2 cells in the region to punch are blocks.\r\n\nSample Input 2\n5 7\r\n.......\r\n######.\r\n.......\r\n.######\r\n.......\r\n\nSample Output 2\n0\r\n\nHe can reach the fish market without destroying blocks, though he has to go a long way around.\r\n\nSample Input 3\n8 8\r\n.#######\r\n########\r\n########\r\n########\r\n########\r\n########\r\n########\r\n#######.\r\n\nSample Output 3\n5",
+  "statement_sha256": "15646344e75d00c472d57fa2513098a6f24b3326bca75a9beaf689abac127eec",
+  "raw_sha256": "3b581ccac293272b652909330f6d8d6605217baec03debf3fdbb401dd8e748fb",
+  "constraints_present": true,
+  "status": "retrieved_full_statement"
+}

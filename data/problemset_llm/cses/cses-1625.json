@@ -26,5 +26,18 @@
       "dfs": 0.95,
       "pruning": 0.85
     }
+  },
+  "cses_difficulty": {
+    "band": 4,
+    "confidence": "high",
+    "method": "cses-reviewed-v1",
+    "evidence": [
+      "https://cses.fi/problemset/task/1625",
+      "data/cses/reviews_a.json",
+      "data/cses/reviews_b.json"
+    ],
+    "statement_sha256": "1557aab4f914c5e178968671f2ad89cca82a8bc8ddd504ff5b440d15c24a27b4",
+    "statistics_adjustment": 0,
+    "reviewed_at": "2026-09-11"
   }
 }

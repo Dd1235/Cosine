@@ -1,0 +1,8 @@
+{
+  "id": "cses-2420",
+  "title": "Palindrome Queries",
+  "source_url": "https://cses.fi/problemset/task/2420",
+  "observed_at": "2026-09-11T06:53:40.841032+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nYou are given a string that consists of n characters between a\u2013z. The positions of the string are indexed 1,2,\\dots,n.\n\nYour task is to process m operations of the following types:\n\n\nChange the character at position k to x\n\nCheck if the substring from position a to position b is a palindrome\n\n\nInput\n\nThe first input line has two integers n and m: the length of the string and the number of operations.\n\nThe next line has a string that consists of n characters.\n\nFinally, there are m lines that describe the operations. Each line is of the form \"1 k x\" or \"2 a b\".\n\nOutput\n\nFor each operation 2, print YES if the substring is a palindrome and NO otherwise.\n\nConstraints\n\n\n1 \\le n, m \\le 2 \\cdot 10^5\n\n1 \\le k \\le n\n\n1 \\le a \\le b \\le n\n\n\nExample\n\nInput:\n\n7 5\naybabtu\n2 3 5\n1 3 x\n2 3 5\n1 5 x\n2 3 5\n\n\nOutput:\n\nYES\nNO\nYES",
+  "statement_sha256": "062ff9b1e60577a14a1cd0b2eafabaa789c7754abc5ae7f21b19aa8fc3412a69"
+}

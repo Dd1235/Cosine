@@ -1,0 +1,8 @@
+{
+  "id": "cses-3169",
+  "title": "Counting LCM Arrays",
+  "source_url": "https://cses.fi/problemset/task/3169",
+  "observed_at": "2026-09-11T06:54:52.578202+00:00",
+  "statement": "Time limit: 1.00 s\n\nMemory limit: 512 MB\n\n\nGiven two integers n and k, your task is to count the number of arrays a_1, a_2,\\dots, a_n of positive integers where \\operatorname{lcm}(a_i, a_{i+1}) = k for all 1 \\le i < n.\n\nInput\n\nThe first line has an integer t: the number of test cases.\n\nThe next t lines have two integers n and k: the length of the array and the value of lcm.\n\nOutput\n\nPrint t integers: the answer to each test case modulo 10^9 + 7.\n\nConstraints\n\n\n1 \\le t \\le 1000\n\n2 \\le n \\le 10^9\n\n1 \\le k \\le 10^9\n\n\nExample\n\nInput:\n\n3\n3 4\n4 6\n1337 42\n\n\nOutput:\n\n11\n64\n602746233\n\n\nExplanation: The arrays for the first test case are [1, 4, 1], [1, 4, 2], [1, 4, 4], [2, 4, 1], [2, 4, 2], [2, 4, 4], [4, 1, 4], [4, 2, 4], [4, 4, 1], [4, 4, 2] and [4, 4, 4].",
+  "statement_sha256": "eb5a3ef234cf4fb95f32816c905f89c1503ce7f36430048e4c3ade8f803690d0"
+}
