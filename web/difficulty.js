@@ -40,22 +40,9 @@
     const meta = csesBand(problem);
     return meta && levels.includes(meta.confidence) ? meta.confidence : null;
   }
-  // Only what the record already carries — never the reviews themselves.
-  function provenance(problem) {
-    const meta = csesBand(problem);
-    if (!meta) return null;
-    return {
-      band: meta.band,
-      label: bands[meta.band - 1],
-      confidence: confidence(problem),
-      method: typeof meta.method === 'string' && meta.method ? meta.method : null,
-      reviewedAt: typeof meta.reviewed_at === 'string' && meta.reviewed_at ? meta.reviewed_at : null,
-      overridden: Boolean(meta.override),
-    };
-  }
   function confidenceTitle(level) {
     return confidenceTitles[level] || '';
   }
-  root.cosineDifficulty = { bands, tokens, format, value, confidence, provenance, confidenceTitle };
+  root.cosineDifficulty = { bands, tokens, format, value, confidence, confidenceTitle };
   if (typeof module !== 'undefined' && module.exports) module.exports = root.cosineDifficulty;
 })(typeof window === 'undefined' ? globalThis : window);

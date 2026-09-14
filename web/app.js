@@ -734,6 +734,12 @@ function renderCollectionPicker(loaded = collectionsLoaded) {
     option.setAttribute('aria-selected', 'false');
     option.dataset.collection = c.id;
     option.textContent = collectionOptionLabel(c);
+    // Safari does not focus a button on mousedown. Without this the click
+    // would pull focus out of the listbox, the focusout handler below would
+    // hide the picker, and the option would be display:none by the time the
+    // click landed — so the mouse did nothing while the keyboard worked.
+    // Keeping focus put is also the standard listbox behaviour.
+    option.addEventListener('mousedown', (e) => { e.preventDefault(); });
     option.addEventListener('click', () => {
       closeCollectionPicker({ focus: false });
       addCollection(c.id);
@@ -901,7 +907,15 @@ if (collectionPickerEl) {
   collectionPickerEl.addEventListener('focusout', (e) => {
     const to = e.relatedTarget;
     if (to && (collectionPickerEl.contains(to) || to === collectionAddBtn)) return;
-    closeCollectionPicker({ focus: false });
+    // relatedTarget is null whenever focus goes nowhere in particular, which
+    // includes the middle of a Safari click on an option. Closing on the spot
+    // would destroy the option before its click fired, so settle first and
+    // close only if focus really did leave.
+    setTimeout(() => {
+      const active = typeof document !== 'undefined' ? document.activeElement : null;
+      if (active && (collectionPickerEl.contains(active) || active === collectionAddBtn)) return;
+      closeCollectionPicker({ focus: false });
+    }, 0);
   });
   document.addEventListener('pointerdown', (e) => {
     if (!collectionPickerOpen()) return;
@@ -2121,7 +2135,7 @@ function clearPlatformFilter({ reissue = true } = {}) {
 const HELP_SECTIONS = [
   {
     name: "search",
-    blurb: "the three modes, and which to use",
+    blurb: "the three modes, and similar vs practice",
     body: `SEARCH — pick a mode next to the box
 
   keyword   matches words in the title, the statement AND our
@@ -2150,16 +2164,29 @@ const HELP_SECTIONS = [
   the status line shows "+wqs binary search" — you get the
   results and the real name.
 
-FIND SIMILAR
-  inside an expanded result, "find similar problems" lists the
-  related problems with your current filters and saved scope.
-  The source and filters stay in the URL, and results paginate.
-  Shared techniques appear inside expanded cards.
+FIND SIMILAR vs PRACTICE THIS IDEA
+  both links sit inside an expanded result and both rank the
+  corpus by how close a problem is to that one. The difference
+  is what each leaves out.
 
-  "practice this idea" broadens beyond the source contest and
-  saved list, keeping your judge, pattern, and difficulty.
-  Signed-in users see problems they have not marked done.
-  Recommendations are distinguished from actual PYQs.
+  "find similar problems" leaves out nothing. Your judge,
+  label, difficulty, competition chips and saved scope all stay
+  on, problems from the same contest still appear, and so do
+  ones you have already done. Use it to read around a problem.
+
+  "practice this idea" is for training, so it removes what you
+  would be practising against unfairly. It drops the contest
+  and collection the problem came from, clears your competition
+  chips and saved scope, and hides anything you have marked
+  done. Judge, label and difficulty stay. Use it when you want
+  the same technique on a problem you have not seen.
+
+  So: same problem, wider net vs same idea, somewhere new.
+
+  Either way the source and your filters stay in the URL, so
+  the view is shareable and Back returns you to it. Results
+  paginate, shared techniques show inside expanded cards, and
+  a recommendation is never dressed up as a real past question.
 
 BROWSE
   a filter with no query lists everything it selects. Clear the
@@ -2198,7 +2225,7 @@ CORPUS
   },
   {
     name: "filters",
-    blurb: "judges, difficulty, sort, level, age, recall",
+    blurb: "judges, CSES bands, difficulty, level, PYQs",
     body: `FILTERS — they stack
 
   A filter is a set, not a radio button: pick as many as you
@@ -2832,19 +2859,12 @@ function renderHitsList(container, hits, opts = {}) {
     title.setAttribute("role", "button");
     title.setAttribute("aria-expanded", "false");
     title.setAttribute("aria-controls", detail.id);
-    // Where a CSES band came from. Only what the record already carries — the
-    // band, how far the two reviews agreed, when it was reviewed, and whether a
-    // specialist check overrode the mean. Never the reviews themselves. It is
-    // a difficulty hint, so it hides with the other hints.
-    const prov = cosineDifficulty.provenance(hit.problem);
-    const provHtml = !prov ? "" : `<p class="cses-provenance spoiler-content">difficulty: ${escapeHtml(prov.label)} · CSES estimate${
-      prov.confidence ? ` · ${escapeHtml(prov.confidence)} confidence` : ""
-    }${prov.reviewedAt ? ` · reviewed ${escapeHtml(prov.reviewedAt)}` : ""}${
-      prov.overridden ? " · specialist override" : ""
-    } · <a href="https://github.com/Dd1235/Cosine/blob/main/experiments/19-cses-reviewed-bands.md" target="_blank" rel="noopener">how these were made &rarr;</a></p>`;
+    // The CSES band and how confident it is already sit on the card, in the
+    // difficulty chip and its tooltip. A provenance paragraph repeating them
+    // with a review date and a link to the write-up was furniture; what the
+    // bands mean now lives in :help, where someone actually goes to ask.
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
-      ${provHtml}
       <p class="tags spoiler-content"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
       <p class="patterns spoiler-content"><strong>patterns:</strong> ${(hit.problem.patterns || [])
         .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)

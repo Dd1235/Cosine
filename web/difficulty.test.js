@@ -1,8 +1,8 @@
 // The CSES bands are estimates, so the card has to say so and say how sure it
 // is. That claim is only as good as the record behind it: a band with no stored
 // confidence must read as "unknown", not as "high", and nothing outside CSES
-// may ever grow a provenance line. Both are pure functions, so they get a
-// plain test rather than a DOM harness.
+// may ever claim one. Pure functions, so a plain test rather than a DOM
+// harness.
 const assert = require("node:assert/strict");
 const difficulty = require("./difficulty");
 
@@ -22,14 +22,6 @@ const published = {
 assert.equal(difficulty.format(published), "Advanced · CSES estimate");
 
 assert.equal(difficulty.confidence(published), "medium");
-assert.deepEqual(difficulty.provenance(published), {
-  band: 4,
-  label: "Advanced",
-  confidence: "medium",
-  method: "cses-reviewed-v1",
-  reviewedAt: "2026-09-11",
-  overridden: false,
-});
 
 // A specialist check resolved this one, and the card is allowed to say so.
 const overridden = {
@@ -42,10 +34,9 @@ const overridden = {
   },
 };
 assert.equal(difficulty.confidence(overridden), "low");
-assert.equal(difficulty.provenance(overridden).overridden, true);
-assert.equal(difficulty.provenance(overridden).label, "Expert");
+assert.equal(difficulty.format(overridden), "Expert · CSES estimate");
 
-// Nothing but a published CSES estimate has provenance.
+// Nothing but a published CSES estimate carries a confidence.
 for (const problem of [
   { platform: "codeforces", difficulty: 1900 },
   { platform: "leetcode", difficulty: "Hard" },
@@ -55,24 +46,16 @@ for (const problem of [
   { platform: "cses", cses_difficulty: { band: "4", confidence: "high" } },
 ]) {
   assert.equal(difficulty.confidence(problem), null, `confidence on ${JSON.stringify(problem)}`);
-  assert.equal(difficulty.provenance(problem), null, `provenance on ${JSON.stringify(problem)}`);
 }
 
 // A record written before confidence was stored is honest about it: the band
 // still shows, the agreement claim does not.
 const unlabelled = { platform: "cses", cses_difficulty: { band: 2, method: "cses-reviewed-v1" } };
 assert.equal(difficulty.confidence(unlabelled), null);
-assert.deepEqual(difficulty.provenance(unlabelled), {
-  band: 2,
-  label: "Standard",
-  confidence: null,
-  method: "cses-reviewed-v1",
-  reviewedAt: null,
-  overridden: false,
-});
+assert.equal(difficulty.format(unlabelled), "Standard · CSES estimate", "the band still shows");
 assert.equal(difficulty.confidence({ platform: "cses", cses_difficulty: { band: 2, confidence: "certain" } }), null);
 
-// One source of wording for the card tooltip, the detail line and the manual.
+// One source of wording for the card tooltip and the manual.
 for (const level of ["high", "medium", "low"]) {
   assert.match(difficulty.confidenceTitle(level), new RegExp(`^${level} confidence: `));
 }
@@ -82,4 +65,4 @@ assert.match(difficulty.confidenceTitle("low"), /specialist/);
 assert.equal(difficulty.confidenceTitle(null), "");
 assert.equal(difficulty.confidenceTitle("unknown"), "");
 
-console.log("difficulty tests passed (confidence, provenance, tooltip wording)");
+console.log("difficulty tests passed (confidence and tooltip wording)");
