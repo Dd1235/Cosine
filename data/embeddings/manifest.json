@@ -14,7 +14,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 3565,
+  "count": 3571,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -214,12 +214,15 @@
     "leetcode-count-robot-groups",
     "leetcode-count-routes-to-climb-a-rectangular-grid",
     "leetcode-count-sequences-to-k",
+    "leetcode-count-shadow-pairs-i",
+    "leetcode-count-shadow-pairs-ii",
     "leetcode-count-special-integers",
     "leetcode-count-special-subsequences",
     "leetcode-count-special-triplets",
     "leetcode-count-stable-subarrays",
     "leetcode-count-stepping-numbers-in-range",
     "leetcode-count-subarrays-with-cost-less-than-or-equal-to-k",
+    "leetcode-count-subarrays-with-distant-sums",
     "leetcode-count-subarrays-with-even-odd-ratio-i",
     "leetcode-count-subarrays-with-even-odd-ratio-ii",
     "leetcode-count-subarrays-with-fixed-bounds",
@@ -250,6 +253,7 @@
     "leetcode-count-unreachable-pairs-of-nodes-in-an-undirected-graph",
     "leetcode-count-valid-paths-in-a-tree",
     "leetcode-count-valid-word-occurrences",
+    "leetcode-count-values-with-equally-spaced-occurrences-ii",
     "leetcode-count-visited-nodes-in-a-directed-graph",
     "leetcode-count-vowels-permutation",
     "leetcode-count-ways-to-build-rooms-in-an-ant-colony",
@@ -903,6 +907,7 @@
     "leetcode-minimum-cost-to-set-cooking-time",
     "leetcode-minimum-cost-to-split-an-array",
     "leetcode-minimum-cost-walk-in-weighted-graph",
+    "leetcode-minimum-days-to-score-exactly-n-points",
     "leetcode-minimum-degree-of-a-connected-trio-in-a-graph",
     "leetcode-minimum-deletions-to-make-alternating-substring",
     "leetcode-minimum-deletions-to-make-array-beautiful",
@@ -998,6 +1003,7 @@
     "leetcode-minimum-operations-to-make-array-parity-alternating",
     "leetcode-minimum-operations-to-make-character-frequencies-equal",
     "leetcode-minimum-operations-to-make-elements-within-k-subarrays-equal",
+    "leetcode-minimum-operations-to-make-every-element-palindromic",
     "leetcode-minimum-operations-to-make-median-of-array-equal-to-k",
     "leetcode-minimum-operations-to-make-the-array-alternating",
     "leetcode-minimum-operations-to-make-the-array-k-increasing",
@@ -3584,7 +3590,7 @@
     "kattis-wiknow",
     "kattis-zoomanagement"
   ],
-  "corpusHash": "87920e752009c5c1e9586ca70e105531f9cd6cf981de29008d57b5141b98ace9",
+  "corpusHash": "77f60a4640307e9c8b234db590ddb91ac17023e7e85f633101509e9913bbb087",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-13T13:05:40.701Z"
+  "createdAt": "2026-09-14T14:02:22.973Z"
 }

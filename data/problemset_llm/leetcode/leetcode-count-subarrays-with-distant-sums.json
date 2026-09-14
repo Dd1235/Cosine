@@ -1,0 +1,34 @@
+{
+  "id": "leetcode-count-subarrays-with-distant-sums",
+  "title": "Count Subarrays with Distant Sums",
+  "slug": "count-subarrays-with-distant-sums",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-subarrays-with-distant-sums/",
+  "source_topic": "LeetCode / Biweekly Contest 191",
+  "difficulty": "Hard",
+  "source_tags": [],
+  "statement": "Given an integer array and two integers goal and k, count the number of subarrays whose sum differs from goal by at least k in absolute value.",
+  "tags": [
+    "array",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "fenwick-tree",
+    "segment-tree",
+    "coordinate-compression",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "opus-two-arm-review",
+    "generated_at_unix": 1789394496,
+    "pattern_confidence": {
+      "prefix-sum": 0.95,
+      "fenwick-tree": 0.85,
+      "segment-tree": 0.6,
+      "coordinate-compression": 0.78,
+      "counting": 0.6
+    }
+  }
+}

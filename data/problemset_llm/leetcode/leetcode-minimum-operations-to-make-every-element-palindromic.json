@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-minimum-operations-to-make-every-element-palindromic",
+  "title": "Minimum Operations to Make Every Element Palindromic",
+  "slug": "minimum-operations-to-make-every-element-palindromic",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-make-every-element-palindromic/",
+  "source_topic": "LeetCode / Weekly Contest 519",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "Given an array, find the minimum number of increment or decrement by 2 operations needed to turn each element into any positive palindromic integer (possibly different for each element).",
+  "tags": [
+    "array",
+    "math",
+    "greedy"
+  ],
+  "patterns": [
+    "palindrome",
+    "parity-argument",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "opus-two-arm-review",
+    "generated_at_unix": 1789394496,
+    "pattern_confidence": {
+      "palindrome": 0.93,
+      "parity-argument": 0.78,
+      "binary-search": 0.7
+    }
+  }
+}

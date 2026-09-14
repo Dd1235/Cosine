@@ -215,3 +215,13 @@ https://icpc.kattis.com/problems/billboards
 
 # ICPC India Prelims 2025–26
 https://codeforces.com/gym/106179/problem/E
+
+# LeetCode / Weekly Contest 519
+https://leetcode.com/problems/minimum-operations-to-make-every-element-palindromic/
+https://leetcode.com/problems/count-shadow-pairs-i/
+https://leetcode.com/problems/count-shadow-pairs-ii/
+
+# LeetCode / Biweekly Contest 191
+https://leetcode.com/problems/count-values-with-equally-spaced-occurrences-ii/
+https://leetcode.com/problems/minimum-days-to-score-exactly-n-points/
+https://leetcode.com/problems/count-subarrays-with-distant-sums/

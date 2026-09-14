@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-count-values-with-equally-spaced-occurrences-ii",
+  "title": "Count Values With Equally Spaced Occurrences II",
+  "slug": "count-values-with-equally-spaced-occurrences-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-values-with-equally-spaced-occurrences-ii/",
+  "source_topic": "LeetCode / Biweekly Contest 191",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "Given an integer array, count how many distinct values appear at least three times with all their occurrences equally spaced in the array.",
+  "tags": [
+    "array",
+    "hash-map"
+  ],
+  "patterns": [
+    "hash-map",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "opus-two-arm-review",
+    "generated_at_unix": 1789394496,
+    "pattern_confidence": {
+      "hash-map": 0.92,
+      "counting": 0.55
+    }
+  }
+}

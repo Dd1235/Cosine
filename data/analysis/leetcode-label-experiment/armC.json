@@ -1,0 +1,51 @@
+{
+ "arm": "C-no-solution-exists",
+ "problems": [
+  {
+   "slug": "count-shadow-pairs-i",
+   "solved": true,
+   "patterns": [
+    "monotonic-stack",
+    "counting"
+   ],
+   "pattern_confidence": {
+    "monotonic-stack": 0.95,
+    "counting": 0.6
+   },
+   "statement_summary": "Given an integer array, count the ordered index pairs whose earlier entry holds a strictly smaller value than the later one and where no element lying strictly between the two positions is smaller than that earlier value. Values may repeat and reach one billion, the array holds up to one hundred thousand entries, and the answer is the total number of such pairs.",
+   "approach": "An index stays a legal left endpoint only while its value is at most every value that follows it, so the live left endpoints at any moment form a non-decreasing stack. Arriving at a new position, pop every stacked value greater than it, since those can never be a left endpoint again, and the survivors are exactly the candidates. Of the survivors, the group equal to the new value fails the strict inequality, so add the count of survivors strictly below it. Values are grouped with a multiplicity so runs of duplicates cost constant time.",
+   "time": "O(n)",
+   "space": "O(n)",
+   "difficulty_band": "medium",
+   "verify_result": "Matches all three worked examples (3, 4, 6). Brute force written straight from the definition (triple loop) agrees with the stack solution on 5065 cases: 5000 random arrays of length 3 to 12, 60 random arrays of length 50 to 200, and structured shapes (all equal, strictly increasing, strictly decreasing, alternating, three plateaus) over value ranges from 2 distinct values up to a full billion.",
+   "invented_labels": [],
+   "notes": "The only subtlety is ties: an equal value neither blocks (it is not smaller) nor pairs (the inequality is strict), which is why the stack is non-decreasing rather than strictly increasing and why equal values are kept as a counted group. Labelled monotonic-stack because the stack IS the idea here, not bookkeeping: the stack contents are literally the answer contribution for each right endpoint. Rejected brute-force (n up to 1e5 forbids the quadratic scan), binary-search-answer (nothing is searched), and stack as a separate label since the taxonomy has no family rule mapping monotonic-stack onto it."
+  },
+  {
+   "slug": "count-shadow-pairs-ii",
+   "solved": true,
+   "patterns": [
+    "divide-and-conquer",
+    "counting",
+    "fenwick-tree",
+    "segment-tree",
+    "coordinate-compression"
+   ],
+   "pattern_confidence": {
+    "divide-and-conquer": 0.9,
+    "counting": 0.85,
+    "fenwick-tree": 0.75,
+    "segment-tree": 0.6,
+    "coordinate-compression": 0.5
+   },
+   "statement_summary": "Given an integer array, count the ordered index pairs whose earlier value is strictly smaller than the later one and where no element positioned between them carries a value strictly between the two endpoint values. Values repeat and reach one billion while the array holds up to fifty thousand entries, and the number of qualifying pairs can grow quadratically, so they have to be counted rather than listed.",
+   "approach": "Divide the array at a midpoint and recurse; the work is the crossing pairs. For a crossing pair the forbidden window splits in two, and each half collapses to one number that depends on a single endpoint: the left endpoint needs the smallest value above it in the rest of the left half, the right endpoint needs the largest value below it in the earlier part of the right half. Crossing pairs are then exactly the quadruples ordered as right-bound, left value, right value, left-bound, which is a two-dimensional dominance count: sweep right endpoints by decreasing value, insert left endpoints as their bound clears, and query a Fenwick tree over compressed values for a range count. The per-endpoint bounds are successor and predecessor queries answered by a binary descent on the same Fenwick tree.",
+   "time": "O(n log^2 n)",
+   "space": "O(n)",
+   "difficulty_band": "hard",
+   "verify_result": "Matches both worked examples (5 and 3). Brute force written straight from the definition (triple loop) agrees on 5447 cases: 5000 random arrays of length 3 to 12, 400 of length 13 to 40 and 40 of length 120 to 260 so several recursion levels are crossed, plus structured shapes (all equal, increasing, decreasing, two plateaus, alternating, three blocks, up-then-down) across value ranges from 2 distinct values to a full billion. Timing check in pure Python at n = 50000: 1.8s on a random permutation, 0.6s on a two-valued array, 1.5s on a sorted array, so the constraint is met with large margin in any compiled language.",
+   "invented_labels": [],
+   "notes": "What changes from part I is the whole technique, not a constant. Part I forbids a value below the LEFT endpoint, so the blocked set depends on one endpoint and the live candidates form a monotonic stack. Part II forbids a value strictly BETWEEN the two endpoints, so the blocking condition depends on both endpoints at once, the candidate set is no longer nested, and the stack collapses; the fix is divide and conquer, which is precisely the standard way to make a two-endpoint condition separable. Also, the answer can be quadratic (an array of 25000 ones followed by 25000 twos gives 312.5 million pairs, confirmed by the solution at n = 50000), so pairs must be counted in aggregate and never enumerated - that is why counting is a real label here rather than a noun. segment-tree is carried only by the taxonomy family rule that fenwick-tree implies it. Rejected: monotonic-stack (explicitly does not survive the change from I), binary-search-answer (the Fenwick binary descent is an order-statistic lookup, not a monotone feasibility predicate over an answer), offline-queries (the problem poses no queries; the sweep order is internal to my algorithm), and brute-force (n = 5e4 forbids the quadratic scan)."
+  }
+ ]
+}

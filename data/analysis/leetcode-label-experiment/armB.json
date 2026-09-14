@@ -1,0 +1,61 @@
+{
+  "arm": "B-statement-only",
+  "problems": [
+    {
+      "slug": "minimum-operations-to-make-every-element-palindromic",
+      "solved": true,
+      "patterns": ["palindrome", "parity-argument", "binary-search"],
+      "pattern_confidence": {"palindrome": 0.92, "parity-argument": 0.85, "binary-search": 0.6},
+      "statement_summary": "An array of positive integers is given. One operation picks an index and increases or decreases that element by two. Every element must become a positive palindromic integer, and different elements may become different palindromes. Return the minimum total number of operations needed over the whole array.",
+      "approach": "Since the step is two, every element is locked to its own parity, and the parity of a palindrome equals its leading digit, so each element must move to the nearest palindrome of the same parity; elements are otherwise independent so the answer is the sum of per-element costs, each being half the distance to that palindrome. Generate every palindrome up to about 3e9 by mirroring each half (both odd and even lengths), split them into an even list and an odd list, and binary search the matching list for each value, checking the neighbour on each side. Targets above the input range and above 1e9 must be allowed, since going up can be cheaper, and zero is excluded because the target must be positive.",
+      "time": "O(P log P + n log P) with P about 1.3e5 palindromes below 3e9, i.e. effectively O(n log P) after a one-time build",
+      "space": "O(P)",
+      "difficulty_band": "medium",
+      "confidence_in_approach": 0.93,
+      "invented_labels": [],
+      "notes": "Verified: my implementation reproduces 9, 2 and 2 on the three worked examples, and agrees with a naive expanding-search brute force on 300 random small values and 60 random values up to 1e9. The parity invariant is the whole problem, so parity-argument is a real technique label and not a noun from the statement. binary-search is only nearest-neighbour lookup in a precomputed sorted list, hence the lower confidence; it is not binary-search-answer, there is no monotone feasibility predicate here. Not greedy in any meaningful sense: the elements simply do not interact, so no exchange argument is involved. Worst case cost is large but bounded, e.g. 1e9 must travel to 899999998 because the next even palindrome upward is 2000000002."
+    },
+    {
+      "slug": "count-values-with-equally-spaced-occurrences-ii",
+      "solved": true,
+      "patterns": ["hash-map"],
+      "pattern_confidence": {"hash-map": 0.9},
+      "statement_summary": "An array of integers is given. A value counts as special when it appears at least three times and the positions of all its occurrences form an arithmetic progression, meaning the gap between consecutive occurrences is the same everywhere. Return how many distinct values in the array are special. Values appearing fewer than three times never qualify, and every occurrence must respect the spacing.",
+      "approach": "Walk the array once, keeping per value only the first index, the last index, the running count and the fixed gap taken from the first two occurrences; a value stays alive while each new index equals the previous index plus that gap. Equivalently, bucket indices by value in a hash map and check that consecutive differences are constant. Count the surviving values with at least three occurrences.",
+      "time": "O(n) expected",
+      "space": "O(n)",
+      "difficulty_band": "easy",
+      "confidence_in_approach": 0.96,
+      "invented_labels": [],
+      "notes": "Deliberately a single label. Values reach 1e9 so a hash map rather than an array is what makes the grouping work, and nothing else in the solution is a technique: no sorting, no counting in the combinatorial sense, no two-pointer scan. The II in the title suggests only a constraint bump over part I, since the statement as given is already linear at n up to 1e5; I solved exactly the statement in front of me. Checked by hand against all three examples, including the all-equal case where the gap is one."
+    },
+    {
+      "slug": "minimum-days-to-score-exactly-n-points",
+      "solved": true,
+      "patterns": ["dynamic-programming", "unbounded-knapsack", "knapsack"],
+      "pattern_confidence": {"dynamic-programming": 0.88, "unbounded-knapsack": 0.82, "knapsack": 0.5},
+      "statement_summary": "A target score is given and the score starts at zero. Each day you either earn points or skip. Earning during a streak gives one point on the streak's first day, two on the second, three on the third, and so on, while skipping earns nothing and resets the streak back to one. Return the fewest days, counting skipped days, to reach the target score exactly.",
+      "approach": "A schedule is a sequence of streaks of lengths L1 to Lk separated by exactly one skip day each, so the score is the sum of the triangular numbers T(Li) and the day count is the sum of the Li plus k minus one. Minimising days therefore means writing n as a sum of triangular numbers where a part of length L costs L plus one, which is an unbounded coin-change over the roughly 447 triangular numbers below 1e5. Run dp over scores 0..n taking the minimum of dp[s - T(L)] + L + 1 and subtract one at the end for the trailing skip that is never needed.",
+      "time": "O(n sqrt(n)), about 4.5e7 transitions at n = 1e5",
+      "space": "O(n)",
+      "difficulty_band": "medium",
+      "confidence_in_approach": 0.9,
+      "invented_labels": [],
+      "notes": "Verified: the dp returns 1, 3, 6 and 7 for n = 1, 2, 9 and 12, matching all three worked examples. The cost model is the subtle part, one skip day between consecutive streaks and none at the ends. unbounded-knapsack is the exact shape (each streak length reusable without limit); dynamic-programming is added explicitly because the taxonomy family regex does not fire on the knapsack names, and bare knapsack is included at lower confidence as the umbrella people actually type. An alternative exists via Gauss's three-triangular-numbers theorem, enumerating two triangular parts and testing whether the remainder is triangular, which would additionally be number-theory, but my solution does not rely on it so I did not label it. This is a coin-change dp, not binary-search-answer: nothing monotone is being searched."
+    },
+    {
+      "slug": "count-subarrays-with-distant-sums",
+      "solved": true,
+      "patterns": ["prefix-sum", "fenwick-tree", "segment-tree", "coordinate-compression", "inversion-count"],
+      "pattern_confidence": {"prefix-sum": 0.95, "fenwick-tree": 0.75, "segment-tree": 0.5, "coordinate-compression": 0.7, "inversion-count": 0.5},
+      "statement_summary": "An integer array is given together with a target value and a threshold. A contiguous non-empty subarray is called distant when the absolute difference between its sum and the target is at least the threshold. Return how many subarrays are distant. The array may contain negative numbers, so subarray sums do not grow monotonically as the window extends.",
+      "approach": "Count the complement and subtract: the distant subarrays are all n(n+1)/2 of them minus those whose sum lies strictly between goal minus k and goal plus k. In prefix-sum terms, with P[0..n], a close subarray is a pair i < j with P[j] - goal - k < P[i] < P[j] - goal + k, so sweep j upward and query how many already-inserted prefix values fall in that open interval using a Fenwick tree over the coordinate-compressed prefix values, binary searching the two interval bounds in the compressed array. Handle k equal to zero as a special case, where every subarray is distant.",
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "difficulty_band": "hard",
+      "confidence_in_approach": 0.95,
+      "invented_labels": [],
+      "notes": "Verified: reproduces 5, 2 and 2 on the three examples and agrees with an O(n^2) brute force on 3000 random cases including k = 0 and negative goals. Prefix sums reach 1e14 so compression (or a balanced BST) is genuinely required, which is why coordinate-compression is labelled. segment-tree is the family the taxonomy's own regex assigns to fenwick-tree, not a second data structure. inversion-count is at 0.5 because the equivalent merge-sort solution is exactly an inversion-style count of ordered pairs whose difference falls in a range. Explicitly NOT sliding-window or two-pointers: negative values break monotonicity of the window sum, which is the trap this problem is built around."
+    }
+  ]
+}

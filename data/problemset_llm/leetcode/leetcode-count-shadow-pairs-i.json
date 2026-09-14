@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-count-shadow-pairs-i",
+  "title": "Count Shadow Pairs I",
+  "slug": "count-shadow-pairs-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-shadow-pairs-i/",
+  "source_topic": "LeetCode / Weekly Contest 519",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "Given an array, count pairs of indices (i, j) where nums[i] < nums[j], i < j, and no element between i and j is less than nums[i].",
+  "tags": [
+    "array",
+    "order-statistics"
+  ],
+  "patterns": [
+    "monotonic-stack",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "opus-two-arm-review",
+    "generated_at_unix": 1789394496,
+    "pattern_confidence": {
+      "monotonic-stack": 0.95,
+      "counting": 0.6
+    }
+  }
+}

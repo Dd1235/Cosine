@@ -1,0 +1,57 @@
+{
+  "arm": "A-with-solution",
+  "problems": [
+    {
+      "slug": "minimum-operations-to-make-every-element-palindromic",
+      "patterns": ["palindrome", "binary-search", "parity-argument"],
+      "pattern_confidence": {"palindrome": 0.95, "binary-search": 0.8, "parity-argument": 0.6},
+      "statement_summary": "Given an array of positive integers, each operation adds or subtracts two from one chosen element. Every element must end up as a positive palindromic integer, and different elements may become different palindromes. Return the minimum total number of operations needed. The array holds up to one hundred thousand entries and values reach one billion, so each element must be resolved independently and quickly.",
+      "approach": "Adding or subtracting two never changes an element's parity, so each element can only reach palindromes of its own parity, and the elements are fully independent. The solution precomputes every palindrome up to about ten billion by mirroring each half from one to one hundred thousand (both odd and even digit lengths), splits them into two sorted lists by parity, and for each input value binary searches its parity list for the predecessor and successor. The cost per element is the smaller gap divided by two, summed over the array.",
+      "time": "O(P log P + n log P) with P about 2*10^5 palindromic candidates; the candidate table is built once, so per test it is O(n log P)",
+      "space": "O(P) for the two sorted palindrome lists, O(1) extra per query",
+      "difficulty_band": "medium",
+      "solution_changed_my_answer": "From the statement alone I would have emitted palindrome, binary-search and constructive-algorithm, guessing the usual digit-by-digit nearest-palindrome construction (mirror the prefix, then try prefix plus or minus one). Reading the solution removed constructive-algorithm: nothing is constructed per query, a static mirrored candidate table is enumerated once and only searched. It also promoted the parity invariant from an afterthought to a labelled idea, because the whole solution is organised around two parity-separated lists; that is why I added parity-argument, which I would probably not have emitted from the statement.",
+      "invented_labels": [],
+      "notes": "Deliberately not labelled: sorting (one-time scaffolding for the binary search), greedy (per-element independence is not an exchange argument), brute-force (scanning outward from each value is not what runs, and would be too slow near sparse regions). parity-argument is the one I hold most loosely at 0.6 - the invariant is real and load-bearing but it is one line of reasoning, not the bulk of the work."
+    },
+    {
+      "slug": "count-values-with-equally-spaced-occurrences-ii",
+      "patterns": ["hash-map", "counting"],
+      "pattern_confidence": {"hash-map": 0.95, "counting": 0.5},
+      "statement_summary": "Given an integer array, a value is called special when it appears at least three times and the positions at which it appears form an arithmetic progression, meaning every pair of consecutive occurrences is separated by the same constant gap. Return how many distinct values in the array are special. The array holds up to one hundred thousand entries and values can be as large as one billion.",
+      "approach": "One pass builds a hash map from value to the ascending list of indices where it occurs. Each bucket with at least three indices is then checked once: take the gap between the first two occurrences and verify every later consecutive pair has the same gap. Count the buckets that pass. Indices arrive already sorted because the array is scanned left to right, so no sorting is needed.",
+      "time": "O(n) - every index is inserted once and visited once during the arithmetic-progression check",
+      "space": "O(n) for the index buckets",
+      "difficulty_band": "easy",
+      "solution_changed_my_answer": "No change. From the statement alone I had hash-map grouping by value plus a linear equal-gap scan, and the accepted code is exactly that. The only thing the solution settled was my suspicion that the harder II variant might need something beyond grouping - it does not; the linear grouping already meets the one-hundred-thousand constraint, so the II variant is only a constraint bump over I rather than a new technique.",
+      "invented_labels": [],
+      "notes": "counting is held at 0.5 and is arguably scaffolding - the work is grouping, the counting is a tally of qualifying buckets. I kept it because the deliverable genuinely is a count of distinct qualifying values. Not labelled: sorting (indices are naturally ordered), two-pointers, arithmetic-progression (no such canonical key, and I chose not to invent one)."
+    },
+    {
+      "slug": "minimum-days-to-score-exactly-n-points",
+      "patterns": ["dynamic-programming", "unbounded-knapsack", "knapsack"],
+      "pattern_confidence": {"dynamic-programming": 0.95, "unbounded-knapsack": 0.8, "knapsack": 0.75},
+      "statement_summary": "Starting from zero points, on each day you either continue a streak or skip. The first day of a streak earns one point, the second earns two, the third earns three, and so on, while skipping earns nothing and resets the streak back to the beginning. Given a target score, return the fewest days, counting the skipped days, needed to reach that score exactly.",
+      "approach": "Any schedule is a sequence of streaks, so the score is a sum of triangular numbers and the day count is the sum of the streak lengths plus one skip day between consecutive streaks. The solution is a minimum-coin dynamic program over the triangular numbers as an unlimited coin supply: f of i is the minimum over streak length j of f of i minus j times j plus one over two, plus j plus one. Seeding f of zero at minus one charges each streak one separator day while cancelling the nonexistent skip before the first streak. The table is built once for every target up to one hundred thousand, so each query is a lookup.",
+      "time": "O(N * sqrt(N)) to fill the table, since only about sqrt(2i) triangular numbers fit under i; O(1) per query afterwards",
+      "space": "O(N) for the single table, N = 10^5 + 1",
+      "difficulty_band": "medium",
+      "solution_changed_my_answer": "From the statement alone I had dynamic-programming and was tempted by greedy plus number-theory, since take the largest triangular number that fits, repeat looks plausible and the statement reads like a number puzzle. The solution killed the greedy reading and pinned the exact shape: an unbounded coin-change over triangular numbers where the coin value is the triangular number and the coin cost is the streak length plus one. That is what made me add unbounded-knapsack and its knapsack family, which I would not have committed to from the statement. It also showed there is no closed form, so number-theory stays off.",
+      "invented_labels": [],
+      "notes": "Deliberately not labelled: greedy (largest-triangular-first is not optimal), memoization (the accepted code is bottom-up iterative), binary-search-answer (no monotone predicate anywhere - this is exactly the trap the corpus overcarries), number-theory (triangular numbers appear as coin denominations, not as a number-theoretic argument). unbounded-knapsack is the honest specific label because each streak length may be reused any number of times."
+    },
+    {
+      "slug": "count-subarrays-with-distant-sums",
+      "patterns": ["prefix-sum", "fenwick-tree", "coordinate-compression", "counting"],
+      "pattern_confidence": {"prefix-sum": 0.95, "fenwick-tree": 0.9, "coordinate-compression": 0.85, "counting": 0.6},
+      "statement_summary": "Given an integer array together with a target sum and a threshold, a contiguous subarray is called distant when the absolute difference between its sum and the target is at least the threshold. Return how many of its subarrays are distant. Values may be negative, the array holds up to one hundred thousand entries, and both the values and the target can reach a magnitude of one billion.",
+      "approach": "Count the complement: the total number of subarrays minus those whose sum lies strictly between target minus threshold and target plus threshold. With prefix sums, a subarray ending at the current prefix v is close exactly when some earlier prefix u satisfies u in the closed range v minus target minus threshold plus one through v minus target plus threshold minus one. The solution sorts a copy of the prefix sums to compress coordinates, then sweeps left to right, querying a Fenwick tree for how many already-inserted prefixes fall in that range and inserting the current prefix. Because values can be negative the prefix sums are not monotone, which is why a rank structure is needed rather than a moving window.",
+      "time": "O(n log n) - one sort of the n+1 prefix sums, then two Fenwick range queries and one point update per index",
+      "space": "O(n) for the prefix sums, the sorted copy and the Fenwick tree",
+      "difficulty_band": "hard",
+      "solution_changed_my_answer": "From the statement alone I had prefix-sum plus counting and the complement trick, but I was undecided between a Fenwick tree, a merge-sort divide and conquer, and an ordered set, and I would have hedged across them. Reading the solution resolved that to fenwick-tree plus coordinate-compression specifically, and removed the hedge labels. It also confirmed that sliding-window and two-pointers must stay off, which the negative values already implied but which I would have been tempted by given the family of at-most-goal subarray problems this resembles.",
+      "invented_labels": [],
+      "notes": "Deliberately not labelled: sliding-window and two-pointers (negative values break monotonicity of prefix sums; this is the trap the problem is built on), binary-search (lower_bound is only the index lookup for coordinate compression - scaffolding, already covered by coordinate-compression), sorting (same, scaffolding), inclusion-exclusion (the complement count is a single subtraction, not an inclusion-exclusion argument), order-statistics and inversion-count (both defensible at about 0.4 as the pair-counting-by-rank shape, but I kept precision and left them off), offline-queries (there are no queries). The k equals zero edge case is handled implicitly: the query range becomes empty, so every subarray counts."
+    }
+  ]
+}
