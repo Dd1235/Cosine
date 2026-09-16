@@ -18,6 +18,7 @@ const { createUserStateRouter } = require("./routes/user_state");
 const { createProfileRouter } = require("./routes/profile");
 const { createStatsRouter } = require("./routes/stats");
 const { createTrackRouter } = require("./routes/track");
+const { createHealthRouter } = require("./routes/health");
 const { attachUser } = require("./auth/middleware");
 const secrets = require("./crypto/secrets");
 
@@ -81,6 +82,11 @@ async function main() {
   // Render terminates TLS at its proxy; trust it so req.hostname/req.protocol
   // reflect the real client request.
   app.set("trust proxy", 1);
+
+  // Liveness for the keep-alive pinger and Render's health check. Mounted
+  // before cookieParser and the visitor middleware on purpose: a ten-minute
+  // cron on "/" would count as ~144 visits a day and mint a cookie each time.
+  app.use(createHealthRouter({ problems, bootStart: BOOT_START }));
 
   // One canonical host, so a session started on www isn't invisible on the
   // apex (cookies are host-only). Only redirects *within* the canonical
