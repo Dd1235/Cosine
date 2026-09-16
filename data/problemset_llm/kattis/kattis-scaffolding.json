@@ -1,0 +1,37 @@
+{
+ "id": "kattis-scaffolding",
+ "title": "Scaffolding",
+ "slug": "scaffolding",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/scaffolding",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "A worker must place a required number of horizontal bamboos in each of the columns of a vertical grid, building from the ground upward. In one round he carries at most M bamboos, starts at ground level, and may only move left, right or up, onto bamboos already there or ones he places, never descending while loaded. The task is the fewest rounds.",
+ "tags": [],
+ "patterns": [
+  "cartesian-tree",
+  "monotonic-stack",
+  "tree-dp",
+  "dynamic-programming"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "cartesian-tree": 0.9,
+   "monotonic-stack": 0.9,
+   "tree-dp": 0.9,
+   "dynamic-programming": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.1,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

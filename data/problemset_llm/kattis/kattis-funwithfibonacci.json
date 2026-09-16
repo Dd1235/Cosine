@@ -1,0 +1,41 @@
+{
+ "id": "kattis-funwithfibonacci",
+ "title": "Fun with Fibonacci",
+ "slug": "funwithfibonacci",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/funwithfibonacci",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "Nesting the Fibonacci function k times starting from n gives a value the task must report modulo p, for up to a hundred thousand independent queries. Both n and k reach a quintillion while the modulus p stays at or below one million, so the nested value is astronomically large and only its residue can ever be formed.",
+ "tags": [],
+ "patterns": [
+  "number-theory",
+  "modular-arithmetic",
+  "cycle-detection",
+  "functional-graph",
+  "matrix-exponentiation",
+  "prime-factorization"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "number-theory": 0.9,
+   "modular-arithmetic": 0.9,
+   "cycle-detection": 0.9,
+   "functional-graph": 0.9,
+   "matrix-exponentiation": 0.9,
+   "prime-factorization": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.8,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

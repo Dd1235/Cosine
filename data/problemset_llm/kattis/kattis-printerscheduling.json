@@ -1,0 +1,39 @@
+{
+ "id": "kattis-printerscheduling",
+ "title": "Printer Scheduling",
+ "slug": "printerscheduling",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/printerscheduling",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "Up to 200 files, each with a page count, a release time and a deadline, must be printed on m identical printers; printing may be interrupted and resumed on any printer, but a file may occupy only one printer at a time and each printer prints one page at a time. The task is to decide feasibility and, when feasible, emit an explicit schedule.",
+ "tags": [],
+ "patterns": [
+  "max-flow",
+  "graph-modeling",
+  "coordinate-compression",
+  "constructive-algorithm",
+  "dinic"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "max-flow": 0.9,
+   "graph-modeling": 0.9,
+   "coordinate-compression": 0.9,
+   "constructive-algorithm": 0.9,
+   "dinic": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.6,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

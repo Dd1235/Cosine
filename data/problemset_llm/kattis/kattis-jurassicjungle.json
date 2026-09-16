@@ -1,0 +1,31 @@
+{
+ "id": "kattis-jurassicjungle",
+ "title": "Jurassic Jungle",
+ "slug": "jurassicjungle",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/jurassicjungle",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "Given a number of homes N and a required number of roads M, the task builds a simple undirected graph with exactly M edges so that from every vertex any walk that repeatedly steps to an arbitrary not yet visited neighbour, until it is stuck, has by then visited every vertex and can step straight back to its start. N is at most thirty; impossibility must be reported.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

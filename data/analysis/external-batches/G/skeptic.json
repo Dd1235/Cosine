@@ -1,0 +1,278 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-16",
+ "batch": "G",
+ "reviews": [
+  {
+   "id": "kattis-arrangingwine",
+   "status": "approved",
+   "keep": [
+    "combinatorics",
+    "inclusion-exclusion",
+    "stars-and-bars",
+    "modular-arithmetic"
+   ],
+   "drop": [
+    {
+     "label": "modular-inverse",
+     "why": "Inverse factorials mod 1e9+7 are boilerplate for any binomial precomputation, not a technique this problem exercises. Corpus precedent is unambiguous: 0 of the 48 records carrying combinatorics+modular-arithmetic also carry modular-inverse, and the 8 that do use it are expected-value/Gaussian-elimination problems where computing an inverse is the point."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "c66a5dc11fe29abaadd1064ea60e0bd941e5b3e9009d056866158756d182f1bc",
+   "review_rationale": "I re-derived the closed form independently and enumerated every valid line for R,W in 1..8 and d in 1..R against sum_j (-1)^j C(W+1,j) C(R-j(d+1)+W,W): zero mismatches, and both samples (3 and 6) reproduce. The collapse of the three binomial series into (1+x+...+x^d)^(W+1) is the real content and the inclusion-exclusion over the d-cap is genuinely load-bearing, as is stars-and-bars for the unbounded white compositions. O(R+W) factorial tables at 2*10^6 are comfortable.",
+   "issues": [
+    "statement_summary writes the modulus as caret notation ('10^9+7') where the other eleven summaries in this batch spell magnitudes out ('one million', 'ten million'); only 3 of 71 prior A-F summaries do this, so it is a style outlier rather than a rule violation.",
+    "The proposal notes the vocabulary has no generating-function slug; that idea survives only in the tags, which is a genuine recall gap for a searcher looking for 'generating function'."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-barcode",
+   "status": "approved",
+   "keep": [
+    "lucas-theorem",
+    "combinatorics",
+    "inclusion-exclusion",
+    "modular-arithmetic"
+   ],
+   "drop": [
+    {
+     "label": "dynamic-programming",
+     "why": "The no-two-adjacent count is a two-term rolling Fibonacci iteration with no state design or transition choice. A searcher for dynamic-programming gains nothing here, and the solver already flags the claim as weak at 0.5."
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "5d392c0458eba6266789b79455e089113f857c5fdce2390b887589d58e1c9e10",
+   "review_rationale": "lucas-theorem is forced and I confirmed it from the constraints directly: M is any prime with 1 < M <= 10^7 while N runs to 10^6, so M can be far below N (M=2 with N=10^6 is legal) and factorial tables mod M are then useless for C(N,N/2). I independently enumerated all 2^N strings for N=1..16 against the formula C(N,N/2)+F(N+2)-(N/2+1) for even N, F(N+2) for odd: zero mismatches, and all six sample answers (2,3,5,13,34,89 mod 997) reproduce. The 'both conditions' term C(N/2+1,N/2)=N/2+1 is the inclusion-exclusion overlap and is easy to get wrong, which justifies that label.",
+   "issues": [
+    "The stated 'O(N + M) per dataset, O(M) space' is conservative rather than wrong: Lucas only ever needs factorials up to min(M,N), which is at most 10^6, because when M > N the value C(N,N/2) has a single base-M digit. The honest bound is O(N + min(M,N)) time and space, ~4*10^7 over 20 datasets instead of the 2*10^8 / 40MB the claim implies."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-cuchitunnels",
+   "status": "approved",
+   "keep": [
+    "greedy",
+    "prefix-sum"
+   ],
+   "drop": [
+    {
+     "label": "constructive-algorithm",
+     "why": "The output is a YES/NO decision; no network is ever built or printed. constructive-algorithm is the corpus's label for problems that must exhibit an object, and at 0.55 it is below the bar anyway."
+    }
+   ],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "aeb8f067bb69521f3b1e62efbfd84d9d42fe3b361ce1e927d2e884838fd02808",
+   "review_rationale": "I wrote my own enumeration of every parent array with parent<child for N=2..7, collected the achievable degree tuples, and compared against the criterion over the whole cube [1,N-1]^N: zero mismatches at every N (achievable counts 1,2,5,14,42,132). Both samples reproduce (the N=4 all-threes case fails the handshake sum, the N=8 case passes every prefix). prefix-sum is the algorithm itself - S_i = sum c_j - (i-1) is the free-slot count - and greedy carries the realisability argument that room i+1 may attach to any earlier room with a slot free. Not binary-search-answer and not tree-dp, as the solver says.",
+   "issues": [
+    "Two labels is thin, but I could not find a third that is honest: the vocabulary has no slug for degree-sequence realisability or the ballot/Catalan prefix condition that actually governs this problem."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-droppingball",
+   "status": "approved",
+   "keep": [
+    "sqrt-decomposition",
+    "simulation",
+    "grid-traversal"
+   ],
+   "drop": [
+    {
+     "label": "segment-tree",
+     "why": "The proposal itself says a segment tree over rows works but its O(N log M) update is worse than sqrt in exactly the tall regime that makes the problem hard, so it is an alternative the shipped solution rejects. At 0.45 it is also the lowest confidence in the batch."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "a6bf72eeb56b151ac86868749a358b6926299fda904305bc95a08ef80dd7fe38",
+   "review_rationale": "The wall physics is genuinely not in the statement - the text defers to two figures ('the ball will exit the board from the right edge:') that are absent from source_text, so no reading can be derived from the words alone. I hand-simulated the solver's model over all five sample drops and it reproduces -1, 3, 1, 4, -1 exactly, including the last -1 caused by flipping (4,4), a cell off the pre-flip path. The model is also geometrically self-consistent rather than arbitrary: a '\\' in (i,j) and a '/' in (i,j+1) share a bottom corner and form a V, and the ball otherwise drops through that corner into (i+1,j+1), which makes every step advance exactly one row and bounds a naive drop at O(M). The labels survive either reading, because they describe the query structure (per-row-block entry-column to exit-column maps under point updates), not the physics.",
+   "issues": [
+    "The 'solved' claim is the weakest in the batch. Five sample answers are thin evidence for a transition rule with several free choices, and the solver concedes one case - a '/\\' apex, where the ball arrives at a peak - that no sample distinguishes and that it resolves by fiat ('keeping the ball's momentum'). Correctness on the real judge is unproven.",
+    "Complexity does check out under the inferred model: MN <= 10^5 so a direct drop is O(M) <= O(sqrt(MN)) when M <= N, and blocks of B = sqrt(M/N) rows give O(sqrt(MN)) ~ 316 for both drop and flip, about 3*10^7 over 10^5 queries, with O(MN) space."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-engaging",
+   "status": "approved",
+   "keep": [
+    "hungarian-algorithm",
+    "bipartite-matching"
+   ],
+   "drop": [
+    {
+     "label": "min-cost-flow",
+     "why": "An equivalent route the shipped solution does not take - the proposal names it as 'the equivalent alternative' in the same breath. Corpus precedent is clean: none of the 9 hungarian-algorithm records carries min-cost-flow and none of the 3 min-cost-flow records carries hungarian-algorithm. Keeping it would also mislead on cost, since 1000 Dijkstra augmentations over a 10^6-edge graph is far slower than the O(n^3) that is actually shipped."
+    },
+    {
+     "label": "bipartite-graph",
+     "why": "Redundant scaffolding under bipartite-matching, and off-pattern for this corpus: all 11 bipartite-graph records are 2-colourability / graph-colouring / conflict-detection problems, and not one of them is a matching problem."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "a20defb1d3e0f5a1f14568861d4b8c4f20bb4eb05a5c14f820feb2928da53cba",
+   "review_rationale": "The reduction is right and the padding argument holds: unlisted pairs are worth zero, all real weights are positive (1 <= p <= 30000), so padding to a square with zeros and dropping the zero-weight pairs from the printed assignment never loses value. The sample (11, customer 1 -> gift 2 and customer 2 -> gift 3) reproduces. hungarian-algorithm is the load-bearing claim and bipartite-matching is the honest umbrella a searcher would want.",
+   "issues": [
+    "This is the tightest complexity claim in the batch. O(min(n,m)*max(n,m)^2) at n=m=1000 is 10^9 elementary operations; a tight Jonker-Volgenant or e-maxx implementation lands around 1-2s in C++, so it passes, but only because it is the intended bound and nothing asymptotically better exists for dense assignment. There is no headroom for a sloppy implementation."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-famouspagoda",
+   "status": "approved",
+   "keep": [
+    "dynamic-programming",
+    "partition-dp",
+    "divide-and-conquer-dp",
+    "prefix-sum"
+   ],
+   "drop": [
+    {
+     "label": "knuth-optimization",
+     "why": "Not what ships. The proposal's own stated complexity, O(G*N log N), is the divide-and-conquer-optimisation signature; Knuth's monotone-opt would give O(G*N) or O(N^2) and applies to the dp[i][j] interval shape, not this layered partition. It is named parenthetically as an alternative and sits at 0.5."
+    },
+    {
+     "label": "dp-optimization",
+     "why": "A pure umbrella once divide-and-conquer-dp is present. None of the corpus's 6 divide-and-conquer-dp records carries it, and the near-identical leetcode-allocate-mailboxes (partition a sorted array into k segments, cost = sum of absolute deviations from the median) is labelled exactly partition-dp + divide-and-conquer-dp + prefix-sum + dynamic-programming."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "7f3f2d7fa81ff229d192079b5fa816df8cef54c8da5c1effdb251337a17eea3e",
+   "review_rationale": "I re-implemented both the plain O(G*N^2) layered DP and the divide-and-conquer-optimised version from scratch and checked the quadrangle inequality directly over all i<=p<=q<=j on 300 random sorted arrays for k=1 and k=2: zero QI violations and zero DP mismatches, so the QI genuinely survives the restriction of v to the integers, which was the one thing worth doubting. All three samples reproduce (6, 10, 3). The plain DP would be 8*10^9 at N=G=2000 so the optimisation is forced, and prefix sums of a and a^2 are what make cost(i,j) O(1).",
+   "issues": [
+    "Values are safe in 64-bit: sum a^2 tops out near 2*10^15 at N=2000, a_i <= 10^6."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-gameofdivisibility",
+   "status": "approved",
+   "keep": [
+    "game-theory",
+    "modular-arithmetic",
+    "parity-argument"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "0a573b42fad2bad0e4790d3a379f6dbdaefbe09c14ef749f5323b02137d03e82",
+   "review_rationale": "I verified the mirroring argument with my own from-scratch minimax rather than trusting the proposal's checker: over every residue multiset for k=2..6 and n=1..8 (4990 multisets) the O(k) closed-form rule matches exhaustive game-tree search with zero mismatches, and the structural claim that SECOND is impossible for even n holds across every even-n multiset I enumerated. On the small case the task named - k=4, [4,4,2], residues [0,0,2] - the mirroring pins base0 to 0 and forces Viet to base0+2 = 2, leaving Nam 0, so SECOND, which is the sample answer. parity-argument is load-bearing rather than decorative: the entire rule turns on z, the number of residues of odd multiplicity, and on the parity of n deciding who does the mirroring.",
+   "issues": [
+    "a_i is bounded by 2^31 inclusive, which overflows a signed 32-bit read at the boundary; only residues matter so it is harmless once read as 64-bit, but it is a real input trap.",
+    "I agree with the proposal's refusal of game-dp: the exponential DP exists only inside the checker, the shipped rule is a closed form over residue counts."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-heightpreservation",
+   "status": "approved",
+   "keep": [
+    "union-find",
+    "topological-sort",
+    "dp-on-dag",
+    "graph-modeling",
+    "sorting"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "517441a69d45790bca3a6c0dd5cdfb4a53ee7e45c2344e14c663d78dc9e877b8",
+   "review_rationale": "Ruling on dp-on-dag: it stays. The corpus rule asks whether the DAG is one the problem gives you rather than the DP's own state graph, and here the DAG is the precedence relation the statement itself writes down ('S_ij > S_ik if H_ij > H_ik'), contracted over the equalities. It exists before any DP is contemplated, the answer literally is its longest chain by Mirsky's theorem, and the DP is a longest-path pass over it - which is what dp-on-dag means, not a violation of it. The failure mode the rule guards against is a knapsack or grid DP whose only DAG is the memo table; that is not this. Direct precedent settles it: leetcode-maximum-strictly-increasing-cells-in-a-matrix, whose DAG is grid cells edged to strictly greater cells in the same row or column - the same construction - carries dp-on-dag + topological-sort, as does leetcode-longest-increasing-path-in-a-matrix. I also rebuilt the union-find + edge-contraction + longest-path pipeline myself and matched exhaustive level-assignment search on 400 random grids up to 3x3 with zero mismatches; the sample gives 3.",
+   "issues": [
+    "sorting is more than scaffolding here: sorting each row and column is what keeps the edge count at O(mn) instead of O(mn^2), so it earns its place.",
+    "Constraints are always satisfiable (the global rank of H is a witness), so the cycle case the topological pass guards against cannot arise; that is a correct but unexercised branch, not a defect."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-icpcawards",
+   "status": "approved",
+   "keep": [
+    "simulation",
+    "hash-map"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "4bb21e99b80d0ed49b5a3d604947c7b699f9901a018de30a0809bf62c86da1b4",
+   "review_rationale": "A single scan with a seen-university set, N <= 200, at least twelve distinct universities guaranteed so the twelve always exist, and winners printed in scoreboard order - which I confirmed against the tail of the statement ('The winners should be listed in the same order as the input') and the 30-team sample. Both labels are the honest minimum: hash-map is the set of represented universities and simulation is this corpus's catch-all for carrying out a stated procedure, with direct precedent in atcoder-abc073-c and cses-1742, which are the same shape. I agree with the proposal's refusal of greedy: nothing is optimised, the selection is forced because only a university's top team is eligible and ranks arrive in order.",
+   "issues": [
+    "The 4/4/4 prize tiers are flavour and never affect the output; a solver who tries to print prize names would be over-implementing."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-joiningnetwork",
+   "status": "approved",
+   "keep": [
+    "rerooting-dp",
+    "tree-dp",
+    "convex-hull-trick"
+   ],
+   "drop": [
+    {
+     "label": "sorting",
+     "why": "Scaffolding for building the hull and ordering the queries by t, not a technique the problem is about. At 0.5 it is below the bar and a searcher for sorting would land on a rerooting-DP-plus-hull problem with nothing to learn."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "ea489d6687b6baf79dd5b4fdf2c493e04a5438d39afba0da1189e50592a513b4",
+   "review_rationale": "Ruling on convex-hull-trick: it is needed. I re-derived the expansion by hand - (dA(u,a)+1+dB(v,b))^2 summed over the N*M cross pairs gives M*S2A(a) + 2M*S1A(a) + N*S2B(b) + 2N*S1B(b) + 2*S1A(a)*S1B(b) + N*M - and checked it end to end on sample 1, where intA=6, intB=15 and cross(a=2,b=1)=75 sum to exactly 96. The product term 2*S1A(a)*S1B(b) is the only thing coupling the trees, and it turns the inner minimisation into 'evaluate N lines with slope S1A(a) and intercept M*S2A(a) at t = 2M + 2*S1B(b) > 0', which is precisely the hull query. The double loop is N*M = 2.5*10^9 at the stated limits, so nothing cheaper separates the trees. rerooting-dp and tree-dp both earn their place - two rerooting passes give S1 and S2 at every vertex - and they co-occur in 11 of the corpus's 14 rerooting records.",
+   "issues": [
+    "Real 64-bit overflow hazard the verify script cannot see. At N=M=50000 with both trees paths, S1 reaches ~1.25*10^9 and M*S2A reaches ~2.1*10^18, so the standard hull 'bad line' cross-multiplication (c3-c1)*(m1-m2) vs (c2-c1)*(m1-m3) reaches ~2.6*10^27 and overflows signed 64-bit. An implementation needs __int128 or a division/long-double comparison. The script only tests N,M <= 7, so it would never surface this.",
+    "The worst-case cross(a,b) plus internal costs reaches roughly 8*10^18 - inside signed 64-bit but with only about ten percent headroom, and that value is computed even though it is never the minimum."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-krotating",
+   "status": "approved",
+   "keep": [
+    "sqrt-decomposition",
+    "hash-map"
+   ],
+   "drop": [
+    {
+     "label": "simulation",
+     "why": "Actively misleading. The entire point of the problem is to avoid replaying weeks; a solver who simulates is the one who fails. At 0.4 it is the lowest-confidence label in the batch and the proposal gives it no defence."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "c10ff78b2d93ca48fdbf2e29e063ca7d96882ac332582ed5517a0c9cc84957c2",
+   "review_rationale": "I checked the permutation semantics by hand against sample 1 and the sample-2 clarification table: rotating (3,2) at week 2 sends teacher 3 to class 2 and teacher 2 to class 3, matching the table, and the solver's rho with new_pos(t) = old_pos(rho(t)) reproduces it, as do all four answers 3,2,3,1. The newest-week-first composition order is the subtle part and the proposal identifies it correctly. The sqrt bookkeeping checks out arithmetically: with B = sqrt(M/K) week-blocks, a query costs O(B + M/B) and a rebuild O(B*K), both O(sqrt(M*K)) ~ 1000, so about 10^8 over 10^5 operations. hash-map is load-bearing rather than incidental - the per-block maps must be sparse, since dense permutation arrays per block would cost (M/B)*N ~ 3*10^7 entries.",
+   "issues": [
+    "The proposal's tag 'offline-structure' is wrong: queries must be answered as they arrive and each sees only the plans issued before it, so this is strictly online. Tags are outside my remit but it will mislead.",
+    "About 10^8 operations at the limits is workable but not generous; the constant on the per-block sparse lookups matters."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-landinheritance",
+   "status": "approved",
+   "keep": [
+    "geometry",
+    "polygon-area"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "b418478009a79d824eb00a88967f5d54187952ceca3c28a82e37dd4dec56a17f",
+   "review_rationale": "I attacked the modelling claim independently rather than reading their clipper. Alob's field F must satisfy F subset of A and mirror(F) subset of B, so the optimum is exactly area(A intersect mirror(B)), and the two sides agree because mirroring is an involution. I then computed that area by my own point-in-polygon Monte Carlo, with my own reflection across the canal, and got 0.0000, 9.4847 and 7.9782 against the three sample answers 0, 9.476048311178 and 8 - agreement within Monte Carlo noise and entirely independent of the proposal's code. The signed-triangle fan is what makes non-convex and disconnected pieces fall out without a polygon-boolean library, and O(N^2) clips at N <= 100 is trivial. Both labels are honest; neither is scaffolding.",
+   "issues": [
+    "Two labels is thin for a 'hard' geometry problem, but the vocabulary genuinely has no slug for half-plane clipping, polygon boolean area, or reflection across a line, so I could not add anything canonical without inventing coverage."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "All 12 verify scripts run clean and fast (rc=0, every one under 4s); no verify-run.txt existed in the batch directory when I started, so I ran the full set myself. I did not take the solver's checkers at face value: I re-implemented from scratch and independently confirmed gameofdivisibility (own minimax vs the O(k) rule over 4990 residue multisets, k=2..6, n=1..8, zero mismatches, plus the 'SECOND impossible for even n' claim), cuchitunnels (own enumeration of increasing-labelled trees, N=2..7, exact agreement), famouspagoda (own full DP vs own D&C-opt plus a direct quadrangle-inequality sweep, confirming QI survives integer v), heightpreservation (own pipeline vs exhaustive level assignment, 400 grids), arrangingwine (own enumeration of valid lines, R,W<=8), barcode (own enumeration of all 2^N strings, N<=16) and landinheritance (own point-in-polygon Monte Carlo of area(A cap mirror(B))). All 12 source_text_sha256 values match the staging files. Systematic finding: the batch's one recurring flaw is labelling routes the solution explicitly rejects - min-cost-flow on engaging, knuth-optimization on famouspagoda, segment-tree on droppingball - each named in the proposal's own prose as the alternative that is slower or unshipped. All three are dropped, together with four scaffolding or misleading labels (modular-inverse, dynamic-programming on barcode, constructive-algorithm, sorting, simulation on krotating, bipartite-graph, dp-optimization): 10 drops, 0 adds, 0 rejections. dp-on-dag on heightpreservation survives the strict reading and I judged convex-hull-trick on joiningnetwork genuinely forced. Two correctness risks the verify scripts structurally cannot catch, because they only exercise tiny inputs: signed-64-bit overflow in joiningnetwork's hull comparison (~2.6*10^27 at full size) and the fact that droppingball's wall physics is inferred from five sample answers rather than stated - the statement defers to figures that are absent from source_text - which makes it the one 'solved' claim in the batch I would not call established, though its labels are robust to any reading. Two vocabulary gaps worth recording for recall: no slug for generating functions (arrangingwine) and none for polygon clipping / boolean area (landinheritance). All 12 summaries are 59-70 words with no examples, markup or bracket notation; arrangingwine's '10^9+7' is a style outlier against the other eleven but not a violation."
+}

@@ -1,0 +1,35 @@
+{
+ "id": "kattis-droppingball",
+ "title": "Dropping Ball",
+ "slug": "droppingball",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/droppingball",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A board of M rows and N columns holds one diagonal wall per cell, slanting either way. A ball dropped at the top of a column slides along the walls and either leaves sideways, jams between two walls, or reaches the bottom. Queries flip one wall or drop a ball, reporting its bottom exit column or minus one. Cell count and query count are each at most 100000.",
+ "tags": [],
+ "patterns": [
+  "sqrt-decomposition",
+  "simulation",
+  "grid-traversal"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "sqrt-decomposition": 0.9,
+   "simulation": 0.9,
+   "grid-traversal": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.1,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

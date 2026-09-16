@@ -1,0 +1,35 @@
+{
+ "id": "kattis-kingdomofkittens",
+ "title": "Kingdom of Kittens",
+ "slug": "kingdomofkittens",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/kingdomofkittens",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "Given up to a hundred thousand integer lattice points, possibly repeated, the question is whether some triangle of positive area has every one of those points lying on its three sides, vertices included; the triangle's own corners need not be lattice points. Many such test cases arrive in one file, with half a million points in total, and each needs a yes or no answer.",
+ "tags": [],
+ "patterns": [
+  "convex-hull",
+  "geometry",
+  "orientation-test"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "convex-hull": 0.9,
+   "geometry": 0.9,
+   "orientation-test": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 9.2,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

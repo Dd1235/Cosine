@@ -1,0 +1,300 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-16",
+ "batch": "I",
+ "reviews": [
+  {
+   "id": "kattis-colourful",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm",
+    "bfs"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "At 0.55 and there is no optimum to be greedy about - any witness under 20000 steps is accepted, so 'locally optimal choice' has no meaning here. The repair loop is the constructive strategy itself, already carried by constructive-algorithm."
+    },
+    {
+     "label": "dfs",
+     "why": "At 0.4 and pure scaffolding: DFS only supplies a leaf-peeling order on the spanning tree, and repeatedly removing any leaf would do. A searcher for dfs would land on a problem whose difficulty is the simultaneity of the recolouring step, not a traversal."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "f7a7d3a25c47398d8d9b216fd172b98cc92663c676bb7e6ca7951f24b6171344",
+   "review_rationale": "The feasibility criterion is right and the proposal identifies the real trap - the update is simultaneous, so a 3-cycle of colours is reachable in one step while any one-vertex-at-a-time argument would call it Impossible - and it was checked exhaustively over every connected graph on 2..4 vertices with k<=3 against every (s,t) pair, which is the correct shape of evidence for a reachability claim. Sample 2 (n=1, s!=t) is the Impossible branch. The cost model fits: O(n^3) at n<=100 is nothing, and the output is at most 20001 lines of 100 integers. The step budget is the only limit at risk and it is tight rather than comfortable.",
+   "issues": [
+    "Step budget has no proof, only measurement: phase A is bounded by n units of deficit times a shortest path (<=9900) and phase B by adjacent swaps along tree paths (<=9900), summing to ~19800 against a hard 20000. The worst observed was 3614, and the two phases plausibly cannot both peak (a large deficit implies surplus is everywhere, so repair paths are short), but nothing rules it out.",
+    "tags contains 'simulation' while the notes explicitly argue the problem is not simulation ('nothing is simulated forward, the sequence is constructed'). tags are indexed, so this contradicts the write-up - remove it."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-doors",
+   "status": "needs_work",
+   "keep": [
+    "geometry"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "deeb9bff7e8a18fdb5376c9ac37d6c954a3a72ec288b28c50613ece4b0965076",
+   "review_rationale": "The closed form reproduces all four sample answers exactly (3*sin(1.0472)=2.598079885, l/2=3, (w-l)/2=1, and 0 for the closed door) and O(1) per scenario against T <= 10^4 is trivially inside the limit, so neither samples nor complexity are the problem. Two of the three terms are pinned by the text rather than the missing figure: A=0 giving 0 and A=pi giving l/2 force the ceiling gap to be exactly l with door A hinged at one edge, and 'l <= w so that door B will never hit the opposite side of the wall' confirms door B is hinged on a corridor wall with tip height l*sin B, gap w - l*sin B. What is not pinned is the separation of the two doors, and I verified the risk is real rather than theoretical: the verify script hard-codes door B at x=20 and computes clearances from the same reconstructed layout it is testing, so its grid search is circular and cannot detect a missing door-A-to-door-B term.",
+   "issues": [
+    "status 'solved' overstates a solution the proposer rates 0.55 and explicitly calls a reconstruction; the bounded fix is to fetch the figure from the Kattis problem page and confirm door B's x-offset, after which this is either approved as-is or gains one clearance term.",
+    "The verify script's grid check is not independent - clearance() is built from the reconstructed layout, so formula-vs-grid agreement proves only self-consistency. Its agreement is also only to 0.06 at grid step 0.1.",
+    "The proposal's note says the verify script 'takes a few minutes'; it runs in 3.1s, matching verify-run.txt. Stale note.",
+    "Labels are safe either way - it is plane geometry under both layouts - but one label is thin. I found no honest second: binary-search-answer is correctly refused (the route taken is closed form, and T=10^4 wants O(1)), and adding it would be the batch-G flaw."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-peaktower",
+   "status": "approved",
+   "keep": [
+    "geometry",
+    "rectangle-union-area",
+    "line-sweep",
+    "coordinate-compression"
+   ],
+   "drop": [
+    {
+     "label": "sorting",
+     "why": "At 0.5 and bookkeeping: event times and strip coordinates are sorted, which is true of every sweep problem. line-sweep and coordinate-compression already carry the technique."
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "b2a60648e1b2d58a6b4ec10abbe58a8f1fbb092f400e7799fbcc3197b5980f00",
+   "review_rationale": "I checked the piecewise-quadratic claim rather than taking it: within an interval where no two of the 2N+2 x-coordinates and no two y-coordinates swap, each strip's active set and the merge pattern of its y-intervals are frozen, so strip width and covered y-length are each linear in t and the union area is one quadratic - and crucially the clip lines 0, W, 0, H are included among the coordinates, so an object drifting off the scene is itself an event rather than a discontinuity. Sample 2's answer 300 at t=5.75 (the small rectangle swallowed by the large one) is the case that would break a sampler. The explicit refusal of ternary-search is correct and important: the area is genuinely not unimodal in t. Space is O(N^2) event times, trivial.",
+   "issues": [
+    "'O(N^4)' understates the constant. The event count is C(2N+2,2) over two axes, so ~10^4 intervals at N=50, and each needs three union-area evaluations of ~5*10^3 operations even with a pre-sorted merge - roughly 2*10^8 elementary operations. Fine in C++, but it is not the 6*10^6 that N^4 suggests, and a per-strip resort would multiply it again.",
+    "The verify script only ever builds 1 to 6 objects, so nothing in this batch exercises N=50; the runtime claim is unmeasured.",
+    "Fitting the quadratic from three samples is ill-conditioned on very short intervals; harmless here only because f is Lipschitz in t, so the missed vertex costs O(interval length) and stays far inside the 1e-6 relative tolerance.",
+    "tags contains 'simulation' - nothing is simulated forward, the minimum is located analytically. Also 'sweep-line' in tags where the vocabulary spells it line-sweep."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-peaktram",
+   "status": "approved",
+   "keep": [
+    "dynamic-programming",
+    "coordinate-compression"
+   ],
+   "drop": [
+    {
+     "label": "longest-increasing-subsequence",
+     "why": "At 0.45, and the proposal itself concedes the point: 'the cost structure, not the length, is the problem'. The visible set happens to be an increasing subsequence but no LIS algorithm is run and no LIS quantity is computed, so a searcher for LIS would land on a problem that teaches nothing about LIS. Route named, not taken."
+    },
+    {
+     "label": "prefix-sum",
+     "why": "At 0.4 and it is a prefix MINIMUM over the running-maximum axis, not a prefix sum; nothing is summed. It is an inner-loop speedup of the visible transition, below the level a label should record."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "1fa829dab3bf9a2a396bec3661d625eec902e962bee5ba05192b8b1a17eeff69",
+   "review_rationale": "I verified the sample by hand: heights 5,6,4,9,6 cost 0+6+0+0+0=6 with buildings 1, 2 and 4 visible, matching the stated answer of 6. The state (running maximum, number visible so far) is the right summary of a prefix, and the proposal caught the actual trap with a brute force rather than by assertion - P=[4,4,1,1], C=[1,3,4,4], k=2 costs 1 only by LOWERING building 1 below its preferred height, which kills the natural h_i=max(p_i,H+1) greedy DP and forces candidate heights p_j+d with d of both signs. Limits fit: n<=70 gives O(n^2) candidate heights, O(n^4)=2.4e7 states with O(1) transitions via the prefix minimum, and O(n^3) memory rolled to two layers is a few megabytes. Costs reach 70*1e9*1000, so the accumulator must be 64-bit.",
+   "issues": [
+    "The candidate set {p_j + d : |d| <= n} is the load-bearing claim and it is only validated against brute force at n<=5, where |d|<=n is barely exercised. A targeted case with a long chain of forced shifts would be worth more than 300 more random n<=5 cases.",
+    "Two labels survive, which is thin for a 7.1; I looked for a third and rejected dp-optimization (a prefix minimum is not what that term retrieves) rather than pad the list."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-perfecttree",
+   "status": "approved",
+   "keep": [
+    "tree-dp",
+    "dynamic-programming",
+    "rerooting-dp",
+    "combinatorics",
+    "counting",
+    "modular-arithmetic"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "8536c8ad826c8a5b431199ed61f5e6f190e856bde5416067f850b6b1ce36ecd4",
+   "review_rationale": "The counting argument is airtight and I checked the part that decides it: in a perfect k-ary tree with k>=2 the root has degree k, internal nodes k+1 and leaves 1, so with k>=2 the root is the unique degree-k vertex and counting at the root double-counts nothing; height 0 is the separate N singletons. The sample verifies exactly - 4 singletons plus e_2 at each of the two internal vertices of the 4-path gives 6. Limits are comfortable: heights stop at log_k N <= 17, the per-edge exclude-one elementary symmetric polynomial is done with prefix/suffix products for O(N k log_k N) ~ 3*10^6 at N=1e5, k=2, and O(Nk) space with rolled layers. The performance trap the proposal names is the real one: a star makes the naive exclude-one recomputation O(deg^2), and division is unavailable because a child value can be 0 mod p, so prefix/suffix is not optional.",
+   "issues": [
+    "rerooting-dp is the one debatable keep. The DP is indexed by directed edge from the start rather than rooted-then-rerooted, so it is not the two-pass idiom - but exclude-one-neighbour aggregation over every directed edge is the thing rerooting searchers are looking for, so I kept it rather than drop a genuinely useful retrieval term.",
+    "modular-arithmetic survives on a real argument rather than as scaffolding: the impossibility of dividing by a zero residue is what forces the prefix/suffix construction."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-playingwithnumbers",
+   "status": "approved",
+   "keep": [
+    "gcd",
+    "number-theory",
+    "sorting"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "Nothing is chosen greedily. The m>=3 and m=1 cases are closed forms and the m=2 case is an exhaustive sweep over every a-threshold plus every singleton split; there is no locally-optimal choice being defended, and the problem is not solved by a greedy rule."
+    },
+    {
+     "label": "exchange-argument",
+     "why": "The proposal's own notes say the two-level block family was established by 'a brute force over all trees', not by an exchange argument - and the first model was in fact killed by that brute force. Naming a proof technique the write-up did not use is exactly the batch-G failure; a searcher for exchange-argument would find no exchange here."
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "64da9962e231adee94bceeb52ffe551df56f74a59d2803300abeddae6565c4f2",
+   "review_rationale": "Checked the model against the sample by hand: with numbers (0,0),(1,2),(2,0) the three scenarios give (2,2)/(2,2), (1,2)/(0,0), (0,0)/(0,0), matching. I re-derived the m=2 case independently: writing a=max(min_a over B1, min_a over B2) and b likewise, either both coordinates come from one block (best is a singleton block, covered) or they split, in which case every item with a_i < A is forced into B2 and B = min{b_i : a_i < A} - exactly the sorted a-threshold sweep the proposal describes, so the candidate family is complete. N <= 50000 against O(N log N) time and O(N) space with O(1) per scenario is far inside any limit; exponents <= 1000 mean values must be compared as exponent pairs or big integers, which the proposal states.",
+   "issues": [
+    "Two of five labels are decoration; after the drops the entry is gcd + number-theory + sorting, which is the right shape.",
+    "'sorting' is kept only because the sorted a-order IS the m=2 algorithm, not because a sort is performed somewhere."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-scaffolding",
+   "status": "approved",
+   "keep": [
+    "cartesian-tree",
+    "monotonic-stack",
+    "tree-dp",
+    "dynamic-programming"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "45e7df52712ff0cd0b39dc094e9fe99e5a5377fff319d9ab305ec5351432888e",
+   "review_rationale": "The statement reading is right, which was the thing to check on a 5.1 that only 15 teams solved: 'you cannot go down while carrying' plus 'once you finish placing, you go down' makes height non-decreasing inside a round, so the columns touched at each level form one contiguous interval and, since higher levels' intervals nest inside lower ones, a round is a root-to-node path of the Cartesian tree of H by minimum. I re-checked both samples against f(v)=max(sum of children, ceil(cells(v)/M)): sample 1 gives max(1+1, ceil(8/4))=2 and sample 2 gives max(3, ceil(8/10))=3, and the ceil term alone would wrongly answer 1 on sample 2. O(N) time and space at N <= 1e5 with H_i <= 1e5 is comfortable, and cells(v) must be accumulated as a 64-bit sum (up to 1e10). Re-checked after the rework: the summary now reads 'a required number of horizontal bamboos in each of the columns', carries no subscripts or other markup, and is 63 words, so the one blocker I raised is cleared and this is approved. The bare M for the carrying capacity is consistent with the plain variable names I accepted in the teamup and peaktram summaries, and the source hash and the four patterns are unchanged, so nothing else in my review moves.",
+   "issues": [
+    "RESOLVED: the LaTeX subscripts are gone from statement_summary (63 words, no markup); this was the only thing holding the entry.",
+    "Achievability of the max(...) bound is only checked by BFS on N<=5, H<=4, M<=5 (294 shapes). That is the half of the argument that can be wrong and it has no proof; worth one hand-written larger case where a round must serve a node's own block and a child in the same trip.",
+    "Kattis scores this 5.1 but only 15 teams solved it; I band it hard - the difficulty is entirely in reading the movement rule, not in the O(N) code."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-slimcut",
+   "status": "approved",
+   "keep": [
+    "minimum-spanning-tree",
+    "kruskal",
+    "union-find",
+    "subset-sum",
+    "dynamic-programming"
+   ],
+   "drop": [
+    {
+     "label": "sorting",
+     "why": "At 0.55: the only sort is edges by weight inside Kruskal, which the kruskal label already implies. Not an independent technique here."
+    },
+    {
+     "label": "bit-manipulation",
+     "why": "At 0.6 but it fails the searcher test. What happens is a bitset-accelerated knapsack; someone searching bit-manipulation wants xor/mask/popcount reasoning and would find none. The speedup belongs in the write-up, not in the label set - the vocabulary has no bitset term to promote it to."
+    }
+   ],
+   "add": [
+    {
+     "label": "bounded-knapsack",
+     "why": "The subset sum is over component sizes WITH multiplicities and the proposal explicitly groups equal sizes, which is bounded knapsack rather than plain subset-sum; it is also the step that makes the sweep affordable, so it is part of the route actually taken and a term a searcher would be glad to land on.",
+     "confidence": 0.62
+    }
+   ],
+   "independent_band": "very-hard",
+   "source_text_sha256": "159b1017a48756b1ba34ec458b7b7099bba20a6d67431edeee167fad05535b27",
+   "review_rationale": "I re-derived the characterisation and it holds in both directions: a cut with heaviest crossing edge <= W has no edge of weight > W crossing it, so S is a union of components of the graph restricted to edges of weight > W, and conversely. Restricting candidate thresholds to the n-1 maximum-spanning-tree weights is also safe, since the component structure of the >W subgraph only changes at those weights and any non-tree W rounds down to one of them without increasing w/best(w); every value considered is achievable-or-worse, so the minimum is exact. The sample's 4/3 checks out. I disagree with the proposal's pessimism about the running time: the two costs are in tension, because d distinct component sizes with multiplicity m satisfy m*d^2/2 ~ n, so binary-split shift-ORs per threshold peak around 200 regardless of the split, giving ~3*10^8 word operations over all 14000 thresholds at n=14000 even with no pruning at all.",
+   "issues": [
+    "The worst case the proposal feared - many distinct sizes AND best(W) below floor(n/2) - is hard to build, because many distinct sizes make the attainable subset sums dense and dense sums hit floor(n/2) exactly, which fires the stop rule immediately. An adversary needs all sizes sharing a factor that misses floor(n/2) (e.g. odd n with all-even components), and that forces the distinct-size count down. Worth recording, since it converts an unproven pruning into a bounded argument.",
+    "The 'strict time limit' still means the bitset and the equal-size grouping are mandatory, not optimisations; a plain per-threshold subset sum over components is 10^10-ish and will time out.",
+    "Not added, deliberately: the threshold sweep is the level structure of a Kruskal reconstruction tree over the maximum spanning tree, but the solution never builds one, so labelling kruskal-reconstruction-tree would name a route not taken."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-specialtour",
+   "status": "approved",
+   "keep": [
+    "constructive-algorithm"
+   ],
+   "drop": [
+    {
+     "label": "grid-traversal",
+     "why": "At 0.5, and it fails the searcher test on this corpus's own usage: of the 26 entries that carry grid-traversal, 25 are problems where you search or walk a grid (Labyrinth, Counting Rooms, King Escape, Drunken Maze, Three States, Optimal Path). Nothing is traversed here - the tour is emitted by tiling constant-size gadgets and splicing cycles, and no cell is ever explored. Someone practising grid BFS/DFS would find a 7.5 constructive Hamiltonian-cycle problem, which is a jarring result. The structure (a walk over a grid) is present but the technique is absent, the same shape of error as longest-increasing-subsequence on peaktram."
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "491dec3b4bfc646457e4fb2bf5501c05851274debe9049c75b994893530165fb",
+   "review_rationale": "This is the best-verified proposal in the batch and I could not break it. Both samples pass (the emitted 2x3 tour differs from the statement's but is legal, which the problem allows, and 1x1 is -1 because a tour needs length at least two). I read the script rather than trusting the claims, and the logic is airtight in a way the write-up undersells: impossibility only ever has to be proved for tiny boards, and the 16 claimed-impossible pairs are all at most 9 cells, while every other board is proved possible by producing a tour and validating it cell by cell - so exhaustive DFS and construction between them close the case with no gap. I re-derived the two interesting entries by hand: 1x4 dies because columns 2 and 3 have degree one in the move graph, 1x6 dies because the four degree-two cells force three edges onto column 3, and 1x5 survives as the 5-cycle 1-3-5-2-4. O(NM) time and space is the output size at NM <= 40000, so limits are not in question. I also ran the construction well past what the script covers - all 6384 legal boards up to 80x80 - and every one built and validated, with the no-2x2-block invariant holding throughout (only 15 gadgets are ever used, none of them 2x2).",
+   "issues": [
+    "The script's docstring is stale and contradicts the notes: it says exhaustive DFS on N*M <= 14 plus 1xM to M <= 16, while the code does N*M <= 16, every line to 20 cells, and five extras. The notes are the accurate ones - I ran it and got exactly the 63 small boards and 560 constructed boards they claim, in 1.0s. Same class of stale-note defect as doors, which claimed minutes for a 3s script.",
+    "The solution prose says 'the blocks are side by side so a legal pair of edges always exists', but special_tour does not rely on that - it has a fallback that retries the merge against the block above, and asserts only if both fail. I instrumented it over every board to 60x60: 346270 merges, zero primary failures, so the claim holds empirically and the fallback is untested dead code. Worth saying out loud, because the prose asserts something stronger than the implementation is willing to bet on.",
+    "Boards between 25x25 and 199x199 are only spot-checked by the script (nine of them). The risk is genuinely low because parts() reduces every side to threes plus one final part of 3, 4 or 5, giving only nine structural classes, all of which appear below 24x24 - and my 80x80 sweep found nothing - but the coverage claim should be stated as structural rather than exhaustive.",
+    "One pattern label survives, which is thin for a 7.5. That is a vocabulary gap rather than a labelling failure: there is no canonical term for splicing two disjoint cycles through a pair of nearby edges, nor for tiling a board with constant-size gadgets, and the proposal says so itself. Recall is carried by the tags (construction, grid, manhattan, hamiltonian-cycle) and by the statement text, which is the right place for statement vocabulary.",
+    "Unlike doors, the verification here is genuinely independent: check() recomputes every Manhattan step against the raw definition rather than against the model that produced the tour."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-taboo",
+   "status": "approved",
+   "keep": [
+    "aho-corasick",
+    "trie",
+    "string-matching",
+    "dynamic-programming",
+    "cycle-detection",
+    "lexicographic-order"
+   ],
+   "drop": [
+    {
+     "label": "topological-sort",
+     "why": "At 0.5, and the route was not taken: the proposal computes best[u] with a memoised DFS that detects the cycle on the same pass ('detected by the same DFS'). No topological order is produced, and on the -1 inputs the graph is not even a DAG. This is the batch-G pattern of naming an adjacent route the solution skipped."
+    },
+    {
+     "label": "greedy",
+     "why": "At 0.55 and it duplicates lexicographic-order: the single greedy step is taking '0' whenever it still attains best[u], which is precisely the lex-smallest reconstruction already labelled. A searcher for greedy would not call an Aho-Corasick longest-path problem a greedy problem."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "fd68159603249ab105ec7e8319af5c4f54d00d286411312098216cc3240625fd",
+   "review_rationale": "Both samples check out by hand: with 00, 01, 10, 110, 111 taboo the only good walks give 11, and with 00, 01, 10 the all-ones walk cycles so -1 is right. The reduction is exactly right and the two edge cases the proposal names are the ones that sink naive attempts - terminal-ness must be inherited along suffix links, and with both single characters taboo the answer is the empty string rather than -1, since taboo strings are non-empty so the root is good. Sizes are comfortable: sum of lengths <= 2e5 gives <= 2e5+1 states over a binary alphabet, linear time and space, and the printed answer is bounded by the number of good states. I agree with the refusal of dp-on-dag on the stronger ground the proposal only half-states: the good-state graph is not a DAG at all in the -1 case, which is the whole point of the cycle test.",
+   "issues": [
+    "Label list was the longest in the batch at eight; two were decoration.",
+    "The greedy reconstruction must compare best[] over the '0' branch including the case best=0 (empty answer), where the output is an empty line - easy to print as nothing at all or as -1 by mistake."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-teamup",
+   "status": "approved",
+   "keep": [
+    "tree-dp",
+    "dynamic-programming",
+    "constructive-algorithm"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "g(v)=cnt[v]+min over children g(c) is a bottom-up DP and the proposal's own notes call it 'a bottom-up minimum exact'. The only greedy-looking step, zipping the first g covers of each child, is an arbitrary pairing - any pairing works - so nothing is being optimised locally."
+    },
+    {
+     "label": "sorting",
+     "why": "At 0.45 and pure scaffolding: sets are processed in decreasing size only to find laminar parents, the order is a counting sort on |S_i|, and the forest it builds is determined by the input, not by any sorted-order insight."
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "96272385f79f79e2d05de56af77fc21d1951f3d9d8724c2381c380c10346fa70",
+   "review_rationale": "I re-derived the recursion: a cover of S_v either is one class-v player or must cover every child's set from that child's subtree, since every class contained in S_v is v itself or lies in exactly one child's subtree; hence the child route needs the children to tile S_v and the count is cnt[v] plus the bottleneck child, which is what the proposal has. The answer is min over roots and 0 when the maximal sets miss a skill, correct because a team must cover all n skills. Parent-finding in O(sum|S_i|) by decreasing size is sound - anything already stamped on a shared skill is a strict superset. With sum|S_i| <= 5e5, m,p <= 3e5 the O(n+m+p+sum|S_i|) time and space is not close to any limit, and the printed teaming is bounded by p players.",
+   "issues": [
+    "constructive-algorithm is kept but is the weakest survivor: the teaming must genuinely be emitted, though the construction is a by-product of the count rather than the difficulty.",
+    "Nothing checks the 'children tile S_v' test at scale; sizes must be compared with the parent's |S_v|, and a node with a single proper child must fall through to cnt[v] only."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "Eleven proposals reviewed. kattis-scaffolding was re-reviewed after its summary was dereferenced of LaTeX and is now approved; kattis-specialtour landed late and is reviewed to the same standard. That leaves kattis-doors as the only entry still held. Systematic finding 1: every proposal but scaffolding, perfecttree and doors carries at least one low-confidence label that is decoration rather than technique, and the offenders are the same two words - 'sorting' (four problems) and 'greedy' (three). I dropped both wherever the sorted order or the local choice was not itself the insight, and kept 'sorting' only on playingwithnumbers, where sweeping the sorted a-threshold IS the algorithm. Systematic finding 2: the batch-G flaw recurs three times, always as a sub-0.6 label naming an adjacent route the write-up explicitly says it did not take - topological-sort on taboo (a memoised DFS is used, and the graph is not even acyclic on the -1 inputs), longest-increasing-subsequence on peaktram (the proposal's own note concedes the length is irrelevant), and exchange-argument on playingwithnumbers (the block family was settled by brute force). To the proposals' credit, the harder refusals are all correct and well argued: binary-search-answer is refused on doors, peaktower, peaktram, scaffolding and slimcut, dp-on-dag on taboo, ternary-search on peaktower, and flow/matching on teamup; no proposal in this batch reaches for brute-force or dsu-on-tree. Systematic finding 3: the free-form 'tags' field contradicts the write-ups. colourful, doors and peaktower all carry tag 'simulation' while colourful's own notes argue at length that it is not simulation, and peaktower's tags spell it 'sweep-line' where the vocabulary says line-sweep. tags are indexed, so these are live false positives for searchers even though the 'patterns' lists are clean. On limits: no proposal in this batch blows its limits, which is the answer to the thing three sibling batches got wrong. Two came close enough to document. peaktower's 'O(N^4)' hides a constant of roughly 30 - the event count is over 2N+2 coordinates on two axes, so it is ~2*10^8 operations at N=50, not 6*10^6 - and nothing in the batch ever runs it at N=50. colourful's construction has no proof against the hard 20000-step budget, only a measured worst of 3614 against a theoretical ~19800. slimcut is the reverse case: the proposal flags its own pruning as unbounded, and I think it is in fact bounded at ~3*10^8 word operations, because the distinct-size count and the multiplicity log cannot both be large when the sizes sum to n. Two problems are held. doors is a reconstruction of an unfetched figure carrying status 'solved' at confidence 0.55, and its verify script cannot detect the gap it worries about because clearance() is built from the same reconstructed layout - the check is circular, and it hard-codes door B 20 units away so the two-door interaction is never tested. scaffolding needs only a one-line summary reword: it is the one summary in the batch with LaTeX subscripts left in. Statement readings all check out, including the one I was told to distrust: scaffolding's 5.1-with-15-solves is explained by the movement rule, not by hidden algorithmic depth, and the proposer read the non-descending constraint correctly. Bands: I part company with the Kattis score twice - scaffolding up from its 5.1 (15 solves, and the difficulty is entirely in parsing the statement) and slimcut up to very-hard, since the strict limit makes the bitset knapsack mandatory rather than optional. On the late arrival: specialtour is the strongest entry in the batch on evidence. Its impossibility claims are confined to boards of at most nine cells and settled by exhaustive DFS, everything else is proved by producing and cell-by-cell validating a tour, and its checker recomputes Manhattan steps from the raw definition instead of from the model that generated them - the exact independence doors' checker lacks. I extended its sweep from 560 boards to all 6384 legal boards up to 80x80 with no failure. It also makes the batch's fourth correct hard refusal of a tempting label: manhattan-distance is left off because the move rule is stated in L1 but no L1 technique is used, and the corpus bears that out - all 16 existing manhattan-distance entries actually compute or optimise an L1 distance, which this one never does. I endorse the omission, and its brute-force refusal too, since the exhaustive search only manufactures constant-size gadgets a submission would hardcode. Its one weak label, grid-traversal at 0.5, I dropped on the same calibration: 25 of the 26 existing grid-traversal entries are grid search or path walking. Two entries now end with a single pattern label (doors, specialtour); in both cases I looked for an honest second and refused to pad, and in both the missing term is a vocabulary gap rather than an oversight."
+}

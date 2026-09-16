@@ -1,0 +1,33 @@
+{
+ "id": "kattis-peaktram",
+ "title": "Peak Tram",
+ "slug": "peaktram",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/peaktram",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Positive integer heights must be chosen for n buildings standing in a row, where building i costs its cost factor times the distance from its preferred height. A building is visible from the tram at position zero when it is strictly taller than every building before it, and the task is the cheapest assignment making at least k of the n buildings visible.",
+ "tags": [],
+ "patterns": [
+  "dynamic-programming",
+  "coordinate-compression"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "dynamic-programming": 0.9,
+   "coordinate-compression": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.1,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

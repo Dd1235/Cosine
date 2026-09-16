@@ -1,0 +1,33 @@
+{
+ "id": "kattis-colourful",
+ "title": "Colourful Graph",
+ "slug": "colourful",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/colourful",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Each vertex of a connected undirected graph carries one of k colours, and in one step every vertex simultaneously either keeps its colour or takes the colour of a neighbour. Given a starting and a target colouring on at most a hundred vertices with at most a hundred colours, the task is to decide reachability and, when reachable, print a witness sequence of at most twenty thousand steps.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "bfs"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "bfs": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.1,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

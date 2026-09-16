@@ -1,0 +1,37 @@
+{
+ "id": "kattis-cool1",
+ "title": "Association for Cool Machineries (Part 1)",
+ "slug": "cool1",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/cool1",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "A robot starts on an empty cell of an N by N grid whose border is solid wall and repeats a program of at most N characters drawn from left, right, up and down, skipping any step that would enter a wall. Its trail records only the cells it enters. Print one if that trail is finite, otherwise the length of its eventual repeating block.",
+ "tags": [],
+ "patterns": [
+  "cycle-detection",
+  "functional-graph",
+  "simulation",
+  "kmp"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "cycle-detection": 0.9,
+   "functional-graph": 0.9,
+   "simulation": 0.9,
+   "kmp": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.8,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

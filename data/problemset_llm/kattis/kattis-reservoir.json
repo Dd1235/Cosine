@@ -1,0 +1,33 @@
+{
+ "id": "kattis-reservoir",
+ "title": "Reservoir",
+ "slug": "reservoir",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/reservoir",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "A reservoir cross-section is divided into tanks by N unit-thick walls at given positions and heights; water pours in at the top left and spills rightwards over the walls. For each of up to 10^5 query volumes the task is the index of the last wall the water flows over, or zero. Positions reach 10^9 and volumes 10^15.",
+ "tags": [],
+ "patterns": [
+  "monotonic-stack",
+  "binary-search"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "monotonic-stack": 0.9,
+   "binary-search": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.7,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "id": "kattis-slimcut",
+ "title": "Slim Cut",
+ "slug": "slimcut",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/slimcut",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "A connected weighted undirected graph with up to fourteen thousand vertices and thirty thousand edges is given. The slimness of a cut is the largest weight among the edges crossing it divided by the number of vertices on the smaller side, and the task is to report the minimum slimness over all cuts, within a hundred-millionth relative error under a strict time limit.",
+ "tags": [],
+ "patterns": [
+  "minimum-spanning-tree",
+  "kruskal",
+  "union-find",
+  "subset-sum",
+  "dynamic-programming",
+  "bounded-knapsack"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "minimum-spanning-tree": 0.9,
+   "kruskal": 0.9,
+   "union-find": 0.9,
+   "subset-sum": 0.9,
+   "dynamic-programming": 0.9,
+   "bounded-knapsack": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.1,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "id": "kattis-specialtour",
+ "title": "Special Tour",
+ "slug": "specialtour",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/specialtour",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "On a grid of N rows and M columns, each at most two hundred, the task is to visit every square exactly once in a cyclic order where consecutive squares, including the last and the first, are at Manhattan distance two or three, never one and never more. Any such tour may be reported, or a statement that none exists.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.5,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

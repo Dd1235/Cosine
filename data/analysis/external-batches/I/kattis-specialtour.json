@@ -1,0 +1,24 @@
+{
+ "id": "kattis-specialtour",
+ "status": "solved",
+ "solution": "A closed tour exists for every board except a single line of 1, 2, 3, 4, 6, 7, 8 or 9 squares and the 2x2 board; exhaustive search over the move graph confirms exactly that list (a lone row of 6 to 9 squares dies because two of its cells are forced onto the same pair of neighbours and close a short cycle). Every other board is built by tiling: cut the rows and the columns into parts of size 2 to 5 so that no 2x2 block ever appears (a part of size 2 is used only when that whole side has length 2), give each block its own closed tour, and splice the next block into the growing cycle by deleting an edge (u,v) of the cycle whose two ends lie in the neighbouring block, deleting an edge (u',v') of the block's own cycle, and adding (u,u') and (v,v'); the blocks are side by side so a legal pair of edges always exists. A single row with M >= 10 is done the same way from a base of 10 to 14 columns plus appended blocks of five, 1x5 being the only short line that works. The block tours are constant-size, so the construction is O(NM) time and O(NM) space, which is the size of the output.",
+ "solution_confidence": 0.92,
+ "statement_summary": "On a grid of N rows and M columns, each at most two hundred, the task is to visit every square exactly once in a cyclic order where consecutive squares, including the last and the first, are at Manhattan distance two or three, never one and never more. Any such tour may be reported, or a statement that none exists.",
+ "patterns": [
+  "constructive-algorithm",
+  "grid-traversal"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.95,
+  "grid-traversal": 0.5
+ },
+ "tags": [
+  "construction",
+  "grid",
+  "manhattan",
+  "hamiltonian-cycle"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_specialtour.py",
+ "notes": "The impossible set was found by exhaustive DFS, not assumed: 63 small boards (everything with N*M <= 16, every single line up to 20 cells, and a few extras) agree with it, and the construction then produces and passes a cell-by-cell check on all 560 possible boards up to 24x24 plus 200x200 and nine other large boards. Rulings: brute-force NO - the search is only how the constant-size block tours are obtained here, a submission would hardcode them, and the algorithm itself is a construction. binary-search-answer, dp-on-dag, dsu-on-tree: none apply. manhattan-distance was considered and left off - the move rule is stated in those terms but the solution uses no L1 technique (no rotation to Chebyshev, no distance computation at all); it is in the tags instead. The vocabulary has no label for the real mechanism here, splicing two disjoint cycles together through a pair of nearby edges ('cycle merging'), nor for tiling a board with constant-size gadgets.",
+ "source_text_sha256": "491dec3b4bfc646457e4fb2bf5501c05851274debe9049c75b994893530165fb"
+}

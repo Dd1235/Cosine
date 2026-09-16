@@ -1,0 +1,33 @@
+{
+ "id": "kattis-dividedoughnut",
+ "title": "Divide Doughnut",
+ "slug": "dividedoughnut",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/dividedoughnut",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "An interactive task on a ring divided into a billion numbered parts carrying N sprinkles, N even. The solver may ask how many sprinkles lie in any circular range of parts, and must name a half of the ring, five hundred million consecutive parts, holding exactly N/2 sprinkles, or report that no such half exists. At most thirty plus floor of log2 of root N interactions are permitted.",
+ "tags": [],
+ "patterns": [
+  "interactive",
+  "binary-search"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "interactive": 0.9,
+   "binary-search": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.2,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

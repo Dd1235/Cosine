@@ -1,0 +1,12 @@
+verify_arrangingwine               PASS 0s
+verify_barcode                     PASS 2s
+verify_cuchitunnels                PASS 0s
+verify_droppingball                PASS 0s
+verify_engaging                    PASS 0s
+verify_famouspagoda                PASS 0s
+verify_gameofdivisibility          PASS 1s
+verify_heightpreservation          PASS 1s
+verify_icpcawards                  PASS 0s
+verify_joiningnetwork              PASS 0s
+verify_krotating                   PASS 0s
+verify_landinheritance             PASS 2s

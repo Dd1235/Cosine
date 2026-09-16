@@ -1,0 +1,41 @@
+{
+ "id": "kattis-taboo",
+ "title": "Taboo",
+ "slug": "taboo",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/taboo",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Given up to fifteen thousand binary taboo strings whose lengths total at most two hundred thousand, the task is to find the longest binary string that contains none of them as a substring, printing -1 when arbitrarily long such strings exist. Among all longest answers, the lexicographically smallest one must be reported.",
+ "tags": [],
+ "patterns": [
+  "aho-corasick",
+  "trie",
+  "string-matching",
+  "dynamic-programming",
+  "cycle-detection",
+  "lexicographic-order"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "aho-corasick": 0.9,
+   "trie": 0.9,
+   "string-matching": 0.9,
+   "dynamic-programming": 0.9,
+   "cycle-detection": 0.9,
+   "lexicographic-order": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.2,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

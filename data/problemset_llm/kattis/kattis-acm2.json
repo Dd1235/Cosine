@@ -1,0 +1,35 @@
+{
+ "id": "kattis-acm2",
+ "title": "Association for Computing Machinery",
+ "slug": "acm2",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/acm2",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "A team faces N problems, at most thirteen, with distinct estimated solving times, and insists on attempting a designated problem first before working on the rest in any order. The contest lasts three hundred minutes and a problem counts only if it is finished by then. The task is to report the largest number of problems solved and, among orders achieving that, the smallest total ICPC penalty time.",
+ "tags": [],
+ "patterns": [
+  "greedy",
+  "sorting",
+  "exchange-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "greedy": 0.9,
+   "sorting": 0.9,
+   "exchange-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.3,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

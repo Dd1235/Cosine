@@ -1,0 +1,33 @@
+{
+ "id": "kattis-icpcawards",
+ "title": "ICPC Awards",
+ "slug": "icpcawards",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/icpcawards",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A contest scoreboard lists up to two hundred teams in finishing order, each line giving the team's university and its name. Only the highest-placed team of any university may win a prize, and exactly twelve prizes are handed out. The task is to print the twelve prize-winning teams, in scoreboard order, given that at least twelve distinct universities appear.",
+ "tags": [],
+ "patterns": [
+  "simulation",
+  "hash-map"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "simulation": 0.9,
+   "hash-map": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 1.5,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

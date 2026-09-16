@@ -1,0 +1,41 @@
+{
+ "id": "kattis-divisorgame",
+ "title": "Divisor Game",
+ "slug": "divisorgame",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/divisorgame",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "Two players alternate moves on a list of distinct integers, each move replacing a chosen number by any strictly smaller divisor of it, and whoever makes the final move loses. The opponent of the first player picks the initial list freely from the integers between A and B. The task counts the winning initial lists modulo 10^9+7, with B-A at most 10^5 and B up to 10^12.",
+ "tags": [],
+ "patterns": [
+  "game-theory",
+  "grundy-numbers",
+  "sieve",
+  "prime-factorization",
+  "number-theory",
+  "counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "game-theory": 0.9,
+   "grundy-numbers": 0.9,
+   "sieve": 0.9,
+   "prime-factorization": 0.9,
+   "number-theory": 0.9,
+   "counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.7,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

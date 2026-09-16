@@ -1,0 +1,37 @@
+{
+ "id": "kattis-peaktower",
+ "title": "Peak Tower",
+ "slug": "peaktower",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/peaktower",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Up to fifty axis-aligned rectangles move at constant velocities across a photographed scene of given width and height. For any moment within the next E seconds a picture may be taken, and the task is the smallest possible area of the scene covered by the union of those rectangles at the chosen moment, reported to within a millionth relative error.",
+ "tags": [],
+ "patterns": [
+  "geometry",
+  "rectangle-union-area",
+  "line-sweep",
+  "coordinate-compression"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "geometry": 0.9,
+   "rectangle-union-area": 0.9,
+   "line-sweep": 0.9,
+   "coordinate-compression": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.6,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

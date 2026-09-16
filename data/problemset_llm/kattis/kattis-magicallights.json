@@ -1,0 +1,41 @@
+{
+ "id": "kattis-magicallights",
+ "title": "Association of Cats and Magical Lights",
+ "slug": "magicallights",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/magicallights",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "A rooted tree of up to three hundred thousand nodes has every node coloured with one of a hundred colours, and a colour is called magical for a subtree when it occurs an odd number of times inside it. Up to a million operations arrive in order, each either recolouring one node or asking how many colours are currently magical in the subtree of a given node.",
+ "tags": [],
+ "patterns": [
+  "euler-tour",
+  "tree-flattening",
+  "fenwick-tree",
+  "bit-manipulation",
+  "parity-argument",
+  "segment-tree"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "euler-tour": 0.9,
+   "tree-flattening": 0.9,
+   "fenwick-tree": 0.9,
+   "bit-manipulation": 0.9,
+   "parity-argument": 0.9,
+   "segment-tree": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.3,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

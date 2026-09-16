@@ -1,0 +1,35 @@
+{
+ "id": "kattis-swimmingballs",
+ "title": "Swimming Balls",
+ "slug": "swimmingballs",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/swimmingballs",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "A rectangular pool of given width, length and depth receives a fixed volume of water together with n spheres, each with a radius and a specific weight; heavier balls rest on the bottom while lighter ones float, and both displace water by Archimedes' principle. The task is the resulting water level, capped at the pool depth, to within 10^-4 error.",
+ "tags": [],
+ "patterns": [
+  "binary-search-answer",
+  "binary-search",
+  "geometry"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "binary-search-answer": 0.9,
+   "binary-search": 0.9,
+   "geometry": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.7,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

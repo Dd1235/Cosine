@@ -1,0 +1,39 @@
+{
+ "id": "kattis-message",
+ "title": "Message",
+ "slug": "message",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/message",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "Given a length n, a modulus M and a pattern string p of at most 50 lowercase letters, the task is to count the lowercase strings of length n that contain p somewhere as a substring, reported modulo M. The length reaches 10^12 and the modulus 10^12, so up to twenty such datasets must each be answered without enumeration.",
+ "tags": [],
+ "patterns": [
+  "matrix-exponentiation",
+  "kmp",
+  "string-matching",
+  "dynamic-programming",
+  "counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "matrix-exponentiation": 0.9,
+   "kmp": 0.9,
+   "string-matching": 0.9,
+   "dynamic-programming": 0.9,
+   "counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.9,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "id": "kattis-olympiadtraining",
+ "title": "Olympiad Training",
+ "slug": "olympiadtraining",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/olympiadtraining",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "A coach must teach M topics to a group of K students chosen from N candidates; teaching one topic to a group costs the largest of its members' individual times for that topic, and the group's cost is the sum over all topics. For each query value of K the task is the minimum possible total, with N at most 20 and M up to 10,000.",
+ "tags": [],
+ "patterns": [
+  "sos-dp",
+  "bitmask-dp",
+  "dynamic-programming",
+  "contribution-technique"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "sos-dp": 0.9,
+   "bitmask-dp": 0.9,
+   "dynamic-programming": 0.9,
+   "contribution-technique": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.8,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

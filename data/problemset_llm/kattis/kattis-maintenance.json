@@ -1,0 +1,39 @@
+{
+ "id": "kattis-maintenance",
+ "title": "Association of Computer Maintenance",
+ "slug": "maintenance",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/maintenance",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "A customer needs exactly K bytes of storage bought as identical servers of M bytes each, where M must divide K, and the price is M dollars of base cost plus one dollar per server. K arrives as a string of two-digit prime factors, up to three hundred and fifty of them, and may have ten billion divisors. Report the least cost modulo one billion and seven.",
+ "tags": [],
+ "patterns": [
+  "meet-in-the-middle",
+  "divisor-enumeration",
+  "number-theory",
+  "binary-search",
+  "modular-arithmetic"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "meet-in-the-middle": 0.9,
+   "divisor-enumeration": 0.9,
+   "number-theory": 0.9,
+   "binary-search": 0.9,
+   "modular-arithmetic": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.6,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

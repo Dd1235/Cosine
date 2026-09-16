@@ -1,0 +1,181 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-16",
+ "batch": "J",
+ "reviews": [
+  {
+   "id": "kattis-acm2",
+   "status": "approved",
+   "keep": ["greedy", "sorting"],
+   "drop": [],
+   "add": [
+    {"label": "exchange-argument",
+     "why": "the whole correctness proof is the shortest-job-first swap argument, which the proposal itself names; the corpus pairs exchange-argument with greedy in 8 of its 9 uses, so this is the conventional second label for a scheduling greedy",
+     "confidence": 0.68}
+   ],
+   "independent_band": "easy",
+   "source_text_sha256": "0ebd9a3473ab74621e4176ff845d5caf20d70ad6cb18ca6f976e306e0af17428",
+   "review_rationale": "verify_acm2.py passes all four samples and 2000 exhaustive-permutation fuzz cases in 0.1s, and I re-derived the forced-first-problem case by hand (t[p] above 300 yields '0 0', which sample 3 exercises). Sorting at most 13 estimates is O(N log N) against a 300-minute budget, so time and space are non-issues. Both labels are load-bearing: the sort by estimate is the algorithm, since the same increasing order simultaneously maximises the count and minimises the penalty, which is a sum of prefix sums.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-airconditioned",
+   "status": "approved",
+   "keep": ["greedy", "sorting", "interval-scheduling"],
+   "drop": [],
+   "add": [
+    {"label": "hitting-set",
+     "why": "the problem is literally a minimum hitting (stabbing) set of intervals, the phrase the proposal's own solution uses; the slug exists and is used only twice corpus-wide, so this closes a recall gap rather than inflating the label set",
+     "confidence": 0.65}
+   ],
+   "independent_band": "easy",
+   "source_text_sha256": "20640c9ff4b6841f6835180264ea034df520929aefbe8afe661fdb0297bab8b2",
+   "review_rationale": "verify_airconditioned.py passes both samples and 3000 fuzz cases in 0.1s. With N at most 100 and endpoints inside 1 to 2N, any polynomial method fits, so the only live question is labelling. interval-scheduling survives my attack: the minimum piercing set equals the maximum set of pairwise-disjoint intervals by duality and is computed by the identical earliest-right-endpoint greedy, so it names the technique and not a merely adjacent topic.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-applescherriesmangos",
+   "status": "approved",
+   "keep": ["combinatorics", "inclusion-exclusion", "fft", "multinomial-coefficient", "modular-arithmetic"],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "bbb6509a71492d60a5392f53e6b82c442f28a478612356fb85926fcfbba8c043",
+   "review_rationale": "fft is needed at the limits, not decoration. With A, C and M each up to 200000 the unregrouped triple sum is O(A*C*M) near 8e15, and the standard alternative of inserting one colour at a time while tracking bad adjacencies is O(n^2) near 1.6e11, so the degree-200000 triple convolution genuinely has to go through NTT at n = A+C+M up to 600000. verify_applescherriesmangos.py passes all three samples, matches exhaustive enumeration for every A, C, M up to 4, and separately confirms the convolution regrouping reproduces the triple sum exactly; it ran 34.5s. Space is O(n) words, well inside any limit.",
+   "issues": [
+    "1e9+7 is not an NTT-friendly modulus, so the three-prime-plus-CRT route the proposal names would earn chinese-remainder-theorem; I left the label off because the Kronecker-substitution alternative the proposal also names avoids CRT entirely, which makes the label implementation-dependent rather than intrinsic"
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-cameramakers",
+   "status": "needs_work",
+   "keep": ["geometry", "binary-search-answer", "line-sweep"],
+   "drop": [
+    {"label": "sorting",
+     "why": "the arc-endpoint sort is the mechanics of the angular sweep and is already denoted by line-sweep; the corpus pairs line-sweep with sorting in only 16 of 57 cases, so dropping it follows the majority convention"}
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "edcff69d7228ff5df8ddf38c0c15a3631f65eee46b924101a61cb7972d3a2be5",
+   "review_rationale": "Correctness holds up: the sample passes and 150 random point sets match exhaustive pair-and-triple circle enumeration, and binary-search-answer is genuinely earned because the arc-cover feasibility test is the entire content of the problem. The time limit is the failure. Kattis gives this problem 11s CPU and 1024MB; I measured the real cost driver, the number of arcs built per decision, exactly on worst-case-shaped inputs, and the clustered cases put even an optimised C++ implementation roughly 1.5x to 2.5x over. The proposal offers no performance evidence at all, because verify_cameramakers.py's decide() is an O(N^2) loop over every j and is run only on point sets of at most 7 points.",
+   "issues": [
+    "Measured arcs per decision (exact, grid-based, over all N points): N=100000 K=20 uniform gives 2.3e6, but the same N and K with 19-point clumps on a lattice of spacing U gives 1.67e7 - the mean neighbour count within 2R rises from 23 to 167. N=5000 K=200 uniform gives 2.7e6, clumped gives 1.29e7 (mean 2579, max 4178).",
+    "Cost of one decision in the clumped N=100000 K=20 case is about 1.67e7 acos evaluations plus about 3.34e7 event slots sorted in per-point chunks, on the order of 1s in optimised C++. Reaching 1e-3 absolute precision on a bracket of width U/2 needs about 21 to 23 halvings, so even crediting an early exit on every true decision the total lands near 15s to 26s against the 11s limit.",
+    "The proposal's stated worry is misdirected. It fears the neighbour bound 'degenerates to O(N)' in the N<=5000 K<=200 regime, but the packing argument caps the count well below N there (measured 2579, not 5000). The actual blow-up is clustering, which multiplies the neighbour count by about 5x to 7x in BOTH regimes and is not mentioned anywhere in the proposal.",
+    "Clustered inputs are precisely what stresses the O(K)-neighbour bound the whole solution rests on, so a judge data set for a problem whose constraint clause reads 'K <= 20 or N <= 5000' is likely to contain them.",
+    "Computing U as the minimum over i of the distance to the (K-1)-st nearest neighbour needs a spatial index at N=100000; the verify script does it by O(N^2 log N) brute force, so that step is unevidenced too. I confirmed separately that a uniform grid makes it cheap, so this is a gap in the evidence rather than a second bottleneck."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-control",
+   "status": "approved",
+   "keep": ["union-find"],
+   "drop": [
+    {"label": "simulation",
+     "why": "simulation is what this solution replaces, not what it does - the verify script uses the literal cauldron-by-cauldron simulation as the brute-force oracle against the union-find criterion. Consuming recipes in the given order is the problem statement, not a technique. The corpus pairs simulation with union-find in 2 of 202 cases"}
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "1c03920f0cf793f090fddc740bbc5f939c651ebe4788336f6e0de34cf9ef644a",
+   "review_rationale": "I re-derived the invariant and it holds: every disjoint-set group is either an unused singleton ingredient or exactly the contents of one live cauldron, so a recipe S is brewable iff every group meeting S is contained in S, and the size-sum test decides that exactly, because the groups are disjoint and together cover S. verify_control.py passes both samples and 4000 fuzz cases against the literal simulation in 0.1s. With the sum of M at most 500000 and ingredient ids at most 500000, the union-find is O(sum M * alpha) time in about 500001 words of space, comfortably inside the limits.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-convex",
+   "status": "approved",
+   "keep": ["constructive-algorithm", "geometry", "gcd", "sorting"],
+   "drop": [
+    {"label": "greedy",
+     "why": "taking the smallest-L1 primitive vectors is a sort-and-take-prefix, already denoted by sorting; there is no exchange step and no local-choice argument to prove. The corpus pairs constructive-algorithm with greedy in only 113 of 240 cases, so omitting it is within convention"}
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "f9729d3ddcf47b94e277234f3fa2b377cf7cb27eb60719dae0ee41bf69d2f017",
+   "review_rationale": "The construction is sound: edge vectors with pairwise distinct directions summing to zero give a strictly convex lattice polygon, primitivity forces the distinct directions and rules out three collinear vertices, antipodal pairs handle even N and the seed (1,0),(0,1),(-1,-1) handles odd N. verify_convex.py ran 1.7s and measured the bounding box actually used, worst case 38251233 by 38225960 at N=399999 against the 4e7 cap, i.e. 4.4% of slack, confirming the coordinate budget is the real difficulty. gcd survives the attack for the reason just given, and sorting is load-bearing twice, once by angle to close the polygon and once by norm to fit the box.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-cool1",
+   "status": "approved",
+   "keep": ["cycle-detection", "functional-graph", "simulation", "kmp"],
+   "drop": [
+    {"label": "grid-traversal",
+     "why": "the grid is the setting, not a technique - nothing here searches or explores the grid, the movement is dictated by the program and the algorithm walks the (cell, program counter) state graph instead. The corpus never pairs grid-traversal with cycle-detection in 46 cases, and the proposal already carries a free 'grid' tag"}
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "a94b89f444925552311fd1b450cbf80ded491e45e22e0c2718ceeae2b02967ef",
+   "review_rationale": "verify_cool1.py passes all four samples and 1500 random grids cross-checked against a long direct simulation, in 2.9s. I traced samples 1, 2 and 4 by hand and the state-graph framing is right: the step map on (cell, program counter) is deterministic, so the rho's cycle is found in at most N*N*L states, about 8e6 at N=200. kmp is genuine and not decorative - the cycle gives a period of the trail but not necessarily the minimal one, and the prefix function is what reduces the repeated block to its primitive period, so the label names a step that is actually executed.",
+   "issues": [
+    "The proposal's justification for kmp cites sample 1 as the case where the reduction bites, but sample 1's state cycle is a single pass producing the two-cell block, which is already primitive, so the prefix function is a no-op there. The step is still correct and still needed in general; only the cited example is wrong.",
+    "The proposal says 'O(N^2 * L) time and space' without a byte figure. At N=200 that is 8e6 states of first-visit timestamps, about 32MB at 4 bytes, plus a prefix-function array over a block that can itself reach 8e6, another 32MB. That fits a typical 1GB Kattis limit but is worth stating explicitly rather than hiding inside an asymptotic."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-cool2",
+   "status": "rejected",
+   "keep": [],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "49aa0ab56b448800a767f2615f8ff1546528a801f9ec026e3a041014dab841d9",
+   "review_rationale": "unsolved by the proposer; stays staged. Confirmed the proposal claims no labels at all: patterns is the empty list and pattern_confidence the empty object, with solution_confidence 0.0. verify_cool2.py runs in 0.1s and honestly records the failure - it reproduces the state-space upper bound, demonstrates the open-room obstruction, and reports a search plateau at period 92 against the 1e6 target. The notes correctly decline to borrow cool1's labels, which would have been fabrication since the unfound gadget is the entire content of the problem.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-magicallights",
+   "status": "approved",
+   "keep": ["euler-tour", "tree-flattening", "fenwick-tree", "bit-manipulation", "parity-argument"],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "3325f84f544cc132e2471c0dccf71ade74873f1884a0c99a2d2e25a1fbe0e847",
+   "review_rationale": "verify_magicallights.py passes both samples and 400 random tree and operation mixes in under 0.1s. The reduction checks out: 100 colours fit a 128-bit parity mask in two words, XOR is its own inverse so a Fenwick tree over XOR supports both the point update and the prefix-XOR difference that gives a subtree range. At Q up to 1e6 and N up to 3e5 that is about 3.6e7 word-XORs and roughly 5MB of Fenwick, so time and space are not close to the limits. parity-argument survives: odd-occurrence equals XOR parity is the reduction, not a restatement.",
+   "issues": [
+    "euler-tour and tree-flattening name the same step twice - one DFS producing tin/tout so each subtree is a contiguous range. I am NOT dropping either, because this is a corpus-wide convention rather than a batch J defect: 7 of the 8 euler-tour uses in the corpus co-occur with tree-flattening, and the nearest neighbours of this problem (cses-1137, cses-1138, codeforces-1076-e, leetcode-shortest-path-in-a-weighted-tree) all carry the pair. Dropping it here alone would make this problem inconsistent with its own neighbours. Flagging for a corpus-wide decision instead - see notes."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-maintenance",
+   "status": "approved",
+   "keep": ["meet-in-the-middle", "divisor-enumeration", "number-theory", "binary-search", "modular-arithmetic"],
+   "drop": [
+    {"label": "sorting",
+     "why": "sorting one half-list is the mechanical precondition of the lookup and is inherent in meet-in-the-middle; the corpus pairs meet-in-the-middle with sorting in only 1 of 17 cases, treating it as scaffolding"}
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "a89c16c6e3e2e6d98e9d663454fe9f5c7019677e874ef9ebbdabbe3b51b63308",
+   "review_rationale": "Confirmed the binary search is a sorted-list lookup and NOT binary-search-answer: the script bisects a sorted array of second-half divisors for the largest d2 with d1*d2 at most isqrt(K); there is no monotone feasibility predicate on the answer, so the proposal's own note is right and binary-search is the correct slug. The operation count and arithmetic size also hold up under my own adversarial inputs, with margin to spare. The reduction to the largest divisor at most sqrt(K) is correct because M and K/M cost the same and f(M) = M + K/M is unimodal, and the modular inverse is safe because every prime factor is under 100 and so under the modulus.",
+   "issues": [
+    "I attacked the operation count with inputs the script's own stress test does not reach. The script stresses only a 645-bit K (its primes are 2, 3, 5, 7, ...), while the real worst case for bignum width is large primes: 97^100 * 89^100 * 83^100 plus 13 more distinct primes is 313 factors, 2019 bits, 8.44e9 divisors, sides 81608 and 103424 - and it still solves in 0.09s in CPython. The script's own 346-factor 5.41e10-divisor case (already over the problem's 1e10 cap) takes 0.23s, and a 10-prime 1e10-divisor case with sides 100000 each takes 0.05s. C++ will be far faster, so the limits are met with a wide margin.",
+    "The docstring's 'O(sqrt(D) log sqrt(D)) big-integer comparisons' undercounts slightly: d1*d2 is a multiplication, not a comparison. The script sidesteps this by computing S // d1 once per d1 and then bisecting on plain comparisons, which is the right implementation and is what makes the measured times so small - worth stating, since a literal multiply-per-comparison reading would be about 1.7e6 multiplications of 1000-to-2000-bit numbers."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-mububa",
+   "status": "approved",
+   "keep": ["dynamic-programming", "partition-dp", "prefix-sum"],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "3bee47eb957cc7fd99f2f456ce44792beefed2965d1fe31bd17fb8b2b5d68034",
+   "review_rationale": "verify_mububa.py passes both samples and 4000 random plus 600 skewed cases against all 2^(n-1) splits for n up to 12, in 1.9s. That exhaustive check is the right target, because the one thing worth attacking here is the Pareto claim that a single (most blocks, smallest last-block sum) pair per prefix suffices - I could not produce a clean proof that a shorter split with a much smaller last block never wins later, so the exhaustive fuzz is doing real work. O(N^2) at N up to 3000 is 9e6 operations in O(N) space, nowhere near the limits. dp-on-dag is correctly excluded: the only DAG is the DP's own prefix-to-prefix state graph, not a graph the problem supplies.",
+   "issues": [
+    "The Pareto-dominance argument is asserted rather than proved ('more blocks never hurt and a smaller last block never hurts'), and its support is exhaustive enumeration only up to n=12. The claim is very likely right and the skewed-value fuzz is the correct stress, but a reader should know the justification is empirical, not a proof."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "All 11 source_text_sha256 values re-hashed from data/analysis/external-staging and all 11 match. All 11 verify scripts were run fresh by me (no verify-run.txt existed for batch J) and all 11 pass; slowest is verify_applescherriesmangos.py at 34.5s, everything else is under 3s. All 11 statement_summary fields are 61-70 words with no digits, no bracket or markup characters, and no worked examples. Every keep/add label is a verbatim key of canonical in data/pattern_taxonomy.json. SYSTEMATIC FINDINGS. (1) The one genuine failure is kattis-cameramakers: correct but too slow. The pattern to watch is that a verify script can establish correctness on tiny inputs while saying nothing about the constant factor that actually decides the verdict - here decide() is O(N^2) and runs on at most 7 points, and the proposal's 0.70 confidence flags the right problem but diagnoses the wrong cause. Recommend the batch convention be that any proposal whose notes admit a constant-factor risk must ship a measurement at the stated limits, not an asymptotic argument. (2) The proposers' own exclusion notes were reliable: dp-on-dag on mububa, dsu-on-tree on control and magicallights, brute-force on acm2, and binary-search-answer on maintenance are all correctly declined, each for the right reason. I found no label under 0.6 anywhere in the batch, and no case of dp-on-dag, dsu-on-tree or brute-force being wrongly applied. (3) Scaffolding was the main label defect: I dropped sorting from cameramakers and maintenance, greedy from convex, simulation from control and grid-traversal from cool1, in each case checking corpus co-occurrence first so the drop follows existing convention rather than my taste. (4) OPEN CORPUS QUESTION, not a batch J defect: euler-tour and tree-flattening name the identical DFS tin/tout step, and 7 of the 8 euler-tour uses in the corpus co-occur with tree-flattening. magicallights inherits this. Either the pair is deliberate redundancy for recall, in which case leave it, or the corpus should collapse to tree-flattening everywhere at once - but it should not be decided one problem at a time, so I kept both here. (5) Two proposals contain a wrong supporting detail next to a correct conclusion: cool1 cites sample 1 as the case where the kmp reduction bites when that block is already primitive, and maintenance's stress test exercises only a 645-bit K when the width-worst case is about 2019 bits. I re-ran both attacks myself and both conclusions survive."
+}

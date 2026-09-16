@@ -1,0 +1,37 @@
+{
+ "id": "kattis-insidersidentity",
+ "title": "Insider's Identity",
+ "slug": "insidersidentity",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/insidersidentity",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "A pattern of at most thirty characters, each either a one or a wildcard and at least half of them ones, marks a binary string of length n as valid when some substring of the string matches the pattern position by position, with wildcards matching either bit. The task counts how many distinct valid strings of length n exist, where n is at most fifty.",
+ "tags": [],
+ "patterns": [
+  "dynamic-programming",
+  "counting",
+  "bitmask-dp",
+  "string-matching"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "dynamic-programming": 0.9,
+   "counting": 0.9,
+   "bitmask-dp": 0.9,
+   "string-matching": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.9,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}
