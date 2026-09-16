@@ -72,6 +72,7 @@ const MANUAL_CONTROLS = [
   ["oldest first",     indexHtml, /id="lib-oldest"/],
   ["+ competition",    indexHtml, /id="collection-add"/],
   ["my CSES level",    indexHtml, /id="cses-level-select"/],
+  ["labels:",          indexHtml, /id="labels-toggle"/],
   ["written up",       indexHtml, /<option value="yes">written up<\/option>/],
   ["my level",         src,       /"level-apply"/],
 ];

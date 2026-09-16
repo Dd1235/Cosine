@@ -770,7 +770,8 @@ html[data-theme="light"] .matched-chip {
 
 /* Clickable pattern labels inside the result detail — same look as matched
    chips, plus affordance, because clicking one filters the results. */
-.pattern-chip {
+.pattern-chip,
+.reveal-labels {
   background: rgba(138, 164, 191, 0.1);
   color: var(--accent);
   border: 1px solid rgba(138, 164, 191, 0.18);
@@ -782,13 +783,22 @@ html[data-theme="light"] .matched-chip {
   cursor: pointer;
 }
 
-.pattern-chip:hover {
+.pattern-chip:hover,
+.reveal-labels:hover {
   color: var(--accent-2);
   border-color: var(--accent-2);
 }
 
-html[data-theme="light"] .pattern-chip {
+html[data-theme="light"] .pattern-chip,
+html[data-theme="light"] .reveal-labels {
   background: var(--accent-soft);
+}
+
+/* The lid over the labels. Muted and dashed on purpose: it is the absence of
+   a chip, not a chip you are meant to want to click. */
+.reveal-labels {
+  color: var(--text-muted);
+  border-style: dashed;
 }
 
 .pattern-pill {
@@ -1854,6 +1864,7 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
      the chips sit adjacent, so mis-hits were near-certain. */
   .judge-chip,
   .pattern-chip,
+  .reveal-labels,
   .lib-chip,
   .technique-chip,
   .difficulty-chip {

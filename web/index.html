@@ -149,6 +149,18 @@
           >
             :help
           </button>
+          <!-- A reading mode, not a facet, so it sits here and not in the
+               judge row. No data-cmd: the chip handler above treats one as a
+               query to run. -->
+          <button
+            type="button"
+            class="lib-chip"
+            id="labels-toggle"
+            aria-pressed="false"
+            title="technique labels stay hidden while you attempt a problem"
+          >
+            labels: hidden
+          </button>
         </span>
         <!-- The revision row: only meaningful inside a library view, so it
              renders only when the path leaves ~. "marked 3mo+ ago" is how you

@@ -13,7 +13,12 @@ const libBar = document.getElementById("lib-bar");
 const libPathEl = document.getElementById("lib-path");
 const libCountBookmarks = document.getElementById("lib-count-bookmarks");
 const libCountDone = document.getElementById("lib-count-done");
-const libChips = libBar.querySelectorAll(".lib-chips .lib-chip");
+// Command chips only. This used to be a bare `.lib-chips .lib-chip` catch-all
+// whose handler runs `runSearch(chip.dataset.cmd || "")` — so any chip added to
+// the bar that is not a command silently cleared the results on click. The age
+// chips were caught by it once; the labels switch lives in the same bar and
+// would be caught the same way.
+const libChips = libBar.querySelectorAll(".lib-chips .lib-chip[data-cmd]");
 const libBackChip = libBar.querySelector(".lib-chip-back");
 const libAgeRow = document.getElementById("lib-age-row");
 // Revision filters: "marked N+ days ago" and oldest-first. Library-only state,
@@ -121,6 +126,14 @@ let practiceMode = false;
 let similarCorpusSize = 20000;
 let csesLevel = null;
 let csesLevelSaving = false;
+// Technique labels are the answer. Every forum agrees that reading "binary
+// search on the answer" before you attempt a problem is the spoiler, which is
+// why Codeforces ships "hide tags" as an account setting — so they are hidden
+// by default and the choice is remembered per user. Difficulty is NOT hidden:
+// it is how you pick something to attempt, not how you solve it.
+let showLabels = false;
+let showLabelsSaving = false;
+const revealedCards = new Set(); // problem ids opened by click, this session only
 const activePlatforms = new Set(); // empty = every judge
 let difficultyPayload = { named: [], rated: [], acceptance: null }; // controls, from /api/rankers
 const bootRanges = []; // ?difficulty= ranges parked until the payload names their judge
@@ -361,6 +374,11 @@ logoutBtn.addEventListener("click", async () => {
   clearTimeout(sheetSyncTimer);
   sheetDirty = false;
   loadCsesLevel();
+  // Back to whatever this browser remembers. No re-issue: the results are torn
+  // down a few lines below anyway, and a re-render here would repaint the view
+  // we are in the middle of clearing.
+  revealedCards.clear();
+  loadShowLabels({ reissue: false });
   applyAuthState();
   clearPatternFilter({ reissue: false });
   // Clear results and the input — old results were rendered with bookmark
@@ -531,6 +549,7 @@ async function bootstrapAuth() {
   if (wasPending && currentUser) reissueCurrentView();
   loadLevelSignals();
   loadCsesLevel();
+  loadShowLabels();
   maybeInitSheets();
 }
 
@@ -994,6 +1013,85 @@ if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
     }
   } catch (err) { setStatus(`CSES level: ${err.message}`); }
   finally { csesLevelSaving = false; syncCsesLevelControl(); }
+});
+
+// ── the labels switch ───────────────────────────────────────────────────────
+// Same storage shape as the CSES band: a column on the account when signed in,
+// a localStorage mirror when not. A reading mode, not a facet, so it sits in
+// the library bar next to :help rather than in the judge row.
+const labelsToggle = document.getElementById('labels-toggle');
+
+function syncLabelsToggle() {
+  if (!labelsToggle) return;
+  labelsToggle.textContent = showLabels ? 'labels: shown' : 'labels: hidden';
+  labelsToggle.setAttribute('aria-pressed', String(showLabels));
+  labelsToggle.classList.toggle('is-active', showLabels);
+  labelsToggle.disabled = showLabelsSaving;
+  labelsToggle.title = showLabels
+    ? 'technique labels are showing on every result'
+    : 'technique labels stay hidden while you attempt a problem';
+}
+
+function applyLabelVisibility({ reissue = true } = {}) {
+  document.body.classList.toggle('labels-hidden', !showLabels);
+  // Showing them all makes every per-card reveal redundant, and keeping the
+  // set would leave those cards open when the switch goes back to hidden.
+  if (showLabels) revealedCards.clear();
+  syncLabelsToggle();
+  if (reissue) reissueCurrentView();
+}
+
+async function loadShowLabels({ reissue = true } = {}) {
+  const userId = currentUser && currentUser.id;
+  const before = showLabels;
+  let stored = null;
+  try { stored = localStorage.getItem('cosine_show_labels_v1'); } catch (_err) {}
+  showLabels = stored === '1';
+  applyLabelVisibility({ reissue: reissue && showLabels !== before });
+  if (!userId) return;
+  try {
+    const res = await fetch('/api/preferences/show-labels');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
+    // null means this account never chose, so whatever this browser remembers
+    // stands — signing in must not silently flip a switch someone set.
+    if (typeof data.showLabels !== 'boolean') return;
+    const wasShowing = showLabels;
+    showLabels = data.showLabels;
+    applyLabelVisibility({ reissue: reissue && showLabels !== wasShowing });
+  } catch (_err) {}
+}
+
+async function saveShowLabels(next) {
+  if (!currentUser) {
+    try { localStorage.setItem('cosine_show_labels_v1', next ? '1' : '0'); }
+    catch (_err) { setStatus('Could not remember the labels switch in this browser.'); }
+    return;
+  }
+  const userId = currentUser.id;
+  showLabelsSaving = true;
+  syncLabelsToggle();
+  try {
+    const res = await fetch('/api/preferences/show-labels', {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ showLabels: next }),
+    });
+    if (!res.ok) throw new Error(`save failed (${res.status})`);
+  } catch (err) {
+    setStatus(`Labels switch: ${err.message}`);
+    // The switch still holds for this session; only the account copy failed.
+    try { localStorage.setItem('cosine_show_labels_v1', next ? '1' : '0'); } catch (_e) {}
+  } finally {
+    showLabelsSaving = false;
+    if (!currentUser || currentUser.id === userId) syncLabelsToggle();
+  }
+}
+
+if (labelsToggle) labelsToggle.addEventListener('click', () => {
+  showLabels = !showLabels;
+  track("labels_toggled", { shown: showLabels });
+  saveShowLabels(showLabels);
+  applyLabelVisibility();
 });
 
 // Choosing a CSES band is choosing a filter. This used to only make the
@@ -2222,6 +2320,17 @@ CORPUS
   Every expanded result lists its labels — click one to narrow
   to it; the pill clears it.
 
+  They start hidden, because the label IS the answer: reading
+  "binary search on the answer" before you attempt a problem
+  ends the problem. A card offers "3 technique labels · show"
+  instead — click that to open one card, or the "labels:"
+  switch beside :help to open every card.
+
+  Only the labels are hidden. The difficulty, the judge's own
+  tags and the statement all stay. The switch is remembered on
+  your account when you are signed in, in this browser when
+  you are not; a card you opened by hand lasts this visit.
+
   Clear the query and the label stays: you are browsing every
   problem carrying it. Type a new query and the label drops —
   it was a drill-down into what you were reading, and most
@@ -2751,6 +2860,54 @@ function rankDeltaBadge(thisRank, otherRank, otherName) {
   return `<span class="rank-delta down" title="${escapeHtml(otherName)} ranks this #${otherRank}">vs ${escapeHtml(otherName)}: ↓${thisRank - otherRank}</span>`;
 }
 
+// A matched term that IS one of this card's labels is the hint, spelled out on
+// the card while the labels themselves are withheld. Searching for "dp" must
+// not be the way around the switch. Title and statement words still show.
+function visibleMatchedTerms(hit, revealed) {
+  const terms = hit.matchedTerms || [];
+  if (revealed || showLabels) return terms;
+  const labels = new Set((hit.problem.patterns || []).map((p) => String(p).toLowerCase()));
+  return terms.filter((t) => !labels.has(String(t).toLowerCase()));
+}
+
+// Hidden means the labels are not in the document at all. A blur or a
+// `color: transparent` is still selectable, copyable, findable with ctrl-F and
+// read aloud by a screen reader — which is not hiding anything, it is only
+// making it awkward to read for the people who can read it at all.
+//
+// `onReveal` lets the card repaint the other two places its labels leak into
+// (the matched line and the "Also labelled" caption) when this one is opened.
+function renderPatternsInto(el, problem, revealed, onReveal) {
+  const patterns = problem.patterns || [];
+  // No labels at all: no paragraph, and above all no "0 technique labels"
+  // button promising something to reveal.
+  el.hidden = patterns.length === 0;
+  if (!patterns.length) { el.innerHTML = ''; return; }
+  if (!revealed && !showLabels) {
+    const n = patterns.length;
+    el.innerHTML = `<button type="button" class="reveal-labels" data-problem-id="${escapeHtml(problem.id)}">${n} technique label${n === 1 ? '' : 's'} · show</button>`;
+    el.querySelector('.reveal-labels').addEventListener('click', (e) => {
+      // The card header toggles the panel on click; revealing a label is not
+      // asking to collapse the problem you are reading.
+      e.stopPropagation();
+      revealedCards.add(problem.id);
+      track("labels_revealed", { problemId: problem.id });
+      renderPatternsInto(el, problem, true, onReveal);
+      if (onReveal) onReveal();
+    });
+    return;
+  }
+  el.innerHTML = `<strong>patterns:</strong> ${patterns
+    .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
+    .join(' ')}`;
+  el.querySelectorAll('.pattern-chip').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyPatternFilter(btn.dataset.pattern);
+    });
+  });
+}
+
 function renderHitsList(container, hits, opts = {}) {
   if (!opts.append) container.innerHTML = "";
   const startIndex = opts.startIndex || 0;
@@ -2855,14 +3012,22 @@ function renderHitsList(container, hits, opts = {}) {
 
     const matched = document.createElement("div");
     matched.className = "result-matched";
-    if ((hit.matchedTerms || []).length) {
-      for (const t of hit.matchedTerms) {
+    // Repainted on reveal: the line is built from the terms this card is
+    // allowed to name, and revealing the labels changes that set.
+    const paintMatched = () => {
+      matched.innerHTML = "";
+      const terms = visibleMatchedTerms(hit, revealedCards.has(hit.problem.id));
+      for (const t of terms) {
         const chip = document.createElement("span");
         chip.className = "matched-chip";
         chip.textContent = t;
         matched.appendChild(chip);
       }
-    }
+      // Every term was a label: the line has nothing left to say, but the node
+      // stays so a reveal can fill it back in.
+      matched.hidden = terms.length === 0;
+    };
+    paintMatched();
 
     const detail = document.createElement("div");
     // Only the labels are hints. Blacking out the whole panel also hid the
@@ -2881,9 +3046,7 @@ function renderHitsList(container, hits, opts = {}) {
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
       <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
-      <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
-        .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
-        .join(" ")}</p>
+      <p class="patterns"></p>
       <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
         hit.problem.source_url
           ? ` · <a href="${escapeHtml(hit.problem.source_url)}" class="external-link" target="_blank" rel="noopener">open original problem &rarr;</a>`
@@ -2902,21 +3065,31 @@ function renderHitsList(container, hits, opts = {}) {
       track("similar_opened", { problemId: hit.problem.id, kind: "practice" });
       runSimilar(hit.problem, { practice: true });
     });
-    if (opts.similarMode && (hit.sharedTechniques || []).length) {
+    // "Also labelled: …" names the labels outright, so it is label content and
+    // goes behind the same switch. "Also labelled", not "shared techniques":
+    // the overlap is real information, but the order is dense cosine
+    // (techniqueWeight is 0), so it must not read as the reason for the ranking.
+    const hasSharedTechniques = !!opts.similarMode && (hit.sharedTechniques || []).length > 0;
+    const paintSimilarExplanation = () => {
+      if (!hasSharedTechniques) return;
+      const existing = detail.querySelector(".similar-explanation");
+      if (!(revealedCards.has(hit.problem.id) || showLabels)) {
+        if (existing) existing.remove();
+        return;
+      }
+      if (existing) return;
       const explanation = document.createElement("p");
       explanation.className = "similar-explanation";
-      // "Also labelled", not "shared techniques": the overlap is real information,
-      // but the order is dense cosine (techniqueWeight is 0), so it must not read
-      // as the reason for the ranking.
       explanation.textContent = `Also labelled: ${hit.sharedTechniques.join(", ")}`;
       detail.prepend(explanation);
-    }
-    detail.querySelectorAll(".pattern-chip").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        applyPatternFilter(btn.dataset.pattern);
-      });
-    });
+    };
+    paintSimilarExplanation();
+    renderPatternsInto(
+      detail.querySelector(".patterns"),
+      hit.problem,
+      revealedCards.has(hit.problem.id),
+      () => { paintMatched(); paintSimilarExplanation(); }
+    );
     // Not gated on a connected sheet any more: a note typed here exists
     // whether or not Google has heard about it yet, and hiding it until it
     // syncs would make saving look like it did nothing.
@@ -2964,7 +3137,9 @@ function renderHitsList(container, hits, opts = {}) {
 
     li.appendChild(header);
     if (!libraryMode) li.appendChild(bar);
-    if (matched.childNodes.length > 0) li.appendChild(matched);
+    // Appended on "were there terms at all", not "are any visible now" — a
+    // card whose every match was a label still needs the node to repaint into.
+    if ((hit.matchedTerms || []).length > 0) li.appendChild(matched);
     li.appendChild(detail);
     container.appendChild(li);
 

@@ -37,6 +37,11 @@ const TYPES = new Set([
   "similar_opened",
   "cses_level_set",
   "help_opened",
+  // The labels switch: how many people leave labels hidden, and how often a
+  // hidden card gets opened anyway — the only way to tell a study aid from an
+  // obstacle.
+  "labels_toggled",
+  "labels_revealed",
 ]);
 
 const clip = (v, n) => (typeof v === "string" && v ? v.slice(0, n) : undefined);
@@ -97,6 +102,10 @@ function cleanProps(type, raw = {}) {
   } else if (type === "cses_level_set") {
     const band = Number(raw.band);
     if (Number.isInteger(band) && band >= 1 && band <= 5) p.band = band;
+  } else if (type === "labels_toggled") {
+    p.shown = raw.shown === true;
+  } else if (type === "labels_revealed") {
+    p.problemId = clip(raw.problemId, 120);
   } else if (type === "help_opened") {
     p.section = clip(raw.section, 20) ?? "";
   } else if (type === "recall_set") {
