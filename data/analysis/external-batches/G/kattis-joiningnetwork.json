@@ -1,0 +1,29 @@
+{
+ "id": "kattis-joiningnetwork",
+ "status": "solved",
+ "solution": "Write S1(x) = sum_u d(u,x) and S2(x) = sum_u d(u,x)^2 inside a tree. Joining a in A to b in B leaves the two internal costs unchanged and makes every cross pair cost (dA(u,a)+1+dB(v,b))^2, so expanding the square gives cross(a,b) = M*S2A(a) + 2M*S1A(a) + N*S2B(b) + 2N*S1B(b) + 2*S1A(a)*S1B(b) + N*M. Two rerooting DP passes give S1 and S2 for every vertex of each tree in linear time. For a fixed b the a-dependent part is the line value S1A(a)*t + M*S2A(a) evaluated at t = 2M + 2*S1B(b) > 0, so building the lower convex hull of the points (S1A(a), M*S2A(a)) and querying it once per b answers everything in O(N log N + M log M) instead of the 2.5*10^9 double loop. Space O(N+M).",
+ "solution_confidence": 0.93,
+ "statement_summary": "Two trees of N and M computers are given; the cost of a network is the sum, over all unordered pairs of its computers, of the squared number of edges between them. Exactly one new cable must join a computer of the first tree to a computer of the second. The task is to report the minimum possible cost of the combined network, with both sizes up to fifty thousand.",
+ "patterns": [
+  "rerooting-dp",
+  "tree-dp",
+  "convex-hull-trick",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "rerooting-dp": 0.92,
+  "tree-dp": 0.88,
+  "convex-hull-trick": 0.85,
+  "sorting": 0.5
+ },
+ "tags": [
+  "tree",
+  "dp",
+  "rerooting",
+  "convex-hull-trick",
+  "math"
+ ],
+ "source_text_sha256": "ea489d6687b6baf79dd5b4fdf2c493e04a5438d39afba0da1189e50592a513b4",
+ "verify_script": "data/analysis/external-batches/G/verify_joiningnetwork.py",
+ "notes": "verify_joiningnetwork.py checks both samples exactly (96 and 551) and compares the rerooting + hull pipeline against a brute force that BFSes every pair of attachment points and re-sums every pair distance, on 120 random tree pairs with N,M<=7. The product term S1A(a)*S1B(b) is what forces the hull; without it the two trees would separate."
+}

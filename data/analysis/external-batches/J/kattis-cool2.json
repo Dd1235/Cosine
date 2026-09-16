@@ -1,0 +1,17 @@
+{
+ "id": "kattis-cool2",
+ "status": "unsolved",
+ "solution": "Not solved. Established: one pass of the program induces a map F on cells, and since the program counter resets every pass, every state cycle is a whole number of passes and the answer X equals the total number of moves made over one F-cycle. Hence X <= (N-2)^2 * L <= 7840800, and reaching 10^6 requires an F-cycle spanning at least 5000 cells, over an eighth of the interior. Also established: a room with no interior walls is useless, because the two coordinates then evolve independently under clamped shifts, which are monotone self-maps of a chain and so converge to fixed points, capping X at L; the same order-preserving argument kills every one-cell-wide corridor. So a long cycle needs 2D coupling through walls. Where it breaks: I could not build such a coupling. Hand constructions (combs of teeth over a shared corridor, two corridors joined by rungs, serpentine rings, billiard-style bouncing, skyline rooms) all failed the same way, since horizontal drift is a clamped shift that sticks at a wall and reversing it needs state the program cannot carry across a pass. Random search over four structured maze families plus hill climbing on skyline profiles reached only X ~ 1.8*10^4 with about 90 cells in the F-cycle, roughly 55x short.",
+ "solution_confidence": 0.0,
+ "statement_summary": "With no input at all, a program must print a valid instance of the companion robot problem: a grid dimension between three and two hundred, a movement program no longer than that dimension, and a walled grid holding exactly one starting cell, chosen so that a correct solver for the companion problem reports a trail period of at least one million.",
+ "patterns": [],
+ "pattern_confidence": {},
+ "tags": [
+  "construction",
+  "grid",
+  "output-only"
+ ],
+ "source_text_sha256": "49aa0ab56b448800a767f2615f8ff1546528a801f9ec026e3a041014dab841d9",
+ "verify_script": "data/analysis/external-batches/J/verify_cool2.py",
+ "notes": "Unsolved on purpose rather than guessed. If it were solved the likely labels are constructive-algorithm plus cycle-detection, but the whole content of the problem is the gadget I did not find, so labelling it from the companion problem's techniques would be fabrication. verify_cool2.py records the upper bound, demonstrates the open-room obstruction and reproduces the search plateau. Statement contains no sentence addressed to the annotator."
+}

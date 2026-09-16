@@ -1,0 +1,30 @@
+{
+ "id": "kattis-peaktower",
+ "status": "solved",
+ "solution": "Clip each moving rectangle to the scene [0,W]x[0,H] (objects that drift off the picture stop counting - that is why waiting is said to help) and let f(t) be the area of the union. Sweeping in x, f(t) = sum over vertical strips of (strip width) times (measure of the union of the active y-intervals). While no two of the 2N+2 relevant x-coordinates - the object edges plus the clip lines 0 and W - swap, and likewise for y, each strip's active set and the merge pattern of its y-intervals are frozen, so both factors are linear in t and f is a single quadratic on that interval. Every order change is the root of a linear equation, so there are O(N^2) event times; sort them, and on each interval fit the quadratic from three samples and test its vertex along with the endpoints. With N <= 50 that is about 10^4 intervals times an O(N^2) union-area evaluation, and the minimum is exact rather than sampled. O(N^4) time overall, O(N^2) space.",
+ "solution_confidence": 0.85,
+ "statement_summary": "Up to fifty axis-aligned rectangles move at constant velocities across a photographed scene of given width and height. For any moment within the next E seconds a picture may be taken, and the task is the smallest possible area of the scene covered by the union of those rectangles at the chosen moment, reported to within a millionth relative error.",
+ "patterns": [
+  "geometry",
+  "rectangle-union-area",
+  "line-sweep",
+  "coordinate-compression",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "geometry": 0.9,
+  "rectangle-union-area": 0.85,
+  "line-sweep": 0.8,
+  "coordinate-compression": 0.7,
+  "sorting": 0.5
+ },
+ "tags": [
+  "geometry",
+  "sweep-line",
+  "math",
+  "simulation"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_peaktower.py",
+ "notes": "Verified on both statement samples (sample 2's answer 300 happens exactly at t=5.75, where the smaller rectangle is swallowed by the larger) and on 120 random instances against a dense scan of t with an independent coordinate-compression union-area routine: the event-based minimum was never above the scan and never more than 1e-3 below it. Explicitly NOT ternary-search: the area is not unimodal in t, which is the obvious wrong approach here; and not binary-search-answer. The one modelling decision that the samples do not pin down hard is clipping to the scene, but the statement's remark that waiting until the objects are gone gives the best picture only makes sense if off-scene area does not count.",
+ "source_text_sha256": "b2a60648e1b2d58a6b4ec10abbe58a8f1fbb092f400e7799fbcc3197b5980f00"
+}

@@ -1,0 +1,26 @@
+{
+ "id": "kattis-terracedfields",
+ "status": "solved",
+ "solution": "The price is the number of digits 6 or 8 occurring in the multiples of 8 up to n, plus the digits of n itself when n is not a multiple of 8 (when it is, it was already counted once). Count the first part with a digit DP over the <= 19 digits of n whose state is (position, value mod 8, tight, started), returning both how many numbers each branch completes and how many lucky digits they contribute; a digit contributes its own count times the number of completions below it. O(19 * 8 * 10) per query, O(1) extra space -- fast enough for 100000 queries, and n <= 10^18 rules out any enumeration.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A staircase of n steps has its number engraved on every step whose index is a multiple of eight and on the final step; each engraved digit 6 or 8 costs a precious stone, and the tour price is the number of such digits. For a given n, as large as 10^18, the task is that price, for up to 100,000 independent queries.",
+ "patterns": [
+  "digit-dp",
+  "dynamic-programming",
+  "counting"
+ ],
+ "pattern_confidence": {
+  "digit-dp": 0.9,
+  "dynamic-programming": 0.9,
+  "counting": 0.7
+ },
+ "tags": [
+  "math",
+  "digits",
+  "dynamic-programming",
+  "counting"
+ ],
+ "source_text_sha256": "f3d48f31bc0ce71aa5b736d6eca35f86ea1d151ee5d7c6a9e7b2efb8f8bc2d04",
+ "verify_script": "data/analysis/external-batches/H/verify_terracedfields.py",
+ "notes": "All four sample queries (1,2,4,3) match, and direct enumeration agrees for n<=300 and on 400 random n up to 30000. Sample n=56 is what shows a step that is both a multiple of 8 and the final step is engraved once, not twice. Divisibility by 8 depends only on the last three digits, so a closed-form counting solution also exists; the mod-8 digit DP is the straightforward route."
+}

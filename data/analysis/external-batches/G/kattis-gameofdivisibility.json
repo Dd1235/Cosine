@@ -1,0 +1,26 @@
+{
+ "id": "kattis-gameofdivisibility",
+ "status": "solved",
+ "solution": "Only residues mod k matter. Let c_r be the count of residue r, base0 = sum_r floor(c_r/2)*r mod k (one element out of each equal pair), z the number of residues with odd count, and S = 2*base0 + sum of the odd residues. Mirroring is optimal for both sides: the second player can answer every pick with the partner in a fixed perfect matching, which pins the final score to base0 plus one element of each mixed pair, and the first player can take one element and then mirror. That yields an O(k) rule: z = 0 gives DRAW (the score is forced to base0 and so is the opponent's); z = 1 with odd residue r forces the first player's score to base0 + r, and the outcome is read off directly; z = 2 with residues r1, r2 is FIRST when S is nonzero and base0 + r1 or base0 + r2 vanishes, else DRAW, and SECOND is impossible for even n; z >= 3 is always a DRAW. O(n + k) per dataset.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Two players alternately remove one number from a list of up to 1024 integers until it is empty, the first player starting, and each scores the sum of what he took. A player wins only if his own score is divisible by k while his opponent's is not; otherwise the game is drawn. Across datasets with k at most 32, report the result under optimal play.",
+ "patterns": [
+  "game-theory",
+  "modular-arithmetic",
+  "parity-argument"
+ ],
+ "pattern_confidence": {
+  "game-theory": 0.95,
+  "modular-arithmetic": 0.9,
+  "parity-argument": 0.8
+ },
+ "tags": [
+  "game-theory",
+  "math",
+  "modular-arithmetic",
+  "parity"
+ ],
+ "source_text_sha256": "0a573b42fad2bad0e4790d3a379f6dbdaefbe09c14ef749f5323b02137d03e82",
+ "verify_script": "data/analysis/external-batches/G/verify_gameofdivisibility.py",
+ "notes": "verify_gameofdivisibility.py checks the three samples and then the O(k) rule against a full game-tree search over EVERY residue multiset for k=2..6 with n up to 8-10 (5352 multisets, zero mismatches), against the mirroring/matching theorem stated in the docstring (1274 multisets), and on 4000 large random instances via the reduction that the outcome depends only on the parity vector and base0. Two structural facts fall out and are proved in the script's notes: S divisible by k always draws, and the second player can never win when n is even. No game-dp label - the exponential DP exists only in the checker; the shipped rule is a closed form."
+}

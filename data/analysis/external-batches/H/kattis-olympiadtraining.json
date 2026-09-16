@@ -1,0 +1,27 @@
+{
+ "id": "kattis-olympiadtraining",
+ "status": "solved",
+ "solution": "For every subset S of the N <= 20 candidates, cost(S) = sum_j max_{i in S} a_ij. Write each max as a telescoping sum over prefixes: sorting topic j's students descending as v_1 >= ... >= v_N, max_{i in S} = sum_k (v_k - v_{k+1}) * [S meets the top-k set], so cost(S) = TOT - sum over (j,k) of (v_k - v_{k+1}) * [S is contained in the complement of that top-k set]. Bucket each weight on that complement mask, take one superset-sum (SOS) DP over 2^N, and cost(S) = TOT - G[S] for every subset at once. Sweep subsets by popcount for the per-K minima, so all Q queries are answered together. O(N*M + 2^N * N) time and O(2^N) space per dataset.",
+ "solution_confidence": 0.9,
+ "statement_summary": "A coach must teach M topics to a group of K students chosen from N candidates; teaching one topic to a group costs the largest of its members' individual times for that topic, and the group's cost is the sum over all topics. For each query value of K the task is the minimum possible total, with N at most 20 and M up to 10,000.",
+ "patterns": [
+  "sos-dp",
+  "bitmask-dp",
+  "dynamic-programming",
+  "contribution-technique"
+ ],
+ "pattern_confidence": {
+  "sos-dp": 0.85,
+  "bitmask-dp": 0.75,
+  "dynamic-programming": 0.9,
+  "contribution-technique": 0.6
+ },
+ "tags": [
+  "bitmask",
+  "dynamic-programming",
+  "optimization"
+ ],
+ "source_text_sha256": "3d617553f44d26ced40cae345e30a3670896aee7b993914e87e448dc8591e1de",
+ "verify_script": "data/analysis/external-batches/H/verify_olympiadtraining.py",
+ "notes": "Both sample datasets match (4 / 11,14,18) and subset-enumeration brute force agrees on 200 random instances with N<=7. The naive route -- score each of the 2^N subsets against all M topics -- is 2^20 * 10^4 and far too slow, which is what forces the contribution rewrite plus SOS."
+}

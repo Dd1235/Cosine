@@ -1,0 +1,26 @@
+{
+ "id": "kattis-swimmingballs",
+ "status": "solved",
+ "solution": "At water level h a ball of radius r either floats, displacing exactly its own weight w * (4/3)pi r^3, or sits on the bottom submerged to depth min(h, 2r), displacing the spherical cap pi t^2 (3r - t)/3; the physical displacement is the smaller of the two, which makes displaced(h) continuous and non-decreasing. The level therefore solves W*L*h - sum_i displaced_i(h) = V, monotone in h, so binary search h over [0, D] (about 100 iterations for 10^-9) and clamp at D when even h = D leaves net volume below V. O(n log(1/eps)) time, O(n) space, n <= 1000.",
+ "solution_confidence": 0.85,
+ "statement_summary": "A rectangular pool of given width, length and depth receives a fixed volume of water together with n spheres, each with a radius and a specific weight; heavier balls rest on the bottom while lighter ones float, and both displace water by Archimedes' principle. The task is the resulting water level, capped at the pool depth, to within 10^-4 error.",
+ "patterns": [
+  "binary-search-answer",
+  "binary-search",
+  "geometry"
+ ],
+ "pattern_confidence": {
+  "binary-search-answer": 0.65,
+  "binary-search": 0.9,
+  "geometry": 0.75
+ },
+ "tags": [
+  "geometry",
+  "math",
+  "binary-search",
+  "physics"
+ ],
+ "source_text_sha256": "e849758a45f4507c90c48bd41d43425353e5740d67c0bdb54567378b852092f7",
+ "verify_script": "data/analysis/external-batches/H/verify_swimmingballs.py",
+ "notes": "Both samples match to 1e-8 (2.0 and 1.78616514621) and a dense scan of the same equation agrees to the scan's own resolution on 60 random pools. The sample fixes the input order as radius then specific weight -- the statement's sentence names them in the opposite order. binary-search-answer is claimed because the work is in evaluating the displacement at a candidate level (the float-versus-grounded case split and the cap volume), not merely in noticing monotonicity; a solver who sorted the breakpoints could instead solve the piecewise-cubic equation in closed form, so the label is not forced."
+}

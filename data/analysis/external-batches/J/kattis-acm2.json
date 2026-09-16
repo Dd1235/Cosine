@@ -1,0 +1,23 @@
+{
+ "id": "kattis-acm2",
+ "status": "solved",
+ "solution": "Problem p is forced first, so if its estimate exceeds 300 the team solves nothing and the answer is '0 0'. Otherwise the clock starts at t[p]; among the remaining problems, solving them in increasing order of estimate maximises how many fit in the 300 minutes (the classic shortest-job-first exchange argument), and for a fixed set the same increasing order also minimises the penalty because the penalty is the sum of prefix sums, which weights the i-th smallest by (k-i+1). The largest feasible set is also the set of smallest estimates, so one greedy pass answers both parts. O(N log N) time, O(N) space.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A team faces N problems, at most thirteen, with distinct estimated solving times, and insists on attempting a designated problem first before working on the rest in any order. The contest lasts three hundred minutes and a problem counts only if it is finished by then. The task is to report the largest number of problems solved and, among orders achieving that, the smallest total ICPC penalty time.",
+ "patterns": [
+  "greedy",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "greedy": 0.96,
+  "sorting": 0.93
+ },
+ "tags": [
+  "greedy",
+  "sorting",
+  "scheduling"
+ ],
+ "source_text_sha256": "0ebd9a3473ab74621e4176ff845d5caf20d70ad6cb18ca6f976e306e0af17428",
+ "verify_script": "data/analysis/external-batches/J/verify_acm2.py",
+ "notes": "N <= 13 invites brute-force over permutations, but the intended and verified solution is the shortest-job-first greedy, so brute-force is deliberately NOT tagged. Statement contains no sentence addressed to the annotator."
+}

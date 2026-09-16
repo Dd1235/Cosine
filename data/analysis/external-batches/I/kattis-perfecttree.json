@@ -1,0 +1,33 @@
+{
+ "id": "kattis-perfecttree",
+ "status": "solved",
+ "solution": "A subgraph of a tree that is a perfect k-ary tree is just a connected vertex subset, and since k >= 2 its root is the unique vertex of degree k (internal nodes have degree k+1, leaves degree 1), so counting each candidate at its root counts it exactly once. Let down[h][v][p] be the number of perfect k-ary subtrees of height h rooted at v that avoid the neighbour p; then down[h][v][p] is the elementary symmetric polynomial of degree k in {down[h-1][u][v] : u in N(v), u != p}, because the root must pick exactly k of its available neighbours and each must carry a height h-1 perfect subtree. The answer is N (the single vertices, h = 0) plus the sum over h >= 1 and over v of e_k taken over all of v's neighbours. Heights stop at log_k N (<= 17 for k = 2, N = 10^5), and evaluating e_k with one element removed for every directed edge is done with prefix/suffix symmetric polynomials rather than division, giving O(N k log_k N) time and O(N k) space modulo 10^9+7.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A tree with up to a hundred thousand labelled nodes is given along with a value k between two and five. The task is to count, modulo one billion and seven, how many subgraphs of the tree are perfect k-ary trees, meaning they can be rooted so that every internal node has exactly k children and all leaves sit at equal depth.",
+ "patterns": [
+  "tree-dp",
+  "dynamic-programming",
+  "rerooting-dp",
+  "combinatorics",
+  "counting",
+  "modular-arithmetic"
+ ],
+ "pattern_confidence": {
+  "tree-dp": 0.92,
+  "dynamic-programming": 0.8,
+  "rerooting-dp": 0.6,
+  "combinatorics": 0.7,
+  "counting": 0.7,
+  "modular-arithmetic": 0.6
+ },
+ "tags": [
+  "tree",
+  "dynamic-programming",
+  "combinatorics",
+  "counting",
+  "graph"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_perfecttree.py",
+ "notes": "Verified against the statement sample and 200 random trees (N <= 10, k in 2..5) plus complete k-ary trees, by enumerating every connected vertex subset and testing perfection at every possible root - which also confirms the no-double-counting argument. Single vertices count (the sample's answer 6 is 4 singletons plus 2 three-node paths). The performance trap is a star: computing e_k over all neighbours minus one naively is O(deg^2), so prefix/suffix symmetric polynomials are needed, and division is unavailable since a child value can be 0 mod p.",
+ "source_text_sha256": "8536c8ad826c8a5b431199ed61f5e6f190e856bde5416067f850b6b1ce36ecd4"
+}

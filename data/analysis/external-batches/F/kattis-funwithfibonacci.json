@@ -1,0 +1,31 @@
+{
+ "id": "kattis-funwithfibonacci",
+ "status": "solved",
+ "solution": "Fibonacci mod m is purely periodic with period pi(m), so G(k,n) mod m_0 needs G(k-1,n) mod m_1 with m_1 = pi(m_0), and so on down a tower m_0, pi(m_0), pi(pi(m_0)), .... That tower always reaches a fixed point pi(M) = M within about twenty levels (24, 120, 600, 3000, 15000 and 375000 are the fixed points reached from p <= 1e6). If k is at most the tower depth D, reduce n modulo m_k and walk back up with fast-doubling Fibonacci. Otherwise every level below D uses the same modulus M, so the rest is the single map T(x) = F_x mod M iterated k-D times on Z_M; precompute T for each distinct M in O(M) (it is just the Fibonacci sequence mod M) and jump k-D steps through its functional graph, then walk the D levels back up. O(D log) per query after precomputation.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Nesting the Fibonacci function k times starting from n gives a value the task must report modulo p, for up to a hundred thousand independent queries. Both n and k reach a quintillion while the modulus p stays at or below one million, so the nested value is astronomically large and only its residue can ever be formed.",
+ "patterns": [
+  "number-theory",
+  "modular-arithmetic",
+  "cycle-detection",
+  "functional-graph",
+  "matrix-exponentiation",
+  "prime-factorization"
+ ],
+ "pattern_confidence": {
+  "number-theory": 0.95,
+  "modular-arithmetic": 0.9,
+  "cycle-detection": 0.85,
+  "functional-graph": 0.8,
+  "matrix-exponentiation": 0.75,
+  "prime-factorization": 0.7
+ },
+ "tags": [
+  "number-theory",
+  "fibonacci",
+  "periodicity"
+ ],
+ "source_text_sha256": "af1a9859349278466b5eb5f9bccb31da51aedc023219bab1a7d88407c0312c9e",
+ "verify_script": "data/analysis/external-batches/F/verify_funwithfibonacci.py",
+ "notes": "verify_funwithfibonacci.py reproduces all ten sample answers including the n=k=1e18, p=1e6 case (890625), matches 430 small (n,k,p) triples against exact big-integer nesting, and checks 270 deep queries with k up to 1e18 against the closed forms for n <= 5. Confidence is 0.88 only because of the engineering margin: getting 1e5 queries inside the limit needs pi(m) sieved for all m <= 1e6 and memoised above that, plus the O(M) functional-graph precomputation per distinct fixed point, since a naive per-query rho walk can cost 12500 steps at M = 375000. Finding pi of a prime uses divisor enumeration of p-1 or 2(p+1), which is left unlabelled as scaffolding. Statement contains no sentence addressed to the annotator."
+}

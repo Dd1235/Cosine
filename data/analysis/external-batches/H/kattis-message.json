@@ -1,0 +1,32 @@
+{
+ "id": "kattis-message",
+ "status": "solved",
+ "solution": "Count the complement: strings of length n over 26 letters that avoid p. Build the KMP automaton of p and keep only its |p| non-accepting states; the number of avoiding strings is the row sum of T^n applied to the start state, where T[s][t] counts letters moving s to t without completing a match. |p| <= 50 and n <= 10^12, so raise the transfer matrix by binary exponentiation, about 40 squarings of a 50x50 matrix. The answer is 26^n - avoid, all arithmetic mod M. O(|p|^3 log n) time, O(|p|^2) space; M is an arbitrary modulus up to 10^12, so products need 128-bit arithmetic and no inverses may be used.",
+ "solution_confidence": 0.92,
+ "statement_summary": "Given a length n, a modulus M and a pattern string p of at most 50 lowercase letters, the task is to count the lowercase strings of length n that contain p somewhere as a substring, reported modulo M. The length reaches 10^12 and the modulus 10^12, so up to twenty such datasets must each be answered without enumeration.",
+ "patterns": [
+  "matrix-exponentiation",
+  "kmp",
+  "string-matching",
+  "dynamic-programming",
+  "counting",
+  "combinatorics"
+ ],
+ "pattern_confidence": {
+  "matrix-exponentiation": 0.9,
+  "kmp": 0.85,
+  "string-matching": 0.7,
+  "dynamic-programming": 0.8,
+  "counting": 0.7,
+  "combinatorics": 0.5
+ },
+ "tags": [
+  "string",
+  "matrix",
+  "counting",
+  "dynamic-programming"
+ ],
+ "source_text_sha256": "db75701cb8404c74e4559e5b8111ca9238e4d3f385a8500cee79920281d63e82",
+ "verify_script": "data/analysis/external-batches/H/verify_message.py",
+ "notes": "Both samples match (1 and 52) and full enumeration over alphabets of size 2 and 3 agrees on 120 random (n, p, M) with n up to 11. M is not necessarily prime, which rules out any division-based shortcut; the transfer-matrix route needs none."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "kattis-bipartitebattle",
+ "status": "solved",
+ "solution": "Brute force over every bipartite graph with parts up to 5 and 4 shows the Grundy value of the delete-a-vertex-or-an-edge game is exactly ((a+b) mod 2) + 2*(|E| mod 2). Socket, moving second, wins iff the XOR over the N games is 0, i.e. iff sum(a_i+b_i) is even and an even number of graphs carry an odd edge count. The low bit is fixed by the input, so the answer is 0 when sum(a_i+b_i) is odd; otherwise the edge parities are independent and uniform, exactly half of the 2^(a_i b_i) drawings of each graph being odd, so the count is 2^(sum a_i*b_i - 1) mod 1e9+7. O(N log) time with one modular exponentiation, O(1) space.",
+ "solution_confidence": 0.92,
+ "statement_summary": "Two players alternately delete one vertex or one edge from any still non-empty graph among N drawn bipartite graphs, the i-th having parts of a_i and b_i vertices, and whoever cannot move loses. The task counts, modulo 1000000007, the ways to draw the edge sets so that the second player wins under optimal play, with N up to 100000 and part sizes up to 1000000000.",
+ "patterns": [
+  "game-theory",
+  "grundy-numbers",
+  "counting",
+  "parity-argument",
+  "modular-exponentiation"
+ ],
+ "pattern_confidence": {
+  "game-theory": 0.95,
+  "grundy-numbers": 0.93,
+  "counting": 0.85,
+  "parity-argument": 0.9,
+  "modular-exponentiation": 0.8
+ },
+ "tags": [
+  "game",
+  "combinatorics",
+  "graph"
+ ],
+ "source_text_sha256": "04ed03a8ba1a9566a6b2fb9289259b8369f03782e6b9eb628739886553873fa4",
+ "verify_script": "data/analysis/external-batches/F/verify_bipartitebattle.py",
+ "notes": "The Grundy formula is verified element by element (not just by value counts) on all graphs for 15 part-size pairs up to 5x2 and 4x3, and the final counting formula is verified against a full enumeration of every drawing for eleven multi-graph inputs. The formula is empirical rather than proved here, which is why confidence is 0.92 rather than higher. Statement contains no sentence addressed to the annotator."
+}

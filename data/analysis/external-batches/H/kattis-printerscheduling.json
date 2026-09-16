@@ -1,0 +1,33 @@
+{
+ "id": "kattis-printerscheduling",
+ "status": "solved",
+ "solution": "Preemptive scheduling of n jobs on m identical machines with release times and deadlines, which is feasible iff a transportation-style flow saturates. Cut the timeline at the sorted distinct r_i and d_i values (at most 400 boundaries, so <= 399 intervals) and build source -> job i (cap p_i) -> interval k (cap len_k, present only when [t_k,t_k+1) lies inside [r_i,d_i]) -> sink (cap m*len_k); a schedule exists iff max flow equals sum p_i, because any schedule induces such a flow and any flow can be realised. Realise it with McNaughton's wrap-around inside each interval: lay the per-job amounts end to end along a strip of length m*len_k and cut it into m printer rows, which never splits a job across two rows at the same instant since each amount is <= len_k. Dinic on ~600 nodes and ~80000 edges per dataset.",
+ "solution_confidence": 0.85,
+ "statement_summary": "Up to 200 files, each with a page count, a release time and a deadline, must be printed on m identical printers; printing may be interrupted and resumed on any printer, but a file may occupy only one printer at a time and each printer prints one page at a time. The task is to decide feasibility and, when feasible, emit an explicit schedule.",
+ "patterns": [
+  "max-flow",
+  "graph-modeling",
+  "coordinate-compression",
+  "constructive-algorithm",
+  "greedy",
+  "dinic"
+ ],
+ "pattern_confidence": {
+  "max-flow": 0.9,
+  "graph-modeling": 0.85,
+  "coordinate-compression": 0.7,
+  "constructive-algorithm": 0.7,
+  "greedy": 0.6,
+  "dinic": 0.5
+ },
+ "tags": [
+  "graph",
+  "flow",
+  "scheduling",
+  "intervals",
+  "constructive"
+ ],
+ "source_text_sha256": "d96ba116deb9e60467b64bedf4423144bc741384be05fa7e3b83071d4118b89d",
+ "verify_script": "data/analysis/external-batches/H/verify_printerscheduling.py",
+ "notes": "Both samples match (YES with a valid schedule / NO). The interval-compressed flow agrees with a flow built over individual unit time slots on 360 random instances, and with an exhaustive slot-by-slot DFS on the 300 tiny ones; every schedule produced was re-validated against all the statement's rules (per-file totals, windows, no self-overlap, no printer overlap). The statement's output constraint is misprinted as d_i <= x < y <= r_i; it must mean r_i <= x < y <= d_i."
+}

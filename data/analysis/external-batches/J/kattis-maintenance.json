@@ -1,0 +1,32 @@
+{
+ "id": "kattis-maintenance",
+ "status": "solved",
+ "solution": "The cost M + K/M over divisors M of K falls on (0, sqrt K] and rises after, and the two candidates M and K/M give the same cost, so the answer comes from the largest divisor of K that is at most isqrt(K). K has roughly 1200 bits and up to 10^10 divisors, so meet in the middle: split the prime powers into two groups with divisor counts as equal as possible (greedy over the factors e_i+1, each at most 101, so each side is about sqrt(D)), enumerate each group's divisors, sort the second, and for every d1 binary-search the largest d2 with d1*d2 <= isqrt(K). The cost is reduced mod 1e9+7 with a modular inverse for K/M, which is safe since every prime factor is below the modulus. O(sqrt(D) log sqrt(D)) big-integer comparisons, O(sqrt(D)) space.",
+ "solution_confidence": 0.9,
+ "statement_summary": "A customer needs exactly K bytes of storage bought as identical servers of M bytes each, where M must divide K, and the price is M dollars of base cost plus one dollar per server. K arrives as a string of two-digit prime factors, up to three hundred and fifty of them, and may have ten billion divisors. Report the least cost modulo one billion and seven.",
+ "patterns": [
+  "meet-in-the-middle",
+  "divisor-enumeration",
+  "number-theory",
+  "binary-search",
+  "sorting",
+  "modular-arithmetic"
+ ],
+ "pattern_confidence": {
+  "meet-in-the-middle": 0.9,
+  "divisor-enumeration": 0.9,
+  "number-theory": 0.85,
+  "binary-search": 0.85,
+  "sorting": 0.8,
+  "modular-arithmetic": 0.8
+ },
+ "tags": [
+  "divisors",
+  "meet-in-the-middle",
+  "bignum",
+  "modulo"
+ ],
+ "source_text_sha256": "a89c16c6e3e2e6d98e9d663454fe9f5c7019677e874ef9ebbdabbe3b51b63308",
+ "verify_script": "data/analysis/external-batches/J/verify_maintenance.py",
+ "notes": "binary-search-answer is explicitly NOT the label: the binary search runs over a sorted list of half-divisors, there is no monotone feasibility predicate on the answer. Comparisons must be exact big integers; long-double logarithms are not safe because two divisors can differ by a factor as small as 1+1/d. Statement contains no sentence addressed to the annotator."
+}

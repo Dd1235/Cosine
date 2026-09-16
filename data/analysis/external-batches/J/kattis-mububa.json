@@ -1,0 +1,25 @@
+{
+ "id": "kattis-mububa",
+ "status": "solved",
+ "solution": "Executives get consecutive blocks from the front, so the answer is the maximum number of parts in a left-to-right split of the array whose block sums are non-decreasing. Run a prefix DP that stores, for every prefix, the Pareto-best pair (largest number of blocks, and the smallest last-block sum attaining it): dp[i] takes the best j < i with pre[i]-pre[j] >= last[j], breaking ties toward the largest j so the new last block is as small as possible. More blocks never hurt and a smaller last block never hurts, so one pair per prefix suffices; the fuzz confirms this against exhaustive splits. O(N^2) time with N <= 3000, O(N) space.",
+ "solution_confidence": 0.9,
+ "statement_summary": "N briefcases, each holding some bananas, are handed out in order to executives ranked by evilness: each executive receives a positive number of the lowest-numbered briefcases still available. A more evil executive must end up with at least as many bananas as every less evil one. With N up to three thousand, the task is to maximise how many executives can be rewarded.",
+ "patterns": [
+  "dynamic-programming",
+  "partition-dp",
+  "prefix-sum"
+ ],
+ "pattern_confidence": {
+  "dynamic-programming": 0.95,
+  "partition-dp": 0.88,
+  "prefix-sum": 0.85
+ },
+ "tags": [
+  "array",
+  "dp",
+  "partition"
+ ],
+ "source_text_sha256": "3bee47eb957cc7fd99f2f456ce44792beefed2965d1fe31bd17fb8b2b5d68034",
+ "verify_script": "data/analysis/external-batches/J/verify_mububa.py",
+ "notes": "dp-on-dag is not applicable: the only DAG here is the DP's own prefix-to-prefix state graph, not a graph the problem hands you. The interesting part is that keeping a single Pareto pair per prefix is sound; the verify script checks that against all 2^(n-1) splits. Statement contains no sentence addressed to the annotator."
+}

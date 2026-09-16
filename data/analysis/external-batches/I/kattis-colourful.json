@@ -1,0 +1,28 @@
+{
+ "id": "kattis-colourful",
+ "status": "solved",
+ "solution": "Colours are only ever copied, so the set of live colours can shrink but never grow: a necessary condition is that every colour of t already occurs in s (and for n = 1, s = t). For a connected graph with n >= 2 that is also sufficient, and the witness is built in two phases. Phase A repairs the colour multiset: while some colour occurs fewer times than t needs, take a vertex whose colour is in surplus, BFS to the nearest vertex whose colour is in deficit, and walk the surplus one edge at a time toward it, each move being a single vertex copying a neighbour; only surplus vertices are overwritten, so no needed colour is ever lost, and each unit of deficit costs at most one shortest path. Phase B permutes: with the multiset correct, match holders to targets and realise that permutation by adjacent swaps on a spanning tree, peeling leaves in reverse DFS order so the working part stays connected - a swap is one legal step because the update is simultaneous and both endpoints read the other's old colour. O(n^3) work, O(n) steps per repair, comfortably inside 20000 steps.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Each vertex of a connected undirected graph carries one of k colours, and in one step every vertex simultaneously either keeps its colour or takes the colour of a neighbour. Given a starting and a target colouring on at most a hundred vertices with at most a hundred colours, the task is to decide reachability and, when reachable, print a witness sequence of at most twenty thousand steps.",
+ "patterns": [
+  "constructive-algorithm",
+  "bfs",
+  "greedy",
+  "dfs"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.92,
+  "bfs": 0.7,
+  "greedy": 0.55,
+  "dfs": 0.4
+ },
+ "tags": [
+  "graph",
+  "constructive-algorithm",
+  "bfs",
+  "simulation"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_colourful.py",
+ "notes": "The feasibility criterion was checked exhaustively by BFS over the whole configuration space of every connected graph on 2..4 vertices with k <= 3, against every (s,t) pair, and the constructor was replayed step by step on 300 random small instances plus adversarial n=100 paths, stars, cycles and random trees: worst observed 3614 steps against the 20000 budget. The simultaneity of the step is the crux - a 3-vertex star with s=(c,A,B) and target (*,B,A) is unreachable by one-vertex-at-a-time copies but easy in three simultaneous steps, so a solution that only ever moves one colour at a time along a path will wrongly report Impossible. Not labelled simulation: nothing is simulated forward, the sequence is constructed.",
+ "source_text_sha256": "f7a7d3a25c47398d8d9b216fd172b98cc92663c676bb7e6ca7951f24b6171344"
+}

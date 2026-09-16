@@ -1,0 +1,29 @@
+{
+ "id": "kattis-cool1",
+ "status": "solved",
+ "solution": "The configuration (cell, program counter) determines everything and the step map is deterministic, so the state graph is a functional graph on at most N*N*L <= 8*10^6 nodes. Walk it with first-visit timestamps until a state repeats, which exposes the rho's cycle, then replay exactly one lap and collect the cells actually entered. That block B repeats forever; if it is empty the robot has stopped moving and the trail is finite, so print 1. Otherwise the tail is B repeated, whose minimal period divides |B|, so take p = |B| - failure[|B|] from the KMP prefix function and answer p when p divides |B|, else |B|. O(N^2 * L) time and space.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A robot starts on an empty cell of an N by N grid whose border is solid wall and repeats a program of at most N characters drawn from left, right, up and down, skipping any step that would enter a wall. Its trail records only the cells it enters. Print one if that trail is finite, otherwise the length of its eventual repeating block.",
+ "patterns": [
+  "cycle-detection",
+  "functional-graph",
+  "simulation",
+  "kmp",
+  "grid-traversal"
+ ],
+ "pattern_confidence": {
+  "cycle-detection": 0.93,
+  "functional-graph": 0.88,
+  "simulation": 0.85,
+  "kmp": 0.82,
+  "grid-traversal": 0.7
+ },
+ "tags": [
+  "grid",
+  "cycle",
+  "string-period"
+ ],
+ "source_text_sha256": "a94b89f444925552311fd1b450cbf80ded491e45e22e0c2718ceeae2b02967ef",
+ "verify_script": "data/analysis/external-batches/J/verify_cool1.py",
+ "notes": "The easy-to-miss step is that the cycle in the state graph gives a period of the trail but not necessarily the minimal one, so the prefix-function reduction is needed; sample 1 (answer 2 from a 4-character program) is exactly that case. Verified against a 20000-step direct simulation on 1500 random grids. Statement contains no sentence addressed to the annotator."
+}

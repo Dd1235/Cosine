@@ -1,0 +1,21 @@
+{
+ "id": "kattis-doors",
+ "status": "solved",
+ "solution": "Reconstructing the (unavailable) figure from the samples: the corridor is 0 <= y <= w, a shaft of width l rises above the ceiling gap from (0,w) to (l,w), door A is hinged at (0,w) and points (cos A, -sin A) into the corridor, and door B is hinged on a corridor wall further right so its tip stands l*sin B above that wall. A disc gets through a planar passage exactly when every bottleneck pair of obstacles is at least 2r apart, and here there are only two bottlenecks: entering the corridor past door A, which is the distance from the far shaft corner (l,w) to the door segment - l*sin A while the foot of the perpendicular lies on the door (A <= pi/2), else l, the plain shaft width - and squeezing past door B, a gap of w - l*sin B. So the answer is min(R, l*sin(min(A,pi/2))/2, (w - l*sin B)/2), O(1) per scenario, O(1) space.",
+ "solution_confidence": 0.55,
+ "statement_summary": "A circle of radius R starts far above a corridor of width w and must reach a point far to the right inside it, avoiding the walls and two hinged doors of length l, with the door length never exceeding the corridor width. For each of up to ten thousand scenarios giving the two door angles in radians, the task reports the largest shrunken radius that still gets through.",
+ "patterns": [
+  "geometry"
+ ],
+ "pattern_confidence": {
+  "geometry": 0.9
+ },
+ "tags": [
+  "geometry",
+  "math",
+  "simulation"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_doors.py",
+ "notes": "CAVEAT, read before trusting the solution field: the staged statement references a figure that was not fetched, so the positions of the two doors are a reconstruction. The closed form reproduces all four sample answers to 1e-9 (2.598079885 is exactly 3*sin(1.0472), 3 is exactly l/2, 1 is exactly (w-l)/2), and verify_doors.py also confirms it against a grid motion-planning search in that reconstructed layout. What it cannot confirm is how far door B sits from the shaft: if the figure places the two doors close together, the true answer gains a door-A-to-door-B clearance term that this formula lacks, and the sample data (B is only ever 0 or pi/2) cannot distinguish the two layouts. Labels are unaffected - it is plane geometry either way. Explicitly not binary-search-answer: the bottleneck is closed form, and T = 10^4 scenarios want O(1) each. The verify script takes a few minutes because the grid search is pure Python.",
+ "source_text_sha256": "deeb9bff7e8a18fdb5376c9ac37d6c954a3a72ec288b28c50613ece4b0965076"
+}

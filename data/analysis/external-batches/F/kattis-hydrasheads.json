@@ -1,0 +1,25 @@
+{
+ "id": "kattis-hydrasheads",
+ "status": "solved",
+ "solution": "Cutting one head regrows a head, so move 1 is a no-op and the reachable moves are (H,T)->(H,T+1) for T>=1, (H,T)->(H-2,T) for H>=2 and (H,T)->(H+1,T-2) for T>=2. If a of the first, b of the second and c of the third are used then a = 2c - T and 2b = H + c, so the total 3c - T + (H+c)/2 is increasing in c and the optimum is the smallest c >= ceil(T/2) with c congruent to H mod 2. Such a plan is always orderable (all tail-growths first, then all tail-pairs, then all head-pairs), so with H, T >= 1 the answer is never -1. O(1) per test case, O(1) space.",
+ "solution_confidence": 0.97,
+ "statement_summary": "A knight fights a creature with H heads and T tails and may cut one head, one tail, two heads or two tails, but cutting a single head regrows a head, cutting a single tail regrows two tails, and cutting two tails grows a head. The creature dies only when both counts reach zero at once; the task is the fewest cuts, with H and T each at most 100.",
+ "patterns": [
+  "bfs",
+  "greedy",
+  "parity-argument"
+ ],
+ "pattern_confidence": {
+  "bfs": 0.75,
+  "greedy": 0.7,
+  "parity-argument": 0.9
+ },
+ "tags": [
+  "math",
+  "shortest-path",
+  "game"
+ ],
+ "source_text_sha256": "e010cadf87098481460782cf4c3a38eb27dfb2a71a08a48364d55f5c3d14b0aa",
+ "verify_script": "data/analysis/external-batches/F/verify_hydrasheads.py",
+ "notes": "The closed form was checked against a breadth-first search over the whole (heads, tails) state graph for every start with H, T in 1..100; they agree exactly, which is also why the bfs label is kept (searching the state graph is an equally valid solution at these limits). -1 is unreachable for the stated input range. Statement contains no sentence addressed to the annotator."
+}

@@ -18,7 +18,7 @@ P = ROOT/"data/analysis/external-proposals.json"; props = json.loads(P.read_text
 R = ROOT/"data/analysis/external-review.json"; rev = json.loads(R.read_text())
 pby = {p["id"]: p for p in props["problems"]}
 summary = {}
-for batch in ("A", "B", "D", "E", "A2"):   # C already published (2247a85)
+for batch in ("A", "B", "D", "E", "A2", "F", "G", "H", "I", "J"):   # C already published (2247a85); F–J = Hanoi 18, HCMC 17, Nha Trang 16, Hong Kong 16, Singapore 15
     bdir = SC/batch   # data/analysis/external-batches/<A|B|C|D|E|A2>/
     if not bdir.exists(): continue
     reviews = {}

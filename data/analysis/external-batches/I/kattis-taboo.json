@@ -1,0 +1,37 @@
+{
+ "id": "kattis-taboo",
+ "status": "solved",
+ "solution": "Build the Aho-Corasick automaton of the N taboo strings over the binary alphabet and mark a state bad if it ends a taboo string or if any state on its suffix-link chain does (propagated in BFS order). A binary string avoids every taboo string exactly when the walk it traces from the root never enters a bad state, so the clue length is the longest walk in the automaton restricted to good states. If any good state reachable from the root lies on a cycle of good states the clue is unbounded and the answer is -1; this is detected by the same DFS that computes best[u] = 1 + max over characters of best[goto(u,c)] over good successors. Rebuilding the string is a greedy walk from the root taking '0' whenever it still attains best[u], which gives the lexicographically smallest among the longest. O(sum of lengths) states, transitions, time and space.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Given up to fifteen thousand binary taboo strings whose lengths total at most two hundred thousand, the task is to find the longest binary string that contains none of them as a substring, printing -1 when arbitrarily long such strings exist. Among all longest answers, the lexicographically smallest one must be reported.",
+ "patterns": [
+  "aho-corasick",
+  "trie",
+  "string-matching",
+  "dynamic-programming",
+  "cycle-detection",
+  "topological-sort",
+  "lexicographic-order",
+  "greedy"
+ ],
+ "pattern_confidence": {
+  "aho-corasick": 0.95,
+  "trie": 0.8,
+  "string-matching": 0.7,
+  "dynamic-programming": 0.85,
+  "cycle-detection": 0.8,
+  "topological-sort": 0.5,
+  "lexicographic-order": 0.7,
+  "greedy": 0.55
+ },
+ "tags": [
+  "string",
+  "automaton",
+  "dynamic-programming",
+  "graph",
+  "aho-corasick"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_taboo.py",
+ "notes": "Verified on both statement samples and 300 random taboo sets against exhaustive enumeration of binary strings (length, then lexicographic order), including the -1 cases. Not labelled dp-on-dag: the acyclic graph is the automaton the solver builds, not a DAG the problem hands you. Two edge cases worth knowing: terminal-ness must be inherited along suffix links (a taboo string can end inside another's path), and when both '0' and '1' are taboo the answer is the empty string, not -1.",
+ "source_text_sha256": "fd68159603249ab105ec7e8319af5c4f54d00d286411312098216cc3240625fd"
+}

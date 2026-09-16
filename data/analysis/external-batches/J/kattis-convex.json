@@ -1,0 +1,29 @@
+{
+ "id": "kattis-convex",
+ "status": "solved",
+ "solution": "A strictly convex lattice polygon is exactly a cyclic sequence of edge vectors with pairwise distinct directions summing to zero, so take primitive vectors (gcd 1, which forces distinct directions and hence no three collinear vertices), sort them by angle and take prefix sums. To make the sum vanish, use antipodal pairs {v,-v}; for odd N start from the three vectors (1,0),(0,1),(-1,-1), which already sum to zero, and pair up the rest. Greedily take the pairs of smallest L1 norm, because the bounding box is exactly sum|a_i| by sum|b_i| over the chosen representatives. O(N log N) after an O(N) sieve of primitive vectors, O(N) space.",
+ "solution_confidence": 0.9,
+ "statement_summary": "Given N between three and four hundred thousand, the task is to output any convex polygon with exactly N vertices, every vertex at a lattice point with both coordinates between zero and forty million, all vertices distinct and no three of them collinear. Any valid polygon is accepted, in any vertex order, and the output is large enough that fast printing matters.",
+ "patterns": [
+  "constructive-algorithm",
+  "geometry",
+  "gcd",
+  "sorting",
+  "greedy"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.95,
+  "geometry": 0.92,
+  "gcd": 0.88,
+  "sorting": 0.85,
+  "greedy": 0.7
+ },
+ "tags": [
+  "geometry",
+  "construction",
+  "lattice-points"
+ ],
+ "source_text_sha256": "f9729d3ddcf47b94e277234f3fa2b377cf7cb27eb60719dae0ee41bf69d2f017",
+ "verify_script": "data/analysis/external-batches/J/verify_convex.py",
+ "notes": "The budget is genuinely tight and is the whole difficulty: the verify script measures the bounding box actually used and gets 38251233 x 38225960 at N=400000, i.e. about 4.4% of slack under the 4*10^7 limit, so a less economical vector choice fails. Note convex-hull is NOT a label; nothing is hulled. Statement contains no sentence addressed to the annotator."
+}

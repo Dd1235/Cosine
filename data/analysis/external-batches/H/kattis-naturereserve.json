@@ -1,0 +1,27 @@
+{
+ "id": "kattis-naturereserve",
+ "status": "solved",
+ "solution": "Every channel that is actually used costs E_ij to activate plus L to push the program across it, so give each edge weight E_ij + L; the set of used channels must connect every station to some pre-installed station, and a cheapest such set is a spanning forest of the graph in which the S initial stations are contracted to a single vertex. Run Kruskal with union-find after pre-uniting the S sources, summing the accepted weights. The network is connected, so exactly N-S accepted edges (post-contraction, N-1 unions minus the S-1 free ones) always exist. O(M log M) time, O(N+M) space with M up to 10^6.",
+ "solution_confidence": 0.95,
+ "statement_summary": "Stations form a connected weighted network; activating the channel between two stations costs a given amount, and afterwards transmitting the L-byte program across it costs L more. The program starts installed on S given stations and must reach every station. The task is the minimum total energy, with up to 10^4 stations and 10^6 channels.",
+ "patterns": [
+  "minimum-spanning-tree",
+  "kruskal",
+  "union-find",
+  "graph-modeling"
+ ],
+ "pattern_confidence": {
+  "minimum-spanning-tree": 0.95,
+  "kruskal": 0.9,
+  "union-find": 0.85,
+  "graph-modeling": 0.7
+ },
+ "tags": [
+  "graph",
+  "mst",
+  "optimization"
+ ],
+ "source_text_sha256": "6b22cc99f79c154f145beb3bcaa9d475dbf51b16a89ab5f468e635238de04622",
+ "verify_script": "data/analysis/external-batches/H/verify_naturereserve.py",
+ "notes": "Sample (37) reproduced; brute force over all edge subsets agrees on 300 random connected graphs with up to 6 nodes and random source sets. Any MST algorithm works; Kruskal is just the convenient one for merging the sources first."
+}

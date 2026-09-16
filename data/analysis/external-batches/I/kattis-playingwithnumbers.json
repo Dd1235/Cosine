@@ -1,0 +1,31 @@
+{
+ "id": "kattis-playingwithnumbers",
+ "status": "solved",
+ "solution": "Write each number as the exponent pair (a,b); gcd is the componentwise minimum and lcm the componentwise maximum, and the two exponents are combined by the same op, so values must be compared as 2^a*3^b. Any combining tree with k gcd-ops and N-1-k lcm-ops whose root is an lcm is exactly a partition of the N items into m = N-k blocks, taking the componentwise min of each block and the componentwise max across blocks (dually, the smallest outcome is m = k+1 blocks with max inside and min on top) - a brute force over all trees confirmed this family is complete. If m >= 3 two singleton blocks can carry the global maximum of a and of b independently, so the answer is the global componentwise max; m = 1 is the global componentwise min; only m = 2 needs work, and there the optimum is either a singleton block against the rest or the split induced by an a-threshold, both swept with prefix/suffix componentwise minima after one sort. O(N log N) time, O(N) space, and every scenario k is answered in O(1) from those precomputed arrays.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Each of N numbers is given as two raised to some power times three raised to some power, and repeatedly two numbers are replaced by either their greatest common divisor or their least common multiple until a single number remains. For every count k of gcd merges from zero up to N-1, the task reports the largest and the smallest final value obtainable.",
+ "patterns": [
+  "gcd",
+  "number-theory",
+  "greedy",
+  "sorting",
+  "exchange-argument"
+ ],
+ "pattern_confidence": {
+  "gcd": 0.9,
+  "number-theory": 0.85,
+  "greedy": 0.7,
+  "sorting": 0.6,
+  "exchange-argument": 0.5
+ },
+ "tags": [
+  "math",
+  "number-theory",
+  "greedy",
+  "sorting",
+  "array"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_playingwithnumbers.py",
+ "notes": "Verified against the statement sample and 600 random cases (N<=6, exponents 0..4) against an exhaustive enumeration of every combining tree. My first model - 'pick one block S of size k+1, lcm it with the rest' - passed the sample but the brute force killed it at N=4, k=2: two two-element gcd blocks combined by lcm beat any single block. No binary-search-answer (nothing is searched), no dynamic-programming (the m=2 case is a single sorted sweep), no combinatorics (nothing is counted). Comparison of 2^a*3^b needs exact big-integer or log comparison; equal values force equal exponent pairs.",
+ "source_text_sha256": "64da9962e231adee94bceeb52ffe551df56f74a59d2803300abeddae6565c4f2"
+}

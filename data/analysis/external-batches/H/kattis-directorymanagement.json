@@ -1,0 +1,28 @@
+{
+ "id": "kattis-directorymanagement",
+ "status": "solved",
+ "solution": "Straight simulation. Hold the tree with a lexicographically ordered child map per node, a cached subtree size, and a parent pointer; MKDIR and RM add or detach a node and walk to the root adjusting sizes, which is cheap because those two commands number at most 5000. UNDO is a LIFO stack of records -- undo MKDIR by detaching the created node, undo RM by re-attaching the saved subtree (kept alive, not freed), undo CD by restoring the saved current pointer -- and the stack discipline guarantees the state a record reverts to is reachable. LS needs only the first and last five keys of the ordered map; TREE needs the subtree size plus the first five pre-order lines (walk the leftmost chain) and the last five (walk the rightmost chain), so no traversal is ever materialised. O(1) to O(depth) per command.",
+ "solution_confidence": 0.85,
+ "statement_summary": "Simulate a directory manager over up to 10^5 commands: create, remove and enter child directories, report a directory's subtree size, list its children in lexicographic order, print its subtree in pre-order, and undo the most recent successful create, remove or change-directory command. Listings longer than ten lines show only their first and last five lines.",
+ "patterns": [
+  "design",
+  "simulation",
+  "stack",
+  "ordered-set"
+ ],
+ "pattern_confidence": {
+  "design": 0.9,
+  "simulation": 0.85,
+  "stack": 0.75,
+  "ordered-set": 0.6
+ },
+ "tags": [
+  "data-structures",
+  "implementation",
+  "tree",
+  "simulation"
+ ],
+ "source_text_sha256": "ff1356f316839b3cc720aa1ef6369c417cd4d2b3c52171d51f0281dd3b14dcbd",
+ "verify_script": "data/analysis/external-batches/H/verify_directorymanagement.py",
+ "notes": "The sample's 22-command transcript is reproduced exactly (including SZ=9 and both TREE listings), and a second implementation that deep-copies the entire state before each undoable command and restores it on UNDO agrees on 200 random 120-command sessions. The scraped statement is whitespace-flattened, so the exact indentation of LS/TREE output (Figure 1) cannot be recovered from it -- an output-format detail only, not an algorithmic one."
+}

@@ -195,5 +195,1004 @@
     "organizer": "ICPC",
     "held_date": "2020-12-11",
     "observed_at": "2026-09-12"
+  },
+  {
+    "id": "icpc-asia-hanoi-2018",
+    "name": "ICPC Asia Hanoi Regional 2018",
+    "short": "Hanoi 18",
+    "family": "icpc",
+    "season": "2018-2019",
+    "stage": "regional",
+    "location": "Hanoi, Vietnam",
+    "organizer": "ICPC",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/The%202018%20ICPC%20Asia%20Hanoi%20Regional%20Contest",
+      "https://hanoi18.kattis.com/contests/hanoi18"
+    ],
+    "problems": [
+      {
+        "id": "kattis-amazingadventures",
+        "order": 1,
+        "title": "Amazing Adventures",
+        "url": "https://open.kattis.com/problems/amazingadventures",
+        "kattis_difficulty": {
+          "score": 7.0,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 93,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-bipartitebattle",
+        "order": 2,
+        "title": "Bipartite Battle",
+        "url": "https://open.kattis.com/problems/bipartitebattle",
+        "kattis_difficulty": {
+          "score": 6.0,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 42,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-conquestcampaign",
+        "order": 3,
+        "title": "Conquest Campaign",
+        "url": "https://open.kattis.com/problems/conquestcampaign",
+        "kattis_difficulty": {
+          "score": 2.0,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 907,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-dividedoughnut",
+        "order": 4,
+        "title": "Divide Doughnut",
+        "url": "https://open.kattis.com/problems/dividedoughnut",
+        "kattis_difficulty": {
+          "score": 6.2,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 100,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-enjoyingelderberries",
+        "order": 5,
+        "title": "Enjoying Elderberries",
+        "url": "https://open.kattis.com/problems/enjoyingelderberries",
+        "kattis_difficulty": {
+          "score": 7.2,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 2,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-funwithfibonacci",
+        "order": 6,
+        "title": "Fun with Fibonacci",
+        "url": "https://open.kattis.com/problems/funwithfibonacci",
+        "kattis_difficulty": {
+          "score": 8.8,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 21,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-grabagraph",
+        "order": 7,
+        "title": "Grab a Graph",
+        "url": "https://open.kattis.com/problems/grabagraph",
+        "kattis_difficulty": {
+          "score": 8.3,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 41,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-hydrasheads",
+        "order": 8,
+        "title": "Hydra's Heads",
+        "url": "https://open.kattis.com/problems/hydrasheads",
+        "kattis_difficulty": {
+          "score": 2.0,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 1080,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-insidersidentity",
+        "order": 9,
+        "title": "Insider's Identity",
+        "url": "https://open.kattis.com/problems/insidersidentity",
+        "kattis_difficulty": {
+          "score": 6.9,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 58,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-jurassicjungle",
+        "order": 10,
+        "title": "Jurassic Jungle",
+        "url": "https://open.kattis.com/problems/jurassicjungle",
+        "kattis_difficulty": {
+          "score": 7.0,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 44,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-kingdomofkittens",
+        "order": 11,
+        "title": "Kingdom of Kittens",
+        "url": "https://open.kattis.com/problems/kingdomofkittens",
+        "kattis_difficulty": {
+          "score": 9.2,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 38,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-lazylearner",
+        "order": 12,
+        "title": "Lazy Learner",
+        "url": "https://open.kattis.com/problems/lazylearner",
+        "kattis_difficulty": {
+          "score": 4.5,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 55,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      }
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: The 2018 ICPC Asia Hanoi Regional Contest",
+        "url": "https://open.kattis.com/problem-sources/The%202018%20ICPC%20Asia%20Hanoi%20Regional%20Contest",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "held_date": "2018-11-30",
+    "observed_at": "2026-09-16"
+  },
+  {
+    "id": "icpc-asia-ho-chi-minh-2017",
+    "name": "ICPC Asia Ho Chi Minh City Regional 2017",
+    "short": "HCMC 17",
+    "family": "icpc",
+    "season": "2017-2018",
+    "stage": "regional",
+    "location": "Ho Chi Minh City, Vietnam",
+    "organizer": "ICPC",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/The%202017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest",
+      "https://hochiminh17.kattis.com/contests/hochiminh17"
+    ],
+    "problems": [
+      {
+        "id": "kattis-arrangingwine",
+        "order": 1,
+        "title": "Arranging Wine",
+        "url": "https://open.kattis.com/problems/arrangingwine",
+        "kattis_difficulty": {
+          "score": 6.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 79,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-barcode",
+        "order": 2,
+        "title": "Barcode",
+        "url": "https://open.kattis.com/problems/barcode",
+        "kattis_difficulty": {
+          "score": 6.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 200,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-cuchitunnels",
+        "order": 3,
+        "title": "Cu Chi Tunnels",
+        "url": "https://open.kattis.com/problems/cuchitunnels",
+        "kattis_difficulty": {
+          "score": 3.3,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 556,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-droppingball",
+        "order": 4,
+        "title": "Dropping Ball",
+        "url": "https://open.kattis.com/problems/droppingball",
+        "kattis_difficulty": {
+          "score": 7.1,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 92,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-engaging",
+        "order": 5,
+        "title": "Engaging with Loyal Customers",
+        "url": "https://open.kattis.com/problems/engaging",
+        "kattis_difficulty": {
+          "score": 5.9,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 183,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-famouspagoda",
+        "order": 6,
+        "title": "Famous Pagoda",
+        "url": "https://open.kattis.com/problems/famouspagoda",
+        "kattis_difficulty": {
+          "score": 4.2,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 184,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-gameofdivisibility",
+        "order": 7,
+        "title": "Game of Divisibility",
+        "url": "https://open.kattis.com/problems/gameofdivisibility",
+        "kattis_difficulty": {
+          "score": 6.5,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 36,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-heightpreservation",
+        "order": 8,
+        "title": "Height Preservation",
+        "url": "https://open.kattis.com/problems/heightpreservation",
+        "kattis_difficulty": {
+          "score": 5.4,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 129,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-icpcawards",
+        "order": 9,
+        "title": "ICPC Awards",
+        "url": "https://open.kattis.com/problems/icpcawards",
+        "kattis_difficulty": {
+          "score": 1.5,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 4422,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-joiningnetwork",
+        "order": 10,
+        "title": "Joining Networks",
+        "url": "https://open.kattis.com/problems/joiningnetwork",
+        "kattis_difficulty": {
+          "score": 4.9,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 77,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-krotating",
+        "order": 11,
+        "title": "K-Rotating",
+        "url": "https://open.kattis.com/problems/krotating",
+        "kattis_difficulty": {
+          "score": 7.3,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 45,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-landinheritance",
+        "order": 12,
+        "title": "Land Inheritance",
+        "url": "https://open.kattis.com/problems/landinheritance",
+        "kattis_difficulty": {
+          "score": 5.8,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 30,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      }
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: The 2017 ACM - ICPC Asia Ho Chi Minh City Regional Contest",
+        "url": "https://open.kattis.com/problem-sources/The%202017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "held_date": "2017-12-08",
+    "observed_at": "2026-09-16"
+  },
+  {
+    "id": "icpc-asia-nha-trang-2016",
+    "name": "ICPC Asia Nha Trang Regional 2016",
+    "short": "Nha Trang 16",
+    "family": "icpc",
+    "season": "2016-2017",
+    "stage": "regional",
+    "location": "Nha Trang, Vietnam",
+    "organizer": "ICPC",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/The%202016%20ACM%20-%20ICPC%20Asia%20Nha%20Trang%20Regional%20Contest"
+    ],
+    "problems": [
+      {
+        "id": "kattis-alicedigital",
+        "order": 1,
+        "title": "Alice in the Digital World",
+        "url": "https://open.kattis.com/problems/alicedigital",
+        "kattis_difficulty": {
+          "score": 3.3,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 1585,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-directorymanagement",
+        "order": 2,
+        "title": "Directory Management",
+        "url": "https://open.kattis.com/problems/directorymanagement",
+        "kattis_difficulty": {
+          "score": 8.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 27,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-divisorgame",
+        "order": 3,
+        "title": "Divisor Game",
+        "url": "https://open.kattis.com/problems/divisorgame",
+        "kattis_difficulty": {
+          "score": 7.7,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 47,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-icpcteamselection",
+        "order": 4,
+        "title": "ICPC Team Selection",
+        "url": "https://open.kattis.com/problems/icpcteamselection",
+        "kattis_difficulty": {
+          "score": 2.1,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 1502,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-message",
+        "order": 5,
+        "title": "Message",
+        "url": "https://open.kattis.com/problems/message",
+        "kattis_difficulty": {
+          "score": 8.9,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 37,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-naturereserve",
+        "order": 6,
+        "title": "Nature Reserve",
+        "url": "https://open.kattis.com/problems/naturereserve",
+        "kattis_difficulty": {
+          "score": 3.2,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 661,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-olympiadtraining",
+        "order": 7,
+        "title": "Olympiad Training",
+        "url": "https://open.kattis.com/problems/olympiadtraining",
+        "kattis_difficulty": {
+          "score": 6.8,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 50,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-printerscheduling",
+        "order": 8,
+        "title": "Printer Scheduling",
+        "url": "https://open.kattis.com/problems/printerscheduling",
+        "kattis_difficulty": {
+          "score": 8.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 23,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-reservoir",
+        "order": 9,
+        "title": "Reservoir",
+        "url": "https://open.kattis.com/problems/reservoir",
+        "kattis_difficulty": {
+          "score": 4.7,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 130,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-swimmingballs",
+        "order": 10,
+        "title": "Swimming Balls",
+        "url": "https://open.kattis.com/problems/swimmingballs",
+        "kattis_difficulty": {
+          "score": 7.7,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 28,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-terracedfields",
+        "order": 11,
+        "title": "Terraced fields",
+        "url": "https://open.kattis.com/problems/terracedfields",
+        "kattis_difficulty": {
+          "score": 5.3,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 112,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-ultimatepipegame",
+        "order": 12,
+        "title": "Ultimate Pipe Game",
+        "url": "https://open.kattis.com/problems/ultimatepipegame",
+        "kattis_difficulty": {
+          "score": 7.8,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 8,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      }
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: The 2016 ACM - ICPC Asia Nha Trang Regional Contest",
+        "url": "https://open.kattis.com/problem-sources/The%202016%20ACM%20-%20ICPC%20Asia%20Nha%20Trang%20Regional%20Contest",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "held_date": null,
+    "observed_at": "2026-09-16"
+  },
+  {
+    "id": "icpc-asia-hong-kong-2016",
+    "name": "ICPC Asia Hong Kong Regional 2016",
+    "short": "Hong Kong 16",
+    "family": "icpc",
+    "season": "2016-2017",
+    "stage": "regional",
+    "location": "Hong Kong",
+    "organizer": "ICPC",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/Hong%20Kong%20Regional%20Contest%202016",
+      "https://asiahk16.kattis.com/contests/asiahk16"
+    ],
+    "problems": [
+      {
+        "id": "kattis-colourful",
+        "order": 1,
+        "title": "Colourful Graph",
+        "url": "https://open.kattis.com/problems/colourful",
+        "kattis_difficulty": {
+          "score": 6.1,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 46,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-doors",
+        "order": 2,
+        "title": "Doors",
+        "url": "https://open.kattis.com/problems/doors",
+        "kattis_difficulty": {
+          "score": 5.7,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 104,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-peaktower",
+        "order": 3,
+        "title": "Peak Tower",
+        "url": "https://open.kattis.com/problems/peaktower",
+        "kattis_difficulty": {
+          "score": 7.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 20,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-peaktram",
+        "order": 4,
+        "title": "Peak Tram",
+        "url": "https://open.kattis.com/problems/peaktram",
+        "kattis_difficulty": {
+          "score": 7.1,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 47,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-perfecttree",
+        "order": 5,
+        "title": "Perfect k-ary Tree",
+        "url": "https://open.kattis.com/problems/perfecttree",
+        "kattis_difficulty": {
+          "score": 7.7,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 33,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-playingwithnumbers",
+        "order": 6,
+        "title": "Playing with Numbers",
+        "url": "https://open.kattis.com/problems/playingwithnumbers",
+        "kattis_difficulty": {
+          "score": 4.9,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 106,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-scaffolding",
+        "order": 7,
+        "title": "Scaffolding",
+        "url": "https://open.kattis.com/problems/scaffolding",
+        "kattis_difficulty": {
+          "score": 5.1,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 15,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-slimcut",
+        "order": 8,
+        "title": "Slim Cut",
+        "url": "https://open.kattis.com/problems/slimcut",
+        "kattis_difficulty": {
+          "score": 7.1,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 31,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-specialtour",
+        "order": 9,
+        "title": "Special Tour",
+        "url": "https://open.kattis.com/problems/specialtour",
+        "kattis_difficulty": {
+          "score": 7.5,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 22,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-taboo",
+        "order": 10,
+        "title": "Taboo",
+        "url": "https://open.kattis.com/problems/taboo",
+        "kattis_difficulty": {
+          "score": 6.2,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 74,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-teamup",
+        "order": 11,
+        "title": "Team Up",
+        "url": "https://open.kattis.com/problems/teamup",
+        "kattis_difficulty": {
+          "score": 5.4,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 88,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      }
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: Hong Kong Regional Contest 2016",
+        "url": "https://open.kattis.com/problem-sources/Hong%20Kong%20Regional%20Contest%202016",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "held_date": "2016-11-06",
+    "observed_at": "2026-09-16"
+  },
+  {
+    "id": "icpc-asia-singapore-2015",
+    "name": "ICPC Asia Singapore Regional 2015",
+    "short": "Singapore 15",
+    "family": "icpc",
+    "season": "2015-2016",
+    "stage": "regional",
+    "location": "Singapore",
+    "organizer": "ICPC",
+    "evidence": [
+      "https://open.kattis.com/problem-sources/2015%20ACM%20ICPC%20Singapore%20Regional",
+      "https://asiasg15.kattis.com/"
+    ],
+    "problems": [
+      {
+        "id": "kattis-airconditioned",
+        "order": 1,
+        "title": "Air Conditioned Minions",
+        "url": "https://open.kattis.com/problems/airconditioned",
+        "kattis_difficulty": {
+          "score": 2.2,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 2693,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-applescherriesmangos",
+        "order": 2,
+        "title": "Apples, Cherries, and Mangos",
+        "url": "https://open.kattis.com/problems/applescherriesmangos",
+        "kattis_difficulty": {
+          "score": 7.0,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 143,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-acm2",
+        "order": 3,
+        "title": "Association for Computing Machinery",
+        "url": "https://open.kattis.com/problems/acm2",
+        "kattis_difficulty": {
+          "score": 2.3,
+          "label": "easy"
+        },
+        "solves": {
+          "full": 1172,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-control",
+        "order": 4,
+        "title": "Association for Control Over Minds",
+        "url": "https://open.kattis.com/problems/control",
+        "kattis_difficulty": {
+          "score": 3.4,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 987,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-convex",
+        "order": 5,
+        "title": "Association for Convex Main Office",
+        "url": "https://open.kattis.com/problems/convex",
+        "kattis_difficulty": {
+          "score": 6.1,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 222,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-cool1",
+        "order": 6,
+        "title": "Association for Cool Machineries (Part 1)",
+        "url": "https://open.kattis.com/problems/cool1",
+        "kattis_difficulty": {
+          "score": 6.8,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 179,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-cool2",
+        "order": 7,
+        "title": "Association for Cool Machineries (Part 2)",
+        "url": "https://open.kattis.com/problems/cool2",
+        "kattis_difficulty": {
+          "score": 6.9,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 33,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-mububa",
+        "order": 8,
+        "title": "Association for the Country of Mububa",
+        "url": "https://open.kattis.com/problems/mububa",
+        "kattis_difficulty": {
+          "score": 6.4,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 345,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-cameramakers",
+        "order": 9,
+        "title": "Association of Camera Makers",
+        "url": "https://open.kattis.com/problems/cameramakers",
+        "kattis_difficulty": {
+          "score": 9.4,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 20,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-magicallights",
+        "order": 10,
+        "title": "Association of Cats and Magical Lights",
+        "url": "https://open.kattis.com/problems/magicallights",
+        "kattis_difficulty": {
+          "score": 5.3,
+          "label": "medium"
+        },
+        "solves": {
+          "full": 382,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      },
+      {
+        "id": "kattis-maintenance",
+        "order": 11,
+        "title": "Association of Computer Maintenance",
+        "url": "https://open.kattis.com/problems/maintenance",
+        "kattis_difficulty": {
+          "score": 8.6,
+          "label": "hard"
+        },
+        "solves": {
+          "full": 62,
+          "source": "kattis-source-page",
+          "observed_at": "2026-09-16"
+        }
+      }
+    ],
+    "resources": [
+      {
+        "title": "Kattis problem source: 2015 ACM ICPC Singapore Regional",
+        "url": "https://open.kattis.com/problem-sources/2015%20ACM%20ICPC%20Singapore%20Regional",
+        "kind": "judge",
+        "availability": "public"
+      }
+    ],
+    "held_date": "2015-12-10",
+    "observed_at": "2026-09-16"
   }
 ]

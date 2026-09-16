@@ -1,0 +1,29 @@
+{
+ "id": "kattis-insidersidentity",
+ "status": "solved",
+ "solution": "Count the complement: strings of length n with no occurrence of P, then subtract from 2^n (and answer 0 when |P| > n). Track the set of pattern prefixes still alive as a bitmask A, where bit l means the last l characters match P[0..l-1]; appending '1' maps A to (A<<1)|1 and appending '0' maps A to ((A & starmask)<<1)|1, and a string is rejected as soon as bit m-1 would advance. That mask is exactly the Aho-Corasick state of the up to 2^15 concrete completions of P, so the reachable state count is bounded by the trie size, at most about 30*2^15; a dictionary-keyed DP over n <= 50 characters therefore runs in O(n * states) with states under 10^6. Measured worst case over adversarial patterns was 262144 states.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A pattern of at most thirty characters, each either a one or a wildcard and at least half of them ones, marks a binary string of length n as valid when some substring of the string matches the pattern position by position, with wildcards matching either bit. The task counts how many distinct valid strings of length n exist, where n is at most fifty.",
+ "patterns": [
+  "aho-corasick",
+  "dynamic-programming",
+  "counting",
+  "bitmask-dp",
+  "string-matching"
+ ],
+ "pattern_confidence": {
+  "aho-corasick": 0.8,
+  "dynamic-programming": 0.95,
+  "counting": 0.9,
+  "bitmask-dp": 0.8,
+  "string-matching": 0.75
+ },
+ "tags": [
+  "string",
+  "dp",
+  "combinatorics"
+ ],
+ "source_text_sha256": "1f3ef3d9d9ded3b2cfc147bb652d19018a491ccbe0c31cfb409fa2057db2c42d",
+ "verify_script": "data/analysis/external-batches/F/verify_insidersidentity.py",
+ "notes": "verify_insidersidentity.py checks both samples and matches the DP against brute-force enumeration of all 2^n strings for 500 random patterns plus edge shapes. aho-corasick is claimed because the alive-prefix bitmask is literally the Aho-Corasick state of the wildcard expansions (built lazily), which is also what bounds the state count; bitmask-dp covers the shift-and representation actually used. Statement contains no sentence addressed to the annotator."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "kattis-landinheritance",
+ "status": "solved",
+ "solution": "Alob's corn field must be a mirror image of Bice's rice field, so the best area is area(A intersect mirror(B)) where A and B are the parts of the polygon on the two sides of the canal; the two sides give the same answer because mirroring is an involution. Decompose the polygon (oriented counter-clockwise) into signed triangles (O, p_i, p_{i+1}) with sign s_i, so that sum_i s_i * [x in T_i] is exactly the indicator of the polygon even when it is non-convex. Clip each triangle to the half-plane to get A's pieces and clip each to the other half-plane and reflect it to get mirror(B)'s pieces - all convex with at most four vertices - and sum s_i * s_j * area of the convex-convex intersection over all pairs. O(N^2) clips, O(N) space, exact for N <= 100.",
+ "solution_confidence": 0.92,
+ "statement_summary": "A simple polygon of at most one hundred integer-coordinate vertices is split by a straight canal line; one brother owns everything on one side and the other brother everything on the other, and these regions may be disconnected. The two brothers plant fields that must be exact mirror images of each other across the canal. The task is the largest possible area of one brother's field.",
+ "patterns": [
+  "geometry",
+  "polygon-area"
+ ],
+ "pattern_confidence": {
+  "geometry": 0.95,
+  "polygon-area": 0.88
+ },
+ "tags": [
+  "geometry",
+  "polygon",
+  "area",
+  "reflection",
+  "clipping"
+ ],
+ "source_text_sha256": "b418478009a79d824eb00a88967f5d54187952ceca3c28a82e37dd4dec56a17f",
+ "verify_script": "data/analysis/external-batches/G/verify_landinheritance.py",
+ "notes": "verify_landinheritance.py reproduces all three samples (0, 9.476048311178, 8) to 1e-9 and agrees with Monte-Carlo integration on the samples and on twelve random star-shaped polygons with random canals. The signed-triangle trick is what makes non-convex, disconnected pieces fall out for free; no polygon-boolean library is needed. The vocabulary has no slug for polygon clipping / boolean area, so only geometry and polygon-area are claimed."
+}

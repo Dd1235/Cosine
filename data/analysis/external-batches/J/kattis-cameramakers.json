@@ -1,0 +1,27 @@
+{
+ "id": "kattis-cameramakers",
+ "status": "solved",
+ "solution": "Binary search on R with the arc-cover decision test. If some disk of radius R covers K points, sliding its centre away from them until the farthest covered point sits at distance exactly R shows there is a witness centre on the circle C_i of radius R about some input point i. For a centre on C_i, another point j is covered exactly on an arc of half-width acos(d(i,j)/(2R)) around the direction i->j, so collect those arcs for all j within 2R, sweep their endpoints and compare 1 + max overlap with K. Feasibility is bounded by U = min_i d_{K-1}(i): R* lies in [U/2, U], and a square of side U/2 holds fewer than K points, so only O(K) points lie within 2R of any i. That makes a decision O(N K log K) and is exactly why the input promises K <= 20 or N <= 5000. O(N) space.",
+ "solution_confidence": 0.7,
+ "statement_summary": "Up to a hundred thousand cats sit at distinct integer points of a plane, and one camera placed anywhere sees every cat within its visual range R. Find the smallest R letting the camera see at least K cats, where K is at most two hundred and, in every test, at most twenty unless the number of cats is at most five thousand.",
+ "patterns": [
+  "geometry",
+  "binary-search-answer",
+  "line-sweep",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "geometry": 0.95,
+  "binary-search-answer": 0.85,
+  "line-sweep": 0.82,
+  "sorting": 0.75
+ },
+ "tags": [
+  "geometry",
+  "circle-cover",
+  "binary-search"
+ ],
+ "source_text_sha256": "edcff69d7228ff5df8ddf38c0c15a3631f65eee46b924101a61cb7972d3a2be5",
+ "verify_script": "data/analysis/external-batches/J/verify_cameramakers.py",
+ "notes": "binary-search-answer is earned here rather than reflexive: the feasibility test, the arc-cover angular sweep on circles of radius R, is the entire content of the problem. Correctness verified against exhaustive pair-and-triple circle enumeration on 150 random point sets. Remaining risk is constant factors, not correctness: the O(K) neighbour bound is a worst-case packing argument, and in the N <= 5000 with K <= 200 regime it degenerates to O(N), so about thirty decisions over 5000 points each sweeping thousands of arcs is the tight spot. Statement contains no sentence addressed to the annotator."
+}

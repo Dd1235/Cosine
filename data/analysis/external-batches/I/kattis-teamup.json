@@ -1,0 +1,31 @@
+{
+ "id": "kattis-teamup",
+ "status": "solved",
+ "solution": "The pairwise nested-or-disjoint condition makes the classes a laminar family, so inclusion gives a forest; the parent of a set is found in O(sum|S_i|) by processing sets in decreasing size and keeping, per skill, the deepest set seen so far (equal-size sets are disjoint, so ties are harmless). Covering the set S_v needs either one player of class v or one cover of every child of v, and the children route is available only when their sizes add up to |S_v| (otherwise the gap skills are uncoverable inside v). Hence g(v) = cnt[v] + min over children g(c) when the children tile S_v, else cnt[v]; a team needs one cover per root, so the answer is min over roots g(root), and 0 when the maximal sets fail to cover all n skills. The teaming is emitted by zipping the first g covers of each child, O(n + m + sum|S_i| + p) time and space.",
+ "solution_confidence": 0.92,
+ "statement_summary": "Given n skills and m character classes whose skill sets are pairwise nested or disjoint, plus p players of known classes, a team is a set of players whose classes together cover every skill and each player joins at most one team. The task asks for the maximum number of teams that can be formed simultaneously and one such teaming.",
+ "patterns": [
+  "tree-dp",
+  "dynamic-programming",
+  "greedy",
+  "constructive-algorithm",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "tree-dp": 0.88,
+  "dynamic-programming": 0.7,
+  "greedy": 0.6,
+  "constructive-algorithm": 0.7,
+  "sorting": 0.45
+ },
+ "tags": [
+  "tree",
+  "graph",
+  "greedy",
+  "constructive-algorithm",
+  "set"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_teamup.py",
+ "notes": "Verified on the statement sample (answer 2) and 378 random laminar families (n<=4, p<=7) against an exhaustive maximum-disjoint-cover search; the emitted teams are also checked for disjointness and full coverage. The trap is the tiling test: children of a node whose sizes do not sum to the parent's leave skills nobody in the subtree can supply, so that node's only covers are its own players. Not bipartite-matching or flow - the laminar structure makes a bottom-up minimum exact.",
+ "source_text_sha256": "96272385f79f79e2d05de56af77fc21d1951f3d9d8724c2381c380c10346fa70"
+}

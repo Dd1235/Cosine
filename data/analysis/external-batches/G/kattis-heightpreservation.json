@@ -1,0 +1,31 @@
+{
+ "id": "kattis-heightpreservation",
+ "status": "solved",
+ "solution": "Two cells in the same row or column must get the same real level when their virtual heights are equal and a strictly larger one when the virtual height is larger. Union-find the equal pairs (sort each row and each column and merge neighbouring equal entries), then add, between consecutive distinct values of each sorted row and column, one edge from the smaller component to the larger one; transitivity covers the rest, so the edge count stays O(mn). The minimum number of levels is the length of the longest chain, i.e. the longest path in that DAG, obtained by a topological-order DP that sets level(v) = 1 + max level over predecessors; the answer is the maximum level. O(mn log(mn)) time dominated by the sorts, O(mn) space with m*n <= 10^6.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A floor of m by n cells carries a virtual height for every cell. Real heights must reproduce, within each row and within each column separately, both the equalities and the strict inequalities of the virtual heights, while cells in different rows and columns are unconstrained. The task is the smallest number of distinct real height levels needed, with the cell count up to one million.",
+ "patterns": [
+  "union-find",
+  "topological-sort",
+  "dp-on-dag",
+  "graph-modeling",
+  "sorting"
+ ],
+ "pattern_confidence": {
+  "union-find": 0.9,
+  "topological-sort": 0.88,
+  "dp-on-dag": 0.72,
+  "graph-modeling": 0.8,
+  "sorting": 0.7
+ },
+ "tags": [
+  "grid",
+  "graph",
+  "union-find",
+  "topological-sort",
+  "dag"
+ ],
+ "source_text_sha256": "517441a69d45790bca3a6c0dd5cdfb4a53ee7e45c2344e14c663d78dc9e877b8",
+ "verify_script": "data/analysis/external-batches/G/verify_heightpreservation.py",
+ "notes": "verify_heightpreservation.py checks the sample and compares against a brute force that enumerates every level assignment for grids up to 2x4 - 380 random cases, zero mismatches. dp-on-dag is claimed deliberately: the DAG is the problem's own precedence graph between cell groups (not the DP's state graph), and the DP is a longest path on it. Constraints are always satisfiable, so no cycle check is needed in practice, but the topological pass detects one anyway."
+}
