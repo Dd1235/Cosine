@@ -106,6 +106,27 @@ async function load() {
     reasonsEl.appendChild(li);
   }
 
+  // Features: one line per thing used, most used first.
+  const FEATURE_LABELS = {
+    collection_added: "competition collection added",
+    similar_opened: "find similar / practice this idea",
+    pattern_selected: "technique label clicked",
+    level_applied: "\"my level\" applied",
+    cses_level_set: "CSES level chosen",
+    help_opened: ":help opened",
+    sort_changed: "difficulty sort changed",
+    library_pick: "pick one",
+    note_saved: "note saved to sheet",
+  };
+  const featureEl = document.getElementById("feature-list");
+  featureEl.innerHTML = "";
+  for (const f of data.features || []) {
+    const li = document.createElement("li");
+    li.textContent = `${FEATURE_LABELS[f.type] || f.type} × ${f.n}`;
+    featureEl.appendChild(li);
+  }
+  if (!(data.features || []).length) featureEl.textContent = "nothing beyond search yet";
+
   rankerBody.innerHTML = "";
   for (const r of data.byRanker) {
     const tr = document.createElement("tr");

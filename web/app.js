@@ -802,6 +802,7 @@ function moveCollectionFocus(delta, absolute) {
 function addCollection(id) {
   if (!id || activeCollections.has(id)) return;
   activeCollections.add(id);
+  track("collection_added", { collection: id });
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -810,6 +811,7 @@ function addCollection(id) {
 
 function removeCollection(id) {
   if (!activeCollections.delete(id)) return;
+  track("collection_removed", { collection: id });
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -968,6 +970,7 @@ async function loadCsesLevel() {
 const csesLevelSelect = document.getElementById('cses-level-select');
 if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
   const band = csesLevelSelect.value ? Number(csesLevelSelect.value) : null;
+  track("cses_level_set", band ? { band } : {});
   if (!currentUser) {
     try {
       if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
@@ -2557,6 +2560,7 @@ function helpQuery(q) {
 }
 
 function renderHelp(sectionName) {
+  track("help_opened", { section: sectionName || "" });
   if (compareMode) {
     compareMode = false;
     applyMode();
@@ -2889,11 +2893,13 @@ function renderHitsList(container, hits, opts = {}) {
     detail.querySelector(".similar-link").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
+      track("similar_opened", { problemId: hit.problem.id, kind: "similar" });
       runSimilar(hit.problem);
     });
     detail.querySelector(".practice-link").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
+      track("similar_opened", { problemId: hit.problem.id, kind: "practice" });
       runSimilar(hit.problem, { practice: true });
     });
     if (opts.similarMode && (hit.sharedTechniques || []).length) {
