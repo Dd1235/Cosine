@@ -19,7 +19,11 @@
         "codeforces-106179-c",
         "codeforces-106179-d",
         "codeforces-106179-e",
-        "codeforces-106179-f"
+        {
+          "id": "codeforces-106179-f",
+          "title": "Non Unique",
+          "url": "https://codeforces.com/gym/106179/problem/F"
+        }
       ],
       "resources": [
         {
@@ -118,10 +122,22 @@
         "kattis-doubleshorsebackwrestling",
         "kattis-flippingcontainer",
         "kattis-friendlyrivalry",
-        "kattis-kindergarten2",
+        {
+          "id": "kattis-kindergarten2",
+          "title": "Kindergarten",
+          "url": "https://icpc.kattis.com/problems/kindergarten2"
+        },
         "kattis-maxwellsdemon",
         "kattis-steppeonit",
-        "kattis-thesilkroad",
+        {
+          "id": "kattis-thesilkroad",
+          "title": "The Silk Road ... with Robots!",
+          "url": "https://icpc.kattis.com/problems/thesilkroad",
+          "kattis_difficulty": {
+            "score": 7.4,
+            "label": "hard"
+          }
+        },
         "kattis-towerofnoiha",
         "kattis-whereaminow"
       ],
@@ -214,7 +230,15 @@
       ],
       "problems": [
         "kattis-zoomanagement",
-        "kattis-bridgingthegap",
+        {
+          "id": "kattis-bridgingthegap",
+          "title": "Bridging the Gap",
+          "url": "https://icpc.kattis.com/problems/bridgingthegap",
+          "kattis_difficulty": {
+            "score": 6.7,
+            "label": "hard"
+          }
+        },
         "kattis-carlsvacation",
         "kattis-riddleofthesphinx",
         "kattis-threekindsofdice",
@@ -257,7 +281,15 @@
         "kattis-schedule",
         "kattis-tiltingtiles",
         "kattis-waterworld",
-        "kattis-bridgingthegap",
+        {
+          "id": "kattis-bridgingthegap",
+          "title": "Bridging the Gap",
+          "url": "https://icpc.kattis.com/problems/bridgingthegap",
+          "kattis_difficulty": {
+            "score": 6.7,
+            "label": "hard"
+          }
+        },
         "kattis-carlsvacation",
         "kattis-riddleofthesphinx",
         "kattis-threekindsofdice",
@@ -302,7 +334,15 @@
         "kattis-magicalstring",
         "kattis-nonprimefactors",
         "kattis-prolongedpassword",
-        "kattis-rectangularcity",
+        {
+          "id": "kattis-rectangularcity",
+          "title": "Rectangular City",
+          "url": "https://open.kattis.com/problems/rectangularcity",
+          "kattis_difficulty": {
+            "score": 5.5,
+            "label": "hard"
+          }
+        },
         "kattis-sgcoin",
         "kattis-slidingblocks",
         "kattis-wiknow"
@@ -333,16 +373,48 @@
       ],
       "problems": [
         "kattis-abstractpainting",
-        "kattis-bananaproblem",
+        {
+          "id": "kattis-bananaproblem",
+          "title": "Banana Problem",
+          "url": "https://open.kattis.com/problems/bananaproblem",
+          "kattis_difficulty": {
+            "score": 5.8,
+            "label": "hard"
+          }
+        },
         "kattis-countingpalindromes",
         "kattis-datingtime",
         "kattis-easyquery",
-        "kattis-fairbandwidthsharing",
+        {
+          "id": "kattis-fairbandwidthsharing",
+          "title": "Fair Bandwidth Sharing",
+          "url": "https://open.kattis.com/problems/fairbandwidthsharing",
+          "kattis_difficulty": {
+            "score": 5.4,
+            "label": "medium"
+          }
+        },
         "kattis-generatingnumbers",
         "kattis-hanjie",
         "kattis-inspectingillumination",
-        "kattis-justiceforants",
-        "kattis-keepitsorted",
+        {
+          "id": "kattis-justiceforants",
+          "title": "Justice for Ants",
+          "url": "https://open.kattis.com/problems/justiceforants",
+          "kattis_difficulty": {
+            "score": 9.1,
+            "label": "hard"
+          }
+        },
+        {
+          "id": "kattis-keepitsorted",
+          "title": "Keep It Sorted",
+          "url": "https://open.kattis.com/problems/keepitsorted",
+          "kattis_difficulty": {
+            "score": 8.4,
+            "label": "hard"
+          }
+        },
         "kattis-latinsquare",
         "kattis-moscowdream"
       ],
@@ -374,15 +446,55 @@
         "kattis-alchemy101",
         "kattis-beautifulsquare",
         "kattis-canthoexpressway",
-        "kattis-div2mul2mul3",
+        {
+          "id": "kattis-div2mul2mul3",
+          "title": "Div 2, Mul 2, Mul 3",
+          "url": "https://open.kattis.com/problems/div2mul2mul3",
+          "kattis_difficulty": {
+            "score": 9.2,
+            "label": "hard"
+          }
+        },
         "kattis-edgeremoval",
         "kattis-finalexam2",
-        "kattis-greatestpermutation",
-        "kattis-hexagoncoloring",
+        {
+          "id": "kattis-greatestpermutation",
+          "title": "Greatest Permutation",
+          "url": "https://open.kattis.com/problems/greatestpermutation",
+          "kattis_difficulty": {
+            "score": 7.1,
+            "label": "hard"
+          }
+        },
+        {
+          "id": "kattis-hexagoncoloring",
+          "title": "Hexagon coloring",
+          "url": "https://open.kattis.com/problems/hexagoncoloring",
+          "kattis_difficulty": {
+            "score": 6.2,
+            "label": "hard"
+          }
+        },
         "kattis-intelligenceexchange",
         "kattis-jugglingsequence",
-        "kattis-kingdomofhamsters",
-        "kattis-lazystudents",
+        {
+          "id": "kattis-kingdomofhamsters",
+          "title": "Kingdom of Hamsters",
+          "url": "https://open.kattis.com/problems/kingdomofhamsters",
+          "kattis_difficulty": {
+            "score": 6.3,
+            "label": "hard"
+          }
+        },
+        {
+          "id": "kattis-lazystudents",
+          "title": "Lazy Students",
+          "url": "https://open.kattis.com/problems/lazystudents",
+          "kattis_difficulty": {
+            "score": 7.3,
+            "label": "hard"
+          }
+        },
         "kattis-milkteabattle"
       ],
       "resources": [

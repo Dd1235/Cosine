@@ -60,6 +60,9 @@ function harness({ empty = false } = {}) {
     collections: [{ id: 'india-prelims', name: 'ICPC India Prelims', count: 5 }],
     document: dom.document,
     resultsEl: { innerHTML: '', appendChild() {} },
+    // Beacons are fire-and-forget in the browser and irrelevant here, but
+    // addCollection/removeCollection call track() and the vm has no window.
+    track() {},
     applyMode() {}, hideFeedback() {}, syncDifficultyControls() {}, renderCollectionControls() {},
     updatePatternPill() {}, syncJudgeControls() {}, reissueCurrentView() {}, runSearch() {},
     // addCollection/removeCollection fire outcome beacons; without this the

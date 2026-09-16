@@ -30,6 +30,55 @@ assert.deepEqual(check({short:'India Prelims 25'}),[],'16 characters is the limi
 assert.ok(check({short:'x'.repeat(17)}).some(e=>/short/.test(e)),'17 is too long');
 assert.ok(check({short:'  '}).some(e=>/short/.test(e)),'blank is not a label');
 assert.ok(check({short:2024}).some(e=>/short/.test(e)),'not a string');
+// A membership may be a bare id or an object carrying what the corpus never
+// learned about that problem. Both shapes flatten to the same `problems`, so
+// every existing consumer is untouched; `members` is where the extra lives.
+{
+  const objectReg={version:1,collections:[{...registry.collections[0],id:'contest-o',problems:[
+    {id:'codeforces-1-b',letter:'B',order:2,title:'Path two'},
+    {id:'codeforces-9-a',letter:'A',order:1,title:'Path one',url:'https://example.com/a',kattis_difficulty:{score:7.4,label:'hard'},solves:{full:12,source:'icpc-standings',observed_at:'2026-09-16'},code:'PATHONE'},
+  ]}],aliases:registry.aliases};
+  const oc=createCollections(ps,objectReg);
+  assert.deepEqual(oc.payload().collections[0].problems,['codeforces-1-b','codeforces-1-a'],
+    'object members flatten to the same canonical id list a string member would');
+  const members=oc.payload().collections[0].members;
+  assert.deepEqual(members.map(m=>m.id),['codeforces-1-b','codeforces-1-a'],'aliases resolve on members too');
+  assert.equal(members[1].letter,'A');
+  assert.equal(members[1].order,1);
+  assert.equal(members[1].kattis_difficulty.score,7.4);
+  assert.equal(members[1].solves.full,12);
+  assert.equal(members[1].code,'PATHONE');
+  // A string member still ships as a member, so the page can walk one list.
+  const plain=createCollections(ps,registry).payload().collections[0].members;
+  assert.deepEqual(plain.map(m=>m.id),['codeforces-1-b','codeforces-1-a']);
+  assert.deepEqual(Object.keys(plain[0]),['id'],'a bare id carries nothing it was not given');
+}
+// Field validators. The dup check is first because it used to compare object
+// identity, so two objects naming one problem passed silently.
+{
+  const base={id:'x',name:'X',family:'f',organizer:'o',stage:'prelims',evidence:['https://example.com/x'],held_date:null,resources:[]};
+  const members=extra=>validateRegistry({version:1,collections:[{...base,problems:extra}]},ps);
+  assert.deepEqual(members([{id:'a'},{id:'b'}]),[]);
+  assert.ok(members([{id:'a'},{id:'a'}]).some(e=>/ordered memberships/.test(e)),'two objects naming one problem is a duplicate');
+  assert.ok(members(['a',{id:'a'}]).some(e=>/ordered memberships/.test(e)),'so is a string and an object naming one problem');
+  assert.deepEqual(members([{id:'a',letter:'A'},{id:'b',letter:'B2'}]),[]);
+  assert.ok(members([{id:'a',letter:'a'}]).some(e=>/letter/.test(e)));
+  assert.ok(members([{id:'a',order:0}]).some(e=>/order/.test(e)));
+  assert.ok(members([{id:'a',order:1},{id:'b',order:1}]).some(e=>/duplicate order/.test(e)));
+  assert.deepEqual(members([{id:'a',order:1},{id:'b',order:2}]),[]);
+  assert.ok(members([{id:'a',title:'  '}]).some(e=>/title/.test(e)));
+  assert.ok(members([{id:'a',url:'javascript:alert(1)'}]).some(e=>/url/.test(e)));
+  assert.ok(members([{id:'a',kattis_difficulty:{score:11}}]).some(e=>/kattis score/.test(e)));
+  assert.ok(members([{id:'a',kattis_difficulty:{score:7.4,host:'open.kattis.com'}}]).some(e=>/kattis difficulty/.test(e)),'the staging blob carries fields the registry does not');
+  assert.deepEqual(members([{id:'a',kattis_difficulty:{score:0}}]),[]);
+  assert.ok(members([{id:'a',solves:{full:-1,source:'icpc-standings'}}]).some(e=>/solve count/.test(e)));
+  assert.ok(members([{id:'a',solves:{full:3,source:'guessed'}}]).some(e=>/solves source/.test(e)),'a solve count needs a source that can be re-read');
+  assert.ok(members([{id:'a',solves:{full:3,source:'icpc-standings',observed_at:'yesterday'}}]).some(e=>/solves date/.test(e)));
+  assert.deepEqual(members([{id:'a',solves:{full:3,source:'kattis-source-page'}}]),[]);
+  assert.ok(members([{id:'a',code:''}]).some(e=>/code/.test(e)));
+  assert.ok(members([{id:'a',position:3}]).some(e=>/unknown member field position/.test(e)),'a typo must not sit in the registry rendering nothing');
+  assert.ok(members([{letter:'A'}]).some(e=>/needs an id/.test(e)));
+}
 const structural=new SimilarIndex(ps,null).similar(ps[0].id);
 assert.equal(structural.ranker,'technique');
 assert.ok(structural.hits.every(h=>h.problem.id!==ps[0].id));
