@@ -1,0 +1,36 @@
+{
+  "id": "codechef-strlbp",
+  "title": "Uniform Strings",
+  "slug": "strlbp",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/STRLBP",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "You are given a string `s` of length 8 consisting solely of '0's and '1's. Assume that the characters of the string are written in a circular fashion. You need to find the number of 0-1 or 1-0 transitions that one has to make while making a single traversal over the string. ie.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/STRLBP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 3,
+    "problem_code": "STRLBP",
+    "replay_solves": {
+      "successful": 162,
+      "total": 239,
+      "accuracy": 69.87,
+      "replay_only": true
+    }
+  }
+}

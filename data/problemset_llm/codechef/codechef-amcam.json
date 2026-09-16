@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amcam",
+  "title": "Cat and Mouse",
+  "slug": "amcam",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMCAM",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "N cats and N mice are situated in a 2-D plane. Mota Chuha wants to choose K number of animals in such a way that the distance between any pair of chosen cat and chosen mouse is minimized. Distance between the same type of chosen animals doesn't matter.",
+  "tags": [
+    "acm15amr",
+    "amitpandeykgp",
+    "binary-search",
+    "matching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMCAM"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 3,
+    "problem_code": "AMCAM",
+    "replay_solves": {
+      "successful": 6,
+      "total": 34,
+      "accuracy": 20.59,
+      "replay_only": true
+    }
+  }
+}

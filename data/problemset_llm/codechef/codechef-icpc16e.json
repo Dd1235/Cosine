@@ -1,0 +1,36 @@
+{
+  "id": "codechef-icpc16e",
+  "title": "Colorful Grids",
+  "slug": "icpc16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16E",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "You are given five N x N grids, where each grid consists of N 2 unit squares. These grids have been placed in the form of a plus sign(+). For example, image below shows the figure for N = 2. Your aim is to count total distinct ways to color all 5*N 2 unit squares with C colors.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 5,
+    "problem_code": "ICPC16E",
+    "replay_solves": {
+      "successful": 18,
+      "total": 144,
+      "accuracy": 13.89,
+      "replay_only": true
+    }
+  }
+}

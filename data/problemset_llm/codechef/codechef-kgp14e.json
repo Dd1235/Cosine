@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14e",
+  "title": "Robot Movement",
+  "slug": "kgp14e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14E",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Consider a K × K square made of K 2 unit squares. The center of the lowermost, leftmost unit square has coordinates (0, 0) and the center of the rightmost, uppermost unit square has coordinates (( K -1), ( K -1)).",
+  "tags": [
+    "admin3",
+    "kgp14ros",
+    "maths",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 5,
+    "problem_code": "KGP14E",
+    "replay_solves": {
+      "successful": 5,
+      "total": 18,
+      "accuracy": 27.78,
+      "replay_only": true
+    }
+  }
+}

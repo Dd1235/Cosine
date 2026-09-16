@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr16d",
+  "title": "ATM queue",
+  "slug": "amr16d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16D",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Ramu and his wife Lata are facing a cash crisis. They go to the nearby ATM to get some cash. There are **3** ATMs inside the same room. People are standing in queue outside, and go inside the room in groups of 3 to the ATMs, fetch their money and come out.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 4,
+    "problem_code": "AMR16D",
+    "replay_solves": {
+      "successful": 218,
+      "total": 328,
+      "accuracy": 69.51,
+      "replay_only": true
+    }
+  }
+}

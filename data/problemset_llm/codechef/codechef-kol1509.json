@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol1509",
+  "title": "Save The Trees",
+  "slug": "kol1509",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1509",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "CodeChef has been very busy with his Christmas preparations and he doesn't have time to look after Samosa Bhai and Jalebi Bai. To keep them busy, CodeChef has given them an array **A** of size **N**.",
+  "tags": [
+    "advanced-algorithms",
+    "mathematics",
+    "computational-geometry",
+    "polygons",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1509"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 9,
+    "problem_code": "KOL1509",
+    "replay_solves": {
+      "successful": 21,
+      "total": 143,
+      "accuracy": 15.38,
+      "replay_only": true
+    }
+  }
+}

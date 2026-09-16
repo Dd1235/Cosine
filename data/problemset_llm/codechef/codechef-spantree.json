@@ -1,0 +1,40 @@
+{
+  "id": "codechef-spantree",
+  "title": "Spanning Tree",
+  "slug": "spantree",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SPANTREE",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "You are given an undirected weighted connected graph with **N** vertices numbered from 1 to **N**. Chef knows all the edges of the graph but will only reveal information if you give him some money. You have 10^4 coins. You are allowed to ask the chef a certain type of query multiple times.",
+  "tags": [
+    "special",
+    "advanced-data-structures",
+    "algorithms",
+    "graph-algos",
+    "tree-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SPANTREE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 8,
+    "problem_code": "SPANTREE",
+    "replay_solves": {
+      "successful": 9,
+      "total": 61,
+      "accuracy": 16.39,
+      "replay_only": true
+    }
+  }
+}

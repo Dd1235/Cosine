@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16c",
+ "platform": "codechef",
+ "title": "Birthday Pizza Party",
+ "slug": "chn16c",
+ "source_url": "https://www.codechef.com/problems/CHN16C",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Steffi wants to give a treat to her **N** friends with some delicious pizzas on her birthday. She is currently deciding on how many pizzas she should buy. Each pizza has **A** equal-sized pieces/slices in it. She wants to treat all her friends fairly, so she would like them to have an equal number of slices (could possibly be zero too, no treat at all :P). Additionally, she would like to have exactly one slice of the pizza for herself too. She does not like to waste food, so she doesn't see any slice of pizza getting wasted. She is not a rich girl and would like to buy the minimum number of pizzas that can satisfy these conditions. If it is possible to buy pizzas satisfying the above-given conditions, output what is the minimum number of pizzas she should buy? Otherwise, output -1. Input The first line contains an integer **T** which specifies the total number of test cases. **T** test cases follow. Each of the next **T** lines contains two space-separated integers, **A**, **N** where **A** is the number of slices in a pizza, and **N** denotes the number of friends of Steffi. Output For each case, output the minimum number of pizzas she should buy if it is possible to buy pizzas satisfying the conditions mentioned in the problem statement. Otherwise, output **-1**. Constraints - **1** ≤ **T** ≤ **100,000** - **1** ≤ **A** ≤ **10 12 ** - **1** ≤ **N** ≤ **10 12 ** Sample Input 1 2 3 Sample Output 2 **Example case 1.** As we see **A = 2**. It means that each pizza has 2 slices. If she buys one pizza, she will get 1 slice for herself, it is not possible to distribute the remaining 1 slice among three of her friends. If she buys 2 pizzas, she will get 4 slices, she takes 1 of the slices and the remaining three can be equally distributed among her three friends (one slice per friend). So, the answer is 2.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 3,
+  "problem_code": "CHN16C",
+  "replay_solves": {
+   "successful": 67,
+   "total": 514,
+   "accuracy": 14.01,
+   "replay_only": true
+  }
+ }
+}

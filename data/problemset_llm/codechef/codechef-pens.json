@@ -1,0 +1,37 @@
+{
+  "id": "codechef-pens",
+  "title": "Pen Pineapple Apple Pen",
+  "slug": "pens",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PENS",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "There are K magical pens (numbered 1 through K). You are given strings P_1, P_2, \\ldots, P_K (each of which consists of characters from **'a', 'b', ..., 't'**) ; for each valid i, the i-th pen can only write letters from the string P_i. You want to write a word S of length N.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PENS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 2,
+    "problem_code": "PENS",
+    "replay_solves": {
+      "successful": 264,
+      "total": 1815,
+      "accuracy": 14.77,
+      "replay_only": true
+    }
+  }
+}

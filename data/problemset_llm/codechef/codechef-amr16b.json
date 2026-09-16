@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr16b",
+  "title": "A Historic Discussion",
+  "slug": "amr16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16B",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "A great discussion about demonetization is happening on social media.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 2,
+    "problem_code": "AMR16B",
+    "replay_solves": {
+      "successful": 18,
+      "total": 137,
+      "accuracy": 13.87,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16c",
+  "title": "Zeroes VII",
+  "slug": "kol16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16C",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Factorial \\( n \\) or \\( n! \\) is defined as below: $ n! = 1 \\times 2 \\times 3 \\times \\dots \\times n $ For example, \\( 7! = 1 \\times 2 \\times 3 \\times 4 \\times 5 \\times 6 \\times 7 = 5040 \\). Now, if we prime factorize a factorial, we will be able to find the frequency of each prime in it.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 3,
+    "problem_code": "KOL16C",
+    "replay_solves": {
+      "successful": 3,
+      "total": 31,
+      "accuracy": 9.68,
+      "replay_only": true
+    }
+  }
+}

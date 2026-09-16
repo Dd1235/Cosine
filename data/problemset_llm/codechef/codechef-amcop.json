@@ -1,0 +1,40 @@
+{
+  "id": "codechef-amcop",
+  "title": "COPRIMES",
+  "slug": "amcop",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMCOP",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Motherboard*, the evil mother of our *Farzi coder* has gifted him an Array **A[]** of size **N**. She wanted to test the coding skills of her son.",
+  "tags": [
+    "acm15amr",
+    "math",
+    "mobius-function",
+    "mo-algorithm",
+    "surya-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMCOP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 10,
+    "problem_code": "AMCOP",
+    "replay_solves": {
+      "successful": 0,
+      "total": 5,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

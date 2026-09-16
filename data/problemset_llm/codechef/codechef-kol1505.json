@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kol1505",
+  "title": "Jalebi Bai and Decks of Sweets",
+  "slug": "kol1505",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1505",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Jalebi Bai has two decks of sweets. These decks are represented by two strings `s` and `t` consisting of lowercase letters from the English alphabet. Each letter from 'a' to 'z' denotes a single type of sweet, e.g., ‘b’ denotes Barfi, 'r' denotes Rasgulla, etc.",
+  "tags": [
+    "data-structures"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1505"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 5,
+    "problem_code": "KOL1505",
+    "replay_solves": {
+      "successful": 142,
+      "total": 346,
+      "accuracy": 41.62,
+      "replay_only": true
+    }
+  }
+}

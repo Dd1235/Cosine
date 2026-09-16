@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16c",
+  "title": "Maximizing Minimum Distance",
+  "slug": "inf16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16C",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "You have to place (N+1) points in an N-dimensional space so that: 1. All these (N+1) points are 1 unit distance away from the origin (0, 0, \\dots, 0). 2. The minimum distance between all pairs of these (N+1) points is maximized. If there are many solutions, output any of them.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 3,
+    "problem_code": "INF16C",
+    "replay_solves": {
+      "successful": 4,
+      "total": 15,
+      "accuracy": 26.67,
+      "replay_only": true
+    }
+  }
+}

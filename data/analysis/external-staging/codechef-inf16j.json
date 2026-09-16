@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16j",
+ "platform": "codechef",
+ "title": "Robots of Robin",
+ "slug": "inf16j",
+ "source_url": "https://www.codechef.com/problems/INF16J",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "Robin is a robot builder. His robots are specialized to do only one thing: move from A to B. Today he's testing out the three new robots he has just built. The testing will happen in an **R × C** rectangular grid. Some of the cells will be empty, and the remaining cells will contain obstacles. A robot can be in any empty cell and can face either north, south, east or west. Since Robin's robots specialize in movement, there are three kinds of commands that his robots can execute: - **[F]**: move forward one cell. - **[R]**: turn right then move forward one cell. - **[L]**: turn left then move forward one cell. Note that a robot cannot go to a cell with an obstacle; if it does, it explodes. Unfortunately, not all robots can execute all the commands above. Here are the names of the three robots, and their capabilities: - **Bob**, which can only use the commands **[F]**, **[R]** and **[L]**. - **Rob**, which can only use the commands **[F]** and **[R]**. - **Lob**, which can only use the commands **[F]** and **[L]**. Naturally, this makes some of the cells unreachable from robots, depending on where they start. For example, consider the following layout: ![Layout 1](https://s3.amazonaws.com/codechef_shared/download/upload/ACM16INF/J1.png) Here, the flag represents the starting point of the robots. In this layout, Bob, Rob and Lob can only visit **39**, **37** and **31** distinct cells, respectively: ![Layout 2](https://s3.amazonaws.com/codechef_shared/download/upload/ACM16INF/J2.png) For Robin's test, he needs a layout with the following requirements: - The length and width of the grid is between **1** and **20** cells, inclusive. - The boundary cells of the grid must be filled with obstacles. (So that no robot can go off the grid.) - There exists exactly one starting point. - The number of distinct cells that Bob can reach from the starting point is **B**. - The number of distinct cells that Rob can reach from the starting point is **R**. - The number of distinct cells that Lob can reach from the starting point is **L**. A robot must start at the starting point, but can face any direction at the beginning. Also, the starting point is considered reachable from the starting point. Unfortunately, Robin found out that it's not so straightforward to find a layout satisfying all the requirements above. Please help Robin solve this problem! (Or, if you're Robin himself, solve this problem!) Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. Each test case consists of a single line containing three integers **B**, **R** and **L** separated by single spaces. Output For each test case, first output a single line containing two integers **R** and **C**, separated by a single space. Then output **R** lines, each containing **C** characters, describing the grid. Each character must either be `.` (an empty cell), `#` (a cell with an obstacle) or `S` (the starting point, which is also an empty cell). If it's impossible to construct any such grid, just output `-1 -1` in a single line. Constraints - **1 ≤ T ≤ 30000** - **1 ≤ B, R, L ≤ 64** Sample Input 1 39 37 31 Sample Output 9 10 ########## #........# #..#..#..# #.#.#.#..# #.#...#### #..##.#..# #....S...# ###...#### ########## This layout represents the example given in the problem statement.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "28-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 9,
+  "problem_code": "INF16J",
+  "replay_solves": {
+   "successful": 0,
+   "total": 11,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

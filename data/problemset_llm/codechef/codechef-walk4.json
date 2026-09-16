@@ -1,0 +1,36 @@
+{
+  "id": "codechef-walk4",
+  "title": "Walk 4 steps",
+  "slug": "walk4",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/WALK4",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a weighted undirected graph consisting of n nodes and m edges. The nodes are numbered from 1 to n. The graph does not contain any multiple edges or self loops.",
+  "tags": [
+    "msi-cse-buet"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/WALK4"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 9,
+    "problem_code": "WALK4",
+    "replay_solves": {
+      "successful": 5,
+      "total": 6,
+      "accuracy": 83.33,
+      "replay_only": true
+    }
+  }
+}

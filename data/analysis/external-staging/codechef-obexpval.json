@@ -1,0 +1,31 @@
+{
+ "id": "codechef-obexpval",
+ "platform": "codechef",
+ "title": "Obtain Desired Expected Value",
+ "slug": "obexpval",
+ "source_url": "https://www.codechef.com/problems/OBEXPVAL",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "You are given n non-negative integers x 1 , x 2 , ..., x n . You are also given a positive integer E . You have to find n non-negative real numbers p 1 , p 2 , ..., p n such that p 1 · x 1 + p 2 · x 2 + p 3 · x 3 + .... + p n · x n = E and p 1 + p 2 + ... + p n = 1 . If it's not possible to find n such numbers, output -1 instead. Input The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains two space-separated integers n and E . The second line contains n space-separated integers x 1 , x 2 , ..., x n . Output For each test case, print a single line containing n space-separated real numbers denoting the values of p 1 , p 2 , ..., p n . If there is more than one possible solution, you may output any one. If there is no solution, print -1 instead. When a solution exists, your answer will be considered correct if the absolute value of the expression p 1 · x 1 + p 2 · x 2 + p 3 · x 3 + ... + p n · x n - E doesn't exceed 10 -6 and the value of |(p 1 + p 2 + p 3 + ... + p n ) - 1| doesn't exceed 10 -6 . Constraints 1 ≤ T ≤ 10 5 1 ≤ n, E ≤ 10 3 1 ≤ x i ≤ 10 3 sum of n over all test cases doesn't exceed 10 6 Example Input 3 1 2 1 3 3 1 2 3 4 4 1 2 3 6 Output -1 0 0 1.00 0 0 0.66666666666 0.33333333333",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "probability",
+  "algorithms"
+ ],
+ "date_added": "25-11-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 4,
+  "problem_code": "OBEXPVAL",
+  "replay_solves": {
+   "successful": 50,
+   "total": 194,
+   "accuracy": 26.8,
+   "replay_only": true
+  }
+ }
+}

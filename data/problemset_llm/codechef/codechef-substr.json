@@ -1,0 +1,40 @@
+{
+  "id": "codechef-substr",
+  "title": "Substring Problem",
+  "slug": "substr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SUBSTR",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "How many times does the integer K occur in the sequence obtained by writing out all the natural numbers from 1 to N, without any whitespace in between. For example, if N = 20, the sequence would look like 1234567891011121314151617181920 In the above sequence, the integer 12 occurs exactly 2 times.",
+  "tags": [
+    "acmkgp13",
+    "ad-hoc",
+    "easy",
+    "sergey-adm",
+    "strings"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SUBSTR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP13",
+    "position": 2,
+    "problem_code": "SUBSTR",
+    "replay_solves": {
+      "successful": 210,
+      "total": 1005,
+      "accuracy": 21.49,
+      "replay_only": true
+    }
+  }
+}

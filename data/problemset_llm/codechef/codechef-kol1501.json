@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kol1501",
+  "title": "In a planet far far away",
+  "slug": "kol1501",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1501",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "CodeChef has sent Jalebi Bai to a new planet to learn a special recipe from them. On her journey from the space station to the head chef's house, she observed that the multiplication rule on this new planet is slightly different from our Earth. For example: on this planet, 2*4 may be 9 instead of 8.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1501"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 1,
+    "problem_code": "KOL1501",
+    "replay_solves": {
+      "successful": 0,
+      "total": 1,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

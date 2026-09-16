@@ -1,0 +1,39 @@
+{
+  "id": "codechef-ni02",
+  "title": "KGP Summers",
+  "slug": "ni02",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NI02",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "Summers in Kharagpur are Hot. And Humid! It’s pretty rough for students who are new to KGP and are not used to the sweating it can cause. The students want to minimize the amount of sweat while walking from their hostels to class. When they enter the sunshine, they begin sweating.",
+  "tags": [
+    "data-structures",
+    "algorithms",
+    "graph-algos",
+    "shortest-path"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NI02"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP12",
+    "position": 2,
+    "problem_code": "NI02",
+    "replay_solves": {
+      "successful": 79,
+      "total": 503,
+      "accuracy": 15.9,
+      "replay_only": true
+    }
+  }
+}

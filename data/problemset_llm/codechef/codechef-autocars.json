@@ -1,0 +1,36 @@
+{
+  "id": "codechef-autocars",
+  "title": "Autonomous Cars",
+  "slug": "autocars",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AUTOCARS",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "You are in the future. It's the time of autonomous cars. Switching lanes is a pretty difficult task for autonomous cars, and you have the logs from an experiment you had run with two cars. You want to verify whether the logs are corrupted, or could be valid.",
+  "tags": [
+    "admin2"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AUTOCARS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 6,
+    "problem_code": "AUTOCARS",
+    "replay_solves": {
+      "successful": 24,
+      "total": 78,
+      "accuracy": 32.05,
+      "replay_only": true
+    }
+  }
+}

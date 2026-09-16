@@ -1,0 +1,42 @@
+{
+  "id": "codechef-crypcur",
+  "title": "Crypto Trading",
+  "slug": "crypcur",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CRYPCUR",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "AMRExchange is the latest cryptocurrency exchange that has become very popular among cryptocurrency traders. On AMRExchange, there are **N** cryptocurrencies - let us denote the i th currency by **C i **.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "algorithms",
+    "graph-algos",
+    "dag-algos",
+    "searching",
+    "binary-search"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CRYPCUR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 6,
+    "problem_code": "CRYPCUR",
+    "replay_solves": {
+      "successful": 3,
+      "total": 16,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

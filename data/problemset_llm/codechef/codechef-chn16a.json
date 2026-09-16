@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16a",
+  "title": "Mancunian and Sonu Generate Strings",
+  "slug": "chn16a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16A",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Mancunian and his friend Sonu live in Mancunia. As a general rule, girls in Mancunia are very intelligent and Sonu is the best of them all. All of her friends compliment her by saying, that she is the smartest of the them, in other words, they say - \"Iska processor baaki junta se fast chalta hai\".",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 1,
+    "problem_code": "CHN16A",
+    "replay_solves": {
+      "successful": 5,
+      "total": 54,
+      "accuracy": 9.26,
+      "replay_only": true
+    }
+  }
+}

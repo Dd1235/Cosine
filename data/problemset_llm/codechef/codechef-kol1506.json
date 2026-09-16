@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol1506",
+  "title": "Samosa Bhai and his Courier Company",
+  "slug": "kol1506",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1506",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Samosa Bhai got tired of the difficult tasks given by CodeChef along with meagre salary being paid to him. So he moves to Aloo uncle's village and opens a courier company there.",
+  "tags": [
+    "advanced-algorithms",
+    "mathematics",
+    "algebra",
+    "algorithms",
+    "dynamic-programming",
+    "dp-approach"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1506"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 6,
+    "problem_code": "KOL1506",
+    "replay_solves": {
+      "successful": 11,
+      "total": 96,
+      "accuracy": 11.46,
+      "replay_only": true
+    }
+  }
+}

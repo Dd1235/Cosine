@@ -1,0 +1,36 @@
+{
+  "id": "codechef-nonovseg",
+  "title": "Non Overlapping Segments",
+  "slug": "nonovseg",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NONOVSEG",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "You are given **N** horizontal segments each of length **R**. You are given the x-coordinates of their left end-points: the i-th segment has the left end point at **x_i**. You can see that the right end point will be at **x_i + R**.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NONOVSEG"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 7,
+    "problem_code": "NONOVSEG",
+    "replay_solves": {
+      "successful": 8,
+      "total": 33,
+      "accuracy": 24.24,
+      "replay_only": true
+    }
+  }
+}

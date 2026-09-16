@@ -1,0 +1,38 @@
+{
+  "id": "codechef-acm14am1",
+  "title": "Mangalyaan-2",
+  "slug": "acm14am1",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14AM1",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "After the huge success of Mangalyaan this year, the ISRO (Indian Space Research Organization) is planning to launch a manned mission to Mars named Mangalyaan-2, in 2015. They obviously would want to select the best astronauts for this space mission.",
+  "tags": [
+    "acm-icpc",
+    "acmamr14",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14AM1"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR14",
+    "position": 1,
+    "problem_code": "ACM14AM1",
+    "replay_solves": {
+      "successful": 1455,
+      "total": 2262,
+      "accuracy": 64.85,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-zubpalk",
+ "platform": "codechef",
+ "title": "G - Palace of King",
+ "slug": "zubpalk",
+ "source_url": "https://www.codechef.com/problems/ZUBPALK",
+ "source_topic": "ICPC / Kolkata Regional 2017",
+ "source_text": "A king in a distant land wants to build a new palace for himself. There are some plots of land in the country. Some of them don't have any owner, some of the plots are owned by the citizens of the country. Being a good person, the king wants to pay the appropriate amount of money for the land he uses. If he uses some portion of a plot, he needs to buy the whole plot. Also, this is a weird country where the plots owned by the citizens may overlap. For an area, the king needs to buy all the overlapping plots to use that area. To use some area not owned by any citizen, the king doesn't need to spend any money. Formally, the country is an $M \\times N$ grid with $L$ plots owned by the citizens. Each of these plots is rectangular in shape. The $i^{th}$ plot has its lower left corner at $(x_i, y_i)$, length $l_i$ (along with the $x$-axis), width $w_i$ (along with the $y$-axis), and price $p_i$. The palace the king is going to build should be rectangular in shape as well. Please help him to find the rectangular place with the largest area which he can use without spending more than $C$ amount of money. $(0,0)$ is the lower left corner of the country and $(M, N)$ is the upper right corner. All the plots owned by the citizens are inside this area. The palace should be inside this area as well. The sides of the palace should be axis-parallel. Input - The first line of the input contains an integer $T$ denoting the number of test cases. Description of each test case is given below. - The first line of each test case contains three integers $M$, $N$, and $C$. - The second line contains $L$. - Each of next $L$ lines contains the description of a plot owned by a citizen. $i^{th}$ of these line has five integers: $x_i$, $y_i$, $l_i$, $w_i$, and $p_i$. Output For each test case, print \"Case i: \", and then the answer (mod $10^9 + 7$), where $i$ is the testcase number, 1-indexed. The answer should be the largest area of the rectangular shaped land that can be used without spending more than $C$ amount of money. Constraints - $1 \\leq T \\leq 10$ - $1 \\leq M, N \\leq 1000$ - $0 \\leq C \\leq 1000000000$ - $0 \\leq x_i \\leq M - l_i$ - $0 \\leq y_i \\leq N - w_i$ - $1 \\leq l_i, w_i$ - $1 \\leq p_i \\leq 100000$ - $1 \\leq L \\leq 1000$ Sample Input 1 4 4 6 3 1 0 2 1 2 2 0 1 4 2 0 3 3 1 4 Sample Output Case 1: 12 ![Plot of land](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBPALK/palace_of_king.png) The image above shows the lands owned by the citizens and the palace with area $12$ (lower left corner at $(0,0)$ and upper right corner at $(4,3)$).",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "zubaerkh"
+ ],
+ "date_added": "20-11-2017",
+ "problem_author": "zubaerkh",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL17ROL",
+  "position": 9,
+  "problem_code": "ZUBPALK",
+  "replay_solves": {
+   "successful": 1,
+   "total": 3,
+   "accuracy": 33.33,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "codechef-lineprob",
+  "title": "Line Problem",
+  "slug": "lineprob",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LINEPROB",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "A Sniper is standing at the point (x 1 , y 1 ) on the 2D XY Plane. He shoots from his position towards the point (x 2 , y 2 ) . You may assume that all points are integers. Consider the 2D grid formed by integer points on the XY Plane.",
+  "tags": [
+    "acmkan13",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LINEPROB"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN13",
+    "position": 2,
+    "problem_code": "LINEPROB",
+    "replay_solves": {
+      "successful": 191,
+      "total": 607,
+      "accuracy": 31.8,
+      "replay_only": true
+    }
+  }
+}

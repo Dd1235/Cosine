@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kgp16h",
+  "title": "Coal Mafia and Toll Tax",
+  "slug": "kgp16h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16H",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "You are one of the notorious coal mafias. You run an illegal coal mining business. There are n villages, enumerated from 1 to n from left to right. Each village has some coal mines. This information is given to you by an integer coal_i denoting the amount of coal (in kgs) in village i.",
+  "tags": [
+    "acm-icpc",
+    "admin3",
+    "kgp16"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 8,
+    "problem_code": "KGP16H",
+    "replay_solves": {
+      "successful": 175,
+      "total": 319,
+      "accuracy": 55.8,
+      "replay_only": true
+    }
+  }
+}

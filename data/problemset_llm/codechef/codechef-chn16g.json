@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16g",
+  "title": "Voting Fraud",
+  "slug": "chn16g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16G",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "In Trump University, the students' council election was held on December 15th. The election results were supposed to be published on the 18th. Before the counting was about to start, officials got news that there were some malpractices done during the voting.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 7,
+    "problem_code": "CHN16G",
+    "replay_solves": {
+      "successful": 177,
+      "total": 286,
+      "accuracy": 62.59,
+      "replay_only": true
+    }
+  }
+}

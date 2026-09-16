@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amlpalin",
+  "title": "Longest Palindrome",
+  "slug": "amlpalin",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMLPALIN",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Farzi Coder* wants to give a nice Christmas present to his brother. For that he has brought **N** pairs of letters where each letter is either 'a' or 'b'. So, the possible pairs are \"aa\", \"ab\", \"ba\" or \"bb\". Now, *Farzi Coder*'s brother loves palindromes.",
+  "tags": [
+    "acm15amr",
+    "ad-hoc",
+    "balajiganapath",
+    "greedy"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMLPALIN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 8,
+    "problem_code": "AMLPALIN",
+    "replay_solves": {
+      "successful": 99,
+      "total": 396,
+      "accuracy": 26.26,
+      "replay_only": true
+    }
+  }
+}

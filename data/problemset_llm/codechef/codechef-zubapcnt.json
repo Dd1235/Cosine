@@ -1,0 +1,38 @@
+{
+  "id": "codechef-zubapcnt",
+  "title": "A - Appearance Count",
+  "slug": "zubapcnt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBAPCNT",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "You will be given **m** strings. For each of those strings, you need to count the total number of appearances of that string as substrings in all possible strings of length **n** containing only lowercase English letters. A string may appear in a string multiple times.",
+  "tags": [
+    "data-structures",
+    "mathematics",
+    "modular-arithmetic"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBAPCNT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 6,
+    "problem_code": "ZUBAPCNT",
+    "replay_solves": {
+      "successful": 33,
+      "total": 210,
+      "accuracy": 16.19,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-amr16k",
+ "platform": "codechef",
+ "title": "Paint for Vernon",
+ "slug": "amr16k",
+ "source_url": "https://www.codechef.com/problems/AMR16K",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Vernon is a painter. He specializes in postmodern art. His paintings used to be very simple but creative. These were the paintings that were enjoyed by masses. They were nothing marvellous but their simplicity had a remarkable effect on the viewer. They were usually sold to the general public with a very low margin, and were very much affordable to everyone. Now, after demonetization, people don't have sufficient cash of lower denominations of rupee notes to buy the simple paintings. So Vernon is forced to change his appeal. Now he decides to create paintings that are still simple-looking, but are “sufficiently complex” too, and only of certain colors. He also doesn't like paintings that are too large. These kind of paintings are usually liked a lot by rich people and will fetch Vernon a good amount of much-needed cash. Specifically, Vernon only looks at R cm × C cm paintings where: Each 1 cm × 1 cm cell is colored with exactly one color, which is either red, green, or blue. The dimensions are at least 5 cm , i.e., R, C ≥ 5 . The dimensions are at most 64 cm , i.e., R, C ≤ 64 . In addition, Vernon has a specific measure of an artwork's beauty . He defines it as the number of sets of three connected 1 cm × 1 cm cells whose colors are distinct. For example, consider the following painting: Its beauty, according to Vernon, is 7, due to the following sets of cells: On the other hand, these sets of cells do not contribute to the beauty: The first set doesn't have three cells, the second set doesn't have distinct colors, and the third set is not connected. Today, he went to Amritapuri to find prospective artists. Your goal is to impress him with your postmodern creativity. Specifically, your task is to give him a painting that he will look at, and whose beauty is exactly N according to him. He gives you complete creativity over the solution; he will accept any solution that satisfies all the requirements. Vernon also leaves in five hours, so you must finish the painting rapidly. If you perform exceptionally well, he might even get you a trip to Rapid City. Input The first line of input contains an integer T denoting the number of test cases. The description of T test cases follows. Each test case consists of a single line containing a single integer N . Output For each test case, first output R and C , separated by a space, in a single line. Then, output R lines, each containing C characters which are either R , G or B , which stands for red, green, blue, respectively. If it's not possible to make such a painting at all, just output -1 in a single line. Constraints 1 ≤ T ≤ 2000 0 ≤ N ≤ 10 6 Example Input: 1 7 Output: 5 5 RGRGB RBBBB BBBBB BBBBB BBBBB Explanation The sample output represents the painting shown in the problem statement. Other solutions may be possible.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 11,
+  "problem_code": "AMR16K",
+  "replay_solves": {
+   "successful": 0,
+   "total": null,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

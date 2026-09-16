@@ -1,0 +1,36 @@
+{
+  "id": "codechef-coderlif",
+  "title": "Coder Life Matters",
+  "slug": "coderlif",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CODERLIF",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Coders/programmers are the backbone of the new age society (though whether they themselves have a strong backbone is debatable :P). As some wise man said, a task stops being fun when someone starts paying you to do it and commands you.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CODERLIF"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 10,
+    "problem_code": "CODERLIF",
+    "replay_solves": {
+      "successful": 97,
+      "total": 196,
+      "accuracy": 50.51,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+ "id": "codechef-polcon",
+ "platform": "codechef",
+ "title": "Polygon Containment",
+ "slug": "polcon",
+ "source_url": "https://www.codechef.com/problems/POLCON",
+ "source_topic": "ICPC / Amritapuri Regional 2019",
+ "source_text": "Bob has created $N$ convex polygons on a $2-D$ plane, which are numbered from $1$ to $N$. He wants Alice to pick a maximum subset of these polygons such that no two polygons, $i, j$ $(i e j)$, chosen in the subset are such that the $i^{th}$ polygon is contained strictly within the $j^{th}$ polygon or vice-versa. Help Alice find the size of the maximum subset. **Note:** - By maximum subset, we mean a subset containing the maximum number of polygons. - A convex polygon $A$ is said to be strictly inside another convex polygon $B$ if none of its vertices lie on an edge of $B$ or outside $B$. Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first line of each test case contains a single integer $N$, the number of polygons. The description of each polygon follows. - The $i^{th}$ polygon is described as follows: - The first line contains an integer denoting the number of vertices of the polygon, $V_i$. - $V_i$ lines follow. Each line contains $2$ space-separated integers denoting the $x$ co-ordinate and $y$ co-ordinate of that vertex respectively. - The vertices are ordered in anti-clockwise direction. Output For each test case, print a single line containing an integer - the size of the largest subset of polygons that can be chosen as per the requirements mentioned in the problem. Constraints - $1 \\le T \\le 5$ - $2 \\le N \\le 100$, where $N$ denotes the number of polygons - $3 \\le V_i \\le 100$, where $V_i$ denotes the number of vertices in the $i^{th}$ polygon. - $-10^9 \\le$ all coordinates of vertices $\\le 10^9$ - Sum of $N$ across all $T$ testcases does not exceed $100$. Sample Input 3 2 4 0 0 1 0 1 1 0 1 4 2 0 3 0 3 1 2 1 3 10 56 0 85 14 93 24 97 33 99 52 96 69 91 78 6 75 4 71 0 59 5 50 42 74 33 77 36 76 55 56 57 30 110 147 111 142 112 139 114 134 117 129 122 123 126 119 132 115 136 113 141 111 146 110 163 110 181 118 184 120 189 125 194 132 195 134 199 145 198 167 192 180 183 190 178 193 167 198 161 199 142 198 137 196 124 188 117 180 113 173 110 164 2 4 0 2 0 0 2 0 2 2 4 0 2 0 1 1 1 1 2 Sample Output 2 2 2 **Example case 1:** Polygon $1$ is not contained inside Polygon $2$ and neither is Polygon $2$ contained in Polygon $1$. Hence, both of them can be selected in the optimal solution. **Example case 2:** Polygon $2$ lies inside Polygon $1$. Hence, at most one of them can be selected in the subset. **Example case 3:** Polygon $2$ has a vertex lying on a side of Polygon $1$ and hence, it is not strictly inside Polygon $1$. Both polygons can be selected in the optimal solution.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "advanced-graph-algos",
+  "flow-networks",
+  "computational-geometry"
+ ],
+ "date_added": "21-12-2019",
+ "problem_author": "wittyceaser",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AM19MOS",
+  "position": 2,
+  "problem_code": "POLCON",
+  "replay_solves": {
+   "successful": 8,
+   "total": 30,
+   "accuracy": 26.67,
+   "replay_only": true
+  }
+ }
+}

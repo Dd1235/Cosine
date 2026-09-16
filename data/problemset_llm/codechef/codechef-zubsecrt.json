@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubsecrt",
+  "title": "I - Secrets",
+  "slug": "zubsecrt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBSECRT",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "There are **n** people who call themselves *friends*. However, you can't trust people blindly these days! Not each of these people trusts all the other people. The good thing is, still there are some pairs of people who trust each other and consider each other as *true friends*.",
+  "tags": [
+    "zubaerkh"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBSECRT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 7,
+    "problem_code": "ZUBSECRT",
+    "replay_solves": {
+      "successful": 1,
+      "total": 5,
+      "accuracy": 20.0,
+      "replay_only": true
+    }
+  }
+}

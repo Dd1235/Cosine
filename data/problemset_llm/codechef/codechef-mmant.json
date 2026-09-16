@@ -1,0 +1,36 @@
+{
+  "id": "codechef-mmant",
+  "title": "Mr and Mrs Ant",
+  "slug": "mmant",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MMANT",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "Mr. and Mrs. Ant are very hungry. So, they want to collect food as much as they can. They can search for foods simultaneously. To do so, they start from their house and collect all foods together and meet in some place (not necessarily their house). Finally, they eat together. The world of Mr.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MMANT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN11",
+    "position": 3,
+    "problem_code": "MMANT",
+    "replay_solves": {
+      "successful": 3,
+      "total": 12,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

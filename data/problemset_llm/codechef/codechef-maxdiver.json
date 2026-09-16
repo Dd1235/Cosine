@@ -1,0 +1,42 @@
+{
+  "id": "codechef-maxdiver",
+  "title": "Maximize Diversity of an Array",
+  "slug": "maxdiver",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MAXDIVER",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given an array A. The diversity of the array A is defined as number of pairs i, j, i < j such that A_i eq A_j. You want to maximize the diversity of the array.",
+  "tags": [
+    "data-structures",
+    "queues",
+    "sets",
+    "mathematics",
+    "basic-math",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MAXDIVER"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 10,
+    "problem_code": "MAXDIVER",
+    "replay_solves": {
+      "successful": 102,
+      "total": 245,
+      "accuracy": 42.04,
+      "replay_only": true
+    }
+  }
+}

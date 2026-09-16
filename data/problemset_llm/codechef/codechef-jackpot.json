@@ -1,0 +1,39 @@
+{
+  "id": "codechef-jackpot",
+  "title": "Jackpot",
+  "slug": "jackpot",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/JACKPOT",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A certain business farm has introduced a loyalty program. At the time of registration to the loyalty program, a customer is given 1 point. The points will get upgraded after the first new purchase every week.",
+  "tags": [
+    "acmkgp13",
+    "ad-hoc",
+    "admin",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/JACKPOT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP13",
+    "position": 3,
+    "problem_code": "JACKPOT",
+    "replay_solves": {
+      "successful": 31,
+      "total": 463,
+      "accuracy": 6.7,
+      "replay_only": true
+    }
+  }
+}

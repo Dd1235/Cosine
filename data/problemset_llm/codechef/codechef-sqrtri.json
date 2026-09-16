@@ -1,0 +1,41 @@
+{
+  "id": "codechef-sqrtri",
+  "title": "A Triangle and Two Squares",
+  "slug": "sqrtri",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SQRTRI",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "You are given two squares A and B. The square A has a side length of a and B has a side length of b. The left-bottom point of square A is at (0, 0) and the top-right at (a, a). Square B's left-bottom point is (x, y) and top-right is (x + b, y + b).",
+  "tags": [
+    "advanced-algorithms",
+    "mathematics",
+    "computational-geometry",
+    "polygons",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SQRTRI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 3,
+    "problem_code": "SQRTRI",
+    "replay_solves": {
+      "successful": 36,
+      "total": 69,
+      "accuracy": 52.17,
+      "replay_only": true
+    }
+  }
+}

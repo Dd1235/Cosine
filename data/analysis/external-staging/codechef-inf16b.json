@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16b",
+ "platform": "codechef",
+ "title": "Robbery 101",
+ "slug": "inf16b",
+ "source_url": "https://www.codechef.com/problems/INF16B",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "You are the most notorious criminal in **Gwalior**. You've decided that you're going to rob hard working employees of **CF**, a famous Tech company in the city. There are **N** people working in **CF**. The employees working here are conveniently numbered from **1** to **N**. Furthermore, each employee except **Praveen**, the **CEO**, has exactly **1** manager that he/she has to report to regularly. We denote the manager of the **ith** employee as **$M_i$**. **$M_i = 0$** denotes that the **ith** employee is the CEO (Praveen). Each employee also has a salary (in rupees), which is denoted by **$S_i$**. We also define another term, **$SUB_i$**, which denotes the set of employees that are subordinates of the **ith** employee. An employee **y** is a subordinate of **x** iff **$x = M_y$** or **$M_y$** is a subordinate of **x**. Note that all employees (except the CEO) are subordinates of the CEO. Since **CF** hires only from top institutions, the employees there are really smart. Whenever you rob an employee **x**, **x** tells his/her manager **$M_x$** about the incident. **$M_x$** in turn, tells **$M_{M_x}$** about the incident, and this goes on until the CEO hears about it. Also, all subordinates of **x** i.e. all employees in **$SUB_x$** hear about the incident. Upon hearing about the incident, these employees start taking extra precautions and thus you cannot rob them in the future. Obviously, **x** takes extra precautions as well to avoid getting robbed again. Robbing employee **x** gives you **$S_x$** rupees. You want to maximize the amount of money you can earn by robbing **exactly K** employees. Given information about this company, can you find the optimal amount? Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains two space separated integers **N** and **K**. The next **N** lines of each test case contains 2 space separated integers each. The **ith** line contains two space separated integers, **$M_i$** and **$S_i$**. Output For each test case, output a single line containing the answer. If a valid subset of **K** employees does not exist, print **-1**. Constraints - **1 ≤ T ≤ 2000** - **1 ≤ N ≤ $10^5$** - **1 ≤ K ≤ $10^3$** - **0 ≤ $M_i$ ≤ N** - **1 ≤ $S_i$ ≤ 2000** - Sum of **NK** in a single test file does not exceed **$10^8$** Sample Input 2 4 2 0 2 1 5 2 1 1 3 3 3 0 100 1 5 1 3 Sample Output 8 -1 ![Image](https://www.codechef.com/download/upload/ACM16INF/B.png) The picture above represents the first test case. In this case, you rob employee **2** first. This notifies employees **1** and **3** about the incident. Next, you rob employee **4** earning a total of **5 + 3 = 8** dollars. In the second case, you cannot rob all three employees without getting caught.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "kol-adm"
+ ],
+ "date_added": "27-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 2,
+  "problem_code": "INF16B",
+  "replay_solves": {
+   "successful": 2,
+   "total": 7,
+   "accuracy": 42.86,
+   "replay_only": true
+  }
+ }
+}

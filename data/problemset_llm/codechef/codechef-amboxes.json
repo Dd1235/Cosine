@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amboxes",
+  "title": "Nested Candy Boxes",
+  "slug": "amboxes",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMBOXES",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Andy got a box of candies for Christmas. In fact, he discovered that the box contained several identical smaller boxes, and they could contain even smaller boxes, and so on. Formally, we say that candies are boxes of level 0, and for 1 \\leq i \\leq n, a level i box contains a_i boxes of level i-1.",
+  "tags": [
+    "admin2"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMBOXES"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 4,
+    "problem_code": "AMBOXES",
+    "replay_solves": {
+      "successful": 0,
+      "total": 25,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

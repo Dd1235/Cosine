@@ -1,0 +1,36 @@
+{
+  "id": "codechef-mindist",
+  "title": "Minimize the Distance",
+  "slug": "mindist",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MINDIST",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given two line segments \\mathsf{AB} and \\mathsf{CD} in N-dimensional space. Find the minimum distance between them, i.e. the minimum distance \\mathsf{|PQ|} over all points \\mathsf{P} \\in \\mathsf{AB} and \\mathsf{Q} \\in \\mathsf{CD}. **Note**: Because of large I/O, please use fast I/O methods.",
+  "tags": [
+    "advanced-algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MINDIST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 8,
+    "problem_code": "MINDIST",
+    "replay_solves": {
+      "successful": 0,
+      "total": 40,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

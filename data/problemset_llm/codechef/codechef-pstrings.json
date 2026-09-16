@@ -1,0 +1,37 @@
+{
+  "id": "codechef-pstrings",
+  "title": "Dyslexic Gollum",
+  "slug": "pstrings",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PSTRINGS",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# Dyslexic Gollum Gollum has spent half a millennium in the long darkness of Moria, where his eyes grew used to the dark, and without caring for reading or writing, he became dyslexic. Indeed, as much as he hates the Moon and the Sun, he also hates strings with long palindromes in them.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PSTRINGS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 9,
+    "problem_code": "PSTRINGS",
+    "replay_solves": {
+      "successful": 11,
+      "total": 80,
+      "accuracy": 13.75,
+      "replay_only": true
+    }
+  }
+}

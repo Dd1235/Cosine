@@ -1,0 +1,29 @@
+{
+ "id": "codechef-kgp16i",
+ "platform": "codechef",
+ "title": "Monetize Mania",
+ "slug": "kgp16i",
+ "source_url": "https://www.codechef.com/problems/KGP16I",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "Recently The Prime Minister of India, Narendra Modi launched the ambitious Gold Monetization Scheme, under which one can deposit their gold reserves to the banks. There are n banks in Kharagpur. For simplicity, we enumerate them from 1 to n in the order. If you deposit gold of x grams in bank i , you will have to pay a charge of a i * x + b i * x 2 Rs. Government mandates for each bank a limit of gold that it can store, specifically bank i can store up to lim i grams of gold. As you know that due to this scheme, people are allowed to split their total gold reserve into various parts (the quantity of gold in parts need not be an integer, it can be any real number) and deposit that into banks. Kejri, being a curious citizen of Kharagpur and a relentless critic of Modi, is interested in knowing answers of following type of Q questions that popped into his mind. He believes that the benefits earned through this scheme will not able to outweigh the cost paid for storing the gold. If we consider only the banks numbered from l to r (inclusive), and one has to store g grams of gold in the banks, what's the minimum amount (in Rupees) one has to pay the banks. Note that one can store the amount of gold by breaking it into parts and store the parts into various banks. The weight of these parts can be any real number. Please note that all the queries are independent to each other, i.e. the money deposited in the previous query won't matter to the limits of gold reserves of the bank in this query. Can you please help Kejri in this task? Input There is a single test case. The first line contains two space separated integers n, Q denoting the number of banks, and the number of questions for which Kejri wants the answers. The second line contains n space separated integers, i -th of them denotes a i . The third line contains n space separated integers, i -th of them denotes b i . The fourth line contains n space separated integers, i -th of them denotes lim i - maximum amount of gold that bank i can store. In the next Q lines, each line will specify a query. There will be three space separated integers, l, r, g , denoting that you have to consider only the banks numbered in the range [l, r] (inclusive), and want to store g grams of gold. Output For each query, output a single real number corresponding to the answer of the each query - i.e. the minimum rupees one has to spend. Your answer will be considered correct if the relative error of your answer does not exceed 1e-6. Constraints 1 ≤ n, Q ≤ 10 5 1 ≤ l ≤ r ≤ n 1 ≤ a i , b i , lim i ≤ 10 3 For each query, it is guaranteed that banks in the range [l, r] have enough capacity for g grams of gold, i.e. 1 ≤ g ≤ min( lim l + lim l + 1 + ... + lim r , 10 5 ). Example Input: 2 4 1 1 1 2 1 1 1 1 1 2 2 1 1 2 2 1 2 1 Output: 2 3 5 1.6666666 Explanation There are two banks. The first bank will charge a 1 *x + b 1 *x 2 , i.e. x + x 2 Rs for depositing x grams gold, whereas the second bank will charge a 2 *x + b 2 *x 2 , i.e. x + 2*x 2 Rs. Both banks can store up to max 1 gram of gold. Query 1 . Kejri wants to store 1 gram gold in Bank 1, he will have to pay 2 Rs for that. Query 2 . Kejri wants to store 1 gram of gold in Bank 2, he will have to pay 3 Rs for that. Query 3 . Kejri wants to store 2 grams of gold in Banks 1 and 2, In both the banks, he will store 1 gram of gold each, so he will have to pay (1+1 2 ) + (1+2*1 2 ) = 5 Rs for that. Query 4 . Kejri wants to store 1 gram of gold in Banks 1 and 2. It would be optimal for Kejri to store 2/3 grams of gold in the Bank 1 and 1/3 grams of gold in Bank 2, for which he will have to pay ((2/3) + (2/3) 2 ) + ((1/3) + 2*(1/3) 2 ) = 1.666666... Rs.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 9,
+  "problem_code": "KGP16I",
+  "replay_solves": {
+   "successful": 0,
+   "total": null,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

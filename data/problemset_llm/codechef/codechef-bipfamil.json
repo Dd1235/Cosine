@@ -1,0 +1,36 @@
+{
+  "id": "codechef-bipfamil",
+  "title": "A Family of Bipartite Graphs",
+  "slug": "bipfamil",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BIPFAMIL",
+  "source_topic": "ICPC / India Prelims 2018",
+  "source_tags": [],
+  "statement": "In this problem, we study about Range Graphs - a special family of bipartite graphs.",
+  "tags": [
+    "admin2"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BIPFAMIL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND18",
+    "position": 3,
+    "problem_code": "BIPFAMIL",
+    "replay_solves": {
+      "successful": 4,
+      "total": 156,
+      "accuracy": 2.56,
+      "replay_only": true
+    }
+  }
+}

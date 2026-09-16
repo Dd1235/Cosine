@@ -1,0 +1,41 @@
+{
+  "id": "codechef-amgit",
+  "title": "git",
+  "slug": "amgit",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMGIT",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Farzi Coder* has been assigned an important coding assignment by his boss *Programmer Bhai*. Now, *Farzi Coder* has done coding his project and has to submit it to a central git repository. In git, before committing we have to add the files which we want to commit to the stage.",
+  "tags": [
+    "acm15amr",
+    "balajiganapath",
+    "dynamic-programming",
+    "rolling-hash",
+    "strings",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMGIT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 7,
+    "problem_code": "AMGIT",
+    "replay_solves": {
+      "successful": 4,
+      "total": 13,
+      "accuracy": 30.77,
+      "replay_only": true
+    }
+  }
+}

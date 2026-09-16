@@ -1,0 +1,36 @@
+{
+  "id": "codechef-acmkanpc",
+  "title": "Traffic Jam",
+  "slug": "acmkanpc",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACMKANPC",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "Traffic Jam is becoming a major problem in the city of 'Faka' these days. Every day, you need to go to work from home through a one-way road that can be modeled as a series of straight line segments (aka piece-wise linear) of positive length.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACMKANPC"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN10",
+    "position": 3,
+    "problem_code": "ACMKANPC",
+    "replay_solves": {
+      "successful": 1,
+      "total": 37,
+      "accuracy": 2.7,
+      "replay_only": true
+    }
+  }
+}

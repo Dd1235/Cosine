@@ -1,0 +1,37 @@
+{
+  "id": "codechef-fssync",
+  "title": "The Loyalty of the Orcs",
+  "slug": "fssync",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/FSSYNC",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# The Loyalty of the Orcs _'I think that the enemy brought his own enemy with him,' answered Aragorn. 'These are Northern Orcs from far away. Among the slain are none of the great Orcs with the strange badges. There was a quarrel, I guess: it is no uncommon thing with these foul folk.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/FSSYNC"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 5,
+    "problem_code": "FSSYNC",
+    "replay_solves": {
+      "successful": 16,
+      "total": 170,
+      "accuracy": 15.29,
+      "replay_only": true
+    }
+  }
+}

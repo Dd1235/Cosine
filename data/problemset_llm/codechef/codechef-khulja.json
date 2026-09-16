@@ -1,0 +1,38 @@
+{
+  "id": "codechef-khulja",
+  "title": "Alohomora",
+  "slug": "khulja",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KHULJA",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Hermione, Harry, and Ron are at the entrance of the locked door in the flying key room. Of course, they try the age-old spell \"Alohomora,\" but the door won't open. To open the door, they must use the key to the lock. The lock consists of n disks. Each disk shows a digit from 0 to 9.",
+  "tags": [
+    "mathematics",
+    "transformations",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KHULJA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 6,
+    "problem_code": "KHULJA",
+    "replay_solves": {
+      "successful": 1,
+      "total": 7,
+      "accuracy": 28.57,
+      "replay_only": true
+    }
+  }
+}

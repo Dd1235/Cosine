@@ -1,0 +1,32 @@
+{
+ "id": "codechef-kan13c",
+ "platform": "codechef",
+ "title": "Rich Rhyme",
+ "slug": "kan13c",
+ "source_url": "https://www.codechef.com/problems/KAN13C",
+ "source_topic": "ICPC / Kanpur Regional 2013",
+ "source_text": "In the land of Rhyme, the King and his people always speak in rhymes. They are so accustomed to conversing using rhymes that it has become monotonous, leading to decreased productivity and a plummeting happiness index. Experts have suggested introducing a new concept of \"richness\" in a sentence to combat this monotony. A sentence is termed rich if it starts and ends with the same word. The King has decided to hold a competition where participants submit pieces (stories, poems, essays, etc.) full of rich sentences. The richest pieces will be judged and awarded. Your task is to implement a program that calculates the richness of a piece up to each position. The richness is defined as the size of the identical proper substring present at the beginning and end of the piece, but the complete string cannot be considered as its substring. The richness of the first position is always 0. Input Input consists of several lines. Each line contains a string of lowercase English letters. The end of input is indicated by a line containing the string \"End\". No output line should be produced for this line. Output For each input line, output a line containing several integers, separated by spaces. The number of integers must be the same as the length of the input string. The integer at a specific position represents the richness of the input string up to that position. There must not be any trailing space in any output line. Constraints The total length of input is less than 4 * 10^6. Sample Input oebmgoca bdblhc jgojeqp atofpgrwk fdcdd ababbacdbacdbacd dacc cbda accb dcbb dacbbcbcbcbcdcbbbcbcbcbcbcbcdacbbcbcdcbbbcbcdcbbdcbb End Sample Output 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 3 4 5 6 7 8 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 The output represents the richness of the input string up to each position. For example, in the first input line \"oebmgoca\", the richness at position 6 is 1 because the substring \"o\" is present at the beginning and end of the string up to that position. The richness at other positions is 0 because no proper substring of length greater than 0 is present at both the beginning and end of the string up to those positions.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "jingbo-adm",
+  "kan13acm",
+  "knuth-morris-pratt-algorithm",
+  "medium"
+ ],
+ "date_added": "3-12-2013",
+ "problem_author": "jingbo_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KAN13ACM",
+  "position": 3,
+  "problem_code": "KAN13C",
+  "replay_solves": {
+   "successful": 26,
+   "total": 405,
+   "accuracy": 6.91,
+   "replay_only": true
+  }
+ }
+}

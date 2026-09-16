@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtf",
+  "title": "Connecting Army Troops",
+  "slug": "kan15rtf",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTF",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The kingdom of France is about to be at war with one of its neighbouring kingdoms. Both these kingdoms share a long border along which the French army has set up a number of posts. Each post has an army posted on it to protect the kingdom from the enemy attacking at that post.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTF"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 6,
+    "problem_code": "KAN15RTF",
+    "replay_solves": {
+      "successful": 0,
+      "total": 19,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

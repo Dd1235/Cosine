@@ -1,0 +1,36 @@
+{
+  "id": "codechef-ampuzzle",
+  "title": "Sliding Puzzle",
+  "slug": "ampuzzle",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMPUZZLE",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Famous company Strange Puzzles Inc. has designed a brand new series of puzzles aimed at students who are fond of competitive programming. In this problem we are going to consider one of them named \"Sliding Windows\".",
+  "tags": [
+    "balajiganapath"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMPUZZLE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 5,
+    "problem_code": "AMPUZZLE",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

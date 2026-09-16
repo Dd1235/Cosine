@@ -1,0 +1,40 @@
+{
+  "id": "codechef-chn15f",
+  "title": "Falling Rocks",
+  "slug": "chn15f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15F",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "You are in a magically discrete 2D world: an H * W grid containing H rows and W columns of cells. There are rocks at various positions (x, y) , none of which can be at (1, 1) at the beginning, but there may be rocks in any other cell of the grid.",
+  "tags": [
+    "acmchn15",
+    "bitmasking",
+    "dynamic-programming",
+    "jingbo-adm",
+    "medium-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 6,
+    "problem_code": "CHN15F",
+    "replay_solves": {
+      "successful": 0,
+      "total": 22,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

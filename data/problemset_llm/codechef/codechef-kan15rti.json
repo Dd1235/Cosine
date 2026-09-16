@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rti",
+  "title": "Teaching binary to a child",
+  "slug": "kan15rti",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTI",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Da Vinci was once wandering on the roads of Florence when he found a child playing with a binary string L. He was delighted to see that a small child was showing interest in the beautiful world of binary strings.",
+  "tags": [
+    "piyushkumar"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 10,
+    "problem_code": "KAN15RTI",
+    "replay_solves": {
+      "successful": 71,
+      "total": 262,
+      "accuracy": 27.48,
+      "replay_only": true
+    }
+  }
+}

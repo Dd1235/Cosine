@@ -1,0 +1,38 @@
+{
+  "id": "codechef-telnet",
+  "title": "Telephone Network",
+  "slug": "telnet",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TELNET",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "The mayor of Townsville City wants to build a telephone network in the city. The city is represented as a square grid of size N \\times N. Rows and columns of the grid are numbered from 1 to N. Each cell of the grid (i, j) has a tower of height H_{i, j}.",
+  "tags": [
+    "basic-programming-concepts",
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TELNET"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 9,
+    "problem_code": "TELNET",
+    "replay_solves": {
+      "successful": 99,
+      "total": 259,
+      "accuracy": 39.0,
+      "replay_only": true
+    }
+  }
+}

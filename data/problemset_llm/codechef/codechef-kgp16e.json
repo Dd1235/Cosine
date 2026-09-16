@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kgp16e",
+  "title": "Coal mines of Kharagpur",
+  "slug": "kgp16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16E",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "Coal Mafias in Kharagpur are notorious for being one of the biggest perpetrators of crimes against officials protecting the mines. There are **n** mines in the area, numbered from **1** to **n**. Government wants to protect the mines by deploying some guards.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 5,
+    "problem_code": "KGP16E",
+    "replay_solves": {
+      "successful": 40,
+      "total": 184,
+      "accuracy": 21.74,
+      "replay_only": true
+    }
+  }
+}

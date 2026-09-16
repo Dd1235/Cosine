@@ -1,0 +1,37 @@
+{
+  "id": "codechef-lifeltd",
+  "title": "Life Limited",
+  "slug": "lifeltd",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LIFELTD",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "Recently the company Life Ltd created a new logo for themselves. You are asked to test the design of the logo. The logo is a 3 \\times 3 square grid with 9 cells. Each cell contains some lowercase English letter.",
+  "tags": [
+    "basic-programming-concepts",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LIFELTD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 5,
+    "problem_code": "LIFELTD",
+    "replay_solves": {
+      "successful": 389,
+      "total": 679,
+      "accuracy": 57.73,
+      "replay_only": true
+    }
+  }
+}

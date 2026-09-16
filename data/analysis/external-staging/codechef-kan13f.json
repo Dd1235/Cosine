@@ -1,0 +1,32 @@
+{
+ "id": "codechef-kan13f",
+ "platform": "codechef",
+ "title": "Merging Files",
+ "slug": "kan13f",
+ "source_url": "https://www.codechef.com/problems/KAN13F",
+ "source_topic": "ICPC / Kanpur Regional 2013",
+ "source_text": "In olden days, when primary memory was not as available as it is now, files were stored in external storage devices like tapes, and then two files or their parts were loaded in memory for merging. In merging two sorted files, in the worst case, the number of comparisons required equals the sum of the lengths of the two files. Assume in **K**-way merging the number of comparisons equals the sum of the lengths of files to be merged. Given the length of a set of files, you are required to find the order in which these files will have to be merged in the minimum number of comparisons. Input The first line of input is an integer **T**, denoting the number of test cases. From the next line, test cases follow. For each case, the first line contains two integers, **N** and **K**, representing respectively the number of files to be merged and the maximum number of files that can be merged at the same time. The next line contains **N** positive integers representing the length of each file. Output For each test case, you must print a single line with the test case number and the minimum number of comparisons incurred to merge the files. Please refer to the sample input and output for exact formatting. Constraints 1 < = **T** < = 50 1 < = **N** < = 1000 2 < = **K** < = **N** The maximum length of a file can be 10^8. Sample Input 2 11 2 3 1 4 5 2 7 6 8 3 9 4 11 3 3 1 4 5 2 7 6 8 3 9 4 Sample Output Case 1: 172 Case 2: 110 The first test case involves merging 11 files with a maximum of 2 files merged at a time, resulting in 172 comparisons. The second test case involves merging the same 11 files but with a maximum of 3 files merged at a time, resulting in 110 comparisons.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "greedy",
+  "jingbo-adm",
+  "kan13acm",
+  "medium-hard"
+ ],
+ "date_added": "3-12-2013",
+ "problem_author": "jingbo_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KAN13ACM",
+  "position": 6,
+  "problem_code": "KAN13F",
+  "replay_solves": {
+   "successful": 3,
+   "total": 43,
+   "accuracy": 6.98,
+   "replay_only": true
+  }
+ }
+}

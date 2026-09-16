@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16d",
+  "title": "ATM Queue",
+  "slug": "chn16d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16D",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "An entire class of students has gone to the ATM to withdraw cash. Let's name them \\{S_1, S_2, \\dots, S_N\\}. Obviously, they have to stand in a queue. They want to do so, such that close friends are standing not too far from each other.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 4,
+    "problem_code": "CHN16D",
+    "replay_solves": {
+      "successful": 0,
+      "total": 6,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

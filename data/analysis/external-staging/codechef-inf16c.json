@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16c",
+ "platform": "codechef",
+ "title": "Maximizing Minimum Distance",
+ "slug": "inf16c",
+ "source_url": "https://www.codechef.com/problems/INF16C",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "You have to place $(N+1)$ points in an $N$-dimensional space so that: 1. All these $(N+1)$ points are $1$ unit distance away from the origin $(0, 0, \\dots, 0)$. 2. The minimum distance between all pairs of these $(N+1)$ points is maximized. If there are many solutions, output any of them. Your solution will be accepted if the absolute error of the minimum distance between all pairs of these $(N+1)$ points is within $10^{-6}$ of the judge’s solution. Input At first, you will be given $T$, the number of test cases. Then $T$ lines will follow. In each line, there will be a single integer $N$. Output For each input, output $(N+1)$ lines. Each line should have $N$ floating point numbers, representing all the $N$ coordinates for one $N$-dimensional point. Output a blank line between cases. Constraints - $1 \\leq T \\leq 8$ - $1 \\leq N \\leq 256$ Sample Input 2 1 2 Sample Output 1.00 -1.00 0.9396926208 0.3420201433 -0.7660444431 0.6427876097 -0.1736481777 -0.984807753 For the first test case where $N = 1$, the points are placed at $1.00$ and $-1.00$ on the 1-dimensional line. Both points are 1 unit away from the origin, and the minimum distance between them is $2.00$, which is maximized. For the second test case where $N = 2$, the points are placed at specific coordinates on the 2-dimensional plane. Each point is 1 unit away from the origin, and the minimum distance between any pair of points is maximized.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "kol-adm"
+ ],
+ "date_added": "27-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 3,
+  "problem_code": "INF16C",
+  "replay_solves": {
+   "successful": 4,
+   "total": 15,
+   "accuracy": 26.67,
+   "replay_only": true
+  }
+ }
+}

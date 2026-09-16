@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amr14i",
+  "title": "Gabba sprint",
+  "slug": "amr14i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14I",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "Virat Kohli and Rohit Sharma are warming up for the World Cup at the Brisbane Cricket Ground, commonly known as \"The Gabba\". Their coach has asked them to go to the ground at the crack of dawn, and then jog around the stadium in laps.",
+  "tags": [
+    "amr14ros",
+    "easy",
+    "murdocc007",
+    "simulation"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 9,
+    "problem_code": "AMR14I",
+    "replay_solves": {
+      "successful": 52,
+      "total": 393,
+      "accuracy": 13.99,
+      "replay_only": true
+    }
+  }
+}

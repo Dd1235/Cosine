@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtb",
+  "title": "Accommodating tribal clans",
+  "slug": "kan15rtb",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTB",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The capital city of the kingdom of France has a lot of tribal clans living in the outskirts. Farming and hunting are the two major occupations of these people. These clans keep moving around the kingdom and make their homes using wood and leaves.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTB"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 2,
+    "problem_code": "KAN15RTB",
+    "replay_solves": {
+      "successful": 16,
+      "total": 110,
+      "accuracy": 14.55,
+      "replay_only": true
+    }
+  }
+}

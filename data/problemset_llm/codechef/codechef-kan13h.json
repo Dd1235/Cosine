@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13h",
+  "title": "Multi-Peg Tower of Hanoi",
+  "slug": "kan13h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13H",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "The Tower of Hanoi problem is a classical recurrence problem often used to teach recurrence relations to computer science students. In the classical 3-Peg Tower of Hanoi problem, initially, peg A contains all disks stacked top to bottom in strictly small to big order.",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "jingbo-adm",
+    "kan13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 8,
+    "problem_code": "KAN13H",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

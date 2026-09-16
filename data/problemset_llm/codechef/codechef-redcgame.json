@@ -1,0 +1,36 @@
+{
+  "id": "codechef-redcgame",
+  "title": "Reduction Game",
+  "slug": "redcgame",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/REDCGAME",
+  "source_topic": "ICPC / India Prelims 2018",
+  "source_tags": [],
+  "statement": "You are playing a game called the Reduction Game. This game is played on an array a with n integers. You also have another integer k with you. The following operation will be made repeatedly on this array: - Choose any two elements a_i, a_j such that i eq j, and min(a_i, a_j) > k.",
+  "tags": [
+    "admin2"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/REDCGAME"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND18",
+    "position": 4,
+    "problem_code": "REDCGAME",
+    "replay_solves": {
+      "successful": 291,
+      "total": 10939,
+      "accuracy": 2.68,
+      "replay_only": true
+    }
+  }
+}

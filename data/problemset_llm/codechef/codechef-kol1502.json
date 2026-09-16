@@ -1,0 +1,37 @@
+{
+  "id": "codechef-kol1502",
+  "title": "The Christmas Gift",
+  "slug": "kol1502",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1502",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "CodeChef has received a package of **N** ingredients from Aloo uncle and Kachori aunty as their Christmas gift. **CodeChef decides to make dishes with every possible combination of these **N** ingredients**. (**Note:** A dish with 0 ingredients is also possible.",
+  "tags": [
+    "algorithms",
+    "recursion"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1502"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 2,
+    "problem_code": "KOL1502",
+    "replay_solves": {
+      "successful": 50,
+      "total": 191,
+      "accuracy": 26.7,
+      "replay_only": true
+    }
+  }
+}

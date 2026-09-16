@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kn1",
+  "title": "ICPC Pre-Prelims Practice Round",
+  "slug": "acm14kn1",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KN1",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Like all other teams, the LaZyProblemSetters (consisting of V, J and S) are also participating in ICPC with high hopes for qualifying for the world finals. They would like to go to the world finals to represent their country and bring back a medal.",
+  "tags": [
+    "acmkan14",
+    "admin",
+    "cakewalk",
+    "programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KN1"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN14",
+    "position": 1,
+    "problem_code": "ACM14KN1",
+    "replay_solves": {
+      "successful": 465,
+      "total": 1290,
+      "accuracy": 36.59,
+      "replay_only": true
+    }
+  }
+}

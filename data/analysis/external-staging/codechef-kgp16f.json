@@ -1,0 +1,34 @@
+{
+ "id": "codechef-kgp16f",
+ "platform": "codechef",
+ "title": "Optimal Partition",
+ "slug": "kgp16f",
+ "source_url": "https://www.codechef.com/problems/KGP16F",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "Competitive Programmers love concise statements. Today, we have one such problem for you! You're given an array $A$ with $N$ integers, $A_1, A_2, A_3, \\dots, A_N$. You have to partition the elements of array $A$ into exactly $K$ disjoint subsets such that the following conditions are satisfied: - Size of each subset must be at least $2$. - Let the $K$ subsets be $S_1, S_2, \\dots, S_K$. Let $D_i = \\max(S_i) - \\min(S_i)$ where $\\max(S_i)$ is the maximum element in $S_i$ and $\\min(S_i)$ is the minimum element in $S_i$. We want to minimize the value of $D_1 + D_2 + D_3 + \\dots + D_K$. Find the minimum possible sum of $D_1 + D_2 + D_3 + \\dots + D_K$ that you can obtain. Input The first line of the input contains an integer $T$ denoting the number of the test cases. The first line of each test case will contain two space-separated integers $N, K$. The next line will contain $N$ space-separated integers $A_1, A_2, A_3, \\dots, A_N$. Output For each test case, output a single integer denoting the minimum sum. Constraints - $1 \\leq T \\leq 10$ - $2 \\leq N \\leq 10^5$ - $2 \\leq \\text{Sum of } N \\text{ over all test cases in a single file} \\leq 10^5$ - $1 \\leq K \\leq \\min(500, N / 2)$ - $1 \\leq A_i \\leq 10^{12}$ Sample Input 1 5 2 19 16 5 23 17 Sample Output 16 The best partition that we can obtain involves partitioning $A$ into $\\{16, 5, 17\\}$ and $\\{19, 23\\}$, incurring a cost of $(17 - 5) + (23 - 19) = 16$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm16",
+  "admin3",
+  "dynamic-programming",
+  "icpc2016",
+  "kgp16",
+  "programming"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 6,
+  "problem_code": "KGP16F",
+  "replay_solves": {
+   "successful": 54,
+   "total": 431,
+   "accuracy": 12.53,
+   "replay_only": true
+  }
+ }
+}

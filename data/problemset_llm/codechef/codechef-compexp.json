@@ -1,0 +1,37 @@
+{
+  "id": "codechef-compexp",
+  "title": "Compression Algorithm",
+  "slug": "compexp",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/COMPEXP",
+  "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+  "source_tags": [],
+  "statement": "Mr. X has come up with a new string compression algorithm. Consider a string of length N which contains up to K distinct characters.",
+  "tags": [
+    "mathematics",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/COMPEXP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND17",
+    "position": 5,
+    "problem_code": "COMPEXP",
+    "replay_solves": {
+      "successful": 607,
+      "total": 2563,
+      "accuracy": 31.45,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-chn11",
+  "title": "Animesh has a war with tribal leader Malvika",
+  "slug": "chn11",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN11",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Malvika is the leader of a large tribal army, with soldiers from multiple tribes. There are a total of n soldiers in the army. You are given an array a of length n, where a[i] denotes the tribe number of the i^{th} soldier.",
+  "tags": [
+    "data-structures",
+    "arrays",
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN11"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 11,
+    "problem_code": "CHN11",
+    "replay_solves": {
+      "successful": 2,
+      "total": 3,
+      "accuracy": 66.67,
+      "replay_only": true
+    }
+  }
+}

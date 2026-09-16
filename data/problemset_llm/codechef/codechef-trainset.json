@@ -1,0 +1,36 @@
+{
+  "id": "codechef-trainset",
+  "title": "Select Training Set",
+  "slug": "trainset",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TRAINSET",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "You are given a dataset consisting of N items. Each item is a pair of a word and a boolean denoting whether the given word is a spam word or not. We want to use this dataset for training our latest machine learning model. Thus we want to choose some subset of this dataset as training dataset.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TRAINSET"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 7,
+    "problem_code": "TRAINSET",
+    "replay_solves": {
+      "successful": 3220,
+      "total": 5505,
+      "accuracy": 59.58,
+      "replay_only": true
+    }
+  }
+}

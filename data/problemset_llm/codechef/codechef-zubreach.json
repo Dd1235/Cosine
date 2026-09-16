@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubreach",
+  "title": "J - Reached Safely Or Not",
+  "slug": "zubreach",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBREACH",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "Everybody is worried about Rakesh as the boy does not have much knowledge about the real world. He cannot go from one place to another on his own. It's high time he learned to explore the city. He is going to a relative's house situated on the other side of the city on his own.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBREACH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 1,
+    "problem_code": "ZUBREACH",
+    "replay_solves": {
+      "successful": 176,
+      "total": 609,
+      "accuracy": 29.72,
+      "replay_only": true
+    }
+  }
+}

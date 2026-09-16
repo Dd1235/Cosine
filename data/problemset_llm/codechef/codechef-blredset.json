@@ -1,0 +1,37 @@
+{
+  "id": "codechef-blredset",
+  "title": "Black and Red vertices of Tree",
+  "slug": "blredset",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BLREDSET",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "You are given a tree with N vertices. The vertices are numbered from 1 to N. Some of the vertices are colored black and some are colored red. Also, some vertices can be uncolored. There is at least one black and at least one red vertex.",
+  "tags": [
+    "data-structures",
+    "graphs"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BLREDSET"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 3,
+    "problem_code": "BLREDSET",
+    "replay_solves": {
+      "successful": 11,
+      "total": 54,
+      "accuracy": 22.22,
+      "replay_only": true
+    }
+  }
+}

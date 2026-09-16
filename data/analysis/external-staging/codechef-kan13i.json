@@ -1,0 +1,32 @@
+{
+ "id": "codechef-kan13i",
+ "platform": "codechef",
+ "title": "Rewarding the Priests",
+ "slug": "kan13i",
+ "source_url": "https://www.codechef.com/problems/KAN13I",
+ "source_topic": "ICPC / Kanpur Regional 2013",
+ "source_text": "Emperor of the galaxy has a number of planets where His common citizens live and in each of which runs a different clock system. However, in each planet a clock has two hands- hour and minute. **H** hours make a day, **M** minutes make an hour and **M** seconds make a minute, where values of **H** and **M** can be different for different planets. The Emperor is a lazy person and doesn’t like a moving second hand in the clock. That’s why all the clocks in his empire have only two hands - hour and minute. There is a priest in each of the planets. Each priest spends some time in Emperor’s Hall and gets a number of gold coins for his services, which equals the number of times swapping of hour and minute hands would represent valid time during his interval of stay in the Hall. Start and finish time of staying of a priest is given in hours, minutes and seconds expressed in minutes and fractions in lowest terms, and is provided in a row. You need to calculate number of gold coins each priest will get corresponding to the time expressed in each row. Input The first line of input will be an integer **T**, denoting the number of test case. For each test case, there will be 3 lines of input. The first line of each test case contains 2 integers **H** and **M**, separated by a space. The next line contains 5 integers, **h**, **m**, **s**, **sn**, **sd** respectively denoting hour, minute, integer second and numerator and denominator of the fractional parts of the second. These integers represent the start time. The next line contains 5 integers in the same format as previous line, representing the finish time. The start and finish time are inclusive. Output Output for each case will be an integer representing the number of gold coins the priest will get from the Emperor for his service. The format will be following: “Case : ”. Please refer to the sample input and output for exact formatting. Constraints 1 < = **T** < = 50 2 < = **H**, **M** < = 100 1 < = **h** < = **H** 0 < = **m** < **M** 0 < = **s** < **M** 0 < = **sn** < **sd** < = 10000 Stay of a priest will never exceed **H** hours. Sample Input 3 12 60 12 0 0 0 1 11 59 59 999 1000 12 60 12 5 2 14 143 12 10 4 28 143 84 87 10 25 17 10 21 73 18 28 3747 5038 Sample Output Case 1: 143 Case 2: 2 Case 3: 5284 The sample input and output demonstrate the calculation of gold coins for three different test cases. Each test case involves a different planet with its own clock system defined by **H** and **M**. The start and finish times are provided in a specific format, and the output shows the number of valid times when the hour and minute hands can be swapped during the priest's stay.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "easy-medium",
+  "fractions",
+  "jingbo-adm",
+  "kan13acm"
+ ],
+ "date_added": "5-12-2013",
+ "problem_author": "jingbo_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KAN13ACM",
+  "position": 9,
+  "problem_code": "KAN13I",
+  "replay_solves": {
+   "successful": 0,
+   "total": 2,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

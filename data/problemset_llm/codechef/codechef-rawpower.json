@@ -1,0 +1,37 @@
+{
+  "id": "codechef-rawpower",
+  "title": "K - Raw Power",
+  "slug": "rawpower",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/RAWPOWER",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "The University of Geo Tech, Riga has a new doctoral student on the block who calls himself Raw Power. He has **N** meetings lined up today and wants to avoid them all. The i th meeting takes place from time units **s i ** to **t i **.",
+  "tags": [
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/RAWPOWER"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 11,
+    "problem_code": "RAWPOWER",
+    "replay_solves": {
+      "successful": 2,
+      "total": 3,
+      "accuracy": 66.67,
+      "replay_only": true
+    }
+  }
+}

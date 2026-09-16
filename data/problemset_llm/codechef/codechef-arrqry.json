@@ -1,0 +1,38 @@
+{
+  "id": "codechef-arrqry",
+  "title": "Convolution",
+  "slug": "arrqry",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ARRQRY",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given two integer sequences A_1, A_2, \\ldots, A_N and B_1, B_2, \\ldots, B_M. For any two sequences U_1, U_2, \\ldots, U_p and V_1, V_2, \\ldots, V_q, we define $Score(U, V) = \\sum_{i=1}^p \\sum_{j=1}^q U_i \\cdot V_j \\,.",
+  "tags": [
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ARRQRY"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 1,
+    "problem_code": "ARRQRY",
+    "replay_solves": {
+      "successful": 25,
+      "total": 260,
+      "accuracy": 9.62,
+      "replay_only": true
+    }
+  }
+}

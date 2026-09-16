@@ -1,0 +1,37 @@
+{
+  "id": "codechef-colint",
+  "title": "Coloring Intervals",
+  "slug": "colint",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/COLINT",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "You are given n intervals on the X axis. Each interval i is specified by its ends [L_i, R_i]. You want to color each interval either blue or yellow. After coloring all the intervals, the X axis will have 4 colors: - **White**, the part of X axis contained in no interval.",
+  "tags": [
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/COLINT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 4,
+    "problem_code": "COLINT",
+    "replay_solves": {
+      "successful": 35,
+      "total": 100,
+      "accuracy": 36.0,
+      "replay_only": true
+    }
+  }
+}

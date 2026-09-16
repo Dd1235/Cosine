@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kg5",
+  "title": "Cool Dude Laxman",
+  "slug": "acm14kg5",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KG5",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Ram brought home N identical crackers, and arranged them in a row. He then numbered all the crackers with positive integer numbers such that product of any two numbers is less than or equal to K .",
+  "tags": [
+    "acmkg14r",
+    "admin",
+    "dynamic-programming",
+    "easy-medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KG5"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKG14R",
+    "position": 5,
+    "problem_code": "ACM14KG5",
+    "replay_solves": {
+      "successful": 42,
+      "total": 486,
+      "accuracy": 9.05,
+      "replay_only": true
+    }
+  }
+}

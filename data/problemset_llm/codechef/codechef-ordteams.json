@@ -1,0 +1,36 @@
+{
+  "id": "codechef-ordteams",
+  "title": "Ordering teams",
+  "slug": "ordteams",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ORDTEAMS",
+  "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+  "source_tags": [],
+  "statement": "In ACM-ICPC contests, there are usually three people in a team. For each person in the team, you know their scores in three skills - hard work, intelligence and persistence.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ORDTEAMS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND17",
+    "position": 3,
+    "problem_code": "ORDTEAMS",
+    "replay_solves": {
+      "successful": 2477,
+      "total": 6859,
+      "accuracy": 36.45,
+      "replay_only": true
+    }
+  }
+}

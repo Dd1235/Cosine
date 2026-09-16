@@ -1,0 +1,37 @@
+{
+  "id": "codechef-politri",
+  "title": "Points, Lines, Triangles and Graphs",
+  "slug": "politri",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/POLITRI",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an integer k. You want to choose n points on the plane and join some pairs of those points with line segments (let us call them edges), such that: - n < 510 - Any two points are distinct - No three points are collinear - The points have non-negative integer coordinates \\leq 10^9.",
+  "tags": [
+    "advanced-algorithms",
+    "computational-geometry"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/POLITRI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 11,
+    "problem_code": "POLITRI",
+    "replay_solves": {
+      "successful": 4,
+      "total": 14,
+      "accuracy": 28.57,
+      "replay_only": true
+    }
+  }
+}

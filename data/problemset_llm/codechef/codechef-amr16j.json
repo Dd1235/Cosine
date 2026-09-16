@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amr16j",
+  "title": "Bob vs ATM",
+  "slug": "amr16j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16J",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Due to a shortage of ATMs, a bank decided to convert some arcade gaming machines into ATMs. Unfortunately, due to a bug, the converted machine will only dispense cash if the withdrawer can win the game. The game is played over a valid bracket sequence.",
+  "tags": [
+    "admin3",
+    "amr16",
+    "icpc2016"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 10,
+    "problem_code": "AMR16J",
+    "replay_solves": {
+      "successful": 9,
+      "total": 44,
+      "accuracy": 20.45,
+      "replay_only": true
+    }
+  }
+}

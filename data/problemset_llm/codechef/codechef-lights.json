@@ -1,0 +1,37 @@
+{
+  "id": "codechef-lights",
+  "title": "The Glittering Caves of Aglarond",
+  "slug": "lights",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LIGHTS",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# The Glittering Caves of Aglarond While these caves are by and large natural, there is one place where the Men of Rohan have chiseled into the rock to create a magnificent exhibit.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LIGHTS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 6,
+    "problem_code": "LIGHTS",
+    "replay_solves": {
+      "successful": 345,
+      "total": 1354,
+      "accuracy": 27.1,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-laughmen",
+  "title": "A Few Laughing Men",
+  "slug": "laughmen",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LAUGHMEN",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Balaji is a great person to hang out with. He tells really *amazing* jokes, though sometimes he also slips some very *boring* ones in between. Today, he told **N** jokes to Arjun.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LAUGHMEN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 8,
+    "problem_code": "LAUGHMEN",
+    "replay_solves": {
+      "successful": 20,
+      "total": 168,
+      "accuracy": 13.1,
+      "replay_only": true
+    }
+  }
+}

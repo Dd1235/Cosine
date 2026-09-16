@@ -1,0 +1,36 @@
+{
+  "id": "codechef-validstk",
+  "title": "Valid Stack Operations",
+  "slug": "validstk",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/VALIDSTK",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "You have a stack which is initially empty. You receive instructions of the form 1 or 0. 1 denotes that you have to push in an element, and 0 denotes that you have to pop out an element. But of course you can pop something out only if it exists in the stack.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/VALIDSTK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 12,
+    "problem_code": "VALIDSTK",
+    "replay_solves": {
+      "successful": 369,
+      "total": 709,
+      "accuracy": 53.03,
+      "replay_only": true
+    }
+  }
+}

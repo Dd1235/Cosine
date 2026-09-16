@@ -1,0 +1,39 @@
+{
+  "id": "codechef-expcan",
+  "title": "Expected Candies",
+  "slug": "expcan",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EXPCAN",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "There are two friends Alice and Bob. They have a packet of n candies. They want to split the candies between them, and to do so, they kept them all in a single line. The i^{\\text{th}} candy in the line has a sweetness value of a_i. They decided to take turns in picking the candies.",
+  "tags": [
+    "basic-programming-concepts",
+    "mathematics",
+    "probability",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EXPCAN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 12,
+    "problem_code": "EXPCAN",
+    "replay_solves": {
+      "successful": 43,
+      "total": 355,
+      "accuracy": 12.11,
+      "replay_only": true
+    }
+  }
+}

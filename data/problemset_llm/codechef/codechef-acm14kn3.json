@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kn3",
+  "title": "Logging in the computer",
+  "slug": "acm14kn3",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KN3",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Finally the LazyProblemSetters have decided the way in which they will attempt the questions in the problem set. They have decided to go to the Computer Lab of the CSE department (because it has air-conditioning) and are ready to get their hands dirty with some WA's and TLE's.",
+  "tags": [
+    "acmkan14",
+    "admin",
+    "array",
+    "simple"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KN3"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN14",
+    "position": 3,
+    "problem_code": "ACM14KN3",
+    "replay_solves": {
+      "successful": 435,
+      "total": 1050,
+      "accuracy": 42.19,
+      "replay_only": true
+    }
+  }
+}

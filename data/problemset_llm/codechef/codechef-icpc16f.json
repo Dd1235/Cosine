@@ -1,0 +1,40 @@
+{
+  "id": "codechef-icpc16f",
+  "title": "Chef and Bipartite Graphs",
+  "slug": "icpc16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16F",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "Chef is very interested in studying biparite graphs. Today he wants to construct a bipartite graph with n vertices each, on the two parts, and with total number of edges equal to m . The vertices on the left are numbered from 1 to n . And the vertices on the right are also numbered from 1 to n .",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "dynamic-programming",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 7,
+    "problem_code": "ICPC16F",
+    "replay_solves": {
+      "successful": 581,
+      "total": 1637,
+      "accuracy": 40.13,
+      "replay_only": true
+    }
+  }
+}

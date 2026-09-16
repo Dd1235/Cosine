@@ -1,0 +1,39 @@
+{
+  "id": "codechef-codie",
+  "title": "Codie Bird",
+  "slug": "codie",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CODIE",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "Codie is a super intelligent bird stuck inside a flappy bird simulation. The game is simple: if the position of the bird is denoted by (x, y), then the bird can move in the following directions in one step: - right — to (x + 1, y), - up-right — to (x + 1, y + 1), - down-right — to (x + 1, y - 1).",
+  "tags": [
+    "mathematics",
+    "probability",
+    "matrix-exponentiation",
+    "matrix-multiplication"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CODIE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 5,
+    "problem_code": "CODIE",
+    "replay_solves": {
+      "successful": 3,
+      "total": 7,
+      "accuracy": 42.86,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-equalmod",
+  "title": "Modulo Equality",
+  "slug": "equalmod",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EQUALMOD",
+  "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+  "source_tags": [],
+  "statement": "You have two arrays A and B , each containing N integers. Elements of array B cannot be modified. You may perform an arbitrary number of operations (including zero number of operations). In one operation, you can choose one index i (1 ≤ i ≤ N ) and increment A i by 1.",
+  "tags": [
+    "data-structures",
+    "mathematics",
+    "algorithms",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EQUALMOD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND17",
+    "position": 1,
+    "problem_code": "EQUALMOD",
+    "replay_solves": {
+      "successful": 268,
+      "total": 3653,
+      "accuracy": 7.39,
+      "replay_only": true
+    }
+  }
+}

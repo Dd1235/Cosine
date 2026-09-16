@@ -1,0 +1,38 @@
+{
+  "id": "codechef-absdiffs",
+  "title": "Absolute Difference Sum",
+  "slug": "absdiffs",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ABSDIFFS",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "Little Sajal went to school and learned how to calculate the score of an integer. The score of an integer is defined as the sum of the absolute value of the difference of all pairs of digits in this integer. For example, the score of 214 is |2 - 1| + |1 - 4| + |2 - 4| = 6.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ABSDIFFS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 7,
+    "problem_code": "ABSDIFFS",
+    "replay_solves": {
+      "successful": 9,
+      "total": 63,
+      "accuracy": 14.29,
+      "replay_only": true
+    }
+  }
+}

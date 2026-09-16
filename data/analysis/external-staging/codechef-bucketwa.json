@@ -1,0 +1,30 @@
+{
+ "id": "codechef-bucketwa",
+ "platform": "codechef",
+ "title": "Get a Bucket of Water",
+ "slug": "bucketwa",
+ "source_url": "https://www.codechef.com/problems/BUCKETWA",
+ "source_topic": "ICPC / Kolkata Regional 2018",
+ "source_text": "A straight river $R$ is flowing nearby. Your house $H$ is located on the same side of the river as your piece of land $L$ where you would like to supply a bucket of water taken from the river. Perpendicular distances of your house and piece of land from the flowing river are $d_H$ and $d_L$ units respectively. Perpendicular distance of the lines from $H$ to the river and $L$ to the river is $d_R$. Find the distance you will have to cover for reaching the river bank from your house with an empty bucket, and then reaching your piece of land with the bucket filled with water in minimum time. The speed of walking with a bucket filled with water is $k$ times slower than the speed of walking with the bucket without water. Input - Each instance of the problem is a single line with four positive numbers $d_H$, $d_L$, $d_R$, and $k$, each less than 100000, given in a single line. - The input stream ends with four zeros in the last line. - The input contains no more than 1000 test cases. Output - For each instance, output a single number representing the distance from $H$ to $L$ touching $R$, which you will have to cover if you are minimizing the total time taken. The answer will be correct if your solution is within $10^{-2}$ of the expected solution. Constraints - 0 < $d_H, d_L, d_R, k$ < 100000 - The input contains no more than 1000 test cases. Sample Input 6 7 10 3 0 0 0 0 Sample Output 17.31 The sample input corresponds to a scenario where the perpendicular distances from the house and the piece of land to the river are 6 and 7 units respectively, and the perpendicular distance of the lines from $H$ to the river and $L$ to the river is 10 units. The speed of walking with a bucket filled with water is 3 times slower than the speed of walking with the bucket without water. The output 17.31 represents the minimum distance that needs to be covered to minimize the total time taken.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms",
+  "searching"
+ ],
+ "date_added": "20-12-2018",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL18ROL",
+  "position": 3,
+  "problem_code": "BUCKETWA",
+  "replay_solves": {
+   "successful": 85,
+   "total": 227,
+   "accuracy": 37.89,
+   "replay_only": true
+  }
+ }
+}

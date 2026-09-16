@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kol16j",
+  "title": "Quentin Tarantino",
+  "slug": "kol16j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16J",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Quentin Tarantino is a famous Hollywood filmmaker and actor. His films have a unique characteristic of connecting with youth by using popular culture references. They are usually divided into various sub-parts denoted by chapters.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 10,
+    "problem_code": "KOL16J",
+    "replay_solves": {
+      "successful": 195,
+      "total": 398,
+      "accuracy": 49.25,
+      "replay_only": true
+    }
+  }
+}

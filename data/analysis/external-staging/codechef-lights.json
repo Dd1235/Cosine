@@ -1,0 +1,30 @@
+{
+ "id": "codechef-lights",
+ "platform": "codechef",
+ "title": "The Glittering Caves of Aglarond",
+ "slug": "lights",
+ "source_url": "https://www.codechef.com/problems/LIGHTS",
+ "source_topic": "ICPC / Amritapuri Regional 2012",
+ "source_text": "# The Glittering Caves of Aglarond While these caves are by and large natural, there is one place where the Men of Rohan have chiseled into the rock to create a magnificent exhibit. You have a wall of the cave consisting of 'lighted diamonds' arranged in a **N** by **M** grid (basically, you have a light behind each diamond which can be turned on or off). Further, you have a switch corresponding to each **row** of this diamond-grid. When you operate a switch, it will toggle (flip) the lights corresponding to that row. You are given the current configuration of the lighted diamonds. Gimli challenges Legolas to turn on as many diamonds as possible using EXACTLY **K** on/off operations of the switches. Since Legolas is an Elf of the Wood and doesn't care much for things that glitter, he instead asks for your help. Note that the same switch (i.e. row) can be chosen multiple times. Input The first line contains the number of test cases **T**. Each test case contains **N**, **M** and **K** on the first line followed by **N** lines containing **M** characters each. The ith line denotes the state of the diamonds in the ith row, where '*' denotes a diamond which is on and '.' denotes a diamond which is off. Output Output **T** lines containing the answer for the corresponding case. Between successive test cases, there should not be any blank lines in the output. Constraints - **1 < = T < = 100** - **1 < = N,M < = 50** - **1 < = K < = 100** Sample Input 2 2 2 1 .. ** 2 2 2 .. ** Sample Output 4 2 In the first test case, row 1 can be toggled hence leaving all 4 lights to be in the ON state. In the second test case, row 1 (or row 2) can be toggled twice, hence maintaining the state of the initial configuration.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmamr12",
+  "admin"
+ ],
+ "date_added": "22-01-2013",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMAMR12",
+  "position": 6,
+  "problem_code": "LIGHTS",
+  "replay_solves": {
+   "successful": 345,
+   "total": 1354,
+   "accuracy": 27.1,
+   "replay_only": true
+  }
+ }
+}

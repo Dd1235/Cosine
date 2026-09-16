@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amss",
+  "title": "Similar Strings",
+  "slug": "amss",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMSS",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Chota Pendrive* likes to play with strings a lot. For a given string **s**, he obtains its compressed string in the following way: - In a single operation, he takes any two consecutive equal characters of **s**, and removes one of them. - He keeps doing this operation as long as possible.",
+  "tags": [
+    "acm15amr",
+    "admin2",
+    "combinatorics",
+    "maths"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMSS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 1,
+    "problem_code": "AMSS",
+    "replay_solves": {
+      "successful": 16,
+      "total": 202,
+      "accuracy": 7.92,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+ "id": "codechef-shufgrid",
+ "platform": "codechef",
+ "title": "Grid Shuffle",
+ "slug": "shufgrid",
+ "source_url": "https://www.codechef.com/problems/SHUFGRID",
+ "source_topic": "ICPC / India Prelims 2019",
+ "source_text": "You are given a square grid $G$ with $N$ rows (numbered $1$ through $N$) and $N$ columns (numbered $1$ through $N$). Let's denote the element in the $i$-th row and $j$-th column by $G_{i, j}$. Initially, for each valid $i, j$, the element $G_{i, j}$ is equal to $i \\cdot N+j$. The grid is changing in steps. In one step, either one row or one column of the grid is selected uniformly randomly and then, all the elements in the selected row or column are shuffled uniformly randomly. For a given cell in row $r$ and column $c$, find the probability that after $K$ steps, $G_{r, c}$ is equal to $r \\cdot N + c$. It can be proved that this probability can be expressed as an irreducible fraction $p/q$, where $q$ is a positive integer coprime to $998,244,353$. You should compute $p \\cdot q^{-1}$ modulo $998,244,353$, where $q^{-1}$ denotes the multiplicative inverse of $q$ modulo $998,244,353$. ### Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first and only line of each test case contains four space-separated integers $N$, $K$, $r$ and $c$. ### Output For each test case, print a single line containing one integer $p \\cdot q^{-1}\\, \\%\\, 998,244,353$. ### Constraints - $1 \\le T \\le 5$ - $1 \\le N, K \\le 1,000$ - $1 \\le r, c \\le N$ Sample Input 2 1 2 1 1 2 1 1 1 Sample Output 1 249561089 **Example case 1:** Since there is only one row and one column, both with just one element, the grid after each step is the same as the initial grid.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "matrices",
+  "matrix-multiplication"
+ ],
+ "date_added": "13-10-2019",
+ "problem_author": "rumblefool",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ICPCIN19",
+  "position": 6,
+  "problem_code": "SHUFGRID",
+  "replay_solves": {
+   "successful": 25,
+   "total": 89,
+   "accuracy": 31.46,
+   "replay_only": true
+  }
+ }
+}

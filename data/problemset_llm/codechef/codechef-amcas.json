@@ -1,0 +1,40 @@
+{
+  "id": "codechef-amcas",
+  "title": "Circles and Squares",
+  "slug": "amcas",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMCAS",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Chota pendrive* (one of the deadliest coders) is the right hand of *Farzi coder*. He is really fond of circles and squares. One day he saw this problem and solved it. But he is not very sure if he correctly solved it. Can you help him in verifying the answer.",
+  "tags": [
+    "acm15amr",
+    "akash4983",
+    "combinatorics",
+    "expected-value",
+    "geometry"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMCAS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 6,
+    "problem_code": "AMCAS",
+    "replay_solves": {
+      "successful": 3,
+      "total": 13,
+      "accuracy": 23.08,
+      "replay_only": true
+    }
+  }
+}

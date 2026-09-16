@@ -1,0 +1,37 @@
+{
+  "id": "codechef-vrtxcovr",
+  "title": "Vertex Cover",
+  "slug": "vrtxcovr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/VRTXCOVR",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "You are given an undirected graph G = (V, E) containing N nodes and M edges. The nodes are numbered from 1 to N. A subset C of V is a *vertex cover* if for every edge (u, v) \\in E, at least one of u and v belong to C. Note that C = V is always a vertex cover.",
+  "tags": [
+    "data-structures",
+    "advanced-algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/VRTXCOVR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 8,
+    "problem_code": "VRTXCOVR",
+    "replay_solves": {
+      "successful": 9,
+      "total": 61,
+      "accuracy": 16.39,
+      "replay_only": true
+    }
+  }
+}

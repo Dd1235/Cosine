@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13e",
+  "title": "Chocolate Division",
+  "slug": "kan13e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13E",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "Alice and Bob have received some chocolates as a gift. There are two types of chocolates: some are shaped like spheres, and others are shaped like sticks. Each chocolate stick connects a pair of chocolate spheres.",
+  "tags": [
+    "jingbo-adm",
+    "kan13acm",
+    "medium-hard",
+    "split-graph"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 5,
+    "problem_code": "KAN13E",
+    "replay_solves": {
+      "successful": 4,
+      "total": 12,
+      "accuracy": 41.67,
+      "replay_only": true
+    }
+  }
+}

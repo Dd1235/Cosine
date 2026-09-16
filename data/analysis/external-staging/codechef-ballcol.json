@@ -1,0 +1,29 @@
+{
+ "id": "codechef-ballcol",
+ "platform": "codechef",
+ "title": "Colliding Balls",
+ "slug": "ballcol",
+ "source_url": "https://www.codechef.com/problems/BALLCOL",
+ "source_topic": "ICPC / Kharagpur Regional 2019",
+ "source_text": "There are $n$ red balls kept on the positive $X$ axis, and $m$ blue balls kept on the positive $Y$ axis. You are given the positions of the balls. For each $i$ from $1$ to $n$, the $i$-th red ball has the coordinates $(x_i, 0)$, where $x_i$ is a positive integer. For each $i$ from $1$ to $m$, the $i$-th blue ball has the coordinates $(0, y_i)$, where $ y_i$ is a positive integer. It is given that all $x_i$ are distinct. Also, all $y_i$ are distinct. At the time $t= 0$, for each $i$ from $1$ to $n$, the $i^{\\text{th}}$ red ball is thrown towards positive $Y$ axis with a speed of $u_i$( that is, with velocity vector $(0, u_i)$). Simultaneously (at time $t = 0$), for each $i$ from $1$ to $m$, the $i^{\\text{th}}$ blue ball is thrown towards positive $X$ axis with a speed of $v_i$ (that is, with velocity vector $(v_i, 0)$). Two balls are said to collide if they are at the same position at the same time. When two balls collide, they disappear, and hence no longer collide with other balls. (See sample examples for clarification). Find the total number of collisions the balls will have. ### Input - First line contains $n$ and $m$, the number of red balls, and the number of blue balls, respectively. - $i^{\\text{th}}$ of the next $n$ lines contains two space separated integers $x_i$ and $u_i$, the position and speed of the $i^{\\text{th}}$ red ball respectively - $i^{\\text{th}}$ of the next $m$ lines contains two space separated integers $y_i$ and $v_i$, the position and speed of the $i^{\\text{th}}$ blue ball respectively ### Output Print the number of collisions. ### Constraints - $1 \\le n, m \\le 10^5$ - $1 \\le x_i, u_i, y_i, v_i \\le 10^9$ - for all $1 \\le i \\lt j \\le n, x_i eq x_j$ - for all $1 \\le i \\lt j \\le m, y_i eq y_j$ Sample Input 1 1 1 2 2 1 Sample Output 1 **Example case 1:** The balls collide at t = 1, at the coordinates (1, 2). Sample Input 1 2 1 2 2 1 1 2 Sample Output 1 **Example case 2:** The red ball and the second blue ball collide at time 0.5 at coordinates (1, 1). Note that the first blue ball would have collided with the red ball at t = 1 (like in sample input # 1), if the second blue ball wasn't present. But since the red ball disappears at t = 0.5, its collision with first blue ball doesn't happen. The total number of collisions is 1.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics"
+ ],
+ "date_added": "9-10-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KH19MOS",
+  "position": 1,
+  "problem_code": "BALLCOL",
+  "replay_solves": {
+   "successful": 106,
+   "total": 219,
+   "accuracy": 49.32,
+   "replay_only": true
+  }
+ }
+}

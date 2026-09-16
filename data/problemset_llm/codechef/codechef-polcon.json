@@ -1,0 +1,39 @@
+{
+  "id": "codechef-polcon",
+  "title": "Polygon Containment",
+  "slug": "polcon",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/POLCON",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "Bob has created N convex polygons on a 2-D plane, which are numbered from 1 to N. He wants Alice to pick a maximum subset of these polygons such that no two polygons, i, j (i e j), chosen in the subset are such that the i^{th} polygon is contained strictly within the j^{th} polygon or vice-versa.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "flow-networks",
+    "computational-geometry"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/POLCON"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 2,
+    "problem_code": "POLCON",
+    "replay_solves": {
+      "successful": 8,
+      "total": 30,
+      "accuracy": 26.67,
+      "replay_only": true
+    }
+  }
+}

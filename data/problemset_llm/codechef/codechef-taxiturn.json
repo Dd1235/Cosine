@@ -1,0 +1,36 @@
+{
+  "id": "codechef-taxiturn",
+  "title": "Taxi Making Sharp Turns",
+  "slug": "taxiturn",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TAXITURN",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "Taxis of Kharagpur are famous for making sharp turns. You are given the coordinates where a particular taxi was on a 2-D plane at **N** different moments: (x_1, y_1), (x_2, y_2), ..., (x_N, y_N). In between these coordinates, the taxi moves on a straight line.",
+  "tags": [
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TAXITURN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 5,
+    "problem_code": "TAXITURN",
+    "replay_solves": {
+      "successful": 5,
+      "total": 24,
+      "accuracy": 20.83,
+      "replay_only": true
+    }
+  }
+}

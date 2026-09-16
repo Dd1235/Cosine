@@ -29,7 +29,8 @@ def staged(**over):
 class Lead(unittest.TestCase):
     def test_at_least_two_sentences_under_the_limit(self):
         lead = pp.extractive_lead(LONG)
-        self.assertLessEqual(len(lead), 600)
+        self.assertLessEqual(len(lead), pp.LEAD_CHARS)
+        self.assertLess(pp.LEAD_CHARS, 600, "the lead target sits well under the validator ceiling")
         self.assertGreaterEqual(lead.count(". "), 1, "two sentences means one boundary inside")
         self.assertTrue(lead.endswith("."), "cut at a sentence boundary, not mid-word")
 
@@ -38,7 +39,7 @@ class Lead(unittest.TestCase):
 
     def test_one_giant_sentence_is_cut_at_a_word(self):
         lead = pp.extractive_lead("word " * 300)
-        self.assertLessEqual(len(lead), 600)
+        self.assertLessEqual(len(lead), pp.LEAD_CHARS)
         self.assertTrue(lead.endswith("…"))
 
 
@@ -90,6 +91,18 @@ class Run(unittest.TestCase):
         st = pp.run(write=True, contest=None, root=self.tmp)
         self.assertEqual(st["exists"], 2)
         self.assertEqual(json.loads(out.read_text())["patterns"], ["max-flow"], "a reviewed record is never downgraded")
+
+    def test_rewrite_pending_regenerates_pending_only(self):
+        pp.run(write=True, contest=None, root=self.tmp)
+        out = self.tmp / "data" / "problemset_llm" / "codechef" / "codechef-polcon.json"
+        other = self.tmp / "data" / "problemset_llm" / "codechef" / "codechef-other.json"
+        reviewed = json.loads(other.read_text()); reviewed["patterns"] = ["max-flow"]; reviewed.pop("review_status")
+        other.write_text(json.dumps(reviewed))
+        pending = json.loads(out.read_text()); pending["statement"] = "stale lead"; out.write_text(json.dumps(pending))
+        st = pp.run(write=True, contest=None, root=self.tmp, rewrite_pending=True)
+        self.assertEqual((st["written"], st["exists"]), (1, 1))
+        self.assertNotEqual(json.loads(out.read_text())["statement"], "stale lead", "the pending record was regenerated")
+        self.assertEqual(json.loads(other.read_text())["patterns"], ["max-flow"], "the reviewed record was not")
 
     def test_contest_filter(self):
         st = pp.run(write=False, contest="KOL18ROL", root=self.tmp)

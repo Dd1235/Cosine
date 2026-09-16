@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubspoil",
+  "title": "H - Unpredictable Array",
+  "slug": "zubspoil",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBSPOIL",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "Value of an array is defined as the sum of the absolute differences between pairs of consecutive elements in the array.",
+  "tags": [
+    "zubaerkh"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBSPOIL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 10,
+    "problem_code": "ZUBSPOIL",
+    "replay_solves": {
+      "successful": 0,
+      "total": 79,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

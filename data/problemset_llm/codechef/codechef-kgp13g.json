@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp13g",
+  "title": "Message Coding",
+  "slug": "kgp13g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13G",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "You have a mini number pad which allows you a shortcut mode of typing messages using the digits 0 to 9. Each digit represents a subset of English letters (lowercase only). No letter is represented by more than one digit. An example keypad is given below along with the corresponding letters.",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "jingbo-adm",
+    "kgp13acm",
+    "trie"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 7,
+    "problem_code": "KGP13G",
+    "replay_solves": {
+      "successful": 8,
+      "total": 19,
+      "accuracy": 42.11,
+      "replay_only": true
+    }
+  }
+}

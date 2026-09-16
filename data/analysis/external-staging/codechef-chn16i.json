@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16i",
+ "platform": "codechef",
+ "title": "Alice and Bob play Contact",
+ "slug": "chn16i",
+ "source_url": "https://www.codechef.com/problems/CHN16I",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Chef Alice and Chef Bob are going to play their version of the social word game called Contact. First things first, let's say that the vocabulary of Alice and Bob are defined by English words $A_1, A_2, \\ldots, A_N$ and $B_1, B_2, \\ldots, B_M$, respectively. Also, we define $\\text{Prefix}(S, i)$ as the prefix of string $S$ consisting of the first $i$ characters. We define $|S|$ as the length of string $S$. Before the game starts, Alice tells Bob a word $A_i$ from her vocabulary. The game proceeds as follows: - In the first move, Bob tells a word $P$ from his vocabulary such that $\\text{Prefix}(P, 1) == \\text{Prefix}(A_i, 1)$. - In the second move, Bob tells a word $P$ (which shouldn't have been used before by him) from his vocabulary such that $\\text{Prefix}(P, 2) == \\text{Prefix}(A_i, 2)$. - In the $j^{th}$ move, Bob tells a word $P$ (which wasn't used earlier by him) from his vocabulary such that $\\text{Prefix}(P, j) == \\text{Prefix}(A_i, j)$. - The game ends when Bob has made $|A_i|$ moves or Bob fails to make a move. Bob is secretly aware of Alice's whole vocabulary and also, he wants to spend as much time as possible with her. Now, they'll play this game for all the $N$ words in Alice's vocabulary. Note that all games are independent. You have to tell Bob what is the sum of the maximum number of moves he can make for each of the $N$ games. Input The first line of the input contains integers $N$ and $M$ denoting the size of vocabularies of Alice and Bob, respectively. Next $N + M$ lines contain strings $A_1, A_2, \\ldots, A_N$ and $B_1, B_2, \\ldots, B_M$, each in a separate line. Output Output the sum of the maximum number of moves for each of the $N$ games (i.e., if Alice and Bob play the game for each word in Alice's vocabulary). Constraints - $1 \\leq N, M \\leq 10^5$ - $1 \\leq |A_i|, |B_i| \\leq 10^5$ - $1 \\leq \\text{Sum of lengths of } A_i \\text{ and } B_i \\text{ for all } i \\leq 10^6$ - All strings consist of English lowercase alphabets. - All strings in array $A$ are distinct. - All strings in array $B$ are distinct. Sample Input 3 2 ac abd b ae bd Sample Output 3 **Game 1:** Alice chooses the word \"ac\". Bob can make a maximum of 1 move. In the first move, Bob tells \"ae\". Now Bob can't make any more moves. **Game 2:** Alice chooses the word \"abd\". Again, Bob can make a maximum of one move by telling the word \"ae\". **Game 3:** Alice chooses the word \"b\". Again, Bob can make a single move in which he tells the word \"bd\". The game ends here because Bob cannot make more than $|A_i|$ moves. So, you can see that the total number of moves Bob can make is $1 + 1 + 1 = 3$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 9,
+  "problem_code": "CHN16I",
+  "replay_solves": {
+   "successful": 32,
+   "total": 155,
+   "accuracy": 20.65,
+   "replay_only": true
+  }
+ }
+}

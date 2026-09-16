@@ -1,0 +1,39 @@
+{
+  "id": "codechef-ngons",
+  "title": "Flipping Polygons",
+  "slug": "ngons",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NGONS",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "The Fibonacci numbers is the series of numbers: 1, 1, 2, 3, 5, 8, 13, 21, 34, ... The next number is found by adding up the two numbers before it. A Fibonacci polygon is a polygon whose number of vertices is a Fibonacci number.",
+  "tags": [
+    "advanced-data-structures",
+    "advanced-tree-structures",
+    "segment-trees",
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NGONS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 2,
+    "problem_code": "NGONS",
+    "replay_solves": {
+      "successful": 4,
+      "total": 27,
+      "accuracy": 22.22,
+      "replay_only": true
+    }
+  }
+}

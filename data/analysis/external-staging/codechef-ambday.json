@@ -1,0 +1,32 @@
+{
+ "id": "codechef-ambday",
+ "platform": "codechef",
+ "title": "Chota Mouse and his birthday cake",
+ "slug": "ambday",
+ "source_url": "https://www.codechef.com/problems/AMBDAY",
+ "source_topic": "ICPC / Amritapuri Regional 2015",
+ "source_text": "Today is *Chota Mouse's* birthday. He wants to celebrate it in a grand style. His brother *Mota Chuha* immediately contacted a nearby bakery for an online delivery of a cake. The cake is of rectangular shape with height **H** and width **W**. *Chota Mouse* has invited **F** of his friends to the party. So, he wants to make **F** vertical cuts at distinct positions on the cake, so that the cake will be divided into **F + 1** non-zero area parts (**F** for his friends and one for himself). Let us assume the cake is placed along the coordinate axis with its left end at **x** coordinate 0 and right end at **W**. Please see the image in the examples for details. He will make cuts at positions **P i ** such that **P i ** is strictly greater than zero and strictly less than **W**. Also note that, all the positions for cutting are distinct. *Chota Mouse* is a nice guy. So, he will be keeping the piece with the least area for himself and leave the other pieces for his friends to enjoy. *Chota Mouse* is weak in mathematics, so can you please help him figure out the area of the piece he is going to have? Input The first line of the input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. First line of each test case contains three space separated integers **F, H, W**. Second line of each test case contains **F** space separated integers, i-th of them denotes **P i **. Output For each test case, print a single integer corresponding to the answer of the problem. Constraints - **1** ≤ **T** ≤ **100** - **1** ≤ **F** ≤ **500** - **1** ≤ **H** ≤ **10000** - **F + 1** ≤ **W** ≤ **10000** - **1** ≤ **P i ** ≤ **W - 1** Sample Input 3 1 1 2 1 1 4 5 3 2 3 9 6 2 Sample Output 1 8 6 **In the first example**, both the pieces have same area (i.e. = 1). ![Image](http://icpc.amrita.ac.in/images_2015/Slide1.jpg) **In the second example**, there are two pieces. First piece has an area of 12, second has an area of 8. So, the answer will be 8. ![Image](http://icpc.amrita.ac.in/images_2015/Slide2.jpg) **In the third example**, there are three pieces. First piece has an area of 6, second 12, and third 9. So, the answer will be 6.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm15amr",
+  "ad-hoc",
+  "admin2",
+  "greedy"
+ ],
+ "date_added": "20-12-2015",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR15MOS",
+  "position": 2,
+  "problem_code": "AMBDAY",
+  "replay_solves": {
+   "successful": 237,
+   "total": 457,
+   "accuracy": 54.05,
+   "replay_only": true
+  }
+ }
+}

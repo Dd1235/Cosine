@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp13i",
+  "title": "Sequence Alignment",
+  "slug": "kgp13i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13I",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "Consider two sequences **A** and **B** comprising of digits 0 to 9, of length **K** and **L** respectively. The distance from **A** to **B** is the total minimum penalty incurred in converting **A** to **B** using the following operations, each of which incurs a penalty as described below. 1.",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "jingbo-adm",
+    "kgp13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 9,
+    "problem_code": "KGP13I",
+    "replay_solves": {
+      "successful": 9,
+      "total": 38,
+      "accuracy": 23.68,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "codechef-randid",
+  "title": "Chef and Diamonds",
+  "slug": "randid",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/RANDID",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "Our Chef who was a renouned mathematician has recently got into diamonds' business. She has accidentally misplaced Q diamonds into a jar which already had N chocolates. She then started wondering about an interesting question as following.",
+  "tags": [
+    "mathematics",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/RANDID"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 11,
+    "problem_code": "RANDID",
+    "replay_solves": {
+      "successful": 69,
+      "total": 158,
+      "accuracy": 43.67,
+      "replay_only": true
+    }
+  }
+}

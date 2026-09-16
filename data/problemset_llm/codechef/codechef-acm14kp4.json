@@ -1,0 +1,41 @@
+{
+  "id": "codechef-acm14kp4",
+  "title": "Determine the Maximum Sum of Weights",
+  "slug": "acm14kp4",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KP4",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "You are given an undirected tree with n nodes numbered from 1 to n and m weighted tree paths.",
+  "tags": [
+    "acmkgp14",
+    "admin",
+    "dynamic-programming",
+    "fenwick-tree",
+    "medium-hard",
+    "segment-tree"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KP4"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP14",
+    "position": 4,
+    "problem_code": "ACM14KP4",
+    "replay_solves": {
+      "successful": 0,
+      "total": 4,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp14i",
+  "title": "Irrigating Farms",
+  "slug": "kgp14i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14I",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "In the district of Jalshunyapur, the earth board has put restrictions on the usage of water in any farm to C litres per hour. Jalshunyapur has many farmers each having a farm of size K meter × K meter, divided into K 2 square plots each having a side of 1 meter.",
+  "tags": [
+    "admin3",
+    "complexity",
+    "kgp14ros",
+    "maths",
+    "medium-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 9,
+    "problem_code": "KGP14I",
+    "replay_solves": {
+      "successful": 1,
+      "total": 1,
+      "accuracy": 100.0,
+      "replay_only": true
+    }
+  }
+}

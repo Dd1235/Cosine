@@ -1,0 +1,37 @@
+{
+  "id": "codechef-bucketwa",
+  "title": "Get a Bucket of Water",
+  "slug": "bucketwa",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BUCKETWA",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "A straight river R is flowing nearby. Your house H is located on the same side of the river as your piece of land L where you would like to supply a bucket of water taken from the river.",
+  "tags": [
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BUCKETWA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 3,
+    "problem_code": "BUCKETWA",
+    "replay_solves": {
+      "successful": 85,
+      "total": 227,
+      "accuracy": 37.89,
+      "replay_only": true
+    }
+  }
+}

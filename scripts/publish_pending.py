@@ -36,6 +36,12 @@ ANNOTATION_VERSION = "problem-patterns-v1"
 ANNOTATION_MODEL = "codechef-judge-tags"
 REVIEW_STATUS = "labels-pending"
 MAX_STATEMENT_CHARS = 600   # scripts/validate_corpus.js warns above this
+# The lead is cut well under the validator's ceiling: corpus summaries run
+# ~180 characters, and 500-character leads were three times the norm. They
+# did not change bm25 at all, but they were enough to push a title query that
+# already sat at tfidf rank 100 ("two sum") one place past the Recall@100
+# window. Shorter leads keep the index closer to its own shape.
+LEAD_CHARS = 300
 MAX_LABELS = 12
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SENTENCE_END = re.compile(r"(?<=[.!?])\s+")
@@ -48,7 +54,7 @@ def plain(text: str) -> str:
     return t
 
 
-def extractive_lead(text: str, limit: int = MAX_STATEMENT_CHARS) -> str:
+def extractive_lead(text: str, limit: int = LEAD_CHARS) -> str:
     """The first sentences of the statement, at least two when there are two,
     cut at a sentence boundary under `limit`. Deterministic; no model."""
     t = plain(text)
@@ -124,7 +130,7 @@ def eligible(staged: dict[str, Any]) -> tuple[bool, str]:
     return True, ""
 
 
-def run(write: bool, contest: str | None, root: Path = ROOT) -> dict[str, int]:
+def run(write: bool, contest: str | None, root: Path = ROOT, rewrite_pending: bool = False) -> dict[str, int]:
     staging, corpus = root / "data" / "analysis" / "external-staging", root / "data" / "problemset_llm"
     stats = {"written": 0, "exists": 0, "skipped": 0}
     for path in sorted(staging.glob("codechef-*.json")):
@@ -139,9 +145,14 @@ def run(write: bool, contest: str | None, root: Path = ROOT) -> dict[str, int]:
             continue
         out = corpus / "codechef" / f"{staged['id']}.json"
         if out.exists():
-            stats["exists"] += 1
-            print(f"  have  {staged['id']}  (never overwritten)")
-            continue
+            # A record that has been reviewed (no review_status) is never
+            # touched. A record still pending may be regenerated, so a change
+            # to the lead rule can be applied to the whole tier at once.
+            current = json.loads(out.read_text())
+            if not (rewrite_pending and current.get("review_status") == REVIEW_STATUS):
+                stats["exists"] += 1
+                print(f"  have  {staged['id']}  (never overwritten)")
+                continue
         record = build_pending_record(staged)
         stats["written"] += 1
         print(f"  {'wrote' if write else 'would write'} {out.relative_to(root)}  "
@@ -160,8 +171,10 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--write", action="store_true", help="write records (default: dry run)")
     ap.add_argument("--contest", help="only this CodeChef contest code, e.g. AMR17ROL")
+    ap.add_argument("--rewrite-pending", action="store_true",
+                    help="regenerate records that are still labels-pending (reviewed records are never touched)")
     args = ap.parse_args(argv)
-    run(args.write, args.contest)
+    run(args.write, args.contest, rewrite_pending=args.rewrite_pending)
     return 0
 
 

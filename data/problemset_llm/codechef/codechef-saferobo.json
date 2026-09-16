@@ -1,0 +1,36 @@
+{
+  "id": "codechef-saferobo",
+  "title": "Safe Robots",
+  "slug": "saferobo",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SAFEROBO",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "There are two robots, one belonging to Alice, and the other to Bob. These robots are currently standing in a lane. You are given this information by a string s, whose characters are either '.' denoting empty cell, 'A' denoting Alice's robot, or 'B' denoting Bob's robot.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SAFEROBO"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 12,
+    "problem_code": "SAFEROBO",
+    "replay_solves": {
+      "successful": 305,
+      "total": 610,
+      "accuracy": 51.31,
+      "replay_only": true
+    }
+  }
+}

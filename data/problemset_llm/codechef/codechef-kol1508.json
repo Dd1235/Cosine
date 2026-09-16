@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol1508",
+  "title": "Antichains",
+  "slug": "kol1508",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1508",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Given an integer N, let F_N be the set of factors of N. e.g., F_6 = \\{1,2,3,6\\}. The radical of an integer N, denoted by \\text{rad}(N), is defined as the product of the distinct prime factors of N. e.g., \\text{rad}(12) = 2 \\times 3 = 6.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "modular-arithmetic",
+    "combinatorics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1508"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 8,
+    "problem_code": "KOL1508",
+    "replay_solves": {
+      "successful": 2,
+      "total": 27,
+      "accuracy": 7.41,
+      "replay_only": true
+    }
+  }
+}

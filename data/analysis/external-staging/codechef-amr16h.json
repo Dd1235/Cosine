@@ -1,0 +1,31 @@
+{
+ "id": "codechef-amr16h",
+ "platform": "codechef",
+ "title": "Netcoin Verification",
+ "slug": "amr16h",
+ "source_url": "https://www.codechef.com/problems/AMR16H",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Due to demonetization, normal people went to ATMs for fetching cash, while some opted for cashless transactions. Many people have already started using **netcoins**. In netcoins, each transaction is represented by a block. For a transaction to be accepted, its block has to be added to a chain of verified blocks. The coder of netcoin is very suspicious, so when a new block is added to the verified chain, the entire chain is verified again. You are given the time taken to verify each block. It is guaranteed that all the verification times are distinct. Hacker Shanker has done some black money transactions hidden across **N** given blocks. These transactions will only be detected when all the **N** blocks are verified. Netcoins uses a rather simple algorithm to figure out the order in which to add the given **N** transactions into a new, empty verified chain. It takes an array of **N** transactions as input and keeps 2 pointers - one initially at the beginning and another initially at the end. It then compares the block pointed by the 2 pointers and adds the block which requires the lesser verification time to the verified chain. Once this block has been added, the entire verified chain is verified again, spending time equal to the sum of the verification times of each block in the current verified chain. The corresponding pointer is moved, so that, both the pointers always point to the leftmost and rightmost unverified blocks in the array given to the algorithm. Hacker Shanker wants to escape and hide. For that, he needs as much time as possible before all the **N** transactions are verified. For that, he can order the **N** transactions however he wants and then send the array as input to the algorithm. He wants to find out the maximum amount of time taken to verify all the **N** transactions, among all the possible orderings of the array. Input The first line contains an integer **T** denoting the number of test cases. **T** test cases follow. The only line of each test case contains an integer **N**, denoting the number of transactions. The second line of each test case contains **N** space-separated integers **A i ** denoting the time taken in verifying transaction **i**. Output For each test case, output an integer corresponding to the maximum amount of time taken to verify all the blocks, among all the possible input orderings. Constraints - **1** ≤ **T** ≤ **5** - **1** ≤ **N** ≤ **10 5 ** - **1** ≤ **A i ** ≤ **10 6 ** - All the **A i **s in a particular test case will be distinct. Sample Input 1 2 1 2 Sample Output 4 **Example 1.** Block of transaction 1 takes 1 second to verify, whereas that of transaction 2 takes two seconds. The transactions can be given in any order. There can be two possible orders in our case, {1, 2} or {2, 1}, i.e., transaction 1 followed by 2, or transaction 2 followed by 1. Let us consider both the cases. **Case 1.** Transaction 1 followed by transaction 2. The first pointer is at transaction 1, second at transaction 2. The algorithm chooses transaction 1 (as it takes lesser time than transaction 2) and adds the block to the chain of verified blocks, which was empty before this. After that, the chain of blocks is verified. The current chain after adding transaction 1 consists of transaction 1 only. So, it will take 1 second to verify that. Afterwards, the first pointer moves to the right, and now both first and second pointers are at the same transaction, i.e., at transaction 2. The algorithm adds the transaction 2 block to the chain of blocks and verifies the chain again. It takes 1 + 2 = 3 seconds to verify the entire chain of blocks this time. Overall, you can see that it will take 4 seconds to verify the entire transaction. Let us consider the case when transaction 2 is followed by transaction 1. In the first step, you choose transaction 1, as its block takes less time than verifying the second block. **Case 2.** It will be exactly the same as case 1. In the first step, the algorithm will put transaction 1 into the verified block, followed by transaction 2. So, the answer is 4.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3",
+  "amr16",
+  "icpc2016"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 7,
+  "problem_code": "AMR16H",
+  "replay_solves": {
+   "successful": 108,
+   "total": 303,
+   "accuracy": 37.62,
+   "replay_only": true
+  }
+ }
+}

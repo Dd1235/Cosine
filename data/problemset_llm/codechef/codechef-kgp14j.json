@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14j",
+  "title": "Finding Exponent",
+  "slug": "kgp14j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14J",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Professor Calculus gives the following problem to his students: given two integers X (≥ 2) and Y (≥ 2), find the smallest positive integral exponent E such that the decimal expansion of X E begins with Y . For example, if X = 8 and Y = 51, then X 3 = 512 begins with Y = 51, so E = 3.",
+  "tags": [
+    "admin3",
+    "easy-medium",
+    "kgp14ros",
+    "maths"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 10,
+    "problem_code": "KGP14J",
+    "replay_solves": {
+      "successful": 22,
+      "total": 197,
+      "accuracy": 11.17,
+      "replay_only": true
+    }
+  }
+}

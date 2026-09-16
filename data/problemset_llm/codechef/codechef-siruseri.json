@@ -1,0 +1,36 @@
+{
+  "id": "codechef-siruseri",
+  "title": "Siruseri Gerrymandering",
+  "slug": "siruseri",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SIRUSERI",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "The country of Siruseri has A \\times B districts. You want to create A states from these districts, such that each state has exactly B districts, and each district is part of exactly one state. You don't care about the geographical location of the districts.",
+  "tags": [
+    "admin2"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SIRUSERI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 8,
+    "problem_code": "SIRUSERI",
+    "replay_solves": {
+      "successful": 20,
+      "total": 42,
+      "accuracy": 47.62,
+      "replay_only": true
+    }
+  }
+}

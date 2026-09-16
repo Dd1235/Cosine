@@ -1,0 +1,39 @@
+{
+  "id": "codechef-editlist",
+  "title": "List Editing",
+  "slug": "editlist",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EDITLIST",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "At the ACME University, as part of the Graduate course work, each student is required to undergo project work. The authorities always make an effort to find a match among the students’ interests and the interests of the faculty members.",
+  "tags": [
+    "acmkgp13",
+    "admin",
+    "dynamic-programming",
+    "easy"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EDITLIST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP13",
+    "position": 4,
+    "problem_code": "EDITLIST",
+    "replay_solves": {
+      "successful": 529,
+      "total": 2015,
+      "accuracy": 52.8,
+      "replay_only": true
+    }
+  }
+}

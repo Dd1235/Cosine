@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16k",
+  "title": "Road Maintenance",
+  "slug": "inf16k",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16K",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Midgar is a complex city comprised of **N** towns connected by roads. Towns are assigned IDs from 1 to **N**. A road connects exactly one pair of towns, and is bidirectional. Also, every town is reachable from every other town via roads.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16K"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 10,
+    "problem_code": "INF16K",
+    "replay_solves": {
+      "successful": 1,
+      "total": 1,
+      "accuracy": 100.0,
+      "replay_only": true
+    }
+  }
+}

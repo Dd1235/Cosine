@@ -1,0 +1,30 @@
+{
+ "id": "codechef-minstr",
+ "platform": "codechef",
+ "title": "Minimize the string",
+ "slug": "minstr",
+ "source_url": "https://www.codechef.com/problems/MINSTR",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "You are given **n** strings **s 1 , s 2 , ..., s n **. Each of these strings consists only of letters 'a' and 'b', and the length of each string can be at most 2. In other words, the only allowed strings are \"a\", \"b\", \"aa\", \"ab\", \"ba\" and \"bb\". Consider a permutation **p** = {**p 1 **, **p 2 **, ..., **p n **} of the integers {1, 2, ..., **n**}. Using this permutation, you can obtain a new string **S = s p 1 + s p 2 + ... + s p n **, where the operator + denotes concatenation of strings. You can shorten the string **S** by performing the following operation any number of times: choose two consecutive equal characters and remove one of these characters from the string. For example, the string \"aabb\" can be shortened to \"abb\" or \"aab\" in one operation, and then optionally it could still be shortened to \"ab\". You are allowed to choose any permutation **p**. Take the string **S** obtained using this permutation, and using any sequence of operations, minimize the string length. Find the minimum possible length of the string obtainable. Input The first line of the input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains an integer **n**. The second line of each test case contains **n** space-separated strings **s 1 , s 2 , ..., s n **. Output For each test case, output a single line containing one integer corresponding to the minimum possible length of the shortened string. Constraints - 1 ≤ **T** ≤ 10 5 - 1 ≤ **n** ≤ 10 5 - sum of **n** over all test cases won't exceed 10 6 Sample Input 2 2 ba ab 4 a b a b Sample Output 3 2 **Testcase 1:** You can consider the permutation (2, 1). Using this, you get the string **S** = **s p 1 ** + **s p 2 ** = ab + ba = abba. You can then take the two adjacent b's and remove one of them to get aba, whose length is 3. You cannot do any better, and hence the answer is 3. **Testcase 2:** You can consider the permutation (1, 3, 2, 4). Using this, you get the string **S** = **s p 1 ** + **s p 3 ** + **s p 2 ** + **s p 4 ** = a + a + b + b = aabb. You can then take the two adjacent b's and remove one of them to get aab. Then you can take the two adjacent a's and remove one of them to get ab. We end up with a length of 2, and you cannot do any better. Hence the answer is 2.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "algorithms"
+ ],
+ "date_added": "7-12-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 11,
+  "problem_code": "MINSTR",
+  "replay_solves": {
+   "successful": 92,
+   "total": 278,
+   "accuracy": 33.45,
+   "replay_only": true
+  }
+ }
+}

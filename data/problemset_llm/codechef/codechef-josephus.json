@@ -1,0 +1,37 @@
+{
+  "id": "codechef-josephus",
+  "title": "Josephus Again",
+  "slug": "josephus",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/JOSEPHUS",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "Perhaps you know about the famous Josephus problem where some hapless people are standing in a circle waiting to be executed. Here, our problem is a little bit different in which computational efficiency is more important.",
+  "tags": [
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/JOSEPHUS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 6,
+    "problem_code": "JOSEPHUS",
+    "replay_solves": {
+      "successful": 3,
+      "total": 34,
+      "accuracy": 8.82,
+      "replay_only": true
+    }
+  }
+}

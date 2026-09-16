@@ -1,0 +1,32 @@
+{
+ "id": "codechef-talesqua",
+ "platform": "codechef",
+ "title": "A Tale of Three Squares",
+ "slug": "talesqua",
+ "source_url": "https://www.codechef.com/problems/TALESQUA",
+ "source_topic": "ICPC / Gwalior Regional 2017",
+ "source_text": "There are three squares, each with side length $a$ placed on the x-axis. The coordinates of centers of these squares are $(x_1, a/2)$, $(x_2, a/2)$ and $(x_3, a/2)$ respectively. All of them are placed with one of their sides resting on the x-axis. You are allowed to move the centers of each of these squares along the x-axis (either to the left or to the right) by a distance of at most $K$. Find the maximum possible area of intersections of all these three squares that you can achieve. That is, the maximum area of the region which is part of all the three squares in the final configuration. Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first line of each test case contains two space-separated integers $a, K$ denoting side length of the squares, and the maximum distance that you can move the center of any square. - The second line contains three space separated integers $x_1$, $x_2$, $x_3$. Output For each test case, output a real number corresponding to the maximum area of the intersection of the three squares that you can obtain. Your answer will be considered correct if it has an absolute error of less than or equal to $10^{-2}$. Constraints - $1 \\leq T \\leq 10^5$ - $1 \\leq a \\leq 10^5$ - $0 \\leq K \\leq 10^6$ - $-10^6 \\leq x_1, x_2, x_3 \\leq 10^6$ Sample Input 3 1 0 1 2 3 1 1 1 2 3 1 1 1 4 6 Sample Output 0.000000 1.0000 0.0 **Testcase 1**: The figure below shows the three squares: ![Figure](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17GWR/TALESQUA.png) Since $K = 0$, they cannot be moved, and since there is no region which belongs to all three squares, the answer is 0. **Testcase 2**: The starting configuration is the same as above, but now each of the squares can move 1 unit. So we can move the first square 1 unit to the right and the third square one unit to the left, and have all the three squares at x-coordinate = 2. Thus the entire square is part of all three squares, and the answer is 1.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "special",
+  "mathematics",
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "19-12-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "GWR17ROL",
+  "position": 7,
+  "problem_code": "TALESQUA",
+  "replay_solves": {
+   "successful": 42,
+   "total": 242,
+   "accuracy": 18.6,
+   "replay_only": true
+  }
+ }
+}

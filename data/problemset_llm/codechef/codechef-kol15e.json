@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol15e",
+  "title": "Weird Paths in a tree",
+  "slug": "kol15e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL15E",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "You are given a tree. Each node of the tree is assigned a distinct value. A path in the tree is considered weird if the values in the path increase and decrease alternatively. For example: Consider a straight chain of nodes 1→3→2→4→5 with value assigned to any node i being i itself.",
+  "tags": [
+    "acmkol15",
+    "devuy11",
+    "dynamic-programming",
+    "medium-hard",
+    "rooted-trees",
+    "treeroot"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL15E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKOL15",
+    "position": 5,
+    "problem_code": "KOL15E",
+    "replay_solves": {
+      "successful": 1,
+      "total": 1,
+      "accuracy": 100.0,
+      "replay_only": true
+    }
+  }
+}

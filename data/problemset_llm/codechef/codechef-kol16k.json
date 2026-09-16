@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16k",
+  "title": "Chef and Points",
+  "slug": "kol16k",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16K",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Today, you finally have a chance to compete with a famous coder like Chef and prove your mettle. Chef has n distinct points in 2-D plane, i.e. there are never two points with both x and y coordinate equal and there are no two points with the same x coordinate.",
+  "tags": [
+    "advanced-algorithms",
+    "mathematics",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16K"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 11,
+    "problem_code": "KOL16K",
+    "replay_solves": {
+      "successful": 9,
+      "total": 40,
+      "accuracy": 22.5,
+      "replay_only": true
+    }
+  }
+}

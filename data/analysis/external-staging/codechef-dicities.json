@@ -1,0 +1,31 @@
+{
+ "id": "codechef-dicities",
+ "platform": "codechef",
+ "title": "Disconnecting Cities",
+ "slug": "dicities",
+ "source_url": "https://www.codechef.com/problems/DICITIES",
+ "source_topic": "ICPC / Gwalior Regional 2019",
+ "source_text": "Chefland consists of $n$ cities numbered $1$, $2$, $\\ldots n$. The cities numbered $1$, $2$, $\\ldots k$ are special cities. For each unordered pair $i, j$, there exists a bidirectional road, destroying which has a cost of $w_{i, j}$. Find the minimum cost of destroying some subset of roads so that no two special cities have a path between them after the removal of these roads. Input There are multiple independent testcases. - First line will contain $T$, number of testcases. - The first line of each testcase contains $n$ and $k$, the number of cities and the number of special cities respectively. - The $j^{\\text{th}}$ integer in $i^{\\text{th}}$ of the next $n$ lines is $w_{ij}$. Output For each testcase, output the minimum cost of destroying some subset of roads so that no two special cities have a path between them after the removal of these roads. Constraints - $1 \\leq T \\leq 5$ - $3 \\leq n \\leq 20$ - $3 \\leq k \\leq n$ - The sum of $n$ over all testcases doesn't exceed $20$. - For all $i$, $w_{ii} = 0$ - For all $i eq j$, $w_{ij} = w_{ji}$, $1 \\leq w_{ij} \\leq 10^6$ Sample Input 1 4 3 0 1 4 2 1 0 2 2 4 2 0 3 2 2 3 0 Sample Output 11 Remove the roads $(1, 2)$, $(1, 3)$, $(1, 4)$, $(2, 3)$, $(2, 4)$ to get a cost of $1 + 4 + 2 + 2 + 2 = 11$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "advanced-algorithms",
+  "advanced-dp"
+ ],
+ "date_added": "10-12-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "GW19MOS",
+  "position": 5,
+  "problem_code": "DICITIES",
+  "replay_solves": {
+   "successful": 16,
+   "total": 53,
+   "accuracy": 30.19,
+   "replay_only": true
+  }
+ }
+}

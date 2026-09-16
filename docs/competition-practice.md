@@ -59,8 +59,13 @@ skeptic review pinned to the statement's hash, and canonical labels. A problem
 that could not be solved stays staged and counts as "not yet indexed". Kattis
 publishes a per-host difficulty score; it is stored as `kattis_difficulty`
 metadata and shown on the card as "<score> · Kattis", never mapped onto a
-rating, a filter or a sort. No Indian regional is hosted on Kattis, so that collection remains
-resource-only until Gym- or CodeChef-hosted rounds are added.
+rating, a filter or a sort. No Indian regional is hosted on Kattis. Indian regionals, online rounds and
+prelims from 2010–2019 come from CodeChef's public contest API instead
+(`scripts/ingest_contest.py <CODE>`), in two tiers: every statement is
+published at once as a `labels-pending` record — the problem's own words and
+the judge's tags, none of our labels, so it can never match a technique filter
+— and reviewed labels replace that in place later through the same gate
+(`scripts/publish_pending.py`, then `scripts/publish_external.py`).
 
 Find similar keeps the source in the URL, excludes the source and verified
 aliases, and filters before pagination. It retains the current facets and saved

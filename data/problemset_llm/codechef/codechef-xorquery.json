@@ -1,0 +1,43 @@
+{
+  "id": "codechef-xorquery",
+  "title": "Chef and XOR Queries",
+  "slug": "xorquery",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/XORQUERY",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "Mr. X has given the Chef an undirected tree \\( T \\) with \\( n \\) nodes numbered from 1 to \\( n \\). Each edge \\( e_i \\) of the tree has a non-negative integer \\( w_i \\) written on it. But the edge weights are hidden from you.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "advanced-data-structures",
+    "mathematics",
+    "bit-manipulation",
+    "algorithms",
+    "graph-algos",
+    "lca"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/XORQUERY"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 11,
+    "problem_code": "XORQUERY",
+    "replay_solves": {
+      "successful": 8,
+      "total": 17,
+      "accuracy": 52.94,
+      "replay_only": true
+    }
+  }
+}

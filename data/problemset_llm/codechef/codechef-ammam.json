@@ -1,0 +1,39 @@
+{
+  "id": "codechef-ammam",
+  "title": "Magical Matrix",
+  "slug": "ammam",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMMAM",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "*Chota Pendrive*, *Farzi Coder*, *Programmer Bhai* and *Chota Vakil* (oh boy! These deadly coder mafias together, must be looking for something deadly.) are on a hunt, hunt for a treasure. They finally reached their destination. Their destination is a cave which is secured with a gate.",
+  "tags": [
+    "acm15amr",
+    "akash4983",
+    "divide-and-conquer",
+    "two-pointers"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMMAM"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 4,
+    "problem_code": "AMMAM",
+    "replay_solves": {
+      "successful": 0,
+      "total": 1,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

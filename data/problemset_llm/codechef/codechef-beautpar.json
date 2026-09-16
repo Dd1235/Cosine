@@ -1,0 +1,39 @@
+{
+  "id": "codechef-beautpar",
+  "title": "Beautiful Partitions",
+  "slug": "beautpar",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BEAUTPAR",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "Sidaga calls a sequence *beautiful* if the sum of elements of this sequence is strictly positive.",
+  "tags": [
+    "algorithms",
+    "dynamic-programming",
+    "dp-on-sequences",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BEAUTPAR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 4,
+    "problem_code": "BEAUTPAR",
+    "replay_solves": {
+      "successful": 60,
+      "total": 800,
+      "accuracy": 7.5,
+      "replay_only": true
+    }
+  }
+}

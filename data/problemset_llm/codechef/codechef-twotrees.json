@@ -1,0 +1,41 @@
+{
+  "id": "codechef-twotrees",
+  "title": "A tale of two trees",
+  "slug": "twotrees",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TWOTREES",
+  "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+  "source_tags": [],
+  "statement": "There are two trees; tree 1 has N 1 nodes which are numbered from 1 to N 1 , and tree 2 has N 2 nodes which are numbered from 1 to N 2 . Each tree is rooted at its node 1.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp",
+    "mathematics",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TWOTREES"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND17",
+    "position": 4,
+    "problem_code": "TWOTREES",
+    "replay_solves": {
+      "successful": 21,
+      "total": 367,
+      "accuracy": 5.72,
+      "replay_only": true
+    }
+  }
+}

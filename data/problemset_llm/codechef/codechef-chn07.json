@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn07",
+  "title": "Malvika and Animesh play Red-Blue cards Game",
+  "slug": "chn07",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN07",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "After 2 hours of Mathematics and chill, Malvika and Animesh got bored of solving problems and decided to play a game. They have **n** cards with them, each of which is red on one side and blue on the other. They initially put them in a row, from left to right.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN07"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 7,
+    "problem_code": "CHN07",
+    "replay_solves": {
+      "successful": 6,
+      "total": 47,
+      "accuracy": 12.77,
+      "replay_only": true
+    }
+  }
+}

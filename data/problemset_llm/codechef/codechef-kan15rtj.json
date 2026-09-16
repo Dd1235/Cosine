@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtj",
+  "title": "Handling the explosives",
+  "slug": "kan15rtj",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTJ",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "War is inevitable now that the King has refused to fulfill the demands of the enemy neighbour. The King has sought Da Vinci's help in devising a strategy to not lose to the barbarous enemy neighbour. Leonardo assured him that he can produce chemical explosives (yes chemical explosives!!",
+  "tags": [
+    "piyushkumar"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTJ"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 11,
+    "problem_code": "KAN15RTJ",
+    "replay_solves": {
+      "successful": 15,
+      "total": 31,
+      "accuracy": 48.39,
+      "replay_only": true
+    }
+  }
+}

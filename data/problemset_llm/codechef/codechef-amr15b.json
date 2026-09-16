@@ -1,0 +1,41 @@
+{
+  "id": "codechef-amr15b",
+  "title": "Devasena",
+  "slug": "amr15b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR15B",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Devasena was the princess of an unknown kingdom (we'll all know which one, in Baahubali 2 ;) ), and her father arranged for a Swayamvara to get her married.",
+  "tags": [
+    "data-structures",
+    "arrays",
+    "mathematics",
+    "number-theory",
+    "modular-arithmetic",
+    "groupings"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR15B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR15",
+    "position": 2,
+    "problem_code": "AMR15B",
+    "replay_solves": {
+      "successful": 98,
+      "total": 1581,
+      "accuracy": 6.51,
+      "replay_only": true
+    }
+  }
+}

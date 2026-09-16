@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kn4",
+  "title": "The Problem Set",
+  "slug": "acm14kn4",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KN4",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "As we all know that team LaZyProblemSetters is gearing up for ICPC 2015 and have finally reached in front of a computer together to solve a problem set. Since they have already wasted too much time procrastinating, they have decided to manage the problem set with more caution.",
+  "tags": [
+    "acmkan14",
+    "admin",
+    "easy-medium",
+    "segment-tree"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KN4"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN14",
+    "position": 4,
+    "problem_code": "ACM14KN4",
+    "replay_solves": {
+      "successful": 76,
+      "total": 695,
+      "accuracy": 11.08,
+      "replay_only": true
+    }
+  }
+}

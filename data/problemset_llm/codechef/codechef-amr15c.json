@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr15c",
+  "title": "Kalakeya",
+  "slug": "amr15c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR15C",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "The Kalakeyas were a powerful, ferocious and cruel clan of Danavas. They were known to be really strong and they did not have any war strategy. They would just attack the enemy randomly and overpower them with sheer number of soldiers.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR15C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR15",
+    "position": 3,
+    "problem_code": "AMR15C",
+    "replay_solves": {
+      "successful": 118,
+      "total": 1657,
+      "accuracy": 7.3,
+      "replay_only": true
+    }
+  }
+}

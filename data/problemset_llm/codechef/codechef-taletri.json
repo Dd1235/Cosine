@@ -1,0 +1,39 @@
+{
+  "id": "codechef-taletri",
+  "title": "A Tale of Two Right Angled Triangles",
+  "slug": "taletri",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TALETRI",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "You are given two right-angled triangles. You are given their side lengths. The first triangle is ABC, where side AB is the hypotenuse. Length of AB is **c**, that of AC is **b**, and that of BC is **a**. Similarly, the second triangle is DEF, where DE is the hypotenuse.",
+  "tags": [
+    "special",
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TALETRI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 8,
+    "problem_code": "TALETRI",
+    "replay_solves": {
+      "successful": 13,
+      "total": 49,
+      "accuracy": 26.53,
+      "replay_only": true
+    }
+  }
+}

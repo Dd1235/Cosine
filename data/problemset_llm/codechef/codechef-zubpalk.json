@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubpalk",
+  "title": "G - Palace of King",
+  "slug": "zubpalk",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBPALK",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "A king in a distant land wants to build a new palace for himself. There are some plots of land in the country. Some of them don't have any owner, some of the plots are owned by the citizens of the country.",
+  "tags": [
+    "zubaerkh"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBPALK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 9,
+    "problem_code": "ZUBPALK",
+    "replay_solves": {
+      "successful": 1,
+      "total": 3,
+      "accuracy": 33.33,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-chn15a",
+  "title": "Mutated Minions",
+  "slug": "chn15a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15A",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Gru has not been in the limelight for a long time and is, therefore, planning something particularly nefarious. Frustrated by his minions' incapability which has kept him away from the limelight, he has built a transmogrifier — a machine which mutates minions.",
+  "tags": [
+    "mathematics",
+    "modular-arithmetic",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 1,
+    "problem_code": "CHN15A",
+    "replay_solves": {
+      "successful": 0,
+      "total": 2201,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

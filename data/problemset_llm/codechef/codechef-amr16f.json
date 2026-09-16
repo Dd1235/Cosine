@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amr16f",
+  "title": "Notes and GPS Chips",
+  "slug": "amr16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16F",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Suryansh, a nanophysics enthusiast, is studying about the GPS Chips present in the newly released Rs. 2000 note. After careful analysis, he has come to know that the GPS chips contain nanoparticles! In fact, there are 2 types of GPS Chips: 1.",
+  "tags": [
+    "admin3",
+    "amr16",
+    "icpc2016"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 5,
+    "problem_code": "AMR16F",
+    "replay_solves": {
+      "successful": 2,
+      "total": 4,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

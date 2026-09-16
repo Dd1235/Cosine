@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16k",
+  "title": "Cookie Flavors",
+  "slug": "kgp16k",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16K",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "For Durga Puja, Ramu has baked **N** cookies, and left them in a row. They are of various flavours, and the flavours of each of the cookies is given by the sequence **C = (c₁, c₂, ..., cₙ)**, where **cᵢ** is the flavour of the **iᵗʰ** cookie.",
+  "tags": [
+    "acm-icpc",
+    "acm16",
+    "admin3",
+    "kgp16",
+    "knuth-morris-pratt-algorithm",
+    "looping"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16K"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 11,
+    "problem_code": "KGP16K",
+    "replay_solves": {
+      "successful": 3,
+      "total": 11,
+      "accuracy": 27.27,
+      "replay_only": true
+    }
+  }
+}

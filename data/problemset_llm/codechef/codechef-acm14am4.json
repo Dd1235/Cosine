@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acm14am4",
+  "title": "Landing Platform",
+  "slug": "acm14am4",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14AM4",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "ISRO is planning to build a landing platform on MARS as a part of MOM. It has selected a small 2-D rectangular region for the same, and every point in the region has a strength associated with it.",
+  "tags": [
+    "acm-icpc",
+    "acmamr14",
+    "admin",
+    "brute-force",
+    "simple"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14AM4"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR14",
+    "position": 4,
+    "problem_code": "ACM14AM4",
+    "replay_solves": {
+      "successful": 496,
+      "total": 1849,
+      "accuracy": 27.69,
+      "replay_only": true
+    }
+  }
+}

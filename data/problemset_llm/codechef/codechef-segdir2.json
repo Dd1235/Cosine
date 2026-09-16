@@ -1,0 +1,37 @@
+{
+  "id": "codechef-segdir2",
+  "title": "Direct Segments",
+  "slug": "segdir2",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SEGDIR2",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "N line segments (numbered 1 through N) are placed on the 2D-plane. For each valid i, the i-th segment starts at \\vec{A_i} = (x_i, y_i) and ends at \\vec{B_i} = (X_i, Y_i).",
+  "tags": [
+    "advanced-algorithms",
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SEGDIR2"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 8,
+    "problem_code": "SEGDIR2",
+    "replay_solves": {
+      "successful": 1,
+      "total": 3,
+      "accuracy": 33.33,
+      "replay_only": true
+    }
+  }
+}

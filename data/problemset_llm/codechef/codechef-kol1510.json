@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol1510",
+  "title": "The Revenge of Jalebi Bai",
+  "slug": "kol1510",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1510",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Jalebi Bai recently met her long time friend Barfi Tai. Instead of entertaining her guest, Barfi Tai kept boasting about her **K** marvelous necklaces made of black and golden beads. Jalebi Bai felt really jealous of it and decided to exact revenge. She has invited Barfi to visit her home next week.",
+  "tags": [
+    "mathematics",
+    "bit-manipulation",
+    "algorithms",
+    "complete-search"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1510"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 10,
+    "problem_code": "KOL1510",
+    "replay_solves": {
+      "successful": 17,
+      "total": 53,
+      "accuracy": 32.08,
+      "replay_only": true
+    }
+  }
+}

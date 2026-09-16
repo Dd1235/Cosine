@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14d",
+  "title": "Interview Scheduling",
+  "slug": "kgp14d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14D",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Professor Calculus wishes to hire graduate engineers for a few open positions in his funded projects. He has called K candidates for interview (numbered from 1 to K ), and based on the profile of the candidates, has decided on an estimated time duration of interview for each candidate.",
+  "tags": [
+    "admin3",
+    "dynamic-programming",
+    "kgp14ros",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 4,
+    "problem_code": "KGP14D",
+    "replay_solves": {
+      "successful": 14,
+      "total": 97,
+      "accuracy": 15.46,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amr16h",
+  "title": "Netcoin Verification",
+  "slug": "amr16h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16H",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Due to demonetization, normal people went to ATMs for fetching cash, while some opted for cashless transactions. Many people have already started using **netcoins**. In netcoins, each transaction is represented by a block.",
+  "tags": [
+    "admin3",
+    "amr16",
+    "icpc2016"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 7,
+    "problem_code": "AMR16H",
+    "replay_solves": {
+      "successful": 108,
+      "total": 303,
+      "accuracy": 37.62,
+      "replay_only": true
+    }
+  }
+}

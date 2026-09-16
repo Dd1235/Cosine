@@ -1,0 +1,37 @@
+{
+  "id": "codechef-varmin",
+  "title": "Minimum Variance",
+  "slug": "varmin",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/VARMIN",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given n sets S_1, S_2, \\ldots, S_n. For each i, you want to choose x_i \\in S_i, such that the variance of the multiset \\{x_1, x_2, \\ldots, x_n\\} is minimized.",
+  "tags": [
+    "data-structures",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/VARMIN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 3,
+    "problem_code": "VARMIN",
+    "replay_solves": {
+      "successful": 2,
+      "total": 20,
+      "accuracy": 10.0,
+      "replay_only": true
+    }
+  }
+}

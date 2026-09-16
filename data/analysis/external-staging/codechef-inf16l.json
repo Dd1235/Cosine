@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16l",
+ "platform": "codechef",
+ "title": "WiFi Expenses",
+ "slug": "inf16l",
+ "source_url": "https://www.codechef.com/problems/INF16L",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "Demonetization has made a tumultuous situation in the stock market, which is responsible for recent layoffs in Information Technology jobs. Due to this, a technology company CF headed by CEO Praveen decided to lay off some people, specifically they can lay off only **at most four** people, otherwise there will be a sad sentiment among the employers of the company that can affect its growth. There are a total of **N** employees in CF. The positions of the desks of these employees are given to you by the points in a 2-D plane. As you know, desk sizes are usually very small, thus we represent them by points in the plane. CF uses a central wifi router for providing internet connection to its employees. Its cost to the company will be equal to the radius in which connectivity is needed. The CEO would like to minimize the cost to the company by laying off these employees. Can you please help the crooked but smart CEO? Find out the minimum cost of wifi needed. Input The first line of the input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains a single integer **N** denoting the number of employees in CF. The next **N** lines contain two space-separated real numbers **x** and **y** each, denoting the coordinate of the desks of the **i**-th employee in the Cartesian plane. Output For each test case, output a single line containing three space-separated real numbers **c x **, **c y **, and **r**. The first two numbers denote the coordinates of the location of the wifi router, and **r** denotes the radius of the connectivity of wifi. If there are multiple locations of the wifi router possible, print any. Constraints - **1** ≤ **T** ≤ **17** - **6** ≤ **N** ≤ **51** - **-12973.1213** ≤ **x, y** ≤ **19291.9199** - Output should follow: **-1000000** ≤ **c x , c y , r** ≤ **1000000** - All the real numbers in the input will have a decimal point, **exactly** 4 digits after the decimal point, and a **non-zero** number of digits before the decimal point (i.e., inputs such as **.2349** will not be given, but it may be given like **0.2349**). - The distance between any two given points will be greater than or equal to **0.01** units. - The output real number **r** will be acceptable if it is within an **absolute or relative** error of **10 -6 ** with the judge's answer. A point will be considered inside the circle even if it is actually outside but its distance from the circle is less than **10 -6 ** units. Sample Input 2 6 0.0000 0.0000 2.0000 0.0000 2.0000 2.0000 0.0000 2.0000 1.0000 -10.0000 1.0000 10.0000 7 0.0000 0.0000 2.0000 0.0000 2.0000 2.0000 0.0000 2.0000 1.0000 -10.0000 1.0000 10.0000 10.0000 1.0000 Sample Output 1.0000000000 0.0000000000 1.0000000000 1.0000000000 1.0000000000 1.4142135624 The first test case has 6 employees. The optimal solution is to place the wifi router at (1.0000000000, 0.0000000000) with a radius of 1.0000000000. This covers all the employees except the ones at (1.0000, -10.0000) and (1.0000, 10.0000), which are outside the circle. The second test case has 7 employees. The optimal solution is to place the wifi router at (1.0000000000, 1.0000000000) with a radius of 1.4142135624. This covers all the employees except the one at (10.0000, 1.0000), which is outside the circle.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "28-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 11,
+  "problem_code": "INF16L",
+  "replay_solves": {
+   "successful": 3,
+   "total": 20,
+   "accuracy": 15.0,
+   "replay_only": true
+  }
+ }
+}

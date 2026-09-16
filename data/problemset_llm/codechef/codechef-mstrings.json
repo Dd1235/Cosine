@@ -1,0 +1,37 @@
+{
+  "id": "codechef-mstrings",
+  "title": "The Mirror of Galadriel",
+  "slug": "mstrings",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MSTRINGS",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# The Mirror of Galadriel We call a string **S** magical if every substring of **S** appears in Galadriel's Mirror (under lateral inversion). In other words, a magical string is a string where every substring has its reverse in the string. Given a string **S**, determine if it is magical or not.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MSTRINGS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 7,
+    "problem_code": "MSTRINGS",
+    "replay_solves": {
+      "successful": 536,
+      "total": 1064,
+      "accuracy": 53.76,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-chn01",
+  "title": "Malvika conducts her own ACM-ICPC contest series",
+  "slug": "chn01",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN01",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "After winning numerous programming competitions, Malvika has got bored of participating, and is thinking of holding her own series of contests, named \"Advanced Contests by Malvika: India's Coolest Programming Contests (ACM-ICPC)\".",
+  "tags": [
+    "acm15chn",
+    "admin2",
+    "binary-search"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN01"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 1,
+    "problem_code": "CHN01",
+    "replay_solves": {
+      "successful": 9,
+      "total": 158,
+      "accuracy": 5.7,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-yaexp",
+  "title": "Yet another expected value problem",
+  "slug": "yaexp",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/YAEXP",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "You are given a matrix A having N rows and M columns. You are also given an integer K. Initially all rows and columns are unprocessed. You initialize a variable `ans` to be 0.",
+  "tags": [
+    "mathematics",
+    "probability",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/YAEXP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 9,
+    "problem_code": "YAEXP",
+    "replay_solves": {
+      "successful": 3,
+      "total": 11,
+      "accuracy": 27.27,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16a",
+  "title": "Finding Seats",
+  "slug": "kgp16a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16A",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "There are **N** people wanting to seat on a row of **N** seats. The persons and seats are numbered from **1** to **N**. The **N** people are ordered according to who chooses the seats first. In other words, person **1** is the first to seat, followed by person **2**, then person **3**, etc.",
+  "tags": [
+    "acm16",
+    "admin3",
+    "dynamic-programming",
+    "icpc2016",
+    "kgp16",
+    "vijju123"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 1,
+    "problem_code": "KGP16A",
+    "replay_solves": {
+      "successful": 1,
+      "total": 14,
+      "accuracy": 7.14,
+      "replay_only": true
+    }
+  }
+}

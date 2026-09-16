@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16e",
+  "title": "Moving Clams",
+  "slug": "chn16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16E",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Alice and Bob are tired of playing with messages and proving things which the lazy cryptographers should be doing on their own. So they've decided to take the day off, and have come to the beach.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 5,
+    "problem_code": "CHN16E",
+    "replay_solves": {
+      "successful": 1,
+      "total": 2,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

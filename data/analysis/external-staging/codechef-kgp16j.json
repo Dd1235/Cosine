@@ -1,0 +1,34 @@
+{
+ "id": "codechef-kgp16j",
+ "platform": "codechef",
+ "title": "Bus Routes",
+ "slug": "kgp16j",
+ "source_url": "https://www.codechef.com/problems/KGP16J",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "The Kingdom of Kharagpur has **N** cities, which are numbered from **1** to **N**. There are many bus routes which go directly from one city to another. A bus route from **City i** to **City j** does not mean that there is a route from **City j** to **City i**. Yesterday, the King had a dream, and he has decided that for the country to become prosperous, in every city, the number of bus routes coming in should be equal to the number of bus routes going out of that city. He called his transport minister and directed him to implement this. The minister realized that he cannot add any new bus routes, because of financial constraints. So, he can only cancel some of the existing routes. But he also knows that some of these routes are Vital, and hence he cannot cancel them. So, he also wants to cancel as few non-Vital routes as possible. Help the minister find the minimum number of non-Vital routes that he has to cancel, so as to satisfy the King's condition. Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains three integers **N, V, W**, denoting the number of cities, the number of existing Vital routes and the number of existing non-Vital routes, respectively. The next **V** lines contain two integers each, separated by single spaces: **i j**, denoting that there is a Vital route from **City i** to **City j**. The next **W** lines contain two integers each, separated by single spaces: **i j**, denoting that there is a non-Vital route from **City i** to **City j**. Output For each test case, output a single line containing the answer, which is the minimum number of non-Vital routes to be cancelled so as to satisfy the King's condition. If the King's condition cannot be satisfied, output -1. Constraints - **1 ≤ T ≤ 5** - **1 ≤ N ≤ 100** - **1 ≤ V, W ≤ 1000** For all **i, j**, there is at most 1 route which goes from **City i** to **City j**. Also, a route always goes from a city to a different city. Not to the same city. Sample Input 1 4 2 4 1 3 4 1 2 1 3 4 1 2 3 2 Sample Output 1 In the existing network of bus routes: - The number of routes going out of **City 1** is 2, and the number of routes coming in is 2. - The number of routes going out of **City 2** is 1, and the number of routes coming in is 2. - The number of routes going out of **City 3** is 2, and the number of routes coming in is 1. - The number of routes going out of **City 4** is 1, and the number of routes coming in is 1. This does not satisfy the King's condition, because in **Cities 2** and **3**, the number of incoming routes does not equal the number of outgoing routes. But we can cancel the route which goes from **City 3** to **City 2** (which is a non-Vital route), and after this change, in the new network: - The number of routes going out of **City 1** is 2, and the number of routes coming in is 2. - The number of routes going out of **City 2** is 1, and the number of routes coming in is 1. - The number of routes going out of **City 3** is 1, and the number of routes coming in is 1. - The number of routes going out of **City 4** is 1, and the number of routes coming in is 1. This satisfies the King's condition, and 1 is the minimum that we can do. Hence the answer is 1.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm16kol",
+  "admin3",
+  "bellman-ford",
+  "graphs",
+  "kgp16",
+  "mincut-maxflow"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 10,
+  "problem_code": "KGP16J",
+  "replay_solves": {
+   "successful": 3,
+   "total": 19,
+   "accuracy": 15.79,
+   "replay_only": true
+  }
+ }
+}

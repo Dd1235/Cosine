@@ -1,0 +1,36 @@
+{
+  "id": "codechef-usanbolt",
+  "title": "Usain Bolt vs Tiger",
+  "slug": "usanbolt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/USANBOLT",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "Back in 2015, Usain Bolt announced that he'll be retiring after the 2017 World Championship. Though his final season did not end gloriously, we all know that he is a true legend and we witnessed his peak during 2008 - 2013. Post retirement, Usain Bolt is still leading an adventurous life.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/USANBOLT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 1,
+    "problem_code": "USANBOLT",
+    "replay_solves": {
+      "successful": 348,
+      "total": 1180,
+      "accuracy": 30.59,
+      "replay_only": true
+    }
+  }
+}

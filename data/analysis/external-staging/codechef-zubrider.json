@@ -1,0 +1,33 @@
+{
+ "id": "codechef-zubrider",
+ "platform": "codechef",
+ "title": "C - Club of Riders",
+ "slug": "zubrider",
+ "source_url": "https://www.codechef.com/problems/ZUBRIDER",
+ "source_topic": "ICPC / Kolkata Regional 2017",
+ "source_text": "At a shopping mall, every now and then, a naughty kid steals some chocolates from different chocolate shops and runs away. The guards in the shopping mall were unable to catch the kid as he has got a fast scooter. ![Scooter Image](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBRIDER/club_of_riders.png) Each scooter has a performance value. Also, this kind of scooter needs a skilled rider to perform well. The total performance of a rider is measured by the value of scooter performance multiplied by rider’s skill. A rider **X** can catch a rider **Y** only if **X**’s total performance is more than **Y**’s. The shopping mall manager has bought one scooter for each guard. However, as he has bought them from a wholesale offer, their performance values need not be the same. Each guard gets a scooter and of course, a scooter can be assigned to only one guard. Now, the manager wants to assign the scooters to the guards. Everyday the guards are on duty in different places and that's why each has to be able to catch the kid and only then an assignment will be valid. So in short, given the skill of that kid, his scooter’s performance value, each guard’s skill, and each scooter’s performance value, find out the number of valid assignments possible. In a valid assignment, each guard will be able to catch the kid. As the result can be very large, find the mod $10^9 + 7$ of the result. Input - The first line of the input contains an integer **T** denoting the number of test cases. The description of each test case follows. - The first line of each test case contains two integers **K p ** and **K s ** denoting the kid's performance value and his scooter's performance value respectively. - The next line contains a single integer **N** denoting the number of guards. - The third line contains **N** integers **G 1 , G 2 , G 3 , ... , G N ** denoting the performance values of the guards. - The fourth line of each test case contains **N** integers **S 1 , S 2 , S 3 , ... , S N ** denoting the performance values of the scooters. Output For each test case, print \"Case i: \", and then the answer (mod $10^9 + 7$), where i is the testcase number, 1-indexed. Constraints - $1 \\leq T \\leq 10$ - $1 \\leq N, K_p, K_s, G_i, S_i \\leq 10^6$ Sample Input 2 2 3 3 3 1 3 7 3 4 2 3 3 3 1 3 2 7 4 Sample Output Case 1: 2 Case 2: 0 **Testcase 1:** The valid arrangements are the following: - [1 st guard, 2 nd scooter], [2 nd guard, 1 st scooter], [3 rd guard, 3 rd scooter] - [1 st guard, 3 rd scooter], [2 nd guard, 1 st scooter], [3 rd guard, 2 nd scooter] **Testcase 2:** There is no valid arrangement.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "arrays",
+  "algorithms",
+  "constructive",
+  "simple-algos"
+ ],
+ "date_added": "6-11-2017",
+ "problem_author": "zubaerkh",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL17ROL",
+  "position": 2,
+  "problem_code": "ZUBRIDER",
+  "replay_solves": {
+   "successful": 23,
+   "total": 69,
+   "accuracy": 36.23,
+   "replay_only": true
+  }
+ }
+}

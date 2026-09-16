@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amr14j",
+  "title": "Artist Rivalry",
+  "slug": "amr14j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14J",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "The opening ceremony of the 2015 World Cup will be organized in Christchurch, New Zealand on the 14th of February, 2015. The World Cup organizers have planned an artwork in the form of huge grey circles with black boundaries.",
+  "tags": [
+    "amr14ros",
+    "geometry",
+    "medium",
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 10,
+    "problem_code": "AMR14J",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

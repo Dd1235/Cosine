@@ -1,0 +1,37 @@
+{
+  "id": "codechef-kol15b",
+  "title": "Finding Hardest Sum Value",
+  "slug": "kol15b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL15B",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Ramesh, Suresh, Mahesh, and Mukesh are moving to a new city and are looking for apartments to live. Now this city is not like any other city. This city is a matrix of apartments and there are no roads. The only way to commute is to go through apartments.",
+  "tags": [
+    "algorithms",
+    "greedy"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL15B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKOL15",
+    "position": 2,
+    "problem_code": "KOL15B",
+    "replay_solves": {
+      "successful": 153,
+      "total": 531,
+      "accuracy": 29.19,
+      "replay_only": true
+    }
+  }
+}

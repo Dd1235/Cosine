@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr14a",
+  "title": "Afghan Jerseys",
+  "slug": "amr14a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14A",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "Afghanistan is playing its maiden ICC Cricket World Cup in 2015. After all the war, their cricket board wants to put on a good show to get the people’s mind off the strife, and guide it towards the more important kind of conflict — on the pitch.",
+  "tags": [
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 1,
+    "problem_code": "AMR14A",
+    "replay_solves": {
+      "successful": 0,
+      "total": 7,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

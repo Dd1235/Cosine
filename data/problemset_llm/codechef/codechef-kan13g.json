@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13g",
+  "title": "Changing Money",
+  "slug": "kan13g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13G",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "Nikhil wants to repay his debts to Sita but would like to do so using only the highest denominations possible. Once he has decided to use a denomination, he wants to use as many notes/coins of that denomination as possible. Amounts to be paid are given as numbers with two decimal places.",
+  "tags": [
+    "easy",
+    "greedy",
+    "jingbo-adm",
+    "kan13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 7,
+    "problem_code": "KAN13G",
+    "replay_solves": {
+      "successful": 18,
+      "total": 298,
+      "accuracy": 6.38,
+      "replay_only": true
+    }
+  }
+}

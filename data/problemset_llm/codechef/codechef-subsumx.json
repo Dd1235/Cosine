@@ -1,0 +1,38 @@
+{
+  "id": "codechef-subsumx",
+  "title": "Subset Sums Revisited",
+  "slug": "subsumx",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SUBSUMX",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "You are given a sequence A of N integers: (A_1, A_2, \\ldots, A_N). From this sequence, you create another sequence of size N: B = (B_1, B_2, \\ldots, B_N), where B_i = 2^{A_i}. You are also given an integer K. You need to output the number of subsequences of B whose sum is exactly K.",
+  "tags": [
+    "mathematics",
+    "number-system",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SUBSUMX"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 9,
+    "problem_code": "SUBSUMX",
+    "replay_solves": {
+      "successful": 6,
+      "total": 34,
+      "accuracy": 17.65,
+      "replay_only": true
+    }
+  }
+}

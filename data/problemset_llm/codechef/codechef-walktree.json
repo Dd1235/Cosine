@@ -1,0 +1,40 @@
+{
+  "id": "codechef-walktree",
+  "title": "Not So Random Walks",
+  "slug": "walktree",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/WALKTREE",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "Chef found a rooted tree with N nodes. The nodes are labeled from 1 to N. Node with label 1 was marked as the root. R is the adjacency list representing the tree, which includes only children, but not the parent of every node. Denote K(i) as the number of children of the i^{th} node.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/WALKTREE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 7,
+    "problem_code": "WALKTREE",
+    "replay_solves": {
+      "successful": 41,
+      "total": 74,
+      "accuracy": 56.76,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-zubhtree",
+ "platform": "codechef",
+ "title": "F - Huge Number of Trees",
+ "slug": "zubhtree",
+ "source_url": "https://www.codechef.com/problems/ZUBHTREE",
+ "source_topic": "ICPC / Kolkata Regional 2017",
+ "source_text": "Hermione needs to solve a tough homework problem in Arithmancy class. Professor Vector was discussing trees for some time and now he gives the problem: Say, there are **n** + 1 nodes numbered 0, 1, 2, ..., **n**. Node 0 is always the root of the tree. How many different trees can be formed using the remaining **n** nodes so that all leaves have the same *depth* and the *degree* of each non-leaf node is at least **d**? Here, *depth* of a node **u** is the number of edges we need to traverse from the root (Node 0) to reach **u**. A tree is different from another tree if there exists at least one pair of nodes **(u, v)** for which an edge between **u** and **v** is present in one tree, but absent in the other one. Hermione wants your help to write a program to solve this problem. Note that by *degree*, we mean the total number of neighbors, not just the number of children. Input - The first line of the input contains a positive integer, **T** which denotes the number of test cases. - For each case, there is one line of input containing two integers: **n** and the minimum degree of each non-leaf node, **d**. Output For each test case, print \"Case i: \", and then the answer (mod $10^9 + 7$), where i is the testcase number, 1-indexed. Constraints - $1 \\leq T \\leq 2000$ - $2 \\leq n \\leq 500$ - $2 \\leq d \\leq 10$ Sample Input 3 2 2 3 2 4 2 Sample Output Case 1: 1 Case 2: 1 Case 3: 13 **Testcase 1:** The only valid tree is shown below: ![Tree 1](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBHTREE/ZUBHTREE.1.png) **Testcase 2:** The only valid tree is shown below: ![Tree 2](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBHTREE/ZUBHTREE.2.png) **Testcase 3:** The 13 different valid trees are as shown below: ![Tree 3](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBHTREE/ZUBHTREE.3.png)",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "zubaerkh"
+ ],
+ "date_added": "12-11-2017",
+ "problem_author": "zubaerkh",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL17ROL",
+  "position": 5,
+  "problem_code": "ZUBHTREE",
+  "replay_solves": {
+   "successful": 2,
+   "total": 9,
+   "accuracy": 22.22,
+   "replay_only": true
+  }
+ }
+}

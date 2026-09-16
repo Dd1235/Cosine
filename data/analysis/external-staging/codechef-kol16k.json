@@ -1,0 +1,32 @@
+{
+ "id": "codechef-kol16k",
+ "platform": "codechef",
+ "title": "Chef and Points",
+ "slug": "kol16k",
+ "source_url": "https://www.codechef.com/problems/KOL16K",
+ "source_topic": "ICPC / Kolkata Regional 2016",
+ "source_text": "Today, you finally have a chance to compete with a famous coder like Chef and prove your mettle. Chef has $n$ distinct points in 2-D plane, i.e. there are never two points with both $x$ and $y$ coordinate equal and there are no two points with the same $x$ coordinate. Consider a subset of the above $n$ points which can be arranged as a sequence $p_1, \\dots, p_k$, such that $x_{p_1} < x_{p_2} < \\dots < x_{p_k}$ and each point $p_i$, where $i$ is in the range between 3 and $k$ (both inclusive), lies below or on the line passing between points $p_{i-1}$ and $p_{i-2}$. Chef likes these kinds of subsets. So he wants to find the size of the largest of such subsets. Input First line of the input contains one integer $T$ - number of tests. $T$ tests follow. First line of each test contains one integer $N$ - number of points. The next $N$ lines of each test case contain integer point coordinates $x_i$, $y_i$. Output For each test case, output a single integer in a separate line corresponding to the largest subset size. Constraints - $1 \\leq T, N$, sum over all $N$ over all test cases $\\leq 2000$ - $1 \\leq x_i, y_i \\leq 10^9$ Sample Input 3 3 1 1 4 2 9 3 4 1 1 4 2 5 2 9 3 4 2 3 4 1 1 2 3 2 Sample Output 3 3 4 **Explanation case 1:** We can get the sequence (1, 1) - (4, 2) - (9, 3), where point (9, 3) lies below the line between points (1, 1) and (4, 2). **Explanation case 2:** We can get the sequence (1, 1) - (4, 2) - (9, 3). **Explanation case 3:** We can get the sequence (1, 2) - (2, 3) - (3, 2) - (4, 1).",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "mathematics",
+  "algorithms",
+  "searching"
+ ],
+ "date_added": "26-12-2016",
+ "problem_author": "mgch",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL16MOS",
+  "position": 11,
+  "problem_code": "KOL16K",
+  "replay_solves": {
+   "successful": 9,
+   "total": 40,
+   "accuracy": 22.5,
+   "replay_only": true
+  }
+ }
+}

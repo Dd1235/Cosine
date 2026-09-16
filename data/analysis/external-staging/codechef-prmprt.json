@@ -1,0 +1,33 @@
+{
+ "id": "codechef-prmprt",
+ "platform": "codechef",
+ "title": "B - Prime-partite Graph",
+ "slug": "prmprt",
+ "source_url": "https://www.codechef.com/problems/PRMPRT",
+ "source_topic": "ICPC / Kanpur Regional 2019",
+ "source_text": "We have a graph with $N$ nodes (numbered $1$ through $N$). For each valid $u$ and $v$, there is an undirected edge between nodes $u$ and $v$ if $v$ is a prime divisor of $u$ or $u$ is a prime divisor of $v$. You should answer $Q$ queries. In each query, you should find the length of the shortest path between two given nodes $a$ and $b$ or determine that there is no path between them. **Note**: Because of large I/O, please use fast I/O methods. Input - The first line of the input contains a single integer $N$. - The second line contains a single integer $Q$. - Each of the next $Q$ lines contains two space-separated integers $a$ and $b$ describing a query. Output For each query, print a single line containing one integer - the distance between the nodes or $-1$ if the nodes are not connected. Constraints - $1 \\le N, Q \\le 10^6$ - $2 \\le a, b \\le N$ Sample Input 20 3 2 3 2 6 2 9 Sample Output 2 1 3 For $a = 2$ and $b = 9$, one possible shortest path is $2 \\rightarrow 6 \\rightarrow 3 \\rightarrow 9$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "mathematics",
+  "number-theory",
+  "integer-factorisation",
+  "divisors"
+ ],
+ "date_added": "5-12-2019",
+ "problem_author": "msi_cse_buet",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KA19MOS",
+  "position": 6,
+  "problem_code": "PRMPRT",
+  "replay_solves": {
+   "successful": 7,
+   "total": 83,
+   "accuracy": 8.43,
+   "replay_only": true
+  }
+ }
+}

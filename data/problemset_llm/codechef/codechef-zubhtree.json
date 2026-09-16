@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubhtree",
+  "title": "F - Huge Number of Trees",
+  "slug": "zubhtree",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBHTREE",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "Hermione needs to solve a tough homework problem in Arithmancy class. Professor Vector was discussing trees for some time and now he gives the problem: Say, there are **n** + 1 nodes numbered 0, 1, 2, ..., **n**. Node 0 is always the root of the tree.",
+  "tags": [
+    "zubaerkh"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBHTREE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 5,
+    "problem_code": "ZUBHTREE",
+    "replay_solves": {
+      "successful": 2,
+      "total": 9,
+      "accuracy": 22.22,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-sdiffstr",
+  "title": "Sufficiently different string",
+  "slug": "sdiffstr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SDIFFSTR",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "You are teaching students to generate strings consisting of **unique** lowercase Latin characters (a-z). You give an example reference string s to the students. You notice that your students just copy-paste the reference string instead of creating their own string.",
+  "tags": [
+    "data-structures",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SDIFFSTR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 5,
+    "problem_code": "SDIFFSTR",
+    "replay_solves": {
+      "successful": 208,
+      "total": 674,
+      "accuracy": 31.6,
+      "replay_only": true
+    }
+  }
+}

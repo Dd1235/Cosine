@@ -1,0 +1,33 @@
+{
+ "id": "codechef-amr16e",
+ "platform": "codechef",
+ "title": "Black Money Island",
+ "slug": "amr16e",
+ "source_url": "https://www.codechef.com/problems/AMR16E",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "The Royal Bank of Black Money Island wants to construct ATMs so that the citizens can withdraw black money easily for their day-to-day needs. The capital city can be represented as a number of checkpoints connected by a network of roadways, each of which have ATMs present on them. The capital has somewhat equal distribution of ATMs on the roads. Each roadway has either A ATMs or A + 1 ATMs present on it. The capital city is connected, i.e. there exists a path between every pair of checkpoints. The Mayor of Black Money Island thinks that the current network of roads and checkpoints is too complicated. He wants to keep only a subset of the roads and shut the rest down. Formally, he wants to select a subset of these roads such that in the resulting network, there is exactly one way to go from any checkpoint to any other. However, due to monetary restrictions (some very weird ones at that), he wants to select a subset of roads such that there is a total of exactly X ATMs on the selected roads. Since the good people at the bank are busy siphoning black money, they have hired you, the local municipal expert, to help them. Input The first line of the input contains three space separated integers N , E and A , where N denotes the number of checkpoints, E denotes the number of roads in the city respectively, and A signifies that each road has either A ATMs or A + 1 ATMs. Each of the next E lines contains three integers U , V and W denoting that there exists a bidirectional road between checkpoints U and V with W ATMs on it. It is guaranteed that U and V are not the same, and that each pair of checkpoints are connected by at most one roadway. The next line contains an integer Q denoting the number of queries. Each of the next Q lines contains an integer X denoting the required number of ATMs in the selected road network. Output For each query, you should output 2 lines. Note that this means that your entire output would be 2 * Q lines. The first line of output for each query should be 1 if it is possible to find a valid subset of roads satisfying the conditions mentioned above. Otherwise, you should print 0 . If there exists a valid subset, you must print the roads used in that subset in the second line. Formally, you must print a set of distinct integers S . S contains P if the Pth edge (1-indexed as per the input) is in the selected road network. If a valid subset doesn't exist, you must print -1 on the second line. If there are multiple solutions, you can output any one of them! Constraints 2 ≤ N ≤ 10 5 1 ≤ E ≤ 10 5 0 ≤ A ≤ 10 9 1 ≤ U, V ≤ N U ≠ V A ≤ W ≤ A + 1 1 ≤ Q ≤ 20 1 ≤ X ≤ 10 18 Each pair of checkpoints are connected by at most one roadway. Example Input: 5 5 5 1 2 5 1 3 5 3 4 6 3 5 6 4 5 5 2 21 20 Output: 1 1 2 3 5 0 -1 Explanation For the first query, we can take roads 1, 2, 3 and 5 . In the resulting network, we can see that there is exactly one path between any 2 checkpoints. The total number of ATMs in this network are 5 + 5 + 6 + 5 = 21 . Thus, it satisfies all the requirements. Note that 1, 2, 4 and 5 is also a valid subset of roads. For the second query, it is impossible to satisfy all requirements.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm-icpc",
+  "admin3",
+  "amritapuri",
+  "graphs",
+  "union-find"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 6,
+  "problem_code": "AMR16E",
+  "replay_solves": {
+   "successful": 1,
+   "total": 2,
+   "accuracy": 50.0,
+   "replay_only": true
+  }
+ }
+}

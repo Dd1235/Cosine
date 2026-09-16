@@ -1,0 +1,40 @@
+{
+  "id": "codechef-amr14e",
+  "title": "Kiwi Number",
+  "slug": "amr14e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14E",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "The New Zealand government is super-excited about the Cricket World Cup 2015 happening in their country. Hence, it has decided to conduct a census on cricket to find out how many people are interested in the sport, etc.",
+  "tags": [
+    "amr14ros",
+    "easy-medium",
+    "murdocc007",
+    "number-theory",
+    "seive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 5,
+    "problem_code": "AMR14E",
+    "replay_solves": {
+      "successful": 35,
+      "total": 326,
+      "accuracy": 11.35,
+      "replay_only": true
+    }
+  }
+}

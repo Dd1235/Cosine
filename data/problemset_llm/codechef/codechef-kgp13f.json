@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kgp13f",
+  "title": "Ant Colony",
+  "slug": "kgp13f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13F",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "In an ants' colony spread over a flat surface, the ants can reside at integral coordinates as close as unit distance apart from each other (but no closer).",
+  "tags": [
+    "easy",
+    "jingbo-adm",
+    "kgp13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 6,
+    "problem_code": "KGP13F",
+    "replay_solves": {
+      "successful": 21,
+      "total": 111,
+      "accuracy": 18.92,
+      "replay_only": true
+    }
+  }
+}

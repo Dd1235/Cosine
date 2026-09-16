@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kgp13h",
+  "title": "Toy Exchange",
+  "slug": "kgp13h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13H",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "During the pre-puja bonanza, the Khelnacompany has put **K** different types (numbered from 1 to **K**) of Disney figurines in their hot-selling RC cars. You can find the Disney figurine only after you have bought a RC car and opened the box.",
+  "tags": [
+    "jingbo-adm",
+    "kgp13acm",
+    "medium-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 8,
+    "problem_code": "KGP13H",
+    "replay_solves": {
+      "successful": 7,
+      "total": 16,
+      "accuracy": 43.75,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codechef-graphand",
+  "title": "AND on Graph",
+  "slug": "graphand",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GRAPHAND",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an undirected graph with n nodes and m edges. The nodes are numbered from 1 to n. Each edge e of the graph has two integers associated with it, cost(c_e) and value(v_e). You are given three integers s, t, and K. The cost of a walk is the sum of costs of all the edges in the walk.",
+  "tags": [
+    "data-structures",
+    "mathematics",
+    "bit-manipulation",
+    "algorithms",
+    "graph-algos",
+    "shortest-path"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GRAPHAND"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 12,
+    "problem_code": "GRAPHAND",
+    "replay_solves": {
+      "successful": 12,
+      "total": 38,
+      "accuracy": 34.21,
+      "replay_only": true
+    }
+  }
+}

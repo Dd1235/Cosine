@@ -1,0 +1,31 @@
+{
+ "id": "codechef-stddev",
+ "platform": "codechef",
+ "title": "Obtain Desired Standard Deviation",
+ "slug": "stddev",
+ "source_url": "https://www.codechef.com/problems/STDDEV",
+ "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+ "source_text": "Given two integers N and σ , find any array a with length N such that the standard deviation of the elements of the array is equal to σ . The standard deviation is given by the following formula: For each 1 ≤ i ≤ N , a i may be any real number with |a i | ≤ 10 8 . If there is more than one possible answer, you may output any one of them. If there is no such array, output -1 instead. Please note that the denominator only contains N . (In the usual formula for standard deviation, N-1 is used. That's not the definition we're using here.) Input The first line of the input contains an integer T denoting the number of test cases. The description of the test cases follows. The first and only line of each test case contains two space separated integers N, σ . Output For each test case, output a single line containing N space-separated real numbers denoting the elements of the array a . If it is not possible to construct such an array, output -1 instead. If there is more than one possible solution, you may output any one. Your answer will be considered correct if the standard deviation of the printed array doesn't differ from σ by more than 10 -2 in absolute value. Constraints 1 ≤ T ≤ 10 5 1 ≤ N ≤ 10 5 0 ≤ σ ≤ 10 5 Sum of N over all test cases won't exceed 10 6 Sample Input 3 2 2 3 3 4 0 Sample Output 2 6 3.5 2 8.979967 3 3 3 3",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "30-10-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMIND17",
+  "position": 2,
+  "problem_code": "STDDEV",
+  "replay_solves": {
+   "successful": 1400,
+   "total": 6320,
+   "accuracy": 26.5,
+   "replay_only": true
+  }
+ }
+}

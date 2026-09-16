@@ -1,0 +1,29 @@
+{
+ "id": "codechef-marting1",
+ "platform": "codechef",
+ "title": "Martingale",
+ "slug": "marting1",
+ "source_url": "https://www.codechef.com/problems/MARTING1",
+ "source_topic": "ICPC / Amritapuri Regional 2018",
+ "source_text": "You are playing a game called _Martingale_. The rules of the game are as follows: 1. At the beginning of the game, you are given $N$ as input. 2. Set $V = N$, and set $X = 1$. 3. Flip a fair coin. - If the coin lands on heads: Increase $V$ by $X$, and then set $X = 1$. - If the coin lands on tails: Decrease $V$ by $X$, and then set $X = 2X$. 4. If $V \\leq 0$ or $V \\geq 2N$: - End the game. 5. Proceed to step 3. Given the initial value $N$, what is the expected number of turns (coin flips) you will play before ending the game? Input Input consists of a single integer, $N$ (with $1 \\leq N \\leq 1,000,000$), the initial input to the game. Output A single decimal number, containing the expected number of turns you will play this game before it ends. Your output will be accepted if it is within $10^{-6}$ absolute or relative error. Constraints - $1 \\leq N \\leq 1,000,000$ Sample Input 1 Sample Output 1.000000000000 Sample Input 3 Sample Output 3.9609375",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "dojiboy9"
+ ],
+ "date_added": "25-12-2018",
+ "problem_author": "dojiboy9",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR18ROL",
+  "position": 12,
+  "problem_code": "MARTING1",
+  "replay_solves": {
+   "successful": 1,
+   "total": 3,
+   "accuracy": 33.33,
+   "replay_only": true
+  }
+ }
+}

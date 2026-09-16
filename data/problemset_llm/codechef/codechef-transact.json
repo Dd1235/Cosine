@@ -1,0 +1,38 @@
+{
+  "id": "codechef-transact",
+  "title": "Inequality Reduction",
+  "slug": "transact",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TRANSACT",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "There are n friends. The i^{\\text{th}} friend has A_i coins. You are also given an integer R. Define a transaction as the transfer of one coin from one friend to another.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "flow-networks"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TRANSACT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 3,
+    "problem_code": "TRANSACT",
+    "replay_solves": {
+      "successful": 6,
+      "total": 33,
+      "accuracy": 18.18,
+      "replay_only": true
+    }
+  }
+}

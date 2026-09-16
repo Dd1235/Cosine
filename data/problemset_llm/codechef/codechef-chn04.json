@@ -1,0 +1,39 @@
+{
+  "id": "codechef-chn04",
+  "title": "Malvika gets bored along with her Cats",
+  "slug": "chn04",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN04",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Malvika's cats, Chingam and Jimma are also bored of solving problems. Fortunately, Chingam has found **n** bars of dark chocolate. They all have the same width, but differ in their lengths. In fact, no two chocolate bars have the same length. All the **n** bars are kept in a row.",
+  "tags": [
+    "acm15chn",
+    "admin2",
+    "dynamic-programming",
+    "sqrt-decomposition"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN04"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 4,
+    "problem_code": "CHN04",
+    "replay_solves": {
+      "successful": 0,
+      "total": 20,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

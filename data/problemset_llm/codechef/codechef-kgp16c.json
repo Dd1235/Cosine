@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16c",
+  "title": "Timestamps",
+  "slug": "kgp16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16C",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "A scientist is performing an experiment. She has to note down the exact time at which **N** interesting events occur. Unfortunately, she is very tired and misses some digits while noting down the time. Also, she just forgets about the date.",
+  "tags": [
+    "acm16",
+    "admin3",
+    "greedy",
+    "icpc2016",
+    "implementation",
+    "kgp16"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 3,
+    "problem_code": "KGP16C",
+    "replay_solves": {
+      "successful": 1,
+      "total": 39,
+      "accuracy": 2.56,
+      "replay_only": true
+    }
+  }
+}

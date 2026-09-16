@@ -1,0 +1,32 @@
+{
+ "id": "codechef-quadfunc",
+ "platform": "codechef",
+ "title": "Quadratic Functions",
+ "slug": "quadfunc",
+ "source_url": "https://www.codechef.com/problems/QUADFUNC",
+ "source_topic": "ICPC / Amritapuri Regional 2017",
+ "source_text": "$f(x)$ and $g(x)$ are two quadratic polynomials: - $f(x) = Ax^2 + Bx + C$ - $g(x) = Dx^2 + Ex + F$ It is guaranteed that $f(x)$ and $g(x)$ do not intersect. That is, there is no real number $r$, such that $f(r) = g(r)$. You need to find a quadratic polynomial $h(x) = Px^2 + Qx + R$ such that the sum of areas under the curves $|f(x) - h(x)|$ and $|g(x) - h(x)|$ is minimized between integer points $x = L$ and $x = R$. Output this minimized sum of the areas of curves $|f(x) - h(x)|$ and $|g(x) - h(x)|$ from $x = L$ and $x = R$. Print this number as a fraction $U/V$, where $U$ and $V$ are positive integers and $\\gcd(U, V) = 1$. Input - First line contains a single integer $T$ - the total number of testcases. - Each testcase is described by 3 lines: - The first line contains 3 space-separated integers $A$, $B$, and $C$. - The second line contains 3 space-separated integers $D$, $E$, and $F$. - The third line contains 2 space-separated integers $L$ and $R$. Output For each testcase, print a single line containing the sum of areas as the required fraction. Constraints - $1 \\leq T \\leq 10^3$ - $1 \\leq A, B, C, D, E, F \\leq 10^3$ - $-10^3 \\leq L \\leq R \\leq 10^3$ - $P$, $Q$, $R$ need to be real numbers. Sample Input 1 1 1 1 2 2 2 -1 2 Sample Output 15/2 The image below illustrates the problem for the given sample input: ![Sample Explanation](https://codechef_shared.s3.amazonaws.com/download/upload/AMR17AMR/QUADFUNC/1.png)",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "mathematics",
+  "computational-geometry",
+  "number-theory"
+ ],
+ "date_added": "17-12-2017",
+ "problem_author": "wittyceaser",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR17ROL",
+  "position": 7,
+  "problem_code": "QUADFUNC",
+  "replay_solves": {
+   "successful": 23,
+   "total": 70,
+   "accuracy": 32.86,
+   "replay_only": true
+  }
+ }
+}

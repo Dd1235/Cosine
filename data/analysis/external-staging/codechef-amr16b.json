@@ -1,0 +1,29 @@
+{
+ "id": "codechef-amr16b",
+ "platform": "codechef",
+ "title": "A Historic Discussion",
+ "slug": "amr16b",
+ "source_url": "https://www.codechef.com/problems/AMR16B",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "A great discussion about demonetization is happening on social media. This is the first time in the history of the Internet, that people have decided to organise a discussion in which they actually thought of knowing about each other's views rather than the usual way of forcing your thoughts down the throat of other person. This is a great and unimaginable change and history is being created here. The discussion organisers need your help in creating history. Won't you help them in such a noble cause? Specifically, the discussion will be conducted in the following manner. There are a total of $n$ people who want to have a discussion. They will be split into two groups each of size $n/2$ ($n$ is guaranteed to be even). Each person in a group sits down calmly with all the persons of the other group and then they discuss their point of views about the issue. In this way, a nice, constructive and helpful discussion occurs. Note that in one particular discussion, a person discusses with the $n/2$ members of the other group. They do not discuss with people from their own group. Now people are not satisfied with just a single discussion, as you may not know point of views of all the persons out there. So, they ask organisers to conduct more discussions in such a way that each person is able to discuss his/her views with every other person. That is, for every pair of people $(i,j)$, there should be at least one discussion in which they are in opposite groups. As you know organising discussions is a tedious and resource constrained task, you have to help organisers in achieving this objective in as few discussion as possible. Can you please help them? Input The first line contains an integer $T$ denoting the number of test cases. $T$ test cases follow. The only line of each test case contains an integer $N$ denoting the number of persons who want to participate in the discussion. Output For each test case, output $K + 1$ lines, where $K$ denotes the number of discussions that should be conducted. In the first line, output a single integer $K$. In each of the next $K$ lines, output $N$ space separated integers in the range $1$ to $N$, which will mean the first $N/2$ persons are discussing with last $N/2$ persons. Constraints - $1 \\leq T \\leq 10$ - $2 \\leq N \\leq 500$ - $N$ is even Sample Input 1 6 Sample Output 3 1 2 3 4 5 6 1 2 4 3 5 6 1 4 5 2 3 6 **Example case 1**. There are total 6 persons. In the first discussion, persons {1, 2, 3} were in a group and {4, 5, 6} in the other group. After the end of these 3 discussions, you can see that each person got to know the views of all other persons. For example, person 1 discussed with person 2 in the 3rd discussion, with person 3 in 2nd and 3rd debates, and with person 4, 5 and 6 in the first discussion. In this way, we can see that person 1 interacted with all other 5 people out there. You can check yourself that each person in this case has interacted with every other person.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 2,
+  "problem_code": "AMR16B",
+  "replay_solves": {
+   "successful": 18,
+   "total": 137,
+   "accuracy": 13.87,
+   "replay_only": true
+  }
+ }
+}

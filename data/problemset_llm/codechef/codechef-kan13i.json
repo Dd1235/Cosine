@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13i",
+  "title": "Rewarding the Priests",
+  "slug": "kan13i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13I",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "Emperor of the galaxy has a number of planets where His common citizens live and in each of which runs a different clock system. However, in each planet a clock has two hands- hour and minute.",
+  "tags": [
+    "easy-medium",
+    "fractions",
+    "jingbo-adm",
+    "kan13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 9,
+    "problem_code": "KAN13I",
+    "replay_solves": {
+      "successful": 0,
+      "total": 2,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acm14kn2",
+  "title": "Solving the Practice Contest",
+  "slug": "acm14kn2",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KN2",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "As we all know that team LaZyProblemSetters with participants V, J and K is gearing up for ICPC 2015, and have decided to solve a problem set to practice for the prelims round. The day of that practice round has now arrived and they are very eager to get started.",
+  "tags": [
+    "acmkan14",
+    "admin",
+    "dynamic-programming",
+    "easy-medium",
+    "matrix-exponentiation"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KN2"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN14",
+    "position": 2,
+    "problem_code": "ACM14KN2",
+    "replay_solves": {
+      "successful": 6,
+      "total": 47,
+      "accuracy": 12.77,
+      "replay_only": true
+    }
+  }
+}

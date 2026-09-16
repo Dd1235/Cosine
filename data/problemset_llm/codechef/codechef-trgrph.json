@@ -1,0 +1,41 @@
+{
+  "id": "codechef-trgrph",
+  "title": "Rooted Tree Graph",
+  "slug": "trgrph",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TRGRPH",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "Suppose that we have a rooted tree T with vertices 1, \\ldots, n. We construct an undirected ancestor graph G of T with the same set of vertices. A pair of distinct vertices v, u is adjacent in G if and only if v is an ancestor of u in T, or vice versa. You are given a graph G with n vertices.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "graph-algos",
+    "traversals",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TRGRPH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 6,
+    "problem_code": "TRGRPH",
+    "replay_solves": {
+      "successful": 19,
+      "total": 72,
+      "accuracy": 26.39,
+      "replay_only": true
+    }
+  }
+}

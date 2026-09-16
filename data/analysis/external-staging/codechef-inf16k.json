@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16k",
+ "platform": "codechef",
+ "title": "Road Maintenance",
+ "slug": "inf16k",
+ "source_url": "https://www.codechef.com/problems/INF16K",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "Midgar is a complex city comprised of **N** towns connected by roads. Towns are assigned IDs from 1 to **N**. A road connects exactly one pair of towns, and is bidirectional. Also, every town is reachable from every other town via roads. Roads are expensive, so a law was passed that limited the number of roads built. Specifically, the *absolute* difference between the number of towns and the number of roads is at most **1**. Thus, the roads were built to follow this law. Conveniently for the local government, having few roads also meant having a low cost for maintaining them. Unfortunately, the mayor of Midgar is greedy and corrupt, so he wants to reduce the number of roads even more, so he can take the extra maintenance cost for himself! He has hired Engineer Sarah for help. Sarah is asked to find the smallest subset of the roads such that the **N** towns are still connected via roads. Now, there are possibly many ways to do this. However, each road has a specific maintenance cost, **c i **, and different choices will yield different total maintenance costs. Now, Sarah doesn't know which choice she should make. One obvious solution is to choose the set of roads with the minimum total cost, but a part of her wants to choose the set with the largest total cost just to get back at the mayor for being corrupt. But then again, choosing the set with the largest total cost might be obvious, so she might just choose the set with the 10th largest cost. And so on. To solve her dilemma, she has decided to do the following: - List *all* possible distinct set of roads that satisfy the requirements. - Sort them according to the total maintenance cost. What she didn't realize is that the list might be very long! So instead, she asked you for help. She will give you the complete details of Midgar's road system. In turn, you will submit a program which Sarah can use to answer the following query: Given **k**, what is the total maintenance cost of the **k th ** set of roads in the list? Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains three integers **N**, **R** and **Q**, separated by single spaces. The next **R** lines describe the roads. The **i th ** following line contains three integers **a i **, **b i ** and **c i **, separated by single spaces, denoting that the **i th ** road connects the towns **a i ** and **b i ** and has a maintenance cost of **c i **. The next **Q** lines describe the queries. The **i th ** following line contains a single integer **k i **. Output For each query, output a line containing a single integer: the total maintenance cost of the **k th ** set of roads in the list. If there is no **k th ** set in the list, output **-1**. Constraints - **1 ≤ T ≤ 4** - **3 ≤ N, R, Q, c i ≤ 120000** - **1 ≤ k i ≤ 10 12 ** - **|N - R| ≤ 1** - **1 ≤ a i , b i ≤ N** - **a i ≠ b i ** Sample Input 1 3 3 3 1 2 33 2 3 11 3 1 22 2 2 2 Sample Output 44 44 44 In this case, the list of roads, sorted by total cost, will be: 1. Roads **2** and **3** with total cost **33**. 2. Roads **1** and **2** with total cost **44**. 3. Roads **3** and **1** with total cost **55**.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "28-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 10,
+  "problem_code": "INF16K",
+  "replay_solves": {
+   "successful": 1,
+   "total": 1,
+   "accuracy": 100.0,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-icpc16a",
+  "title": "Help Lost Robot!",
+  "slug": "icpc16a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16A",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "Robot Bunny is lost. It wants to reach its home as soon as possible. Currently it is standing at coordinates (x 1 , y 1 ) in 2-D plane. Its home is at coordinates (x 2 , y 2 ) . Bunny is extremely worried.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 1,
+    "problem_code": "ICPC16A",
+    "replay_solves": {
+      "successful": 2595,
+      "total": 4686,
+      "accuracy": 57.96,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codechef-acm14kp2",
+  "title": "Bye, inversions!",
+  "slug": "acm14kp2",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KP2",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Given an array a of n integers. You need to swap adjacent numbers exactly k times. The goal is to minimise the number of inversions after exactly k swaps.",
+  "tags": [
+    "acmkgp14",
+    "admin",
+    "easy-medium",
+    "fenwick-tree",
+    "segment-tree",
+    "sorting"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KP2"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP14",
+    "position": 2,
+    "problem_code": "ACM14KP2",
+    "replay_solves": {
+      "successful": 204,
+      "total": 1417,
+      "accuracy": 14.54,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "codechef-complexg",
+  "title": "A Complex Graph Problem",
+  "slug": "complexg",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/COMPLEXG",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "A **weighted directed graph** consists of a set V of **vertices** and a collection E of **edges**. Each edge e \\in E is an ordered triple e = (x, y, w) where x \\in V and y \\in V are vertices, called the **start** and **end** vertices of e, respectively, and w is a number called the **weight** of e.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/COMPLEXG"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 10,
+    "problem_code": "COMPLEXG",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

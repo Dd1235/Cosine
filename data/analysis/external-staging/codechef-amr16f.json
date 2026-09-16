@@ -1,0 +1,31 @@
+{
+ "id": "codechef-amr16f",
+ "platform": "codechef",
+ "title": "Notes and GPS Chips",
+ "slug": "amr16f",
+ "source_url": "https://www.codechef.com/problems/AMR16F",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Suryansh, a nanophysics enthusiast, is studying about the GPS Chips present in the newly released Rs. 2000 note. After careful analysis, he has come to know that the GPS chips contain nanoparticles! In fact, there are 2 types of GPS Chips: 1. **Square Shaped**: These chips contain **square-shaped** nanoparticles. A square-shaped GPS Chip of size $Z \\times Z$ contains $Z^2$ nanoparticles. See figure 1 for a $4 \\times 4$ sized square-shaped chip. 2. **Hexagonal Beehive Shaped**: These chips contain **hexagon-shaped** nanoparticles arranged like a beehive. From nanoscopic analysis information, we know that the chip is divided into levels with **a hole in the middle**. The size of the chip is defined as the number of layers it possesses where the **1 st ** level contains **6** nanoparticles, the **2 nd ** level contains **12** nanoparticles, ..., and so on. Hence, a chip of size 1 has **6** nanoparticles, a chip of size 2 has **18** nanoparticles (See Figure 2 for clarity), and so on. Suryansh wishes to create his own Rs. 2000 note for experimental purposes, for which he needs to buy GPS Chips. From the popular Netcoin Shopping Website, he comes to know that for **Z Netcoins** he can either purchase a square-shaped chip of size **Z x Z** *or* a hexagon-shaped chip of size **Z**. For example, with **2 Netcoins**, he can either buy a square-shaped chip containing **4** nanoparticles *or* a hexagon-shaped chip containing **18** nanoparticles. Suryansh currently has **N Netcoins** which he wants to spend **entirely**. He needs to purchase exactly **A** square-shaped chips and **B** hexagon-shaped chips using his entire amount of N Netcoins. He wants to create this new note using all of these **A + B** GPS Chips. Suryansh denoted the number of nanoparticles in the i th chip that he bought as **$p_i$**. He knew that if he decides to buy chips such that they have **$p_1, p_2, \\dots, p_{A+B}$** nanoparticles respectively, his new note will have a signal level of: $$p_1 \\times p_2 \\times p_3 \\times \\dots \\times p_{A+B}$$ He calls this sequence **$p_1, p_2, \\dots, p_{A+B}$** a **configuration**. Help him find the **sum** of signal levels of all possible configurations modulo **1234567891**. Two configurations are different if any of the **$p_i$** is different. Input First line contains a single integer **T** - the number of testcases. T testcases follow which have the following format: A single line of input contains 3 space-separated integers **A**, **B**, and **N**, denoting the number of square-shaped chips, number of hexagonal beehive-shaped chips, and number of netcoins. Output For each testcase, print the sum of signal levels of all possible configurations modulo **1234567891**. Constraints - **1 ≤ T ≤ 10** - **1 ≤ A, B ≤ 10 5 ** - **1 ≤ N ≤ 10 9 ** Sample Input 2 1 1 3 2 1 4 Sample Output 42 66 **Testcase 1:** **A** = 1, **B** = 1, **N** = 3. Since **N** Netcoins have to be spent entirely, the only 2 ways in which chips can be bought are: 1. 1 square-shaped chip of size 2x2 and 1 hexagon-shaped chip of size 1 are bought. $p_1 = 4$, $p_2 = 6$. Signal Level$_1$ = $4 \\times 6 = 24$ 2. 1 square-shaped chip of size 1x1 and 1 hexagon-shaped chip that has levels up to level 2 are bought. $p_1 = 1$, $p_2 = 18$. Signal Level$_2$ = $1 \\times 18 = 18$ **Testcase 2:** **A** = 2, **B** = 1, **N** = 4. Let the 2 square-shaped chips be **$S_1$** and **$S_2$** respectively. Let the 1 hexagon-shaped chip be **$H_1$**. The ways in which the chips can be bought are: - $S_1 = 1$, $S_2 = 1$, $H_1 = 2$ => Signal Level$_1$ = $1 \\times 1 \\times 18 = 18$ - $S_1 = 1$, $S_2 = 2$, $H_1 = 1$ => Signal Level$_2$ = $1 \\times 4 \\times 6 = 24$ - $S_1 = 2$, $S_2 = 1$, $H_1 = 1$ => Signal Level$_3$ = $4 \\times 1 \\times 6 = 24$ Sum of signal levels = $18 + 24 + 24 = 66$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3",
+  "amr16",
+  "icpc2016"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 5,
+  "problem_code": "AMR16F",
+  "replay_solves": {
+   "successful": 2,
+   "total": 4,
+   "accuracy": 50.0,
+   "replay_only": true
+  }
+ }
+}

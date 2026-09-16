@@ -1,0 +1,31 @@
+{
+ "id": "codechef-kol16d",
+ "platform": "codechef",
+ "title": "Men and Horses",
+ "slug": "kol16d",
+ "source_url": "https://www.codechef.com/problems/KOL16D",
+ "source_topic": "ICPC / Kolkata Regional 2016",
+ "source_text": "There are $n_m$ men living in a town. They have $n_h$ horses, each capable of carrying only one man at a time. All the men are supposed to attend a dinner party $d$ km away from their house. They should start their journey together and reach the destination in minimum time. The speed of each man is $v_m$ km/hour whereas the speed of each horse (with or without somebody on back) is $v_h$ km/hour. You need to find the minimum time required to complete the journey. For simplicity, you can assume the following things: - No time is needed in riding a horse or getting down from a horse. - The horses are very well trained to execute any instruction given to it. - No time is needed for changing the direction of a horse or man. - The town and the dinner party location can be considered as two different points, and all people and horses travel along the straight line connecting these two points. Input Each input set consists of five integers $d$, $n_m$, $n_h$, $v_m$, $v_h$ in a new line. Input ends with five 0s in a line. There will be at max $10^5 + 1$ lines in the input. Output For each line of input except the last one, produce one line of output. This line should print a fraction $p$ by $q$, in $p/q$ form. This denotes the minimum possible reaching time of all men. Here $p$ and $q$ must be relative prime. Constraints - $d$ (0 < $d$ ≤ 10000) - $n_m$ (1 < $n_m$ ≤ 1000) - $n_h$ (0 < $n_h$ ≤ 1000) - $v_m$ (0 < $v_m$ ≤ 20) - $v_h$ (0 < $v_h$ ≤ 50) Sample Input 70 2 1 5 10 0 0 0 0 0 Sample Output 49/5 The sample input corresponds to a scenario where: - Distance to the dinner party ($d$) is 70 km. - Number of men ($n_m$) is 2. - Number of horses ($n_h$) is 1. - Speed of each man ($v_m$) is 5 km/hour. - Speed of each horse ($v_h$) is 10 km/hour. The output `49/5` represents the minimum time required for all men to reach the destination, which is $\\frac{49}{5}$ hours.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "special",
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "21-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL16MOS",
+  "position": 4,
+  "problem_code": "KOL16D",
+  "replay_solves": {
+   "successful": 0,
+   "total": 9,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

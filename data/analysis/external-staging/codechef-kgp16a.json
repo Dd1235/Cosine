@@ -1,0 +1,34 @@
+{
+ "id": "codechef-kgp16a",
+ "platform": "codechef",
+ "title": "Finding Seats",
+ "slug": "kgp16a",
+ "source_url": "https://www.codechef.com/problems/KGP16A",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "There are **N** people wanting to seat on a row of **N** seats. The persons and seats are numbered from **1** to **N**. The **N** people are ordered according to who chooses the seats first. In other words, person **1** is the first to seat, followed by person **2**, then person **3**, etc. In addition, the **i th ** person has a preferred seat **S i **, a number from **1** to **N**, and a preferred direction **D i **, which is either **left** or **right**. This means that on the **i th ** person's turn, he/she first checks seat **S i ** if it is available. If it's available, then he/she sits there, otherwise he walks into the direction specified by **D i ** and sits on the first seat available in that direction. It's possible that the **i th ** person doesn't find an available seat at all; if that happens, that person fails to seat and simply leaves. You know their preferred seats [**S 1 **, **S 2 **, ..., **S N **], but you don't know their preferred directions [**D 1 **, **D 2 **, ..., **D N **]. So the problem is: how many assignments of preferred directions are there such that all **N** people successfully seat? Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains a single integer **N**. The second line contains **N** integers separated by single spaces: **S 1 **, **S 2 **, ..., **S N **. Output For each test case, output a single line containing the answer. Since the answer can be very large, only output it modulo **10 9 + 7**. Constraints - **1 ≤ T ≤ 200** - **1 ≤ N ≤ 60** - **1 ≤ S i ≤ N** Sample Input 1 3 2 2 3 Sample Output 6 The following assignments of preferred directions yield a successful seating: - **[left, left, left]** which yields the seating **[2, 1, 3]**. - **[left, left, right]** which yields the seating **[2, 1, 3]**. - **[left, right, left]** which yields the seating **[3, 1, 2]**. - **[right, left, left]** which yields the seating **[2, 1, 3]**. - **[right, left, right]** which yields the seating **[2, 1, 3]**. - **[right, right, left]** which yields the seating **[3, 1, 2]**.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm16",
+  "admin3",
+  "dynamic-programming",
+  "icpc2016",
+  "kgp16",
+  "vijju123"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 1,
+  "problem_code": "KGP16A",
+  "replay_solves": {
+   "successful": 1,
+   "total": 14,
+   "accuracy": 7.14,
+   "replay_only": true
+  }
+ }
+}

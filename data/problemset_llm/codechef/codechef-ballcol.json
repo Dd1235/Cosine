@@ -1,0 +1,36 @@
+{
+  "id": "codechef-ballcol",
+  "title": "Colliding Balls",
+  "slug": "ballcol",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BALLCOL",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "There are n red balls kept on the positive X axis, and m blue balls kept on the positive Y axis. You are given the positions of the balls. For each i from 1 to n, the i-th red ball has the coordinates (x_i, 0), where x_i is a positive integer.",
+  "tags": [
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BALLCOL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 1,
+    "problem_code": "BALLCOL",
+    "replay_solves": {
+      "successful": 106,
+      "total": 219,
+      "accuracy": 49.32,
+      "replay_only": true
+    }
+  }
+}

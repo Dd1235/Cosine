@@ -1,0 +1,41 @@
+{
+  "id": "codechef-chn06",
+  "title": "King Animesh decides to have a voyage to the sun",
+  "slug": "chn06",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN06",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "King Animesh has decided to go on a voyage to the Sun. He has decided to take only one of his courtiers with him. Everyone knows that the king has two favorite courtiers, Arjun and Praveen, and so they are competing between themselves to go with the King.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "flow-networks",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN06"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 6,
+    "problem_code": "CHN06",
+    "replay_solves": {
+      "successful": 1,
+      "total": 2,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-shufgrid",
+  "title": "Grid Shuffle",
+  "slug": "shufgrid",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SHUFGRID",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "You are given a square grid G with N rows (numbered 1 through N) and N columns (numbered 1 through N). Let's denote the element in the i-th row and j-th column by G_{i, j}. Initially, for each valid i, j, the element G_{i, j} is equal to i \\cdot N+j. The grid is changing in steps.",
+  "tags": [
+    "mathematics",
+    "matrix-exponentiation",
+    "matrix-multiplication"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SHUFGRID"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 6,
+    "problem_code": "SHUFGRID",
+    "replay_solves": {
+      "successful": 25,
+      "total": 89,
+      "accuracy": 31.46,
+      "replay_only": true
+    }
+  }
+}

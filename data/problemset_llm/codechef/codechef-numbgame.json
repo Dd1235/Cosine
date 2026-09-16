@@ -1,0 +1,42 @@
+{
+  "id": "codechef-numbgame",
+  "title": "Number Game",
+  "slug": "numbgame",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NUMBGAME",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "You are playing a game with a robot. The game starts with two integers: **A** and **M**. The robot makes exactly one move in the entire game, and it does so at the very beginning - it will remove exactly 1 digit from **A** and output it as the starting value (say *X*).",
+  "tags": [
+    "acm17kgp",
+    "balajiganapath",
+    "dfs",
+    "graphs",
+    "kgp17rol",
+    "medium",
+    "number-theory"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NUMBGAME"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 10,
+    "problem_code": "NUMBGAME",
+    "replay_solves": {
+      "successful": 9,
+      "total": 74,
+      "accuracy": 12.16,
+      "replay_only": true
+    }
+  }
+}

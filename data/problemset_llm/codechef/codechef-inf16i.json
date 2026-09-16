@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16i",
+  "title": "Pacman",
+  "slug": "inf16i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16I",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Pacman is a software package manager. It has a repository of **N** softwares numbered from **1** to **N**. A software may have a dependency on another software. Fortunately, each software has **at most 1 dependency**. In order to install a software, we must first install its dependency (if any).",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 8,
+    "problem_code": "INF16I",
+    "replay_solves": {
+      "successful": 73,
+      "total": 185,
+      "accuracy": 41.62,
+      "replay_only": true
+    }
+  }
+}

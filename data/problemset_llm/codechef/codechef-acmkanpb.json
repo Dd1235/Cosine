@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acmkanpb",
+  "title": "Bonus",
+  "slug": "acmkanpb",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACMKANPB",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "Kinku is a project manager in his company. Recently, the executives decided to give bonus to everyone in his team, so Kinku was asked to give a list to them how much bonus each should get.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACMKANPB"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN10",
+    "position": 2,
+    "problem_code": "ACMKANPB",
+    "replay_solves": {
+      "successful": 14,
+      "total": 310,
+      "accuracy": 4.52,
+      "replay_only": true
+    }
+  }
+}

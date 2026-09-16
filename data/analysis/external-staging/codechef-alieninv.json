@@ -1,0 +1,29 @@
+{
+ "id": "codechef-alieninv",
+ "platform": "codechef",
+ "title": "Alien Invasion",
+ "slug": "alieninv",
+ "source_url": "https://www.codechef.com/problems/ALIENINV",
+ "source_topic": "ICPC / Amritapuri Regional 2018",
+ "source_text": "Evil aliens from Alpha Centauri are planning to invade the Earth. They thought of invading New York City first, but that is a pretty popular target, and their colleagues from Proxima Centauri are already invading it. Thus, Alpha Centauriens had to figure out another target and the country of Treeland was their choice. The country of Treeland consists of $n$ cities connected with $n - 1$ bidirectional roads in such a way that there exists exactly one path between any pair of cities. The cities are numbered from 1 to $n$. The aliens will start the invasion by randomly assigning each of the cities some random **real** value $p_i$ taken between $0$ and $1$ with uniform distribution. They call these values **priorities**. Then, $n$ steps of invasion will take place. Each step is done as follows: - Aliens consider all the cities that are not yet invaded. - Out of these cities they select all the cities that have no more than one uninvaded neighbor. Recall that two cities are called neighbors iff they are connected by a direct road. One can show that there will always be at least one such city. - Among all cities, selected in the second step, aliens pick the one with the minimum value of $p_i$. Though the probability for two cities being assigned the same priority is zero, they agreed to pick the one with minimum index among all cities with minimum priority. - Finally, aliens invade the city selected at the step three. You may assume it is now removed from Treeland's map and is no longer considered by the aliens. The government works hard to save its citizens and asks you to find out how much time they have. For each city, compute the expected number of the step during which this city will be invaded. Steps are numbered starting with $1$. Input - The first line of the input contains a single integer $t$: the number of test cases in this input. Then follow $t$ test cases description. - The first line of each test case description starts with a single integer $n$: the number of cities in Treeland. - Then follow $n - 1$ lines containing two integers $u_i$ and $v_i$ each. These are the indexes of cities connected by a corresponding road and are guaranteed to describe a correct Treeland road map. Output For each of $t$ test cases print $n$ real values in a single line. The $i$-th real value should correspond to the expected number of step, that will result in the $i$-th city's invasion by aliens. Your answer will be considered correct if its absolute or relative error will be no greater than $10^{-6}$. Constraints - $1 \\leq t \\leq 500$ - $1 \\leq n \\leq 5000$ - $1 \\leq u_i, v_i \\leq n$ - It is guaranteed that **the total number of cities** in all test cases won't exceed $5000$. Sample Input 3 1 2 1 2 3 1 2 2 3 Sample Output 1.0000000000 1.5000000000 1.5000000000 1.8333333333 2.3333333333 1.8333333333",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "balajiganapath"
+ ],
+ "date_added": "25-12-2018",
+ "problem_author": "balajiganapath",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR18ROL",
+  "position": 7,
+  "problem_code": "ALIENINV",
+  "replay_solves": {
+   "successful": 0,
+   "total": null,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtc",
+  "title": "Securing Florence",
+  "slug": "kan15rtc",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTC",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The King of Florence is captured by traitors. The treasures of Florence need immediate protection. Before his surrender the King had entrusted Da Vinci with the task to hide the treasures safely. The army of Florence also came forward to help Da Vinci in this task.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTC"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 3,
+    "problem_code": "KAN15RTC",
+    "replay_solves": {
+      "successful": 4,
+      "total": 17,
+      "accuracy": 23.53,
+      "replay_only": true
+    }
+  }
+}

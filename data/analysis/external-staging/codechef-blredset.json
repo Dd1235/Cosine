@@ -1,0 +1,30 @@
+{
+ "id": "codechef-blredset",
+ "platform": "codechef",
+ "title": "Black and Red vertices of Tree",
+ "slug": "blredset",
+ "source_url": "https://www.codechef.com/problems/BLREDSET",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "You are given a tree with $N$ vertices. The vertices are numbered from $1$ to $N$. Some of the vertices are colored black and some are colored red. Also, some vertices can be uncolored. There is at least one black and at least one red vertex. Compute the number of subsets of vertices $W$ such that: - Each vertex in $W$ is uncolored. - $W$ is a connected subgraph of the tree. - If you remove all the vertices of set $W$, there will be at least one pair of vertices $(u, v)$ such that $u$ is black and $v$ is red, and there is no path from $u$ to $v$. Output your answer modulo $10^{9} + 7$. Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first line of each test case contains a single integer $N$ denoting the number of vertices. - Each of the next $N - 1$ lines contains two space-separated integers $u$ and $v$ denoting an edge between vertices $u$ and $v$. - The next line contains $N$ space-separated integers denoting the colors of the vertices. The $i^{th}$ of these integers is $0$ if vertex $i$ is uncolored, $1$ if it's black, or $2$ if it's red. Output For each test case, print a single line containing one integer denoting the number of ways to select a valid subset $W$, modulo $10^{9} + 7$. Constraints - $1 \\leq T \\leq 2 \\cdot 10^{5}$ - $2 \\leq N \\leq 10^{5}$ - $1 \\leq u, v \\leq N$ - Sum of $N$ over all test cases doesn't exceed $10^{6}$ Sample Input 2 6 1 2 1 3 1 4 3 5 3 6 0 1 0 1 2 0 6 1 2 1 3 1 4 3 5 3 6 1 0 0 0 2 0 Sample Output 5 2 **Test Case 1:** The possible subsets $W$ are $\\{1\\}$, $\\{3\\}$, $\\{1, 3\\}$, $\\{3, 6\\}$ and $\\{1, 3, 6\\}$. **Test Case 2:** The possible subsets $W$ are $\\{3\\}$ and $\\{3, 6\\}$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "graphs"
+ ],
+ "date_added": "21-11-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 3,
+  "problem_code": "BLREDSET",
+  "replay_solves": {
+   "successful": 11,
+   "total": 54,
+   "accuracy": 22.22,
+   "replay_only": true
+  }
+ }
+}

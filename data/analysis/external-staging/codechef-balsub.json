@@ -1,0 +1,29 @@
+{
+ "id": "codechef-balsub",
+ "platform": "codechef",
+ "title": "D - Balanced Parenthesis Substrings",
+ "slug": "balsub",
+ "source_url": "https://www.codechef.com/problems/BALSUB",
+ "source_topic": "ICPC / Amritapuri Regional 2018",
+ "source_text": "A balanced parenthesis string is defined as follows: - The empty string is balanced. - If `P` is balanced, `(P)` is also balanced. - If `P` and `Q` are balanced, `PQ` is also balanced. `\"()\"`, `\"(())()\"` are examples of balanced parenthesis strings while `\"(()\"`, `\"())\"` are not balanced. A substring of a string is a contiguous subsection of the given string. Given $n$ and $k$, output a balanced parenthesis string of length $n$ having exactly $k$ substrings which are also balanced. If no such string is possible, output `\"impossible\"` without quotes. If there are multiple answers, print any. Input - First line will contain $T$, the number of test cases. Then the test cases follow. - Each test case consists of a single line of input, which has two integers, $n$ and $k$, separated by a space. Output For each test case, output any balanced parenthesis string which satisfies the condition or `\"impossible\"` if no such string exists. Constraints - $1 \\leq T \\leq 5000$ - $1 \\leq n \\leq 200$ - $1 \\leq k \\leq 10^5$ Sample Input 3 2 1 5 3 6 4 Sample Output () impossible ()(()) **Case 1:** The entire string is also considered as its own substring, so there is exactly 1 balanced substring: `()` itself. **Case 2:** No balanced string with length 5 exists. **Case 3:** There are exactly 4 substrings that are balanced (indices are 0-based): 1. Substring 0 to 1: `()` 2. Substring 3 to 4: `()` 3. Substring 2 to 5: `(())` 4. Substring 0 to 5: `()(())`",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms"
+ ],
+ "date_added": "25-12-2018",
+ "problem_author": "balajiganapath",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR18ROL",
+  "position": 5,
+  "problem_code": "BALSUB",
+  "replay_solves": {
+   "successful": 1,
+   "total": 18,
+   "accuracy": 11.11,
+   "replay_only": true
+  }
+ }
+}

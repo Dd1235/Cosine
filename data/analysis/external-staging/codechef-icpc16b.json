@@ -1,0 +1,29 @@
+{
+ "id": "codechef-icpc16b",
+ "platform": "codechef",
+ "title": "Beautiful Arrays",
+ "slug": "icpc16b",
+ "source_url": "https://www.codechef.com/problems/ICPC16B",
+ "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+ "source_text": "An array a is called beautiful if for every pair of numbers a i , a j , ( i ≠ j ), there exists an a k such that a k = a i * a j . Note that k can be equal to i or j too. Find out whether the given array a is beautiful or not! Input First line of the input contains an integer T denoting the number of test cases. T test cases follow. First line of each test case contains an integer n denoting number of elements in a . Next line contains n space separated integers denoting the array a . Output For each test case, output a single line containing \"yes\" or \"no\" (without quotes) corresponding to the answer of the problem. Constraints 1 ≤ T ≤ 10 6 1 ≤ n ≤ 10 5 Sum of n over all the test cases ≤ 10 6 -10 9 ≤ a i ≤ 10 9 Sample Input 3 2 0 1 2 1 2 2 5 6 Sample Output yes yes no Test case 1. If you multiply 0 with 1, you get 0, we see that a 0 = 0 . So, the array is beautiful . Test case 3. If you multiply 5 with 6, you get 30, there does not exist an k such that a k = 30 . So, the array is not beautiful .",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "18-10-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMIND16",
+  "position": 2,
+  "problem_code": "ICPC16B",
+  "replay_solves": {
+   "successful": 1306,
+   "total": 8003,
+   "accuracy": 16.82,
+   "replay_only": true
+  }
+ }
+}

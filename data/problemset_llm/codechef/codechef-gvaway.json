@@ -1,0 +1,38 @@
+{
+  "id": "codechef-gvaway",
+  "title": "Is This a Give Away",
+  "slug": "gvaway",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GVAWAY",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given two integers l and r. You have to choose k **real** numbers in the interval [ l, r ] uniform randomly. What is the expected count of distinct numbers chosen by you? Input - The first line of the input contains a single integer T denoting the number of test cases.",
+  "tags": [
+    "mathematics",
+    "probability",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GVAWAY"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 3,
+    "problem_code": "GVAWAY",
+    "replay_solves": {
+      "successful": 56,
+      "total": 327,
+      "accuracy": 17.13,
+      "replay_only": true
+    }
+  }
+}

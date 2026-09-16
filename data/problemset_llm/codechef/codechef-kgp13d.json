@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp13d",
+  "title": "Building Township",
+  "slug": "kgp13d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13D",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A real estate company undertakes to build a large township. The work is complex and requires the company to hire different categories of highly skilled laborers at different times for different parts of the work.",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "graphs",
+    "jingbo-adm",
+    "kgp13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 4,
+    "problem_code": "KGP13D",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

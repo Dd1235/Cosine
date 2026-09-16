@@ -1,0 +1,29 @@
+{
+ "id": "codechef-walk4",
+ "platform": "codechef",
+ "title": "Walk 4 steps",
+ "slug": "walk4",
+ "source_url": "https://www.codechef.com/problems/WALK4",
+ "source_topic": "ICPC / Kanpur Regional 2019",
+ "source_text": "You are given a weighted undirected graph consisting of $n$ nodes and $m$ edges. The nodes are numbered from $1$ to $n$. The graph does not contain any multiple edges or self loops. A walk $W$ on the graph is a sequence of vertices (with repetitions of vertices and edges allowed) such that every adjacent pair of vertices in the sequence is an edge of the graph. We define the cost of a walk $W$, $Cost(W)$, as the maximum over the weights of the edges along the walk. You will be given $q$ queries. In each query, you will be given an integer $X$. You have to count the number of different walks $W$ of length $4$ such that $Cost(W) = X$. Two walks are considered different if they do not represent the same edge sequence. Input - First line contains 2 integers: the number of nodes $n$ and number of edges $m$. - Next $m$ lines each describe $u$, $v$, and $w$, describing an edge between $u$ and $v$ with weight $w$. - Next line contains $q$, the number of queries. - Next $q$ lines each describe an integer $X$ - the cost of the walk in the query. Output For each query, output in a single line the number of different possible walks. Constraints - $1 \\leq n \\leq 100$ - $1 \\leq m \\leq \\frac{n (n-1)}{2}$ - $1 \\leq u, v \\leq n$ - $1 \\leq w \\leq 100$ - $1 \\leq q \\leq 100$ - $1 \\leq X \\leq 100$ Sample Input 3 3 1 2 1 2 3 2 3 1 3 3 1 2 3 Sample Output 2 10 36 For $X = 2$, all possible $10$ walks are listed below: - 1 -> 2 -> 1 -> 2 -> 3 - 1 -> 2 -> 3 -> 2 -> 1 - 1 -> 2 -> 3 -> 2 -> 3 - 2 -> 1 -> 2 -> 3 -> 2 - 2 -> 3 -> 2 -> 1 -> 2 - 2 -> 3 -> 2 -> 3 -> 2 - 3 -> 2 -> 1 -> 2 -> 1 - 3 -> 2 -> 1 -> 2 -> 3 - 3 -> 2 -> 3 -> 2 -> 1 - 3 -> 2 -> 3 -> 2 -> 3",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "msi-cse-buet"
+ ],
+ "date_added": "17-12-2019",
+ "problem_author": "msi_cse_buet",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KA19MOS",
+  "position": 9,
+  "problem_code": "WALK4",
+  "replay_solves": {
+   "successful": 5,
+   "total": 6,
+   "accuracy": 83.33,
+   "replay_only": true
+  }
+ }
+}

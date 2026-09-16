@@ -1,0 +1,34 @@
+{
+ "id": "codechef-kgp16k",
+ "platform": "codechef",
+ "title": "Cookie Flavors",
+ "slug": "kgp16k",
+ "source_url": "https://www.codechef.com/problems/KGP16K",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "For Durga Puja, Ramu has baked **N** cookies, and left them in a row. They are of various flavours, and the flavours of each of the cookies is given by the sequence **C = (c₁, c₂, ..., cₙ)**, where **cᵢ** is the flavour of the **iᵗʰ** cookie. Hanu, is a cookie aficionado and over the ages, has perfected a 'base' sequence of cookie flavours that he prefers to eat in that particular order. It is given by **H = (h₁, h₂, ..., hₘ)**, where **hᵢ** is the **iᵗʰ** flavour that he wants to eat. In addition to this 'base' sequence, he is also happy to eat any 'power' of it, because it leaves the same tastes in his tongue, just intensified. The **kᵗʰ** power of **H = (h₁, h₂, ..., hₘ)** is **Hᵏ = (h₁, h₁, ... [k times], h₂, h₂, ... [k times], ..., hₘ, hₘ, ... [k times])**. ie. the first flavour is repeated **k** times, then the second flavour is repeated **k** times, and so on. He is happy to eat **Hᵏ**, for any **k ≥ 1**. Hanu also only eats cookies which are kept in a row, one after another. Given these, he wants you to find out the number of ways in which he can eat some of the cookies baked by Ramu. Each flavour is represented by an integer from **1** to **10⁶**. Also, Hanu's tastes are complex enough, and it is guaranteed that in his 'base' sequence, there are at least three distinct flavours. Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains two integers **N, M**, denoting the number of cookies baked, and the number of cookies in Hanu's 'base' sequence, respectively. The second line contains **N** integers separated by single spaces: **c₁, c₂, ..., cₙ**, denoting the sequence of flavours baked by Ramu. The third line contains **M** integers separated by single spaces: **h₁, h₂, ..., hₘ**, denoting the 'base' sequence of flavours which Hanu likes to eat. Output For each test case, output a single line containing the answer. Constraints - **1 ≤ T ≤ 10** - **1 ≤ M ≤ N ≤ 10⁵** - **1 ≤ cᵢ, hᵢ ≤ 10⁶** Sample Input 1 16 4 3 2 2 2 5 5 6 6 2 2 5 6 2 5 6 2 2 5 6 2 Sample Output 3 The four cookies starting from the 10?? cookie are (2, 5, 6, 2), and these form a 'base' sequence which Hanu likes. The four cookies starting from the 13?? cookie are (2, 5, 6, 2), and these form a 'base' sequence which Hanu likes. The eight cookies starting from the 3?? cookie are (2, 2, 5, 5, 6, 6, 2, 2), and these form the second power of Hanu's 'base' sequence. ie. H = (2, 5, 6, 2), and H² = (2, 2, 5, 5, 6, 6, 2, 2), and hence Hanu would eat these 8 cookies. These are the only 3 ways in which Hanu can eat cookies. Hence the answer is 3.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm-icpc",
+  "acm16",
+  "admin3",
+  "kgp16",
+  "knuth-morris-pratt-algorithm",
+  "looping"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 11,
+  "problem_code": "KGP16K",
+  "replay_solves": {
+   "successful": 3,
+   "total": 11,
+   "accuracy": 27.27,
+   "replay_only": true
+  }
+ }
+}

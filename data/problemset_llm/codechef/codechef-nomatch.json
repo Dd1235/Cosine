@@ -1,0 +1,38 @@
+{
+  "id": "codechef-nomatch",
+  "title": "Maximise the Sum",
+  "slug": "nomatch",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NOMATCH",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an array with N integers: A[1], A[2], \\ldots, A[N] (where N is even). You are allowed to permute the elements however you want. Say, after permuting the elements, you end up with the array A'[1], A'[2], \\ldots, A'[N].",
+  "tags": [
+    "algorithms",
+    "constructive",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NOMATCH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 8,
+    "problem_code": "NOMATCH",
+    "replay_solves": {
+      "successful": 153,
+      "total": 284,
+      "accuracy": 54.93,
+      "replay_only": true
+    }
+  }
+}

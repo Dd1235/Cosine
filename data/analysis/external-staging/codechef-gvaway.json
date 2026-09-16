@@ -1,0 +1,31 @@
+{
+ "id": "codechef-gvaway",
+ "platform": "codechef",
+ "title": "Is This a Give Away",
+ "slug": "gvaway",
+ "source_url": "https://www.codechef.com/problems/GVAWAY",
+ "source_topic": "ICPC / Kanpur Regional 2019",
+ "source_text": "You are given two integers $l$ and $r$. You have to choose $k$ **real** numbers in the interval $[ l, r ]$ uniform randomly. What is the expected count of distinct numbers chosen by you? Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first and only line of each test case contains three space-separated integers $l$, $r$ and $k$. Output For each test case, print a single line containing one integer - the expected count of distinct numbers chosen. It can be proved that the expected count is always an integer. Constraints - $1 \\le T \\le 10^5$ - $1 \\le k \\le 100$ - $1 \\leq l \\leq r \\leq 100$ Sample Input 3 3 6 4 1 3 1 6 7 2 Sample Output 4 1 2 **Example case 2:** You choose only $1$ real number, so it doesn't matter which real number you chose, the number of distinct numbers is always $1$. So the expected count of distinct numbers is $1$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "probability",
+  "algorithms"
+ ],
+ "date_added": "5-12-2019",
+ "problem_author": "msi_cse_buet",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KA19MOS",
+  "position": 3,
+  "problem_code": "GVAWAY",
+  "replay_solves": {
+   "successful": 56,
+   "total": 327,
+   "accuracy": 17.13,
+   "replay_only": true
+  }
+ }
+}

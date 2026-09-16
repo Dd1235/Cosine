@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16g",
+ "platform": "codechef",
+ "title": "Voting Fraud",
+ "slug": "chn16g",
+ "source_url": "https://www.codechef.com/problems/CHN16G",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "In Trump University, the students' council election was held on December 15th. The election results were supposed to be published on the 18th. Before the counting was about to start, officials got news that there were some malpractices done during the voting. More specifically, some people have voted more than once. The officials were not sure about this news. So they decided to check this matter. They admitted that there was not much security precautions that were taken during the election process—this must have caused the flaw, they thought. There are **N** students who took part in the voting. Each student has a student ID using that they will vote. Help the officials to find out if anyone has voted more than once, by giving them the total number of fraud votes. Each student is supposed to cast at most one vote only. So, if a student has cast more than one vote, all votes except one vote will be fraud votes. Input First line contains **T** the number of test cases. **T** test cases follow. First line of each test case contains an integer **N** - the total number of students who took part in the election. Next line of each test case contains **N** space-separated integers **A 1 , A 2 , ..., A N **, denoting the student ID for which the vote was registered. Output For each test case, output a single integer corresponding to the number of fake votes that have been cast. Constraints - **1** ≤ **T** ≤ **100** - **1** ≤ **N** ≤ **100** - **1** ≤ **A i ** ≤ **100** Sample Input 2 4 1 2 3 2 4 1 2 2 2 Sample Output 1 2 **Example case 1.** In the first test case, the student with ID 2 has voted 2 times. So 1 fake vote is done in that case. **Example case 2.** The student with ID 2 has voted thrice, i.e., 2 of his votes are fake.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 7,
+  "problem_code": "CHN16G",
+  "replay_solves": {
+   "successful": 177,
+   "total": 286,
+   "accuracy": 62.59,
+   "replay_only": true
+  }
+ }
+}

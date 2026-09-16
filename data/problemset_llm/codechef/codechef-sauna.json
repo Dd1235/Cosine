@@ -1,0 +1,36 @@
+{
+  "id": "codechef-sauna",
+  "title": "Sauna Cred",
+  "slug": "sauna",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SAUNA",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Max is an avid sauna visitor. Today he's chilling in the sauna with n friends. Max knows that each friend is going to visit the steam room exactly once, and the i-th friend is going to enter the steam room at time l_i, and leave at time r_i (time is measured in seconds since the start of the visit).",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SAUNA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 9,
+    "problem_code": "SAUNA",
+    "replay_solves": {
+      "successful": 2,
+      "total": 35,
+      "accuracy": 8.57,
+      "replay_only": true
+    }
+  }
+}

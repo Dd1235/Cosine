@@ -1,0 +1,34 @@
+{
+ "id": "codechef-chn15e",
+ "platform": "codechef",
+ "title": "Tree Augmentation ",
+ "slug": "chn15e",
+ "source_url": "https://www.codechef.com/problems/CHN15E",
+ "source_topic": "ICPC / Chennai Regional 2015",
+ "source_text": "A tree is one of the most beautiful data structures. Given a tree of N nodes (numbered 1 to N ), we can augment it by connecting any pair of nodes which sharing one or more neighbour/s. In other words, the augmentation operation joins any nodes of tree within distance two with an edge. The resulting graph is called the augmented graph for the given tree. Due to having additional edges, the total number of edges in the augmented graph is M , instead of N-1 . Fortunately, M is not very large, and therefore, it is possible to reconstruct the tree given its augmented graph! In this problem, you are going to read the augmented graph and you have to find the original tree for that. Note that there might be different trees leading to the same augmented graph. You may output any one of them. Input The first line contains an integer T denoting the total number of test cases. In each test case, the first line contains two integers N and M denoting the number of nodes and edges in the augmented graph, respectively. This is followed by M lines containing two space-separated integers a and b denoting that there is an edge between vertex a and b . Note that it is always guaranteed that the input graph is always the augmented graph of some tree. Output For each test case, output N-1 lines, each of which contains two space-separated integers indicating one edge in the original tree. Constraints 1 ≤ T ≤ 10 1 ≤ N ≤ 10 4 0 ≤ M ≤ 10 5 1 ≤ a , b ≤ N Augmented graph does not contain loop or multiple edges. Example Input: 2 4 5 1 2 1 3 3 4 2 3 1 4 5 7 1 2 2 3 3 4 4 5 1 3 2 4 3 5 Output: 1 2 1 3 3 4 1 2 2 3 3 4 4 5",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmchn15",
+  "graph-squareroot",
+  "graphs",
+  "hard",
+  "jingbo-adm",
+  "trees"
+ ],
+ "date_added": "25-10-2015",
+ "problem_author": "jingbo_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMCHN15",
+  "position": 5,
+  "problem_code": "CHN15E",
+  "replay_solves": {
+   "successful": 0,
+   "total": 340,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

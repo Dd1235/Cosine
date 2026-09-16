@@ -1,0 +1,32 @@
+{
+ "id": "codechef-equalmod",
+ "platform": "codechef",
+ "title": "Modulo Equality",
+ "slug": "equalmod",
+ "source_url": "https://www.codechef.com/problems/EQUALMOD",
+ "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+ "source_text": "You have two arrays A and B , each containing N integers. Elements of array B cannot be modified. You may perform an arbitrary number of operations (including zero number of operations). In one operation, you can choose one index i (1 ≤ i ≤ N ) and increment A i by 1. Each index can be chosen any number of times. Find the minimum number of operations required to modify the array A such that for every pair i, j (1 ≤ i, j ≤ N) , (A i % B i ) equals (A j % B j ) . Here, % denotes the modulo operator (the remainder after dividing by B i ). Note that 0 ≤ (A i % B i ) < B i . Input First line of the input contains an integer T denoting the number of testcases. The description of T testcases is as follows: First line of each testcase contains a positive integer N , denoting the number of elements in arrays A and B . Second line contains N space-separated whole numbers A 1 , A 2 , ..., A N . Third line contains N space-separated natural numbers B 1 , B 2 , ..., B N . Output For each testcase, output a single line containing the minimum number of operations required to modify the array A in order to satisfy the required conditions. Constraints 1 ≤ T ≤ 1000 1 ≤ N ≤ 5 * 10 5 0 ≤ A i ≤ 10 9 1 ≤ B i ≤ 10 9 Sum of N across all testcases in a single file will be ≤ 5 * 10 5 Sample Input 2 3 4 2 2 5 3 4 4 2 1 1 2 3 3 3 3 Sample Output 3 2 Example case 1. A 1 can be increased from 4 to 7 in 3 operations so that: A 1 % B 1 = 2 A 2 % B 2 = 2 A 3 % B 3 = 2 Example case 2. A 2 , A 3 can both be increased from 1 to 2 in 2 operations total so that: A 1 % B 1 = 2 A 2 % B 2 = 2 A 3 % B 3 = 2 A 4 % B 4 = 2",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "mathematics",
+  "algorithms",
+  "simple-algos"
+ ],
+ "date_added": "29-10-2017",
+ "problem_author": "wittyceaser",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMIND17",
+  "position": 1,
+  "problem_code": "EQUALMOD",
+  "replay_solves": {
+   "successful": 268,
+   "total": 3653,
+   "accuracy": 7.39,
+   "replay_only": true
+  }
+ }
+}

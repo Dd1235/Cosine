@@ -1,0 +1,37 @@
+{
+  "id": "codechef-findhole",
+  "title": "The Black Riders",
+  "slug": "findhole",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/FINDHOLE",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "ACM International Collegiate Programming Contest, Asia-Amritapuri Site, 2012 The Black Riders 'Hush!' said Frodo. 'I think I hear hoofs again.' They stopped suddenly and stood as silent as tree-shadows, listening.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/FINDHOLE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 11,
+    "problem_code": "FINDHOLE",
+    "replay_solves": {
+      "successful": 7,
+      "total": 16,
+      "accuracy": 43.75,
+      "replay_only": true
+    }
+  }
+}

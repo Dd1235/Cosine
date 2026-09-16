@@ -1,0 +1,39 @@
+{
+  "id": "codechef-talesqua",
+  "title": "A Tale of Three Squares",
+  "slug": "talesqua",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TALESQUA",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "There are three squares, each with side length a placed on the x-axis. The coordinates of centers of these squares are (x_1, a/2), (x_2, a/2) and (x_3, a/2) respectively. All of them are placed with one of their sides resting on the x-axis.",
+  "tags": [
+    "special",
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TALESQUA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 7,
+    "problem_code": "TALESQUA",
+    "replay_solves": {
+      "successful": 42,
+      "total": 242,
+      "accuracy": 18.6,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13d",
+  "title": "Family of Recurrences",
+  "slug": "kan13d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13D",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "Suppose we have recurrences of the following form, characterized by three parameters **m**, **sigma 1..m ** and **f 0..m-1 **, where **m** > 0 and **sigma i ** is a binary variable (1 < = **i** < = **m**).",
+  "tags": [
+    "jingbo-adm",
+    "kan13acm",
+    "matrix-exponentiation",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 4,
+    "problem_code": "KAN13D",
+    "replay_solves": {
+      "successful": 0,
+      "total": 16,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

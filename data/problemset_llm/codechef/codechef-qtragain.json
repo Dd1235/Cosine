@@ -1,0 +1,40 @@
+{
+  "id": "codechef-qtragain",
+  "title": "Queries on tree again",
+  "slug": "qtragain",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/QTRAGAIN",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "You have a rooted tree with **N** nodes which are numbered from 1 to **N**. It is rooted at node 1. Each node has a value associated with it, which is 0 initially. The distance between two nodes is the number of edges in the unique path between them.",
+  "tags": [
+    "mathematics",
+    "modular-arithmetic",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/QTRAGAIN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 2,
+    "problem_code": "QTRAGAIN",
+    "replay_solves": {
+      "successful": 8,
+      "total": 51,
+      "accuracy": 15.69,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-periodcn",
+  "title": "Count Periodic Numbers",
+  "slug": "periodcn",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PERIODCN",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "A positive integer n is said to be periodic if it satisfies the following property: Take the binary representation of n without leading zeros. Then create an array which contains the length of consecutive runs of equal bits in this binary representation.",
+  "tags": [
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PERIODCN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 4,
+    "problem_code": "PERIODCN",
+    "replay_solves": {
+      "successful": 61,
+      "total": 159,
+      "accuracy": 38.36,
+      "replay_only": true
+    }
+  }
+}

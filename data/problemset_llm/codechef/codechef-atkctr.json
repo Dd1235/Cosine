@@ -1,0 +1,37 @@
+{
+  "id": "codechef-atkctr",
+  "title": "Gandalf vs the Balrog",
+  "slug": "atkctr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ATKCTR",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# Gandalf vs the Balrog *'We fought far under the living earth, where time is not counted. Ever he clutched me, and ever I hewed him, till at last he fled into dark tunnels. Ever up now we went, until we came to the Endless Stair. Out he sprang, and even as I came behind, he burst into new flame.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ATKCTR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 1,
+    "problem_code": "ATKCTR",
+    "replay_solves": {
+      "successful": 115,
+      "total": 483,
+      "accuracy": 31.88,
+      "replay_only": true
+    }
+  }
+}

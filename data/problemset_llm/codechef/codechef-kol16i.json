@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16i",
+  "title": "Roads",
+  "slug": "kol16i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16I",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Sarah is an engineer assigned to build roads between the N towns of Evoland. Towns are assigned IDs from 1 to N . A road connects exactly one pair of towns, and is bidirectional. The mayor of Evoland allocated a very small budget for this project.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "special",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 9,
+    "problem_code": "KOL16I",
+    "replay_solves": {
+      "successful": 0,
+      "total": 7,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

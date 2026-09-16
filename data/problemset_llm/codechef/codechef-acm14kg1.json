@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acm14kg1",
+  "title": "Cracker shops",
+  "slug": "acm14kg1",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KG1",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Laxman is doing Diwali shopping. There are N shops numbered from 1 to N . Laxman wants to buy M different types of crackers. Crackers are numbered from 1 to M . Each shop sells many types of crackers. Laxman is currently at the i'th shop.",
+  "tags": [
+    "acmkg14r",
+    "admin",
+    "easy-medium",
+    "sorting",
+    "two-pointers"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KG1"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKG14R",
+    "position": 1,
+    "problem_code": "ACM14KG1",
+    "replay_solves": {
+      "successful": 12,
+      "total": 160,
+      "accuracy": 7.5,
+      "replay_only": true
+    }
+  }
+}

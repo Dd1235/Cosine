@@ -1,0 +1,36 @@
+{
+  "id": "codechef-clndr",
+  "title": "Calendar",
+  "slug": "clndr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CLNDR",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "We know that there are so many calendar systems. For example, Bangla, Christ, Arabic, Chinese etc. This problem is about Decimal calendar. There are 3 months in this calendar. First month is \"Hundreds\" . There are 300 days in this month. Second month is \"Tens\" . There are 60 days in this month.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CLNDR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN11",
+    "position": 2,
+    "problem_code": "CLNDR",
+    "replay_solves": {
+      "successful": 143,
+      "total": 495,
+      "accuracy": 29.29,
+      "replay_only": true
+    }
+  }
+}

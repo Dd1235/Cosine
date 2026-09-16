@@ -1,0 +1,37 @@
+{
+  "id": "codechef-playpian",
+  "title": "Play Piano",
+  "slug": "playpian",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PLAYPIAN",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "Two sisters, A and B, play the piano every day. During the day, they can play in any order. That is, A might play first and then B, or it could be B first and then A. But each one of them plays the piano exactly once per day.",
+  "tags": [
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PLAYPIAN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 5,
+    "problem_code": "PLAYPIAN",
+    "replay_solves": {
+      "successful": 0,
+      "total": 282,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

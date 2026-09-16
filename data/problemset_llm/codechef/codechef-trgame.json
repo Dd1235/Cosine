@@ -1,0 +1,40 @@
+{
+  "id": "codechef-trgame",
+  "title": "Game on Tree",
+  "slug": "trgame",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TRGAME",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a tree with n vertices numbered 1, 2, \\ldots, n. There are two players Alice and Bob who play a game on this tree, taking turns alternatively. Alice starts. In their turn, a participant has to remove a leaf (and the edge adjacent to it) from the tree. A leaf is a node with degree 1.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TRGAME"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 8,
+    "problem_code": "TRGAME",
+    "replay_solves": {
+      "successful": 43,
+      "total": 121,
+      "accuracy": 37.19,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-vastlife",
+  "title": "Another Game of Life",
+  "slug": "vastlife",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/VASTLIFE",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "In 1970, John Conway created a cellular automaton, the Game of Life. In this problem, we will consider a modified version of the Game of Life called VastoLorde's Game of Life, and we will be focusing on just one single second of change. Suppose you start with grid A which has dimensions H \\times W.",
+  "tags": [
+    "mathematics",
+    "bit-manipulation",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/VASTLIFE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 10,
+    "problem_code": "VASTLIFE",
+    "replay_solves": {
+      "successful": 1,
+      "total": 11,
+      "accuracy": 9.09,
+      "replay_only": true
+    }
+  }
+}

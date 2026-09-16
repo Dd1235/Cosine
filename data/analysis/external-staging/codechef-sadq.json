@@ -1,0 +1,33 @@
+{
+ "id": "codechef-sadq",
+ "platform": "codechef",
+ "title": "SAD Queries",
+ "slug": "sadq",
+ "source_url": "https://www.codechef.com/problems/SADQ",
+ "source_topic": "ICPC / Kharagpur Regional 2017",
+ "source_text": "The Mean Absolute Difference is a measure of statistical dispersion equal to the average absolute difference of two independent values drawn from a probability distribution. In this problem, we are concerned not with Mean Absolute Difference (MAD) of two distributions but rather with the Summed Absolute Difference (SAD) of two arrays. Given arrays (1-indexed) **P** and **Q** of lengths **p** and **q**, define $$ \\text{SAD}(P, Q) = \\sum_{i=1}^{p} \\sum_{j=1}^{q} |P_i - Q_j| $$ Given a collection of **K** arrays **A 1 **, ..., **A K **, report SAD(**A i **, **A j **) for several queries (**i**, **j**). Input - The first line of input contains a single positive integer **K**. - Each of the next **K** lines starts with a positive integer **s i **, the size of **A i **, followed by **s i ** space-separated integers **A i,1 **, ..., **A i,s i ** which denotes the array **A i **. - The next line of input consists of a single positive integer **M**. - Each of the next **M** lines consists of 2 positive integers **i** and **j** which lie between 1 and **K** (inclusive), specifying the indices of the arrays for which the SAD value must be reported. Output Output **M** lines. Line **i** should contain the answer to query **i**. Constraints - 1 ≤ **K**, **M** ≤ 10 5 - 1 ≤ **s 1 ** + ... + **s K ** ≤ 10 5 - -10 9 ≤ **A i,j ** ≤ 10 9 - 1 ≤ **i**, **j** ≤ **K** in each of the queries Sample Input 4 4 0 3 1 -2 2 0 4 2 2 4 4 4 -3 -4 4 3 3 4 4 2 1 4 Sample Output 30 30 60 **Query 1:** The arrays in question are **A 3 ** = [2, 4] and **A 4 ** = [4, -3, -4, 4]. $$ \\text{SAD}(\\mathbf{A}_3, \\mathbf{A}_4) = |2 - 4| + |2 - (-3)| + |2 - (-4)| + |2 - 4| + |4 - 4| + |4 - (-3)| + |4 - (-4)| + |4 - 4| $$ $$ = 2 + 5 + 6 + 2 + 0 + 7 + 8 + 0 $$ $$ = 30 $$",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "advanced-graph-algos",
+  "algorithms",
+  "searching",
+  "simple-algos"
+ ],
+ "date_added": "8-12-2017",
+ "problem_author": "architk",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP17ROL",
+  "position": 4,
+  "problem_code": "SADQ",
+  "replay_solves": {
+   "successful": 19,
+   "total": 201,
+   "accuracy": 9.45,
+   "replay_only": true
+  }
+ }
+}

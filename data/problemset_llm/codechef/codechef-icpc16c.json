@@ -1,0 +1,36 @@
+{
+  "id": "codechef-icpc16c",
+  "title": "Watson and Digit Sums",
+  "slug": "icpc16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16C",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "Watson is going to play mind games with Sherlock. He gives an integer d to Sherlock. Among all possible positive integers N having sum of digits d , consider the integer N+1 , and find the minimum possible digit sum N+1 can have. For example, if d = 9, then N could be 9, 18, 27, 36,711 and so on.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 3,
+    "problem_code": "ICPC16C",
+    "replay_solves": {
+      "successful": 2199,
+      "total": 4691,
+      "accuracy": 49.16,
+      "replay_only": true
+    }
+  }
+}

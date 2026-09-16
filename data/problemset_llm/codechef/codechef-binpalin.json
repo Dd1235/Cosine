@@ -1,0 +1,38 @@
+{
+  "id": "codechef-binpalin",
+  "title": "Binary Palindrome",
+  "slug": "binpalin",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BINPALIN",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "You are writing in your favourite editor starting with a blank editor. In each operation you can either type a binary digit (i.e a 0 or 1) or type backspace which removes the rightmost typed character on the screen.",
+  "tags": [
+    "advanced-data-structures",
+    "suffix-structures",
+    "number-system"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BINPALIN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 4,
+    "problem_code": "BINPALIN",
+    "replay_solves": {
+      "successful": 0,
+      "total": 41,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

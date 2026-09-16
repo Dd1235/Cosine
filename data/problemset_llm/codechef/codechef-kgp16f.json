@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16f",
+  "title": "Optimal Partition",
+  "slug": "kgp16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16F",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "Competitive Programmers love concise statements. Today, we have one such problem for you! You're given an array A with N integers, A_1, A_2, A_3, \\dots, A_N.",
+  "tags": [
+    "acm16",
+    "admin3",
+    "dynamic-programming",
+    "icpc2016",
+    "kgp16",
+    "programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 6,
+    "problem_code": "KGP16F",
+    "replay_solves": {
+      "successful": 54,
+      "total": 431,
+      "accuracy": 12.53,
+      "replay_only": true
+    }
+  }
+}

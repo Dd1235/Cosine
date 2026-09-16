@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amjmp",
+  "title": "Jump on Buildings",
+  "slug": "amjmp",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMJMP",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Our well known coding mafia went to the city. *Farzi Coder* is the boss here. He hired a new member named *Lambu Keyboard* in his gang. *Farzi Coder* is so smart (at least that's what he thinks), so he wants to test *Lambu Keyboard's* programming skills.",
+  "tags": [
+    "akash4983"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMJMP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 5,
+    "problem_code": "AMJMP",
+    "replay_solves": {
+      "successful": 18,
+      "total": 55,
+      "accuracy": 36.36,
+      "replay_only": true
+    }
+  }
+}

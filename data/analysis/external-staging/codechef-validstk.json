@@ -1,0 +1,29 @@
+{
+ "id": "codechef-validstk",
+ "platform": "codechef",
+ "title": "Valid Stack Operations",
+ "slug": "validstk",
+ "source_url": "https://www.codechef.com/problems/VALIDSTK",
+ "source_topic": "ICPC / Kolkata Regional 2018",
+ "source_text": "You have a stack which is initially empty. You receive instructions of the form 1 or 0. 1 denotes that you have to push in an element, and 0 denotes that you have to pop out an element. But of course you can pop something out only if it exists in the stack. So your job is to look at the instructions and see if they are valid (i.e., you never have to pop from an empty stack), or not. Input - The first line of the input contains a single integer $T$, which denotes the number of test cases. - The first line of each test case contains a single integer $n$, which denotes the number of instructions. - The second line contains $n$ space-separated integers, which are all 0 or 1. Output - For each test case, output either \"Valid\" or \"Invalid\", in a new line. Constraints - $1 \\leq T \\leq 10$ - $1 \\leq n \\leq 10^5$ - All instructions are either 0 or 1. Sample Input 2 5 1 1 0 0 1 5 1 0 0 1 1 Sample Output Valid Invalid **Testcase 2**: You first push something, and then pop it out. So now you have an empty stack, but the next operation is a Pop, and hence this is Invalid.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms"
+ ],
+ "date_added": "21-12-2018",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL18ROL",
+  "position": 12,
+  "problem_code": "VALIDSTK",
+  "replay_solves": {
+   "successful": 369,
+   "total": 709,
+   "accuracy": 53.03,
+   "replay_only": true
+  }
+ }
+}

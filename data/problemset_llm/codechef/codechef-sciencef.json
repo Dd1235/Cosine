@@ -1,0 +1,41 @@
+{
+  "id": "codechef-sciencef",
+  "title": "Science Fair",
+  "slug": "sciencef",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SCIENCEF",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "This is a story of city Chef Land. The transport network of the city contains **V** intersections and **E** bidirectional roads. The intersections are numbered from 1 to **V**. Every intersection can be reached from every other intersection. The road **E i ** has length **W i **.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp",
+    "advanced-graph-algos",
+    "mathematics",
+    "bit-manipulation",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SCIENCEF"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 1,
+    "problem_code": "SCIENCEF",
+    "replay_solves": {
+      "successful": 2,
+      "total": 12,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

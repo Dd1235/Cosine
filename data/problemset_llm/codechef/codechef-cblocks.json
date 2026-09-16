@@ -1,0 +1,37 @@
+{
+  "id": "codechef-cblocks",
+  "title": "Saruman of Many Colours",
+  "slug": "cblocks",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CBLOCKS",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "ACM International Collegiate Programming Contest, Asia-Amritapuri Site, 2012 Saruman of Many Colours '\"For I am Saruman the Wise, Saruman Ring-maker, Saruman of Many Colours!\" 'I looked then and saw that his robes, which had seemed white, were not so, but were woven of all colours.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CBLOCKS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 2,
+    "problem_code": "CBLOCKS",
+    "replay_solves": {
+      "successful": 119,
+      "total": 547,
+      "accuracy": 25.05,
+      "replay_only": true
+    }
+  }
+}

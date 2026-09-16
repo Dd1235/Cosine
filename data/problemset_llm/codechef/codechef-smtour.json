@@ -1,0 +1,38 @@
+{
+  "id": "codechef-smtour",
+  "title": "F - Beautiful Walk",
+  "slug": "smtour",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SMTOUR",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a directed graph with n vertices and m edges. A walk is defined as a sequence of vertices, such that there is an edge from every vertex in the walk to the next vertex in the walk.",
+  "tags": [
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SMTOUR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 7,
+    "problem_code": "SMTOUR",
+    "replay_solves": {
+      "successful": 0,
+      "total": 6,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

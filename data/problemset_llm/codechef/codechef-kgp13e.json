@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp13e",
+  "title": "One-Way Roads",
+  "slug": "kgp13e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13E",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A city has a road network with all roads arranged in a **K** x **K** square grid, with intersections (total (**K**+1) x (**K**+1)) numbered as shown below (for an example 4 x 4 grid). ![Grid](//www.codechef.com/download/grid_kgp.png) There are no one-way roads in the city now.",
+  "tags": [
+    "cakewalk",
+    "jingbo-adm",
+    "kgp13acm",
+    "manhattan"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 5,
+    "problem_code": "KGP13E",
+    "replay_solves": {
+      "successful": 2,
+      "total": 4,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

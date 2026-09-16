@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16c",
+  "title": "Birthday Pizza Party",
+  "slug": "chn16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16C",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Steffi wants to give a treat to her **N** friends with some delicious pizzas on her birthday. She is currently deciding on how many pizzas she should buy. Each pizza has **A** equal-sized pieces/slices in it.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 3,
+    "problem_code": "CHN16C",
+    "replay_solves": {
+      "successful": 67,
+      "total": 514,
+      "accuracy": 14.01,
+      "replay_only": true
+    }
+  }
+}

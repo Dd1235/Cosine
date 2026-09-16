@@ -1,0 +1,40 @@
+{
+  "id": "codechef-spamclas",
+  "title": "Spam Classification Using Neural Net",
+  "slug": "spamclas",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SPAMCLAS",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "Neural nets are extremely popular in the Machine Learning domain. A neural net is composed of multiple layers. It has an input layer in which you input the parameter x (the input of the program).",
+  "tags": [
+    "special",
+    "basic-programming-concepts",
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SPAMCLAS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 6,
+    "problem_code": "SPAMCLAS",
+    "replay_solves": {
+      "successful": 92,
+      "total": 277,
+      "accuracy": 35.38,
+      "replay_only": true
+    }
+  }
+}

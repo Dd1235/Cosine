@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13f",
+  "title": "Merging Files",
+  "slug": "kan13f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13F",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "In olden days, when primary memory was not as available as it is now, files were stored in external storage devices like tapes, and then two files or their parts were loaded in memory for merging.",
+  "tags": [
+    "greedy",
+    "jingbo-adm",
+    "kan13acm",
+    "medium-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 6,
+    "problem_code": "KAN13F",
+    "replay_solves": {
+      "successful": 3,
+      "total": 43,
+      "accuracy": 6.98,
+      "replay_only": true
+    }
+  }
+}

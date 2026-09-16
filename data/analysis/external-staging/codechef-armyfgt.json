@@ -1,0 +1,30 @@
+{
+ "id": "codechef-armyfgt",
+ "platform": "codechef",
+ "title": "Fighting Armies",
+ "slug": "armyfgt",
+ "source_url": "https://www.codechef.com/problems/ARMYFGT",
+ "source_topic": "ICPC / Amritapuri Regional 2018",
+ "source_text": "Civil war is brewing in the kingdom of NaturalLand again, and this time, the rebels have adopted guerilla warfare. There are $N$ rebel soldiers and they are represented by the numbers $Rebel_1, Rebel_2, \\ldots, Rebel_N$. The king has deployed his soldiers in a long defensive wall, and this is represented by two integers: $lower$ and $upper$. This means that the King's army contains ($upper$ - $lower$ +1) soldiers represented by all the numbers between $lower$ and $upper$ (end points inclusive). The rebels pick individual soldiers from the King's army and ambush them one by one. A soldier $x$ in the King's army will be defeated only if all the $N$ numbers $Rebel_1, Rebel_2, \\ldots,$ and $Rebel_N$ divide $x$ without leaving a remainder. Else, $x$ will survive. Your job is to count the number of soldiers in the King's army who will survive at the end. Input - First line will contain $T$, the number of test cases. Then the test cases follow. - The first line of each test case will contain $N$, representing the number of soldiers in the rebel army. - The second line of each testcase contains $N$ spaced integers: $Rebel_1, Rebel_2, \\ldots, Rebel_N$. - The third line of each testcase contains the 2 integers representing the range $[lower, upper]$ of the King's army. Output For each test case, output the answer in a single line. Constraints - $1 \\leq T \\leq 1000$ - $1 \\leq N \\leq 500$ - $1 \\leq Rebel_i \\leq 10^9$ - $1 \\leq lower \\leq upper \\leq 10^{18}$ Sample Input 1 2 2 4 4 8 Sample Output 3 The rebels' army contains the soldiers $\\{2,4\\}$. The King's army contains the soldiers $\\{4,5,6,7,8\\}$. The rebels will be able to kill $\\{4,8\\}$ in the King's army as all the members of rebel army can divide $\\{4,8\\}$ without leaving a remainder. The other three soldiers, $\\{5,6,7\\}$ will survive, and hence the answer is 3.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "number-theory"
+ ],
+ "date_added": "20-12-2018",
+ "problem_author": "bipin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR18ROL",
+  "position": 2,
+  "problem_code": "ARMYFGT",
+  "replay_solves": {
+   "successful": 38,
+   "total": 750,
+   "accuracy": 5.2,
+   "replay_only": true
+  }
+ }
+}

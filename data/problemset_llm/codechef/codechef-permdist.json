@@ -1,0 +1,41 @@
+{
+  "id": "codechef-permdist",
+  "title": "Permutation Distance",
+  "slug": "permdist",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PERMDIST",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "Consider a permutation P = (p_1, p_2, ..., p_n) of numbers \\{1, 2, ... , n\\}. Let us construct a graph G(P) with n vertices as follows: if i, j \\in \\{1, ..., n\\} and i < j, then an undirected edge (i, j) is present in G(P) if and only if p_i < p_j.",
+  "tags": [
+    "advanced-data-structures",
+    "advanced-algorithms",
+    "pre-processing",
+    "algorithms",
+    "graph-algos",
+    "lca"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PERMDIST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 9,
+    "problem_code": "PERMDIST",
+    "replay_solves": {
+      "successful": 1,
+      "total": 13,
+      "accuracy": 7.69,
+      "replay_only": true
+    }
+  }
+}

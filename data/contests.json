@@ -508,6 +508,3787 @@
       "organizer": "ICPC",
       "held_date": "2020-12-11",
       "observed_at": "2026-09-12"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2012",
+      "name": "ICPC Amritapuri Regional 2012",
+      "short": "Amritapuri 12",
+      "family": "icpc",
+      "season": "2012-2013",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMAMR12"
+      ],
+      "problems": [
+        {
+          "id": "codechef-atkctr",
+          "order": 1,
+          "code": "ATKCTR",
+          "title": "Gandalf vs the Balrog",
+          "url": "https://www.codechef.com/problems/ATKCTR"
+        },
+        {
+          "id": "codechef-cblocks",
+          "order": 2,
+          "code": "CBLOCKS",
+          "title": "Saruman of Many Colours",
+          "url": "https://www.codechef.com/problems/CBLOCKS"
+        },
+        {
+          "id": "codechef-dqperms",
+          "order": 3,
+          "code": "DQPERMS",
+          "title": "Denethors Decryption of Dequeue permutations",
+          "url": "https://www.codechef.com/problems/DQPERMS"
+        },
+        {
+          "id": "codechef-ball",
+          "order": 4,
+          "code": "BALL",
+          "title": "Entmoot",
+          "url": "https://www.codechef.com/problems/BALL"
+        },
+        {
+          "id": "codechef-fssync",
+          "order": 5,
+          "code": "FSSYNC",
+          "title": "The Loyalty of the Orcs",
+          "url": "https://www.codechef.com/problems/FSSYNC"
+        },
+        {
+          "id": "codechef-lights",
+          "order": 6,
+          "code": "LIGHTS",
+          "title": "The Glittering Caves of Aglarond",
+          "url": "https://www.codechef.com/problems/LIGHTS"
+        },
+        {
+          "id": "codechef-mstrings",
+          "order": 7,
+          "code": "MSTRINGS",
+          "title": "The Mirror of Galadriel",
+          "url": "https://www.codechef.com/problems/MSTRINGS"
+        },
+        {
+          "id": "codechef-minmax",
+          "order": 8,
+          "code": "MINMAX",
+          "title": "Wormtongues Mind",
+          "url": "https://www.codechef.com/problems/MINMAX"
+        },
+        {
+          "id": "codechef-pstrings",
+          "order": 9,
+          "code": "PSTRINGS",
+          "title": "Dyslexic Gollum",
+          "url": "https://www.codechef.com/problems/PSTRINGS"
+        },
+        {
+          "id": "codechef-rnest",
+          "order": 10,
+          "code": "RNEST",
+          "title": "Escape from the Mines",
+          "url": "https://www.codechef.com/problems/RNEST"
+        },
+        {
+          "id": "codechef-findhole",
+          "order": 11,
+          "code": "FINDHOLE",
+          "title": "The Black Riders",
+          "url": "https://www.codechef.com/problems/FINDHOLE"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Amritapuri onsite regionals 2012 : Replay (CodeChef)",
+          "url": "https://www.codechef.com/ACMAMR12",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2014",
+      "name": "ICPC Amritapuri Regional 2014",
+      "short": "Amritapuri 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AMR14ROS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-amr14a",
+          "order": 1,
+          "code": "AMR14A",
+          "title": "Afghan Jerseys",
+          "url": "https://www.codechef.com/problems/AMR14A"
+        },
+        {
+          "id": "codechef-amr14b",
+          "order": 2,
+          "code": "AMR14B",
+          "title": "Road Decoration",
+          "url": "https://www.codechef.com/AMR14ROS/problems/AMR14B"
+        },
+        {
+          "id": "codechef-amr14c",
+          "order": 3,
+          "code": "AMR14C",
+          "title": "Dhonis Bowlers",
+          "url": "https://www.codechef.com/problems/AMR14C"
+        },
+        {
+          "id": "codechef-amr14d",
+          "order": 4,
+          "code": "AMR14D",
+          "title": "Matryoshka Dolls",
+          "url": "https://www.codechef.com/problems/AMR14D"
+        },
+        {
+          "id": "codechef-amr14e",
+          "order": 5,
+          "code": "AMR14E",
+          "title": "Kiwi Number",
+          "url": "https://www.codechef.com/problems/AMR14E"
+        },
+        {
+          "id": "codechef-amr14f",
+          "order": 6,
+          "code": "AMR14F",
+          "title": "Jersey Number",
+          "url": "https://www.codechef.com/problems/AMR14F"
+        },
+        {
+          "id": "codechef-amr14g",
+          "order": 7,
+          "code": "AMR14G",
+          "title": "Hugphile Order",
+          "url": "https://www.codechef.com/problems/AMR14G"
+        },
+        {
+          "id": "codechef-amr14h",
+          "order": 8,
+          "code": "AMR14H",
+          "title": "Opening Pair",
+          "url": "https://www.codechef.com/problems/AMR14H"
+        },
+        {
+          "id": "codechef-amr14i",
+          "order": 9,
+          "code": "AMR14I",
+          "title": "Gabba sprint",
+          "url": "https://www.codechef.com/problems/AMR14I"
+        },
+        {
+          "id": "codechef-amr14j",
+          "order": 10,
+          "code": "AMR14J",
+          "title": "Artist Rivalry",
+          "url": "https://www.codechef.com/problems/AMR14J"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Onsite Contest 2014, Replay (CodeChef)",
+          "url": "https://www.codechef.com/AMR14ROS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2015",
+      "name": "ICPC Amritapuri Regional 2015",
+      "short": "Amritapuri 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AMR15MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-amss",
+          "order": 1,
+          "code": "AMSS",
+          "title": "Similar Strings",
+          "url": "https://www.codechef.com/problems/AMSS"
+        },
+        {
+          "id": "codechef-ambday",
+          "order": 2,
+          "code": "AMBDAY",
+          "title": "Chota Mouse and his birthday cake",
+          "url": "https://www.codechef.com/problems/AMBDAY"
+        },
+        {
+          "id": "codechef-amcam",
+          "order": 3,
+          "code": "AMCAM",
+          "title": "Cat and Mouse",
+          "url": "https://www.codechef.com/problems/AMCAM"
+        },
+        {
+          "id": "codechef-ammam",
+          "order": 4,
+          "code": "AMMAM",
+          "title": "Magical Matrix",
+          "url": "https://www.codechef.com/problems/AMMAM"
+        },
+        {
+          "id": "codechef-amjmp",
+          "order": 5,
+          "code": "AMJMP",
+          "title": "Jump on Buildings",
+          "url": "https://www.codechef.com/problems/AMJMP"
+        },
+        {
+          "id": "codechef-amcas",
+          "order": 6,
+          "code": "AMCAS",
+          "title": "Circles and Squares",
+          "url": "https://www.codechef.com/problems/AMCAS"
+        },
+        {
+          "id": "codechef-amgit",
+          "order": 7,
+          "code": "AMGIT",
+          "title": "git",
+          "url": "https://www.codechef.com/problems/AMGIT"
+        },
+        {
+          "id": "codechef-amlpalin",
+          "order": 8,
+          "code": "AMLPALIN",
+          "title": "Longest Palindrome",
+          "url": "https://www.codechef.com/problems/AMLPALIN"
+        },
+        {
+          "id": "codechef-amcoins",
+          "order": 9,
+          "code": "AMCOINS",
+          "title": "COINS",
+          "url": "https://www.codechef.com/problems/AMCOINS"
+        },
+        {
+          "id": "codechef-amcop",
+          "order": 10,
+          "code": "AMCOP",
+          "title": "COPRIMES",
+          "url": "https://www.codechef.com/problems/AMCOP"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/AMR15MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2016",
+      "name": "ICPC Amritapuri Regional 2016",
+      "short": "Amritapuri 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AMR16MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-amr16a",
+          "order": 1,
+          "code": "AMR16A",
+          "title": "Tim and BSTs",
+          "url": "https://www.codechef.com/problems/AMR16A"
+        },
+        {
+          "id": "codechef-amr16b",
+          "order": 2,
+          "code": "AMR16B",
+          "title": "A Historic Discussion",
+          "url": "https://www.codechef.com/problems/AMR16B"
+        },
+        {
+          "id": "codechef-amr16c",
+          "order": 3,
+          "code": "AMR16C",
+          "title": "Influence on Social media",
+          "url": "https://www.codechef.com/problems/AMR16C"
+        },
+        {
+          "id": "codechef-amr16d",
+          "order": 4,
+          "code": "AMR16D",
+          "title": "ATM queue",
+          "url": "https://www.codechef.com/problems/AMR16D"
+        },
+        {
+          "id": "codechef-amr16f",
+          "order": 5,
+          "code": "AMR16F",
+          "title": "Notes and GPS Chips",
+          "url": "https://www.codechef.com/problems/AMR16F"
+        },
+        {
+          "id": "codechef-amr16e",
+          "order": 6,
+          "code": "AMR16E",
+          "title": "Black Money Island",
+          "url": "https://www.codechef.com/problems/AMR16E"
+        },
+        {
+          "id": "codechef-amr16h",
+          "order": 7,
+          "code": "AMR16H",
+          "title": "Netcoin Verification",
+          "url": "https://www.codechef.com/problems/AMR16H"
+        },
+        {
+          "id": "codechef-amr16g",
+          "order": 8,
+          "code": "AMR16G",
+          "title": "Hawala Arrests",
+          "url": "https://www.codechef.com/problems/AMR16G"
+        },
+        {
+          "id": "codechef-amr16i",
+          "order": 9,
+          "code": "AMR16I",
+          "title": "Mancunian Hoards Black Money",
+          "url": "https://www.codechef.com/problems/AMR16I"
+        },
+        {
+          "id": "codechef-amr16j",
+          "order": 10,
+          "code": "AMR16J",
+          "title": "Bob vs ATM",
+          "url": "https://www.codechef.com/problems/AMR16J"
+        },
+        {
+          "id": "codechef-amr16k",
+          "order": 11,
+          "code": "AMR16K",
+          "title": "Paint for Vernon",
+          "url": "https://www.codechef.com/problems/AMR16K"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Onsite Mirror Contest 2016 (CodeChef)",
+          "url": "https://www.codechef.com/AMR16MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2017",
+      "name": "ICPC Amritapuri Regional 2017",
+      "short": "Amritapuri 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AMR17ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-amdrunk",
+          "order": 1,
+          "code": "AMDRUNK",
+          "title": "Drunk Man in Large City",
+          "url": "https://www.codechef.com/problems/AMDRUNK"
+        },
+        {
+          "id": "codechef-ammagic",
+          "order": 2,
+          "code": "AMMAGIC",
+          "title": "Magic Board",
+          "url": "https://www.codechef.com/problems/AMMAGIC"
+        },
+        {
+          "id": "codechef-amraces",
+          "order": 3,
+          "code": "AMRACES",
+          "title": "Longest Races",
+          "url": "https://www.codechef.com/problems/AMRACES"
+        },
+        {
+          "id": "codechef-amboxes",
+          "order": 4,
+          "code": "AMBOXES",
+          "title": "Nested Candy Boxes",
+          "url": "https://www.codechef.com/problems/AMBOXES"
+        },
+        {
+          "id": "codechef-ampuzzle",
+          "order": 5,
+          "code": "AMPUZZLE",
+          "title": "Sliding Puzzle",
+          "url": "https://www.codechef.com/problems/AMPUZZLE"
+        },
+        {
+          "id": "codechef-crypcur",
+          "order": 6,
+          "code": "CRYPCUR",
+          "title": "Crypto Trading",
+          "url": "https://www.codechef.com/problems/CRYPCUR"
+        },
+        {
+          "id": "codechef-quadfunc",
+          "order": 7,
+          "code": "QUADFUNC",
+          "title": "Quadratic Functions",
+          "url": "https://www.codechef.com/problems/QUADFUNC"
+        },
+        {
+          "id": "codechef-laughmen",
+          "order": 8,
+          "code": "LAUGHMEN",
+          "title": "A Few Laughing Men",
+          "url": "https://www.codechef.com/problems/LAUGHMEN"
+        },
+        {
+          "id": "codechef-simppoly",
+          "order": 9,
+          "code": "SIMPPOLY",
+          "title": "A Simple Polygon",
+          "url": "https://www.codechef.com/problems/SIMPPOLY"
+        },
+        {
+          "id": "codechef-coderlif",
+          "order": 10,
+          "code": "CODERLIF",
+          "title": "Coder Life Matters",
+          "url": "https://www.codechef.com/problems/CODERLIF"
+        },
+        {
+          "id": "codechef-amlex",
+          "order": 11,
+          "code": "AMLEX",
+          "title": "Poetic word",
+          "url": "https://www.codechef.com/problems/AMLEX"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Onsite Replay Contest 2017 (CodeChef)",
+          "url": "https://www.codechef.com/AMR17ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2018",
+      "name": "ICPC Amritapuri Regional 2018",
+      "short": "Amritapuri 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AMR18ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-cntfail",
+          "order": 1,
+          "code": "CNTFAIL",
+          "title": "Magic School",
+          "url": "https://www.codechef.com/problems/CNTFAIL"
+        },
+        {
+          "id": "codechef-armyfgt",
+          "order": 2,
+          "code": "ARMYFGT",
+          "title": "Fighting Armies",
+          "url": "https://www.codechef.com/problems/ARMYFGT"
+        },
+        {
+          "id": "codechef-palpath",
+          "order": 3,
+          "code": "PALPATH",
+          "title": "Palindromic Walks",
+          "url": "https://www.codechef.com/problems/PALPATH"
+        },
+        {
+          "id": "codechef-isitcake",
+          "order": 4,
+          "code": "ISITCAKE",
+          "title": "Is it a Cakewalk Problem",
+          "url": "https://www.codechef.com/problems/ISITCAKE"
+        },
+        {
+          "id": "codechef-balsub",
+          "order": 5,
+          "code": "BALSUB",
+          "title": "D - Balanced Parenthesis Substrings",
+          "url": "https://www.codechef.com/problems/BALSUB"
+        },
+        {
+          "id": "codechef-khulja",
+          "order": 6,
+          "code": "KHULJA",
+          "title": "Alohomora",
+          "url": "https://www.codechef.com/problems/KHULJA"
+        },
+        {
+          "id": "codechef-alieninv",
+          "order": 7,
+          "code": "ALIENINV",
+          "title": "Alien Invasion",
+          "url": "https://www.codechef.com/problems/ALIENINV"
+        },
+        {
+          "id": "codechef-reforms",
+          "order": 8,
+          "code": "REFORMS",
+          "title": "Reforms, Reforms Never Change",
+          "url": "https://www.codechef.com/problems/REFORMS"
+        },
+        {
+          "id": "codechef-sauna",
+          "order": 9,
+          "code": "SAUNA",
+          "title": "Sauna Cred",
+          "url": "https://www.codechef.com/problems/SAUNA"
+        },
+        {
+          "id": "codechef-sqrect",
+          "order": 10,
+          "code": "SQRECT",
+          "title": "Square in rectangles",
+          "url": "https://www.codechef.com/problems/SQRECT"
+        },
+        {
+          "id": "codechef-alfred",
+          "order": 11,
+          "code": "ALFRED",
+          "title": "Almost Friends",
+          "url": "https://www.codechef.com/problems/ALFRED"
+        },
+        {
+          "id": "codechef-marting1",
+          "order": 12,
+          "code": "MARTING1",
+          "title": "Martingale",
+          "url": "https://www.codechef.com/problems/MARTING1"
+        },
+        {
+          "id": "codechef-avlblt",
+          "order": 13,
+          "code": "AVLBLT",
+          "title": "Availability",
+          "url": "https://www.codechef.com/problems/AVLBLT"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia - Amritapuri Site Onsite Replay Contest 2018 (CodeChef)",
+          "url": "https://www.codechef.com/AMR18ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2019",
+      "name": "ICPC Amritapuri Regional 2019",
+      "short": "Amritapuri 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "regional",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/AM19MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-usanbolt",
+          "order": 1,
+          "code": "USANBOLT",
+          "title": "Usain Bolt vs Tiger",
+          "url": "https://www.codechef.com/problems/USANBOLT"
+        },
+        {
+          "id": "codechef-polcon",
+          "order": 2,
+          "code": "POLCON",
+          "title": "Polygon Containment",
+          "url": "https://www.codechef.com/problems/POLCON"
+        },
+        {
+          "id": "codechef-colpolly",
+          "order": 3,
+          "code": "COLPOLLY",
+          "title": "What is this, a crossover episode",
+          "url": "https://www.codechef.com/problems/COLPOLLY"
+        },
+        {
+          "id": "codechef-colint",
+          "order": 4,
+          "code": "COLINT",
+          "title": "Coloring Intervals",
+          "url": "https://www.codechef.com/problems/COLINT"
+        },
+        {
+          "id": "codechef-sdiffstr",
+          "order": 5,
+          "code": "SDIFFSTR",
+          "title": "Sufficiently different string",
+          "url": "https://www.codechef.com/problems/SDIFFSTR"
+        },
+        {
+          "id": "codechef-trgrph",
+          "order": 6,
+          "code": "TRGRPH",
+          "title": "Rooted Tree Graph",
+          "url": "https://www.codechef.com/problems/TRGRPH"
+        },
+        {
+          "id": "codechef-mobcnt",
+          "order": 7,
+          "code": "MOBCNT",
+          "title": "Counting Mobiles",
+          "url": "https://www.codechef.com/AM19MOS/problems/MOBCNT"
+        },
+        {
+          "id": "codechef-mortgage",
+          "order": 8,
+          "code": "MORTGAGE",
+          "title": "Mortgage",
+          "url": "https://www.codechef.com/problems/MORTGAGE"
+        },
+        {
+          "id": "codechef-permdist",
+          "order": 9,
+          "code": "PERMDIST",
+          "title": "Permutation Distance",
+          "url": "https://www.codechef.com/problems/PERMDIST"
+        },
+        {
+          "id": "codechef-complexg",
+          "order": 10,
+          "code": "COMPLEXG",
+          "title": "A Complex Graph Problem",
+          "url": "https://www.codechef.com/problems/COMPLEXG"
+        },
+        {
+          "id": "codechef-lalalant",
+          "order": 11,
+          "code": "LALALANT",
+          "title": "The Fools Who Dream",
+          "url": "https://www.codechef.com/problems/LALALANT"
+        },
+        {
+          "id": "codechef-expcan",
+          "order": 12,
+          "code": "EXPCAN",
+          "title": "Expected Candies",
+          "url": "https://www.codechef.com/problems/EXPCAN"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia-Amritapuri Onsite Replay Contest 2019 (CodeChef)",
+          "url": "https://www.codechef.com/AM19MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-chennai-2015",
+      "name": "ICPC Chennai Regional 2015",
+      "short": "Chennai 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "regional",
+      "location": "Chennai, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/CHN15MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-chn01",
+          "order": 1,
+          "code": "CHN01",
+          "title": "Malvika conducts her own ACM-ICPC contest series",
+          "url": "https://www.codechef.com/problems/CHN01"
+        },
+        {
+          "id": "codechef-chn02",
+          "order": 2,
+          "code": "CHN02",
+          "title": "Animesh decides to settle down",
+          "url": "https://www.codechef.com/problems/CHN02"
+        },
+        {
+          "id": "codechef-chn03",
+          "order": 3,
+          "code": "CHN03",
+          "title": "Animesh practices some programming contests",
+          "url": "https://www.codechef.com/problems/CHN03"
+        },
+        {
+          "id": "codechef-chn04",
+          "order": 4,
+          "code": "CHN04",
+          "title": "Malvika gets bored along with her Cats",
+          "url": "https://www.codechef.com/problems/CHN04"
+        },
+        {
+          "id": "codechef-chn05",
+          "order": 5,
+          "code": "CHN05",
+          "title": "Malvika conducts a Programming Camp",
+          "url": "https://www.codechef.com/problems/CHN05"
+        },
+        {
+          "id": "codechef-chn06",
+          "order": 6,
+          "code": "CHN06",
+          "title": "King Animesh decides to have a voyage to the sun",
+          "url": "https://www.codechef.com/problems/CHN06"
+        },
+        {
+          "id": "codechef-chn07",
+          "order": 7,
+          "code": "CHN07",
+          "title": "Malvika and Animesh play Red-Blue cards Game",
+          "url": "https://www.codechef.com/problems/CHN07"
+        },
+        {
+          "id": "codechef-chn08",
+          "order": 8,
+          "code": "CHN08",
+          "title": "Crazy Malvika discovers Crazy Fibonacci function",
+          "url": "https://www.codechef.com/problems/CHN08"
+        },
+        {
+          "id": "codechef-chn09",
+          "order": 9,
+          "code": "CHN09",
+          "title": "Malvika is peculiar about color of balloons",
+          "url": "https://www.codechef.com/problems/CHN09"
+        },
+        {
+          "id": "codechef-chn10",
+          "order": 10,
+          "code": "CHN10",
+          "title": "Animesh does not gift Malvika on her birthday",
+          "url": "https://www.codechef.com/problems/CHN10"
+        },
+        {
+          "id": "codechef-chn11",
+          "order": 11,
+          "code": "CHN11",
+          "title": "Animesh has a war with tribal leader Malvika",
+          "url": "https://www.codechef.com/problems/CHN11"
+        },
+        {
+          "id": "codechef-chn12",
+          "order": 12,
+          "code": "CHN12",
+          "title": "Praveen falls from a tall tree",
+          "url": "https://www.codechef.com/problems/CHN12"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Chennai Onsite Mirror Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/CHN15MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-chennai-2016",
+      "name": "ICPC Chennai Regional 2016",
+      "short": "Chennai 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "regional",
+      "location": "Chennai, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/CHN16MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-chn16a",
+          "order": 1,
+          "code": "CHN16A",
+          "title": "Mancunian and Sonu Generate Strings",
+          "url": "https://www.codechef.com/problems/CHN16A"
+        },
+        {
+          "id": "codechef-chn16b",
+          "order": 2,
+          "code": "CHN16B",
+          "title": "Mancunian Candidate Master Forever",
+          "url": "https://www.codechef.com/problems/CHN16B"
+        },
+        {
+          "id": "codechef-chn16c",
+          "order": 3,
+          "code": "CHN16C",
+          "title": "Birthday Pizza Party",
+          "url": "https://www.codechef.com/problems/CHN16C"
+        },
+        {
+          "id": "codechef-chn16d",
+          "order": 4,
+          "code": "CHN16D",
+          "title": "ATM Queue",
+          "url": "https://www.codechef.com/problems/CHN16D"
+        },
+        {
+          "id": "codechef-chn16e",
+          "order": 5,
+          "code": "CHN16E",
+          "title": "Moving Clams",
+          "url": "https://www.codechef.com/problems/CHN16E"
+        },
+        {
+          "id": "codechef-chn16f",
+          "order": 6,
+          "code": "CHN16F",
+          "title": "ACM ICPC World Finals Accommodation",
+          "url": "https://www.codechef.com/problems/CHN16F"
+        },
+        {
+          "id": "codechef-chn16g",
+          "order": 7,
+          "code": "CHN16G",
+          "title": "Voting Fraud",
+          "url": "https://www.codechef.com/problems/CHN16G"
+        },
+        {
+          "id": "codechef-chn16h",
+          "order": 8,
+          "code": "CHN16H",
+          "title": "Sum and Xor",
+          "url": "https://www.codechef.com/problems/CHN16H"
+        },
+        {
+          "id": "codechef-chn16i",
+          "order": 9,
+          "code": "CHN16I",
+          "title": "Alice and Bob play Contact",
+          "url": "https://www.codechef.com/problems/CHN16I"
+        },
+        {
+          "id": "codechef-chn16j",
+          "order": 10,
+          "code": "CHN16J",
+          "title": "Kingdom of Chef",
+          "url": "https://www.codechef.com/problems/CHN16J"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Chennai Onsite Mirror Contest 2016 (CodeChef)",
+          "url": "https://www.codechef.com/CHN16MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-chennai-2017",
+      "name": "ICPC Chennai Regional 2017",
+      "short": "Chennai 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "regional",
+      "location": "Chennai, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/CHN17ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-elhidarr",
+          "order": 1,
+          "code": "ELHIDARR",
+          "title": "Find an element in hidden array",
+          "url": "https://www.codechef.com/problems/ELHIDARR"
+        },
+        {
+          "id": "codechef-deforest",
+          "order": 2,
+          "code": "DEFOREST",
+          "title": "Chef and Deforestation",
+          "url": "https://www.codechef.com/problems/DEFOREST"
+        },
+        {
+          "id": "codechef-blredset",
+          "order": 3,
+          "code": "BLREDSET",
+          "title": "Black and Red vertices of Tree",
+          "url": "https://www.codechef.com/problems/BLREDSET"
+        },
+        {
+          "id": "codechef-obexpval",
+          "order": 4,
+          "code": "OBEXPVAL",
+          "title": "Obtain Desired Expected Value",
+          "url": "https://www.codechef.com/problems/OBEXPVAL"
+        },
+        {
+          "id": "codechef-codie",
+          "order": 5,
+          "code": "CODIE",
+          "title": "Codie Bird",
+          "url": "https://www.codechef.com/problems/CODIE"
+        },
+        {
+          "id": "codechef-areafigr",
+          "order": 6,
+          "code": "AREAFIGR",
+          "title": "Area of an amazing figure",
+          "url": "https://www.codechef.com/problems/AREAFIGR"
+        },
+        {
+          "id": "codechef-mro",
+          "order": 7,
+          "code": "MRO",
+          "title": "Method Resolution Order",
+          "url": "https://www.codechef.com/problems/MRO"
+        },
+        {
+          "id": "codechef-vrtxcovr",
+          "order": 8,
+          "code": "VRTXCOVR",
+          "title": "Vertex Cover",
+          "url": "https://www.codechef.com/problems/VRTXCOVR"
+        },
+        {
+          "id": "codechef-goodbad",
+          "order": 9,
+          "code": "GOODBAD",
+          "title": "Good and Bad Persons",
+          "url": "https://www.codechef.com/problems/GOODBAD"
+        },
+        {
+          "id": "codechef-mancbst",
+          "order": 10,
+          "code": "MANCBST",
+          "title": "Chef Counts Semi-BSTs",
+          "url": "https://www.codechef.com/problems/MANCBST"
+        },
+        {
+          "id": "codechef-minstr",
+          "order": 11,
+          "code": "MINSTR",
+          "title": "Minimize the string",
+          "url": "https://www.codechef.com/problems/MINSTR"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Chennai Onsite Replay Contest 2017 (CodeChef)",
+          "url": "https://www.codechef.com/CHN17ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-gwalior-2017",
+      "name": "ICPC Gwalior Regional 2017",
+      "short": "Gwalior 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "regional",
+      "location": "Gwalior, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/GWR17ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-trichef",
+          "order": 1,
+          "code": "TRICHEF",
+          "title": "Chef and Triangles",
+          "url": "https://www.codechef.com/problems/TRICHEF"
+        },
+        {
+          "id": "codechef-qtragain",
+          "order": 2,
+          "code": "QTRAGAIN",
+          "title": "Queries on tree again",
+          "url": "https://www.codechef.com/problems/QTRAGAIN"
+        },
+        {
+          "id": "codechef-optcode",
+          "order": 3,
+          "code": "OPTCODE",
+          "title": "Optimize The Slow Code",
+          "url": "https://www.codechef.com/problems/OPTCODE"
+        },
+        {
+          "id": "codechef-coupsys",
+          "order": 4,
+          "code": "COUPSYS",
+          "title": "Coupon System",
+          "url": "https://www.codechef.com/problems/COUPSYS"
+        },
+        {
+          "id": "codechef-kaladin",
+          "order": 5,
+          "code": "KALADIN",
+          "title": "Proprietary Probabilistic Problem",
+          "url": "https://www.codechef.com/problems/KALADIN"
+        },
+        {
+          "id": "codechef-lightare",
+          "order": 6,
+          "code": "LIGHTARE",
+          "title": "Find Lighted Area",
+          "url": "https://www.codechef.com/problems/LIGHTARE"
+        },
+        {
+          "id": "codechef-talesqua",
+          "order": 7,
+          "code": "TALESQUA",
+          "title": "A Tale of Three Squares",
+          "url": "https://www.codechef.com/problems/TALESQUA"
+        },
+        {
+          "id": "codechef-taletri",
+          "order": 8,
+          "code": "TALETRI",
+          "title": "A Tale of Two Right Angled Triangles",
+          "url": "https://www.codechef.com/problems/TALETRI"
+        },
+        {
+          "id": "codechef-zubwallt",
+          "order": 9,
+          "code": "ZUBWALLT",
+          "title": "Organize The Wallet",
+          "url": "https://www.codechef.com/problems/ZUBWALLT"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Gwalior Onsite Replay Contest 2017 (CodeChef)",
+          "url": "https://www.codechef.com/GWR17ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-gwalior-2018",
+      "name": "ICPC Gwalior Regional 2018",
+      "short": "Gwalior 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "regional",
+      "location": "Gwalior, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/GWR18ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-gamofnum",
+          "order": 1,
+          "code": "GAMOFNUM",
+          "title": "Game of numbers",
+          "url": "https://www.codechef.com/problems/GAMOFNUM"
+        },
+        {
+          "id": "codechef-ngons",
+          "order": 2,
+          "code": "NGONS",
+          "title": "Flipping Polygons",
+          "url": "https://www.codechef.com/problems/NGONS"
+        },
+        {
+          "id": "codechef-polystr",
+          "order": 3,
+          "code": "POLYSTR",
+          "title": "Polygon and String",
+          "url": "https://www.codechef.com/problems/POLYSTR"
+        },
+        {
+          "id": "codechef-eosubseq",
+          "order": 4,
+          "code": "EOSUBSEQ",
+          "title": "A - Even Odd subsequences",
+          "url": "https://www.codechef.com/problems/EOSUBSEQ"
+        },
+        {
+          "id": "codechef-lifeltd",
+          "order": 5,
+          "code": "LIFELTD",
+          "title": "Life Limited",
+          "url": "https://www.codechef.com/problems/LIFELTD"
+        },
+        {
+          "id": "codechef-autocars",
+          "order": 6,
+          "code": "AUTOCARS",
+          "title": "Autonomous Cars",
+          "url": "https://www.codechef.com/problems/AUTOCARS"
+        },
+        {
+          "id": "codechef-walktree",
+          "order": 7,
+          "code": "WALKTREE",
+          "title": "Not So Random Walks",
+          "url": "https://www.codechef.com/problems/WALKTREE"
+        },
+        {
+          "id": "codechef-siruseri",
+          "order": 8,
+          "code": "SIRUSERI",
+          "title": "Siruseri Gerrymandering",
+          "url": "https://www.codechef.com/problems/SIRUSERI"
+        },
+        {
+          "id": "codechef-captbird",
+          "order": 9,
+          "code": "CAPTBIRD",
+          "title": "Capturing Bird in A Camera",
+          "url": "https://www.codechef.com/problems/CAPTBIRD"
+        },
+        {
+          "id": "codechef-thstrs",
+          "order": 10,
+          "code": "THSTRS",
+          "title": "Three Strings",
+          "url": "https://www.codechef.com/problems/THSTRS"
+        },
+        {
+          "id": "codechef-prefnum",
+          "order": 11,
+          "code": "PREFNUM",
+          "title": "Prefix Numbers",
+          "url": "https://www.codechef.com/problems/PREFNUM"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia: Gwalior-Pune Onsite Replay Contest 2018 (CodeChef)",
+          "url": "https://www.codechef.com/GWR18ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-gwalior-2019",
+      "name": "ICPC Gwalior Regional 2019",
+      "short": "Gwalior 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "regional",
+      "location": "Gwalior, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/GW19MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-guessmid",
+          "order": 1,
+          "code": "GUESSMID",
+          "title": "Guess the Middle",
+          "url": "https://www.codechef.com/problems/GUESSMID"
+        },
+        {
+          "id": "codechef-invsack",
+          "order": 2,
+          "code": "INVSACK",
+          "title": "Inverse Knapsack",
+          "url": "https://www.codechef.com/problems/INVSACK"
+        },
+        {
+          "id": "codechef-transact",
+          "order": 3,
+          "code": "TRANSACT",
+          "title": "Inequality Reduction",
+          "url": "https://www.codechef.com/problems/TRANSACT"
+        },
+        {
+          "id": "codechef-binpalin",
+          "order": 4,
+          "code": "BINPALIN",
+          "title": "Binary Palindrome",
+          "url": "https://www.codechef.com/problems/BINPALIN"
+        },
+        {
+          "id": "codechef-dicities",
+          "order": 5,
+          "code": "DICITIES",
+          "title": "Disconnecting Cities",
+          "url": "https://www.codechef.com/problems/DICITIES"
+        },
+        {
+          "id": "codechef-unbal",
+          "order": 6,
+          "code": "UNBAL",
+          "title": "Yet Another Balanced Parenthesis Problem",
+          "url": "https://www.codechef.com/problems/UNBAL"
+        },
+        {
+          "id": "codechef-smtour",
+          "order": 7,
+          "code": "SMTOUR",
+          "title": "F - Beautiful Walk",
+          "url": "https://www.codechef.com/problems/SMTOUR"
+        },
+        {
+          "id": "codechef-trgame",
+          "order": 8,
+          "code": "TRGAME",
+          "title": "Game on Tree",
+          "url": "https://www.codechef.com/problems/TRGAME"
+        },
+        {
+          "id": "codechef-telnet",
+          "order": 9,
+          "code": "TELNET",
+          "title": "Telephone Network",
+          "url": "https://www.codechef.com/problems/TELNET"
+        },
+        {
+          "id": "codechef-earea",
+          "order": 10,
+          "code": "EAREA",
+          "title": "Expected Area",
+          "url": "https://www.codechef.com/problems/EAREA"
+        },
+        {
+          "id": "codechef-meanprob",
+          "order": 11,
+          "code": "MEANPROB",
+          "title": "Mean Problem",
+          "url": "https://www.codechef.com/problems/MEANPROB"
+        },
+        {
+          "id": "codechef-saferobo",
+          "order": 12,
+          "code": "SAFEROBO",
+          "title": "Safe Robots",
+          "url": "https://www.codechef.com/problems/SAFEROBO"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia-Gwalior- Pune Onsite Replay Contest 2019 (CodeChef)",
+          "url": "https://www.codechef.com/GW19MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2013",
+      "name": "ICPC Kanpur Regional 2013",
+      "short": "Kanpur 13",
+      "family": "icpc",
+      "season": "2013-2014",
+      "stage": "regional",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KAN13ACM"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kan13a",
+          "order": 1,
+          "code": "KAN13A",
+          "title": "Hard Disk",
+          "url": "https://www.codechef.com/problems/KAN13A"
+        },
+        {
+          "id": "codechef-kan13b",
+          "order": 2,
+          "code": "KAN13B",
+          "title": "Walking Path",
+          "url": "https://www.codechef.com/problems/KAN13B"
+        },
+        {
+          "id": "codechef-kan13c",
+          "order": 3,
+          "code": "KAN13C",
+          "title": "Rich Rhyme",
+          "url": "https://www.codechef.com/problems/KAN13C"
+        },
+        {
+          "id": "codechef-kan13d",
+          "order": 4,
+          "code": "KAN13D",
+          "title": "Family of Recurrences",
+          "url": "https://www.codechef.com/problems/KAN13D"
+        },
+        {
+          "id": "codechef-kan13e",
+          "order": 5,
+          "code": "KAN13E",
+          "title": "Chocolate Division",
+          "url": "https://www.codechef.com/problems/KAN13E"
+        },
+        {
+          "id": "codechef-kan13f",
+          "order": 6,
+          "code": "KAN13F",
+          "title": "Merging Files",
+          "url": "https://www.codechef.com/problems/KAN13F"
+        },
+        {
+          "id": "codechef-kan13g",
+          "order": 7,
+          "code": "KAN13G",
+          "title": "Changing Money",
+          "url": "https://www.codechef.com/problems/KAN13G"
+        },
+        {
+          "id": "codechef-kan13h",
+          "order": 8,
+          "code": "KAN13H",
+          "title": "Multi-Peg Tower of Hanoi",
+          "url": "https://www.codechef.com/problems/KAN13H"
+        },
+        {
+          "id": "codechef-kan13i",
+          "order": 9,
+          "code": "KAN13I",
+          "title": "Rewarding the Priests",
+          "url": "https://www.codechef.com/problems/KAN13I"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Kanpur onsite regionals 2013 : Replay (CodeChef)",
+          "url": "https://www.codechef.com/KAN13ACM",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2014",
+      "name": "ICPC Kanpur Regional 2014",
+      "short": "Kanpur 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "regional",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KAN14ROS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kan15rta",
+          "order": 1,
+          "code": "KAN15RTA",
+          "title": "King test to his sons",
+          "url": "https://www.codechef.com/problems/KAN15RTA"
+        },
+        {
+          "id": "codechef-kan15rtb",
+          "order": 2,
+          "code": "KAN15RTB",
+          "title": "Accommodating tribal clans",
+          "url": "https://www.codechef.com/problems/KAN15RTB"
+        },
+        {
+          "id": "codechef-kan15rtc",
+          "order": 3,
+          "code": "KAN15RTC",
+          "title": "Securing Florence",
+          "url": "https://www.codechef.com/problems/KAN15RTC"
+        },
+        {
+          "id": "codechef-kan15rtd",
+          "order": 4,
+          "code": "KAN15RTD",
+          "title": "Save the kids",
+          "url": "https://www.codechef.com/problems/KAN15RTD"
+        },
+        {
+          "id": "codechef-kan15rte",
+          "order": 5,
+          "code": "KAN15RTE",
+          "title": "Picking Da Vinci successor",
+          "url": "https://www.codechef.com/problems/KAN15RTE"
+        },
+        {
+          "id": "codechef-kan15rtf",
+          "order": 6,
+          "code": "KAN15RTF",
+          "title": "Connecting Army Troops",
+          "url": "https://www.codechef.com/problems/KAN15RTF"
+        },
+        {
+          "id": "codechef-kan15rtg",
+          "order": 7,
+          "code": "KAN15RTG",
+          "title": "Edit Distance Revisited",
+          "url": "https://www.codechef.com/problems/KAN15RTG"
+        },
+        {
+          "id": "codechef-kan15rth",
+          "order": 8,
+          "code": "KAN15RTH",
+          "title": "Displaying Da Vinci work",
+          "url": "https://www.codechef.com/problems/KAN15RTH"
+        },
+        {
+          "id": "codechef-kan15rtk",
+          "order": 9,
+          "code": "KAN15RTK",
+          "title": "Unlock Secrets or Leonardo",
+          "url": "https://www.codechef.com/problems/KAN15RTK"
+        },
+        {
+          "id": "codechef-kan15rti",
+          "order": 10,
+          "code": "KAN15RTI",
+          "title": "Teaching binary to a child",
+          "url": "https://www.codechef.com/problems/KAN15RTI"
+        },
+        {
+          "id": "codechef-kan15rtj",
+          "order": 11,
+          "code": "KAN15RTJ",
+          "title": "Handling the explosives",
+          "url": "https://www.codechef.com/problems/KAN15RTJ"
+        },
+        {
+          "id": "codechef-kan15rtl",
+          "order": 12,
+          "code": "KAN15RTL",
+          "title": "Finding Identity Integers",
+          "url": "https://www.codechef.com/problems/KAN15RTL"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Onsite Contest 2014, Replay (CodeChef)",
+          "url": "https://www.codechef.com/KAN14ROS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2019",
+      "name": "ICPC Kanpur Regional 2019",
+      "short": "Kanpur 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "regional",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KA19MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-arrqry",
+          "order": 1,
+          "code": "ARRQRY",
+          "title": "Convolution",
+          "url": "https://www.codechef.com/problems/ARRQRY"
+        },
+        {
+          "id": "codechef-beauar",
+          "order": 2,
+          "code": "BEAUAR",
+          "title": "Beauty and The Array",
+          "url": "https://www.codechef.com/problems/BEAUAR"
+        },
+        {
+          "id": "codechef-gvaway",
+          "order": 3,
+          "code": "GVAWAY",
+          "title": "Is This a Give Away",
+          "url": "https://www.codechef.com/problems/GVAWAY"
+        },
+        {
+          "id": "codechef-lndnck",
+          "order": 4,
+          "code": "LNDNCK",
+          "title": "Nicks Landing",
+          "url": "https://www.codechef.com/problems/LNDNCK"
+        },
+        {
+          "id": "codechef-wgtnklc",
+          "order": 5,
+          "code": "WGTNKLC",
+          "title": "Weighted Necklace",
+          "url": "https://www.codechef.com/problems/WGTNKLC"
+        },
+        {
+          "id": "codechef-prmprt",
+          "order": 6,
+          "code": "PRMPRT",
+          "title": "B - Prime-partite Graph",
+          "url": "https://www.codechef.com/problems/PRMPRT"
+        },
+        {
+          "id": "codechef-fcipl",
+          "order": 7,
+          "code": "FCIPL",
+          "title": "IPL Begins",
+          "url": "https://www.codechef.com/problems/FCIPL"
+        },
+        {
+          "id": "codechef-mindist",
+          "order": 8,
+          "code": "MINDIST",
+          "title": "Minimize the Distance",
+          "url": "https://www.codechef.com/problems/MINDIST"
+        },
+        {
+          "id": "codechef-walk4",
+          "order": 9,
+          "code": "WALK4",
+          "title": "Walk 4 steps",
+          "url": "https://www.codechef.com/problems/WALK4"
+        },
+        {
+          "id": "codechef-kprb",
+          "order": 10,
+          "code": "KPRB",
+          "title": "K-Prob",
+          "url": "https://www.codechef.com/problems/KPRB"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia-Kanpur Onsite Replay Contest 2019 (CodeChef)",
+          "url": "https://www.codechef.com/KA19MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2013",
+      "name": "ICPC Kharagpur Regional 2013",
+      "short": "Kharagpur 13",
+      "family": "icpc",
+      "season": "2013-2014",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KGP13ACM"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kgp13a",
+          "order": 1,
+          "code": "KGP13A",
+          "title": "Election Campaign",
+          "url": "https://www.codechef.com/problems/KGP13A"
+        },
+        {
+          "id": "codechef-kgp13b",
+          "order": 2,
+          "code": "KGP13B",
+          "title": "Olympic Village",
+          "url": "https://www.codechef.com/problems/KGP13B"
+        },
+        {
+          "id": "codechef-kgp13c",
+          "order": 3,
+          "code": "KGP13C",
+          "title": "Stairway Reduction",
+          "url": "https://www.codechef.com/problems/KGP13C"
+        },
+        {
+          "id": "codechef-kgp13d",
+          "order": 4,
+          "code": "KGP13D",
+          "title": "Building Township",
+          "url": "https://www.codechef.com/problems/KGP13D"
+        },
+        {
+          "id": "codechef-kgp13e",
+          "order": 5,
+          "code": "KGP13E",
+          "title": "One-Way Roads",
+          "url": "https://www.codechef.com/problems/KGP13E"
+        },
+        {
+          "id": "codechef-kgp13f",
+          "order": 6,
+          "code": "KGP13F",
+          "title": "Ant Colony",
+          "url": "https://www.codechef.com/problems/KGP13F"
+        },
+        {
+          "id": "codechef-kgp13g",
+          "order": 7,
+          "code": "KGP13G",
+          "title": "Message Coding",
+          "url": "https://www.codechef.com/problems/KGP13G"
+        },
+        {
+          "id": "codechef-kgp13h",
+          "order": 8,
+          "code": "KGP13H",
+          "title": "Toy Exchange",
+          "url": "https://www.codechef.com/problems/KGP13H"
+        },
+        {
+          "id": "codechef-kgp13i",
+          "order": 9,
+          "code": "KGP13I",
+          "title": "Sequence Alignment",
+          "url": "https://www.codechef.com/problems/KGP13I"
+        },
+        {
+          "id": "codechef-kgp13j",
+          "order": 10,
+          "code": "KGP13J",
+          "title": "Nomad Camp",
+          "url": "https://www.codechef.com/problems/KGP13J"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Kharagpur onsite regionals 2013 : Replay (CodeChef)",
+          "url": "https://www.codechef.com/KGP13ACM",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2014",
+      "name": "ICPC Kharagpur Regional 2014",
+      "short": "Kharagpur 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KGP14ROS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kgp14a",
+          "order": 1,
+          "code": "KGP14A",
+          "title": "Drawing Contest",
+          "url": "https://www.codechef.com/problems/KGP14A"
+        },
+        {
+          "id": "codechef-kgp14b",
+          "order": 2,
+          "code": "KGP14B",
+          "title": "Sequence Containment",
+          "url": "https://www.codechef.com/problems/KGP14B"
+        },
+        {
+          "id": "codechef-kgp14c",
+          "order": 3,
+          "code": "KGP14C",
+          "title": "Kings Dinner",
+          "url": "https://www.codechef.com/problems/KGP14C"
+        },
+        {
+          "id": "codechef-kgp14d",
+          "order": 4,
+          "code": "KGP14D",
+          "title": "Interview Scheduling",
+          "url": "https://www.codechef.com/problems/KGP14D"
+        },
+        {
+          "id": "codechef-kgp14e",
+          "order": 5,
+          "code": "KGP14E",
+          "title": "Robot Movement",
+          "url": "https://www.codechef.com/problems/KGP14E"
+        },
+        {
+          "id": "codechef-kgp14f",
+          "order": 6,
+          "code": "KGP14F",
+          "title": "BlindDate Contest",
+          "url": "https://www.codechef.com/problems/KGP14F"
+        },
+        {
+          "id": "codechef-kgp14g",
+          "order": 7,
+          "code": "KGP14G",
+          "title": "Tour Planning",
+          "url": "https://www.codechef.com/problems/KGP14G"
+        },
+        {
+          "id": "codechef-kgp14h",
+          "order": 8,
+          "code": "KGP14H",
+          "title": "Pilgrimage",
+          "url": "https://www.codechef.com/problems/KGP14H"
+        },
+        {
+          "id": "codechef-kgp14i",
+          "order": 9,
+          "code": "KGP14I",
+          "title": "Irrigating Farms",
+          "url": "https://www.codechef.com/problems/KGP14I"
+        },
+        {
+          "id": "codechef-kgp14j",
+          "order": 10,
+          "code": "KGP14J",
+          "title": "Finding Exponent",
+          "url": "https://www.codechef.com/problems/KGP14J"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Onsite Contest 2014, Replay (CodeChef)",
+          "url": "https://www.codechef.com/KGP14ROS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2016",
+      "name": "ICPC Kharagpur Regional 2016",
+      "short": "Kharagpur 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KGP16MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kgp16a",
+          "order": 1,
+          "code": "KGP16A",
+          "title": "Finding Seats",
+          "url": "https://www.codechef.com/problems/KGP16A"
+        },
+        {
+          "id": "codechef-kgp16b",
+          "order": 2,
+          "code": "KGP16B",
+          "title": "Path by a Castle",
+          "url": "https://www.codechef.com/problems/KGP16B"
+        },
+        {
+          "id": "codechef-kgp16c",
+          "order": 3,
+          "code": "KGP16C",
+          "title": "Timestamps",
+          "url": "https://www.codechef.com/problems/KGP16C"
+        },
+        {
+          "id": "codechef-kgp16d",
+          "order": 4,
+          "code": "KGP16D",
+          "title": "Sweet Shops of Kolkata",
+          "url": "https://www.codechef.com/problems/KGP16D"
+        },
+        {
+          "id": "codechef-kgp16e",
+          "order": 5,
+          "code": "KGP16E",
+          "title": "Coal mines of Kharagpur",
+          "url": "https://www.codechef.com/problems/KGP16E"
+        },
+        {
+          "id": "codechef-kgp16f",
+          "order": 6,
+          "code": "KGP16F",
+          "title": "Optimal Partition",
+          "url": "https://www.codechef.com/problems/KGP16F"
+        },
+        {
+          "id": "codechef-kgp16g",
+          "order": 7,
+          "code": "KGP16G",
+          "title": "Painting a Town",
+          "url": "https://www.codechef.com/problems/KGP16G"
+        },
+        {
+          "id": "codechef-kgp16h",
+          "order": 8,
+          "code": "KGP16H",
+          "title": "Coal Mafia and Toll Tax",
+          "url": "https://www.codechef.com/problems/KGP16H"
+        },
+        {
+          "id": "codechef-kgp16i",
+          "order": 9,
+          "code": "KGP16I",
+          "title": "Monetize Mania",
+          "url": "https://www.codechef.com/problems/KGP16I"
+        },
+        {
+          "id": "codechef-kgp16j",
+          "order": 10,
+          "code": "KGP16J",
+          "title": "Bus Routes",
+          "url": "https://www.codechef.com/problems/KGP16J"
+        },
+        {
+          "id": "codechef-kgp16k",
+          "order": 11,
+          "code": "KGP16K",
+          "title": "Cookie Flavors",
+          "url": "https://www.codechef.com/problems/KGP16K"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Onsite Mirror Contest 2016 (CodeChef)",
+          "url": "https://www.codechef.com/KGP16MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2017",
+      "name": "ICPC Kharagpur Regional 2017",
+      "short": "Kharagpur 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KGP17ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-sciencef",
+          "order": 1,
+          "code": "SCIENCEF",
+          "title": "Science Fair",
+          "url": "https://www.codechef.com/problems/SCIENCEF"
+        },
+        {
+          "id": "codechef-discarea",
+          "order": 2,
+          "code": "DISCAREA",
+          "title": "Black Discs",
+          "url": "https://www.codechef.com/problems/DISCAREA"
+        },
+        {
+          "id": "codechef-strlbp",
+          "order": 3,
+          "code": "STRLBP",
+          "title": "Uniform Strings",
+          "url": "https://www.codechef.com/problems/STRLBP"
+        },
+        {
+          "id": "codechef-sadq",
+          "order": 4,
+          "code": "SADQ",
+          "title": "SAD Queries",
+          "url": "https://www.codechef.com/problems/SADQ"
+        },
+        {
+          "id": "codechef-taxiturn",
+          "order": 5,
+          "code": "TAXITURN",
+          "title": "Taxi Making Sharp Turns",
+          "url": "https://www.codechef.com/problems/TAXITURN"
+        },
+        {
+          "id": "codechef-spamclas",
+          "order": 6,
+          "code": "SPAMCLAS",
+          "title": "Spam Classification Using Neural Net",
+          "url": "https://www.codechef.com/problems/SPAMCLAS"
+        },
+        {
+          "id": "codechef-nonovseg",
+          "order": 7,
+          "code": "NONOVSEG",
+          "title": "Non Overlapping Segments",
+          "url": "https://www.codechef.com/problems/NONOVSEG"
+        },
+        {
+          "id": "codechef-spantree",
+          "order": 8,
+          "code": "SPANTREE",
+          "title": "Spanning Tree",
+          "url": "https://www.codechef.com/problems/SPANTREE"
+        },
+        {
+          "id": "codechef-genperm",
+          "order": 9,
+          "code": "GENPERM",
+          "title": "Generating A Permutation",
+          "url": "https://www.codechef.com/problems/GENPERM"
+        },
+        {
+          "id": "codechef-numbgame",
+          "order": 10,
+          "code": "NUMBGAME",
+          "title": "Number Game",
+          "url": "https://www.codechef.com/problems/NUMBGAME"
+        },
+        {
+          "id": "codechef-xorquery",
+          "order": 11,
+          "code": "XORQUERY",
+          "title": "Chef and XOR Queries",
+          "url": "https://www.codechef.com/problems/XORQUERY"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Onsite Replay Contest 2017 (CodeChef)",
+          "url": "https://www.codechef.com/KGP17ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2018",
+      "name": "ICPC Kharagpur Regional 2018",
+      "short": "Kharagpur 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KGP18ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-infdiv",
+          "order": 1,
+          "code": "INFDIV",
+          "title": "E - Make it Zero",
+          "url": "https://www.codechef.com/KGP18ROL/problems/INFDIV"
+        },
+        {
+          "id": "codechef-mafiasyn",
+          "order": 2,
+          "code": "MAFIASYN",
+          "title": "Mafia Syndicate",
+          "url": "https://www.codechef.com/problems/MAFIASYN"
+        },
+        {
+          "id": "codechef-sqrtri",
+          "order": 3,
+          "code": "SQRTRI",
+          "title": "A Triangle and Two Squares",
+          "url": "https://www.codechef.com/problems/SQRTRI"
+        },
+        {
+          "id": "codechef-periodcn",
+          "order": 4,
+          "code": "PERIODCN",
+          "title": "Count Periodic Numbers",
+          "url": "https://www.codechef.com/problems/PERIODCN"
+        },
+        {
+          "id": "codechef-playpian",
+          "order": 5,
+          "code": "PLAYPIAN",
+          "title": "Play Piano",
+          "url": "https://www.codechef.com/problems/PLAYPIAN"
+        },
+        {
+          "id": "codechef-bingame",
+          "order": 6,
+          "code": "BINGAME",
+          "title": "1-2 Game",
+          "url": "https://www.codechef.com/problems/BINGAME"
+        },
+        {
+          "id": "codechef-sortalgo",
+          "order": 7,
+          "code": "SORTALGO",
+          "title": "Pseudo Sorting Algorithm",
+          "url": "https://www.codechef.com/problems/SORTALGO"
+        },
+        {
+          "id": "codechef-nomatch",
+          "order": 8,
+          "code": "NOMATCH",
+          "title": "Maximise the Sum",
+          "url": "https://www.codechef.com/problems/NOMATCH"
+        },
+        {
+          "id": "codechef-subsumx",
+          "order": 9,
+          "code": "SUBSUMX",
+          "title": "Subset Sums Revisited",
+          "url": "https://www.codechef.com/problems/SUBSUMX"
+        },
+        {
+          "id": "codechef-vastlife",
+          "order": 10,
+          "code": "VASTLIFE",
+          "title": "Another Game of Life",
+          "url": "https://www.codechef.com/problems/VASTLIFE"
+        },
+        {
+          "id": "codechef-politri",
+          "order": 11,
+          "code": "POLITRI",
+          "title": "Points, Lines, Triangles and Graphs",
+          "url": "https://www.codechef.com/problems/POLITRI"
+        },
+        {
+          "id": "codechef-graphand",
+          "order": 12,
+          "code": "GRAPHAND",
+          "title": "AND on Graph",
+          "url": "https://www.codechef.com/problems/GRAPHAND"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia-Kharagpur Onsite Replay Contest 2018 (CodeChef)",
+          "url": "https://www.codechef.com/KGP18ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2019",
+      "name": "ICPC Kharagpur Regional 2019",
+      "short": "Kharagpur 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "regional",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KH19MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-ballcol",
+          "order": 1,
+          "code": "BALLCOL",
+          "title": "Colliding Balls",
+          "url": "https://www.codechef.com/problems/BALLCOL"
+        },
+        {
+          "id": "codechef-graphcon",
+          "order": 2,
+          "code": "GRAPHCON",
+          "title": "Special Graph Construction",
+          "url": "https://www.codechef.com/problems/GRAPHCON"
+        },
+        {
+          "id": "codechef-varmin",
+          "order": 3,
+          "code": "VARMIN",
+          "title": "Minimum Variance",
+          "url": "https://www.codechef.com/problems/VARMIN"
+        },
+        {
+          "id": "codechef-ballsum",
+          "order": 4,
+          "code": "BALLSUM",
+          "title": "Colorful Balloons",
+          "url": "https://www.codechef.com/problems/BALLSUM"
+        },
+        {
+          "id": "codechef-awkmini",
+          "order": 5,
+          "code": "AWKMINI",
+          "title": "Awkwardness Minimization",
+          "url": "https://www.codechef.com/problems/AWKMINI"
+        },
+        {
+          "id": "codechef-recarr",
+          "order": 6,
+          "code": "RECARR",
+          "title": "C - Recover Array",
+          "url": "https://www.codechef.com/problems/RECARR"
+        },
+        {
+          "id": "codechef-walkfast",
+          "order": 7,
+          "code": "WALKFAST",
+          "title": "Train or Walk",
+          "url": "https://www.codechef.com/problems/WALKFAST"
+        },
+        {
+          "id": "codechef-segdir2",
+          "order": 8,
+          "code": "SEGDIR2",
+          "title": "Direct Segments",
+          "url": "https://www.codechef.com/problems/SEGDIR2"
+        },
+        {
+          "id": "codechef-submatch",
+          "order": 9,
+          "code": "SUBMATCH",
+          "title": "Substring Matching",
+          "url": "https://www.codechef.com/problems/SUBMATCH"
+        },
+        {
+          "id": "codechef-maxdiver",
+          "order": 10,
+          "code": "MAXDIVER",
+          "title": "Maximize Diversity of an Array",
+          "url": "https://www.codechef.com/problems/MAXDIVER"
+        },
+        {
+          "id": "codechef-randid",
+          "order": 11,
+          "code": "RANDID",
+          "title": "Chef and Diamonds",
+          "url": "https://www.codechef.com/problems/RANDID"
+        },
+        {
+          "id": "codechef-anajobs",
+          "order": 12,
+          "code": "ANAJOBS",
+          "title": "Analytics Load Jobs",
+          "url": "https://www.codechef.com/problems/ANAJOBS"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia-Kharagpur Onsite Mirror Contest 2019 (CodeChef)",
+          "url": "https://www.codechef.com/KH19MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kolkata-2015",
+      "name": "ICPC Kolkata Regional 2015",
+      "short": "Kolkata 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "regional",
+      "location": "Kolkata, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KOL15MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kol1501",
+          "order": 1,
+          "code": "KOL1501",
+          "title": "In a planet far far away",
+          "url": "https://www.codechef.com/problems/KOL1501"
+        },
+        {
+          "id": "codechef-kol1502",
+          "order": 2,
+          "code": "KOL1502",
+          "title": "The Christmas Gift",
+          "url": "https://www.codechef.com/problems/KOL1502"
+        },
+        {
+          "id": "codechef-kol1503",
+          "order": 3,
+          "code": "KOL1503",
+          "title": "The Parenthesis Tree",
+          "url": "https://www.codechef.com/problems/KOL1503"
+        },
+        {
+          "id": "codechef-kol1504",
+          "order": 4,
+          "code": "KOL1504",
+          "title": "The making of a cake",
+          "url": "https://www.codechef.com/problems/KOL1504"
+        },
+        {
+          "id": "codechef-kol1505",
+          "order": 5,
+          "code": "KOL1505",
+          "title": "Jalebi Bai and Decks of Sweets",
+          "url": "https://www.codechef.com/problems/KOL1505"
+        },
+        {
+          "id": "codechef-kol1506",
+          "order": 6,
+          "code": "KOL1506",
+          "title": "Samosa Bhai and his Courier Company",
+          "url": "https://www.codechef.com/problems/KOL1506"
+        },
+        {
+          "id": "codechef-kol1507",
+          "order": 7,
+          "code": "KOL1507",
+          "title": "The Christmas Cookies",
+          "url": "https://www.codechef.com/problems/KOL1507"
+        },
+        {
+          "id": "codechef-kol1508",
+          "order": 8,
+          "code": "KOL1508",
+          "title": "Antichains",
+          "url": "https://www.codechef.com/problems/KOL1508"
+        },
+        {
+          "id": "codechef-kol1509",
+          "order": 9,
+          "code": "KOL1509",
+          "title": "Save The Trees",
+          "url": "https://www.codechef.com/problems/KOL1509"
+        },
+        {
+          "id": "codechef-kol1510",
+          "order": 10,
+          "code": "KOL1510",
+          "title": "The Revenge of Jalebi Bai",
+          "url": "https://www.codechef.com/problems/KOL1510"
+        },
+        {
+          "id": "codechef-kol1511",
+          "order": 11,
+          "code": "KOL1511",
+          "title": "Wait for it",
+          "url": "https://www.codechef.com/problems/KOL1511"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kolkata Onsite Mirror Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/KOL15MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kolkata-2016",
+      "name": "ICPC Kolkata Regional 2016",
+      "short": "Kolkata 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "regional",
+      "location": "Kolkata, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KOL16MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kol16a",
+          "order": 1,
+          "code": "KOL16A",
+          "title": "Playing World War II",
+          "url": "https://www.codechef.com/problems/KOL16A"
+        },
+        {
+          "id": "codechef-kol16b",
+          "order": 2,
+          "code": "KOL16B",
+          "title": "Extreme Encoding",
+          "url": "https://www.codechef.com/problems/KOL16B"
+        },
+        {
+          "id": "codechef-kol16c",
+          "order": 3,
+          "code": "KOL16C",
+          "title": "Zeroes VII",
+          "url": "https://www.codechef.com/problems/KOL16C"
+        },
+        {
+          "id": "codechef-kol16d",
+          "order": 4,
+          "code": "KOL16D",
+          "title": "Men and Horses",
+          "url": "https://www.codechef.com/problems/KOL16D"
+        },
+        {
+          "id": "codechef-kol16e",
+          "order": 5,
+          "code": "KOL16E",
+          "title": "Divide Me Please",
+          "url": "https://www.codechef.com/problems/KOL16E"
+        },
+        {
+          "id": "codechef-kol16f",
+          "order": 6,
+          "code": "KOL16F",
+          "title": "Precious Stones",
+          "url": "https://www.codechef.com/problems/KOL16F"
+        },
+        {
+          "id": "codechef-kol16g",
+          "order": 7,
+          "code": "KOL16G",
+          "title": "Optimal use of Nuclear Power plant ",
+          "url": "https://www.codechef.com/problems/KOL16G"
+        },
+        {
+          "id": "codechef-kol16h",
+          "order": 8,
+          "code": "KOL16H",
+          "title": "Mr Wireless",
+          "url": "https://www.codechef.com/problems/KOL16H"
+        },
+        {
+          "id": "codechef-kol16i",
+          "order": 9,
+          "code": "KOL16I",
+          "title": "Roads",
+          "url": "https://www.codechef.com/problems/KOL16I"
+        },
+        {
+          "id": "codechef-kol16j",
+          "order": 10,
+          "code": "KOL16J",
+          "title": "Quentin Tarantino",
+          "url": "https://www.codechef.com/problems/KOL16J"
+        },
+        {
+          "id": "codechef-kol16k",
+          "order": 11,
+          "code": "KOL16K",
+          "title": "Chef and Points",
+          "url": "https://www.codechef.com/problems/KOL16K"
+        },
+        {
+          "id": "codechef-kol16l",
+          "order": 12,
+          "code": "KOL16L",
+          "title": "Optimal BST Revisited",
+          "url": "https://www.codechef.com/problems/KOL16L"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kolkata Onsite Mirror Contest 2016 (CodeChef)",
+          "url": "https://www.codechef.com/KOL16MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kolkata-2017",
+      "name": "ICPC Kolkata Regional 2017",
+      "short": "Kolkata 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "regional",
+      "location": "Kolkata, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KOL17ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-zubreach",
+          "order": 1,
+          "code": "ZUBREACH",
+          "title": "J - Reached Safely Or Not",
+          "url": "https://www.codechef.com/problems/ZUBREACH"
+        },
+        {
+          "id": "codechef-zubrider",
+          "order": 2,
+          "code": "ZUBRIDER",
+          "title": "C - Club of Riders",
+          "url": "https://www.codechef.com/problems/ZUBRIDER"
+        },
+        {
+          "id": "codechef-zubpassr",
+          "order": 3,
+          "code": "ZUBPASSR",
+          "title": "E - Password Riddle",
+          "url": "https://www.codechef.com/problems/ZUBPASSR"
+        },
+        {
+          "id": "codechef-zubgold",
+          "order": 4,
+          "code": "ZUBGOLD",
+          "title": "B - Get The Gold",
+          "url": "https://www.codechef.com/problems/ZUBGOLD"
+        },
+        {
+          "id": "codechef-zubhtree",
+          "order": 5,
+          "code": "ZUBHTREE",
+          "title": "F - Huge Number of Trees",
+          "url": "https://www.codechef.com/problems/ZUBHTREE"
+        },
+        {
+          "id": "codechef-zubapcnt",
+          "order": 6,
+          "code": "ZUBAPCNT",
+          "title": "A - Appearance Count",
+          "url": "https://www.codechef.com/problems/ZUBAPCNT"
+        },
+        {
+          "id": "codechef-zubsecrt",
+          "order": 7,
+          "code": "ZUBSECRT",
+          "title": "I - Secrets",
+          "url": "https://www.codechef.com/problems/ZUBSECRT"
+        },
+        {
+          "id": "codechef-zubtrcnt",
+          "order": 8,
+          "code": "ZUBTRCNT",
+          "title": "D - Triangle Count",
+          "url": "https://www.codechef.com/problems/ZUBTRCNT"
+        },
+        {
+          "id": "codechef-zubpalk",
+          "order": 9,
+          "code": "ZUBPALK",
+          "title": "G - Palace of King",
+          "url": "https://www.codechef.com/problems/ZUBPALK"
+        },
+        {
+          "id": "codechef-zubspoil",
+          "order": 10,
+          "code": "ZUBSPOIL",
+          "title": "H - Unpredictable Array",
+          "url": "https://www.codechef.com/problems/ZUBSPOIL"
+        },
+        {
+          "id": "codechef-rawpower",
+          "order": 11,
+          "code": "RAWPOWER",
+          "title": "K - Raw Power",
+          "url": "https://www.codechef.com/problems/RAWPOWER"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia Kolkata-Kanpur Onsite Replay Contest 2017 (CodeChef)",
+          "url": "https://www.codechef.com/KOL17ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kolkata-2018",
+      "name": "ICPC Kolkata Regional 2018",
+      "short": "Kolkata 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "regional",
+      "location": "Kolkata, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/KOL18ROL"
+      ],
+      "problems": [
+        {
+          "id": "codechef-mulhanoi",
+          "order": 1,
+          "code": "MULHANOI",
+          "title": "Again Multi-Peg Tower of Hanoi",
+          "url": "https://www.codechef.com/problems/MULHANOI"
+        },
+        {
+          "id": "codechef-beaukono",
+          "order": 2,
+          "code": "BEAUKONO",
+          "title": "Beauty of Konoha",
+          "url": "https://www.codechef.com/problems/BEAUKONO"
+        },
+        {
+          "id": "codechef-bucketwa",
+          "order": 3,
+          "code": "BUCKETWA",
+          "title": "Get a Bucket of Water",
+          "url": "https://www.codechef.com/problems/BUCKETWA"
+        },
+        {
+          "id": "codechef-snowman",
+          "order": 4,
+          "code": "SNOWMAN",
+          "title": "Do You Want to Build a Snowman",
+          "url": "https://www.codechef.com/problems/SNOWMAN"
+        },
+        {
+          "id": "codechef-readcost",
+          "order": 5,
+          "code": "READCOST",
+          "title": "What is the Cost of Reading",
+          "url": "https://www.codechef.com/problems/READCOST"
+        },
+        {
+          "id": "codechef-josephus",
+          "order": 6,
+          "code": "JOSEPHUS",
+          "title": "Josephus Again",
+          "url": "https://www.codechef.com/problems/JOSEPHUS"
+        },
+        {
+          "id": "codechef-absdiffs",
+          "order": 7,
+          "code": "ABSDIFFS",
+          "title": "Absolute Difference Sum",
+          "url": "https://www.codechef.com/problems/ABSDIFFS"
+        },
+        {
+          "id": "codechef-yaspp",
+          "order": 8,
+          "code": "YASPP",
+          "title": "Yet another shortest path problem",
+          "url": "https://www.codechef.com/problems/YASPP"
+        },
+        {
+          "id": "codechef-yaexp",
+          "order": 9,
+          "code": "YAEXP",
+          "title": "Yet another expected value problem",
+          "url": "https://www.codechef.com/problems/YAEXP"
+        },
+        {
+          "id": "codechef-aliencow",
+          "order": 10,
+          "code": "ALIENCOW",
+          "title": "Chef and Alien Invasion",
+          "url": "https://www.codechef.com/problems/ALIENCOW"
+        },
+        {
+          "id": "codechef-tilebag",
+          "order": 11,
+          "code": "TILEBAG",
+          "title": "Bag of Tiles",
+          "url": "https://www.codechef.com/problems/TILEBAG"
+        },
+        {
+          "id": "codechef-validstk",
+          "order": 12,
+          "code": "VALIDSTK",
+          "title": "Valid Stack Operations",
+          "url": "https://www.codechef.com/problems/VALIDSTK"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Asia: Kolkata-Kanpur Onsite Replay Contest 2018 (CodeChef)",
+          "url": "https://www.codechef.com/KOL18ROL",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-india-finals-2016",
+      "name": "ICPC India Finals 2016",
+      "short": "India Finals 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "finals",
+      "location": "India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/INF16MOS"
+      ],
+      "problems": [
+        {
+          "id": "codechef-inf16a",
+          "order": 1,
+          "code": "INF16A",
+          "title": "Forming Teams Again",
+          "url": "https://www.codechef.com/problems/INF16A"
+        },
+        {
+          "id": "codechef-inf16b",
+          "order": 2,
+          "code": "INF16B",
+          "title": "Robbery 101",
+          "url": "https://www.codechef.com/problems/INF16B"
+        },
+        {
+          "id": "codechef-inf16c",
+          "order": 3,
+          "code": "INF16C",
+          "title": "Maximizing Minimum Distance",
+          "url": "https://www.codechef.com/problems/INF16C"
+        },
+        {
+          "id": "codechef-inf16d",
+          "order": 4,
+          "code": "INF16D",
+          "title": "Pinocchio",
+          "url": "https://www.codechef.com/problems/INF16D"
+        },
+        {
+          "id": "codechef-inf16e",
+          "order": 5,
+          "code": "INF16E",
+          "title": "Jumping Frogs III",
+          "url": "https://www.codechef.com/problems/INF16E"
+        },
+        {
+          "id": "codechef-inf16f",
+          "order": 6,
+          "code": "INF16F",
+          "title": "Lost in the Cave",
+          "url": "https://www.codechef.com/problems/INF16F"
+        },
+        {
+          "id": "codechef-inf16h",
+          "order": 7,
+          "code": "INF16H",
+          "title": "Employee Voice Surveys",
+          "url": "https://www.codechef.com/problems/INF16H"
+        },
+        {
+          "id": "codechef-inf16i",
+          "order": 8,
+          "code": "INF16I",
+          "title": "Pacman",
+          "url": "https://www.codechef.com/problems/INF16I"
+        },
+        {
+          "id": "codechef-inf16j",
+          "order": 9,
+          "code": "INF16J",
+          "title": "Robots of Robin",
+          "url": "https://www.codechef.com/problems/INF16J"
+        },
+        {
+          "id": "codechef-inf16k",
+          "order": 10,
+          "code": "INF16K",
+          "title": "Road Maintenance",
+          "url": "https://www.codechef.com/problems/INF16K"
+        },
+        {
+          "id": "codechef-inf16l",
+          "order": 11,
+          "code": "INF16L",
+          "title": "WiFi Expenses",
+          "url": "https://www.codechef.com/problems/INF16L"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-India Finals Mirror Contest 2016 (CodeChef)",
+          "url": "https://www.codechef.com/INF16MOS",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-india-prelims-2016",
+      "name": "ICPC India Online Prelims 2016",
+      "short": "India Prelims 16",
+      "family": "icpc",
+      "season": "2016-2017",
+      "stage": "prelims",
+      "location": "India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMIND16"
+      ],
+      "problems": [
+        {
+          "id": "codechef-icpc16a",
+          "order": 1,
+          "code": "ICPC16A",
+          "title": "Help Lost Robot!",
+          "url": "https://www.codechef.com/problems/ICPC16A"
+        },
+        {
+          "id": "codechef-icpc16b",
+          "order": 2,
+          "code": "ICPC16B",
+          "title": "Beautiful Arrays",
+          "url": "https://www.codechef.com/problems/ICPC16B"
+        },
+        {
+          "id": "codechef-icpc16c",
+          "order": 3,
+          "code": "ICPC16C",
+          "title": "Watson and Digit Sums",
+          "url": "https://www.codechef.com/problems/ICPC16C"
+        },
+        {
+          "id": "codechef-icpc16d",
+          "order": 4,
+          "code": "ICPC16D",
+          "title": "Good Sets",
+          "url": "https://www.codechef.com/problems/ICPC16D"
+        },
+        {
+          "id": "codechef-icpc16e",
+          "order": 5,
+          "code": "ICPC16E",
+          "title": "Colorful Grids",
+          "url": "https://www.codechef.com/problems/ICPC16E"
+        },
+        {
+          "id": "codechef-icpc16g",
+          "order": 6,
+          "code": "ICPC16G",
+          "title": "Robolympic Batons",
+          "url": "https://www.codechef.com/problems/ICPC16G"
+        },
+        {
+          "id": "codechef-icpc16f",
+          "order": 7,
+          "code": "ICPC16F",
+          "title": "Chef and Bipartite Graphs",
+          "url": "https://www.codechef.com/problems/ICPC16F"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC India Regionals, Online Preliminary Round 2016 (CodeChef)",
+          "url": "https://www.codechef.com/ACMIND16",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-india-prelims-2017",
+      "name": "ICPC India Online Prelims 2017",
+      "short": "India Prelims 17",
+      "family": "icpc",
+      "season": "2017-2018",
+      "stage": "prelims",
+      "location": "India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMIND17"
+      ],
+      "problems": [
+        {
+          "id": "codechef-equalmod",
+          "order": 1,
+          "code": "EQUALMOD",
+          "title": "Modulo Equality",
+          "url": "https://www.codechef.com/problems/EQUALMOD"
+        },
+        {
+          "id": "codechef-stddev",
+          "order": 2,
+          "code": "STDDEV",
+          "title": "Obtain Desired Standard Deviation",
+          "url": "https://www.codechef.com/problems/STDDEV"
+        },
+        {
+          "id": "codechef-ordteams",
+          "order": 3,
+          "code": "ORDTEAMS",
+          "title": "Ordering teams",
+          "url": "https://www.codechef.com/problems/ORDTEAMS"
+        },
+        {
+          "id": "codechef-twotrees",
+          "order": 4,
+          "code": "TWOTREES",
+          "title": "A tale of two trees",
+          "url": "https://www.codechef.com/problems/TWOTREES"
+        },
+        {
+          "id": "codechef-compexp",
+          "order": 5,
+          "code": "COMPEXP",
+          "title": "Compression Algorithm",
+          "url": "https://www.codechef.com/problems/COMPEXP"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM ICPC 2017, Online Preliminary Round (CodeChef)",
+          "url": "https://www.codechef.com/ACMIND17",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-india-prelims-2018",
+      "name": "ICPC India Online Prelims 2018",
+      "short": "India Prelims 18",
+      "family": "icpc",
+      "season": "2018-2019",
+      "stage": "prelims",
+      "location": "India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMIND18"
+      ],
+      "problems": [
+        {
+          "id": "codechef-robogame",
+          "order": 1,
+          "code": "ROBOGAME",
+          "title": "A Game of Robots",
+          "url": "https://www.codechef.com/problems/ROBOGAME"
+        },
+        {
+          "id": "codechef-prestige",
+          "order": 2,
+          "code": "PRESTIGE",
+          "title": "The Prestige",
+          "url": "https://www.codechef.com/problems/PRESTIGE"
+        },
+        {
+          "id": "codechef-bipfamil",
+          "order": 3,
+          "code": "BIPFAMIL",
+          "title": "A Family of Bipartite Graphs",
+          "url": "https://www.codechef.com/problems/BIPFAMIL"
+        },
+        {
+          "id": "codechef-redcgame",
+          "order": 4,
+          "code": "REDCGAME",
+          "title": "Reduction Game",
+          "url": "https://www.codechef.com/problems/REDCGAME"
+        },
+        {
+          "id": "codechef-wordgrid",
+          "order": 5,
+          "code": "WORDGRID",
+          "title": "Word Grid",
+          "url": "https://www.codechef.com/problems/WORDGRID"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Online Round 2018 (CodeChef)",
+          "url": "https://www.codechef.com/ACMIND18",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-india-prelims-2019",
+      "name": "ICPC India Online Prelims 2019",
+      "short": "India Prelims 19",
+      "family": "icpc",
+      "season": "2019-2020",
+      "stage": "prelims",
+      "location": "India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ICPCIN19"
+      ],
+      "problems": [
+        {
+          "id": "codechef-sps",
+          "order": 1,
+          "code": "SPS",
+          "title": "Shortest Palindromic Superstring",
+          "url": "https://www.codechef.com/problems/SPS"
+        },
+        {
+          "id": "codechef-pens",
+          "order": 2,
+          "code": "PENS",
+          "title": "Pen Pineapple Apple Pen",
+          "url": "https://www.codechef.com/problems/PENS"
+        },
+        {
+          "id": "codechef-discshop",
+          "order": 3,
+          "code": "DISCSHOP",
+          "title": "Discount in a Shop",
+          "url": "https://www.codechef.com/problems/DISCSHOP"
+        },
+        {
+          "id": "codechef-beautpar",
+          "order": 4,
+          "code": "BEAUTPAR",
+          "title": "Beautiful Partitions",
+          "url": "https://www.codechef.com/problems/BEAUTPAR"
+        },
+        {
+          "id": "codechef-segdir",
+          "order": 5,
+          "code": "SEGDIR",
+          "title": "Moving Segments",
+          "url": "https://www.codechef.com/ICPCIN19/problems/SEGDIR"
+        },
+        {
+          "id": "codechef-shufgrid",
+          "order": 6,
+          "code": "SHUFGRID",
+          "title": "Grid Shuffle",
+          "url": "https://www.codechef.com/problems/SHUFGRID"
+        },
+        {
+          "id": "codechef-trainset",
+          "order": 7,
+          "code": "TRAINSET",
+          "title": "Select Training Set",
+          "url": "https://www.codechef.com/problems/TRAINSET"
+        },
+        {
+          "id": "codechef-sumor",
+          "order": 8,
+          "code": "SUMOR",
+          "title": "Game of ORs",
+          "url": "https://www.codechef.com/ICPCIN19/problems/SUMOR"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ICPC Online Round 2019 (CodeChef)",
+          "url": "https://www.codechef.com/ICPCIN19",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2014-online",
+      "name": "ICPC Amritapuri Online Round 2014",
+      "short": "AMR online 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "online-round",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMAMR14"
+      ],
+      "problems": [
+        {
+          "id": "codechef-acm14am1",
+          "order": 1,
+          "code": "ACM14AM1",
+          "title": "Mangalyaan-2",
+          "url": "https://www.codechef.com/problems/ACM14AM1"
+        },
+        {
+          "id": "codechef-acm14am2",
+          "order": 2,
+          "code": "ACM14AM2",
+          "title": "Ground Stations",
+          "url": "https://www.codechef.com/problems/ACM14AM2"
+        },
+        {
+          "id": "codechef-acm14am3",
+          "order": 3,
+          "code": "ACM14AM3",
+          "title": "Launch Tower",
+          "url": "https://www.codechef.com/problems/ACM14AM3"
+        },
+        {
+          "id": "codechef-acm14am4",
+          "order": 4,
+          "code": "ACM14AM4",
+          "title": "Landing Platform",
+          "url": "https://www.codechef.com/problems/ACM14AM4"
+        },
+        {
+          "id": "codechef-acm14am5",
+          "order": 5,
+          "code": "ACM14AM5",
+          "title": "Supercomputer",
+          "url": "https://www.codechef.com/problems/ACM14AM5"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Site First Round Online Contest 2014 (CodeChef)",
+          "url": "https://www.codechef.com/ACMAMR14",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-amritapuri-2015-online",
+      "name": "ICPC Amritapuri Online Round 2015",
+      "short": "AMR online 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "online-round",
+      "location": "Amritapuri, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMAMR15"
+      ],
+      "problems": [
+        {
+          "id": "codechef-amr15a",
+          "order": 1,
+          "code": "AMR15A",
+          "title": "Mahasena",
+          "url": "https://www.codechef.com/problems/AMR15A"
+        },
+        {
+          "id": "codechef-amr15b",
+          "order": 2,
+          "code": "AMR15B",
+          "title": "Devasena",
+          "url": "https://www.codechef.com/problems/AMR15B"
+        },
+        {
+          "id": "codechef-amr15c",
+          "order": 3,
+          "code": "AMR15C",
+          "title": "Kalakeya",
+          "url": "https://www.codechef.com/problems/AMR15C"
+        },
+        {
+          "id": "codechef-amr15d",
+          "order": 4,
+          "code": "AMR15D",
+          "title": "Bhallaladeva",
+          "url": "https://www.codechef.com/problems/AMR15D"
+        },
+        {
+          "id": "codechef-amr15e",
+          "order": 5,
+          "code": "AMR15E",
+          "title": "Avantika",
+          "url": "https://www.codechef.com/problems/AMR15E"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Amritapuri Site, First Round - Online Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/ACMAMR15",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-chennai-2015-online",
+      "name": "ICPC Chennai Online Round 2015",
+      "short": "CHN online 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "online-round",
+      "location": "Chennai, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMCHN15"
+      ],
+      "problems": [
+        {
+          "id": "codechef-chn15a",
+          "order": 1,
+          "code": "CHN15A",
+          "title": "Mutated Minions",
+          "url": "https://www.codechef.com/problems/CHN15A"
+        },
+        {
+          "id": "codechef-chn15b",
+          "order": 2,
+          "code": "CHN15B",
+          "title": "Petr Contest",
+          "url": "https://www.codechef.com/problems/CHN15B"
+        },
+        {
+          "id": "codechef-chn15c",
+          "order": 3,
+          "code": "CHN15C",
+          "title": "Jimma and Chingam",
+          "url": "https://www.codechef.com/problems/CHN15C"
+        },
+        {
+          "id": "codechef-chn15d",
+          "order": 4,
+          "code": "CHN15D",
+          "title": "Line Intersections",
+          "url": "https://www.codechef.com/problems/CHN15D"
+        },
+        {
+          "id": "codechef-chn15e",
+          "order": 5,
+          "code": "CHN15E",
+          "title": "Tree Augmentation ",
+          "url": "https://www.codechef.com/problems/CHN15E"
+        },
+        {
+          "id": "codechef-chn15f",
+          "order": 6,
+          "code": "CHN15F",
+          "title": "Falling Rocks",
+          "url": "https://www.codechef.com/problems/CHN15F"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Chennai Site, First Round - Online Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/ACMCHN15",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2010-online",
+      "name": "ICPC Kanpur Online Round 2010",
+      "short": "KAN online 10",
+      "family": "icpc",
+      "season": "2010-2011",
+      "stage": "online-round",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKAN10"
+      ],
+      "problems": [
+        {
+          "id": "codechef-acmkanpa",
+          "order": 1,
+          "code": "ACMKANPA",
+          "title": "Problem With Strings",
+          "url": "https://www.codechef.com/problems/ACMKANPA"
+        },
+        {
+          "id": "codechef-acmkanpb",
+          "order": 2,
+          "code": "ACMKANPB",
+          "title": "Bonus",
+          "url": "https://www.codechef.com/problems/ACMKANPB"
+        },
+        {
+          "id": "codechef-acmkanpc",
+          "order": 3,
+          "code": "ACMKANPC",
+          "title": "Traffic Jam",
+          "url": "https://www.codechef.com/problems/ACMKANPC"
+        },
+        {
+          "id": "codechef-acmkanpd",
+          "order": 4,
+          "code": "ACMKANPD",
+          "title": "A New Number System",
+          "url": "https://www.codechef.com/problems/ACMKANPD"
+        },
+        {
+          "id": "codechef-acmkanpe",
+          "order": 5,
+          "code": "ACMKANPE",
+          "title": "Algebra Express",
+          "url": "https://www.codechef.com/problems/ACMKANPE"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest  (CodeChef)",
+          "url": "https://www.codechef.com/ACMKAN10",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2011-online",
+      "name": "ICPC Kanpur Online Round 2011",
+      "short": "KAN online 11",
+      "family": "icpc",
+      "season": "2011-2012",
+      "stage": "online-round",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKAN11"
+      ],
+      "problems": [
+        {
+          "id": "codechef-arthmncy",
+          "order": 1,
+          "code": "ARTHMNCY",
+          "title": "Arithmancy",
+          "url": "https://www.codechef.com/problems/ARTHMNCY"
+        },
+        {
+          "id": "codechef-clndr",
+          "order": 2,
+          "code": "CLNDR",
+          "title": "Calendar",
+          "url": "https://www.codechef.com/problems/CLNDR"
+        },
+        {
+          "id": "codechef-mmant",
+          "order": 3,
+          "code": "MMANT",
+          "title": "Mr and Mrs Ant",
+          "url": "https://www.codechef.com/problems/MMANT"
+        },
+        {
+          "id": "codechef-cricinfo",
+          "order": 4,
+          "code": "CRICINFO",
+          "title": "CricInfo",
+          "url": "https://www.codechef.com/problems/CRICINFO"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest (CodeChef)",
+          "url": "https://www.codechef.com/ACMKAN11",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2012-online",
+      "name": "ICPC Kanpur Online Round 2012",
+      "short": "KAN online 12",
+      "family": "icpc",
+      "season": "2012-2013",
+      "stage": "online-round",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKAN12"
+      ],
+      "problems": [
+        {
+          "id": "codechef-egyptfra",
+          "order": 1,
+          "code": "EGYPTFRA",
+          "title": "Egyption Fractions",
+          "url": "https://www.codechef.com/problems/EGYPTFRA"
+        },
+        {
+          "id": "codechef-parkwoe",
+          "order": 2,
+          "code": "PARKWOE",
+          "title": "Parking Woes",
+          "url": "https://www.codechef.com/problems/PARKWOE"
+        },
+        {
+          "id": "codechef-cyclist",
+          "order": 3,
+          "code": "CYCLIST",
+          "title": "The Adventure of the Solitary Cyclist, II",
+          "url": "https://www.codechef.com/problems/CYCLIST"
+        },
+        {
+          "id": "codechef-presti",
+          "order": 4,
+          "code": "PRESTI",
+          "title": "Presti Digitator",
+          "url": "https://www.codechef.com/problems/PRESTI"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest 2012 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKAN12",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2013-online",
+      "name": "ICPC Kanpur Online Round 2013",
+      "short": "KAN online 13",
+      "family": "icpc",
+      "season": "2013-2014",
+      "stage": "online-round",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKAN13"
+      ],
+      "problems": [
+        {
+          "id": "codechef-statues",
+          "order": 1,
+          "code": "STATUES",
+          "title": "Statues",
+          "url": "https://www.codechef.com/problems/STATUES"
+        },
+        {
+          "id": "codechef-lineprob",
+          "order": 2,
+          "code": "LINEPROB",
+          "title": "Line Problem",
+          "url": "https://www.codechef.com/problems/LINEPROB"
+        },
+        {
+          "id": "codechef-standup",
+          "order": 3,
+          "code": "STANDUP",
+          "title": "Stand Up",
+          "url": "https://www.codechef.com/problems/STANDUP"
+        },
+        {
+          "id": "codechef-cardinal",
+          "order": 4,
+          "code": "CARDINAL",
+          "title": "Cardinality",
+          "url": "https://www.codechef.com/problems/CARDINAL"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest 2013 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKAN13",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kanpur-2014-online",
+      "name": "ICPC Kanpur Online Round 2014",
+      "short": "KAN online 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "online-round",
+      "location": "Kanpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKAN14"
+      ],
+      "problems": [
+        {
+          "id": "codechef-acm14kn1",
+          "order": 1,
+          "code": "ACM14KN1",
+          "title": "ICPC Pre-Prelims Practice Round",
+          "url": "https://www.codechef.com/problems/ACM14KN1"
+        },
+        {
+          "id": "codechef-acm14kn2",
+          "order": 2,
+          "code": "ACM14KN2",
+          "title": "Solving the Practice Contest",
+          "url": "https://www.codechef.com/problems/ACM14KN2"
+        },
+        {
+          "id": "codechef-acm14kn3",
+          "order": 3,
+          "code": "ACM14KN3",
+          "title": "Logging in the computer",
+          "url": "https://www.codechef.com/problems/ACM14KN3"
+        },
+        {
+          "id": "codechef-acm14kn4",
+          "order": 4,
+          "code": "ACM14KN4",
+          "title": "The Problem Set",
+          "url": "https://www.codechef.com/problems/ACM14KN4"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest 2014 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKAN14",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2012-online",
+      "name": "ICPC Kharagpur Online Round 2012",
+      "short": "KGP online 12",
+      "family": "icpc",
+      "season": "2012-2013",
+      "stage": "online-round",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKGP12"
+      ],
+      "problems": [
+        {
+          "id": "codechef-ni01",
+          "order": 1,
+          "code": "NI01",
+          "title": "Jurassic Park",
+          "url": "https://www.codechef.com/problems/NI01"
+        },
+        {
+          "id": "codechef-ni02",
+          "order": 2,
+          "code": "NI02",
+          "title": "KGP Summers",
+          "url": "https://www.codechef.com/problems/NI02"
+        },
+        {
+          "id": "codechef-ni03",
+          "order": 3,
+          "code": "NI03",
+          "title": "Weapons",
+          "url": "https://www.codechef.com/problems/NI03"
+        },
+        {
+          "id": "codechef-ni04",
+          "order": 4,
+          "code": "NI04",
+          "title": "Small Airport",
+          "url": "https://www.codechef.com/problems/NI04"
+        },
+        {
+          "id": "codechef-ni05",
+          "order": 5,
+          "code": "NI05",
+          "title": "Retail Shop",
+          "url": "https://www.codechef.com/problems/NI05"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kanpur Site First Round Online Contest 2012 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKGP12",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2013-online",
+      "name": "ICPC Kharagpur Online Round 2013",
+      "short": "KGP online 13",
+      "family": "icpc",
+      "season": "2013-2014",
+      "stage": "online-round",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKGP13"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kthpath",
+          "order": 1,
+          "code": "KTHPATH",
+          "title": "The K-th Path",
+          "url": "https://www.codechef.com/problems/KTHPATH"
+        },
+        {
+          "id": "codechef-substr",
+          "order": 2,
+          "code": "SUBSTR",
+          "title": "Substring Problem",
+          "url": "https://www.codechef.com/problems/SUBSTR"
+        },
+        {
+          "id": "codechef-jackpot",
+          "order": 3,
+          "code": "JACKPOT",
+          "title": "Jackpot",
+          "url": "https://www.codechef.com/problems/JACKPOT"
+        },
+        {
+          "id": "codechef-editlist",
+          "order": 4,
+          "code": "EDITLIST",
+          "title": "List Editing",
+          "url": "https://www.codechef.com/problems/EDITLIST"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Site First Round Online Contest 2013 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKGP13",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2014-online",
+      "name": "ICPC Kharagpur Online Round 2014",
+      "short": "KGP online 14",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "online-round",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKGP14"
+      ],
+      "problems": [
+        {
+          "id": "codechef-acm14kp1",
+          "order": 1,
+          "code": "ACM14KP1",
+          "title": "A Magical Length",
+          "url": "https://www.codechef.com/problems/ACM14KP1"
+        },
+        {
+          "id": "codechef-acm14kp2",
+          "order": 2,
+          "code": "ACM14KP2",
+          "title": "Bye, inversions!",
+          "url": "https://www.codechef.com/problems/ACM14KP2"
+        },
+        {
+          "id": "codechef-acm14kp3",
+          "order": 3,
+          "code": "ACM14KP3",
+          "title": "Cyclic Prefix",
+          "url": "https://www.codechef.com/problems/ACM14KP3"
+        },
+        {
+          "id": "codechef-acm14kp4",
+          "order": 4,
+          "code": "ACM14KP4",
+          "title": "Determine the Maximum Sum of Weights",
+          "url": "https://www.codechef.com/problems/ACM14KP4"
+        },
+        {
+          "id": "codechef-acm14kp5",
+          "order": 5,
+          "code": "ACM14KP5",
+          "title": "Three elements",
+          "url": "https://www.codechef.com/problems/ACM14KP5"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Site First Round Online Contest 2014 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKGP14",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kharagpur-2014-online-recontest",
+      "name": "ICPC Kharagpur Online Round 2014 (recontest)",
+      "short": "KGP online 14 R",
+      "family": "icpc",
+      "season": "2014-2015",
+      "stage": "online-round",
+      "location": "Kharagpur, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKG14R"
+      ],
+      "problems": [
+        {
+          "id": "codechef-acm14kg1",
+          "order": 1,
+          "code": "ACM14KG1",
+          "title": "Cracker shops",
+          "url": "https://www.codechef.com/problems/ACM14KG1"
+        },
+        {
+          "id": "codechef-acm14kg2",
+          "order": 2,
+          "code": "ACM14KG2",
+          "title": "The last cracker",
+          "url": "https://www.codechef.com/problems/ACM14KG2"
+        },
+        {
+          "id": "codechef-acm14kg3",
+          "order": 3,
+          "code": "ACM14KG3",
+          "title": "Discount on crackers",
+          "url": "https://www.codechef.com/problems/ACM14KG3"
+        },
+        {
+          "id": "codechef-acm14kg4",
+          "order": 4,
+          "code": "ACM14KG4",
+          "title": "Jai Hanuman",
+          "url": "https://www.codechef.com/problems/ACM14KG4"
+        },
+        {
+          "id": "codechef-acm14kg5",
+          "order": 5,
+          "code": "ACM14KG5",
+          "title": "Cool Dude Laxman",
+          "url": "https://www.codechef.com/problems/ACM14KG5"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kharagpur Site First Round Online Recontest 2014 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKG14R",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
+    },
+    {
+      "id": "icpc-asia-kolkata-2015-online",
+      "name": "ICPC Kolkata Online Round 2015",
+      "short": "KOL online 15",
+      "family": "icpc",
+      "season": "2015-2016",
+      "stage": "online-round",
+      "location": "Kolkata, India",
+      "organizer": "ICPC",
+      "evidence": [
+        "https://www.codechef.com/ACMKOL15"
+      ],
+      "problems": [
+        {
+          "id": "codechef-kol15a",
+          "order": 1,
+          "code": "KOL15A",
+          "title": "Processing a string",
+          "url": "https://www.codechef.com/problems/KOL15A"
+        },
+        {
+          "id": "codechef-kol15b",
+          "order": 2,
+          "code": "KOL15B",
+          "title": "Finding Hardest Sum Value",
+          "url": "https://www.codechef.com/problems/KOL15B"
+        },
+        {
+          "id": "codechef-kol15c",
+          "order": 3,
+          "code": "KOL15C",
+          "title": "Just Update and Print the array",
+          "url": "https://www.codechef.com/problems/KOL15C"
+        },
+        {
+          "id": "codechef-kol15d",
+          "order": 4,
+          "code": "KOL15D",
+          "title": "Seats",
+          "url": "https://www.codechef.com/problems/KOL15D"
+        },
+        {
+          "id": "codechef-kol15e",
+          "order": 5,
+          "code": "KOL15E",
+          "title": "Weird Paths in a tree",
+          "url": "https://www.codechef.com/problems/KOL15E"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ACM-ICPC Asia-Kolkata Site First Round Online Contest 2015 (CodeChef)",
+          "url": "https://www.codechef.com/ACMKOL15",
+          "kind": "judge",
+          "availability": "public"
+        }
+      ],
+      "held_date": null,
+      "observed_at": "2026-09-16"
     }
   ],
   "aliases": {

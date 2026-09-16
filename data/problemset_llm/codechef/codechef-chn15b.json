@@ -1,0 +1,41 @@
+{
+  "id": "codechef-chn15b",
+  "title": "Petr Contest",
+  "slug": "chn15b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15B",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Petr is organizing Petr Mitrichev Contest #11. The top N coders according to codechef ratings (excluding Petr himself) agreed to participate in the contest. The participants have been ranked from 0 to N-1 according to their ratings.",
+  "tags": [
+    "acmchn15",
+    "arjunarul",
+    "easy",
+    "expected-value",
+    "graphs",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 2,
+    "problem_code": "CHN15B",
+    "replay_solves": {
+      "successful": 312,
+      "total": 1079,
+      "accuracy": 30.21,
+      "replay_only": true
+    }
+  }
+}

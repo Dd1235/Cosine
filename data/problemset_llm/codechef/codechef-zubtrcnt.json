@@ -1,0 +1,37 @@
+{
+  "id": "codechef-zubtrcnt",
+  "title": "D - Triangle Count",
+  "slug": "zubtrcnt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBTRCNT",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "You are given an equilateral triangle ΔABC with the side BC being the base. Each side of the triangle is of length L. There are L-1 additional points on each of the sides dividing the sides into equal parts of unit lengths. Points on the sides of the triangle are called **major** points.",
+  "tags": [
+    "mathematics",
+    "geometry"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBTRCNT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 8,
+    "problem_code": "ZUBTRCNT",
+    "replay_solves": {
+      "successful": 93,
+      "total": 309,
+      "accuracy": 30.74,
+      "replay_only": true
+    }
+  }
+}

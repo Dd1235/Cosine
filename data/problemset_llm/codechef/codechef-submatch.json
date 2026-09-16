@@ -1,0 +1,36 @@
+{
+  "id": "codechef-submatch",
+  "title": "Substring Matching",
+  "slug": "submatch",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SUBMATCH",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a string T and n (not necessarily distinct) strings S_1, S_2, \\ldots, S_n. What is the maximum length of a substring of T that can be formed by choosing some strings from S_1, S_2, \\ldots, S_n, and concatenating them in some non decreasing order of length.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SUBMATCH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 9,
+    "problem_code": "SUBMATCH",
+    "replay_solves": {
+      "successful": 2,
+      "total": 10,
+      "accuracy": 20.0,
+      "replay_only": true
+    }
+  }
+}

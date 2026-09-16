@@ -1,0 +1,30 @@
+{
+ "id": "codechef-kol16e",
+ "platform": "codechef",
+ "title": "Divide Me Please",
+ "slug": "kol16e",
+ "source_url": "https://www.codechef.com/problems/KOL16E",
+ "source_topic": "ICPC / Kolkata Regional 2016",
+ "source_text": "There are some short-cut ways to check divisibility of numbers in base 10. Here are some examples: 1. Remember divisibility testing of 3 in base 10? It was simple, right? We need to add all the digits and then check if it is divisible by 3. Call this method **\"1-sum\"**. 2. In case of testing of 11, we need to add all digits by alternating their signs. For example, 1354379988104 = 11*123125453464 and (4-0+1-8+8-9+9-7+3-4+5-3+1) = 0, which is divisible by 11 (0 = 0*11). Lets call this method **\"1-altersum\"**. 3. In case of 7, we need to add all 3-digit-groups by alternating their signs. For example, **8**618**727**529**993** = 7*1231246789999 and (**993**-529+**727**-618+**8**) = 581, which is divisible by 7 (581 = 7*83). Similarly, we call this method **\"3-altersum\"**. 4. In similar Manner, 13’s checking is **\"3-altersum\"**. In this problem, we are interested to see divisibility checking of **only** prime numbers in base 10. For a prime **P**, you need to find the smallest positive integer **N** such that **P’s divisibility testing** is **\"N-sum\"** or **\"N-altersum\"**. Input At first you will be given **T (T ≤ 1000)**, the number of test cases. Then **T** lines will follow. In each line there will be single integer **P (P ≤ 2 31 -1 = 2147483647)**, the prime number (**P** is a prime number **NOT** equal to **2** or **5**). Output For each line of input, produce exactly one line of output like either \"Case : -sum\" or \"Case : -altersum\". Please see sample input and output for details. Constraints - **T ≤ 1000** - **P ≤ 2 31 -1 = 2147483647** - **P** is a prime number **NOT** equal to **2** or **5**. Sample Input 4 3 7 11 13 Sample Output Case 1: 1-sum Case 2: 3-altersum Case 3: 1-altersum Case 4: 3-altersum The sample input and output demonstrate the expected format and results for the given test cases. Each test case corresponds to a prime number, and the output specifies the smallest positive integer **N** and the method (**\"N-sum\"** or **\"N-altersum\"**) used for divisibility testing.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "modular-arithmetic"
+ ],
+ "date_added": "21-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL16MOS",
+  "position": 5,
+  "problem_code": "KOL16E",
+  "replay_solves": {
+   "successful": 30,
+   "total": 181,
+   "accuracy": 17.13,
+   "replay_only": true
+  }
+ }
+}

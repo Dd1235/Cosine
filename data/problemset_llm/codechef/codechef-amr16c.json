@@ -1,0 +1,41 @@
+{
+  "id": "codechef-amr16c",
+  "title": "Influence on Social media",
+  "slug": "amr16c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16C",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Recently social media has been flooded by fb posts, tweets, news articles about only thing - demonetization. A great debate is ongoing over it. Most of the people discussing in social media platform usually tend to take sides, i.e. either they support the move, or they not.",
+  "tags": [
+    "admin3",
+    "amr16",
+    "binary-search",
+    "easy",
+    "icpc2016",
+    "sorting"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 3,
+    "problem_code": "AMR16C",
+    "replay_solves": {
+      "successful": 53,
+      "total": 503,
+      "accuracy": 11.33,
+      "replay_only": true
+    }
+  }
+}
