@@ -20,10 +20,7 @@ excludes the source contest by definition, so the pair can only be empty.
 Collection membership is separate from judge and technique. Browse uses the
 published problem order. Every card that belongs to a collection carries a
 small competition tag (the collection's short name); clicking it adds that
-collection. With a collection active, difficulty, tags, patterns and the CSES
-provenance line start hidden until revealed; the statement and the "find
-similar" / "practice this idea" links stay visible, because hiding them left
-the feature's own follow-on actions unreachable. `:compare` is a ranker lens and
+collection. `:compare` is a ranker lens and
 ignores collections; the status line says so. A resource can link an official
 booklet, editorial, practice judge or non-coding round without becoming a
 ranked problem. Counts distinguish searchable members from members still

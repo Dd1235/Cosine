@@ -2136,9 +2136,6 @@ const HELP_SECTIONS = [
             and Mouse — and says so, because "nearest by
             meaning" is a weaker claim than a match.
 
-  both      runs the two and blends the rankings. Use it when
-            you are not sure.
-
   A problem's exact name goes to the top: "two sum" and "2 sum"
   both land on Two Sum. In keyword mode a word that appears
   nowhere in the corpus says so rather than guessing; a
@@ -2239,10 +2236,11 @@ CORPUS
                are estimates and every card says so: two
                independent solution reviews per task, the band
                is their rounded mean, and 14 specialist checks
-               with a proof or a computation overrode it.
+               with a proof or a computation re-examined the
+               hardest ones; six of those moved a band.
                Confidence is how far the two reviews agreed —
                high, both chose the band; medium, one band
-               apart; low, a specialist check settled it. That
+               apart; low, a computation had to settle it. That
                is agreement between reviews, not human
                calibration, and it converts to no Codeforces
                rating. Choose "my CSES level" explicitly; your
@@ -2308,10 +2306,6 @@ CORPUS
   notes        written up / no note. Appears once a sheet is
                connected, because the note is in the sheet and
                this is the only filter the server can't answer.
-
-  to write up  one chip for the two nobody combines: done, and
-               no note. What you solved and never explained to
-               yourself is the actual revision backlog.
 
   pick one     opens one of whatever is on screen, at random.
                Composes with everything above, so ":done" +
@@ -2534,7 +2528,11 @@ TRY
 // typed — an unknown one falls back to the index rather than an error, since
 // the index is the answer to "what can I ask for?" anyway.
 function helpQuery(q) {
-  const m = /^:(?:help|h)(?:\s+(.*))?$/i.exec(q.trim());
+  const t = q.trim();
+  // Bare "help" counts too: it showed up in the zero-hit query log, typed by
+  // someone who did not know about the colon. Bare "h" does not — it is one
+  // keystroke from a real query.
+  const m = /^:(?:help|h)(?:\s+(.*))?$/i.exec(t) || /^help(?:\s+(.*))?$/i.exec(t);
   return m ? (m[1] || "").trim().toLowerCase() : null;
 }
 
@@ -2702,8 +2700,6 @@ function platformBadge(platform) {
 // endpoints have shipped hit.competitions for a while and nothing rendered it,
 // so the only way to discover that a problem you found by searching was an
 // ICPC World Finals question was to already have the collection selected.
-//
-// the point of showing it in the first place.
 function competitionTag(competitions) {
   const list = competitions || [];
   if (!list.length) return "";
