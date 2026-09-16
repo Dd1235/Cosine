@@ -123,6 +123,10 @@ let collections = [];
 let currentSimilar = null;
 let similarLibrary = null;
 let practiceMode = false;
+// The contest page: one collection, listed as the contest it was, including
+// the problems no statement could be indexed for. It is a view over exactly
+// one collection, so anything that stops that being true leaves it.
+let contestView = false;
 let similarCorpusSize = 20000;
 let csesLevel = null;
 let csesLevelSaving = false;
@@ -173,6 +177,7 @@ input.addEventListener("input", () => {
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
+  contestView = false;
   clearTimeout(debounceTimer);
   // Typing a new question ends the drill-down that produced the pattern.
   //
@@ -652,6 +657,10 @@ function safeResourceUrl(value) {
 // /api/collections has answered with something you could still add, so the row
 // looks exactly as it did before when there is nothing to offer.
 let collectionsLoaded = false;
+// The one in-flight load, so a view that cannot start without the registry can
+// wait for it rather than race it. A ?view=contest link does exactly that: it
+// dispatches at boot, when /api/collections has not answered yet.
+let collectionsReady = null;
 
 async function loadCollections() {
   try {
@@ -822,6 +831,8 @@ function addCollection(id) {
   if (!id || activeCollections.has(id)) return;
   activeCollections.add(id);
   track("collection_added", { collection: id });
+  // A second competition is a union of two sets, which is not a contest.
+  if (activeCollections.size !== 1) contestView = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -831,6 +842,8 @@ function addCollection(id) {
 function removeCollection(id) {
   if (!activeCollections.delete(id)) return;
   track("collection_removed", { collection: id });
+  // Dropping the chip drops the page it was the subject of.
+  contestView = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -855,7 +868,38 @@ function renderCollectionPanel() {
   note.id = 'collection-note';
   note.textContent = collectionNote();
   heading.appendChild(note);
-  if (note.textContent) panel.appendChild(heading);
+  // With exactly one competition selected there is a contest to look at, so
+  // the panel that already names it offers the way in — and, once you are
+  // there, the way back out. Two chips is a union, not a contest, so the
+  // button is simply absent.
+  if (activeCollections.size === 1) {
+    const id = [...activeCollections][0];
+    const open = document.createElement('button');
+    open.type = 'button';
+    open.id = 'contest-open';
+    open.className = 'lib-chip';
+    open.textContent = contestView ? '← results' : 'contest page →';
+    open.title = contestView
+      ? 'back to the ranked list'
+      : 'every problem in the set, including the ones not indexed yet';
+    open.addEventListener('click', () => {
+      if (contestView) {
+        contestView = false;
+        syncUrl({ push: true });
+        runSearch('');
+        renderCollectionPanel();
+        return;
+      }
+      contestView = true;
+      syncUrl({ push: true });
+      runContest(id);
+    });
+    heading.appendChild(open);
+  }
+  if (heading.childNodes.length > 1 || note.textContent) panel.appendChild(heading);
+  // The contest page's own header already lists these links, editorials first.
+  // Printing them twice, six inches apart, reads as two different lists.
+  if (contestView) return;
   for (const id of activeCollections) {
     const collection = collectionById(id);
     if (!collection) continue;
@@ -1515,6 +1559,7 @@ function applyMode() {
 }
 
 async function runSearch(rawQuery, { append = false } = {}) {
+  contestView = false;
   const q = rawQuery.trim();
   if (currentSimilar && !q) return runSimilar(currentSimilar, { append });
   currentSimilar = null;
@@ -1771,6 +1816,7 @@ function renderSingle(data, q, append) {
 // search — only the ranking is absent, so results come back in corpus order
 // and the status line says "browsing" rather than quoting a query nobody typed.
 async function runBrowse({ append = false } = {}) {
+  contestView = false;
   const issuedAt = ++lastQueryAt;
   hideFeedback();
   currentSearchId = null;
@@ -1918,6 +1964,7 @@ async function runLibrary(type, q) {
 
 // Similarity is its own addressable view. Facets apply before pagination.
 async function runSimilar(problem, { append = false, practice = false } = {}) {
+  contestView = false;
   const entering = !currentSimilar || currentSimilar.id !== problem.id;
   if (entering) {
     similarLibrary = currentUser ? libraryCommand(currentQuery)?.type || null : null;
@@ -2161,6 +2208,7 @@ function syncUrl({ push = false } = {}) {
     if (practiceMode) p.set("practice", "1");
   }
   if (activeCollections.size) p.set("contest", [...activeCollections].join(","));
+  if (contestView) p.set("view", "contest");
   if (activePattern) p.set("pattern", activePattern);
   if (activePlatforms.size) p.set("platform", [...activePlatforms].join(","));
   const dParam = difficultyParam();
@@ -2391,6 +2439,9 @@ CORPUS
                which competition it came from. Resource links
                stay available even when a round has no
                searchable problem statements.
+               With one competition on, "contest page" in the
+               resources panel lists every problem in the set,
+               indexed or not.
 
   ac           pick a LeetCode tier and an acceptance-rate
                range appears under it: "hard" + "ac 10% to 30%"
@@ -3171,6 +3222,247 @@ function renderHitsList(container, hits, opts = {}) {
   });
 }
 
+// ── the contest page ────────────────────────────────────────────────────────
+// A collection is a filter, and a filter answers "which of the problems I can
+// search came from here". That is not how anyone picks a past set to attempt:
+// they want the set, in order, with the ones we could not index still in it,
+// and the labels OUT OF SIGHT until they ask. So this view walks the registry
+// members rather than the search hits, and the hits are what it merges IN.
+
+// "A" is 1, matching a hand-written `order` of 1, so a registry that mixes the
+// two still sorts sensibly. "B2" is the second part of B, hence 2.2.
+function contestLetterRank(letter) {
+  return (letter.charCodeAt(0) - 64) + (letter.length > 1 ? Number(letter[1]) / 10 : 0);
+}
+
+// Explicit order wins, then a letter, then the position the registry gave it.
+// Registry position is the honest fallback and usually the only thing there
+// is: the Kattis source pages seven of these collections came from list their
+// problems alphabetically and print no letters at all.
+function contestRank(member, index) {
+  if (Number.isInteger(member.order) && member.order > 0) return member.order;
+  if (typeof member.letter === "string" && /^[A-Z][0-9]?$/.test(member.letter)) return contestLetterRank(member.letter);
+  return index + 1;
+}
+
+function contestRows(members, hits) {
+  const byId = new Map((hits || []).map((h) => [h.problem.id, h]));
+  return (members || [])
+    .map((member, index) => ({ member, hit: byId.get(member.id) || null, rank: contestRank(member, index), index }))
+    .sort((a, b) => a.rank - b.rank || a.index - b.index);
+}
+
+function contestDoneCount(ids, doneIds) {
+  const done = doneIds instanceof Set ? doneIds : new Set(doneIds || []);
+  return (ids || []).filter((id) => done.has(id)).length;
+}
+
+// "listed alphabetically" is a caveat about our data, not a fact about the
+// contest, so it is only said when nothing in the data orders the set. A
+// Codeforces gym id ends in the problem's real letter, so those are ordered
+// even with no `letter` field anywhere.
+function contestOrderUnverified(members) {
+  const list = members || [];
+  if (!list.length) return false;
+  if (list.some((m) => m.letter || Number.isInteger(m.order))) return false;
+  return !list.every((m) => /^codeforces-\d+-[a-z][0-9]?$/.test(m.id || ""));
+}
+
+// Where the statements came from, when we can say it without guessing. Family
+// alone cannot answer it — every one of these is family "icpc" — so it reads
+// the links the registry already had to verify.
+function contestProvenance(collection) {
+  const links = [
+    ...(collection.resources || []).map((r) => r.url || ""),
+    ...(collection.evidence || []),
+  ].join(" ");
+  if (/kattis\.com/.test(links)) return "Statements from Kattis; this is the original judge.";
+  if (/codeforces\.com\/gym\//.test(links)) return "Statements from the Codeforces gym.";
+  return "";
+}
+
+function contestTopicTally(hits) {
+  const counts = new Map();
+  for (const hit of hits || []) {
+    for (const p of hit.problem.patterns || []) counts.set(p, (counts.get(p) || 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+// Labels are hints. Whoever is hiding them has not stopped wanting to know
+// what a set is made of afterwards, so the tally stays — behind a summary that
+// says out loud what opening it will show.
+function contestTopicsHidden() {
+  return typeof showLabels !== "undefined" && !showLabels;
+}
+
+// A member with no indexed statement. It still ran, it is still part of the
+// set, and the hard ones are exactly the ones that are missing — 9.2, 9.1 and
+// 8.4 on Kattis's own scale — so a bare "3 not yet indexed" count hides the
+// shape of the contest rather than reporting it.
+function renderContestUnindexedRow(member) {
+  const kattis = member.kattis_difficulty ? { platform: "kattis", kattis_difficulty: member.kattis_difficulty } : null;
+  const score = kattis ? cosineDifficulty.format(kattis) : "";
+  const band = kattis ? cosineDifficulty.kattisLabel(kattis) : "";
+  const url = safeResourceUrl(member.url || "");
+  const parts = [`<span class="contest-title">${escapeHtml(member.title || member.id)}</span>`];
+  if (score) {
+    parts.push(`<span class="difficulty ${band}" title="Kattis’s own 1–10 difficulty score — not a rating">${escapeHtml(score)}</span>`);
+  }
+  if (url) parts.push(`<a href="${escapeHtml(url)}" class="external-link" target="_blank" rel="noopener">open original &rarr;</a>`);
+  parts.push('<span class="contest-unlabelled">not yet labelled</span>');
+  return `<div class="contest-unindexed">${parts.join("")}</div>`;
+}
+
+function contestHeaderHtml(collection, hits, members, doneIds) {
+  const dim = [collection.held_date, collection.location, collection.organizer].filter(Boolean).join(" · ");
+  const rows = [`<div class="contest-name">${escapeHtml(collection.name || collection.id)}</div>`];
+  if (dim) rows.push(`<div class="contest-dim">${escapeHtml(dim)}</div>`);
+  const provenance = contestProvenance(collection);
+  if (provenance) rows.push(`<div class="contest-dim">${escapeHtml(provenance)}</div>`);
+  if (contestOrderUnverified(members)) {
+    rows.push('<div class="contest-caveat">problem order not verified — listed alphabetically</div>');
+  }
+  // Signed out there is no answer, and "0 of 13 done" would be a wrong one.
+  if (doneIds) {
+    const total = (collection.problems || []).length;
+    rows.push(`<div class="contest-progress">${contestDoneCount(collection.problems, doneIds)} of ${total} done</div>`);
+  }
+  // Editorials and booklets first: they are what you want after attempting a
+  // set, and the judge link is already on every row.
+  const kindOrder = (kind) => (["editorial", "pdf"].includes(kind) ? 0 : 1);
+  const links = (collection.resources || [])
+    .map((r) => ({ r, url: safeResourceUrl(r.url) }))
+    .filter((x) => x.url)
+    .sort((a, b) => kindOrder(a.r.kind) - kindOrder(b.r.kind));
+  if (links.length) {
+    rows.push('<ul class="contest-resources">' + links.map(({ r, url }) =>
+      `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(r.title || r.kind || "contest resource")}</a>${escapeHtml(resourceAvailabilityNote(r.availability))}</li>`
+    ).join("") + "</ul>");
+  }
+  const topics = contestTopicTally(hits);
+  if (topics.length) {
+    const summary = contestTopicsHidden() ? "by topic · reveals labels" : "by topic";
+    rows.push(`<details class="contest-topics"><summary>${escapeHtml(summary)}</summary><div class="contest-topic-list">` +
+      topics.map(([pattern, n]) =>
+        `<span class="contest-topic"><button type="button" class="pattern-chip" data-pattern="${escapeHtml(pattern)}" title="filter results by this label">${escapeHtml(pattern)}</button> × ${n}</span>`
+      ).join("") + "</div></details>");
+  }
+  return rows.join("");
+}
+
+function renderContestList(collection, hits, members, doneIds) {
+  resultsEl.innerHTML = "";
+  const header = document.createElement("li");
+  header.className = "contest-header";
+  header.innerHTML = contestHeaderHtml(collection, hits, members, doneIds);
+  header.querySelectorAll(".pattern-chip").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyPatternFilter(btn.dataset.pattern);
+    });
+  });
+  const topics = header.querySelector(".contest-topics");
+  if (topics) {
+    topics.addEventListener("toggle", () => {
+      if (!topics.open || topics.dataset.counted) return;
+      topics.dataset.counted = "1";
+      track("contest_viewed", { collection: collection.id, topics: true });
+    });
+  }
+  resultsEl.appendChild(header);
+
+  for (const row of contestRows(members, hits)) {
+    const li = document.createElement("li");
+    li.className = "result contest-row";
+    const cell = document.createElement("span");
+    cell.className = "contest-letter";
+    cell.textContent = row.member.letter || row.member.code || "";
+    li.appendChild(cell);
+    if (row.hit) {
+      // One card, drawn by the one renderer that knows how to draw a card —
+      // bookmark, done, statement, the lot. Duplicating it here is how the two
+      // would drift.
+      const holder = document.createElement("ul");
+      holder.className = "contest-card";
+      renderHitsList(holder, [row.hit], { unranked: true });
+      li.appendChild(holder);
+    } else {
+      const holder = document.createElement("div");
+      holder.className = "contest-card";
+      holder.innerHTML = renderContestUnindexedRow(row.member);
+      li.appendChild(holder);
+    }
+    resultsEl.appendChild(li);
+  }
+}
+
+// Done ids come from the same endpoint the library counts read. Signed out
+// there is nothing to intersect with, and null means "say nothing".
+async function contestDoneIds() {
+  if (!currentUser) return null;
+  try {
+    const res = await fetch("/api/user-state");
+    if (!res.ok) return null;
+    const data = await res.json();
+    return new Set(data.done || []);
+  } catch (_e) {
+    return null;
+  }
+}
+
+async function runContest(collectionId) {
+  // A ?view=contest link dispatches at boot, before /api/collections answers,
+  // and this view is built out of the registry rather than out of the hits —
+  // so it waits for the registry instead of falling back to a browse.
+  let collection = collectionById(collectionId);
+  if (!collection && collectionsReady) {
+    await collectionsReady;
+    collection = collectionById(collectionId);
+  }
+  // Not one of ours, or the registry never loaded. Either way there is no
+  // contest to draw, so fall through to the browse the chip means.
+  if (!collection) return runSearch("");
+  const issuedAt = ++lastQueryAt;
+  hideFeedback();
+  hideLoadMore();
+  currentSearchId = null;
+  currentRankerAnswered = "";
+  currentQuery = "";
+  currentOffset = 0;
+  currentTopScore = 0;
+  input.value = "";
+  if (currentUser) setLibPath(`~/contest ${collectionId}`);
+  syncUrl();
+  renderCollectionPanel();
+
+  // One page: the largest collection here is fifteen problems, so paging would
+  // be furniture over a list that always fits.
+  const k = Math.max(collection.count || 0, 1);
+  const rankerParam = activeRanker ? `&ranker=${encodeURIComponent(activeRanker)}` : "";
+  const url = `/api/search?q=&k=${k}&contest=${encodeURIComponent(collectionId)}${rankerParam}`;
+  let data;
+  try {
+    if (inFlight) inFlight.abort();
+    inFlight = new AbortController();
+    const res = await fetch(url, { signal: inFlight.signal });
+    data = await res.json();
+  } catch (err) {
+    if (err.name === "AbortError" || issuedAt !== lastQueryAt) return;
+    setStatus(`error: ${err.message || "contest view failed"}`);
+    return;
+  }
+  if (issuedAt !== lastQueryAt) return;
+
+  const hits = data.hits || [];
+  currentTotal = data.total || hits.length;
+  track("contest_viewed", { collection: collectionId });
+  const doneIds = await contestDoneIds();
+  if (issuedAt !== lastQueryAt) return;
+  renderContestList(collection, hits, collection.members || [], doneIds);
+  setStatus(`${collection.name} · contest view`);
+}
+
 function buildActions(hit, libraryMode) {
   const actions = document.createElement("span");
   actions.className = "result-actions";
@@ -3703,6 +3995,7 @@ function applyUrlState(params) {
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
+  contestView = false;
   libAged = null;
   libOldest = false;
   libRecall = null;
@@ -3725,6 +4018,10 @@ function applyUrlState(params) {
       if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
     }
   }
+  // The contest page describes ONE contest. Two chips, or none, and the link
+  // is describing a browse — so the view quietly reverts rather than picking
+  // a collection for you.
+  contestView = params.get("view") === "contest" && activeCollections.size === 1;
   const pattern = (params.get("pattern") || "").trim().toLowerCase();
   const aged = Number.parseInt(params.get("aged") || "", 10);
   if ([30, 90, 180].includes(aged)) libAged = aged;
@@ -3765,7 +4062,10 @@ function applyUrlState(params) {
 // popstate needs the controls repainted between the two.
 function dispatchUrlView() {
   const q = input.value.trim();
-  if (currentSimilar) {
+  if (contestView && activeCollections.size === 1) {
+    input.value = "";
+    runContest([...activeCollections][0]);
+  } else if (currentSimilar) {
     input.value = "";
     runSimilar(currentSimilar);
   } else if (activePattern) {
@@ -3790,7 +4090,7 @@ const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();
 applyUrlState(bootParams);
-loadCollections();
+collectionsReady = loadCollections();
 syncJudgeControls();
 updatePatternPill();
 dispatchUrlView();

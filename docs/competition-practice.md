@@ -29,6 +29,25 @@ ranked problem. Counts distinguish searchable members from members still
 awaiting statement or solution review, and a collection with no indexed
 problems says so in the status line instead of reading as a broken filter.
 
+With exactly one competition selected, the resources panel offers a contest
+page (`?contest=<id>&view=contest`). It lists the whole set rather than the
+searchable part of it: one row per registry member, indexed or not, with the
+letter or CodeChef code in a fixed cell, the card the search results use where
+a statement exists, and a title, difficulty and judge link where one does not.
+The header carries the date, location and organiser, where the statements came
+from, how many of the set you have marked done, the collection's resource links
+with editorials and booklets first, and a `by topic` tally that is never open by
+default — topic labels are hints, so the view that hides them stays the one you
+land on. Order is `member.order`, then `member.letter`, then registry position;
+for the seven Kattis-sourced collections registry order is alphabetical by slug
+and no letters are published, so those headers say "problem order not verified
+— listed alphabetically" rather than inventing letters. That per-problem
+metadata lives in the registry itself: a membership in `data/contests.json` is
+either a bare id or an object carrying `letter`, `order`, `title`, `url`,
+`kattis_difficulty`, `solves` or `code`, validated by `validateRegistry` and
+shipped to the client as `members` alongside the flat `problems` id list every
+other consumer reads. There is no timer and no virtual-contest mode.
+
 Members arrive through `scripts/ingest_contest.py`, which reads a Kattis
 problem-source page (`icpc.kattis.com` and `open.kattis.com`, where ICPC World
 Finals and the Asia regionals are hosted) or an `open.kattis.com/contests/<id>`

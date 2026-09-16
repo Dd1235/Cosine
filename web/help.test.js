@@ -75,6 +75,7 @@ const MANUAL_CONTROLS = [
   ["labels:",          indexHtml, /id="labels-toggle"/],
   ["written up",       indexHtml, /<option value="yes">written up<\/option>/],
   ["my level",         src,       /"level-apply"/],
+  ["contest page",     src,       /'contest-open'/],
 ];
 for (const [phrase, where, pattern] of MANUAL_CONTROLS) {
   if (!allHelp.includes(phrase)) continue; // the manual stopped mentioning it; nothing to guard

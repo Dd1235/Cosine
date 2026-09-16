@@ -2034,6 +2034,67 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
    specialist check had to settle it. */
 .result-meta .difficulty.cses-confidence-medium { border-style: dashed; }
 .result-meta .difficulty.cses-confidence-low { border-style: dotted; }
+/* The contest page. A row is the letter cell plus one card, so the card that
+   renderHitsList draws inside it drops its own chrome — the row is wearing it. */
+.contest-header {
+  list-style: none;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+.contest-name { font-size: .95rem; }
+.contest-dim, .contest-caveat, .contest-progress { color: var(--text-dim); }
+.contest-caveat::before { content: "// "; }
+.contest-resources { margin: 6px 0 0; padding-left: 20px; }
+.contest-topics { margin-top: 8px; }
+.contest-topics summary { cursor: pointer; color: var(--text-dim); }
+.contest-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 6px;
+}
+.contest-topic { color: var(--text-dim); white-space: nowrap; }
+.contest-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.contest-row::before { content: none; }
+.contest-letter {
+  flex: 0 0 1.75rem;
+  font-family: var(--mono);
+  color: var(--text-dim);
+}
+.contest-card { flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; list-style: none; }
+/* The nested card is already inside a bordered row; a second box around it
+   reads as two results rather than one. */
+.contest-card .result {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  animation: none;
+}
+.contest-card .result::before { content: none; }
+.contest-unindexed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+.contest-unindexed, .contest-unlabelled { color: var(--text-dim); }
+.contest-unindexed .contest-title { overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  .contest-row { flex-wrap: wrap; }
+  .contest-letter { flex-basis: auto; }
+  .contest-card { flex-basis: 100%; }
+  .contest-header { overflow-wrap: anywhere; }
+}
 .similar-empty { list-style: none; padding: 20px 0; }
 .similar-explanation { opacity: .85; }
 .result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

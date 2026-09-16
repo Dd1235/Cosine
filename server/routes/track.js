@@ -42,6 +42,9 @@ const TYPES = new Set([
   // obstacle.
   "labels_toggled",
   "labels_revealed",
+  // The contest page, and whether anyone opens its topic tally — the one part
+  // of it that shows labels, and the reason it is closed by default.
+  "contest_viewed",
 ]);
 
 const clip = (v, n) => (typeof v === "string" && v ? v.slice(0, n) : undefined);
@@ -96,6 +99,11 @@ function cleanProps(type, raw = {}) {
     if (Number.isInteger(n) && n >= 0 && n <= 100000) p.of = n;
   } else if (type === "collection_added" || type === "collection_removed") {
     p.collection = clip(raw.collection, 120);
+  } else if (type === "contest_viewed") {
+    p.collection = clip(raw.collection, 120);
+    // Only the true case is worth a row: it separates "opened the page" from
+    // "opened the page and asked what it was made of".
+    if (raw.topics === true) p.topics = true;
   } else if (type === "similar_opened") {
     p.problemId = clip(raw.problemId, 120);
     if (raw.kind === "similar" || raw.kind === "practice") p.kind = raw.kind;

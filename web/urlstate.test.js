@@ -33,7 +33,7 @@ function harness(search = '') {
     activeCollections: new Set(), activePlatforms: new Set(),
     activeTiers: new Set(), activeRanges: new Map(), activeAcceptance: null,
     bootRanges: [], sortDir: null, activePattern: '',
-    currentSimilar: null, similarLibrary: null, practiceMode: false,
+    currentSimilar: null, similarLibrary: null, practiceMode: false, contestView: false,
     libAged: null, libOldest: false, libRecall: null, libNotes: null,
     currentFilter: 'all', currentQuery: '', currentTotal: 0, currentOffset: 0,
     bootNeedsAuth: false, lastAppliedSearch: search,
@@ -49,6 +49,7 @@ function harness(search = '') {
     URLSearchParams, Number,
     window: { addEventListener: (name, fn) => { if (name === 'popstate') popHandler = fn; } },
     runSimilar: p => calls.push(['similar', p.id]),
+    runContest: id => calls.push(['contest', id]),
     runSearch: q => calls.push(['search', q]),
     applyPatternFilter: p => calls.push(['pattern', p]),
     syncJudgeControls: () => calls.push(['judges']),
@@ -98,6 +99,7 @@ function harness(search = '') {
   assert.equal(ctx.currentSimilar, null, 'similar');
   assert.equal(ctx.similarLibrary, null, 'similar library');
   assert.equal(ctx.practiceMode, false, 'practice');
+  assert.equal(ctx.contestView, false, 'contest view');
   assert.equal(ctx.libAged, null, 'aged');
   assert.equal(ctx.libOldest, false, 'oldest');
   assert.equal(ctx.libRecall, null, 'recall');
@@ -147,6 +149,42 @@ function harness(search = '') {
   assert.deepEqual(calls.at(-1), ['status', '']);
   assert.equal(ctx.currentQuery, '');
   assert.equal(ctx.resultsEl.innerHTML, '', 'Back to a bare URL clears the results it no longer describes');
+}
+
+// --- the contest page is a view over exactly one collection ------------------
+// Not two, and not none. A link carrying `view=contest` with a union of
+// collections is describing something the page cannot draw, so it reverts to
+// the browse those chips do mean rather than picking one of them for you.
+{
+  const { ctx, calls, apply } = harness();
+  apply('?contest=icpc-world-finals-2024&view=contest');
+  assert.equal(ctx.contestView, true);
+  ctx.dispatchUrlView();
+  assert.deepEqual(calls.at(-1), ['contest', 'icpc-world-finals-2024']);
+
+  apply('?contest=icpc-world-finals-2024,icpc-world-finals-2023&view=contest');
+  assert.equal(ctx.contestView, false, 'two competitions are a union, not a contest');
+  ctx.dispatchUrlView();
+  assert.deepEqual(calls.at(-1), ['search', ''], 'it falls back to the browse the chips describe');
+
+  apply('?view=contest');
+  assert.equal(ctx.contestView, false, 'no competition, no contest');
+
+  // Back. The previous entry is the same collection without the view, so the
+  // page has to leave the contest view rather than keep drawing it.
+  apply('?contest=icpc-world-finals-2024&view=contest');
+  assert.equal(ctx.contestView, true);
+  apply('?contest=icpc-world-finals-2024');
+  assert.equal(ctx.contestView, false, 'Back out of the view clears it');
+  ctx.dispatchUrlView();
+  assert.deepEqual(calls.at(-1), ['search', '']);
+
+  // A similarity view wins nothing here: the contest branch is checked first,
+  // but only ever with one collection and no `similar` in the URL.
+  apply('?similar=codeforces-1-a&view=contest');
+  assert.equal(ctx.contestView, false);
+  ctx.dispatchUrlView();
+  assert.deepEqual(calls.at(-1), ['similar', 'codeforces-1-a']);
 }
 
 // --- popstate ignores a hash-only move ---------------------------------------
