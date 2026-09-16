@@ -18,10 +18,26 @@
     if (!meta || typeof meta !== 'object') return null;
     return Number.isInteger(meta.band) && meta.band >= 1 && meta.band <= 5 ? meta : null;
   }
+  // Kattis publishes its own 1–10 score per host. It is shown as a number with
+  // the judge's name, never mapped onto a rating, a filter or a sort.
+  function kattisScore(problem) {
+    if (!problem || problem.platform !== 'kattis') return null;
+    const k = problem.kattis_difficulty;
+    return k && typeof k.score === 'number' && Number.isFinite(k.score) ? k : null;
+  }
+  function kattisLabel(problem) {
+    const k = kattisScore(problem);
+    const label = k && typeof k.label === 'string' ? k.label.toLowerCase() : '';
+    return label === 'easy' || label === 'medium' || label === 'hard' ? label : '';
+  }
   function format(problem) {
     if (problem.platform === 'cses') {
       const band = problem.cses_difficulty && problem.cses_difficulty.band;
       return Number.isInteger(band) && band >= 1 && band <= 5 ? `${bands[band - 1]} · CSES estimate` : '';
+    }
+    if (problem.platform === 'kattis') {
+      const k = kattisScore(problem);
+      return k ? `${k.score.toFixed(1)} · Kattis` : '';
     }
     return problem.difficulty == null ? '' : String(problem.difficulty);
   }
@@ -43,6 +59,6 @@
   function confidenceTitle(level) {
     return confidenceTitles[level] || '';
   }
-  root.cosineDifficulty = { bands, tokens, format, value, confidence, confidenceTitle };
+  root.cosineDifficulty = { bands, tokens, format, value, confidence, confidenceTitle, kattisLabel };
   if (typeof module !== 'undefined' && module.exports) module.exports = root.cosineDifficulty;
 })(typeof window === 'undefined' ? globalThis : window);

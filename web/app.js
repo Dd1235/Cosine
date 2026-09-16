@@ -583,7 +583,9 @@ function setLibPath(path) {
   // "..."`, so the chips showed there too, where clicking one is a no-op
   // (the filter resets the moment a non-library view re-issues).
   if (libAgeRow) {
-    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || !!currentSimilar;
+    // A practice list already excludes everything done, so the age chips there
+    // could only ever empty it.
+    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || (!!currentSimilar && !practiceMode);
     libAgeRow.hidden = !inLibrary || !currentUser;
     libAgeRow.querySelectorAll(".lib-age").forEach((c) => {
       c.classList.toggle("is-active", String(libAged ?? "") === c.dataset.aged);
@@ -659,12 +661,18 @@ function collectionChipLabel(collection, id) {
 
 // "resources only" is the honest phrasing for a collection whose problems are
 // all still unindexed — "0 problems" reads like a bug.
-function collectionOptionLabel(collection) {
+// One phrase for "how much of this collection is here", used by the picker
+// option and the resources panel alike. They used to be two strings, and the
+// panel's read "0 searchable problems" for exactly the collections the picker
+// had been taught to call "resources only".
+function collectionCountPhrase(collection) {
   const count = collection.count || 0;
-  const base = count
-    ? `${collection.name} · ${count} problem${count === 1 ? '' : 's'}`
-    : `${collection.name} · resources only`;
+  const base = count ? `${count} problem${count === 1 ? '' : 's'}` : 'resources only';
   return collection.unavailableCount ? `${base} · ${collection.unavailableCount} not yet indexed` : base;
+}
+
+function collectionOptionLabel(collection) {
+  return `${collection.name} · ${collectionCountPhrase(collection)}`;
 }
 
 // The registry vocabulary is public | inaccessible | not-verified, so "public"
@@ -834,7 +842,7 @@ function renderCollectionPanel() {
     details.dataset.collection = id;
     if (open.has(id)) details.open = true;
     const summary = document.createElement('summary');
-    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problem${collection.count === 1 ? "" : "s"}${collection.unavailableCount ? ` · ${collection.unavailableCount} not yet indexed` : ""} · resources`;
+    summary.textContent = `${collection.name} · ${collectionCountPhrase(collection)} · resources`;
     details.appendChild(summary);
     const list = document.createElement('ul');
     for (const resource of collection.resources || []) {
@@ -965,6 +973,7 @@ if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
       if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
       else localStorage.removeItem('cosine_cses_level_anon_v1');
       setCsesLevelSuggestion(band);
+      applyCsesLevelFilter(band);
     } catch (_err) { setStatus('Could not save your CSES level in this browser.'); }
     return;
   }
@@ -976,10 +985,22 @@ if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
       method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ band }),
     });
     if (!res.ok) throw new Error(`save failed (${res.status})`);
-    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(band);
+    if (currentUser && currentUser.id === userId) {
+      setCsesLevelSuggestion(band);
+      applyCsesLevelFilter(band);
+    }
   } catch (err) { setStatus(`CSES level: ${err.message}`); }
   finally { csesLevelSaving = false; syncCsesLevelControl(); }
 });
+
+// Choosing a CSES band is choosing a filter. This used to only make the
+// "my level" chip appear, which read as a control that did nothing. It goes
+// through the same token path the chip uses, so "my level ✓" agrees with it.
+function applyCsesLevelFilter(band) {
+  for (const id of [...activeTiers]) if (id.startsWith('cses-')) activeTiers.delete(id);
+  if (band) applyDifficultyToken(cosineDifficulty.tokens[band - 1]);
+  afterDifficultyChange();
+}
 
 // Judge chips. Multi-select on purpose: "codeforces + atcoder" is a real way
 // to think about practice, and the single-pick dropdown this replaced couldn't
@@ -2243,10 +2264,9 @@ CORPUS
                apart; low, a computation had to settle it. That
                is agreement between reviews, not human
                calibration, and it converts to no Codeforces
-               rating. Choose "my CSES level" explicitly; your
-               account saves the choice, or it stays in this
-               browser while signed out. "my level" applies
-               that band.
+               rating. Choose "my CSES level" explicitly and it
+               filters at once; your account saves the choice,
+               or it stays in this browser while signed out.
 
   PYQs         add one or more competition collections. These
                combine with every other filter, and a card shows
@@ -2700,15 +2720,22 @@ function platformBadge(platform) {
 // endpoints have shipped hit.competitions for a while and nothing rendered it,
 // so the only way to discover that a problem you found by searching was an
 // ICPC World Finals question was to already have the collection selected.
+//
+// A problem can genuinely belong to two contests — Luxor ran the 2022 and 2023
+// World Finals together and five problems were in both — so the first two
+// memberships get a chip each; only past two does it compress to "+N".
 function competitionTag(competitions) {
   const list = competitions || [];
   if (!list.length) return "";
-  const first = list[0];
-  const label = first.short || first.name;
-  const title = list.map((c) => c.name).join(" · ");
-  const more = list.length > 1 ? ` +${list.length - 1}` : "";
-  return `<button type="button" class="competition-tag" data-collection="${escapeHtml(first.id)}"
-    title="${escapeHtml(`${title} — filter to this collection`)}">${escapeHtml(label + more)}</button>`;
+  const shown = list.slice(0, 2);
+  const rest = list.length - shown.length;
+  const chips = shown.map((c) => `<button type="button" class="competition-tag" data-collection="${escapeHtml(c.id)}"
+    title="${escapeHtml(`${c.name} — filter to this collection`)}">${escapeHtml(c.short || c.name)}</button>`);
+  if (rest > 0) {
+    const others = list.slice(2).map((c) => c.name).join(" · ");
+    chips.push(`<span class="competition-tag competition-more" title="${escapeHtml(others)}">+${rest}</span>`);
+  }
+  return chips.join("");
 }
 
 // Badge wording deliberately leads with "vs <other>" — the old form put the
@@ -2773,7 +2800,15 @@ function renderHitsList(container, hits, opts = {}) {
     const csesConfidence = isCses ? cosineDifficulty.confidence(hit.problem) : null;
     const csesClass = `cses-estimate${csesConfidence ? ` cses-confidence-${csesConfidence}` : ""}`;
     const csesTitle = csesConfidence ? ` title="${escapeHtml(cosineDifficulty.confidenceTitle(csesConfidence))}"` : "";
-    const diffHtml = diff === "" ? "" : `<span class="difficulty ${isCses ? csesClass : diffClass(hit.problem.difficulty)}"${isCses ? csesTitle : ""}>${escapeHtml(String(diff))}</span>`;
+    // Kattis's own score rides the same three colour classes; the title says
+    // whose number it is, since a "7.4" next to Codeforces ratings invites a
+    // comparison it cannot bear.
+    const isKattis = hit.problem.platform === "kattis";
+    const kattisClass = isKattis ? cosineDifficulty.kattisLabel(hit.problem) : "";
+    const kattisTitle = isKattis ? ' title="Kattis\u2019s own 1\u201310 difficulty score \u2014 not a rating"' : "";
+    const diffClassName = isCses ? csesClass : isKattis ? kattisClass : diffClass(hit.problem.difficulty);
+    const diffTitle = isCses ? csesTitle : isKattis ? kattisTitle : "";
+    const diffHtml = diff === "" ? "" : `<span class="difficulty ${diffClassName}"${diffTitle}>${escapeHtml(String(diff))}</span>`;
     let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
@@ -2864,7 +2899,10 @@ function renderHitsList(container, hits, opts = {}) {
     if (opts.similarMode && (hit.sharedTechniques || []).length) {
       const explanation = document.createElement("p");
       explanation.className = "similar-explanation";
-      explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
+      // "Also labelled", not "shared techniques": the overlap is real information,
+      // but the order is dense cosine (techniqueWeight is 0), so it must not read
+      // as the reason for the ranking.
+      explanation.textContent = `Also labelled: ${hit.sharedTechniques.join(", ")}`;
       detail.prepend(explanation);
     }
     detail.querySelectorAll(".pattern-chip").forEach((btn) => {
@@ -2919,20 +2957,6 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     li.appendChild(header);
-    if (activeCollections.size && !compareMode) {
-      const attempt = document.createElement("div");
-      attempt.className = "pyq-attempt";
-      const original = safeResourceUrl(hit.problem.source_url);
-      if (original) {
-        const link = document.createElement("a");
-        link.href = original;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = "open original problem →";
-        attempt.appendChild(link);
-      }
-      li.appendChild(attempt);
-    }
     if (!libraryMode) li.appendChild(bar);
     if (matched.childNodes.length > 0) li.appendChild(matched);
     li.appendChild(detail);
