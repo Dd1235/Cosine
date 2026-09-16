@@ -20,9 +20,34 @@ def kattis_body(page):
     raise ValueError('truncated Kattis statement')
 
 
+def codechef_extras(data, slugify):
+    """The metadata a CodeChef problem page carries beyond its statement.
+
+    `computed_tags` is CodeChef's own classification and `user_tags` is the
+    crowd's; the computed list is preferred and the crowd list is the fallback,
+    and both are slugified so they read like every other judge tag in the
+    corpus. They are JUDGE tags, kept apart from the reviewed labels.
+
+    `difficulty_rating` is -1 on every ICPC replay problem — CodeChef's "not
+    rated" sentinel, which it returns as the string '-1'. A sentinel is not a
+    rating, so it is dropped rather than stored as one."""
+    tags = data.get('computed_tags') or data.get('user_tags') or []
+    extras = {'judge_tags': [slugify(str(t)) for t in tags if str(t).strip()],
+              'date_added': data.get('date_added') or None,
+              'problem_author': data.get('problem_author') or None}
+    try:
+        rating = int(str(data.get('difficulty_rating')))
+    except (TypeError, ValueError):
+        rating = -1
+    if rating != -1:
+        extras['difficulty_rating'] = rating
+    return extras
+
+
 def metadata(url, topic):
     from annotate_problem_urls import request_json, request_text, html_to_text, slugify
     parsed = urlparse(url)
+    extras = {}
     match = re.search(r'/problems/([A-Za-z0-9_-]+)/?$', parsed.path)
     if not match:
         raise ValueError('expected a direct problem URL')
@@ -50,6 +75,7 @@ def metadata(url, topic):
             if raw and re.search(r'problem statement.*template|remove.*before.*publish', raw, re.I):
                 raise ValueError('placeholder statement; retain resource link')
         text = html_to_text(raw or '')
+        extras = codechef_extras(data, slugify)
     elif parsed.hostname in {'open.kattis.com', 'icpc.kattis.com'}:
         platform = 'kattis'
         page = request_text(url)
@@ -63,4 +89,4 @@ def metadata(url, topic):
     return {'id': f'{platform}-{slugify(code)}', 'platform': platform,
             'title': title, 'slug': slugify(code), 'source_url': url,
             'source_topic': topic, 'source_text': text, 'source_tags': [],
-            'difficulty': None, 'rating': None}
+            'difficulty': None, 'rating': None, **extras}
