@@ -64,6 +64,39 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
     } catch (_err) { res.status(500).json({ error: "db_error" }); }
   });
 
+  // Whether technique labels are shown before you attempt a problem. Default
+  // is hidden, so `null` ("never chose") and `false` behave the same today —
+  // they are stored apart so the default can move without rewriting choices.
+  router.get("/preferences/show-labels", requireUser, async (req, res) => {
+    res.set("Cache-Control", "no-store");
+    try {
+      const result = await db.query("SELECT show_labels FROM user_preferences WHERE user_id = $1", [req.user.id]);
+      res.json({ showLabels: result.rows[0]?.show_labels ?? null });
+    } catch (_err) {
+      // A deploy can land minutes before its migration, and then this column
+      // does not exist. "Never chose" is the honest answer in that window; a
+      // 500 would make the search page report an error about a preference
+      // nobody has set.
+      res.json({ showLabels: null });
+    }
+  });
+
+  router.put("/preferences/show-labels", requireUser, async (req, res) => {
+    const showLabels = req.body?.showLabels;
+    if (typeof showLabels !== "boolean") {
+      return res.status(400).json({ error: "bad_show_labels" });
+    }
+    try {
+      await db.query(
+        `INSERT INTO user_preferences (user_id, show_labels) VALUES ($1, $2)
+         ON CONFLICT (user_id) DO UPDATE SET show_labels = EXCLUDED.show_labels, updated_at = NOW()`,
+        [req.user.id, showLabels]
+      );
+      res.set("Cache-Control", "no-store");
+      res.json({ showLabels });
+    } catch (_err) { res.status(500).json({ error: "db_error" }); }
+  });
+
   // What the search page needs to offer "at my level", and nothing else.
   //
   // Deliberately cache-only: it reads whatever /profile already stored and
