@@ -1978,6 +1978,16 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 }
 .collection-picker[hidden] { display: none; }
 .competition-more { cursor: default; opacity: .75; }
+.labels-pending { color: var(--text-dim); font-style: italic; }
+.result-meta .review-pending {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-control);
+  padding: 0 6px;
+  cursor: help;
+}
 .competition-tag {
   font: inherit;
   font-family: var(--mono);

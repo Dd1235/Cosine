@@ -187,4 +187,16 @@ for (const shape of [{ patterns: [] }, {}]) {
   assert.deepEqual([...ctx.visibleMatchedTerms({ problem: { id: 'p3' } }, false)], []);
 }
 
+// A labels-pending record: the honest sentence, in both switch states, and no
+// button pretending there is something to reveal.
+for (const showLabelsNow of [false, true]) {
+  const { ctx, el, problem } = run({ showLabels: showLabelsNow, patterns: [] });
+  problem.review_status = 'labels-pending';
+  ctx.renderPatternsInto(el, problem, false);
+  assert.equal(el.hidden, false, 'the paragraph stays, carrying the sentence');
+  assert.ok(el.innerHTML.includes('labels pending review'), `pending sentence (showLabels=${showLabelsNow})`);
+  assert.equal(el.querySelector('.reveal-labels'), null, 'nothing to reveal');
+  assert.equal(el.querySelectorAll('.pattern-chip').length, 0);
+}
+
 console.log('label hiding passed (withheld not blurred, reveal, switch, empty, matched terms)');

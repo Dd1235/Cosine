@@ -2335,7 +2335,13 @@ CORPUS
   problem carrying it. Type a new query and the label drops —
   it was a drill-down into what you were reading, and most
   labels are narrow enough that keeping it would find nothing.
-  Judges are not like this: they stay until you drop them.`,
+  Judges are not like this: they stay until you drop them.
+  A card that says "labels pending review" is a problem we
+  have indexed by its statement and the judge's own tags and
+  have not solved ourselves yet. It never matches a technique
+  filter, because it carries none of our labels; it does
+  match the words in it.
+`,
   },
   {
     name: "filters",
@@ -2879,6 +2885,14 @@ function visibleMatchedTerms(hit, revealed) {
 // (the matched line and the "Also labelled" caption) when this one is opened.
 function renderPatternsInto(el, problem, revealed, onReveal) {
   const patterns = problem.patterns || [];
+  // A labels-pending record (scripts/publish_pending.py) has the statement
+  // and the judge's tags and none of our labels yet. A reveal button that
+  // reveals nothing would be worse than the honest sentence.
+  if (problem.review_status === 'labels-pending') {
+    el.hidden = false;
+    el.innerHTML = '<span class="labels-pending">labels pending review</span>';
+    return;
+  }
   // No labels at all: no paragraph, and above all no "0 technique labels"
   // button promising something to reveal.
   el.hidden = patterns.length === 0;
@@ -2970,7 +2984,12 @@ function renderHitsList(container, hits, opts = {}) {
     const diffClassName = isCses ? csesClass : isKattis ? kattisClass : diffClass(hit.problem.difficulty);
     const diffTitle = isCses ? csesTitle : isKattis ? kattisTitle : "";
     const diffHtml = diff === "" ? "" : `<span class="difficulty ${diffClassName}"${diffTitle}>${escapeHtml(String(diff))}</span>`;
-    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
+    // Tier one of the CodeChef ingest: searchable, but nobody here has solved
+    // it, so it says so where the labels would otherwise be trusted.
+    const pendingChip = hit.problem.review_status === "labels-pending"
+      ? '<span class="review-pending" title="statement and judge tags only \u2014 nobody here has solved this yet">pending</span>'
+      : "";
+    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + pendingChip + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
       const hasNotes = note && cosineSheets.userColumns().some((fld) => (note[fld.key] || "").trim());
