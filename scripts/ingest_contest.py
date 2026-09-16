@@ -388,6 +388,15 @@ KATTIS_CONTEST_LINK_RE = re.compile(
     r'href="/contests/[A-Za-z0-9_.-]+/problems/([A-Za-z0-9_.-]+)"[^>]*>\s*(.*?)\s*</a>', re.S)
 KATTIS_DIFFICULTY_RE = re.compile(
     r'difficulty_number[^"]*difficulty_(easy|medium|hard)"\s*>\s*(\d+\.\d)', re.S)
+# Full Solves ("number of users that have solved the problem fully") is a bare
+# <td>42</td> with nothing in it to match on, so it is found the same row-wise
+# way the difficulty is: by its NEIGHBOURS, not its position. Kattis always
+# renders Authors, Full Solves and Ratio adjacently and only the ratio cell
+# carries a '%', so anchoring on that cell identifies the other two no matter
+# how many columns sit to the left of them (the source table already varies:
+# a row can drop its difficulty cell entirely).
+KATTIS_FULL_SOLVES_RE = re.compile(
+    r'<td\b[^>]*>\s*(\d+)\s*</td>\s*<td\b[^>]*>\s*(\d+)\s*</td>\s*<td\b[^>]*>\s*\d+\s*%', re.S)
 KATTIS_DIFFICULTY_MARKER = 'data-name="difficulty_data"'
 KATTIS_HELD_DATE_RE = re.compile(r"\(([A-Z][a-z]+)\s+(\d{1,2}),\s*(\d{4})\)\s*$")
 MONTHS = {m: i for i, m in enumerate(
@@ -417,10 +426,15 @@ def parse_kattis_source_page(page: str) -> list[dict[str, Any]]:
         if not link:
             continue
         hit = KATTIS_DIFFICULTY_RE.search(block)
+        solves = KATTIS_FULL_SOLVES_RE.search(block)
         rows.append({
             "slug": link.group(1),
             "title": html_to_text(link.group(2)),
             "difficulty": {"score": float(hit.group(2)), "label": hit.group(1)} if hit else None,
+            # How many teams solved it is how a team picks which past contest to
+            # attempt, so it is staged alongside the position. Unknown stays
+            # None; a missing count is not zero solves.
+            "full_solves": int(solves.group(2)) if solves else None,
         })
     if not rows:
         raise ValueError("no problem rows on this page — refusing to stage nothing")
@@ -441,7 +455,7 @@ def parse_kattis_contest_page(page: str) -> list[dict[str, Any]]:
         if not link:
             continue
         rows.append({"slug": link.group(1), "title": html_to_text(link.group(2)),
-                     "difficulty": None})
+                     "difficulty": None, "full_solves": None})
     if not rows:
         raise ValueError("no problem rows on this contest page — refusing to stage nothing")
     return rows
@@ -550,7 +564,8 @@ def ingest_kattis(spec: dict[str, Any], dry_run: bool,
                                            "observed_at": observed}
         record["contest_source"] = {"host": host,
                                     "name": spec.get("name") or spec.get("id"),
-                                    "position": position}
+                                    "position": position,
+                                    "full_solves": row.get("full_solves")}
         atomic_write_json(STAGING / f"{pid}.json", record)
         stats["staged"] += 1
         note = f"  [{row['difficulty']['score']} {row['difficulty']['label']}]" if row["difficulty"] else ""
