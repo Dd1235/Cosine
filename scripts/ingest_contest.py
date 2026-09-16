@@ -81,6 +81,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+import urllib.error
 from urllib.parse import quote, unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -654,8 +655,26 @@ def codechef_contest_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
         rows.append({"code": code, "name": prob.get("name") or code, "position": position,
                      "successful": codechef_number(prob.get("successful_submissions")),
                      "total": codechef_number(prob.get("total_submissions")),
-                     "accuracy": codechef_number(prob.get("accuracy"), float)})
+                     "accuracy": codechef_number(prob.get("accuracy"), float),
+                     # Some replay problems were never added to the practice
+                     # section, and /problems/<CODE> 404s for those. False means
+                     # "known absent"; None means the field was not there.
+                     "in_practice": codechef_flag(prob.get("is_added_to_practice"))})
     return rows
+
+
+def codechef_flag(value: Any) -> bool | None:
+    """CodeChef's booleans arrive as True/False, 1/0, "1"/"0" or "true"/"false"."""
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return None
+    text = str(value).strip().lower()
+    if text in ("1", "true", "yes"):
+        return True
+    if text in ("0", "false", "no"):
+        return False
+    return None
 
 
 def codechef_contest_identity(name: str) -> dict[str, Any]:
@@ -717,7 +736,11 @@ def codechef_registry_entry(spec: dict[str, Any], rows: list[dict[str, Any]],
         "evidence": [url],
         "problems": [{"id": f"codechef-{slugify(r['code'])}", "order": r["position"],
                       "code": r["code"], "title": r["name"],
-                      "url": f"https://www.codechef.com/problems/{r['code']}"}
+                      # /problems/<CODE> is the live practice page; a problem
+                      # never added to practice only exists inside the contest.
+                      "url": (f"https://www.codechef.com/problems/{r['code']}"
+                              if r.get("in_practice") is not False
+                              else f"https://www.codechef.com/{code}/problems/{r['code']}")}
                      for r in rows],
         "resources": [{"title": f"{display_name} (CodeChef replay)", "url": url,
                        "kind": "judge", "availability": "public"}],
@@ -757,6 +780,13 @@ def ingest_codechef(spec: dict[str, Any], dry_run: bool,
             stats["cached"] += 1
             print(f"    have  {pcode:<12} {row['name'][:34]}   (already staged)")
             continue
+        if row.get("in_practice") is False:
+            # Listed in the contest, never added to practice: the statement
+            # endpoint 404s. It still belongs to the contest and the registry
+            # skeleton keeps it as a member; there is just nothing to stage.
+            stats["skipped"] += 1
+            print(f"    skip {pcode}: not in CodeChef's practice section")
+            continue
         if dry_run:
             stats["staged"] += 1
             print(f"    STAGE {pcode:<12} {row['name'][:34]}")
@@ -767,7 +797,10 @@ def ingest_codechef(spec: dict[str, Any], dry_run: bool,
         fetched_any = True
         try:
             record = external_judges.metadata(f"https://www.codechef.com/problems/{pcode}", topic)
-        except ValueError as exc:
+        except (ValueError, urllib.error.HTTPError, urllib.error.URLError, OSError) as exc:
+            # One missing or flaky problem must not abort the contest: the
+            # first run lost six staged problems and the whole registry
+            # skeleton of AM19MOS to a single 404.
             stats["skipped"] += 1
             print(f"    skip {pcode}: {exc}")
             continue
