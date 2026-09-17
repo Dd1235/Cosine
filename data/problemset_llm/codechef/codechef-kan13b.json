@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kan13b",
+  "title": "Walking Path",
+  "slug": "kan13b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13B",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "John lives in a hilly city. He wants to go from point **A** to point **B** and he is planning to walk today. Fortunately for him, the city is designed like a grid. Unfortunately, as the elevation of each point is different, finding the easiest path is not trivial. That’s why John needs your help.",
+  "tags": [
+    "binary-heap",
+    "dijkstra-algorithm",
+    "jingbo-adm",
+    "kan13acm",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 2,
+    "problem_code": "KAN13B",
+    "replay_solves": {
+      "successful": 0,
+      "total": 15,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

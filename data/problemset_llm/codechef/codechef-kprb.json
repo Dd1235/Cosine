@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kprb",
+  "title": "K-Prob",
+  "slug": "kprb",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KPRB",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a string S of length n and an integer K. We will define F(L) here. Let's choose K random sub-strings of length L from S. Then F(L) equals the probability such that all of them are pairwise identical. See the **Explanation** section for more clarity.",
+  "tags": [
+    "advanced-data-structures",
+    "suffix-structures",
+    "mathematics",
+    "algorithms",
+    "dynamic-programming",
+    "dp-on-sequences"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KPRB"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 10,
+    "problem_code": "KPRB",
+    "replay_solves": {
+      "successful": 5,
+      "total": 19,
+      "accuracy": 26.32,
+      "replay_only": true
+    }
+  }
+}

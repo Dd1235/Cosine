@@ -1,0 +1,40 @@
+{
+  "id": "codechef-ni01",
+  "title": "Jurassic Park",
+  "slug": "ni01",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NI01",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "A Jurassic Park consists of a dinosaur museum and a park for safari riding. There are many passengers and n single-passenger cars. Passengers wander around the museum for a while and then line up at the park gate to take a ride in a safari car. Note that each passenger is allowed for one ride only.",
+  "tags": [
+    "special",
+    "basic-programming-concepts",
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NI01"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP12",
+    "position": 1,
+    "problem_code": "NI01",
+    "replay_solves": {
+      "successful": 71,
+      "total": 347,
+      "accuracy": 21.33,
+      "replay_only": true
+    }
+  }
+}

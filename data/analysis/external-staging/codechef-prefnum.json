@@ -1,0 +1,29 @@
+{
+ "id": "codechef-prefnum",
+ "platform": "codechef",
+ "title": "Prefix Numbers",
+ "slug": "prefnum",
+ "source_url": "https://www.codechef.com/problems/PREFNUM",
+ "source_topic": "ICPC / Gwalior Regional 2018",
+ "source_text": "You are given two positive integers $x, y$. Find the smallest positive integer $z$ such that $z$ contains $x$ as a prefix (in base 10) and $z$ is divisible by $y$. If the smallest such $z > 10^{18}$, print -1. Input - The first line of the input contains an integer $T$ denoting the number of test cases. The description of the test cases follows. - The first line of each test case contains two space-separated integers $x, y$. Output For each test case, output an integer $z$ corresponding to the answer of the problem. If $z > 10^{18}$, output -1 instead. Constraints - $1 \\le T \\le 10^5$ - $1 \\le x, y \\leq 10^{18}$ Sample Input 2 2 3 12 5 Sample Output 21 120 **Testcase 1**: 21 has 2 as a prefix, and is divisible by 3. Hence this is a valid $z$. You can check that no smaller integer satisfies these conditions, and hence the answer is 21. **Testcase 2**: 120 has 12 as a prefix, and is divisible by 5. Hence this is a valid $z$. You can check that no smaller integer satisfies these conditions, and hence the answer is 120.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics"
+ ],
+ "date_added": "17-12-2018",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "GWR18ROL",
+  "position": 11,
+  "problem_code": "PREFNUM",
+  "replay_solves": {
+   "successful": 73,
+   "total": 836,
+   "accuracy": 8.73,
+   "replay_only": true
+  }
+ }
+}

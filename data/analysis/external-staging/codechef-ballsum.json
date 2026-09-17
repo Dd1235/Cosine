@@ -1,0 +1,32 @@
+{
+ "id": "codechef-ballsum",
+ "platform": "codechef",
+ "title": "Colorful Balloons",
+ "slug": "ballsum",
+ "source_url": "https://www.codechef.com/problems/BALLSUM",
+ "source_topic": "ICPC / Kharagpur Regional 2019",
+ "source_text": "It's Alan's birthday. He is looking for balloons to decorate his house. He visits a shop which has many coloured balloons numbered $1$ to $n$ arranged in a row. The colour of each balloon can be represented as an integer between $1$ and $n$. Alan only wants to pick up a **contiguous subsequence** of these balloons. However, the total cost of a set of balloons is calculated in a strange way: $\\sum_{i=1}^{n} cnt_i^k$ where $cnt_i$ is the number of balloons of $i^{th}$ colour in the set. Find the total cost of all possible sets of balloons that can be bought by Alan. Two sets of balloons are considered different if there is a balloon numbered $i$ which is present in one set but not in the other. Since the answer can be huge, output the value modulo $10^9+7$. ### Input - The first line of the input consists of two integers $n$ and $k$. The next line consists of $n$ integers where the $i^{th}$ integer denotes the colour of the balloon numbered $i$. ### Output For each test case, print a single line containing one integer: total cost modulo $10^9+7$. ### Constraints - $1 \\le n, k \\le 200000$ Sample Input 3 2 1 2 1 Sample Output 12 Alan can buy the following sets of balloons: $(1)$, $(2)$, $(3)$ with cost $1$ each; $(1,2)$, $(2,3)$ with cost $2$ each; $(1,2,3)$ with cost $5$. Hence the total cost is $12$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "algebra",
+  "transformations",
+  "polynomial"
+ ],
+ "date_added": "28-11-2019",
+ "problem_author": "rumblefool",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KH19MOS",
+  "position": 4,
+  "problem_code": "BALLSUM",
+  "replay_solves": {
+   "successful": 6,
+   "total": 25,
+   "accuracy": 28.0,
+   "replay_only": true
+  }
+ }
+}

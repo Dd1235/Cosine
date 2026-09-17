@@ -1,0 +1,42 @@
+{
+  "id": "codechef-amlex",
+  "title": "Poetic word",
+  "slug": "amlex",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMLEX",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Dhinwaji is an acclaimed poet and likes to play with words and letters. He has bought some stickers where each sticker has a lower case english letter (a-z). The letters are indexed from 1 - 26 i.e. `a` has index 1, `b` has index 2 and so on. He has a_i stickers with letter i on it.",
+  "tags": [
+    "data-structures",
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "flow-networks",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMLEX"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 11,
+    "problem_code": "AMLEX",
+    "replay_solves": {
+      "successful": 0,
+      "total": 7,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

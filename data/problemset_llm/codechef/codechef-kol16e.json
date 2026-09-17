@@ -1,0 +1,37 @@
+{
+  "id": "codechef-kol16e",
+  "title": "Divide Me Please",
+  "slug": "kol16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16E",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "There are some short-cut ways to check divisibility of numbers in base 10. Here are some examples: 1. Remember divisibility testing of 3 in base 10? It was simple, right? We need to add all the digits and then check if it is divisible by 3. Call this method **\"1-sum\"**. 2.",
+  "tags": [
+    "mathematics",
+    "modular-arithmetic"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 5,
+    "problem_code": "KOL16E",
+    "replay_solves": {
+      "successful": 30,
+      "total": 181,
+      "accuracy": 17.13,
+      "replay_only": true
+    }
+  }
+}

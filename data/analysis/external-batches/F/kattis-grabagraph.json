@@ -1,0 +1,27 @@
+{
+ "id": "kattis-grabagraph",
+ "status": "solved",
+ "solution": "Place vertices on a line with increasing potentials d_i and weight every edge (i,j) by d_j - d_i. Any walk then costs at least |d_end - d_start| with equality exactly for the index-increasing walks, so every increasing path is a shortest path and the count is a plain DAG count. For Bash take x_0..x_60 with d_i = i and all C(61,2) edges, giving 2^(i-1) paths to x_i, and join vertex 2 to x_(b+1) for every set bit b of A: 62 vertices and at most 1889 edges. For Chikapu take y_0..y_86 with only the edges y_(i-2)-y_i and y_(i-1)-y_i, giving Fib(i+1) paths to y_i, and join vertex 2 to the Zeckendorf terms of A: 88 vertices and 171 + at most 43 = at most 214 edges, exactly the stated cap. A = 0 is answered by the empty two-vertex graph.",
+ "solution_confidence": 0.9,
+ "statement_summary": "Given a value A up to a quintillion, the task builds two weighted simple undirected graphs in each of which the number of distinct shortest paths between vertex one and vertex two is exactly A. The first may use seventy-two vertices and 2525 edges, the second only eighty-eight vertices and 214 edges, and every edge weight must be a positive integer below a billion.",
+ "patterns": [
+  "constructive-algorithm",
+  "graph-modeling",
+  "shortest-path",
+  "counting"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.95,
+  "graph-modeling": 0.85,
+  "shortest-path": 0.85,
+  "counting": 0.8
+ },
+ "tags": [
+  "construction",
+  "graph",
+  "fibonacci"
+ ],
+ "source_text_sha256": "af535586292bc6d9ed2d0d87237eb950ba6950c06504fc6683a4a11f4dc0580e",
+ "verify_script": "data/analysis/external-batches/F/verify_grabagraph.py",
+ "notes": "verify_grabagraph.py builds both graphs for 219 values of A (samples, randoms up to 1e18 and the two worst cases) and recounts the shortest paths with Dijkstra and exact big integers, also checking vertex, edge, weight, self-loop and duplicate limits. The Chikapu cap is tight: A = F(87)-1 needs exactly 214 edges, which is what makes Zeckendorf rather than binary the right base. One judgement call: A = 0 is answered YES with a two-vertex edgeless graph (zero shortest paths) rather than NO, on the grounds that the output format explicitly allows M = 0. Statement contains no sentence addressed to the annotator."
+}

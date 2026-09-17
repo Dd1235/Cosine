@@ -271,110 +271,89 @@ runs with an API key in CI.
 
 ---
 
-## 4a. Resume here — the Kattis/CodeChef publish (2026-09-13, complete)
+## 4a. Resume here — v86 (2026-09-16): contests as contests, labels hidden by default, India filled
 
-Everything below is on disk in the repo; nothing depends on a session scratchpad.
+Everything is on branch `v86` (pushed, **not merged**). Corpus **4,003**.
+Every gate is green at the head: `npm run validate` 0 errors, `npm run
+test:search` exit 0 (34 suites), `node web/help.test.js`, `npm run bench`
+worst per-slice regression 0.001 on bm25/tfidf against the pre-publish run.
 
-**Done and committed.** Picker in the judge row, back-navigation state, card
-provenance, CSES confidence/provenance, the heuristics register, Kattis
-source-page ingest + `scripts/publish_external.py` + tests, 65 staged
-statements (`data/analysis/external-staging/`).
+**Before merging: run migration `db/migrations/0010_show_labels.sql` on Neon**
+(additive, nullable). Merge = deploy. Then point a free cron at
+`https://onebysec.com/healthz` every 10 minutes — `/healthz` sets no cookie and
+logs no visit; `/` does both. Success metric: the `boot` count on
+`/stats.html` falls from ~213/week.
 
-**Published.** Batch C (6 CodeChef) on 2026-09-12; then one aggregate on
-2026-09-13 covering batches A, B, D (24 problems) and batch E (28 problems).
-**Corpus 3,565.** Every proposal, verify script and skeptic review is in
-`data/analysis/external-batches/`.
+**What shipped, in commit order.** `/healthz` with a mount-order test; the
+manual no longer describes a "both" ranker or a "to write up" chip, bare
+`help` works, and `web/help.test.js` now fails if the manual names a control
+that does not exist; Kattis difficulty on cards, both World Finals chips on the
+five Luxor problems, "my CSES level" filters, practice view drops the age chips,
+"Also labelled" instead of "Shared techniques"; eight new beacons and a
+"features · last 7 days" panel on `/stats.html`; **labels hidden by default**
+(`#labels-toggle`, remembered per browser or per account, withheld not blurred,
+difficulty always visible — not the collection-scoped mode removed in
+`db1c2b2`); **the contest page** (`?contest=<id>&view=contest`, "contest page →"
+in the resources panel: every member listed, indexed or not, with title, link
+and Kattis difficulty from registry member objects, done-count, editorial links,
+"by topic" behind a click); **CodeChef India** (44 contests 2010–2019, 378
+problems as `review_status: labels-pending`: the statement's own lead ≤ 300
+chars plus the judge's tags, no patterns, so they never match a technique
+filter and rank only on their words); **five more Asia regionals from Kattis**
+through the full solve + independent-skeptic gate.
 
-Collection coverage after the publish — the number the "so sparse?" question was
-really about:
-
-| collection | indexed | not yet indexed |
+| collection | indexed | of |
 |---|---|---|
-| `iicpc-codefest-2026-prelims` | 9/9 | — |
-| `icpc-asia-singapore-2018` | 11/12 | rectangularcity |
-| `icpc-world-finals-2024` | 10/12 | kindergarten2, thesilkroad |
-| `icpc-world-finals-2023` | 10/11 | bridgingthegap |
-| `icpc-asia-danang-2019` | 9/13 | bananaproblem, fairbandwidthsharing, justiceforants, keepitsorted |
-| `icpc-asia-can-tho-2020` | 8/13 | div2mul2mul3, greatestpermutation, hexagoncoloring, kingdomofhamsters, lazystudents |
-| `icpc-world-finals-2022` | 5/6 | bridgingthegap |
-| `icpc-india-prelims-2025-26` | 5/6 | codeforces-106179-f |
+| `icpc-asia-hanoi-2018` | 12 | 12 |
+| `icpc-asia-ho-chi-minh-2017` | 12 | 12 |
+| `icpc-asia-nha-trang-2016` | 11 | 12 |
+| `icpc-asia-hong-kong-2016` | 10 | 11 |
+| `icpc-asia-singapore-2015` | 9 | 11 |
+| `icpc-asia-singapore-2018` | 11 | 12 |
+| `icpc-asia-danang-2019` | 9 | 13 |
+| `icpc-asia-can-tho-2020` | 8 | 13 |
+| `icpc-world-finals-2024` | 10 | 12 |
+| `icpc-world-finals-2023` | 10 | 11 |
+| `icpc-world-finals-2022` | 5 | 6 |
+| India (CodeChef, labels-pending) | 383 | 388 across 45 collections |
 
-**Held by the skeptic (labels fine, solution does not meet the limits).** These
-need a fix, not a solve, and each stays staged and counts as "not yet indexed":
+**Held by the skeptic — a fix, not a solve.** `kattis-directorymanagement`
+(TREE is O(subtree); keep a last-pre-order-descendant pointer), `kattis-doors`
+(layout reconstructed from an unfetched figure; verifier is circular — fetch the
+figure), `kattis-cameramakers` (correct; 15–26 s against 11 s on clustered
+inputs), plus the earlier `kindergarten2`, `thesilkroad`, `bridgingthegap`.
+`kattis-cool2` is unsolved (ceiling and obstruction recorded in
+`external-batches/J/`). All stay staged and render as unindexed rows.
 
-- `kattis-kindergarten2` — branching search goes quadratic on a constructed family.
-- `kattis-thesilkroad` — linear neighbour scan is Θ(n²) on descending input; a
-  successor structure is the fix.
-- `kattis-bridgingthegap` — DP is O(n²/c) space, about 2 GB at n=10⁴, c=2.
+**Tier two for the 378 pending records** (`WP8` in the plan): batches of ~30
+from `external-staging/`, recent years first, full solve + skeptic, then
+`scripts/publish_external.py` upgrades each record in place (carries
+`contest_source`/`tags`, drops `review_status`). One aggregated
+embed/validate/bench/commit per wave.
 
-**Never sourced (10).** No statement could be solved and no published solution
-was found for rectangularcity, div2mul2mul3, greatestpermutation,
-hexagoncoloring, kingdomofhamsters, lazystudents, bananaproblem,
-fairbandwidthsharing, justiceforants, keepitsorted. All ten are staged, are
-members of their collection, and render as "not yet indexed" — the honest state.
+**Fragilities worth knowing.**
+- The tfidf title slice has "two sum" at rank exactly 100 (Recall@100 hinges on
+  one position) because tfidf has no title boost; bm25 has it at rank 1. Any
+  corpus growth can tip it. The gate is on regressions only
+  (`scratchpad`-style script recorded in this section's history); a title boost
+  for tfidf, or dropping tfidf from the gate with a stated reason, is the real
+  fix.
+- `bench/queries.json` is v8: "monotonic stack next greater element" gained
+  `leetcode-next-greater-element-iv` and `leetcode-daily-temperatures` — a
+  labelling omission that surfaced as a fake P@1 loss.
+- The aggregate reads `skeptic*.json` in filename order, later wins; a
+  follow-up review must be named to sort after `skeptic.json` (`skeptic2.json`).
+- Solvers and reviewers died five at once on an Opus session limit; per-problem
+  files meant nothing was lost. Commit batch dirs before launching reviewers.
+- `scripts/test_ingest_safety.py` must run from `scripts/` (sibling import).
 
-**What the batch-E review found, worth carrying forward.** Batch E was annotated
-from published solutions (official debriefs, contest slides, third-party
-accepted C++, a USACO Guide page) rather than solved from scratch. That trades
-derivation risk for transcription risk, and all three independent skeptics named
-the same failure mode: **proposals made false claims about their own sources.**
-Three were caught and corrected before publishing — the worst asserted a page
-had "no code" when it carries a complete C++ solution that already does the step
-the proposal claimed to have derived. Rule for the next code-sourced batch:
-**when a source has code, read the code before asserting what the source omits,
-and quote only sentences that actually appear in it.** The second, milder bias is
-labels drifting toward what the specific implementation mechanically does
-(`segment-intersection` for sign tests, `grid-traversal` for a snake walk) rather
-than a technique a searcher would name.
-
-Two proposals claimed the *published* solution is wrong, and both held up under
-independent reproduction: the sliding-blocks debrief's O(N)-edge reduction
-produces a wrong answer on a 7×4 counterexample, and the wiknow debrief decides
-existence only, never the lexicographically smallest pair the statement demands.
-`kattis-milkteabattle` publishes with a caveat rather than being held: the
-problem and its bound x(1+H_{m−1}) are correct, but the accepted code's fixed
-1900/99 round split reaches the optimum against every minimising opponent and
-only 0.73 of it against one that merely wastes turns.
-
-All 28 batch-E verify scripts pass. Three drive a published C++ binary passed as
-`argv[1]` and need it built first (`g++ -O2 -std=c++17`, with a `bits/stdc++.h`
-shim on macOS); run without that argument they die instantly on
-`FileNotFoundError`, which reads as a failure and is not one. Results are in
-`external-batches/E/verify-run.txt`.
-
-Contest dates for the three Asia collections were recovered from Kattis's own
-countdown timers (`elapsed_seconds` on the contest page, fetched with the repo's
-user agent — Kattis 403s a default one): Singapore 2018-12-13, Danang
-2019-12-06, Can Tho 2020-12-11.
-
-**Still open.**
-
-1. **Browser-only UI checks** the API could not cover. Restart the preview
-   (`./scripts/local-preview.sh`, port 3100) and verify: picker keyboard flow
-   (Tab → Enter → arrows → Escape returns focus), Back restoring a collection
-   chip, logout with a chip active, `:compare` showing no spoiler hiding, hidden
-   hints still showing the statement and the similar/practice links, and the
-   picker full-width with ≥34 px options at ≤720 px.
-2. **CSES counter-semantics check** — needs the owner's logged-in cses.fi
-   browser; the procedure is in `data/cses/README.md`. The statistics arm stays
-   explicitly closed either way.
-3. **The three held problems** — each needs a better data structure or a tighter
-   DP, not a fresh solve. The skeptic reviews in `external-batches/{A,B,D}/`
-   describe the adversarial instance for each.
-4. **`codeforces-106179-f`** must not publish until
-   `scripts/research/verify_gym106179_f_gap.py` is satisfied.
-5. **India regionals stay resource-only** — Kattis does not host them. Resolving
-   `icpc-india-archive` links into CF Gym or CodeChef problem URLs is the
-   follow-up.
-
-The solver brief to reuse is `data/analysis/external-batches/_tooling/SOLVER_BRIEF.md`,
-and `SOLVER_BRIEF_WITH_SOLUTION.md` for the code-sourced variant. The aggregate
-step is `python3 scripts/research/aggregate_external_batches.py [--dry-run]`; it
-is idempotent and re-running it rewrites only `generated_at_unix` on records that
-already exist.
-
-The branch is `feature/competition-practice`, ahead of `main`, **not pushed** —
-production still needs the owner's local verification first.
+**Browser checks that need the owner** (no test covers them): the labels
+switch survives a hard refresh signed out and follows the account on a second
+browser; click-to-reveal on a phone does not collapse the card; the WF 2023
+contest page shows both `WF 2022` and `WF 2023` chips on the five shared
+problems and `bridgingthegap` as an unindexed row; an India contest page shows
+problem codes in the letter column and "pending" chips; `?contest=…&view=contest`
+→ Back → plain browse with the chip on; the picker at ≤ 720 px.
 
 ## 4b. The family sweep, measured on its own
 

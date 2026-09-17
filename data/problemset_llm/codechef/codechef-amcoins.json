@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amcoins",
+  "title": "COINS",
+  "slug": "amcoins",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMCOINS",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Our *Farzi Coder* likes *Mota Chuha* a lot, as he runs very fast and catching him is not only hard, but also impossible. The city is in the form of a tree (Graph Theory Tree), with **N** junctions with exactly one follower of *Farzi Coder* in each.",
+  "tags": [
+    "surya-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMCOINS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 9,
+    "problem_code": "AMCOINS",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

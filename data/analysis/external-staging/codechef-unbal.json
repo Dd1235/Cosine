@@ -1,0 +1,36 @@
+{
+ "id": "codechef-unbal",
+ "platform": "codechef",
+ "title": "Yet Another Balanced Parenthesis Problem",
+ "slug": "unbal",
+ "source_url": "https://www.codechef.com/problems/UNBAL",
+ "source_topic": "ICPC / Gwalior Regional 2019",
+ "source_text": "A balanced parenthesis string is defined as follows: - The empty string is balanced. - If $P$ is balanced, $(P)$ is also balanced. - If $P$ and $Q$ are balanced, $PQ$ is also balanced. You are given two even integers $n$ and $k$. Find any balanced parenthesis string of length $n$ that doesn't contain a balanced substring of length $k$, or claim that no such string exists. Input - First line will contain $T$, the number of test cases. Then the test cases follow. - Each test case consists of a single line containing $n$ and $k$. Output For every test case, print on a new line, any balanced parenthesis string of length $n$ that doesn't contain a balanced substring of length $k$. If there doesn't exist any such string, print $-1$ instead. Constraints - $1 \\leq T \\leq 50000$ - $2 \\leq k \\leq n \\leq 10^5$ - Sum of $n$ over all test cases doesn't exceed $10^5$. - $n$ and $k$ are both even integers. Sample Input 2 4 2 8 6 Sample Output -1 (())(()) In the first test case, the only balanced strings of length $4$ are `(())` and `()()`, both of which contain `()` as a substring. In the second test case, `(())(())` is a balanced string that doesn't contain any balanced substring of length $6$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "constructive",
+  "easy-medium",
+  "gw19mos",
+  "icpc2019",
+  "icpcgw19",
+  "jtnydv25",
+  "maths",
+  "observation"
+ ],
+ "date_added": "10-12-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "GW19MOS",
+  "position": 6,
+  "problem_code": "UNBAL",
+  "replay_solves": {
+   "successful": 38,
+   "total": 141,
+   "accuracy": 26.95,
+   "replay_only": true
+  }
+ }
+}

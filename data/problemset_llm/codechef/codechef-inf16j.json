@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16j",
+  "title": "Robots of Robin",
+  "slug": "inf16j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16J",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Robin is a robot builder. His robots are specialized to do only one thing: move from A to B. Today he's testing out the three new robots he has just built. The testing will happen in an **R × C** rectangular grid. Some of the cells will be empty, and the remaining cells will contain obstacles.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 9,
+    "problem_code": "INF16J",
+    "replay_solves": {
+      "successful": 0,
+      "total": 11,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

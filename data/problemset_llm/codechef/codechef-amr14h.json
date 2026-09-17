@@ -1,0 +1,40 @@
+{
+  "id": "codechef-amr14h",
+  "title": "Opening Pair",
+  "slug": "amr14h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14H",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "Having won the 2011 ICC Cricket World Cup, India is definitely one of the favorites to win the 2015 World Cup. In preparations for the 2015 World Cup, the coach of the Indian cricket team (well, Duncan Fletcher, not Ravi Shastri) wants to experiment with opening batsmen pairs.",
+  "tags": [
+    "amr14ros",
+    "dynamic-programming",
+    "hard",
+    "math",
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 8,
+    "problem_code": "AMR14H",
+    "replay_solves": {
+      "successful": 0,
+      "total": 3,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp13c",
+  "title": "Stairway Reduction",
+  "slug": "kgp13c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13C",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A garrison of soldiers is stationed at an old fort built long ago by a king located on the top of a hill. The fort can be accessed only by a cemented stairway with **K** steps (steps are numbered 1 to **K** from the bottommost to the topmost as shown below).",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "jingbo-adm",
+    "kgp13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 3,
+    "problem_code": "KGP13C",
+    "replay_solves": {
+      "successful": 7,
+      "total": 10,
+      "accuracy": 70.0,
+      "replay_only": true
+    }
+  }
+}

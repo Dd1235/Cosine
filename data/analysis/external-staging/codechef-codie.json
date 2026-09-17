@@ -1,0 +1,32 @@
+{
+ "id": "codechef-codie",
+ "platform": "codechef",
+ "title": "Codie Bird",
+ "slug": "codie",
+ "source_url": "https://www.codechef.com/problems/CODIE",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "Codie is a super intelligent bird stuck inside a flappy bird simulation. The game is simple: if the position of the bird is denoted by $(x, y)$, then the bird can move in the following directions in one step: - right — to $(x + 1, y)$, - up-right — to $(x + 1, y + 1)$, - down-right — to $(x + 1, y - 1)$. The screen has width $K$ and you are not allowed to move outside of the screen, i.e. the position of the bird must satisfy $1 \\leq y \\leq K$ at each moment. ![Animation for flappy bird game](https://discuss.codechef.com/upfiles/giphy.gif) Codie is moving from $(1, \\frac{K}{2})$ to $(N, \\frac{K}{2})$. However, there is exactly one obstacle in the simulation. This obstacle occurs at a random $x$-coordinate between $2$ and $N - 1$ (both inclusive), where each $x$ has equal probability. The obstacle is composed of two vertical pipes. One of them is at the top and covers all $y$-coordinates between $b$ and $K$ (both inclusive). The other one is at the bottom and covers all $y$-coordinates between $1$ and $a$ (both inclusive). The pipes only allow Codie to move through $y$-coordinates that are $\\geq a+1$ and $\\leq b-1$ at this particular $x$-coordinate. Codie, being a super smart and geeky bird, is interested in finding the expected number of paths from $(1, \\frac{K}{2})$ to $(N, \\frac{K}{2})$. Help Codie find the answer! Specifically, let's assume that the expected number of paths is a fraction of the form $\\frac{P}{Q}$, where $P$ and $Q$ are coprime. Let $Q^{-1}$ be the multiplicative inverse of $Q$ modulo $10^{9} + 7$. Compute $P \\cdot Q^{-1}$ modulo $10^{9} + 7$. Input The only line of the input contains four space-separated integers $N$, $K$, $a$ and $b$ denoting the final $x$-coordinate, the width of the screen, the highest coordinate blocked by the bottom pipe and the lowest coordinate blocked by the top pipe. Output Print a single line containing one integer — the expected number of paths from $(1, \\frac{K}{2})$ to $(N, \\frac{K}{2})$ modulo $10^{9} + 7$. Constraints - $3 \\leq N \\leq 10^{9}$ - $2 \\leq K \\leq 50$ - $K$ is even - $1 \\leq a < b \\leq K$ Sample Input 5 4 1 3 Sample Output 666666679 Let $X$ denote the starting and ending coordinate, and $B$ denote the cells blocked by pipes. ![Explanation image](https://discuss.codechef.com/upfiles/codie_explain_RFTTQft.png) The expected value is $(7 \\cdot \\frac{1}{3}) + (9 \\cdot \\frac{1}{3}) + (7 \\cdot \\frac{1}{3}) = \\frac{23}{3} = 666666679$ (modulo $10^{9} + 7$).",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "probability",
+  "matrices",
+  "matrix-multiplication"
+ ],
+ "date_added": "1-12-2017",
+ "problem_author": "sidhant007",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 5,
+  "problem_code": "CODIE",
+  "replay_solves": {
+   "successful": 3,
+   "total": 7,
+   "accuracy": 42.86,
+   "replay_only": true
+  }
+ }
+}

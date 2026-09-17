@@ -1,0 +1,37 @@
+{
+ "id": "kattis-gameofdivisibility",
+ "title": "Game of Divisibility",
+ "slug": "gameofdivisibility",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/gameofdivisibility",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "Two players alternately remove one number from a list of up to 1024 integers until it is empty, the first player starting, and each scores the sum of what he took. A player wins only if his own score is divisible by k while his opponent's is not; otherwise the game is drawn. Across datasets with k at most 32, report the result under optimal play.",
+ "tags": [],
+ "patterns": [
+  "game-theory",
+  "modular-arithmetic",
+  "parity-argument",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "game-theory": 0.9,
+   "modular-arithmetic": 0.9,
+   "parity-argument": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.5,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

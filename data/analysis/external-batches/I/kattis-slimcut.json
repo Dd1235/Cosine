@@ -1,0 +1,35 @@
+{
+ "id": "kattis-slimcut",
+ "status": "solved",
+ "solution": "A cut whose heaviest crossing edge is at most W is precisely a union of connected components of the graph keeping only edges of weight > W, and those components are the components of the MAXIMUM spanning tree after deleting its edges of weight <= W. So the only candidate thresholds are the n-1 maximum-spanning-tree weights, and at threshold W the best denominator is best(W) = the largest subset sum of the component sizes not exceeding floor(n/2) (a union heavier than half is replaced by its complement); the answer is min over tree weights w of w / best(w). Unions of several components genuinely beat single components, so the subset sum is real work: build the max spanning tree with Kruskal and union-find in O(m log m), then sweep thresholds upward and evaluate the subset sum with a bitset over floor(n/2) bits, grouping equal component sizes. Pruning keeps it inside the strict limit: the running answer only falls, best(W) <= floor(n/2) means the sweep can stop once w/floor(n/2) reaches the current answer, a component larger than n/2 makes best = n - that size outright, and the greedy descending fit gives a valid lower bound (>= floor(n/2) - maxsize + 1) that tightens the answer cheaply before any exact DP is run.",
+ "solution_confidence": 0.78,
+ "statement_summary": "A connected weighted undirected graph with up to fourteen thousand vertices and thirty thousand edges is given. The slimness of a cut is the largest weight among the edges crossing it divided by the number of vertices on the smaller side, and the task is to report the minimum slimness over all cuts, within a hundred-millionth relative error under a strict time limit.",
+ "patterns": [
+  "minimum-spanning-tree",
+  "kruskal",
+  "union-find",
+  "subset-sum",
+  "dynamic-programming",
+  "sorting",
+  "bit-manipulation"
+ ],
+ "pattern_confidence": {
+  "minimum-spanning-tree": 0.85,
+  "kruskal": 0.8,
+  "union-find": 0.8,
+  "subset-sum": 0.85,
+  "dynamic-programming": 0.7,
+  "sorting": 0.55,
+  "bit-manipulation": 0.6
+ },
+ "tags": [
+  "graph",
+  "spanning-tree",
+  "dynamic-programming",
+  "knapsack",
+  "union-find"
+ ],
+ "verify_script": "data/analysis/external-batches/I/verify_slimcut.py",
+ "notes": "The characterisation is verified: the statement sample (4/3) plus 300 random connected graphs (n <= 8) against exhaustive enumeration of every cut, and a hand-built star of four weight-100 triangles hanging off a hub by weight-10 edges, where the answer 10/6 needs a union of TWO components and the tempting single-component-only shortcut gives 10/3. What I did not fully settle is the constant factor against the statement's strict time limit: the worst case is O(#thresholds * #components * n/64) word operations, which for n = 14000 is too slow without the pruning described above, and I have no proof the pruning bounds it. Rated binary-search-answer: NO - thresholds are enumerated in sorted order, and the feasibility test would not be the interesting part anyway.",
+ "source_text_sha256": "159b1017a48756b1ba34ec458b7b7099bba20a6d67431edeee167fad05535b27"
+}

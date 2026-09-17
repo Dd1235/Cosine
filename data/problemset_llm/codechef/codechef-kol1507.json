@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol1507",
+  "title": "The Christmas Cookies",
+  "slug": "kol1507",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1507",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "CodeChef has prepared Christmas cookies for everyone in the town. He gives the responsibility of distributing the cookies to Samosa Bhai. There are **N** houses and **E** roads in the town. Each road starts from one house and ends at another, and there are no other houses on the road.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "algorithms",
+    "graph-algos",
+    "tree-algos",
+    "queries"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1507"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 7,
+    "problem_code": "KOL1507",
+    "replay_solves": {
+      "successful": 3,
+      "total": 14,
+      "accuracy": 21.43,
+      "replay_only": true
+    }
+  }
+}

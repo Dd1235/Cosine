@@ -1,0 +1,11 @@
+verify_colourful                   PASS 13s
+verify_doors                       PASS 3s
+verify_peaktower                   PASS 2s
+verify_peaktram                    PASS 4s
+verify_perfecttree                 PASS 0s
+verify_playingwithnumbers          PASS 1s
+verify_scaffolding                 PASS 0s
+verify_slimcut                     PASS 0s
+verify_taboo                       PASS 0s
+verify_teamup                      PASS 0s
+verify_specialtour                 PASS 1s

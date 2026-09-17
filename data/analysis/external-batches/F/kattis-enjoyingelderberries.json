@@ -1,0 +1,26 @@
+{
+ "id": "kattis-enjoyingelderberries",
+ "status": "solved",
+ "solution": "Every controlled area is a subtree, so the areas containing one berry are nested and its eater is the bird of its label whose area root is deepest; with at most seven birds per label that owner is found by scanning the label's bird list with an Euler-tour ancestor test. Making the tiny birds giant only enlarges areas - subtree(parent) becomes subtree(nearest big ancestor) - so every bird still contains its own berries and the only damage is that a same-label bird may now sit deeper. A berry must keep its eater, hence its label must equal that bird's, so each bird together with the berries it owns forms one block that is relabelled whole or not at all, and since all of them already carry the bird's label the cost of relabelling a block is its size. A relabelled block can always take a brand new label, which clashes with nothing, so the only constraints bind the blocks that KEEP a label L, pairwise: two kept birds of label L must not have equal new areas, and the deeper one must not contain a berry of the shallower one (a binary search over that bird's berries in Euler order). Labels are therefore independent, the 'no eight birds share a label' rule caps a class at seven birds, and the best kept set is the maximum-weight conflict-free subset over all 2^7 subsets; the answer is the total weight minus the kept weight. O(n log n) time, O(n) space.",
+ "solution_confidence": 0.85,
+ "statement_summary": "A rooted tree's internal nodes are big or small; every leaf holds a labelled giant bird, tiny bird or berry. A tiny bird controls its parent's subtree, a giant bird its nearest big ancestor's, and the smallest controlling bird of matching label eats a berry. With every tiny bird turned giant and at most seven birds per label, the fewest labels must change so no berry changes eater.",
+ "patterns": [
+  "tin-tout-ancestor-check",
+  "tree-flattening",
+  "graph-modeling"
+ ],
+ "pattern_confidence": {
+  "tin-tout-ancestor-check": 0.7,
+  "tree-flattening": 0.7,
+  "graph-modeling": 0.6
+ },
+ "tags": [
+  "tree",
+  "labels",
+  "euler-tour",
+  "optimization"
+ ],
+ "verify_script": "data/analysis/external-batches/F/verify_enjoyingelderberries.py",
+ "notes": "All three samples reproduce (sample 1 comes out as the alternative pair the statement says is also accepted), and 720 random trees were checked two ways: the produced relabelling is replayed through an independent simulator of the rules (no rule broken, no berry changes eater) and the count is compared with an exhaustive search over every labelling of the leaves - 166 of them needed a change, no disagreement. The modelling is where the risk sits, not the code: everything rests on reading 'only one bird with smallest controlled area eats it' as the deepest area root, which is well defined because areas containing one berry are nested. Rulings: brute-force NO, though it was close - the 2^7 subset enumeration is one step inside the reduction rather than the algorithm, and this corpus already over-carries that label; binary-search-answer NO (the binary search here is a subtree-range lookup in Euler order, not a search on the answer); dp-on-dag, dsu-on-tree: no. binary-search was left off for the same reason. The vocabulary has no label for maximum-weight independent set, which is what each label class is solved as.",
+ "source_text_sha256": "5def02c70058f5fca346c408b0b571a2f97ef7d657ad3047b040dd549125f65e"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "kattis-control",
+ "status": "solved",
+ "solution": "Maintain the ingredients as disjoint sets. The invariant is that every group is either a single never-used ingredient or exactly the contents of one live cauldron, because brewing merges precisely the groups it consumes into the new cauldron. A recipe S is therefore brewable iff every group meeting S is contained in S, which is checked by collecting the distinct roots of S and testing that their sizes sum to |S|; if so, union them all and count the brew. Union-find with union by size gives O(sum(M) * alpha) time and O(max ingredient id) space, well inside sum(M) <= 500000.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Recipes numbered one through N are considered in order, and a recipe is brewed exactly when its ingredient list can be assembled from ingredients never used before together with whole earlier cauldrons, each of which may be poured in only if all of its contents appear in that recipe. Brewing is compulsory whenever it is possible. With ingredient lists totalling half a million entries, count how many recipes get brewed.",
+ "patterns": [
+  "union-find",
+  "simulation"
+ ],
+ "pattern_confidence": {
+  "union-find": 0.92,
+  "simulation": 0.82
+ },
+ "tags": [
+  "disjoint-set",
+  "sets",
+  "simulation"
+ ],
+ "source_text_sha256": "1c03920f0cf793f090fddc740bbc5f939c651ebe4788336f6e0de34cf9ef644a",
+ "verify_script": "data/analysis/external-batches/J/verify_control.py",
+ "notes": "dsu-on-tree is explicitly not applicable: there is no tree and no small-to-large merging, just plain union-find. The verify script cross-checks the union-find criterion against a literal cauldron-by-cauldron simulation. Statement contains no sentence addressed to the annotator."
+}

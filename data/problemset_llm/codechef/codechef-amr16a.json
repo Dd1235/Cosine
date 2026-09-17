@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr16a",
+  "title": "Tim and BSTs",
+  "slug": "amr16a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16A",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Demonetization has affected everyone but Tim. He is still busy with his usual habit of finding some interesting problems over binary trees. Today also he came up with such a problem. Tim is studying **binary search trees**, or **BST**s.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 1,
+    "problem_code": "AMR16A",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

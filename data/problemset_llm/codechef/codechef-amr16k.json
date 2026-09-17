@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr16k",
+  "title": "Paint for Vernon",
+  "slug": "amr16k",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16K",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Vernon is a painter. He specializes in postmodern art. His paintings used to be very simple but creative. These were the paintings that were enjoyed by masses. They were nothing marvellous but their simplicity had a remarkable effect on the viewer.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16K"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 11,
+    "problem_code": "AMR16K",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

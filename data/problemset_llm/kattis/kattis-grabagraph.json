@@ -1,0 +1,37 @@
+{
+ "id": "kattis-grabagraph",
+ "title": "Grab a Graph",
+ "slug": "grabagraph",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/grabagraph",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "Given a value A up to a quintillion, the task builds two weighted simple undirected graphs in each of which the number of distinct shortest paths between vertex one and vertex two is exactly A. The first may use seventy-two vertices and 2525 edges, the second only eighty-eight vertices and 214 edges, and every edge weight must be a positive integer below a billion.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "graph-modeling",
+  "shortest-path",
+  "counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "graph-modeling": 0.9,
+   "shortest-path": 0.9,
+   "counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 8.3,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

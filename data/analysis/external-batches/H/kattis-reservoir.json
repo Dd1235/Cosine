@@ -1,0 +1,28 @@
+{
+ "id": "kattis-reservoir",
+ "status": "solved",
+ "solution": "Let cap[i] be the water volume held when the surface stands exactly at the brim of wall i. Water enters at the left, so at that moment tank t (t <= i) is at level max(H_t..H_i), and every drowned wall t < i additionally carries a unit-wide column of water from H_t up to the level on its right. Building cap[] left to right with a monotonic stack of pools -- push each new tank, pop and raise every block whose level is below the new wall's height, merging widths (the wall itself joins the pool as a width-1 block at its own height) -- gives all N values in O(N) amortised, and cap is strictly increasing. A query K then answers count{ i : cap[i] < K } by binary search, strictly, because a reservoir filled exactly to a brim has not yet spilled. O(N + Q log N) time, O(N) space.",
+ "solution_confidence": 0.85,
+ "statement_summary": "A reservoir cross-section is divided into tanks by N unit-thick walls at given positions and heights; water pours in at the top left and spills rightwards over the walls. For each of up to 10^5 query volumes the task is the index of the last wall the water flows over, or zero. Positions reach 10^9 and volumes 10^15.",
+ "patterns": [
+  "monotonic-stack",
+  "binary-search",
+  "simulation",
+  "stack"
+ ],
+ "pattern_confidence": {
+  "monotonic-stack": 0.85,
+  "binary-search": 0.9,
+  "simulation": 0.6,
+  "stack": 0.6
+ },
+ "tags": [
+  "array",
+  "stack",
+  "simulation",
+  "binary-search"
+ ],
+ "source_text_sha256": "da717f5563b8df347984a1df626b999d31270c0fd6bca9808a5277c58dfdf0d1",
+ "verify_script": "data/analysis/external-batches/H/verify_reservoir.py",
+ "notes": "The O(N) stack matches the O(N^2) definitional formula on 2000 random inputs. The physical model has three fitted choices, all pinned by the single sample: the first tank's width is L_1 (walls occupy the unit cell at L_i), water standing on top of a drowned wall counts toward the volume, and overflow needs K strictly greater than cap[i] -- the sample query K=13 equals cap[2]=13 exactly and answers 1, not 2, which is what fixes the last two. The scraped sample is whitespace-flattened; it reads N=4, L=1 3 5 8, H=2 5 3 1, Q=3, K=3,13,17 -> 1,1,3. This is not binary-search-answer: the binary search is an ordinary lookup in a precomputed increasing array."
+}

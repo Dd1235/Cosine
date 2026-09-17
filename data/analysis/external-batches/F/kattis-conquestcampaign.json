@@ -1,0 +1,25 @@
+{
+ "id": "kattis-conquestcampaign",
+ "status": "solved",
+ "solution": "Day 1 occupies the N listed cells and every later day adds exactly the cells at edge-distance one from the occupied set, so a cell is taken on day 1 + d where d is its grid distance to the nearest listed cell. Push all N cells into one queue at distance 0 and run a single breadth-first search over the R x C grid; the answer is 1 plus the largest distance reached. Repeated input cells are absorbed by the visited check. O(RC + N) time, O(RC) space, trivially inside R, C <= 100.",
+ "solution_confidence": 0.99,
+ "statement_summary": "An army occupies N given cells of an R by C grid on the first day, and on each later day it also takes every cell that shares an edge with a cell taken earlier. The task reports how many days pass before the whole grid is occupied. The grid has at most 100 rows and 100 columns, and the listed cells need not be distinct.",
+ "patterns": [
+  "multi-source-bfs",
+  "bfs",
+  "grid-traversal"
+ ],
+ "pattern_confidence": {
+  "multi-source-bfs": 0.97,
+  "bfs": 0.95,
+  "grid-traversal": 0.85
+ },
+ "tags": [
+  "grid",
+  "graph",
+  "bfs"
+ ],
+ "source_text_sha256": "65ac26a6037df2e048f681ec123eaf17c437f6f3380edc928961dad10f5ff26a",
+ "verify_script": "data/analysis/external-batches/F/verify_conquestcampaign.py",
+ "notes": "verify_conquestcampaign.py checks both samples and cross-checks the BFS answer against a literal day-by-day simulation on 4000 random grids. Statement contains no sentence addressed to the annotator."
+}

@@ -1,0 +1,32 @@
+{
+ "id": "kattis-divisorgame",
+ "status": "solved",
+ "solution": "A move replaces X by a proper divisor, and the number of prime factors with multiplicity Omega can drop to any smaller value, so each number is a nim pile of size Omega(X) and the whole list is nim -- but the last mover loses, so it is misere nim. The mover (RR) therefore loses exactly when some pile is >= 2 (a composite is present) and the xor of the Omega values is 0, or when every pile is 1 (all primes, since A > 1) and their count is odd. Sieve the primes to 10^6, run a segmented sieve on [A,B] to get Omega for each of the <= 10^5 numbers, then count subsets: a DP over the xor of composite Omegas (values < 64) combined with 2^(P-1) even/odd prime choices, plus the all-prime odd-size subsets. O((B-A) log log B + sqrt(B)) per dataset.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Two players alternate moves on a list of distinct integers, each move replacing a chosen number by any strictly smaller divisor of it, and whoever makes the final move loses. The opponent of the first player picks the initial list freely from the integers between A and B. The task counts the winning initial lists modulo 10^9+7, with B-A at most 10^5 and B up to 10^12.",
+ "patterns": [
+  "game-theory",
+  "grundy-numbers",
+  "sieve",
+  "prime-factorization",
+  "number-theory",
+  "counting"
+ ],
+ "pattern_confidence": {
+  "game-theory": 0.95,
+  "grundy-numbers": 0.85,
+  "sieve": 0.8,
+  "prime-factorization": 0.85,
+  "number-theory": 0.85,
+  "counting": 0.7
+ },
+ "tags": [
+  "game-theory",
+  "number-theory",
+  "counting",
+  "math"
+ ],
+ "source_text_sha256": "3a0b4dce224023ff29017cb07344a2d5686fda07eb1f7af9e213f194711d75ae",
+ "verify_script": "data/analysis/external-batches/H/verify_divisorgame.py",
+ "notes": "All four samples match (2,4,8,16) and a full memoised misere game search over multisets agrees for every range [A,B] with 2<=A<=12 and B-A<=8. The misere correction matters: on normal play the all-prime answer would flip parity, and the samples [2,5] and [2,7] only come out right with the misere rule."
+}

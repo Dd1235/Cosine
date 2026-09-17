@@ -1,0 +1,30 @@
+{
+ "id": "codechef-colpolly",
+ "platform": "codechef",
+ "title": "What is this, a crossover episode",
+ "slug": "colpolly",
+ "source_url": "https://www.codechef.com/problems/COLPOLLY",
+ "source_topic": "ICPC / Amritapuri Regional 2019",
+ "source_text": "You are given a simple polygon (that is, its edges don't intersect with each other, apart from touching at the vertices) with $n$ vertices. The vertices are numbered, in clockwise order, as $1, 2, \\ldots, n$. Additionally, there are $m$ non-intersecting chords within the polygon. Note however that chords can touch each other at a vertex of the polygon. A chord is defined to be a line segment connecting two vertices of the polygon and which remains completely inside the polygon. Considering it as a graph, there will be $n$ edges of the polygon, and $m$ extra chords, i.e. $n+m$ edges overall. Find a minimum coloring of the vertices, such that no two adjacent vertices have the same color. Input - The first line will contain two space-separated integers, $n$ and $m$, denoting the number of vertices and the number of chords respectively. - The next $m$ lines contain $2$ space-separated integers, $x$ and $y$, denoting a chord between vertices $x$ and $y$. It is guaranteed that there exists a simple polygon where all chords lie within the polygon and no $2$ chords intersect. Output - In the first line, print $k$, the number of colors you will be using to color the polygon's vertices. - Then in a new line, print $n$ space-separated integers, $c_1, c_2, \\ldots, c_n$, where $c_i$ is the color of the $i^{th}$ vertex. You should ensure that $1 \\leq c_i \\leq k$. - You should use the minimum possible number of colors. If there are multiple solutions, print any one. Constraints - $3 \\leq n \\leq 10000$ - $0 \\leq m \\leq n - 3$ - $1 \\leq x, y \\leq n$ Sample Input 4 1 1 3 Sample Output 3 1 2 3 2 All adjacent node pairs are: [1, 2], [2, 3], [3, 4], [4, 1], [1, 3]. It can be seen that no two adjacent nodes have the same color, and it can be proven that we cannot do it in $2$ colors.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "advanced-algorithms"
+ ],
+ "date_added": "21-12-2019",
+ "problem_author": "evil999man",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AM19MOS",
+  "position": 3,
+  "problem_code": "COLPOLLY",
+  "replay_solves": {
+   "successful": 4,
+   "total": 57,
+   "accuracy": 10.53,
+   "replay_only": true
+  }
+ }
+}

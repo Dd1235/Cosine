@@ -1,0 +1,26 @@
+{
+ "id": "kattis-krotating",
+ "status": "solved",
+ "solution": "A rotation of p_1..p_K is the near-identity permutation rho with rho(p_i) = p_{i+1} and rho(p_K) = p_1, because the new teacher-to-class map satisfies new_pos(t) = old_pos(rho(t)). Hence after weeks w1 < w2 < ... the map is rho_{w1} o rho_{w2} o ..., and answering 'teacher d in week x' means starting from d and applying the rotations from the LATEST week at most x downwards. Sqrt-decompose the week axis into blocks of B weeks; each block stores the composition of its plans as a sparse map keyed only on the at most B*K moved teachers. A query applies its own block's plans one by one and then does a single O(1) lookup per earlier block, O(B + M/B); an insertion rebuilds one block in O(B*K). With B about sqrt(M/K) both are O(sqrt(M*K)), so O(Q sqrt(M*K)) time and O(M + Q*K) space. A segment tree fails here: rebuilding the root costs O(Q*K) per insertion.",
+ "solution_confidence": 0.9,
+ "statement_summary": "N teachers start in the classes of the same number and are shuffled by rotations: a plan names up to ten teachers and, from a given week on, moves each into the class the next one occupied. Plans arrive in arbitrary week order interleaved with questions asking which class a teacher holds in a given week, counting only plans issued so far. Up to one hundred thousand operations.",
+ "patterns": [
+  "sqrt-decomposition",
+  "hash-map",
+  "simulation"
+ ],
+ "pattern_confidence": {
+  "sqrt-decomposition": 0.9,
+  "hash-map": 0.6,
+  "simulation": 0.4
+ },
+ "tags": [
+  "permutation",
+  "queries",
+  "sqrt-decomposition",
+  "offline-structure"
+ ],
+ "source_text_sha256": "c10ff78b2d93ca48fdbf2e29e063ca7d96882ac332582ed5517a0c9cc84957c2",
+ "verify_script": "data/analysis/external-batches/G/verify_krotating.py",
+ "notes": "verify_krotating.py reproduces both samples, matches the sqrt structure against a naive replay of all plans on 200 random operation streams, and checks that after every prefix of plans the teacher-to-class map is still a permutation. The composition order is the subtle part: the rotations must be applied newest-first when evaluating at a single teacher. No label for permutation composition exists in the vocabulary."
+}

@@ -1,0 +1,33 @@
+{
+ "id": "codechef-spantree",
+ "platform": "codechef",
+ "title": "Spanning Tree",
+ "slug": "spantree",
+ "source_url": "https://www.codechef.com/problems/SPANTREE",
+ "source_topic": "ICPC / Kharagpur Regional 2017",
+ "source_text": "You are given an undirected weighted connected graph with **N** vertices numbered from 1 to **N**. Chef knows all the edges of the graph but will only reveal information if you give him some money. You have $10^4$ coins. You are allowed to ask the chef a certain type of query multiple times. In a single query, you will provide **2** non-intersecting, non-empty set of vertices. Let **A** be the first set and **B** be the second set. Chef then will respond by providing the minimum (least) weight edge between any pair of nodes **u** and **v**, such that node **u** is in set **A** and node **v** is in set **B**. In particular, he will return the end points of the least weight edge along with the weight of this edge (in case of a tie, Chef will choose arbitrarily). If there is no such edge, Chef returns **-1**. A single query costs you **|A|** coins, where |X| denotes the size of the set X. Do note that the Chef does NOT like too many numbers, so he has allowed the sum of **|A| + |B|** over all the queries to be at most $2 \\times 10^6$. Your aim is to determine the sum of all the weights in a minimum spanning tree of this graph using at most $10^4$ coins. Input You can interact with the judge using the standard input and output. The first line of the input contains a single integer **N**, denoting the number of vertices. You need to print to the standard output, for the operations you wish to perform. There are two types of operations: 1. In the first type, you are asking the judge the least weight edge between 2 sets, **A** and **B**. You need to print **3** lines. - The first line starts with `1 |A| |B|`, where **|A|** and **|B|** are the size of the 2 sets. - The second line contains **|A|** integers, denoting the elements of the set **A**. - The third line contains **|B|** integers, denoting the elements of the set **B**. The judge will return a triplet of integers by printing the integers in the standard input. It will be in the format `u v w`, where **u** and **v** denote the end points of the least weight edge between the 2 sets and **w** denotes the cost of this edge. In case there is no such edge then `u = v = w = -1`. 2. In the second type, you are telling the judge the answer. For each test case you should perform this operation exactly once at the end. It does not cost you any coins. - You will print the answer to the standard output in the format `2 X`, where **X** should be the sum of all edge weights in a minimum spanning tree of this graph. Output The output format is described in the input format section, as it involves interaction with the judge. Constraints - $2 \\leq N \\leq 10^3$ - For each query: - $1 \\leq u, v \\leq N$ - $1 \\leq w \\leq 10^5$ Sample Input 5 1 1 1 1 5 1 1 2 2 1 4 1 2 2 1 2 4 3 1 1 1 4 5 1 1 2 2 3 5 1 3 1 4 2 5 3 Sample Output 1 5 2 2 1 3 1 4 8 -1 -1 -1 2 5 7 4 3 5 2 18 The graph (which is hidden) in the sample has 5 nodes and the sum of the weights in the MST is 18. ![Explanation for the sample](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KGP/SPANTREE.png) - The cost of the first query is 1 coin. - The cost of the second query is 1 coin. - The cost of the third query is 2 coins. - The cost of the fourth query is 1 coin. - The cost of the fifth query is 1 coin. - The cost of the sixth (last) query is 3 coins. So the total amount of coins used = 1 + 1 + 2 + 1 + 1 + 3 = 9 coins which is ? 10,000 coins. **Note:** The above queries are not an ensured method of finding the correct answer given the graph had different edges, so please do NOT try to make any logical deductions using the sample queries.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "special",
+  "advanced-data-structures",
+  "algorithms",
+  "graph-algos",
+  "tree-algos"
+ ],
+ "date_added": "1-12-2017",
+ "problem_author": "sidhant007",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP17ROL",
+  "position": 8,
+  "problem_code": "SPANTREE",
+  "replay_solves": {
+   "successful": 9,
+   "total": 61,
+   "accuracy": 16.39,
+   "replay_only": true
+  }
+ }
+}

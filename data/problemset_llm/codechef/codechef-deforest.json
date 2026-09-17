@@ -1,0 +1,39 @@
+{
+  "id": "codechef-deforest",
+  "title": "Chef and Deforestation",
+  "slug": "deforest",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/DEFOREST",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "The Chef has come to a forest. He sees N trees in a line. He wants to tie a rope from the top of one tree to the top of another. To successfully tie this rope, he needs to cut the trees that get in the way of the rope.",
+  "tags": [
+    "advanced-data-structures",
+    "advanced-tree-structures",
+    "advanced-algorithms",
+    "pre-processing"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/DEFOREST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 2,
+    "problem_code": "DEFOREST",
+    "replay_solves": {
+      "successful": 8,
+      "total": 25,
+      "accuracy": 32.0,
+      "replay_only": true
+    }
+  }
+}

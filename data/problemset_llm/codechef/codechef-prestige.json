@@ -1,0 +1,36 @@
+{
+  "id": "codechef-prestige",
+  "title": "The Prestige",
+  "slug": "prestige",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PRESTIGE",
+  "source_topic": "ICPC / India Prelims 2018",
+  "source_tags": [],
+  "statement": "Robert Angier and his assistant are back in town for another magic trick (nothing as fancy as “The Transported Man”, but it’s still good). **The Setup**: The audience is shown two separate deck of cards. Both have N cards in them, and each deck is arranged in a stack.",
+  "tags": [
+    "pranet"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PRESTIGE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND18",
+    "position": 2,
+    "problem_code": "PRESTIGE",
+    "replay_solves": {
+      "successful": 2,
+      "total": 727,
+      "accuracy": 0.28,
+      "replay_only": true
+    }
+  }
+}

@@ -12,7 +12,7 @@ function createStatsRouter() {
 
   router.get("/stats", async (_req, res) => {
     try {
-      const [visitors, searches, byRanker, topQueries, zeroHit, signups, boots, daily, opens, opensByRanker, saves, feedback, feedbackReasons] =
+      const [visitors, searches, byRanker, topQueries, zeroHit, signups, boots, daily, opens, opensByRanker, saves, feedback, feedbackReasons, features] =
         await Promise.all([
           db.query(`
             SELECT
@@ -89,6 +89,16 @@ function createStatsRouter() {
             WHERE type = 'search_feedback' AND props->>'useful' = 'false'
               AND length(coalesce(props->>'reason', '')) > 0
             ORDER BY ts DESC LIMIT 5`),
+          // ── features: is anything beyond plain search being used? ──
+          // These beacons were added a fortnight after the features shipped;
+          // until then this question had no answer at all.
+          db.query(`
+            SELECT type, count(*)::int AS n
+            FROM events
+            WHERE ts > now() - interval '7 days'
+              AND type IN ('collection_added', 'similar_opened', 'pattern_selected', 'level_applied',
+                           'cses_level_set', 'help_opened', 'sort_changed', 'library_pick', 'note_saved')
+            GROUP BY 1 ORDER BY 2 DESC, 1`),
         ]);
 
       // Stitch opens into the per-ranker table as click-through rate.
@@ -114,6 +124,7 @@ function createStatsRouter() {
           saves: saves.rows[0],
           feedback: { ...feedback.rows[0], recentReasons: feedbackReasons.rows },
         },
+        features: features.rows,
       });
     } catch (_err) {
       res.status(500).json({ error: "db_error" });

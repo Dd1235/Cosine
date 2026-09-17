@@ -1,0 +1,31 @@
+{
+ "id": "codechef-kol16h",
+ "platform": "codechef",
+ "title": "Mr Wireless",
+ "slug": "kol16h",
+ "source_url": "https://www.codechef.com/problems/KOL16H",
+ "source_topic": "ICPC / Kolkata Regional 2016",
+ "source_text": "Mr. Wire Less is not that good at implementing circuits on a breadboard. In his Digital Logic Design course, he has to implement several boolean functions using the breadboard. In a breadboard, inputs are given through switches and outputs are taken through LEDs. Each input switch can be either in the ground state or in the high state. So, if he wishes to implement a boolean function, $f(x_1, x_2, \\dots, x_n)$ that takes $n$ boolean values as input and returns $m$ boolean values as output, he will use $n$ switches and $m$ LEDs. Mr. Wire Less can quickly assemble the necessary ICs and wires, but the key problem is testing. While testing, he has to check with all possible input combinations to ensure that the output of the LED corresponds to the expected output. This is taking too long for him, as most of the switches are jammed and difficult to toggle. Mr. Wire Less is asking for help to minimize his time of testing. So, your task is to minimize the total number of switch toggles throughout the testing. For example, if Mr. Wire Less has to test a function $f(x_0, x_1)$ of two variables, he may choose this switching sequence for testing: $00, 11, 10, 01$. In this case, the total number of switch toggles will be $2 + 1 + 2 = 5$. But if he tests in this sequence: $00, 10, 11, 01$, the total number of toggles will be $1 + 1 + 1 = 3$. Given $n$, you have to output the minimum number of toggles needed for complete testing. Though it seems impractical, he wants you to solve the problem for a very large value of $n$. But, then the toggle value can be quite big. So, he is completely okay with the toggle value modulo $8589934592 (2^{33})$. Input The first line of the input contains a positive integer $T (T \\leq 10^5)$, denoting the number of test cases. Each of the following $T$ lines contains a single non-negative integer $n (n \\leq 10^{20})$. Output For every test case, output a single line containing the test case number and the minimum number of switch toggles modulo $8589934592 (2^{33})$. Constraints - $1 \\leq T \\leq 10^5$ - $0 \\leq n \\leq 10^{20}$ Sample Input 2 1 2 Sample Output Case 1: 1 Case 2: 3 For the first test case, when $n = 1$, the minimum number of toggles required is $1$. For the second test case, when $n = 2$, the minimum number of toggles required is $3$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "number-system",
+  "binary"
+ ],
+ "date_added": "21-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL16MOS",
+  "position": 8,
+  "problem_code": "KOL16H",
+  "replay_solves": {
+   "successful": 121,
+   "total": 367,
+   "accuracy": 33.79,
+   "replay_only": true
+  }
+ }
+}

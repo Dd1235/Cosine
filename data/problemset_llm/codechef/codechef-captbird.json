@@ -1,0 +1,36 @@
+{
+  "id": "codechef-captbird",
+  "title": "Capturing Bird in A Camera",
+  "slug": "captbird",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CAPTBIRD",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "Nature photographing may be fun for tourists, but it is one of the most complicated things for photographers. To capture all the facets of a bird, you might need more than one camera. You recently encountered such a situation.",
+  "tags": [
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CAPTBIRD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 9,
+    "problem_code": "CAPTBIRD",
+    "replay_solves": {
+      "successful": 95,
+      "total": 245,
+      "accuracy": 38.78,
+      "replay_only": true
+    }
+  }
+}

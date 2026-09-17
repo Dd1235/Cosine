@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kg3",
+  "title": "Discount on crackers",
+  "slug": "acm14kg3",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KG3",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Sita went to buy some crackers. They offered special discount for the ones who solve a puzzle. Sita could not solve it, she came to you for help. Following is the puzzle. A mapping \" a->b \" means that you can transform letter 'a' to letter 'b' . You are given M such mappings.",
+  "tags": [
+    "acmkg14r",
+    "admin",
+    "easy",
+    "floyd-warshall"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KG3"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKG14R",
+    "position": 3,
+    "problem_code": "ACM14KG3",
+    "replay_solves": {
+      "successful": 279,
+      "total": 1266,
+      "accuracy": 22.59,
+      "replay_only": true
+    }
+  }
+}

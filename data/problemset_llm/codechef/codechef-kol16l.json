@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16l",
+  "title": "Optimal BST Revisited",
+  "slug": "kol16l",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16L",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "A rooted binary tree is a rooted tree such that each node has at most 2 children. A Binary Search Tree (BST) is a rooted binary tree, which has values stored in each of its nodes. We are interested only in distinct values.",
+  "tags": [
+    "data-structures",
+    "tree-data-structure",
+    "algorithms",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16L"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 12,
+    "problem_code": "KOL16L",
+    "replay_solves": {
+      "successful": 6,
+      "total": 18,
+      "accuracy": 33.33,
+      "replay_only": true
+    }
+  }
+}

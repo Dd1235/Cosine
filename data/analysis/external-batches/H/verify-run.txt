@@ -1,0 +1,12 @@
+verify_alicedigital                PASS 0s
+verify_directorymanagement         PASS 1s
+verify_divisorgame                 PASS 4s
+verify_icpcteamselection           PASS 0s
+verify_message                     PASS 1s
+verify_naturereserve               PASS 1s
+verify_olympiadtraining            PASS 0s
+verify_printerscheduling           PASS 0s
+verify_reservoir                   PASS 0s
+verify_swimmingballs               PASS 11s
+verify_terracedfields              PASS 1s
+verify_ultimatepipegame            PASS 7s

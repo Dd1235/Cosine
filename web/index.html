@@ -6,7 +6,7 @@
     <title>cosine</title>
     <meta
       name="description"
-      content="Search 2,500+ competitive-programming problems by keyword, by describing the idea, or by technique label."
+      content="Search 3,500+ competitive-programming problems by keyword, by describing the idea, or by technique label."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="cosine" />
@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Search 2,500+ competitive-programming problems by keyword, by describing the idea, or by technique label."
+      content="Search 3,500+ competitive-programming problems by keyword, by describing the idea, or by technique label."
     />
     <meta name="twitter:card" content="summary" />
     <script src="/theme.js"></script>
@@ -148,6 +148,18 @@
             title="the manual"
           >
             :help
+          </button>
+          <!-- A reading mode, not a facet, so it sits here and not in the
+               judge row. No data-cmd: the chip handler above treats one as a
+               query to run. -->
+          <button
+            type="button"
+            class="lib-chip"
+            id="labels-toggle"
+            aria-pressed="false"
+            title="technique labels stay hidden while you attempt a problem"
+          >
+            labels: hidden
           </button>
         </span>
         <!-- The revision row: only meaningful inside a library view, so it

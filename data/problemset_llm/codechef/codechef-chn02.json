@@ -1,0 +1,37 @@
+{
+  "id": "codechef-chn02",
+  "title": "Animesh decides to settle down",
+  "slug": "chn02",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN02",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "After trying his luck in programming contests, Animesh has decided to accept his fate and settle down the good old-fashioned way. He has decided to own a farm and be a shepherd. He knows of **n** grass varieties, each of which grows in a convex polygon area.",
+  "tags": [
+    "advanced-algorithms",
+    "polygons"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN02"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 2,
+    "problem_code": "CHN02",
+    "replay_solves": {
+      "successful": 4,
+      "total": 20,
+      "accuracy": 20.0,
+      "replay_only": true
+    }
+  }
+}

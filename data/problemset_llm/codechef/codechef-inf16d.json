@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16d",
+  "title": "Pinocchio",
+  "slug": "inf16d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16D",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Just like the Pinocchio from the childhood classic, our Pinocchio has the worst habit in the world - lying. But instead of a prolonging nose, Pinocchio has a shrinkable memory, such that every time he lies to somebody, his memory reduces to some degree from its present capacity.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 4,
+    "problem_code": "INF16D",
+    "replay_solves": {
+      "successful": 4,
+      "total": 22,
+      "accuracy": 31.82,
+      "replay_only": true
+    }
+  }
+}

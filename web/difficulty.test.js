@@ -55,6 +55,18 @@ assert.equal(difficulty.confidence(unlabelled), null);
 assert.equal(difficulty.format(unlabelled), "Standard · CSES estimate", "the band still shows");
 assert.equal(difficulty.confidence({ platform: "cses", cses_difficulty: { band: 2, confidence: "certain" } }), null);
 
+// Kattis publishes its own 1–10 score. It is formatted with the judge's name
+// so it can never be read as a rating, and its label rides the same three
+// colour classes the other judges use.
+const kattis = { platform: "kattis", kattis_difficulty: { score: 7.4, label: "hard", host: "open.kattis.com" } };
+assert.equal(difficulty.format(kattis), "7.4 · Kattis");
+assert.equal(difficulty.kattisLabel(kattis), "hard");
+assert.equal(difficulty.value(kattis), null, "a Kattis score is not a sortable value");
+assert.equal(difficulty.format({ platform: "kattis" }), "", "no score, no chip");
+assert.equal(difficulty.kattisLabel({ platform: "kattis", kattis_difficulty: { score: 3, label: "weird" } }), "");
+assert.equal(difficulty.format({ platform: "codeforces", difficulty: 1900, kattis_difficulty: { score: 7.4 } }), "1900",
+  "a Kattis score parked on another judge's record is ignored");
+
 // One source of wording for the card tooltip and the manual.
 for (const level of ["high", "medium", "low"]) {
   assert.match(difficulty.confidenceTitle(level), new RegExp(`^${level} confidence: `));
@@ -65,4 +77,4 @@ assert.match(difficulty.confidenceTitle("low"), /specialist/);
 assert.equal(difficulty.confidenceTitle(null), "");
 assert.equal(difficulty.confidenceTitle("unknown"), "");
 
-console.log("difficulty tests passed (confidence and tooltip wording)");
+console.log("difficulty tests passed (confidence, tooltip wording, Kattis score)");

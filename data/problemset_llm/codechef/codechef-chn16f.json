@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16f",
+  "title": "ACM ICPC World Finals Accommodation",
+  "slug": "chn16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16F",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "It's time of ACM ICPC World Finals. A lot of teams from all over the world have gathered to compete. Their stay has been planned at a grand hotel. As the organizers want people to interact with each other, they accommodated all the people in a single floor of the hotel.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 6,
+    "problem_code": "CHN16F",
+    "replay_solves": {
+      "successful": 97,
+      "total": 187,
+      "accuracy": 51.87,
+      "replay_only": true
+    }
+  }
+}

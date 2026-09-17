@@ -1,0 +1,29 @@
+{
+ "id": "codechef-kgp16e",
+ "platform": "codechef",
+ "title": "Coal mines of Kharagpur",
+ "slug": "kgp16e",
+ "source_url": "https://www.codechef.com/problems/KGP16E",
+ "source_topic": "ICPC / Kharagpur Regional 2016",
+ "source_text": "Coal Mafias in Kharagpur are notorious for being one of the biggest perpetrators of crimes against officials protecting the mines. There are **n** mines in the area, numbered from **1** to **n**. Government wants to protect the mines by deploying some guards. As you know, governments usually don't have enough resources to assign a single guard for each mine. Instead, they know that some of the mines are quite near each other, and if there is a guard at some mine, he can monitor/guard these nearby mines also. This information about which of the mines are near to each other is given by **m** pair of integers **u, v** denoting the mine numbered **u** and **v** are near to each other. Earlier government already had all the arrangements in the place. Right after the elections, they decided to remove all the guards. So, now it is the new government's responsibility to allocate guards for the mines. You came to know through a very trusted source that the previous government had less than or equal to $\\lceil n / 3 \\rceil$ guards that were protecting all the mines. Now, you have the responsibility of assigning the guards to the mines. Admit it or not, the general perception of people is that, the current government under which you work is doubly worse and corrupt as compared to the previous one. So, they will cut you slack and will not pay an iota of attention if you put at most $\\lceil (2 * n) / 3 \\rceil$ guards for protection of all the mines. If you employ more than this number of guards, public will definitely notice it sooner and later, and will think of this as a scam which will make it hard for the government to save its face in parliament. Mind you, heavens will fall if you dare to deploy more than one guard in a mine. Find out any possible deployments of guards to the mines. If there are multiple possible ways of choosing mines where guards should be present, you can output any. **Note:** $\\lceil x \\rceil$ denotes the smallest integer greater than or equal to $x$. Input First line of the input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains two space separated integers **n, m** denoting number of mines and the number of proximity relationships among the mines. Each of the next **m** lines contains two space separated integers **u, v** denoting that mines numbered **u** and **v** are near each other. Output For each test case, output two lines. In the first line, output a single integer corresponding to number of guards that you are deploying. Let this number be **K**. In the next line, output **K** space separated integers corresponding to the mines where you will be having guards for protection. Constraints - **1** ≤ **T** ≤ **10 5 ** - **1** ≤ **n** ≤ **10 5 ** - **1** ≤ **u, v** ≤ **n** - **0** ≤ **m** ≤ **min((n * (n - 1)) / 2, 2 * 10 5 )** - **1** ≤ Sum of **n** and **m** each, over all the test cases ≤ **5 * 10 5 ** - No proximity relationship appears more than once in a input for a single test case. Sample Input 2 3 2 1 2 2 3 3 3 1 2 2 3 1 3 Sample Output 1 2 2 1 2 **Example case 1.** You can deploy a guard at the mine 2. He will also guard the nearby mines 1 and 3 too. **Example case 2.** You can have an guard at mine 1 and one more guard at mine 2. These two guards will also guard the 3rd mine. As, we see that number of guards deployed are 2, which is equal to $\\lceil 6 / 3 \\rceil = 2$, so nobody will say anything about this.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP16MOS",
+  "position": 5,
+  "problem_code": "KGP16E",
+  "replay_solves": {
+   "successful": 40,
+   "total": 184,
+   "accuracy": 21.74,
+   "replay_only": true
+  }
+ }
+}

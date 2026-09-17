@@ -1,0 +1,28 @@
+{
+ "id": "kattis-ultimatepipegame",
+ "status": "solved",
+ "solution": "Every empty cell uses exactly two of its four sides, and a side is used iff the neighbour across it uses the opposite side, so a valid layout is exactly a subgraph of the empty-cell grid graph in which every vertex has degree 2. The cost is 0 unless the two sides are opposite (left+right costs h, up+down costs v), i.e. the cost of sending 1 or 2 units horizontally out of a cell is convex (0 then h), which is expressible as two parallel unit edges. Colour the grid like a checkerboard: source -> black cell (cap 2) -> Hport/Vport through the (1,0),(1,cost) pairs -> the matching port of each horizontal/vertical neighbour (cap 1) -> mirrored white gadget -> sink. Feasible iff the flow saturates 2 * #black, which needs #black = #white; the min-cost flow value is the answer. O(V*E*flow) min-cost flow on ~1200 nodes and ~3200 edges with flow <= 800.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Every empty cell of a grid up to 20 by 20 must receive exactly one pipe: a straight horizontal one, a straight vertical one, or a freely rotatable curved one, and the pipe ends must join so that all water circulates in closed loops with no leaks. Straight pipes carry per-cell costs; the task is the cheapest valid layout, or a report that none exists.",
+ "patterns": [
+  "min-cost-flow",
+  "graph-modeling",
+  "max-flow",
+  "bipartite-graph"
+ ],
+ "pattern_confidence": {
+  "min-cost-flow": 0.9,
+  "graph-modeling": 0.9,
+  "max-flow": 0.7,
+  "bipartite-graph": 0.7
+ },
+ "tags": [
+  "graph",
+  "grid",
+  "flow",
+  "optimization"
+ ],
+ "source_text_sha256": "6371c0aed648c43e66b63b575f31c69e80454457e436121f6ed22e4899690a7f",
+ "verify_script": "data/analysis/external-batches/H/verify_ultimatepipegame.py",
+ "notes": "All three samples match (YES 0, YES 10, NO) and exhaustive enumeration of the six side-pairs per cell agrees on 119 random grids with up to 8 empty cells. The whole trick is that degree 2 everywhere is the only constraint (any pair of directions is realisable by some pipe, curved pipes being the free perpendicular case) and that the vertex cost is convex in the horizontal out-degree, which is what lets a flow -- rather than general matching -- carry it."
+}

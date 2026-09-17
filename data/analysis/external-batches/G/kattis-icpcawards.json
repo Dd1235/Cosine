@@ -1,0 +1,24 @@
+{
+ "id": "kattis-icpcawards",
+ "status": "solved",
+ "solution": "Scan the scoreboard from rank 1 downward keeping a hash set of universities already represented; a team is a winner exactly when its university is new, and the first twelve such teams get the four first, four second and four third prizes. Because only the best-placed team of each university may be awarded and ranks arrive in order, the greedy scan is forced: skipping a new university could only be replaced by a lower-ranked team of the same university, which is never allowed. At least twelve distinct universities are guaranteed, so twelve teams always exist. O(N) time and O(N) space for N<=200 lines.",
+ "solution_confidence": 0.99,
+ "statement_summary": "A contest scoreboard lists up to two hundred teams in finishing order, each line giving the team's university and its name. Only the highest-placed team of any university may win a prize, and exactly twelve prizes are handed out. The task is to print the twelve prize-winning teams, in scoreboard order, given that at least twelve distinct universities appear.",
+ "patterns": [
+  "simulation",
+  "hash-map"
+ ],
+ "pattern_confidence": {
+  "simulation": 0.85,
+  "hash-map": 0.8
+ },
+ "tags": [
+  "string",
+  "simulation",
+  "hash-map",
+  "implementation"
+ ],
+ "source_text_sha256": "4bb21e99b80d0ed49b5a3d604947c7b699f9901a018de30a0809bf62c86da1b4",
+ "verify_script": "data/analysis/external-batches/G/verify_icpcawards.py",
+ "notes": "Trivial filtering scan; the prize tiers (4/4/4) are flavour and never affect the output. No greedy label: nothing is being optimised, the selection is forced. verify_icpcawards.py checks the statement's 30-team sample and an independent O(N^2) reimplementation on random boards."
+}

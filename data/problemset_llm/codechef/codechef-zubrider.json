@@ -1,0 +1,40 @@
+{
+  "id": "codechef-zubrider",
+  "title": "C - Club of Riders",
+  "slug": "zubrider",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBRIDER",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "At a shopping mall, every now and then, a naughty kid steals some chocolates from different chocolate shops and runs away. The guards in the shopping mall were unable to catch the kid as he has got a fast scooter.",
+  "tags": [
+    "data-structures",
+    "arrays",
+    "algorithms",
+    "constructive",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBRIDER"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 2,
+    "problem_code": "ZUBRIDER",
+    "replay_solves": {
+      "successful": 23,
+      "total": 69,
+      "accuracy": 36.23,
+      "replay_only": true
+    }
+  }
+}

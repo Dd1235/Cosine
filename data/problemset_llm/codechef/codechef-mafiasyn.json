@@ -1,0 +1,42 @@
+{
+  "id": "codechef-mafiasyn",
+  "title": "Mafia Syndicate",
+  "slug": "mafiasyn",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MAFIASYN",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "There is a tree with N nodes, numbered from 1 to N. The tree is rooted at node 1. The tree represents the structure of a big mafia syndicate, and each node represents a criminal.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "advanced-data-structures",
+    "advanced-tree-structures",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MAFIASYN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 2,
+    "problem_code": "MAFIASYN",
+    "replay_solves": {
+      "successful": 1,
+      "total": 10,
+      "accuracy": 10.0,
+      "replay_only": true
+    }
+  }
+}

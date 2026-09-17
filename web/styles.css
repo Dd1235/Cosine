@@ -770,7 +770,8 @@ html[data-theme="light"] .matched-chip {
 
 /* Clickable pattern labels inside the result detail — same look as matched
    chips, plus affordance, because clicking one filters the results. */
-.pattern-chip {
+.pattern-chip,
+.reveal-labels {
   background: rgba(138, 164, 191, 0.1);
   color: var(--accent);
   border: 1px solid rgba(138, 164, 191, 0.18);
@@ -782,13 +783,22 @@ html[data-theme="light"] .matched-chip {
   cursor: pointer;
 }
 
-.pattern-chip:hover {
+.pattern-chip:hover,
+.reveal-labels:hover {
   color: var(--accent-2);
   border-color: var(--accent-2);
 }
 
-html[data-theme="light"] .pattern-chip {
+html[data-theme="light"] .pattern-chip,
+html[data-theme="light"] .reveal-labels {
   background: var(--accent-soft);
+}
+
+/* The lid over the labels. Muted and dashed on purpose: it is the absence of
+   a chip, not a chip you are meant to want to click. */
+.reveal-labels {
+  color: var(--text-muted);
+  border-style: dashed;
 }
 
 .pattern-pill {
@@ -1854,6 +1864,7 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
      the chips sit adjacent, so mis-hits were near-certain. */
   .judge-chip,
   .pattern-chip,
+  .reveal-labels,
   .lib-chip,
   .technique-chip,
   .difficulty-chip {
@@ -1966,6 +1977,17 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   box-shadow: var(--shadow);
 }
 .collection-picker[hidden] { display: none; }
+.competition-more { cursor: default; opacity: .75; }
+.labels-pending { color: var(--text-dim); font-style: italic; }
+.result-meta .review-pending {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-control);
+  padding: 0 6px;
+  cursor: help;
+}
 .competition-tag {
   font: inherit;
   font-family: var(--mono);
@@ -2012,7 +2034,67 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
    specialist check had to settle it. */
 .result-meta .difficulty.cses-confidence-medium { border-style: dashed; }
 .result-meta .difficulty.cses-confidence-low { border-style: dotted; }
-.pyq-attempt { font-size: .8rem; margin-top: 6px; }
+/* The contest page. A row is the letter cell plus one card, so the card that
+   renderHitsList draws inside it drops its own chrome — the row is wearing it. */
+.contest-header {
+  list-style: none;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+.contest-name { font-size: .95rem; }
+.contest-dim, .contest-caveat, .contest-progress { color: var(--text-dim); }
+.contest-caveat::before { content: "// "; }
+.contest-resources { margin: 6px 0 0; padding-left: 20px; }
+.contest-topics { margin-top: 8px; }
+.contest-topics summary { cursor: pointer; color: var(--text-dim); }
+.contest-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 6px;
+}
+.contest-topic { color: var(--text-dim); white-space: nowrap; }
+.contest-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.contest-row::before { content: none; }
+.contest-letter {
+  flex: 0 0 1.75rem;
+  font-family: var(--mono);
+  color: var(--text-dim);
+}
+.contest-card { flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; list-style: none; }
+/* The nested card is already inside a bordered row; a second box around it
+   reads as two results rather than one. */
+.contest-card .result {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  animation: none;
+}
+.contest-card .result::before { content: none; }
+.contest-unindexed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+.contest-unindexed, .contest-unlabelled { color: var(--text-dim); }
+.contest-unindexed .contest-title { overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  .contest-row { flex-wrap: wrap; }
+  .contest-letter { flex-basis: auto; }
+  .contest-card { flex-basis: 100%; }
+  .contest-header { overflow-wrap: anywhere; }
+}
 .similar-empty { list-style: none; padding: 20px 0; }
 .similar-explanation { opacity: .85; }
 .result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

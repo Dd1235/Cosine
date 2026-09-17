@@ -1,0 +1,34 @@
+{
+ "id": "codechef-trgrph",
+ "platform": "codechef",
+ "title": "Rooted Tree Graph",
+ "slug": "trgrph",
+ "source_url": "https://www.codechef.com/problems/TRGRPH",
+ "source_topic": "ICPC / Amritapuri Regional 2019",
+ "source_text": "Suppose that we have a rooted tree $T$ with vertices $1, \\ldots, n$. We construct an undirected ancestor graph $G$ of $T$ with the same set of vertices. A pair of distinct vertices $v, u$ is adjacent in $G$ if and only if $v$ is an ancestor of $u$ in $T$, or vice versa. You are given a graph $G$ with $n$ vertices. Construct any rooted tree $T$ such that $G$ is the ancestor graph of $T$, or determine that no such $T$ exists. Input - The first line contains a single integer $Q$, the number of test cases. $Q$ test case descriptions follow. - Each test case description starts with a line containing two integers, $n$ and $m$, the number of vertices and edges of the graph $G$ respectively. - The $i$-th of the following $m$ lines describes the $i$-th edge of $G$. It contains two integers, $u_i, v_i$ ($1 \\leq u_i, v_i \\leq n$), the endpoints of the $i$-th edge. Output For each test case: - If there is no suitable rooted tree $T$, print a single line containing the word `NO`. - Otherwise, on the first line print `YES`, and in the next line, print $n$ integers $p_1, \\ldots, p_n$ describing the tree $T$. $p_i$ should be equal to the index of the parent vertex of $i$, or $0$ if vertex $i$ is the root. The numbers should describe a valid rooted tree, that is, there should be exactly one root vertex which should be an ancestor of any other vertex. If there are multiple suitable trees, output any of them. Constraints - $1 \\leq Q \\leq 10^5$ - $1 \\leq n \\leq 10^5$ - $0 \\leq m \\leq 10^5$ - The sum of $n$ over all testcases doesn't exceed $5 \\cdot 10^5$ - The sum of $m$ over all testcases doesn't exceed $5 \\cdot 10^5$ - The graphs described in the input do not contain self-loops or multiple edges. Sample Input 5 1 0 3 2 1 2 2 3 3 3 1 2 1 3 2 3 4 2 1 4 2 3 7 10 1 2 1 3 2 4 2 5 3 6 3 7 1 4 1 5 1 6 1 7 Sample Output YES 0 YES 2 0 2 YES 0 1 2 NO YES 0 1 1 2 2 3 3",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "graphs",
+  "algorithms",
+  "graph-algos",
+  "traversals",
+  "constructive"
+ ],
+ "date_added": "24-12-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AM19MOS",
+  "position": 6,
+  "problem_code": "TRGRPH",
+  "replay_solves": {
+   "successful": 19,
+   "total": 72,
+   "accuracy": 26.39,
+   "replay_only": true
+  }
+ }
+}

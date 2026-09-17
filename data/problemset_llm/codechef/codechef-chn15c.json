@@ -1,0 +1,40 @@
+{
+  "id": "codechef-chn15c",
+  "title": "Jimma and Chingam",
+  "slug": "chn15c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15C",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Jimma the cat had placed N bowls of cat food in a line. The amount of food in each bowl is an integer and is given to you as the array A[1], A[2], ... , A[N] , where A[1] is the amount of food in the leftmost bowl, and A[N] is the amount in the rightmost bowl.",
+  "tags": [
+    "acmchn15",
+    "arjunarul",
+    "dynamic-programming",
+    "easy-medium",
+    "inversions"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 3,
+    "problem_code": "CHN15C",
+    "replay_solves": {
+      "successful": 119,
+      "total": 1129,
+      "accuracy": 10.89,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+ "id": "codechef-segdir2",
+ "platform": "codechef",
+ "title": "Direct Segments",
+ "slug": "segdir2",
+ "source_url": "https://www.codechef.com/problems/SEGDIR2",
+ "source_topic": "ICPC / Kharagpur Regional 2019",
+ "source_text": "$N$ line segments (numbered $1$ through $N$) are placed on the $2D$-plane. For each valid $i$, the $i$-th segment starts at $\\vec{A_i} = (x_i, y_i)$ and ends at $\\vec{B_i} = (X_i, Y_i)$. Line segments can move with a velocity of magnitude 1 unit/sec along the direction of vector $(\\vec{A_i} - \\vec{B_i})$ or $(\\vec{B_i} - \\vec{A_i})$. At the time $t = 0$, all segments start moving for each valid $i$. You need to assign a direction to the movement of each segment (not necessarily the same for all segments), such that there is no time from $t = 0$ to $t = 10^{10000}$ (both inclusive) when any two segments touch or intersect each other. Decide if it is possible to assign directions to the segments in such a way that the above condition is satisfied. ###Input: - The first line of input contains a single integer $T$, the number of testcases. - The first line of each test case contains a single integer $N$. - $N$ lines follow,. For each $i$ ($1 \\le i \\le N$), the $i$-th of these lines contains four space-separated integers $x_i$, $y_i$, $X_i$, $Y_i$. ###Output: For each test case, print a single line containing the string `\"YES\"` if it is possible to assign the directions in a valid way or `\"NO\"` if it is impossible. ###Constraints - $1 \\leq T \\leq 1000$ - $1 \\leq N \\leq 2000$ - Sum of $N$ over all testcases $\\leq 2000$ - Absolute value of coordinates of all points $\\leq 10^6$ - All input points in a single testcase are distinct Sample Input 2 3 0 0 0 10 1 10 5 10 6 0 6 10 4 0 0 0 10 1 10 5 10 6 0 6 10 -2 -1 8 -1 Sample Output YES NO Example case 1: There are two ways to assign directions to segments, one of them is: Example case 2: : There is no valid way to assign directions to segments.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "mathematics"
+ ],
+ "date_added": "2-12-2019",
+ "problem_author": "deva2802",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KH19MOS",
+  "position": 8,
+  "problem_code": "SEGDIR2",
+  "replay_solves": {
+   "successful": 1,
+   "total": 3,
+   "accuracy": 33.33,
+   "replay_only": true
+  }
+ }
+}

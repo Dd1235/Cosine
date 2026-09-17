@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16d",
+ "platform": "codechef",
+ "title": "ATM Queue",
+ "slug": "chn16d",
+ "source_url": "https://www.codechef.com/problems/CHN16D",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "An entire class of students has gone to the ATM to withdraw cash. Let's name them $\\{S_1, S_2, \\dots, S_N\\}$. Obviously, they have to stand in a queue. They want to do so, such that close friends are standing not too far from each other. Specifically, if $S_i$ and $S_j$ are close friends, then there should not be more than 2 other students standing in between them. Given the close-friendship information, you need to tell whether it is possible to form such a queue, or not. Formally, you should state whether there exists a permutation $(S_{p1}, S_{p2}, \\dots, S_{pN})$ of $\\{S_1, S_2, \\dots, S_N\\}$, such that for all pairs $(S_{pi}, S_{pj})$ where $S_{pi}$ and $S_{pj}$ are close friends, $|i-j| \\leq 3$ holds true. Input The first line of input contains an integer $T$ denoting the number of test cases. The description of $T$ test cases follows. The first line contains two integers $N, M$, denoting the number of students, and the number of close-friendship pairs, respectively. The next $M$ lines contain two integers each, separated by single spaces: $i\\ j$, denoting that $S_i$ and $S_j$ are close friends. Output Output a single line for each test case, containing the answer, which should be $1$, if such a queue is possible, and $0$ otherwise. Constraints - $1 \\leq T \\leq 3$ - $1 \\leq N \\leq 30$ - $1 \\leq M \\leq 200$ Sample Input 1 5 6 1 2 3 1 4 1 2 5 2 4 5 4 Sample Output 1 Consider the permutation $(S_1, S_3, S_2, S_4, S_5)$. No pair of close friends have more than 2 students between them. So this is a valid queue, and hence the answer is $1$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 4,
+  "problem_code": "CHN16D",
+  "replay_solves": {
+   "successful": 0,
+   "total": 6,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

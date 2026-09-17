@@ -1,0 +1,36 @@
+{
+  "id": "codechef-cntfail",
+  "title": "Magic School",
+  "slug": "cntfail",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CNTFAIL",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "It's year 2018 and it's Christmas time! Before going for vacations, students of Hogwarts School of Witchcraft and Wizardry had their end semester exams. N students attended the semester exam.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CNTFAIL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 1,
+    "problem_code": "CNTFAIL",
+    "replay_solves": {
+      "successful": 91,
+      "total": 1041,
+      "accuracy": 9.03,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+ "id": "codechef-amcas",
+ "platform": "codechef",
+ "title": "Circles and Squares",
+ "slug": "amcas",
+ "source_url": "https://www.codechef.com/problems/AMCAS",
+ "source_topic": "ICPC / Amritapuri Regional 2015",
+ "source_text": "*Chota pendrive* (one of the deadliest coders) is the right hand of *Farzi coder*. He is really fond of circles and squares. One day he saw this problem and solved it. But he is not very sure if he correctly solved it. Can you help him in verifying the answer. The problem looks like: There is a grid of size **N x M**, there are **C** unit radii circles with integer center coordinates ((x₀, y₀), (x₁, y₁) .... (x c-1 , y c-1 )) on the grid. Choose any square portion of that grid with side length **A** such that the sides of the square are parallel to the sides of the grid, corners of this square must be inside or on the boundary of the grid and their coordinates are integers. Find the expected area covered by circles inside that square if you were to choose such a square randomly on the grid. Answer must be correct up to 6 places of decimal. Input First line will contain **N**, **M**, **A**, and **C** i.e number of rows, number of columns, side of the square and total number of circles respectively. Next **C** lines contains coordinates of center of circles. Output One line containing expected area covered by circles correct up to 6 places of decimal. Constraints - **1 ≤ N, M, C ≤ 100000** - **1 ≤ A ≤ min(N, M)** - **0 ≤ x i ≤ N** - **0 ≤ y i ≤ M** - No two pairs of x i , y i are same i.e. no two circles have the same center. Sample Input 1 1 1 1 0 0 Sample Output 0.7853981634 **Case 1:** There is only one possible way to choose the square and it will cover one quadrant of a circle. Sample Input 3 3 2 2 0 0 3 3 Sample Output 0.3926990817 **Case 2:** There are 4 possible ways to choose a square with side length 2 and two of them will contain one quadrant of a circle each.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm15amr",
+  "akash4983",
+  "combinatorics",
+  "expected-value",
+  "geometry"
+ ],
+ "date_added": "20-12-2015",
+ "problem_author": "akash4983",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR15MOS",
+  "position": 6,
+  "problem_code": "AMCAS",
+  "replay_solves": {
+   "successful": 3,
+   "total": 13,
+   "accuracy": 23.08,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "id": "codechef-amlex",
+ "platform": "codechef",
+ "title": "Poetic word",
+ "slug": "amlex",
+ "source_url": "https://www.codechef.com/problems/AMLEX",
+ "source_topic": "ICPC / Amritapuri Regional 2017",
+ "source_text": "Dhinwaji is an acclaimed poet and likes to play with words and letters. He has bought some stickers where each sticker has a lower case english letter (a-z). The letters are indexed from 1 - 26 i.e. `a` has index 1, `b` has index 2 and so on. He has $a_i$ stickers with letter $i$ on it. He needs to create a new word having exactly $n$ letters. Being a programmer, Dhinwaji imposed another constraint: a letter with index $j$ can only be placed at position $i$ in the word if $i \\% j = 0$ i.e. $i$ should be a multiple of $j$. Note that everything is 1-indexed. Note also that not all the stickers need to be used. Dhinwaji wonders what is the lexicographically smallest word he can create that follows the above constraints. Since he is too busy writing poems, you have to help him find this word. Note that it is possible that there is no valid word of $n$ letters that can be formed. Input - The first line will have a number $T$ indicating the number of test cases. $T$ lines follow. - The first line of each test case will have one integer, $n$, denoting the required length of the new word. - The second line of each test case will have 26 space separated integers $a_1$, $a_2$, ..., $a_{26}$. Output - For each test case, print one line containing the lexicographically smallest word which satisfies the conditions. If no such word is possible, print `#rekt` without the quotes. Constraints - $1 \\leq T \\leq 5$ - $1 \\leq n \\leq 200$ - $0 \\leq a_i \\leq n$ Sample Input 3 3 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 3 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 Sample Output abc aacbab #rekt **Testcase 1:** There is 1 sticker with `a`, `b` and `c` each. \"abc\" is the only valid word possible. **Testcase 2:** Some valid words are \"abcaab\", \"abcbaa\", \"ababac\" etc. The lexicographically smallest among them is `aacbab`. **Testcase 3:** There are a total of 3 letters so a word with 10 letters cannot be formed.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "advanced-algorithms",
+  "advanced-graph-algos",
+  "flow-networks",
+  "algorithms",
+  "graph-algos",
+  "traversals"
+ ],
+ "date_added": "26-12-2017",
+ "problem_author": "balajiganapath",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR17ROL",
+  "position": 11,
+  "problem_code": "AMLEX",
+  "replay_solves": {
+   "successful": 0,
+   "total": 7,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

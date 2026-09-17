@@ -1,0 +1,35 @@
+{
+ "id": "kattis-icpcteamselection",
+ "title": "ICPC Team Selection",
+ "slug": "icpcteamselection",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/icpcteamselection",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "Given 3N students with individual scores, a coach must split them into N teams of three; a team's performance is the median of its three scores and the total is the sum over teams. The task is to report the largest achievable total. Both N and every score are at most 100, over up to twenty datasets.",
+ "tags": [],
+ "patterns": [
+  "greedy",
+  "sorting",
+  "exchange-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "greedy": 0.9,
+   "sorting": 0.9,
+   "exchange-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.1,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

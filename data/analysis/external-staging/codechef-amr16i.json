@@ -1,0 +1,32 @@
+{
+ "id": "codechef-amr16i",
+ "platform": "codechef",
+ "title": "Mancunian Hoards Black Money",
+ "slug": "amr16i",
+ "source_url": "https://www.codechef.com/problems/AMR16I",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Mancunian is a real estate dealer in Mancunia. He is part of The Elite Builders Society who work hard day and night to improve the infrastructure of the city, but they need cash to do this. They have a unique way to increase the amount of black money they possess. They start with a pile of cash amounting to $S$ dollars. Then they repeat the following process $N$ times. Before the $i^{th}$ step, there are already $i$ piles of cash on the table. They create another pile amounting to the sum of amounts of all the $i$ previous piles and add another $C_i$ dollars to it. A hot piece of property priced at $X$ dollars has just appeared on the market and the society decided that they must buy it at all costs. They need to select a few of the piles from the ones on the table, whose sum is exactly $X$. Although shrewd businessmen, they lack mathematical skills. Can you help them decide whether it is possible or not? Input The first line of the file contains an integer $T$ denoting the number of test cases. Each case consists of two lines. The first line contains three integers $S$, $N$ and $X$ denoting the amount of cash in the first pile, the number of times the society creates a new pile and the cost of the in-demand property respectively. The second line contains $N$ integers denoting the values $C_i$ mentioned in the problem description. Output Output $T$ lines. In each line, output \"yes\" if the society can buy the property and \"no\" otherwise. Constraints - $1 \\leq T, N \\leq 10^5$ - $1 \\leq \\text{sum of } N \\text{ over all test cases} \\leq 10^5$ - $1 \\leq S, X, C_i \\leq 10^{18}$ Sample Input 2 1 4 6 1 2 4 2 100 2 500 51 749 Sample Output yes no **Example case 1:** The piles of cash are $1$, $2$, $5$, $12$ and $22$. The society will use the piles of cash amounting to $1$ and $5$ to get a total of $6$. **Example case 2:** The piles of cash are $100$, $151$ and $1000$. The society cannot buy the property costing $500$ using any of the piles of cash they have.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3",
+  "amr16",
+  "amr16mos",
+  "icpc2016"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 9,
+  "problem_code": "AMR16I",
+  "replay_solves": {
+   "successful": 25,
+   "total": 139,
+   "accuracy": 17.99,
+   "replay_only": true
+  }
+ }
+}

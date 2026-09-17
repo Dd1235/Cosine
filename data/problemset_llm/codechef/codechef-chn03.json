@@ -1,0 +1,38 @@
+{
+  "id": "codechef-chn03",
+  "title": "Animesh practices some programming contests",
+  "slug": "chn03",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN03",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "As you know, Malvika has created some **n** programming contests. Each of the contests has three problems, categorized as easy, medium, and hard on difficulty level. For the **i** th contest, the easy problem takes **TE[i]** hours and gives you **PE[i]** pleasure.",
+  "tags": [
+    "acm15chn",
+    "admin2",
+    "dynamic-programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN03"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 3,
+    "problem_code": "CHN03",
+    "replay_solves": {
+      "successful": 13,
+      "total": 46,
+      "accuracy": 28.26,
+      "replay_only": true
+    }
+  }
+}

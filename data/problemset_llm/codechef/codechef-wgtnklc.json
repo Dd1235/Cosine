@@ -1,0 +1,39 @@
+{
+  "id": "codechef-wgtnklc",
+  "title": "Weighted Necklace",
+  "slug": "wgtnklc",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/WGTNKLC",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given K different colors of beads. A bead of the i-th color has a weight w_i. You have infinitely many beads of each color. All the beads of the same color have the same weight. You have to answer q independent queries. For each query, you will be given S.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "transformations",
+    "integer-factorisation"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/WGTNKLC"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 5,
+    "problem_code": "WGTNKLC",
+    "replay_solves": {
+      "successful": 3,
+      "total": 8,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

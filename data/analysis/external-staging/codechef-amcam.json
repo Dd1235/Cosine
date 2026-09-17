@@ -1,0 +1,32 @@
+{
+ "id": "codechef-amcam",
+ "platform": "codechef",
+ "title": "Cat and Mouse",
+ "slug": "amcam",
+ "source_url": "https://www.codechef.com/problems/AMCAM",
+ "source_topic": "ICPC / Amritapuri Regional 2015",
+ "source_text": "$N$ cats and $N$ mice are situated in a 2-D plane. Mota Chuha wants to choose $K$ number of animals in such a way that the distance between any pair of chosen cat and chosen mouse is minimized. Distance between the same type of chosen animals doesn't matter. In other words, suppose Chota Chuha chooses cats $C_1, C_2, \\ldots, C_m$ and mice $M_1, M_2, \\ldots, M_n$, then maximum of $Distance(C_i,M_j)$ should be minimized. Input - The first line of the input contains pair of integers $N$ and $K$. - Next $N$ lines will contain a pair of integers denoting the co-ordinates of the cats. - Next $N$ lines will contain a pair of integers denoting the co-ordinates of the mice. Output Output the minimized distance. The output value must have an absolute or relative error smaller than $10^{-6}$. Constraints - $1 \\leq N \\leq 200$ - $(N+1) \\leq K \\leq 2*N$ - $0 \\leq X, Y coordinates \\leq 10^5$ - No two animals are at the same position Sample Input 3 4 1 0 2 0 3 0 1 1 2 1 3 1 Sample Output 1.41421356237 Doesn't matter how you choose, A pair of cat and mouse will be at distance of square root of 2.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm15amr",
+  "amitpandeykgp",
+  "binary-search",
+  "matching"
+ ],
+ "date_added": "20-12-2015",
+ "problem_author": "amitpandeykgp",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR15MOS",
+  "position": 3,
+  "problem_code": "AMCAM",
+  "replay_solves": {
+   "successful": 6,
+   "total": 34,
+   "accuracy": 20.59,
+   "replay_only": true
+  }
+ }
+}

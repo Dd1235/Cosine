@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16e",
+ "platform": "codechef",
+ "title": "Moving Clams",
+ "slug": "chn16e",
+ "source_url": "https://www.codechef.com/problems/CHN16E",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Alice and Bob are tired of playing with messages and proving things which the lazy cryptographers should be doing on their own. So they've decided to take the day off, and have come to the beach. Alice soon spots a dirty glass bottle floating in the water, and they find an ancient parchment inside it. On it, is drawn an undirected graph! As luck would have it, they find some colored clam shells lying around. There are red, blue and green ones. And as usual, Alice devises some devious game and challenges Bob to play it. She marks the vertices as $V_1, V_2, \\dots, V_N$. She then places some clams on each of the vertices. There are $R_1$ red clams on $V_1$, $R_2$ red clams on $V_2$, $\\dots$, $R_N$ red clams on $V_N$. Similarly, there are $B_i$ blue clams on $V_i$, for every $i$, and $G_i$ green clams on $V_i$ for every $i$. She tells Bob that he has to take every single clam and do one of two things: Suppose the clam was on $V_i$ originally. He should either leave it at $V_i$ itself. Or move it along an edge incident on $V_i$, and place it on a neighboring vertex. He can do this at most once, for every clam. Suppose he does so for every clam, and finally ends up with a configuration, where there are $R_1'$ red clams on $V_1$, $R_2'$ red clams on $V_2$, $\\dots$, $R_N'$ red clams on $V_N$. Similarly, there are $B_i'$ blue clams on $V_i$, for every $i$, and $G_i'$ green clams on $V_i$ for every $i$. She then gives him a sequence of numbers: $T_1, T_2, \\dots, T_N$, and tells him that, at the end, $V_i$ should have a total of exactly $T_i$ clams. That is, $R_i' + B_i' + G_i'$ should be equal to $T_i$. She gives him another sequence of numbers: $MinG_1, MinG_2, \\dots, MinG_N$, and tells him that there should be at least $MinG_i$ green clams on $V_i$. That is, $G_i'$ should be greater than or equal to $MinG_i$. She also gives him an integer $K$, and Bob has to ensure that the total number of red clams which end up on even-indexed vertices is at least $K$. $V_{2i}$ is an even-indexed vertex, for all $i$. $V_{2i+1}$ is an odd-indexed vertex, for all $i$. That is, $R_2' + R_4' + \\dots + R_{2i}' + \\dots$ should be greater than or equal to $K$. Bob is lazy as usual and doesn't want to spend time trying, unless he knows for sure that this is achievable. Help him by figuring it out for him. Output `1` if he can satisfy all of Alice's conditions. Output `0` otherwise. Input The first line of input contains an integer $T$ denoting the number of test cases. The description of $T$ test cases follows. The first line contains two integers $N$ and $M$, denoting the number of vertices, and number of edges in the graph, respectively. The next $M$ lines contain two integers each, separated by single spaces: $i\\ j$, denoting that there is an edge between $V_i$ and $V_j$. It is guaranteed that there is at most 1 edge between any two vertices, and there is no edge which connects a vertex to itself. The next line contains $N$ integers, separated by single spaces: $R_1, R_2, \\dots, R_N$, denoting the number of red clams in each vertex originally. The next line contains $N$ integers, separated by single spaces: $B_1, B_2, \\dots, B_N$, denoting the number of blue clams in each vertex originally. The next line contains $N$ integers, separated by single spaces: $G_1, G_2, \\dots, G_N$, denoting the number of green clams in each vertex originally. The next line contains $N$ integers, separated by single spaces: $T_1, T_2, \\dots, T_N$, denoting the total number of clams that Alice wants Bob to place in each vertex finally. The next line contains $N$ integers, separated by single spaces: $MinG_1, MinG_2, \\dots, MinG_N$, denoting the minimum number of green clams that Alice wants Bob to place in each vertex finally. The last line contains a single integer $K$, denoting the minimum number of red clams that Alice wants Bob to place in even-indexed vertices finally. Output Output a single line for each test case, containing the answer, which should be a `0` or a `1`. Constraints - $1 \\leq T \\leq 3$ - $1 \\leq N \\leq 100$ - $0 \\leq M \\leq 1000$ - $0 \\leq R_i, B_i, G_i \\leq 100$ - $0 \\leq T_i, MinG_i, K \\leq 3 \\times 10^4$ Sample Input 1 4 4 1 2 2 3 3 1 4 3 2 0 1 2 0 1 1 2 1 3 1 3 1 3 8 5 0 0 7 0 5 Sample Output 1 Bob does these actions: - Moves both the red clams from $V_1$ to $V_2$. - Moves all the three green clams from $V_2$ to $V_3$. - Moves the red clam from $V_3$ to $V_4$. - Moves all the three green clams from $V_4$ to $V_3$. Once these are done, we see that all of Alice's conditions are met: - The total number of clams in $V_1$, $V_2$, $\\dots$, $V_4$ is $(1, 3, 8, 5)$. We see that each element here is exactly equal to the corresponding element in $T_1, T_2, \\dots, T_4$, which is $(1, 3, 8, 5)$. - The number of green clams in $V_1$, $V_2$, $\\dots$, $V_4$ is $(1, 0, 7, 0)$. We see that each element here is greater than or equal to the corresponding element in $MinG_1, MinG_2, \\dots, MinG_4$, which is $(0, 0, 7, 0)$. - There are 2 red clams in $V_2$ and 3 red clams in $V_4$. Hence, there are at least $K=5$ red clams in even-indexed vertices. Hence the answer is `1`.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 5,
+  "problem_code": "CHN16E",
+  "replay_solves": {
+   "successful": 1,
+   "total": 2,
+   "accuracy": 50.0,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-mulhanoi",
+ "platform": "codechef",
+ "title": "Again Multi-Peg Tower of Hanoi",
+ "slug": "mulhanoi",
+ "source_url": "https://www.codechef.com/problems/MULHANOI",
+ "source_topic": "ICPC / Kolkata Regional 2018",
+ "source_text": "In CSE courses, we frequently cite the Tower of Hanoi problem to make the concept of recursive procedures clear. In an ordinary Tower of Hanoi problem, there are three pegs $S_1$, $S_2$, and $S_3$. Initially, circular disks with holes are mounted on $S_1$ with smaller disks on top of larger ones. All the disks are of different diameters. The task is to shift all the disks to $S_3$, always shifting one disk from the top of a tower to the top of another tower, and never placing a larger disk on top of a smaller one. To solve the problem of $n$ disks, one is forced to shift the top $(n-1)$ disks from $S_1$ to the only intermediate peg $S_2$, then shift the largest disk from $S_1$ to $S_3$, and finally shift the remaining $(n-1)$ disks from $S_2$ to $S_3$, without violating the aforementioned constraints. But in a Multi-peg Tower of Hanoi problem with $p \\ge 3$ pegs, we have $(p-2)$ intermediate pegs. The problem is to shift the disks from the source peg to the destination peg in the minimum number of moves. There is a **presumed optimal strategy** that asserts that: - A certain optimal number of disks $(n_1)$ should be shifted to an intermediate peg $S_i$. - The remaining $(n-n_1)$ disks should reach the destination without using the peg $S_i$, that is using only $(p-1)$ pegs. - Disks on $S_i$ must now reach the destination using all $p$ pegs. You have to figure out what $n_1$ you need to choose at every step to minimize the total number of steps. And among all such strategies for $n$ disks and $p$ pegs, let the maximum number of moves a disk requires to reach the destination peg be $k$ (i.e., some of the disks require less than $k$ moves while some of the disks need exactly $k$ moves). Given $n$ and $p$, we are interested to know the maximum number of disks each of which requires exactly $k$ moves to reach the destination. Input - For every problem instance, there will be a single line containing two space-separated integers $n$, $p$ ($1 \\leq n \\leq 100$ and $3 \\leq p \\leq 10$). - Input ends with $n = 0$, $p = 0$. - There will not be more than 1000 instances. Output - For every problem instance, print in a separate line the maximum number of disks each of which requires the maximum number of moves to reach the destination. Constraints - $1 \\leq n \\leq 100$ - $3 \\leq p \\leq 10$ - There will not be more than 1000 instances. Sample Input 7 3 10 4 0 0 Sample Output 1 4 For the first sample input with $n = 7$ and $p = 3$, the maximum number of disks that require exactly $k$ moves is $1$. For the second sample input with $n = 10$ and $p = 4$, the maximum number of disks that require exactly $k$ moves is $4$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "19-12-2018",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL18ROL",
+  "position": 1,
+  "problem_code": "MULHANOI",
+  "replay_solves": {
+   "successful": 2,
+   "total": 7,
+   "accuracy": 28.57,
+   "replay_only": true
+  }
+ }
+}

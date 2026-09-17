@@ -1,0 +1,29 @@
+{
+ "id": "kattis-amazingadventures",
+ "status": "solved",
+ "solution": "A simple path from B to G through C splits at C into two paths B->C and G->C that share no cell except C, and conversely, so the shortest such path is the minimum total length of two such vertex-disjoint paths. Split each cell into in and out nodes joined by a capacity-1 arc (capacity 2 for C), delete U, give each grid step cost 1, feed one unit into B and one into G from a super source and drain 2 units out of C. Costs are non-negative so no cycle appears in the flow and the two units decompose into the wanted paths; infeasible means NO, and the path string is read off the flow. Two Dijkstra augmentations with potentials give O(NM log(NM)) per test, fine for total NM <= 1e5.",
+ "solution_confidence": 0.9,
+ "statement_summary": "On a grid of at most one hundred by one hundred cells, a walker must travel from a start cell to a goal cell by unit steps, passing through a third marked cell somewhere on the way and never entering a fourth forbidden cell, and no cell may be visited twice. The task prints a shortest such route as a string of directions, or reports that none exists.",
+ "patterns": [
+  "min-cost-flow",
+  "graph-modeling",
+  "shortest-path",
+  "grid-traversal",
+  "dijkstra"
+ ],
+ "pattern_confidence": {
+  "min-cost-flow": 0.9,
+  "graph-modeling": 0.9,
+  "shortest-path": 0.75,
+  "grid-traversal": 0.8,
+  "dijkstra": 0.65
+ },
+ "tags": [
+  "grid",
+  "flow",
+  "graph"
+ ],
+ "source_text_sha256": "57c9284607fab16f4343480f2499462430ccf30d76e3687e3c1630259d430a37",
+ "verify_script": "data/analysis/external-batches/F/verify_amazingadventures.py",
+ "notes": "verify_amazingadventures.py checks all three samples and matches the min-cost flow value against exhaustive enumeration of every simple path on 400 random grids up to 4x4. The flow model is certainly correct; there may also be a direct case analysis (the answer is always the Manhattan bound plus an even detour), which would make some of these labels secondary, but the flow solution does meet the limits. Statement contains no sentence addressed to the annotator."
+}

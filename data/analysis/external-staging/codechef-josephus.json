@@ -1,0 +1,30 @@
+{
+ "id": "codechef-josephus",
+ "platform": "codechef",
+ "title": "Josephus Again",
+ "slug": "josephus",
+ "source_url": "https://www.codechef.com/problems/JOSEPHUS",
+ "source_topic": "ICPC / Kolkata Regional 2018",
+ "source_text": "Perhaps you know about the famous Josephus problem where some hapless people are standing in a circle waiting to be executed. Here, our problem is a little bit different in which computational efficiency is more important. After losing a battle, $n$ soldiers, with unique integer IDs $1, 2, \\ldots, n$ are standing in a circle. Counting from 1 (The soldier with ID 1 is counted 1) every $k^{th}$ ($1 \\leq k \\leq 1000$) soldier is taken to prison and later executed, and from the next soldier counting goes on until just one soldier survives. Find the ID of the last soldier taken to prison (the soldier who was taken to the prison immediately before the last surviving soldier). Input - For each instance of the problem, there will be a single line of input which contains two space separated integers $n$ and $k$. - Input ends with a line containing two zeros. - There will be maximum 120 such instances. - For all instances, $2 \\leq n \\leq 10^{12}$ and $1 \\leq k \\leq 1000$. Output - For each instance your program should output the ID of the last soldier taken to prison in a single line. Constraints - $2 \\leq n \\leq 10^{12}$ - $1 \\leq k \\leq 1000$ - Maximum of 120 instances. Sample Input 10 3 4 2 0 0 Sample Output 10 3 **Testcase 1**: The order in which the people are executed is as follows: 3, 6, 9, 2, 7, 1, 8, 5, 10, and then 4 is the last soldier who survives. So the one immediately before that is 10, which is the answer.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "algorithms"
+ ],
+ "date_added": "20-12-2018",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL18ROL",
+  "position": 6,
+  "problem_code": "JOSEPHUS",
+  "replay_solves": {
+   "successful": 3,
+   "total": 34,
+   "accuracy": 8.82,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol16h",
+  "title": "Mr Wireless",
+  "slug": "kol16h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16H",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Mr. Wire Less is not that good at implementing circuits on a breadboard. In his Digital Logic Design course, he has to implement several boolean functions using the breadboard. In a breadboard, inputs are given through switches and outputs are taken through LEDs.",
+  "tags": [
+    "mathematics",
+    "number-system",
+    "binary"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 8,
+    "problem_code": "KOL16H",
+    "replay_solves": {
+      "successful": 121,
+      "total": 367,
+      "accuracy": 33.79,
+      "replay_only": true
+    }
+  }
+}

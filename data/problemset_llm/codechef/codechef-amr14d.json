@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amr14d",
+  "title": "Matryoshka Dolls",
+  "slug": "amr14d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14D",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "The Cricket World Cup 2015 is nearing and it will be held in Australia and New Zealand. The organizing committee is planning to give a welcome gift to each team member. After careful thought and planning, they have decided on Matryoshka dolls.",
+  "tags": [
+    "amr14ros",
+    "cakewalk",
+    "murdocc007",
+    "sorting"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 4,
+    "problem_code": "AMR14D",
+    "replay_solves": {
+      "successful": 259,
+      "total": 490,
+      "accuracy": 54.08,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-earea",
+  "title": "Expected Area",
+  "slug": "earea",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EAREA",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a convex polygon P with vertices P_0, P_1, \\ldots, P_{n-1}, each having integer coordinates. On each edge P_{i} P_{(i+1) \\% n} of the polygon, choose a point R_i uniformly at random. What is the expected area of the convex hull of these n chosen points R_0, R_1, \\ldots R_{n-1}?",
+  "tags": [
+    "mathematics",
+    "probability",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EAREA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 10,
+    "problem_code": "EAREA",
+    "replay_solves": {
+      "successful": 70,
+      "total": 157,
+      "accuracy": 46.5,
+      "replay_only": true
+    }
+  }
+}

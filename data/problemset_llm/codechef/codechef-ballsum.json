@@ -1,0 +1,39 @@
+{
+  "id": "codechef-ballsum",
+  "title": "Colorful Balloons",
+  "slug": "ballsum",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BALLSUM",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "It's Alan's birthday. He is looking for balloons to decorate his house. He visits a shop which has many coloured balloons numbered 1 to n arranged in a row. The colour of each balloon can be represented as an integer between 1 and n.",
+  "tags": [
+    "mathematics",
+    "algebra",
+    "transformations",
+    "polynomial"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BALLSUM"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 4,
+    "problem_code": "BALLSUM",
+    "replay_solves": {
+      "successful": 6,
+      "total": 25,
+      "accuracy": 28.0,
+      "replay_only": true
+    }
+  }
+}

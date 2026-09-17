@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kg4",
+  "title": "Jai Hanuman",
+  "slug": "acm14kg4",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KG4",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Hanuman was the army chief in the war against ravana, he helped Ram. Well, everyone knew about that, but did you know that Hanuman also helped people of byteland? Let me tell you the story!! Long long ago, on the day of diwali, people were unhappy with the crackers they had.",
+  "tags": [
+    "acmkg14r",
+    "admin",
+    "medium-hard",
+    "segment-tree"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KG4"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKG14R",
+    "position": 4,
+    "problem_code": "ACM14KG4",
+    "replay_solves": {
+      "successful": 5,
+      "total": 50,
+      "accuracy": 10.0,
+      "replay_only": true
+    }
+  }
+}

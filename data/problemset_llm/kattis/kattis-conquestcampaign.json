@@ -1,0 +1,35 @@
+{
+ "id": "kattis-conquestcampaign",
+ "title": "Conquest Campaign",
+ "slug": "conquestcampaign",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/conquestcampaign",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "An army occupies N given cells of an R by C grid on the first day, and on each later day it also takes every cell that shares an edge with a cell taken earlier. The task reports how many days pass before the whole grid is occupied. The grid has at most 100 rows and 100 columns, and the listed cells need not be distinct.",
+ "tags": [],
+ "patterns": [
+  "multi-source-bfs",
+  "bfs",
+  "grid-traversal"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "multi-source-bfs": 0.9,
+   "bfs": 0.9,
+   "grid-traversal": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.0,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

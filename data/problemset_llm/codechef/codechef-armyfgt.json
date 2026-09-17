@@ -1,0 +1,37 @@
+{
+  "id": "codechef-armyfgt",
+  "title": "Fighting Armies",
+  "slug": "armyfgt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ARMYFGT",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Civil war is brewing in the kingdom of NaturalLand again, and this time, the rebels have adopted guerilla warfare. There are N rebel soldiers and they are represented by the numbers Rebel_1, Rebel_2, \\ldots, Rebel_N.",
+  "tags": [
+    "mathematics",
+    "number-theory"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ARMYFGT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 2,
+    "problem_code": "ARMYFGT",
+    "replay_solves": {
+      "successful": 38,
+      "total": 750,
+      "accuracy": 5.2,
+      "replay_only": true
+    }
+  }
+}

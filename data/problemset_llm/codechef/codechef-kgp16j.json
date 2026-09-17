@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16j",
+  "title": "Bus Routes",
+  "slug": "kgp16j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16J",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "The Kingdom of Kharagpur has **N** cities, which are numbered from **1** to **N**. There are many bus routes which go directly from one city to another. A bus route from **City i** to **City j** does not mean that there is a route from **City j** to **City i**.",
+  "tags": [
+    "acm16kol",
+    "admin3",
+    "bellman-ford",
+    "graphs",
+    "kgp16",
+    "mincut-maxflow"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 10,
+    "problem_code": "KGP16J",
+    "replay_solves": {
+      "successful": 3,
+      "total": 19,
+      "accuracy": 15.79,
+      "replay_only": true
+    }
+  }
+}

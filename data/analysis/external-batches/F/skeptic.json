@@ -1,0 +1,168 @@
+{
+  "reviewer": "independent-skeptic",
+  "reviewed_at": "2026-09-16",
+  "batch": "F",
+  "reviews": [
+    {
+      "id": "kattis-amazingadventures",
+      "status": "approved",
+      "keep": ["min-cost-flow", "graph-modeling", "shortest-path", "grid-traversal"],
+      "drop": [
+        {"label": "dijkstra", "why": "Scaffolding inside the labelled technique. Dijkstra-with-potentials is only the shortest-path subroutine of the min-cost-flow implementation, and since every grid arc has cost 1 a plain BFS augmentation works just as well, so it is not even a forced choice. A searcher for dijkstra wants a shortest-path problem, not a flow problem whose solver happens to contain a priority queue; the corpus reserves dijkstra for the former."}
+      ],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "57c9284607fab16f4343480f2499462430ccf30d76e3687e3c1630259d430a37",
+      "review_rationale": "I re-derived the reduction rather than trusting it: a simple path B->G through C is exactly a pair of paths B->C and G->C meeting only at C, in/out arcs of capacity 1 (2 at C) enforce vertex-disjointness, U is deleted, and non-negative unit costs mean the value-2 min-cost flow contains no cycle and decomposes into exactly those two paths; flow value below 2 is Menger's certificate for NO. Limits are comfortable rather than tight: the sum of N*M is 1e5, so the entire input is at most 2e5 split nodes and two Dijkstra augmentations per test, O(NM log NM) time and O(NM) memory. The second unit cannot sneak back through C because the in-out arc there has total capacity 2 and the sink is only reachable through it.",
+      "issues": [
+        "verify_amazingadventures.py compares only the min-cost flow VALUE against brute force; it never reconstructs or validates the U/D/L/R direction string that the problem actually requires, and the largest grid it tests is 4x4. Path reconstruction is mechanical, but the output-format half of the solution is entirely untested.",
+        "The proposal's notes hedge that a direct case analysis may exist and 'would make some of these labels secondary'. That hedge stays in the notes and did not leak into the label list, which is the right handling."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-bipartitebattle",
+      "status": "approved",
+      "keep": ["game-theory", "grundy-numbers", "counting", "parity-argument", "modular-exponentiation"],
+      "drop": [],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "04ed03a8ba1a9566a6b2fb9289259b8369f03782e6b9eb628739886553873fa4",
+      "review_rationale": "The Grundy claim is checked element by element over every edge set on 15 part-size pairs, not merely by value distribution, and the counting formula is checked against full enumeration on eleven multi-graph inputs; I re-derived both samples by hand (a=b=1 gives Grundy 0 and 2 for the two drawings, hence answer 1; a=1,b=2 has odd a+b hence 0) and they agree. The final algorithm is O(N) plus one modular exponentiation, so time and memory are never in question at N = 1e5, and the halving argument is airtight because a_i*b_i >= 1 always leaves at least one free edge parity. Every label names something the submitted solution actually does, and the brute force that DISCOVERED the Grundy rule is correctly left unlabelled instead of being sold as the route.",
+      "issues": [
+        "The exponent sum(a_i*b_i) reaches about 1e23, so any non-bignum implementation must reduce it mod 1e9+6 by Fermat before the modpow. The write-up says 'one modular exponentiation' without flagging the 64-bit overflow; the Python reference sidesteps it with big ints.",
+        "Nit: the summary carries LaTeX-style subscripts 'a_i' and 'b_i'. No brackets or markup, so it passes, but plain words would read better."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-conquestcampaign",
+      "status": "approved",
+      "keep": ["multi-source-bfs", "bfs", "grid-traversal"],
+      "drop": [],
+      "add": [],
+      "independent_band": "easy",
+      "source_text_sha256": "65ac26a6037df2e048f681ec123eaf17c437f6f3380edc928961dad10f5ff26a",
+      "review_rationale": "Day 1 seeds the N listed cells and every later day is exactly one BFS layer, so the answer is 1 plus the eccentricity of the source set; the verify script cross-checks that against a literal day-by-day simulation on 4000 random grids and reproduces both samples including the all-cells-seeded answer of 1. O(RC + N) time and O(RC) memory against R, C <= 100 and N <= 10000 leaves three orders of magnitude of headroom, and duplicate input cells are absorbed by the visited check as the statement warns. All three labels describe what the code does.",
+      "issues": [
+        "Because the grid has no obstacles the answer also equals 1 plus the largest Manhattan distance to the nearest listed cell, so manhattan-distance is a genuine alternative route. I deliberately did NOT add it: it is not the route this solution takes, and adding routes-not-taken is the failure mode this gate exists to catch."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-dividedoughnut",
+      "status": "approved",
+      "keep": ["interactive", "binary-search"],
+      "drop": [],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "65b5aed9a0a4091a8c1bf7d2ed7720b5423a9f6d63092b5767eb78aafbf85d65",
+      "review_rationale": "I recomputed the interaction budget by hand rather than trusting the harness, because this is the one proposal in the batch where the limit is the difficulty. At N = 2 the budget is exactly 30 including the answer; the search window starts at width 499999998 and each probe takes w to at most ceil(w/2)-1, which reaches width 0 after 28 probes, so 1 orienting query + 28 probes + 1 answer = exactly 30. It fits with zero margin but it does fit. The existence argument is sound: f moves by at most 1 per step and f(x)+f(x+5e8)=N, so g=f-N/2 is antisymmetric under the half-turn and must hit 0, making NO unreachable, which the 4000 simulated runs confirm. Not probing the final L and relying on the invariant is correct, since a positive-to-negative crossing of a step-1 integer function must land on 0.",
+      "issues": [
+        "Zero margin at N = 2 (30 of 30 interactions in the true worst case; the harness happened to observe only 29 because it never hit the exact adversarial configuration). Any extra orienting query at all would fail the judge, so this is the one place an implementation detail could silently break it.",
+        "Correctly refused binary-search-answer, and I agree: there is no monotone feasibility predicate here, only a sign change of a function that moves by at most one per step. The value-based shrink (L = mid + v) is an accelerated bisection, not a parametric search."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-funwithfibonacci",
+      "status": "needs_work",
+      "keep": ["number-theory", "modular-arithmetic", "cycle-detection", "functional-graph", "matrix-exponentiation", "prime-factorization"],
+      "drop": [],
+      "add": [],
+      "independent_band": "very-hard",
+      "source_text_sha256": "af1a9859349278466b5eb5f9bccb31da51aedc023219bab1a7d88407c0312c9e",
+      "review_rationale": "The algorithm is right and I built the cost model myself instead of accepting the confidence note. Over 100000 distinct moduli (adversarially weighted toward the top of the range) the Pisano tower needs only 25593 pisano_prime computations and 639783 divisor probes in total, average tower depth 5.29 and maximum 14, so the precomputation is cheap; per query the walk back up is about 5 fast-doubling evaluations. The reduction G(k,n) mod m_0 -> G(k-1,n) mod pi(m_0) is valid because Fibonacci mod m is PURELY periodic, which I re-verified directly at every fixed point. Labels all name real components; matrix-exponentiation stays because this corpus already labels 'F_n mod m for huge n' that way (cses-1722), even though the code uses fast doubling rather than a 2x2 power. I am filing needs_work for the evidence, not the verdict.",
+      "issues": [
+        "The performance claim rests on an implementation that exists nowhere. verify_funwithfibonacci.py runs the SLOW variant: a per-query rho walk over T(x) = F_x mod M. I measured the worst tail-plus-cycle of that functional graph exactly -- 12501 at M=375000, 2501 at M=75000, 501 at M=15000 -- so at T = 1e5 queries the executed code is about 1.25e9 iterations, roughly a thousand times over budget. The O(M) functional-graph precomputation the notes describe is the thing that makes this problem fit, and it is never built or timed. The verify run showing 'PASS 0s' is therefore no evidence at all about the time limit.",
+        "Factual error in the notes: the list of Pisano fixed points reached from p <= 1e6 is given as '24, 120, 600, 3000, 15000 and 375000'. I scanned 23007 moduli and 75000 also occurs (5 hits), with a 2501-step rho of its own. The code derives fixed points dynamically so nothing breaks, but the note as written would mislead anyone who hardcoded that list.",
+        "No scale test of any kind: the largest thing executed is 710 queries. The design fits by my own arithmetic (about 2e8 elementary operations total), which is why I am not rejecting, but the proposal should not be published claiming the limits were checked."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-grabagraph",
+      "status": "approved",
+      "keep": ["constructive-algorithm", "graph-modeling", "shortest-path", "counting"],
+      "drop": [],
+      "add": [],
+      "independent_band": "very-hard",
+      "source_text_sha256": "af535586292bc6d9ed2d0d87237eb950ba6950c06504fc6683a4a11f4dc0580e",
+      "review_rationale": "I recounted the budgets myself. The potential trick is sound: with d_i increasing and edge weight d_j - d_i, any walk telescopes to at least |d_end - d_start| with equality exactly on increasing walks, so every increasing path is shortest. Bash uses 62 vertices and 1830 + at most 60 = 1890 edges against caps of 72 and 2525; Chikapu uses 88 vertices and 171 + at most 43 = 214 edges against caps of 88 and 214, i.e. exactly at the cap, and A = F(87)-1 really does need all 43 Zeckendorf terms, which is what forces Zeckendorf rather than binary for the second graph. Maximum weight is 86, far under 1e9, and all weights are positive. 219 values of A including both worst cases are recounted with exact big-integer Dijkstra path counting. Time is trivial; the only cost is emitting about 210000 output lines across 101 test cases.",
+      "issues": [
+        "A = 0 is answered YES with a 2-vertex edgeless graph. The count of shortest paths between disconnected vertices is 0, so this is defensible and the output format explicitly permits M = 0, but it is a judgement call that cannot be checked offline and is the single most likely WA in this proposal.",
+        "The write-up says 'the count is a plain DAG count', but no DAG DP is ever run - the counts come from the closed forms 2^(i-1) and Fib(i+1). dp-on-dag was correctly NOT labelled; I checked for it specifically."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-hydrasheads",
+      "status": "approved",
+      "keep": ["bfs", "parity-argument"],
+      "drop": [
+        {"label": "greedy", "why": "There is no greedy step here. The solution writes the move counts as a = 2c - T and 2b = H + c, observes the total 3c - T + (H+c)/2 is increasing in c, and takes the smallest c satisfying one inequality and one congruence. That is closed-form minimisation of a linear function under constraints, not a greedy choice, an exchange argument, or a locally-optimal sweep, and a searcher looking for greedy practice would learn nothing greedy from landing here."}
+      ],
+      "add": [],
+      "independent_band": "easy",
+      "source_text_sha256": "e010cadf87098481460782cf4c3a38eb27dfb2a71a08a48364d55f5c3d14b0aa",
+      "review_rationale": "I re-derived the algebra and it holds: move 1 is a no-op, the other three give a = 2c - T, 2b = H + c, total = 3c - T + (H+c)/2 increasing in c, minimised at the smallest c >= ceil(T/2) with c congruent to H mod 2, and the plan is always orderable (all tail-growths, then all tail-pairs, then all head-pairs) so the bound is achieved. Both samples check out by hand (3,3 -> c=3 -> 9; 1,1 -> c=1 -> 3). The algebraic lower bound is independent of the verify script's LIM=400 cap, so the BFS agreement on all 10000 starts is confirmation rather than the proof. With H, T >= 1 the answer is never -1, as claimed. O(1) per test against at most 50 tests.",
+      "issues": [
+        "bfs kept but with a reservation worth recording: the submitted solution is closed-form arithmetic, and BFS is an alternative route. I kept it because it is not a REJECTED alternative (unlike the batch-G pattern) - it is verified correct here on every reachable start and is plainly how most of the 1080 solvers got through - but note that a BFS solution needs an unstated cap on H and T, since two of the three effective moves increase one of the counts. The proposal does not say what bound makes that safe."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-insidersidentity",
+      "status": "needs_work",
+      "keep": ["dynamic-programming", "counting", "bitmask-dp", "string-matching"],
+      "drop": [
+        {"label": "aho-corasick", "why": "Route named but not taken. No trie is built, no failure links exist, and there is no dictionary of patterns anywhere in the code - the transitions are (A<<1)|1 and ((A&star)<<1)|1, which is textbook Shift-And/bitap over a single wildcard pattern. Aho-Corasick appears only as an ANALYSIS device to bound the reachable state count; the proposal's own '(built lazily)' is the tell. Every one of the eight aho-corasick records already in this corpus (cses-2102/2103/2104, cf-696-d, cf-1801-g, cf-1743-g, cf-917-e, cf-1207-g) actually constructs the automaton, so this label would be the odd one out and a searcher would not be glad to land here."}
+      ],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "1f3ef3d9d9ded3b2cfc147bb652d19018a491ccbe0c31cfb409fa2057db2c42d",
+      "review_rationale": "The DP itself is right - I re-derived the two transitions and both rejection conditions (append '1' is blocked whenever bit m-1 is alive since P[m-1] is 1 or *, append '0' only when P[m-1] is *), and it matches brute force on 500 random patterns plus edge shapes. The limits are met, but by the RIGOROUS bound, not by the measurement the notes offer: masks are a function of the Aho-Corasick state of the at most 2^15 completions, so at most 30*2^15 = 983040 of them, giving at most 5e7 transitions over n <= 50. I am filing needs_work because the one quantitative claim in the notes is wrong.",
+      "issues": [
+        "The notes claim 'Measured worst case over adversarial patterns was 262144 states'. That is an underestimate by a factor of 1.9. I searched 4000-plus 30-character patterns with 15 stars and found 491520 = 15 * 2^15 reachable states, attained by the pattern consisting of one '1', fifteen '*' and fourteen '1'. The conclusion (fits the limits) is unchanged, but the number in the notes should be corrected to 491520 or removed.",
+        "verify_insidersidentity.py does not measure the state count AT ALL - the largest pattern it runs is m = 8 with n <= 14. The only number the notes quote is therefore unsupported by anything in the repo.",
+        "At 491520 states in a single layer, a dict-keyed DP costs roughly 25MB per layer. Fine against a normal memory limit, but worth knowing: this wants a BFS over reachable masks with integer ids, not two hash maps."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-jurassicjungle",
+      "status": "approved",
+      "keep": ["constructive-algorithm"],
+      "drop": [
+        {"label": "graph-modeling", "why": "Nothing is modelled. This corpus uses graph-modeling for problems that are NOT stated as graphs and must be turned into one (de Bruijn via Eulerian path, 2-SAT, geometry-to-graph, Gray code). Here the problem is already a graph problem and the program simply prints one of three canonical graphs. At 0.6 confidence with no modelling step, it goes."},
+        {"label": "bipartite-graph", "why": "Confidence 0.5 and incidental. K_{n/2,n/2} is one of three possible outputs, but nothing about bipartiteness is exercised: no 2-colouring, no odd-cycle test, no matching, no Hall condition. All eleven existing bipartite-graph records in the corpus are colouring/testing/matching problems. A searcher for the term would learn nothing bipartite from this record."}
+      ],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "d5fd8d73a6d7629d833f9cd72c175bb2b704fcc82a92023c53e5a42316f2cdc2",
+      "review_rationale": "The happiness condition really is the classical randomly-Hamiltonian (randomly traceable) property, and the Chartrand-Kronk classification into C_n, K_n and K_{n,n} is a real theorem, not a guess - the verify script independently enumerates every graph on 3 to 6 vertices, tests the property by expanding all maximal simple paths from every start, and gets exactly the predicted feasible edge counts {N, (N/2)^2 for even N, N(N-1)/2}. Constructions are re-tested for the property up to N = 8 and size-checked to N = 30. O(M) per test against N <= 30 and 30 tests. The proposal is honest that the vocabulary has no term for the classification itself, and it did not reach for hamiltonian-dp to fill the hole, which was the right restraint.",
+      "issues": [
+        "After my two drops this record carries a single label. That is honest but it will under-retrieve: the actual search terms for this problem are 'hamiltonian' and 'randomly traceable', and the taxonomy has neither (hamiltonian-dp would be flatly wrong - there is no DP). This is a vocabulary gap, not a proposal defect; see notes."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-lazylearner",
+      "status": "approved",
+      "keep": ["offline-queries", "fenwick-tree", "greedy", "lexicographic-order"],
+      "drop": [
+        {"label": "sorting", "why": "Scaffolding, and redundant. The only sort is one lexicographic ordering of the dictionary used to index the Fenwick tree, which lexicographic-order already names precisely. 'sorting' as a search term should return problems where the ordering IS the insight; here it is a library call."}
+      ],
+      "add": [],
+      "independent_band": "medium",
+      "source_text_sha256": "b283e10164e1cfafd48308800c2b6ad03c58d8eac720a636f2433e9c2e0e5a2c",
+      "review_rationale": "The pivot is correct and genuinely earns the greedy label: for fixed l, word T is a subsequence of S[l..r] iff r >= the end of the greedy leftmost match, so each query becomes a k-th-smallest query over the words already inserted, answered by a Fenwick descent. Grouping by l is legitimate offline processing since |S| <= 500 caps the number of groups. I recomputed the cost: 500 groups times 8e4 total word length is 4e7 for the match phase, plus at most 500 * 2e4 Fenwick insertions at log(2e4), about 1.5e8, plus 3e5 * 15 for the queries - heavy but inside a normal limit. Verified against a naive per-query scan on 600 random cases with duplicate words retained, which matches the statement (the list of matching words is sorted, not deduplicated).",
+      "issues": [
+        "The stated complexity O(|S|*(n + sum|T|) + q log n) drops a log: the Fenwick insertions cost |S| * n * log n, about 1.5e8 rather than 1e7. Still within limits, but the write-up understates the dominant term by a factor of 15.",
+        "No scale test - the largest case run is |S| = 12 with 8 words. The 1.5e8 figure is my arithmetic, not a measurement."
+      ],
+      "summary_ok": true
+    }
+  ],
+  "notes": "Reviewed all 10 proposals present. Re-listed the directory at the end: no new proposals arrived; verify_enjoyingelderberries.py and verify_kingdomofkittens.py exist as orphan evidence scripts with no proposal, so per instructions they are not reviewed and the kingdomofkittens TIMEOUT in verify-run.txt is disregarded. All ten summaries are 58-70 words with no examples, markup or bracket notation; all ten source_text_sha256 values were recomputed from data/analysis/external-staging and all ten match. Systematic observations: (1) The batch-G failure mode - labelling rejected alternatives - is largely absent here, but the softer cousin appears twice, where a technique used only to ANALYSE the solution gets labelled as if it were the solution: aho-corasick on insidersidentity (a Shift-And bitmask whose state count is merely bounded by an AC argument) and dijkstra on amazingadventures (the inner routine of the min-cost flow). Both dropped. Two more labels are broad-brush rather than real: greedy on hydrasheads and sorting on lazylearner. (2) The real weakness of this batch is scale evidence, not correctness. Every verify script is a small-case equivalence check against brute force, which is exactly right for correctness and worth nothing for time limits. Three proposals make performance claims no script exercises: funwithfibonacci (the executed rho variant is about 1000x over budget; I measured its worst tail-plus-cycle at 12501 for M=375000), insidersidentity (the quoted 262144 states is really 491520, which I found by adversarial search), lazylearner (complexity understated by a log). Correctness held up everywhere I pushed - I independently re-derived the min-cost-flow reduction, the Grundy formula on both samples, the hydra algebra, both grabagraph potential constructions and their exact edge budgets, and the dividedoughnut query count, which lands on exactly 30 of 30 at N=2 with no margin. (3) Vocabulary gap worth recording for the taxonomy: jurassicjungle turns on recognising a graph CLASS (randomly Hamiltonian / randomly traceable), and after dropping two incidental labels it retains only constructive-algorithm. Nothing in canonical covers Hamiltonicity without DP, so this record will under-retrieve for its two obvious search terms. Same shape, less severely, on grabagraph, where Zeckendorf representation has no canonical name."
+}

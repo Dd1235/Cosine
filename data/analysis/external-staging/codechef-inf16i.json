@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16i",
+ "platform": "codechef",
+ "title": "Pacman",
+ "slug": "inf16i",
+ "source_url": "https://www.codechef.com/problems/INF16I",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "Pacman is a software package manager. It has a repository of **N** softwares numbered from **1** to **N**. A software may have a dependency on another software. Fortunately, each software has **at most 1 dependency**. In order to install a software, we must first install its dependency (if any). Pacman ensures that there are **no cyclic dependencies** among softwares. **For example**, if software **A** depends on **B**, **B** should be installed first in order to install **A**. Similarly, if **A** depends on **B** and **B** depends on **C**, then first software **C** would have to be installed (as it is a dependency of **B**), then **B** (as it is a dependency of **A**) and finally **A** would be installed. A software is considered **completely installed** only when its *entire* chain of dependencies is installed before installing the software itself. Every software in the chain of dependencies must be freshly installed, even if it was installed as part of some other software’s dependency chain. Pacman is very popular among developers. It has only **D i ** copies of the **i th ** software left. Whenever a software **i** is installed, the number of copies of software **i** remaining with Pacman **reduces by 1**. The Pacman repository contains a **special set** of softwares. The property which makes them special is that no other software depends on them. A *sub-set* of this special set is ***ultra-special*** and consists of **K** softwares. These softwares are denoted as **S 1 **, **S 2 **, ... , **S K **. Find the maximum number of **distinct** **ultra-special** softwares that you can **completely install**. Input First line contains a single integer **T** - the number of testcases. **T** testcases follow which have the following format: First line contains 2 space-separated integers **N** and **K** - the total number of softwares present in Pacman and the size of the set of ultra-special softwares which are to be completely installed respectively. **N** lines follow. Each line contains 2 space-separated numbers **X** and **Y**, denoting that **software X depends on software Y**. In each of these **N** lines, no **X** is repeated. That means, each software from **1** to **N** occurs exactly once as **X** in the input. If a certain software **X** doesn’t have any dependency, the value of **Y** provided in the input would be **-1**. The next line contains **N** space-separated integers **D i ** denoting the number of copies of the **i th ** software available in Pacman. The last line of the testcase contains **K** space-separated integers **S j **. The **j th ** integer represents an ultra-special software present in the repository. Output For each testcase, print the maximum number of ultra-special softwares that can be **completely installed** on a new line. Constraints - **1** ≤ **T** ≤ **10** - **1** ≤ **N** ≤ **10 3 ** - **1** ≤ **K** ≤ **N** - **1** ≤ **X** ≤ **N** - **1** ≤ **Y** ≤ **N**, **X** ≠ **Y** - **Y** = **-1** for software **X** which have no dependency - **1** ≤ **S i ** ≤ **N** - **1** ≤ **D i ** ≤ **10 5 ** - There are no cyclic dependencies among softwares. - Each software has at most 1 dependency. Sample Input 2 3 2 1 -1 2 1 3 1 1 1 1 2 3 3 2 1 -1 2 1 3 1 2 1 1 2 3 Sample Output 1 2 **Testcase 1:** ![Dependency Graph](https://s3.amazonaws.com/codechef_shared/download/upload/ACM16INF/I1.jpg) The set of ultra-special softwares in this testcase is {Software 2, Software 3}. Software 2 and Software 3 both depend on Software 1. Suppose we try to install Software 2, we first need to install Software 1. Since we have only **1** copy of Software 1 remaining, after installing it, we now have **zero** copies of Software 1 remaining. Now, in order to install Software 3, we need to freshly install Software 1. However, **zero** copies of Software 1 are left, so we cannot install Software 3. You can verify that this is the maximum number of ultra-special softwares that you can install. Hence, the answer is **1** in this case. **Testcase 2:** ![Dependency Graph](https://s3.amazonaws.com/codechef_shared/download/upload/ACM16INF/I2.jpg) The set of ultra-special softwares in this testcase is {Software 2, Software 3}. Again, Software 2 and 3 both depend on Software 1. Here, **2** copies of Software 1 are available. Hence, both - Software 2 as well as Software 3 can be completely installed. The answer in this case is **2**.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "28-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 8,
+  "problem_code": "INF16I",
+  "replay_solves": {
+   "successful": 73,
+   "total": 185,
+   "accuracy": 41.62,
+   "replay_only": true
+  }
+ }
+}

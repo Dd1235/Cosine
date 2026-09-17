@@ -1,0 +1,32 @@
+{
+ "id": "kattis-barcode",
+ "status": "solved",
+ "solution": "Count by inclusion-exclusion over the two allowed conditions. The number of length-N strings with equally many blue and red bars is C(N, N/2) for even N and zero for odd N; the number with no two adjacent blue bars is the Fibonacci value F(N+2); and the strings satisfying both have exactly N/2 blue bars, none adjacent, which is C(N/2+1, N/2) = N/2+1. So K = C(N,N/2) + F(N+2) - (N/2+1) for even N and F(N+2) for odd N. The real difficulty is the modulus: M is prime but may be far smaller than N (the samples use M=997 with N up to 10^6), so the central binomial coefficient needs Lucas' theorem digit by digit in base M. O(N + M) per dataset, O(M) space.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A barcode is a row of N bars, each red or blue, and it is valid when the number of blue bars equals the number of red bars or no two blue bars are adjacent, or both. For up to twenty pairs of a length N up to one million and a prime modulus M up to ten million, the task is the number of valid barcodes modulo M.",
+ "patterns": [
+  "lucas-theorem",
+  "combinatorics",
+  "inclusion-exclusion",
+  "modular-arithmetic",
+  "dynamic-programming"
+ ],
+ "pattern_confidence": {
+  "lucas-theorem": 0.92,
+  "combinatorics": 0.9,
+  "inclusion-exclusion": 0.88,
+  "modular-arithmetic": 0.85,
+  "dynamic-programming": 0.5
+ },
+ "tags": [
+  "math",
+  "combinatorics",
+  "counting",
+  "fibonacci",
+  "lucas-theorem",
+  "modular-arithmetic"
+ ],
+ "source_text_sha256": "5d392c0458eba6266789b79455e089113f857c5fdce2390b887589d58e1c9e10",
+ "verify_script": "data/analysis/external-batches/G/verify_barcode.py",
+ "notes": "The label that matters is lucas-theorem: M is a small prime independent of N, so factorial tables mod M are useless and a naive C(N,N/2) mod M is wrong. verify_barcode.py checks all six sample lines and compares against enumeration of all 2^N strings for N=1..16 against the primes 2,3,5,7,11,13,997. dynamic-programming is only weakly claimed - the no-two-adjacent count is a two-term Fibonacci iteration."
+}

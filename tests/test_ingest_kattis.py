@@ -9,6 +9,8 @@ the same data-name="difficulty_data" header the parse refuses to work without.
 The difficulty is deliberately NOT in the same column position in every row and
 one row has none at all, because that is exactly the failure a column-indexed
 parse cannot survive: it would pin row 2's difficulty on row 3 and keep going.
+The Authors/Full Solves/Ratio group shifts with it, and one row omits the group
+entirely, for the same reason.
 """
 import json
 import sys
@@ -20,10 +22,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import ingest_contest
 
 
-def row(slug, title, difficulty=None, extra_cell=False):
+def row(slug, title, difficulty=None, extra_cell=False, solves=None):
     cells = [f'<td class="  ">    <a href="/problems/{slug}"  >\n            {title}\n    </a>\n</td>']
     if extra_cell:
         cells.append('<td class="  ">0.05</td>')
+    if solves:
+        # Authors, Full Solves, Ratio — three bare cells, only the last marked
+        # with a '%'. That '%' is the only thing distinguishing the group.
+        authors, full, ratio = solves
+        cells.extend([f'<td class="  ">{authors}</td>', f'<td class="  ">{full}</td>',
+                      f'<td class="  ">{ratio}%</td>'])
     if difficulty:
         label, score = difficulty
         cells.append(f'<td class="  ">        <span class="whitespace-nowrap difficulty_number '
@@ -38,14 +46,15 @@ def row(slug, title, difficulty=None, extra_cell=False):
 
 
 HEADER_ROW = ('<tr>\n<th class="  " data-name="title_link">Name</th>\n'
+              '<th class="  " data-name="full_solve_authors">Full Solves</th>\n'
               '<th class="  " data-name="difficulty_data">Difficulty</th>\n</tr>')
 
 SOURCE_PAGE = (
     '<h1>        Problems from ICPC World Finals 2024\n</h1>\n<table><thead>'
     + HEADER_ROW + '</thead><tbody>'
-    + row('billboards', 'Billboards', ('medium', '4.0'), extra_cell=True)
-    + row('flippingcontainer', 'Flipping Container', ('hard', '8.2'))
-    + row('maxwellsdemon', 'Maxwell&#x27;s Demon')
+    + row('billboards', 'Billboards', ('medium', '4.0'), extra_cell=True, solves=(147, 93, 63))
+    + row('flippingcontainer', 'Flipping Container', ('hard', '8.2'), solves=(52, 42, 81))
+    + row('maxwellsdemon', 'Maxwell&#x27;s Demon', solves=(1024, 907, 89))
     + row('whereaminow', 'Where Am I Now?', ('hard', '6.0'), extra_cell=True)
     + '</tbody></table>')
 
@@ -66,6 +75,16 @@ class SourcePageParse(unittest.TestCase):
         rows = ingest_contest.parse_kattis_source_page(SOURCE_PAGE)
         self.assertEqual([r['slug'] for r in rows],
                          ['billboards', 'flippingcontainer', 'maxwellsdemon', 'whereaminow'])
+
+    def test_full_solves_is_read_from_its_own_row(self):
+        rows = {r['slug']: r['full_solves'] for r in ingest_contest.parse_kattis_source_page(SOURCE_PAGE)}
+        # The count is the middle of Authors/Full Solves/Ratio, never the
+        # attempt count next to it and never the row above's.
+        self.assertEqual(rows['billboards'], 93)
+        self.assertEqual(rows['flippingcontainer'], 42)
+        self.assertEqual(rows['maxwellsdemon'], 907)
+        # No counts on the page means unknown, not zero solves.
+        self.assertIsNone(rows['whereaminow'])
 
     def test_each_difficulty_belongs_to_its_own_row(self):
         rows = {r['slug']: r['difficulty'] for r in ingest_contest.parse_kattis_source_page(SOURCE_PAGE)}
@@ -231,7 +250,9 @@ class StagingCache(unittest.TestCase):
         self.assertIn('observed_at', staged['kattis_difficulty'])
         self.assertEqual(staged['contest_source'],
                          {'host': 'icpc.kattis.com', 'name': 'ICPC World Finals 2024',
-                          'position': 2})
+                          'position': 2, 'full_solves': 42})
+        self.assertIsNone(json.loads(
+            (self.staging / 'kattis-whereaminow.json').read_text())['contest_source']['full_solves'])
         # The row with no difficulty span stages without the key, not with a guess.
         self.assertNotIn('kattis_difficulty',
                          json.loads((self.staging / 'kattis-maxwellsdemon.json').read_text()))

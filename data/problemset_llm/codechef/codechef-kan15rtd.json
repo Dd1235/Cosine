@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtd",
+  "title": "Save the kids",
+  "slug": "kan15rtd",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTD",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Leonardo Da Vinci has entered a fort which has N catacombs numbered from 1 to N . A cat- acomb is an underground cemetery consisting of a subterranean gallery. His aim is to destroy each of the N catacombs, as quickly as possible. The catacombs have a special structure.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 4,
+    "problem_code": "KAN15RTD",
+    "replay_solves": {
+      "successful": 23,
+      "total": 105,
+      "accuracy": 23.81,
+      "replay_only": true
+    }
+  }
+}

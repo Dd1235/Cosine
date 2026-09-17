@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rte",
+  "title": "Picking Da Vinci successor",
+  "slug": "kan15rte",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTE",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Da Vinci is about to retire from the post of Prime Minister of the French King in a month. It is going to be very difficult for the King to find his replacement. The King is worried about the junior ministers as to how they will work without a leader.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 5,
+    "problem_code": "KAN15RTE",
+    "replay_solves": {
+      "successful": 1,
+      "total": 1,
+      "accuracy": 100.0,
+      "replay_only": true
+    }
+  }
+}

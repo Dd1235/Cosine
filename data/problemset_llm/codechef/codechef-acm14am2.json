@@ -1,0 +1,41 @@
+{
+  "id": "codechef-acm14am2",
+  "title": "Ground Stations",
+  "slug": "acm14am2",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14AM2",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "ISRO has shot to global fame after Mangalyaan. They have decided to build hi-tech ground stations throughout the country which can be used either as a control station or as a launch station (but not as both simultaneously). A control station is one which has all controls to the rocket.",
+  "tags": [
+    "acm-icpc",
+    "acmamr14",
+    "admin",
+    "dfs-order",
+    "medium",
+    "segment-tree"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14AM2"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR14",
+    "position": 2,
+    "problem_code": "ACM14AM2",
+    "replay_solves": {
+      "successful": 19,
+      "total": 176,
+      "accuracy": 12.5,
+      "replay_only": true
+    }
+  }
+}

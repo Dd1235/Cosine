@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol16d",
+  "title": "Men and Horses",
+  "slug": "kol16d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16D",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "There are n_m men living in a town. They have n_h horses, each capable of carrying only one man at a time. All the men are supposed to attend a dinner party d km away from their house. They should start their journey together and reach the destination in minimum time.",
+  "tags": [
+    "special",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 4,
+    "problem_code": "KOL16D",
+    "replay_solves": {
+      "successful": 0,
+      "total": 9,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

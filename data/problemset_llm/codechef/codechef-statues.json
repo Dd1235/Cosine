@@ -1,0 +1,38 @@
+{
+  "id": "codechef-statues",
+  "title": "Statues",
+  "slug": "statues",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/STATUES",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "The Princess of the Indian Royal Rajput clan loves her Royal Palace. There are N rooms in the palace. Every room has one or more statues. It is not necessary that every room has the same number of statues. The Princess believes in total equality.",
+  "tags": [
+    "acmkan13",
+    "ad-hoc",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/STATUES"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN13",
+    "position": 1,
+    "problem_code": "STATUES",
+    "replay_solves": {
+      "successful": 248,
+      "total": 635,
+      "accuracy": 39.06,
+      "replay_only": true
+    }
+  }
+}

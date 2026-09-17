@@ -1,0 +1,35 @@
+{
+ "id": "codechef-discarea",
+ "platform": "codechef",
+ "title": "Black Discs",
+ "slug": "discarea",
+ "source_url": "https://www.codechef.com/problems/DISCAREA",
+ "source_topic": "ICPC / Kharagpur Regional 2017",
+ "source_text": "Consider the 2-d plane which is white. You are given **n** semi-discs on it which are colored black. They are placed on the x-axis at various positions, in such a way that its center is on the x-axis and the entire semi-disc is **on or above** the x-axis. By center of a semi-disc, we mean the center of the disc of which it is a part. For each semi-disc you know its radius and the coordinate of its center in the x-axis. There may be overlaps or one may be completely inside / outside another semi-disc. There are **q** queries. In each query you will be given a circle with radius **r** and center C at coordinates (x, y). It is guaranteed that $y \\geq r$ (meaning that no part of the circle is below the x-axis). You need to find the area within the circle **which is black**. Meaning, area of the circle which is overlapping with some part of any semi-disc. Input - The first line contains a single integer, **T**, which denotes the number of testcases. The description of each testcase follows. - The first line of each testcase contains two space-separated integers: **n** and **q**, denoting the number of semi-discs and the number of queries respectively. - The i-th of the next **n** lines contains two space-separated integers: $x_i$ and $r_i$, denoting that the i-th semi-disc has its center at ($x_i$, 0) and has radius $r_i$. - The i-th of the next **q** lines contains three space-separated integers: $x_i$, $y_i$ and $r_i$, denoting that the i-th query circle has its center at ($x_i$, $y_i$) and has radius $r_i$. Output - For each query in a testcase, output a single line with the answer. - Your output will be considered correct if both these are true: - In each query, the absolute error is less than or equal to 0.02. - In a single testcase, the average of absolute error over all queries must be less than 0.01. Constraints - $1 \\leq T \\leq 10$ - $1 \\leq n \\leq 100000$ - $20 \\leq q \\leq 200$ - $1 \\leq$ all x and y coordinates in the input $\\leq 100000$ - $1 \\leq$ all radii in input $\\leq 100000$ - Sum of **n** over all testcases $\\leq 100000$ - Sum of **q** over all testcases $\\leq 200$ Sample Input 1 4 2 1 2 2 3 4 2 7 3 7 2 2 8 3 3 Sample Output 9.3204778956 10.2198951180 Note that the example shown above has only two queries (for brief representation) and hence doesn't satisfy the $20 \\leq q$ constraint. However, in the original test data the constraints will be followed. The black semi-discs have been colored with various colors for better understanding. And the dotted region represents the region whose area we want to find. **Query 1:** The figure below represents the scenario: ![Query 1](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KGP/DISCAREA.1.png) **Query 2:** The figure below represents the scenario: ![Query 2](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KGP/DISCAREA.2.png)",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acm17kgp",
+  "convex-hull",
+  "geometry",
+  "hard",
+  "kgp17rol",
+  "monte-carlo",
+  "triveni"
+ ],
+ "date_added": "25-11-2017",
+ "problem_author": "triveni",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP17ROL",
+  "position": 2,
+  "problem_code": "DISCAREA",
+  "replay_solves": {
+   "successful": 0,
+   "total": 2,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

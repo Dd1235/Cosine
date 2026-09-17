@@ -1,0 +1,38 @@
+{
+  "id": "codechef-beauar",
+  "title": "Beauty and The Array",
+  "slug": "beauar",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BEAUAR",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "Let’s define a function score: $$Score(p[1...m], q[1...m]) = \\sum_{i = 1}^{m} (m - i + 1) * p[i] + q[i]$ Let’s define Beauty of an array: $Beauty(p[1...n], q[1...n]) = max_{1 \\le i \\le j \\le n} Score(p[i...j], q[i...j])$ Here p[i...j] means sub-array of p starting from i-th position and ending at…",
+  "tags": [
+    "advanced-algorithms",
+    "computational-geometry",
+    "polygons"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BEAUAR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 2,
+    "problem_code": "BEAUAR",
+    "replay_solves": {
+      "successful": 1,
+      "total": 3,
+      "accuracy": 33.33,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "kattis-lazylearner",
+ "status": "solved",
+ "solution": "For a fixed left endpoint l, a word T is a subsequence of S[l..r] exactly when r >= f(l,T), the end of the greedy leftmost match of T starting at l, so each query becomes 'k-th lexicographically smallest word with f(l,.) <= r'. Sort the words once by lexicographic rank and precompute next-occurrence tables over S. Group queries by l (only |S| <= 500 distinct values); for each l compute all f(l,.) in O(total word length) with the next tables, bucket the words by that value, sweep r upward inserting words into a Fenwick tree indexed by lexicographic rank, and answer each query by descending the Fenwick tree for the k-th set position. O(|S|*(n + sum|T|) + q log n) time, O(n + q + 26|S|) space.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Given a string of at most 500 characters, a dictionary of up to 20000 words whose lengths total 80000, and up to 300000 queries, each query names a substring by its endpoints plus an index k and asks for the k-th lexicographically smallest dictionary word that appears as a subsequence of that substring. Long answers are truncated to ten characters, and missing ones reported.",
+ "patterns": [
+  "offline-queries",
+  "fenwick-tree",
+  "greedy",
+  "sorting",
+  "lexicographic-order"
+ ],
+ "pattern_confidence": {
+  "offline-queries": 0.92,
+  "fenwick-tree": 0.9,
+  "greedy": 0.8,
+  "sorting": 0.75,
+  "lexicographic-order": 0.7
+ },
+ "tags": [
+  "string",
+  "data-structures",
+  "subsequence"
+ ],
+ "source_text_sha256": "b283e10164e1cfafd48308800c2b6ad03c58d8eac720a636f2433e9c2e0e5a2c",
+ "verify_script": "data/analysis/external-batches/F/verify_lazylearner.py",
+ "notes": "verify_lazylearner.py runs the offline Fenwick sweep against a naive per-query subsequence scan on 600 random cases, duplicate dictionary words included (duplicates are kept, not deduplicated, since the statement sorts the list of matching words). Statement contains no sentence addressed to the annotator."
+}

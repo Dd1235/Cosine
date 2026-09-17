@@ -1,0 +1,38 @@
+{
+  "id": "codechef-dicities",
+  "title": "Disconnecting Cities",
+  "slug": "dicities",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/DICITIES",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "Chefland consists of n cities numbered 1, 2, \\ldots n. The cities numbered 1, 2, \\ldots k are special cities. For each unordered pair i, j, there exists a bidirectional road, destroying which has a cost of w_{i, j}.",
+  "tags": [
+    "data-structures",
+    "advanced-algorithms",
+    "advanced-dp"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/DICITIES"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 5,
+    "problem_code": "DICITIES",
+    "replay_solves": {
+      "successful": 16,
+      "total": 53,
+      "accuracy": 30.19,
+      "replay_only": true
+    }
+  }
+}

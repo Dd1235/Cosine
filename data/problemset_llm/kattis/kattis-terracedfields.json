@@ -1,0 +1,35 @@
+{
+ "id": "kattis-terracedfields",
+ "title": "Terraced fields",
+ "slug": "terracedfields",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/terracedfields",
+ "source_topic": "ICPC / The 2016 ACM - Asia Nha Trang Regional Contest",
+ "source_tags": [],
+ "statement": "A staircase of n steps has its number engraved on every step whose index is a multiple of eight and on the final step; each engraved digit 6 or 8 costs a precious stone, and the tour price is the number of such digits. For a given n, as large as 10^18, the task is that price, for up to 100,000 independent queries.",
+ "tags": [],
+ "patterns": [
+  "digit-dp",
+  "dynamic-programming",
+  "counting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "digit-dp": 0.9,
+   "dynamic-programming": 0.9,
+   "counting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.3,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:47+00:00"
+ }
+}

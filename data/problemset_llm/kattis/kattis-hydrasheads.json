@@ -1,0 +1,33 @@
+{
+ "id": "kattis-hydrasheads",
+ "title": "Hydra's Heads",
+ "slug": "hydrasheads",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/hydrasheads",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "A knight fights a creature with H heads and T tails and may cut one head, one tail, two heads or two tails, but cutting a single head regrows a head, cutting a single tail regrows two tails, and cutting two tails grows a head. The creature dies only when both counts reach zero at once; the task is the fewest cuts, with H and T each at most 100.",
+ "tags": [],
+ "patterns": [
+  "bfs",
+  "parity-argument"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "bfs": 0.9,
+   "parity-argument": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.0,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amr15d",
+  "title": "Bhallaladeva",
+  "slug": "amr15d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR15D",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Bhallaladeva was an evil king who ruled the kingdom of Maahishmati. He wanted to erect a 100ft golden statue of himself and he looted gold from several places for this.",
+  "tags": [
+    "mathematics",
+    "algorithms",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR15D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR15",
+    "position": 4,
+    "problem_code": "AMR15D",
+    "replay_solves": {
+      "successful": 1101,
+      "total": 4316,
+      "accuracy": 25.97,
+      "replay_only": true
+    }
+  }
+}

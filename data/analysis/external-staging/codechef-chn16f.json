@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16f",
+ "platform": "codechef",
+ "title": "ACM ICPC World Finals Accommodation",
+ "slug": "chn16f",
+ "source_url": "https://www.codechef.com/problems/CHN16F",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "It's time of ACM ICPC World Finals. A lot of teams from all over the world have gathered to compete. Their stay has been planned at a grand hotel. As the organizers want people to interact with each other, they accommodated all the people in a single floor of the hotel. There are a total $n \\times m$ rooms in the floor, which are arranged in $n$ rows, with each row containing $m$ rooms. Teams have come from various countries. There are a total of $C$ such countries, and each country has $c_i$ teams. The total number of teams is $n \\times m$, so each team will stay in a separate room. The director knows that people have traveled a lot of distance to come to the site, and will feel bored and homesick if they are unable to communicate with each and every person of their country. Communication of competitive programmers is usually discussion of problems, which they really like. There is a small window in each of the four walls of the rooms. Teams can talk to each other through the window. Teams are usually suspicious and very apprehensive of discussing problems with teams of other countries. So, two teams from different countries don't discuss problems at all. Two teams of the same country can communicate with each other if: - Either, the two rooms share a wall with each other. Then they will communicate through the small window on that wall. - Or, they can communicate with each other indirectly by communicating through other teams of the same country. That is, take 2 teams: Team A and Team B from the same country. They can communicate with each other indirectly if there is a sequence of teams (Team A, Team X₁, Team X₂, ..., Team Xₖ, Team B), where all of them are from the same country, and every adjacent pair of teams in this sequence are in rooms which share a wall. The director wants to provide accommodation to the teams in such a way that teams from the same country are able to communicate among themselves. But he doesn't know whether he can arrange the teams in such a way or not, so he requires your help in this task. Can you please tell him whether it is possible to do so? If yes, then also output which country's team should occupy each room. Input First line of the input contains $T$ - number of test cases. $T$ test cases follow. First line of each test case contains three space-separated integers $n$, $m$, $C$, denoting the number of rows, number of columns, and number of countries participating. Second line of each test case contains $C$ space-separated integers $c_1, c_2, \\dots, c_C$, denoting that there are $c_i$ teams of the $i$-th country. Output For each test case, output $-1$ in a separate line if it is not possible to arrange the teams in the desired way. Otherwise, print $n$ rows, each containing $m$ space-separated integers, where the $j$-th element in the $i$-th row should be an integer from $1$ to $C$ denoting which country's team is provided accommodation in the room $(i, j)$. If there are more than one possible ways of accommodation of teams satisfying the above conditions, you can output any of them. Constraints - $1 \\leq T, n, m \\leq 50$ - $1 \\leq C \\leq n \\times m$ - $1 \\leq c_i \\leq n \\times m$ - $c_1 + c_2 + \\dots + c_C = n \\times m$ Sample Input 2 2 2 2 2 2 2 2 1 4 Sample Output 1 2 1 2 1 1 1 1 **Example case 1.** Teams from country 1 and country 2, both can discuss problems among themselves. Note that the below given arrangement of teams is not a valid one, as the teams from same countries can't discuss problems with each other. ``` 1 2 2 1 ``` **Example case 2.** Teams are only from country 1. You can see that all the teams able to communicate with each other.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 6,
+  "problem_code": "CHN16F",
+  "replay_solves": {
+   "successful": 97,
+   "total": 187,
+   "accuracy": 51.87,
+   "replay_only": true
+  }
+ }
+}

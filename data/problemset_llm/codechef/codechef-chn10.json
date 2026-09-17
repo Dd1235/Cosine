@@ -1,0 +1,40 @@
+{
+  "id": "codechef-chn10",
+  "title": "Animesh does not gift Malvika on her birthday",
+  "slug": "chn10",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN10",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Malvika was sad because Animesh, the miser, did not buy her even a chocolate bar on her birthday. Animesh, feeling sorry about his behavior, repented and asked Malvika how he could make up for this catastrophic mistake.",
+  "tags": [
+    "mathematics",
+    "modular-arithmetic",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN10"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 10,
+    "problem_code": "CHN10",
+    "replay_solves": {
+      "successful": 1,
+      "total": 4,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

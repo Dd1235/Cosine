@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amr16i",
+  "title": "Mancunian Hoards Black Money",
+  "slug": "amr16i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16I",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "Mancunian is a real estate dealer in Mancunia. He is part of The Elite Builders Society who work hard day and night to improve the infrastructure of the city, but they need cash to do this. They have a unique way to increase the amount of black money they possess.",
+  "tags": [
+    "admin3",
+    "amr16",
+    "amr16mos",
+    "icpc2016"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 9,
+    "problem_code": "AMR16I",
+    "replay_solves": {
+      "successful": 25,
+      "total": 139,
+      "accuracy": 17.99,
+      "replay_only": true
+    }
+  }
+}

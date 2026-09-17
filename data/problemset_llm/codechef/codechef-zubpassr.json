@@ -1,0 +1,38 @@
+{
+  "id": "codechef-zubpassr",
+  "title": "E - Password Riddle",
+  "slug": "zubpassr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBPASSR",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "*\"What's your password, Ranju?\"* *\"one two three four\"*, Ranju said Do you think it's *1234*? No, it's not. As it turns out that Ranju has made a riddle with his password. It's actually *2444*. Clever, isn't it? It's one *2* and three *4*s.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBPASSR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 3,
+    "problem_code": "ZUBPASSR",
+    "replay_solves": {
+      "successful": 3,
+      "total": 12,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

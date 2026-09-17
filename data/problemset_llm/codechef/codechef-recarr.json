@@ -1,0 +1,38 @@
+{
+  "id": "codechef-recarr",
+  "title": "C - Recover Array",
+  "slug": "recarr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/RECARR",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "There is an array A of length 10^5, consisting of zeroes and ones. You can ask queries about subarray sums. On a query 1 \\leq l \\leq r \\leq 10^5, you get the sum A_l + A_{l + 1} + \\ldots + A_r. You can ask a maximum of 90000 queries. Find the array A.",
+  "tags": [
+    "special",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/RECARR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 6,
+    "problem_code": "RECARR",
+    "replay_solves": {
+      "successful": 4,
+      "total": 41,
+      "accuracy": 9.76,
+      "replay_only": true
+    }
+  }
+}

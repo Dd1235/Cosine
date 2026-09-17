@@ -1,0 +1,39 @@
+{
+  "id": "codechef-chn12",
+  "title": "Praveen falls from a tall tree",
+  "slug": "chn12",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN12",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Praveen has climbed a tall tree and now he can't get down! While he is waiting for Arjun to bring a ladder, he has decided to amuse himself by numbering the **N** nodes of the tree from **1** to **N** and associating a value **S[i]** with every vertex.",
+  "tags": [
+    "acm15chn",
+    "admin2",
+    "lca",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN12"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 12,
+    "problem_code": "CHN12",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

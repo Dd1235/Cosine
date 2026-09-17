@@ -1,0 +1,36 @@
+{
+  "id": "codechef-alieninv",
+  "title": "Alien Invasion",
+  "slug": "alieninv",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ALIENINV",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Evil aliens from Alpha Centauri are planning to invade the Earth. They thought of invading New York City first, but that is a pretty popular target, and their colleagues from Proxima Centauri are already invading it.",
+  "tags": [
+    "balajiganapath"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ALIENINV"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 7,
+    "problem_code": "ALIENINV",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

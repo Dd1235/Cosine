@@ -13,7 +13,12 @@ const libBar = document.getElementById("lib-bar");
 const libPathEl = document.getElementById("lib-path");
 const libCountBookmarks = document.getElementById("lib-count-bookmarks");
 const libCountDone = document.getElementById("lib-count-done");
-const libChips = libBar.querySelectorAll(".lib-chips .lib-chip");
+// Command chips only. This used to be a bare `.lib-chips .lib-chip` catch-all
+// whose handler runs `runSearch(chip.dataset.cmd || "")` — so any chip added to
+// the bar that is not a command silently cleared the results on click. The age
+// chips were caught by it once; the labels switch lives in the same bar and
+// would be caught the same way.
+const libChips = libBar.querySelectorAll(".lib-chips .lib-chip[data-cmd]");
 const libBackChip = libBar.querySelector(".lib-chip-back");
 const libAgeRow = document.getElementById("lib-age-row");
 // Revision filters: "marked N+ days ago" and oldest-first. Library-only state,
@@ -118,9 +123,21 @@ let collections = [];
 let currentSimilar = null;
 let similarLibrary = null;
 let practiceMode = false;
+// The contest page: one collection, listed as the contest it was, including
+// the problems no statement could be indexed for. It is a view over exactly
+// one collection, so anything that stops that being true leaves it.
+let contestView = false;
 let similarCorpusSize = 20000;
 let csesLevel = null;
 let csesLevelSaving = false;
+// Technique labels are the answer. Every forum agrees that reading "binary
+// search on the answer" before you attempt a problem is the spoiler, which is
+// why Codeforces ships "hide tags" as an account setting — so they are hidden
+// by default and the choice is remembered per user. Difficulty is NOT hidden:
+// it is how you pick something to attempt, not how you solve it.
+let showLabels = false;
+let showLabelsSaving = false;
+const revealedCards = new Set(); // problem ids opened by click, this session only
 const activePlatforms = new Set(); // empty = every judge
 let difficultyPayload = { named: [], rated: [], acceptance: null }; // controls, from /api/rankers
 const bootRanges = []; // ?difficulty= ranges parked until the payload names their judge
@@ -160,6 +177,7 @@ input.addEventListener("input", () => {
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
+  contestView = false;
   clearTimeout(debounceTimer);
   // Typing a new question ends the drill-down that produced the pattern.
   //
@@ -361,6 +379,11 @@ logoutBtn.addEventListener("click", async () => {
   clearTimeout(sheetSyncTimer);
   sheetDirty = false;
   loadCsesLevel();
+  // Back to whatever this browser remembers. No re-issue: the results are torn
+  // down a few lines below anyway, and a re-render here would repaint the view
+  // we are in the middle of clearing.
+  revealedCards.clear();
+  loadShowLabels({ reissue: false });
   applyAuthState();
   clearPatternFilter({ reissue: false });
   // Clear results and the input — old results were rendered with bookmark
@@ -531,6 +554,7 @@ async function bootstrapAuth() {
   if (wasPending && currentUser) reissueCurrentView();
   loadLevelSignals();
   loadCsesLevel();
+  loadShowLabels();
   maybeInitSheets();
 }
 
@@ -583,7 +607,9 @@ function setLibPath(path) {
   // "..."`, so the chips showed there too, where clicking one is a no-op
   // (the filter resets the moment a non-library view re-issues).
   if (libAgeRow) {
-    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || !!currentSimilar;
+    // A practice list already excludes everything done, so the age chips there
+    // could only ever empty it.
+    const inLibrary = /^~\/(bookmarked|done|all)\b/.test(path) || (!!currentSimilar && !practiceMode);
     libAgeRow.hidden = !inLibrary || !currentUser;
     libAgeRow.querySelectorAll(".lib-age").forEach((c) => {
       c.classList.toggle("is-active", String(libAged ?? "") === c.dataset.aged);
@@ -631,6 +657,10 @@ function safeResourceUrl(value) {
 // /api/collections has answered with something you could still add, so the row
 // looks exactly as it did before when there is nothing to offer.
 let collectionsLoaded = false;
+// The one in-flight load, so a view that cannot start without the registry can
+// wait for it rather than race it. A ?view=contest link does exactly that: it
+// dispatches at boot, when /api/collections has not answered yet.
+let collectionsReady = null;
 
 async function loadCollections() {
   try {
@@ -659,12 +689,18 @@ function collectionChipLabel(collection, id) {
 
 // "resources only" is the honest phrasing for a collection whose problems are
 // all still unindexed — "0 problems" reads like a bug.
-function collectionOptionLabel(collection) {
+// One phrase for "how much of this collection is here", used by the picker
+// option and the resources panel alike. They used to be two strings, and the
+// panel's read "0 searchable problems" for exactly the collections the picker
+// had been taught to call "resources only".
+function collectionCountPhrase(collection) {
   const count = collection.count || 0;
-  const base = count
-    ? `${collection.name} · ${count} problem${count === 1 ? '' : 's'}`
-    : `${collection.name} · resources only`;
+  const base = count ? `${count} problem${count === 1 ? '' : 's'}` : 'resources only';
   return collection.unavailableCount ? `${base} · ${collection.unavailableCount} not yet indexed` : base;
+}
+
+function collectionOptionLabel(collection) {
+  return `${collection.name} · ${collectionCountPhrase(collection)}`;
 }
 
 // The registry vocabulary is public | inaccessible | not-verified, so "public"
@@ -794,6 +830,9 @@ function moveCollectionFocus(delta, absolute) {
 function addCollection(id) {
   if (!id || activeCollections.has(id)) return;
   activeCollections.add(id);
+  track("collection_added", { collection: id });
+  // A second competition is a union of two sets, which is not a contest.
+  if (activeCollections.size !== 1) contestView = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -802,6 +841,9 @@ function addCollection(id) {
 
 function removeCollection(id) {
   if (!activeCollections.delete(id)) return;
+  track("collection_removed", { collection: id });
+  // Dropping the chip drops the page it was the subject of.
+  contestView = false;
   currentOffset = 0;
   renderCollectionControls();
   syncUrl({ push: true });
@@ -826,7 +868,38 @@ function renderCollectionPanel() {
   note.id = 'collection-note';
   note.textContent = collectionNote();
   heading.appendChild(note);
-  if (note.textContent) panel.appendChild(heading);
+  // With exactly one competition selected there is a contest to look at, so
+  // the panel that already names it offers the way in — and, once you are
+  // there, the way back out. Two chips is a union, not a contest, so the
+  // button is simply absent.
+  if (activeCollections.size === 1) {
+    const id = [...activeCollections][0];
+    const open = document.createElement('button');
+    open.type = 'button';
+    open.id = 'contest-open';
+    open.className = 'lib-chip';
+    open.textContent = contestView ? '← results' : 'contest page →';
+    open.title = contestView
+      ? 'back to the ranked list'
+      : 'every problem in the set, including the ones not indexed yet';
+    open.addEventListener('click', () => {
+      if (contestView) {
+        contestView = false;
+        syncUrl({ push: true });
+        runSearch('');
+        renderCollectionPanel();
+        return;
+      }
+      contestView = true;
+      syncUrl({ push: true });
+      runContest(id);
+    });
+    heading.appendChild(open);
+  }
+  if (heading.childNodes.length > 1 || note.textContent) panel.appendChild(heading);
+  // The contest page's own header already lists these links, editorials first.
+  // Printing them twice, six inches apart, reads as two different lists.
+  if (contestView) return;
   for (const id of activeCollections) {
     const collection = collectionById(id);
     if (!collection) continue;
@@ -834,7 +907,7 @@ function renderCollectionPanel() {
     details.dataset.collection = id;
     if (open.has(id)) details.open = true;
     const summary = document.createElement('summary');
-    summary.textContent = `${collection.name} · ${collection.count || 0} searchable problem${collection.count === 1 ? "" : "s"}${collection.unavailableCount ? ` · ${collection.unavailableCount} not yet indexed` : ""} · resources`;
+    summary.textContent = `${collection.name} · ${collectionCountPhrase(collection)} · resources`;
     details.appendChild(summary);
     const list = document.createElement('ul');
     for (const resource of collection.resources || []) {
@@ -960,11 +1033,13 @@ async function loadCsesLevel() {
 const csesLevelSelect = document.getElementById('cses-level-select');
 if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
   const band = csesLevelSelect.value ? Number(csesLevelSelect.value) : null;
+  track("cses_level_set", band ? { band } : {});
   if (!currentUser) {
     try {
       if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
       else localStorage.removeItem('cosine_cses_level_anon_v1');
       setCsesLevelSuggestion(band);
+      applyCsesLevelFilter(band);
     } catch (_err) { setStatus('Could not save your CSES level in this browser.'); }
     return;
   }
@@ -976,10 +1051,101 @@ if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
       method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ band }),
     });
     if (!res.ok) throw new Error(`save failed (${res.status})`);
-    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(band);
+    if (currentUser && currentUser.id === userId) {
+      setCsesLevelSuggestion(band);
+      applyCsesLevelFilter(band);
+    }
   } catch (err) { setStatus(`CSES level: ${err.message}`); }
   finally { csesLevelSaving = false; syncCsesLevelControl(); }
 });
+
+// ── the labels switch ───────────────────────────────────────────────────────
+// Same storage shape as the CSES band: a column on the account when signed in,
+// a localStorage mirror when not. A reading mode, not a facet, so it sits in
+// the library bar next to :help rather than in the judge row.
+const labelsToggle = document.getElementById('labels-toggle');
+
+function syncLabelsToggle() {
+  if (!labelsToggle) return;
+  labelsToggle.textContent = showLabels ? 'labels: shown' : 'labels: hidden';
+  labelsToggle.setAttribute('aria-pressed', String(showLabels));
+  labelsToggle.classList.toggle('is-active', showLabels);
+  labelsToggle.disabled = showLabelsSaving;
+  labelsToggle.title = showLabels
+    ? 'technique labels are showing on every result'
+    : 'technique labels stay hidden while you attempt a problem';
+}
+
+function applyLabelVisibility({ reissue = true } = {}) {
+  document.body.classList.toggle('labels-hidden', !showLabels);
+  // Showing them all makes every per-card reveal redundant, and keeping the
+  // set would leave those cards open when the switch goes back to hidden.
+  if (showLabels) revealedCards.clear();
+  syncLabelsToggle();
+  if (reissue) reissueCurrentView();
+}
+
+async function loadShowLabels({ reissue = true } = {}) {
+  const userId = currentUser && currentUser.id;
+  const before = showLabels;
+  let stored = null;
+  try { stored = localStorage.getItem('cosine_show_labels_v1'); } catch (_err) {}
+  showLabels = stored === '1';
+  applyLabelVisibility({ reissue: reissue && showLabels !== before });
+  if (!userId) return;
+  try {
+    const res = await fetch('/api/preferences/show-labels');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!currentUser || currentUser.id !== userId) return;
+    // null means this account never chose, so whatever this browser remembers
+    // stands — signing in must not silently flip a switch someone set.
+    if (typeof data.showLabels !== 'boolean') return;
+    const wasShowing = showLabels;
+    showLabels = data.showLabels;
+    applyLabelVisibility({ reissue: reissue && showLabels !== wasShowing });
+  } catch (_err) {}
+}
+
+async function saveShowLabels(next) {
+  if (!currentUser) {
+    try { localStorage.setItem('cosine_show_labels_v1', next ? '1' : '0'); }
+    catch (_err) { setStatus('Could not remember the labels switch in this browser.'); }
+    return;
+  }
+  const userId = currentUser.id;
+  showLabelsSaving = true;
+  syncLabelsToggle();
+  try {
+    const res = await fetch('/api/preferences/show-labels', {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ showLabels: next }),
+    });
+    if (!res.ok) throw new Error(`save failed (${res.status})`);
+  } catch (err) {
+    setStatus(`Labels switch: ${err.message}`);
+    // The switch still holds for this session; only the account copy failed.
+    try { localStorage.setItem('cosine_show_labels_v1', next ? '1' : '0'); } catch (_e) {}
+  } finally {
+    showLabelsSaving = false;
+    if (!currentUser || currentUser.id === userId) syncLabelsToggle();
+  }
+}
+
+if (labelsToggle) labelsToggle.addEventListener('click', () => {
+  showLabels = !showLabels;
+  track("labels_toggled", { shown: showLabels });
+  saveShowLabels(showLabels);
+  applyLabelVisibility();
+});
+
+// Choosing a CSES band is choosing a filter. This used to only make the
+// "my level" chip appear, which read as a control that did nothing. It goes
+// through the same token path the chip uses, so "my level ✓" agrees with it.
+function applyCsesLevelFilter(band) {
+  for (const id of [...activeTiers]) if (id.startsWith('cses-')) activeTiers.delete(id);
+  if (band) applyDifficultyToken(cosineDifficulty.tokens[band - 1]);
+  afterDifficultyChange();
+}
 
 // Judge chips. Multi-select on purpose: "codeforces + atcoder" is a real way
 // to think about practice, and the single-pick dropdown this replaced couldn't
@@ -1393,6 +1559,7 @@ function applyMode() {
 }
 
 async function runSearch(rawQuery, { append = false } = {}) {
+  contestView = false;
   const q = rawQuery.trim();
   if (currentSimilar && !q) return runSimilar(currentSimilar, { append });
   currentSimilar = null;
@@ -1649,6 +1816,7 @@ function renderSingle(data, q, append) {
 // search — only the ranking is absent, so results come back in corpus order
 // and the status line says "browsing" rather than quoting a query nobody typed.
 async function runBrowse({ append = false } = {}) {
+  contestView = false;
   const issuedAt = ++lastQueryAt;
   hideFeedback();
   currentSearchId = null;
@@ -1796,6 +1964,7 @@ async function runLibrary(type, q) {
 
 // Similarity is its own addressable view. Facets apply before pagination.
 async function runSimilar(problem, { append = false, practice = false } = {}) {
+  contestView = false;
   const entering = !currentSimilar || currentSimilar.id !== problem.id;
   if (entering) {
     similarLibrary = currentUser ? libraryCommand(currentQuery)?.type || null : null;
@@ -2039,6 +2208,7 @@ function syncUrl({ push = false } = {}) {
     if (practiceMode) p.set("practice", "1");
   }
   if (activeCollections.size) p.set("contest", [...activeCollections].join(","));
+  if (contestView) p.set("view", "contest");
   if (activePattern) p.set("pattern", activePattern);
   if (activePlatforms.size) p.set("platform", [...activePlatforms].join(","));
   const dParam = difficultyParam();
@@ -2136,9 +2306,6 @@ const HELP_SECTIONS = [
             and Mouse — and says so, because "nearest by
             meaning" is a weaker claim than a match.
 
-  both      runs the two and blends the rankings. Use it when
-            you are not sure.
-
   A problem's exact name goes to the top: "two sum" and "2 sum"
   both land on Two Sum. In keyword mode a word that appears
   nowhere in the corpus says so rather than guessing; a
@@ -2201,11 +2368,28 @@ CORPUS
   Every expanded result lists its labels — click one to narrow
   to it; the pill clears it.
 
+  They start hidden, because the label IS the answer: reading
+  "binary search on the answer" before you attempt a problem
+  ends the problem. A card offers "3 technique labels · show"
+  instead — click that to open one card, or the "labels:"
+  switch beside :help to open every card.
+
+  Only the labels are hidden. The difficulty, the judge's own
+  tags and the statement all stay. The switch is remembered on
+  your account when you are signed in, in this browser when
+  you are not; a card you opened by hand lasts this visit.
+
   Clear the query and the label stays: you are browsing every
   problem carrying it. Type a new query and the label drops —
   it was a drill-down into what you were reading, and most
   labels are narrow enough that keeping it would find nothing.
-  Judges are not like this: they stay until you drop them.`,
+  Judges are not like this: they stay until you drop them.
+  A card that says "labels pending review" is a problem we
+  have indexed by its statement and the judge's own tags and
+  have not solved ourselves yet. It never matches a technique
+  filter, because it carries none of our labels; it does
+  match the words in it.
+`,
   },
   {
     name: "filters",
@@ -2239,22 +2423,25 @@ CORPUS
                are estimates and every card says so: two
                independent solution reviews per task, the band
                is their rounded mean, and 14 specialist checks
-               with a proof or a computation overrode it.
+               with a proof or a computation re-examined the
+               hardest ones; six of those moved a band.
                Confidence is how far the two reviews agreed —
                high, both chose the band; medium, one band
-               apart; low, a specialist check settled it. That
+               apart; low, a computation had to settle it. That
                is agreement between reviews, not human
                calibration, and it converts to no Codeforces
-               rating. Choose "my CSES level" explicitly; your
-               account saves the choice, or it stays in this
-               browser while signed out. "my level" applies
-               that band.
+               rating. Choose "my CSES level" explicitly and it
+               filters at once; your account saves the choice,
+               or it stays in this browser while signed out.
 
   PYQs         add one or more competition collections. These
                combine with every other filter, and a card shows
                which competition it came from. Resource links
                stay available even when a round has no
                searchable problem statements.
+               With one competition on, "contest page" in the
+               resources panel lists every problem in the set,
+               indexed or not.
 
   ac           pick a LeetCode tier and an acceptance-rate
                range appears under it: "hard" + "ac 10% to 30%"
@@ -2308,10 +2495,6 @@ CORPUS
   notes        written up / no note. Appears once a sheet is
                connected, because the note is in the sheet and
                this is the only filter the server can't answer.
-
-  to write up  one chip for the two nobody combines: done, and
-               no note. What you solved and never explained to
-               yourself is the actual revision backlog.
 
   pick one     opens one of whatever is on screen, at random.
                Composes with everything above, so ":done" +
@@ -2534,11 +2717,16 @@ TRY
 // typed — an unknown one falls back to the index rather than an error, since
 // the index is the answer to "what can I ask for?" anyway.
 function helpQuery(q) {
-  const m = /^:(?:help|h)(?:\s+(.*))?$/i.exec(q.trim());
+  const t = q.trim();
+  // Bare "help" counts too: it showed up in the zero-hit query log, typed by
+  // someone who did not know about the colon. Bare "h" does not — it is one
+  // keystroke from a real query.
+  const m = /^:(?:help|h)(?:\s+(.*))?$/i.exec(t) || /^help(?:\s+(.*))?$/i.exec(t);
   return m ? (m[1] || "").trim().toLowerCase() : null;
 }
 
 function renderHelp(sectionName) {
+  track("help_opened", { section: sectionName || "" });
   if (compareMode) {
     compareMode = false;
     applyMode();
@@ -2703,16 +2891,21 @@ function platformBadge(platform) {
 // so the only way to discover that a problem you found by searching was an
 // ICPC World Finals question was to already have the collection selected.
 //
-// the point of showing it in the first place.
+// A problem can genuinely belong to two contests — Luxor ran the 2022 and 2023
+// World Finals together and five problems were in both — so the first two
+// memberships get a chip each; only past two does it compress to "+N".
 function competitionTag(competitions) {
   const list = competitions || [];
   if (!list.length) return "";
-  const first = list[0];
-  const label = first.short || first.name;
-  const title = list.map((c) => c.name).join(" · ");
-  const more = list.length > 1 ? ` +${list.length - 1}` : "";
-  return `<button type="button" class="competition-tag" data-collection="${escapeHtml(first.id)}"
-    title="${escapeHtml(`${title} — filter to this collection`)}">${escapeHtml(label + more)}</button>`;
+  const shown = list.slice(0, 2);
+  const rest = list.length - shown.length;
+  const chips = shown.map((c) => `<button type="button" class="competition-tag" data-collection="${escapeHtml(c.id)}"
+    title="${escapeHtml(`${c.name} — filter to this collection`)}">${escapeHtml(c.short || c.name)}</button>`);
+  if (rest > 0) {
+    const others = list.slice(2).map((c) => c.name).join(" · ");
+    chips.push(`<span class="competition-tag competition-more" title="${escapeHtml(others)}">+${rest}</span>`);
+  }
+  return chips.join("");
 }
 
 // Badge wording deliberately leads with "vs <other>" — the old form put the
@@ -2722,6 +2915,62 @@ function rankDeltaBadge(thisRank, otherRank, otherName) {
   if (otherRank === thisRank) return `<span class="rank-delta same" title="same rank in ${escapeHtml(otherName)}">vs ${escapeHtml(otherName)}: =</span>`;
   if (otherRank > thisRank) return `<span class="rank-delta up" title="${escapeHtml(otherName)} ranks this #${otherRank}">vs ${escapeHtml(otherName)}: ↑${otherRank - thisRank}</span>`;
   return `<span class="rank-delta down" title="${escapeHtml(otherName)} ranks this #${otherRank}">vs ${escapeHtml(otherName)}: ↓${thisRank - otherRank}</span>`;
+}
+
+// A matched term that IS one of this card's labels is the hint, spelled out on
+// the card while the labels themselves are withheld. Searching for "dp" must
+// not be the way around the switch. Title and statement words still show.
+function visibleMatchedTerms(hit, revealed) {
+  const terms = hit.matchedTerms || [];
+  if (revealed || showLabels) return terms;
+  const labels = new Set((hit.problem.patterns || []).map((p) => String(p).toLowerCase()));
+  return terms.filter((t) => !labels.has(String(t).toLowerCase()));
+}
+
+// Hidden means the labels are not in the document at all. A blur or a
+// `color: transparent` is still selectable, copyable, findable with ctrl-F and
+// read aloud by a screen reader — which is not hiding anything, it is only
+// making it awkward to read for the people who can read it at all.
+//
+// `onReveal` lets the card repaint the other two places its labels leak into
+// (the matched line and the "Also labelled" caption) when this one is opened.
+function renderPatternsInto(el, problem, revealed, onReveal) {
+  const patterns = problem.patterns || [];
+  // A labels-pending record (scripts/publish_pending.py) has the statement
+  // and the judge's tags and none of our labels yet. A reveal button that
+  // reveals nothing would be worse than the honest sentence.
+  if (problem.review_status === 'labels-pending') {
+    el.hidden = false;
+    el.innerHTML = '<span class="labels-pending">labels pending review</span>';
+    return;
+  }
+  // No labels at all: no paragraph, and above all no "0 technique labels"
+  // button promising something to reveal.
+  el.hidden = patterns.length === 0;
+  if (!patterns.length) { el.innerHTML = ''; return; }
+  if (!revealed && !showLabels) {
+    const n = patterns.length;
+    el.innerHTML = `<button type="button" class="reveal-labels" data-problem-id="${escapeHtml(problem.id)}">${n} technique label${n === 1 ? '' : 's'} · show</button>`;
+    el.querySelector('.reveal-labels').addEventListener('click', (e) => {
+      // The card header toggles the panel on click; revealing a label is not
+      // asking to collapse the problem you are reading.
+      e.stopPropagation();
+      revealedCards.add(problem.id);
+      track("labels_revealed", { problemId: problem.id });
+      renderPatternsInto(el, problem, true, onReveal);
+      if (onReveal) onReveal();
+    });
+    return;
+  }
+  el.innerHTML = `<strong>patterns:</strong> ${patterns
+    .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
+    .join(' ')}`;
+  el.querySelectorAll('.pattern-chip').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyPatternFilter(btn.dataset.pattern);
+    });
+  });
 }
 
 function renderHitsList(container, hits, opts = {}) {
@@ -2777,8 +3026,21 @@ function renderHitsList(container, hits, opts = {}) {
     const csesConfidence = isCses ? cosineDifficulty.confidence(hit.problem) : null;
     const csesClass = `cses-estimate${csesConfidence ? ` cses-confidence-${csesConfidence}` : ""}`;
     const csesTitle = csesConfidence ? ` title="${escapeHtml(cosineDifficulty.confidenceTitle(csesConfidence))}"` : "";
-    const diffHtml = diff === "" ? "" : `<span class="difficulty ${isCses ? csesClass : diffClass(hit.problem.difficulty)}"${isCses ? csesTitle : ""}>${escapeHtml(String(diff))}</span>`;
-    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + diffHtml + escapeHtml(trailing);
+    // Kattis's own score rides the same three colour classes; the title says
+    // whose number it is, since a "7.4" next to Codeforces ratings invites a
+    // comparison it cannot bear.
+    const isKattis = hit.problem.platform === "kattis";
+    const kattisClass = isKattis ? cosineDifficulty.kattisLabel(hit.problem) : "";
+    const kattisTitle = isKattis ? ' title="Kattis\u2019s own 1\u201310 difficulty score \u2014 not a rating"' : "";
+    const diffClassName = isCses ? csesClass : isKattis ? kattisClass : diffClass(hit.problem.difficulty);
+    const diffTitle = isCses ? csesTitle : isKattis ? kattisTitle : "";
+    const diffHtml = diff === "" ? "" : `<span class="difficulty ${diffClassName}"${diffTitle}>${escapeHtml(String(diff))}</span>`;
+    // Tier one of the CodeChef ingest: searchable, but nobody here has solved
+    // it, so it says so where the labels would otherwise be trusted.
+    const pendingChip = hit.problem.review_status === "labels-pending"
+      ? '<span class="review-pending" title="statement and judge tags only \u2014 nobody here has solved this yet">pending</span>'
+      : "";
+    let metaHtml = platformBadge(hit.problem.platform) + competitionTag(hit.competitions) + pendingChip + diffHtml + escapeHtml(trailing);
     if (typeof cosineSheets !== "undefined" && cosineSheets.connected()) {
       const note = cosineSheets.noteFor(hit.problem.id);
       const hasNotes = note && cosineSheets.userColumns().some((fld) => (note[fld.key] || "").trim());
@@ -2820,14 +3082,22 @@ function renderHitsList(container, hits, opts = {}) {
 
     const matched = document.createElement("div");
     matched.className = "result-matched";
-    if ((hit.matchedTerms || []).length) {
-      for (const t of hit.matchedTerms) {
+    // Repainted on reveal: the line is built from the terms this card is
+    // allowed to name, and revealing the labels changes that set.
+    const paintMatched = () => {
+      matched.innerHTML = "";
+      const terms = visibleMatchedTerms(hit, revealedCards.has(hit.problem.id));
+      for (const t of terms) {
         const chip = document.createElement("span");
         chip.className = "matched-chip";
         chip.textContent = t;
         matched.appendChild(chip);
       }
-    }
+      // Every term was a label: the line has nothing left to say, but the node
+      // stays so a reveal can fill it back in.
+      matched.hidden = terms.length === 0;
+    };
+    paintMatched();
 
     const detail = document.createElement("div");
     // Only the labels are hints. Blacking out the whole panel also hid the
@@ -2846,9 +3116,7 @@ function renderHitsList(container, hits, opts = {}) {
     detail.innerHTML = `
       <p>${escapeHtml(hit.problem.statement || "")}</p>
       <p class="tags"><strong>tags:</strong> ${(hit.problem.tags || []).map(escapeHtml).join(", ")}</p>
-      <p class="patterns"><strong>patterns:</strong> ${(hit.problem.patterns || [])
-        .map((p) => `<button type="button" class="pattern-chip" data-pattern="${escapeHtml(p)}" title="filter results by this label">${escapeHtml(p)}</button>`)
-        .join(" ")}</p>
+      <p class="patterns"></p>
       <p><a href="#" class="similar-link">find similar problems &rarr;</a> · <a href="#" class="practice-link">practice this idea &rarr;</a>${
         hit.problem.source_url
           ? ` · <a href="${escapeHtml(hit.problem.source_url)}" class="external-link" target="_blank" rel="noopener">open original problem &rarr;</a>`
@@ -2858,25 +3126,40 @@ function renderHitsList(container, hits, opts = {}) {
     detail.querySelector(".similar-link").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
+      track("similar_opened", { problemId: hit.problem.id, kind: "similar" });
       runSimilar(hit.problem);
     });
     detail.querySelector(".practice-link").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
+      track("similar_opened", { problemId: hit.problem.id, kind: "practice" });
       runSimilar(hit.problem, { practice: true });
     });
-    if (opts.similarMode && (hit.sharedTechniques || []).length) {
+    // "Also labelled: …" names the labels outright, so it is label content and
+    // goes behind the same switch. "Also labelled", not "shared techniques":
+    // the overlap is real information, but the order is dense cosine
+    // (techniqueWeight is 0), so it must not read as the reason for the ranking.
+    const hasSharedTechniques = !!opts.similarMode && (hit.sharedTechniques || []).length > 0;
+    const paintSimilarExplanation = () => {
+      if (!hasSharedTechniques) return;
+      const existing = detail.querySelector(".similar-explanation");
+      if (!(revealedCards.has(hit.problem.id) || showLabels)) {
+        if (existing) existing.remove();
+        return;
+      }
+      if (existing) return;
       const explanation = document.createElement("p");
       explanation.className = "similar-explanation";
-      explanation.textContent = `Shared techniques: ${hit.sharedTechniques.join(", ")}`;
+      explanation.textContent = `Also labelled: ${hit.sharedTechniques.join(", ")}`;
       detail.prepend(explanation);
-    }
-    detail.querySelectorAll(".pattern-chip").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        applyPatternFilter(btn.dataset.pattern);
-      });
-    });
+    };
+    paintSimilarExplanation();
+    renderPatternsInto(
+      detail.querySelector(".patterns"),
+      hit.problem,
+      revealedCards.has(hit.problem.id),
+      () => { paintMatched(); paintSimilarExplanation(); }
+    );
     // Not gated on a connected sheet any more: a note typed here exists
     // whether or not Google has heard about it yet, and hiding it until it
     // syncs would make saving look like it did nothing.
@@ -2923,22 +3206,10 @@ function renderHitsList(container, hits, opts = {}) {
     }
 
     li.appendChild(header);
-    if (activeCollections.size && !compareMode) {
-      const attempt = document.createElement("div");
-      attempt.className = "pyq-attempt";
-      const original = safeResourceUrl(hit.problem.source_url);
-      if (original) {
-        const link = document.createElement("a");
-        link.href = original;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = "open original problem →";
-        attempt.appendChild(link);
-      }
-      li.appendChild(attempt);
-    }
     if (!libraryMode) li.appendChild(bar);
-    if (matched.childNodes.length > 0) li.appendChild(matched);
+    // Appended on "were there terms at all", not "are any visible now" — a
+    // card whose every match was a label still needs the node to repaint into.
+    if ((hit.matchedTerms || []).length > 0) li.appendChild(matched);
     li.appendChild(detail);
     container.appendChild(li);
 
@@ -2949,6 +3220,247 @@ function renderHitsList(container, hits, opts = {}) {
       });
     }
   });
+}
+
+// ── the contest page ────────────────────────────────────────────────────────
+// A collection is a filter, and a filter answers "which of the problems I can
+// search came from here". That is not how anyone picks a past set to attempt:
+// they want the set, in order, with the ones we could not index still in it,
+// and the labels OUT OF SIGHT until they ask. So this view walks the registry
+// members rather than the search hits, and the hits are what it merges IN.
+
+// "A" is 1, matching a hand-written `order` of 1, so a registry that mixes the
+// two still sorts sensibly. "B2" is the second part of B, hence 2.2.
+function contestLetterRank(letter) {
+  return (letter.charCodeAt(0) - 64) + (letter.length > 1 ? Number(letter[1]) / 10 : 0);
+}
+
+// Explicit order wins, then a letter, then the position the registry gave it.
+// Registry position is the honest fallback and usually the only thing there
+// is: the Kattis source pages seven of these collections came from list their
+// problems alphabetically and print no letters at all.
+function contestRank(member, index) {
+  if (Number.isInteger(member.order) && member.order > 0) return member.order;
+  if (typeof member.letter === "string" && /^[A-Z][0-9]?$/.test(member.letter)) return contestLetterRank(member.letter);
+  return index + 1;
+}
+
+function contestRows(members, hits) {
+  const byId = new Map((hits || []).map((h) => [h.problem.id, h]));
+  return (members || [])
+    .map((member, index) => ({ member, hit: byId.get(member.id) || null, rank: contestRank(member, index), index }))
+    .sort((a, b) => a.rank - b.rank || a.index - b.index);
+}
+
+function contestDoneCount(ids, doneIds) {
+  const done = doneIds instanceof Set ? doneIds : new Set(doneIds || []);
+  return (ids || []).filter((id) => done.has(id)).length;
+}
+
+// "listed alphabetically" is a caveat about our data, not a fact about the
+// contest, so it is only said when nothing in the data orders the set. A
+// Codeforces gym id ends in the problem's real letter, so those are ordered
+// even with no `letter` field anywhere.
+function contestOrderUnverified(members) {
+  const list = members || [];
+  if (!list.length) return false;
+  if (list.some((m) => m.letter || Number.isInteger(m.order))) return false;
+  return !list.every((m) => /^codeforces-\d+-[a-z][0-9]?$/.test(m.id || ""));
+}
+
+// Where the statements came from, when we can say it without guessing. Family
+// alone cannot answer it — every one of these is family "icpc" — so it reads
+// the links the registry already had to verify.
+function contestProvenance(collection) {
+  const links = [
+    ...(collection.resources || []).map((r) => r.url || ""),
+    ...(collection.evidence || []),
+  ].join(" ");
+  if (/kattis\.com/.test(links)) return "Statements from Kattis; this is the original judge.";
+  if (/codeforces\.com\/gym\//.test(links)) return "Statements from the Codeforces gym.";
+  return "";
+}
+
+function contestTopicTally(hits) {
+  const counts = new Map();
+  for (const hit of hits || []) {
+    for (const p of hit.problem.patterns || []) counts.set(p, (counts.get(p) || 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+// Labels are hints. Whoever is hiding them has not stopped wanting to know
+// what a set is made of afterwards, so the tally stays — behind a summary that
+// says out loud what opening it will show.
+function contestTopicsHidden() {
+  return typeof showLabels !== "undefined" && !showLabels;
+}
+
+// A member with no indexed statement. It still ran, it is still part of the
+// set, and the hard ones are exactly the ones that are missing — 9.2, 9.1 and
+// 8.4 on Kattis's own scale — so a bare "3 not yet indexed" count hides the
+// shape of the contest rather than reporting it.
+function renderContestUnindexedRow(member) {
+  const kattis = member.kattis_difficulty ? { platform: "kattis", kattis_difficulty: member.kattis_difficulty } : null;
+  const score = kattis ? cosineDifficulty.format(kattis) : "";
+  const band = kattis ? cosineDifficulty.kattisLabel(kattis) : "";
+  const url = safeResourceUrl(member.url || "");
+  const parts = [`<span class="contest-title">${escapeHtml(member.title || member.id)}</span>`];
+  if (score) {
+    parts.push(`<span class="difficulty ${band}" title="Kattis’s own 1–10 difficulty score — not a rating">${escapeHtml(score)}</span>`);
+  }
+  if (url) parts.push(`<a href="${escapeHtml(url)}" class="external-link" target="_blank" rel="noopener">open original &rarr;</a>`);
+  parts.push('<span class="contest-unlabelled">not yet labelled</span>');
+  return `<div class="contest-unindexed">${parts.join("")}</div>`;
+}
+
+function contestHeaderHtml(collection, hits, members, doneIds) {
+  const dim = [collection.held_date, collection.location, collection.organizer].filter(Boolean).join(" · ");
+  const rows = [`<div class="contest-name">${escapeHtml(collection.name || collection.id)}</div>`];
+  if (dim) rows.push(`<div class="contest-dim">${escapeHtml(dim)}</div>`);
+  const provenance = contestProvenance(collection);
+  if (provenance) rows.push(`<div class="contest-dim">${escapeHtml(provenance)}</div>`);
+  if (contestOrderUnverified(members)) {
+    rows.push('<div class="contest-caveat">problem order not verified — listed alphabetically</div>');
+  }
+  // Signed out there is no answer, and "0 of 13 done" would be a wrong one.
+  if (doneIds) {
+    const total = (collection.problems || []).length;
+    rows.push(`<div class="contest-progress">${contestDoneCount(collection.problems, doneIds)} of ${total} done</div>`);
+  }
+  // Editorials and booklets first: they are what you want after attempting a
+  // set, and the judge link is already on every row.
+  const kindOrder = (kind) => (["editorial", "pdf"].includes(kind) ? 0 : 1);
+  const links = (collection.resources || [])
+    .map((r) => ({ r, url: safeResourceUrl(r.url) }))
+    .filter((x) => x.url)
+    .sort((a, b) => kindOrder(a.r.kind) - kindOrder(b.r.kind));
+  if (links.length) {
+    rows.push('<ul class="contest-resources">' + links.map(({ r, url }) =>
+      `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(r.title || r.kind || "contest resource")}</a>${escapeHtml(resourceAvailabilityNote(r.availability))}</li>`
+    ).join("") + "</ul>");
+  }
+  const topics = contestTopicTally(hits);
+  if (topics.length) {
+    const summary = contestTopicsHidden() ? "by topic · reveals labels" : "by topic";
+    rows.push(`<details class="contest-topics"><summary>${escapeHtml(summary)}</summary><div class="contest-topic-list">` +
+      topics.map(([pattern, n]) =>
+        `<span class="contest-topic"><button type="button" class="pattern-chip" data-pattern="${escapeHtml(pattern)}" title="filter results by this label">${escapeHtml(pattern)}</button> × ${n}</span>`
+      ).join("") + "</div></details>");
+  }
+  return rows.join("");
+}
+
+function renderContestList(collection, hits, members, doneIds) {
+  resultsEl.innerHTML = "";
+  const header = document.createElement("li");
+  header.className = "contest-header";
+  header.innerHTML = contestHeaderHtml(collection, hits, members, doneIds);
+  header.querySelectorAll(".pattern-chip").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyPatternFilter(btn.dataset.pattern);
+    });
+  });
+  const topics = header.querySelector(".contest-topics");
+  if (topics) {
+    topics.addEventListener("toggle", () => {
+      if (!topics.open || topics.dataset.counted) return;
+      topics.dataset.counted = "1";
+      track("contest_viewed", { collection: collection.id, topics: true });
+    });
+  }
+  resultsEl.appendChild(header);
+
+  for (const row of contestRows(members, hits)) {
+    const li = document.createElement("li");
+    li.className = "result contest-row";
+    const cell = document.createElement("span");
+    cell.className = "contest-letter";
+    cell.textContent = row.member.letter || row.member.code || "";
+    li.appendChild(cell);
+    if (row.hit) {
+      // One card, drawn by the one renderer that knows how to draw a card —
+      // bookmark, done, statement, the lot. Duplicating it here is how the two
+      // would drift.
+      const holder = document.createElement("ul");
+      holder.className = "contest-card";
+      renderHitsList(holder, [row.hit], { unranked: true });
+      li.appendChild(holder);
+    } else {
+      const holder = document.createElement("div");
+      holder.className = "contest-card";
+      holder.innerHTML = renderContestUnindexedRow(row.member);
+      li.appendChild(holder);
+    }
+    resultsEl.appendChild(li);
+  }
+}
+
+// Done ids come from the same endpoint the library counts read. Signed out
+// there is nothing to intersect with, and null means "say nothing".
+async function contestDoneIds() {
+  if (!currentUser) return null;
+  try {
+    const res = await fetch("/api/user-state");
+    if (!res.ok) return null;
+    const data = await res.json();
+    return new Set(data.done || []);
+  } catch (_e) {
+    return null;
+  }
+}
+
+async function runContest(collectionId) {
+  // A ?view=contest link dispatches at boot, before /api/collections answers,
+  // and this view is built out of the registry rather than out of the hits —
+  // so it waits for the registry instead of falling back to a browse.
+  let collection = collectionById(collectionId);
+  if (!collection && collectionsReady) {
+    await collectionsReady;
+    collection = collectionById(collectionId);
+  }
+  // Not one of ours, or the registry never loaded. Either way there is no
+  // contest to draw, so fall through to the browse the chip means.
+  if (!collection) return runSearch("");
+  const issuedAt = ++lastQueryAt;
+  hideFeedback();
+  hideLoadMore();
+  currentSearchId = null;
+  currentRankerAnswered = "";
+  currentQuery = "";
+  currentOffset = 0;
+  currentTopScore = 0;
+  input.value = "";
+  if (currentUser) setLibPath(`~/contest ${collectionId}`);
+  syncUrl();
+  renderCollectionPanel();
+
+  // One page: the largest collection here is fifteen problems, so paging would
+  // be furniture over a list that always fits.
+  const k = Math.max(collection.count || 0, 1);
+  const rankerParam = activeRanker ? `&ranker=${encodeURIComponent(activeRanker)}` : "";
+  const url = `/api/search?q=&k=${k}&contest=${encodeURIComponent(collectionId)}${rankerParam}`;
+  let data;
+  try {
+    if (inFlight) inFlight.abort();
+    inFlight = new AbortController();
+    const res = await fetch(url, { signal: inFlight.signal });
+    data = await res.json();
+  } catch (err) {
+    if (err.name === "AbortError" || issuedAt !== lastQueryAt) return;
+    setStatus(`error: ${err.message || "contest view failed"}`);
+    return;
+  }
+  if (issuedAt !== lastQueryAt) return;
+
+  const hits = data.hits || [];
+  currentTotal = data.total || hits.length;
+  track("contest_viewed", { collection: collectionId });
+  const doneIds = await contestDoneIds();
+  if (issuedAt !== lastQueryAt) return;
+  renderContestList(collection, hits, collection.members || [], doneIds);
+  setStatus(`${collection.name} · contest view`);
 }
 
 function buildActions(hit, libraryMode) {
@@ -3483,6 +3995,7 @@ function applyUrlState(params) {
   currentSimilar = null;
   similarLibrary = null;
   practiceMode = false;
+  contestView = false;
   libAged = null;
   libOldest = false;
   libRecall = null;
@@ -3505,6 +4018,10 @@ function applyUrlState(params) {
       if (/^[a-z0-9][a-z0-9-]{0,120}$/.test(id)) activeCollections.add(id);
     }
   }
+  // The contest page describes ONE contest. Two chips, or none, and the link
+  // is describing a browse — so the view quietly reverts rather than picking
+  // a collection for you.
+  contestView = params.get("view") === "contest" && activeCollections.size === 1;
   const pattern = (params.get("pattern") || "").trim().toLowerCase();
   const aged = Number.parseInt(params.get("aged") || "", 10);
   if ([30, 90, 180].includes(aged)) libAged = aged;
@@ -3545,7 +4062,10 @@ function applyUrlState(params) {
 // popstate needs the controls repainted between the two.
 function dispatchUrlView() {
   const q = input.value.trim();
-  if (currentSimilar) {
+  if (contestView && activeCollections.size === 1) {
+    input.value = "";
+    runContest([...activeCollections][0]);
+  } else if (currentSimilar) {
     input.value = "";
     runSimilar(currentSimilar);
   } else if (activePattern) {
@@ -3570,7 +4090,7 @@ const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();
 applyUrlState(bootParams);
-loadCollections();
+collectionsReady = loadCollections();
 syncJudgeControls();
 updatePatternPill();
 dispatchUrlView();

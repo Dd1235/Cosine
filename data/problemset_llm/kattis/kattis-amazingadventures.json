@@ -1,0 +1,37 @@
+{
+ "id": "kattis-amazingadventures",
+ "title": "Amazing Adventures",
+ "slug": "amazingadventures",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/amazingadventures",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "On a grid of at most one hundred by one hundred cells, a walker must travel from a start cell to a goal cell by unit steps, passing through a third marked cell somewhere on the way and never entering a fourth forbidden cell, and no cell may be visited twice. The task prints a shortest such route as a string of directions, or reports that none exists.",
+ "tags": [],
+ "patterns": [
+  "min-cost-flow",
+  "graph-modeling",
+  "shortest-path",
+  "grid-traversal"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "min-cost-flow": 0.9,
+   "graph-modeling": 0.9,
+   "shortest-path": 0.9,
+   "grid-traversal": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

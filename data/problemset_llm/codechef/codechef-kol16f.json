@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16f",
+  "title": "Precious Stones",
+  "slug": "kol16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16F",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Nemo went to the shop to buy a chain for his girlfriend. The shopkeeper has shown him a chain made of some expensive stones. The chain has **n** stones marked from **0** to **n-1**. The **i th ** stone is connected with **((i+1)%n) th ** stone for each **0 ≤ i < n**.",
+  "tags": [
+    "special",
+    "basic-programming-concepts",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 6,
+    "problem_code": "KOL16F",
+    "replay_solves": {
+      "successful": 36,
+      "total": 339,
+      "accuracy": 10.62,
+      "replay_only": true
+    }
+  }
+}

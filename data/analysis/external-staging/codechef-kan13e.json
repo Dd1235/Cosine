@@ -1,0 +1,32 @@
+{
+ "id": "codechef-kan13e",
+ "platform": "codechef",
+ "title": "Chocolate Division",
+ "slug": "kan13e",
+ "source_url": "https://www.codechef.com/problems/KAN13E",
+ "source_topic": "ICPC / Kanpur Regional 2013",
+ "source_text": "Alice and Bob have received some chocolates as a gift. There are two types of chocolates: some are shaped like spheres, and others are shaped like sticks. Each chocolate stick connects a pair of chocolate spheres. They want to divide these chocolates among themselves with the following preferences: - Alice wants all the chocolate spheres she gets to be connected by sticks. That is, for any two spheres she gets, there should be a stick connecting them. - Bob wants none of the chocolate spheres he gets to be connected by sticks. That is, for any two spheres he gets, there should be no stick connecting them. Given the description of the chocolate spheres and sticks, determine if it's possible to divide the spheres between Alice and Bob while satisfying both of their preferences. Input The first line of the input contains `T`, the number of test cases. Each test case starts with two integers `N` and `M`. `N` is the number of chocolate spheres (numbered from 1 to `N`), and `M` is the number of chocolate sticks connecting them. Each of the next `M` lines contains two integers `a` and `b`, denoting that the chocolate sphere with number `a` is connected to the chocolate sphere with number `b`. Output For each test case, output \"YES\" if it's possible to divide the chocolate spheres between Alice and Bob according to their preferences, and \"NO\" otherwise. Constraints - 1 < = `T` < = 100 - 1 < = `N` < = 500 - 0 < = `M` < = `N` * (`N` - 1) / 2 - For any pair of chocolate spheres, there will be at most one stick connecting them. Sample Input 4 4 4 1 2 1 4 2 3 3 4 5 4 1 2 1 3 1 4 1 5 10 0 3 3 1 2 1 3 2 3 Sample Output NO YES YES YES - **First Test Case:** It's impossible to divide the spheres such that Alice gets all connected spheres and Bob gets no connected spheres. - **Second Test Case:** It's possible to assign all spheres to Bob since there are no sticks connecting them. - **Third Test Case:** Since there are no sticks, it's trivially possible to assign all spheres to Bob. - **Fourth Test Case:** It's possible to assign all spheres to Bob since no two spheres are connected by a stick.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "jingbo-adm",
+  "kan13acm",
+  "medium-hard",
+  "split-graph"
+ ],
+ "date_added": "3-12-2013",
+ "problem_author": "jingbo_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KAN13ACM",
+  "position": 5,
+  "problem_code": "KAN13E",
+  "replay_solves": {
+   "successful": 4,
+   "total": 12,
+   "accuracy": 41.67,
+   "replay_only": true
+  }
+ }
+}

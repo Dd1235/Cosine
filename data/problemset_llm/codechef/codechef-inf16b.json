@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16b",
+  "title": "Robbery 101",
+  "slug": "inf16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16B",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "You are the most notorious criminal in **Gwalior**. You've decided that you're going to rob hard working employees of **CF**, a famous Tech company in the city. There are **N** people working in **CF**. The employees working here are conveniently numbered from **1** to **N**.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 2,
+    "problem_code": "INF16B",
+    "replay_solves": {
+      "successful": 2,
+      "total": 7,
+      "accuracy": 42.86,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-sqrect",
+  "title": "Square in rectangles",
+  "slug": "sqrect",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SQRECT",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Squarectiland is a 2-dimensional plane that can be assumed to infinitely extend in all directions. There is a universal Cartesian coordinate system in Squarectiland, and thus each point is uniquely described by its coordinates (x, y). The king of Squarectiland wants to build a new palace.",
+  "tags": [
+    "balajiganapath"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SQRECT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 10,
+    "problem_code": "SQRECT",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

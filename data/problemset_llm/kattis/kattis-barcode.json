@@ -1,0 +1,39 @@
+{
+ "id": "kattis-barcode",
+ "title": "Barcode",
+ "slug": "barcode",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/barcode",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A barcode is a row of N bars, each red or blue, and it is valid when the number of blue bars equals the number of red bars or no two blue bars are adjacent, or both. For up to twenty pairs of a length N up to one million and a prime modulus M up to ten million, the task is the number of valid barcodes modulo M.",
+ "tags": [],
+ "patterns": [
+  "lucas-theorem",
+  "combinatorics",
+  "inclusion-exclusion",
+  "modular-arithmetic",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "lucas-theorem": 0.9,
+   "combinatorics": 0.9,
+   "inclusion-exclusion": 0.9,
+   "modular-arithmetic": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.6,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

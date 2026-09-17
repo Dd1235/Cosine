@@ -1,0 +1,32 @@
+{
+ "id": "codechef-lightare",
+ "platform": "codechef",
+ "title": "Find Lighted Area",
+ "slug": "lightare",
+ "source_url": "https://www.codechef.com/problems/LIGHTARE",
+ "source_topic": "ICPC / Gwalior Regional 2017",
+ "source_text": "You are given a square with side length $2L$. The coordinates of its vertices are at $(-L, -L)$, $(L, -L)$, $(L, L)$, and $(-L, L)$. You are also given $N$ disks (each disk is opaque, and light rays cannot pass through them) each of radius $R$. The centers of each of the disks are at a fixed distance $D$ from the origin $(0, 0)$. This distance $D$ is strictly greater than $R$. It is guaranteed that all the disks lie entirely inside the square. Suppose there is a light source at the origin. Find the area of the region of the square that will be lit by this light source. A point inside the square will be lit if the line segment between the origin and the point does not intersect or touch any of the disks. All distances mentioned are Euclidean distances. Input The first line of the input contains an integer $T$ denoting the number of test cases. The description of $T$ test cases follows. The first line of each test case contains four integers: $N$, $R$, $D$, $L$. Each of the next $N$ lines contains two space-separated real numbers denoting the $x$ and $y$ coordinates of the center of the $i$-th disk. Each real number may contain up to 16 digits after the decimal point. These coordinates will satisfy all the conditions mentioned in the statement, i.e., they will be at a distance exactly $D$ from the origin. Output For each test case, output a real number representing the illuminated area. Your answer will be considered correct if the absolute or relative error of the answer does not exceed $10^{-6}$. Constraints - $1 \\leq T \\leq 10^5$ - $1 \\leq N \\leq 10^5$ - $2 \\leq D \\leq 10^5$ - $1 \\leq R < D$ - $R + D < L \\leq 3 \\times 10^5$ - $-10^6 \\leq x, y \\leq 10^6$ - The sum of $N$ over all the test cases in a single file would be at most $4 \\times 10^5$. - For any two centers of disks, it is guaranteed that the distance between them is $\\geq 10^{-6}$. Sample Input 4 1 1 2 4 2 0 2 1 2 4 2 0 -2 0 3 1 2 4 2 0 -2 0 0 2 4 1 2 4 2 0 -2 0 0 2 0 -2 Sample Output 55.4472489493382673 46.8944978986765346 38.3417468480148019 29.7889957973530693 The image below shows the scenario for test case 1: ![Image](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17GWR/LIGHTARE.png) ABCD represents the square, which has coordinates according to $L = 4$. The only circle is at coordinates $(2, 0)$. Notice that the distance of the center from the origin is $2$, which is $L$. Its radius is $R = 1$. The light source is at $(0, 0)$. The grayed area along with the circle represents the area which is not lit by the light source. The area of the whole square with this area subtracted is the answer.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin2",
+  "geometry",
+  "gwr17rol",
+  "med-hard"
+ ],
+ "date_added": "18-12-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "GWR17ROL",
+  "position": 6,
+  "problem_code": "LIGHTARE",
+  "replay_solves": {
+   "successful": 0,
+   "total": 31,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

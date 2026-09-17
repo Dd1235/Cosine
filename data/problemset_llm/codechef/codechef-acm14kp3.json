@@ -1,0 +1,41 @@
+{
+  "id": "codechef-acm14kp3",
+  "title": "Cyclic Prefix",
+  "slug": "acm14kp3",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KP3",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Two strings a[0..n-1] and b[0..n-1] are called cyclic equivalent if and only if there exists an offset d , such that for all 0 < = i < n , a[i] = b[(i + d) mod n] . Given two strings s[0..L-1] and t[0..L-1] with same length L .",
+  "tags": [
+    "acmkgp14",
+    "admin",
+    "rolling-hash",
+    "medium",
+    "segment-tree",
+    "suffix-array"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KP3"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP14",
+    "position": 3,
+    "problem_code": "ACM14KP3",
+    "replay_solves": {
+      "successful": 10,
+      "total": 273,
+      "accuracy": 4.4,
+      "replay_only": true
+    }
+  }
+}

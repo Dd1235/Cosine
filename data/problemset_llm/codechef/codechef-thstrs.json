@@ -1,0 +1,37 @@
+{
+  "id": "codechef-thstrs",
+  "title": "Three Strings",
+  "slug": "thstrs",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/THSTRS",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "You are given three strings A, B, C. You want to find a string Z (possibly empty) such that the string A + Z + B contains C as a substring. Find out the smallest possible length of string A + Z + B that can satisfy the above criteria.",
+  "tags": [
+    "advanced-algorithms",
+    "string-matching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/THSTRS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 10,
+    "problem_code": "THSTRS",
+    "replay_solves": {
+      "successful": 36,
+      "total": 217,
+      "accuracy": 17.05,
+      "replay_only": true
+    }
+  }
+}

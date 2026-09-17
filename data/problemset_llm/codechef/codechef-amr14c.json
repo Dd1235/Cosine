@@ -1,0 +1,39 @@
+{
+  "id": "codechef-amr14c",
+  "title": "Dhonis Bowlers",
+  "slug": "amr14c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14C",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "The Indian team is known for their strong batting and sloppy bowling. The captain M.S. Dhoni is concerned about this issue. He wants to address this by pairing up bowlers who have good economy rates. He has all the bowlers' economy rates as integers.",
+  "tags": [
+    "amr14ros",
+    "easy",
+    "rolling-hash",
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 3,
+    "problem_code": "AMR14C",
+    "replay_solves": {
+      "successful": 28,
+      "total": 203,
+      "accuracy": 13.79,
+      "replay_only": true
+    }
+  }
+}

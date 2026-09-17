@@ -1,0 +1,36 @@
+{
+  "id": "codechef-parkwoe",
+  "title": "Parking Woes",
+  "slug": "parkwoe",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PARKWOE",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "There is a new mall in the city and customers have one floor of parking available in its basement. The parking lot consists of m rows of n parking slots each. When owners come back where (s)he has parked his/her car they may have to examine mXn cars in the worst case to find the car.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PARKWOE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN12",
+    "position": 2,
+    "problem_code": "PARKWOE",
+    "replay_solves": {
+      "successful": 84,
+      "total": 331,
+      "accuracy": 25.38,
+      "replay_only": true
+    }
+  }
+}

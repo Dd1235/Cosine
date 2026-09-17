@@ -1,0 +1,43 @@
+{
+  "id": "codechef-unbal",
+  "title": "Yet Another Balanced Parenthesis Problem",
+  "slug": "unbal",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/UNBAL",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "A balanced parenthesis string is defined as follows: - The empty string is balanced. - If P is balanced, (P) is also balanced. - If P and Q are balanced, PQ is also balanced. You are given two even integers n and k.",
+  "tags": [
+    "constructive",
+    "easy-medium",
+    "gw19mos",
+    "icpc2019",
+    "icpcgw19",
+    "jtnydv25",
+    "maths",
+    "observation"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/UNBAL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 6,
+    "problem_code": "UNBAL",
+    "replay_solves": {
+      "successful": 38,
+      "total": 141,
+      "accuracy": 26.95,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+ "id": "kattis-dividedoughnut",
+ "status": "solved",
+ "solution": "Let f(x) count sprinkles in the half-ring starting at x. Sliding by one part swaps one sprinkle out for at most one in, so f changes by at most 1 per step, and f(x) + f(x+5e8) = N, so g = f - N/2 satisfies g(x+5e8) = -g(x). A discrete intermediate value argument therefore guarantees a zero of g, so the answer NO never happens. One query at x=0 orients an interval of length 5e8 whose endpoints have opposite signs; then binary search, but shrink using the probe value itself (a value v>0 at mid moves the left end to mid+v, v<0 moves the right end to mid+v) since g cannot cross within |v| steps. That reaches a single candidate in at most 28 further queries, so at most 30 interactions, inside the 30 + floor(log2(sqrt(N))) budget even at N=2.",
+ "solution_confidence": 0.93,
+ "statement_summary": "An interactive task on a ring divided into a billion numbered parts carrying N sprinkles, N even. The solver may ask how many sprinkles lie in any circular range of parts, and must name a half of the ring, five hundred million consecutive parts, holding exactly N/2 sprinkles, or report that no such half exists. At most thirty plus floor of log2 of root N interactions are permitted.",
+ "patterns": [
+  "interactive",
+  "binary-search"
+ ],
+ "pattern_confidence": {
+  "interactive": 0.97,
+  "binary-search": 0.95
+ },
+ "tags": [
+  "interactive",
+  "search",
+  "geometry"
+ ],
+ "source_text_sha256": "65b5aed9a0a4091a8c1bf7d2ed7720b5423a9f6d63092b5767eb78aafbf85d65",
+ "verify_script": "data/analysis/external-batches/F/verify_dividedoughnut.py",
+ "notes": "verify_dividedoughnut.py drives the solver against a simulated interactor on 4000 sprinkle sets (random and clustered, N from 2 to 100000), checks the returned half always holds N/2 sprinkles, and reports the worst interaction count per N against the budget; the tightest observed was 29 of 30 at N=2. Not labelled binary-search-answer: there is no feasibility predicate, the search is a sign change of a function that moves by at most one per step. Statement contains no sentence addressed to the annotator."
+}

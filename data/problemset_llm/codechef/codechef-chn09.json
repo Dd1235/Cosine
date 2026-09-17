@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn09",
+  "title": "Malvika is peculiar about color of balloons",
+  "slug": "chn09",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN09",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Little Malvika is very peculiar about colors. On her birthday, her mom wanted to buy balloons for decorating the house. So she asked her about her color preferences. The sophisticated little person that Malvika is, she likes only two colors — amber and brass.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN09"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 9,
+    "problem_code": "CHN09",
+    "replay_solves": {
+      "successful": 0,
+      "total": 338,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

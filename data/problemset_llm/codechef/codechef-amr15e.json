@@ -1,0 +1,41 @@
+{
+  "id": "codechef-amr15e",
+  "title": "Avantika",
+  "slug": "amr15e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR15E",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Young man named Baahubali found a mask next to a giant waterfalls. He imagined that it belonged to a beautiful girl. He was so determined to see the smile on her face that he did the unthinkable - he climbed the mighty waterfalls.",
+  "tags": [
+    "advanced-data-structures",
+    "advanced-tree-structures",
+    "advanced-algorithms",
+    "pre-processing",
+    "algorithms",
+    "queries"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR15E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR15",
+    "position": 5,
+    "problem_code": "AMR15E",
+    "replay_solves": {
+      "successful": 24,
+      "total": 1156,
+      "accuracy": 2.16,
+      "replay_only": true
+    }
+  }
+}

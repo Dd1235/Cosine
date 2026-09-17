@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amr14f",
+  "title": "Jersey Number",
+  "slug": "amr14f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14F",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "It’s World cup time, and every player wants to get a cool jersey number. As a result, there was a fight between the players about what jersey number they can have. To resolve this, the committee (ICC) came up with an idea.",
+  "tags": [
+    "amr14ros",
+    "hard",
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 6,
+    "problem_code": "AMR14F",
+    "replay_solves": {
+      "successful": 1,
+      "total": 1,
+      "accuracy": 100.0,
+      "replay_only": true
+    }
+  }
+}

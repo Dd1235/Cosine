@@ -1,0 +1,38 @@
+{
+  "id": "codechef-obexpval",
+  "title": "Obtain Desired Expected Value",
+  "slug": "obexpval",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/OBEXPVAL",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "You are given n non-negative integers x 1 , x 2 , ..., x n . You are also given a positive integer E . You have to find n non-negative real numbers p 1 , p 2 , ..., p n such that p 1 · x 1 + p 2 · x 2 + p 3 · x 3 + .... + p n · x n = E and p 1 + p 2 + ... + p n = 1 .",
+  "tags": [
+    "mathematics",
+    "probability",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/OBEXPVAL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 4,
+    "problem_code": "OBEXPVAL",
+    "replay_solves": {
+      "successful": 50,
+      "total": 194,
+      "accuracy": 26.8,
+      "replay_only": true
+    }
+  }
+}

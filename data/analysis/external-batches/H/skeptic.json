@@ -1,0 +1,270 @@
+{
+ "reviewer": "independent-skeptic",
+ "reviewed_at": "2026-09-16",
+ "batch": "H",
+ "reviews": [
+  {
+   "id": "kattis-alicedigital",
+   "status": "approved",
+   "keep": [
+    "prefix-sum"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "Nothing is chosen greedily. For each barrier holding m the maximal span is computed in closed form and the maximum is taken over a fixed candidate set; optimality follows from positivity of the entries (a monotonicity argument), not from an exchange or a greedy choice. A searcher for greedy learns nothing here, and the solver's own 0.6 signals the doubt."
+    }
+   ],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "fa67ea23cea723386c285d5583613f9c7113f0fee05e8f7cee667437cb892c5b",
+   "review_rationale": "Ran the script (0.06s): sample 12 reproduced and 3000 random cross-checks against the O(n^2) brute force clean. I re-derived the sample by hand: barriers at positions 1,3,5, the m-barrier at 5 spans positions 4..6 = 6+2+4 = 12. The reduction 'min == m with exactly one copy iff exactly one element <= m and it equals m' is exactly right, and maximal extension is optimal because all entries are positive. O(n) per dataset against n <= 1e5 and 20 datasets is trivially inside any limit.",
+   "issues": [
+    "Single label after the drop, which is thin, but no second label is honest here; prefix-sum plus the barrier decomposition is the whole method.",
+    "Statement bound is written as 2^6; the summary correctly renders it as 64."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-directorymanagement",
+   "status": "needs_work",
+   "keep": [
+    "design",
+    "simulation",
+    "stack",
+    "ordered-set"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "ff1356f316839b3cc720aa1ef6369c417cd4d2b3c52171d51f0281dd3b14dcbd",
+   "review_rationale": "The script runs clean (0.27s) and the sample 22-command transcript plus 200 random 120-command sessions against a deep-copy reference genuinely validate the tree, the subtree sizes and all three UNDO records. But the solution's central efficiency claim about TREE is false, and the script does not test it: the 'Fast' class calls preorder(cur) and materialises the whole traversal, with a comment conceding 'the real solution walks only the ends'. So the one part of this problem that is not routine is the one part left unverified. On labels all four earn their place, and design is the strongest of them.",
+   "issues": [
+    "FALSE CLAIM: 'TREE needs ... the first five pre-order lines (walk the leftmost chain) and the last five (walk the rightmost chain)'. Both halves are wrong. Counterexample built and run: root with children a (leaf) and b; b->c; c->d,e with e a leaf; d->f,g,h,i,j. Pre-order is root,a,b,c,d,f,g,h,i,j,e (11 nodes, so the >10 rule fires). True first five = root,a,b,c,d but the leftmost chain yields only root,a. True last five = g,h,i,j,e but the rightmost chain yields root,b,c,e. The pre-order predecessor of a later sibling is the last node of the previous sibling's subtree, not the parent, so no root-to-leaf chain can produce the tail.",
+    "COMPLEXITY: the method that is actually verified is O(subtree) per TREE. MKDIR+RM <= 5000 permits a depth-5000 chain, and the remaining ~95000 commands may all be TREE, giving ~4.75e8 node visits per dataset and ~9.5e9 over 20 datasets. That will not pass. The claimed chain walk would be O(depth) per TREE and equally doomed even if it were correct.",
+    "The fix is available and cheap and should be written into the solution: maintain a last-pre-order-descendant pointer per node, refreshed on the root walk MKDIR/RM already performs (<= 5000 of them, O(depth) each), then take the tail by stepping up five from it; take the head with a pre-order DFS truncated at five nodes.",
+    "The MKDIR/RM root walks are themselves up to 1.25e7 per dataset and 2.5e8 over 20 datasets. Fine, but it is the real cost and the write-up calls it 'cheap' without the arithmetic.",
+    "Acknowledged and accepted: the scraped statement is whitespace-flattened so Figure 1's indentation cannot be recovered. Output-format only, no bearing on labels or band."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-divisorgame",
+   "status": "approved",
+   "keep": [
+    "game-theory",
+    "grundy-numbers",
+    "sieve",
+    "prime-factorization",
+    "number-theory",
+    "counting"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "3a0b4dce224023ff29017cb07344a2d5686fda07eb1f7af9e213f194711d75ae",
+   "review_rationale": "I was asked whether all six are load-bearing and they are. Omega is the Grundy value (a proper divisor can drop the count to any smaller value, so the mex is exactly Omega), the game is misere nim, segmented sieving to 1e6 is forced by B <= 1e12, factorisation is what produces Omega, counting is the actual question, and number-theory is the taxonomy's own auto-family for sieve and factorization. I re-derived all four samples independently: [2,4] gives {2},{3} = 2; [2,5] gives 2^(P-1) = 4 all-prime odd subsets; [2,6] adds the four even-prime subsets paired with the xor-0 composite set {4,6} for 8; [2,7] gives 8+8 = 16. The misere correction is real and the samples do pin it. Script ran 4.5s clean against a full memoised multiset game search.",
+   "issues": [
+    "The stated complexity 'O((B-A) log log B + sqrt(B)) per dataset' silently omits the counting step. As implemented the xor DP is O((B-A) * 64) = 6.4e6 per dataset and 6.4e8 over the permitted 100 datasets, which is the dominant term, not a rounding error. Bucketing by Omega value first (only ~39 distinct values, since 2^40 > 1e12) reduces it to O(64*64) and should be stated.",
+    "The P=0 case (a range containing no primes, reachable for large A) is handled correctly in the script via even,odd = 1,0, but no brute-force case covers it: the cross-check only ran A in [2,12], which always contains primes. Untested rather than wrong."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-icpcteamselection",
+   "status": "approved",
+   "keep": [
+    "greedy",
+    "sorting",
+    "exchange-argument"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "easy",
+   "source_text_sha256": "f0df5d8534b4f2de752888f21724a26d64de32e4f61fe6ce0943d9829c75a053",
+   "review_rationale": "Script clean in 0.07s against exhaustive partition enumeration for N <= 3. Hand-checked the sample: 10,9,9,8,8,6 descending, drop the two smallest, medians at sorted positions 2 and 4 give 9+8 = 17. Ruling on exchange-argument at 0.6: keep. The solver's own correctness argument is literally an exchange ('the largest score is wasted as a maximum, so it should shield the largest possible median'), and this is one of the cleanest textbook instances of that proof pattern, so a searcher for the term lands somewhere useful. O(n log n), or O(100) counting sort given P_i <= 100, against N <= 100 and 20 datasets: no limit is in play.",
+   "issues": [],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-message",
+   "status": "approved",
+   "keep": [
+    "matrix-exponentiation",
+    "kmp",
+    "string-matching",
+    "dynamic-programming",
+    "counting"
+   ],
+   "drop": [
+    {
+     "label": "combinatorics",
+     "why": "Weakest of the six at 0.5 and nothing combinatorial happens. The count is 26^n minus a walk on an automaton; there is no binomial, no inclusion-exclusion, no counting identity. It is a generic math umbrella that would pull this into combinatorics searches it does not belong in, and counting already carries the 'this is a counting problem' signal."
+    }
+   ],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "db75701cb8404c74e4559e5b8111ca9238e4d3f385a8500cee79920281d63e82",
+   "review_rationale": "Script clean in 1.22s: both samples plus 120 full-enumeration cross-checks over alphabets of size 2 and 3. I re-derived the samples by hand (n=2 gives only 'ab' = 1; n=3 gives 26+26 with no overlap since s2 cannot be both a and b = 52). Complement counting on the KMP automaton restricted to its |p| non-accepting states is correct, and the transfer matrix is the right accelerator for n <= 1e12. I keep string-matching alongside kmp: the taxonomy has no family rule linking them, so it is an independent claim, and a KMP automaton is string-matching machinery even though nothing is ever matched.",
+   "issues": [
+    "VERIFIED, the O(|p|^3 log n) claim does fit: 50^3 = 1.25e5 mulmods per multiply, about 60 multiplies for n = 1e12, so ~7.5e6 per dataset and ~1.5e8 128-bit mulmods over 20 datasets. Roughly 0.5-1.5s in C++, and applying the final power as a vector-by-matrix product halves it. The point about M <= 1e12 being an arbitrary modulus is right and load-bearing: products reach 1e24, so __int128 is mandatory and no inverse exists.",
+    "The big-n sanity check used p = 'abcabcabcab' (length 11), not the worst case |p| = 50, so the script never exercises the timing it claims. My own arithmetic above covers it, but the check as written does not."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-naturereserve",
+   "status": "approved",
+   "keep": [
+    "minimum-spanning-tree",
+    "kruskal",
+    "union-find",
+    "graph-modeling"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "6b22cc99f79c154f145beb3bcaa9d475dbf51b16a89ab5f468e635238de04622",
+   "review_rationale": "Script clean in 0.95s against brute force over all edge subsets on 300 random connected graphs with random source sets. Hand-checked the sample: weights become 14,18,11,12,15,30, and Kruskal takes 11+12+14 = 37. The two modelling steps are both real and both correct, namely fold L into every edge because an activated channel carries the program once, and contract the S pre-installed stations into one vertex so only N-S edges are bought. graph-modeling at 0.7 earns its keep on exactly those two steps. O(M log M) with M <= 1e6 over 20 datasets is fine, and E_ij <= 1e6 even allows a counting sort if sorting were ever the bottleneck.",
+   "issues": [
+    "Input volume is the practical risk rather than the algorithm: up to 2e7 edges across the 20 datasets means fast input parsing is mandatory. Worth a sentence in the solution, which currently only quotes the asymptotics."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-olympiadtraining",
+   "status": "approved",
+   "keep": [
+    "sos-dp",
+    "bitmask-dp",
+    "dynamic-programming",
+    "contribution-technique"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "3d617553f44d26ced40cae345e30a3670896aee7b993914e87e448dc8591e1de",
+   "review_rationale": "Script clean in 0.04s; I also hand-checked the second sample (K=2 picks students 2 and 3 for 3+6+5 = 14, K=3 gives 3+6+9 = 18). The telescoping rewrite of max as a sum of prefix-threshold contributions, with 'S meets top-k' flipped to 'S avoids top-k' so it becomes a superset sum, is correct and is the whole idea; the naive 2^20 * 1e4 route really is dead. contribution-technique at 0.6 is undervalued rather than doubtful, since that rewrite is precisely what a searcher for the term wants to see. dynamic-programming is the taxonomy's own auto-family for sos-dp.",
+   "issues": [
+    "COMPLEXITY, the one number worth stating: 2^20 * 20 = 2.1e7 per dataset, and the statement permits 100 datasets, so the nominal worst case is 2.1e9 plus a 8MB array rebuilt 100 times. What rescues it is the implied input size, since 100 datasets at N=20, M=10000 would be 2e7 integers, on the order of a 100MB input file. The write-up quotes per-dataset cost only and never confronts the multiplier."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-printerscheduling",
+   "status": "approved",
+   "keep": [
+    "max-flow",
+    "graph-modeling",
+    "coordinate-compression",
+    "constructive-algorithm",
+    "dinic"
+   ],
+   "drop": [
+    {
+     "label": "greedy",
+     "why": "McNaughton's wrap-around is a constructive placement rule, and constructive-algorithm already carries it. There is no greedy choice with an exchange or sorting justification anywhere in the solution, and a searcher for greedy would not want a max-flow scheduling problem returned."
+    }
+   ],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "d96ba116deb9e60467b64bedf4423144bc741384be05fa7e3b83071d4118b89d",
+   "review_rationale": "Best-verified item in the batch: the script (0.06s) checks the compressed flow against a unit-time-slot flow AND against an exhaustive slot-by-slot DFS on 300 tiny instances, then re-validates every emitted schedule against all four statement rules, and its check() asserts r <= a < b <= d, which is the corrected constraint. The compressed-equals-unit-slot claim is sound on its own terms too: aggregating a unit-slot flow satisfies the caps (len_k, m*len_k) trivially, and the converse is exactly McNaughton, since each per-job amount is <= len_k so its wrapped piece ends at a+off and never overlaps its own pre-wrap piece in time. dinic at 0.5 is too low, not wrong: with flow up to sum p_i = 6e6 the algorithm choice is forced, since Ford-Fulkerson or Edmonds-Karp would not finish.",
+   "issues": [
+    "STATEMENT DEFECT CONFIRMED. The output spec prints the period constraint as d_i <= x < y <= r_i, which is unsatisfiable because d_i - r_i >= p_i >= 1 puts r_i strictly below d_i. The sample settles it: file 1 has r=2, d=7 and its first period is '2 4', which needs r_i <= x < y <= d_i. I re-validated the whole sample schedule by hand (per-file page totals 4/3/3/5, every period inside its window, no file on two printers at once, and printers 1 and 2 each fully non-overlapping), and dataset 2 is correctly NO since 15 pages cannot fit 9 time units on one printer.",
+    "Dinic's theoretical worst case on this network is not argued anywhere. Augmenting paths lengthen by 2 per phase up to O(min(n, intervals)) = O(200) phases at O(V*E) = ~4.8e7 each, which is nowhere near the limit on paper; it is fine in practice on a three-layer transportation network, but the write-up should say so rather than quote node and edge counts and stop.",
+    "OUTPUT VOLUME, unexamined and explicitly capped by the statement at 10MB. McNaughton can split a job twice per interval, so up to 2 * 399 * 200 = ~160k lines per dataset, and 25 datasets could approach the cap unless consecutive periods of the same job on the same printer across an interval boundary are merged. Neither the solution nor the script mentions the cap."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-reservoir",
+   "status": "approved",
+   "keep": [
+    "monotonic-stack",
+    "binary-search"
+   ],
+   "drop": [
+    {
+     "label": "simulation",
+     "why": "Nothing is simulated. The entire point is that you do not pour water step by step: cap[i] is built algebraically in one left-to-right sweep and each query is answered by lookup. A searcher for simulation wants problems whose algorithm is 'follow the described process', which is the one approach this problem rules out. Contrast directorymanagement, where the command stream genuinely is executed and the label is kept."
+    },
+    {
+     "label": "stack",
+     "why": "Redundant parent of monotonic-stack, and the only stack in the solution IS the monotonic stack. The taxonomy carries family rules for dp, bfs, dfs, binary-search, segment-tree, two-pointers, combinatorics, number-theory and union-find, and pointedly not for stack, so this is hand-added double-labelling that buys no retrieval the specific label does not already supply. Contrast directorymanagement, where stack denotes a separate LIFO undo history."
+    }
+   ],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "da717f5563b8df347984a1df626b999d31270c0fd6bca9808a5277c58dfdf0d1",
+   "review_rationale": "Script clean in 0.05s, O(N) stack against the O(N^2) definitional formula on 2000 inputs, and it also asserts cap strictly increasing every time, which is what licenses the lookup. I rebuilt all four caps by hand and got [2,13,16,18]: cap[2] = 5 for tank 1 at level 5, plus 3 for the column on drowned wall 1, plus 5 for tank 2. The solver's refusal of binary-search-answer is correct and I endorse it, since the binary search is an ordinary lower_bound in a precomputed increasing array with no feasibility predicate anywhere.",
+   "issues": [
+    "The solver undersells its own evidence. It says the sample pins two of the three fitted choices; I checked and it pins all three. Setting tank 1's width to L_1 - 1 = 0 instead of L_1 gives caps [0,8,11,13] and answers 3 for K=13 instead of 1, and dropping the water column standing on a drowned wall gives caps [2,10,13,15] and answers 2 for K=13 instead of 1. Both readings are excluded by the single sample.",
+    "Confidences are inverted: binary-search at 0.9 over monotonic-stack at 0.85, when the stack is the entire problem and the binary search is one lower_bound call. Recommend swapping them.",
+    "caps_def is an independent implementation but not an independent physical model; it encodes the same three assumptions. The sample excludes the alternatives I could construct, so I am satisfied, but this remains modelling fitted to one example."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-swimmingballs",
+   "status": "approved",
+   "keep": [
+    "binary-search-answer",
+    "binary-search",
+    "geometry"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "hard",
+   "source_text_sha256": "e849758a45f4507c90c48bd41d43425353e5740d67c0bdb54567378b852092f7",
+   "review_rationale": "Ruling on binary-search-answer at 0.65: KEEP, and raise it. The predicate is monotone because f(h) = W*L*h - sum displaced_i(h) is literally the water volume standing at level h and each displaced_i is non-decreasing, and the feasibility test is where all the work sits, namely the float-versus-grounded split resolved as min(cap(min(h,2r)), w*(4/3)pi r^3) plus the spherical cap volume. That min is genuinely elegant and I checked it holds in both directions: a sinker has w*V > V_sphere >= cap(min(h,2r)) so the cap always wins, and a floater sitting in shallow water is correctly grounded because cap(h) < w*V there. Keeping binary-search alongside is the project's own family implication, not redundancy. Script ran 12.3s, both samples to 1e-8, and the 2.4e-5 worst gap against the dense scan is exactly that scan's own resolution of D/200000, so it is not error.",
+   "issues": [
+    "STATEMENT DEFECT CONFIRMED, and I confirmed it from the sample rather than taking it on trust. The statement writes 'two positive real numbers r_i and w_i indicating the specific weight and radius', so the symbol order and the prose order disagree. Sample dataset 2 decides it: reading 0.8 as the radius gives (5 + (4/3)pi*0.512)/4 = 1.786165145, matching the expected 1.78616514621 exactly, while reading 0.8 as the specific weight gives (5 + 0.8*(4/3)pi)/4 = 2.088, which clamps to D = 2 and would print 2.0. Input is radius then specific weight; the prose is wrong. Note that sample dataset 1 is useless for this, since both of its values are 1.0.",
+    "Monotonicity is assumed, not established, and the constraints do not guarantee it. With n <= 1000, r <= 2 and W*L as small as 4, the balls' total horizontal cross-section can far exceed the pool's, and since the statement declares 'no interaction among the n balls' such an input is formally legal and would make f decrease. Physically impossible, so presumably absent from the test data, but the solution asserts monotonicity as a fact and it is really an assumption about the data.",
+    "The dense scan is an independent check of the same equation, not of the physics. Correctly acknowledged by the solver."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-terracedfields",
+   "status": "approved",
+   "keep": [
+    "digit-dp",
+    "dynamic-programming",
+    "counting"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "medium",
+   "source_text_sha256": "f3d48f31bc0ce71aa5b736d6eca35f86ea1d151ee5d7c6a9e7b2efb8f8bc2d04",
+   "review_rationale": "Script clean in 0.26s against enumeration for n <= 300 and 400 random n up to 30000. I hand-verified every sample: n=9 gives 8 alone for 1; n=32 gives 8,16,24,32 for 2; n=56 gives 8,16,24,32,40,48,56 for 4 with 56 engraved once and not twice; n=18 gives 8,16 for 2 plus the digit 8 of the final step for 3. The (position, value mod 8, tight, started) state is right, leading zeros are correctly excluded from both the count and the lucky tally, and the double-count guard for n divisible by 8 is exactly what sample n=56 is there to catch. f(10^18) = 4.81e17 is the right order, since ~1.25e17 multiples of 8 at roughly 3.6 lucky digits each lands near 4.5e17.",
+   "issues": [
+    "Per-query cost is ~19*8*10 transitions, so ~1.5e8 over the permitted 100000 queries. Fine in C++ but only if the memo is keyed per query rather than rebuilt with allocation each time. The solver notes a closed form exists because divisibility by 8 depends only on the last three digits; that is true and would be materially faster, but the digit DP as specified does fit."
+   ],
+   "summary_ok": true
+  },
+  {
+   "id": "kattis-ultimatepipegame",
+   "status": "approved",
+   "keep": [
+    "min-cost-flow",
+    "graph-modeling",
+    "max-flow",
+    "bipartite-graph"
+   ],
+   "drop": [],
+   "add": [],
+   "independent_band": "very-hard",
+   "source_text_sha256": "6371c0aed648c43e66b63b575f31c69e80454457e436121f6ed22e4899690a7f",
+   "review_rationale": "I checked the reduction by hand on the 3x4 sample as asked, and it holds. Independently of the code: the degree-2 characterisation is right because every pipe uses exactly two sides and a side is usable only if the neighbour across it reciprocates, so valid layouts are exactly the degree-2 subgraphs of the empty-cell grid graph, which are exactly disjoint unions of cycles. On sample 2 every cell has grid-degree 2 or has its choice forced by neighbours, giving the single 10-cycle (0,0)-(0,1)-(0,2)-(1,2)-(1,3)-(2,3)-(2,2)-(2,1)-(2,0)-(1,0), whose straight cells cost h(0,1)=2 plus v(1,0)=5 plus h(2,1)=1 plus h(2,2)=2 = 10, matching. I then re-derived the same 10 through the gadget from port loads alone: black (2,2) sends 2 horizontally for h=2, white (0,1) receives 2 horizontally for h=2, white (1,0) receives 2 vertically for v=5, white (2,1) receives 2 horizontally for h=1, every other cell splits 1 and 1 and pays nothing. Sample 3 is NO for the right reason, 5 black cells against 4 white. Script 7.9s clean against exhaustive six-side-pair enumeration on 119 grids.",
+   "issues": [
+    "The convexity justification is stated loosely and should be corrected, because as written it is not true. Per-cell cost as a function of horizontal degree alone is (v, 0, h) for degrees (0, 1, 2), whose increments are -v then +h, so it is convex but not monotone and cannot be modelled by two non-negative parallel edges. What the gadget actually does, and what is correct, is per-PORT convexity: each of the H and V ports charges 0 for its first unit and h or v for its second, which yields h, 0, v for horizontal degree 2, 1, 0 respectively, with every cost non-negative. The code is right; the sentence explaining it is not.",
+    "'flow <= 800' is wrong; the flow value is 2 * #black <= 400 on a 20x20 grid.",
+    "Cost bound unexamined: with up to 100 datasets of 20x20, ~400 augmentations each over ~3200 edges, this is on the order of 1e9 operations in total. Costs are non-negative so Dijkstra with potentials is available and a blocking-flow MCMF pushes many units per phase, but the write-up quotes O(V*E*flow) without ever multiplying by the dataset count.",
+    "Feasibility needs #black == #white, which is necessary but the solution presents it as if it were also sufficient before the flow. The code gets this right (it checks parity first, then requires saturation); the prose runs the two together."
+   ],
+   "summary_ok": true
+  }
+ ],
+ "notes": "Ran all 12 verify scripts myself under python3 -I; all 12 exit clean. Runtimes: alicedigital 0.06s, directorymanagement 0.27s, divisorgame 4.50s, icpcteamselection 0.07s, message 1.22s, naturereserve 0.95s, olympiadtraining 0.04s, printerscheduling 0.06s, reservoir 0.05s, swimmingballs 12.33s, terracedfields 0.26s, ultimatepipegame 7.88s. I re-derived every statement sample by hand rather than trusting the assertions, and I recomputed the sha256 of every staging source_text: all 12 match the proposals. VERDICT ON THE 12/12 CLAIM: 11 approved, 1 needs_work. It does not hold. directorymanagement's solution asserts that TREE takes its first five pre-order lines by walking the leftmost chain and its last five by walking the rightmost chain, and both halves are false; I built and ran an 11-node counterexample where the true tail is g,h,i,j,e while the rightmost chain yields root,b,c,e, because the pre-order predecessor of a later sibling is the last node of the previous sibling's subtree, not the parent. The script does not catch this because its 'Fast' class quietly materialises the full pre-order instead, with a comment conceding as much, so the only non-routine part of an 8.6 problem is simultaneously wrong in the write-up and untested in the harness; that same fallback is also O(subtree) per TREE, about 9.5e9 node visits across 20 datasets in the worst legal input. BOTH REPORTED STATEMENT DEFECTS CONFIRMED FROM THE SOURCE TEXT AND THE SAMPLES, not taken on trust. swimmingballs: the prose names 'the specific weight and radius' while the symbols read r_i then w_i, and sample 2 forces radius-first, since 0.8-as-radius gives 1.786165145 against the expected 1.78616514621 while 0.8-as-weight gives 2.088 clamped to 2.0. printerscheduling: the output constraint d_i <= x < y <= r_i is unsatisfiable given d_i - r_i >= p_i >= 1, and the sample's first period '2 4' for a file with r=2, d=7 forces r_i <= x < y <= d_i. THE THREE SPECIFIC REDUCTIONS I WAS ASKED TO ATTACK ALL SURVIVED. ultimatepipegame: I re-derived sample 2 twice, once as a forced 10-cycle costing 2+5+1+2 and once purely from gadget port loads, and got 10 both ways; but the convexity is per-port, not 'in horizontal out-degree' as claimed, since the per-cell cost (v, 0, h) has increments -v then +h and could not be carried by non-negative parallel edges. The code is right and the sentence is wrong. printerscheduling: compressed-interval flow really does equal the unit-slot flow, constructively via McNaughton (each per-job amount <= len_k, so the wrapped piece ends at a+off and cannot overlap its own pre-wrap piece), and the script cross-checks it against both a unit-slot flow and an exhaustive DFS while re-validating every emitted schedule. message: O(|p|^3 log n) does fit, about 1.5e8 128-bit mulmods over 20 datasets, though the script's big-n check used |p| = 11 and never exercised |p| = 50. LABEL CHANGES, five drops and no adds: greedy off alicedigital and off printerscheduling (umbrella labels with no greedy choice behind them, the latter already covered by constructive-algorithm), combinatorics off message (nothing combinatorial happens; 26^n minus an automaton walk), and simulation plus stack off reservoir. The reservoir pair deserves the explicit contrast the brief asked for: simulation is dropped there because the whole method is to avoid simulating the fill, yet kept on directorymanagement where a command stream genuinely is executed step by step; and stack is dropped there as a redundant parent of monotonic-stack (the taxonomy carries family rules for dp, bfs, dfs, binary-search, segment-tree, two-pointers, combinatorics, number-theory and union-find, and deliberately not for stack), yet kept on directorymanagement where it names a separate LIFO undo history. Two labels I was told to rule strictly on I am KEEPING and would raise: binary-search-answer on swimmingballs at 0.65, where the monotone predicate and the float-versus-grounded feasibility evaluation are exactly the pattern and the paired binary-search is the project's own family implication rather than duplication; and design on directorymanagement, the paradigm case of implementing a specified data structure. dinic at 0.5 on printerscheduling also stays and should rise, because a flow value of 6e6 rules out Ford-Fulkerson and Edmonds-Karp and makes the algorithm choice load-bearing rather than incidental. dp-on-dag, dsu-on-tree and brute-force are claimed nowhere in this batch, which is correct: no problem here has a DAG-DP or small-to-large structure, and every solution beats brute force, with the brute forces confined to the verify scripts where they belong. All 12 summaries are 40-70 words with no examples, markup, LaTeX or bracket notation, and all 12 are factually faithful to their statements. On bands I differ from Kattis in three places: alicedigital is easy rather than its 3.3 medium, since it is one scan behind one small observation; message is hard rather than very-hard despite 8.9, since KMP-automaton plus matrix power is a standard combination and the score looks thin-sample; and ultimatepipegame is very-hard despite only 7.8, since the degree-2 reduction plus the convex-cost gadget is a serious piece of work and only 8 teams solved it. SYSTEMATIC: the recurring weakness across this batch is not correctness but complexity arithmetic that stops at the per-dataset figure and never multiplies by the dataset count, which the statements set as high as 100. It bites olympiadtraining (2.1e9 nominal, rescued only by the implied input size), divisorgame (an omitted 6.4e8 counting term), printerscheduling (an unexamined 10MB output cap against 25 datasets of McNaughton splitting) and ultimatepipegame (~1e9 across 100 datasets). None of these is fatal on the likely test data, but the pattern is consistent enough to be worth a standing instruction for the next batch."
+}

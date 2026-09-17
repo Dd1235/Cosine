@@ -1,0 +1,36 @@
+{
+  "id": "codechef-cyclist",
+  "title": "The Adventure of the Solitary Cyclist, II",
+  "slug": "cyclist",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CYCLIST",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "A cyclist, bored of congested roads, decides that she no longer wants to go the shortest route from her hostel to the college. She has decided that it is safer to follow routes with bicycle lanes. Roads have cycle lanes in both directions - however, they have gaps in their cycle-lane coverage.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CYCLIST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN12",
+    "position": 3,
+    "problem_code": "CYCLIST",
+    "replay_solves": {
+      "successful": 31,
+      "total": 292,
+      "accuracy": 10.62,
+      "replay_only": true
+    }
+  }
+}

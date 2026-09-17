@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acm14am3",
+  "title": "Launch Tower",
+  "slug": "acm14am3",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14AM3",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "\"The Mars Orbiter Mission probe lifted-off from the First Launch Pad at Satish Dhawan Space Centre (Sriharikota Range SHAR), Andhra Pradesh, using a Polar Satellite Launch Vehicle (PSLV) rocket C25 at 09:08 UTC (14:38 IST) on 5 November 2013\".",
+  "tags": [
+    "acm-icpc",
+    "acmamr14",
+    "admin",
+    "dynamic-programming",
+    "easy"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14AM3"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR14",
+    "position": 3,
+    "problem_code": "ACM14AM3",
+    "replay_solves": {
+      "successful": 303,
+      "total": 3603,
+      "accuracy": 8.94,
+      "replay_only": true
+    }
+  }
+}

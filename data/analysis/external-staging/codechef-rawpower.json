@@ -1,0 +1,30 @@
+{
+ "id": "codechef-rawpower",
+ "platform": "codechef",
+ "title": "K - Raw Power",
+ "slug": "rawpower",
+ "source_url": "https://www.codechef.com/problems/RAWPOWER",
+ "source_topic": "ICPC / Kolkata Regional 2017",
+ "source_text": "The University of Geo Tech, Riga has a new doctoral student on the block who calls himself Raw Power. He has **N** meetings lined up today and wants to avoid them all. The i th meeting takes place from time units **s i ** to **t i **. Raw power wants to move meetings around so that the amount of time for which all meetings are simultaneously scheduled is maximized. Once he does this, he will send an email to his advisor citing this number to justify the cancellation. Of course moving meetings around affects a student's credibility. Specifically moving a meeting from time period [**s i **, **t i **] to [**s i ** + a, **t i ** + a] is possible for any *integer* a but reduces credibility by |a| (|x| denotes absolute value of x). Raw Power currently has a credibility of **K** and is willing to sacrifice it all. He needs your help to know the maximum possible intersection of all meeting times that he can achieve whilst keeping his credibility non-negative. Formalizing intersection: Given a set of meetings each with a start and end time, let the maximum start time over all meetings be s and the minimum end time over all meetings be e. The intersection time of all meetings is 0 if s ≥ e and e - s otherwise. Input - The first line contains a single integer **N**, the total number of meetings scheduled. - **N** lines follow, the i th of which contains integers **s i ** and **t i **, the start time and end time of the i th meeting. - The next line contains a single integer **Q**, denoting the number of queries. - **Q** lines follow, the i th of which contains an integer **K** denoting the available credibility. Note that all the queries are independent. Output - Output **Q** lines, the i th of which should contain a single integer, the answer for test case i. This value denotes the maximum attainable intersection of all meetings under the constraint of available credibility. Constraints - 1 ≤ **N** ≤ 300000 - 0 ≤ **s i ** ≤ **t i ** ≤ 10 9 - 1 ≤ **Q** ≤ 20 - 0 ≤ **K** ≤ 10 18 Sample Input 4 5 10 2 12 14 25 7 19 7 100000 4 5 6 7 8 9 Sample Output 5 0 1 2 3 4 5 If the total credibility is 6, one way to obtain an intersection of 2 is to move the meeting [14, 25] to [8, 19] so that all meetings intersect in the time range [8, 10].",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms",
+  "searching"
+ ],
+ "date_added": "22-12-2017",
+ "problem_author": "architk",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL17ROL",
+  "position": 11,
+  "problem_code": "RAWPOWER",
+  "replay_solves": {
+   "successful": 2,
+   "total": 3,
+   "accuracy": 66.67,
+   "replay_only": true
+  }
+ }
+}

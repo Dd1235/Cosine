@@ -1,0 +1,33 @@
+{
+ "id": "kattis-krotating",
+ "title": "K-Rotating",
+ "slug": "krotating",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/krotating",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "N teachers start in the classes of the same number and are shuffled by rotations: a plan names up to ten teachers and, from a given week on, moves each into the class the next one occupied. Plans arrive in arbitrary week order interleaved with questions asking which class a teacher holds in a given week, counting only plans issued so far. Up to one hundred thousand operations.",
+ "tags": [],
+ "patterns": [
+  "sqrt-decomposition",
+  "hash-map"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "sqrt-decomposition": 0.9,
+   "hash-map": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.3,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

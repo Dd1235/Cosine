@@ -1,0 +1,37 @@
+{
+  "id": "codechef-ni05",
+  "title": "Retail Shop",
+  "slug": "ni05",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NI05",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "A retail shop has announced a reward point scheme on pairs of items procured by customers. No point is available on purchase of a single item. The scheme is applicable for n (n > 0) different types of items available in the shop.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NI05"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP12",
+    "position": 5,
+    "problem_code": "NI05",
+    "replay_solves": {
+      "successful": 16,
+      "total": 42,
+      "accuracy": 38.1,
+      "replay_only": true
+    }
+  }
+}

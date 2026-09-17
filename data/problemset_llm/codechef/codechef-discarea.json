@@ -1,0 +1,42 @@
+{
+  "id": "codechef-discarea",
+  "title": "Black Discs",
+  "slug": "discarea",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/DISCAREA",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "Consider the 2-d plane which is white. You are given **n** semi-discs on it which are colored black. They are placed on the x-axis at various positions, in such a way that its center is on the x-axis and the entire semi-disc is **on or above** the x-axis.",
+  "tags": [
+    "acm17kgp",
+    "convex-hull",
+    "geometry",
+    "hard",
+    "kgp17rol",
+    "monte-carlo",
+    "triveni"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/DISCAREA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 2,
+    "problem_code": "DISCAREA",
+    "replay_solves": {
+      "successful": 0,
+      "total": 2,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

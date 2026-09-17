@@ -1,0 +1,40 @@
+{
+  "id": "codechef-acm14am5",
+  "title": "Supercomputer",
+  "slug": "acm14am5",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14AM5",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "The ISRO (Indian Space Research Organization) has recently built a supercomputer with the help of C-DAC (Center for Development of Advanced Computing), for processing data generated from MOM (Mars Orbiter Mission).",
+  "tags": [
+    "acm-icpc",
+    "acmamr14",
+    "admin",
+    "dynamic-programming",
+    "medium-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14AM5"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR14",
+    "position": 5,
+    "problem_code": "ACM14AM5",
+    "replay_solves": {
+      "successful": 5,
+      "total": 948,
+      "accuracy": 0.63,
+      "replay_only": true
+    }
+  }
+}

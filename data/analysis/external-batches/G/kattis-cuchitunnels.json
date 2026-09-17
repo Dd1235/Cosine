@@ -1,0 +1,26 @@
+{
+ "id": "kattis-cuchitunnels",
+ "status": "solved",
+ "solution": "Because every root-to-X path has increasing indices, the tree rooted at room 1 has parent(i) < i for every i >= 2, so room 1 has D_1 children and room i >= 2 has D_i - 1 children. Let c_1 = D_1, c_i = D_i - 1 and S_i = sum_{j<=i} c_j - (i-1), the number of still-unused child slots after rooms 1..i have been placed. The sequence is realisable exactly when sum c = N-1 (the handshake identity) and S_i >= 1 for every i < N, since room i+1 must attach to some earlier room with a free slot, and conversely any such attachment works because the parent index is automatically smaller. O(N) time and O(1) extra space.",
+ "solution_confidence": 0.97,
+ "statement_summary": "A network of N rooms is connected by N-1 tunnels forming a tree whose rooms are numbered so that indices strictly increase along every shortest path from room 1. Given the array of degrees, one per room, the task is to decide whether such a network can exist and print YES or NO, with N at most one thousand.",
+ "patterns": [
+  "greedy",
+  "prefix-sum",
+  "constructive-algorithm"
+ ],
+ "pattern_confidence": {
+  "greedy": 0.8,
+  "prefix-sum": 0.7,
+  "constructive-algorithm": 0.55
+ },
+ "tags": [
+  "tree",
+  "degree-sequence",
+  "greedy",
+  "prefix-sum"
+ ],
+ "source_text_sha256": "aeb8f067bb69521f3b1e62efbfd84d9d42fe3b361ce1e927d2e884838fd02808",
+ "verify_script": "data/analysis/external-batches/G/verify_cuchitunnels.py",
+ "notes": "verify_cuchitunnels.py enumerates every parent array with parent<child for N=2..7 and compares the achievable degree tuples against the O(N) test over the whole cube [1,N-1]^N - zero mismatches (counts come out Catalan: 1,2,5,14,42,132). Not binary-search-answer, not tree-dp: the check is a single prefix scan."
+}

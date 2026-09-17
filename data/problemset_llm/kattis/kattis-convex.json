@@ -1,0 +1,39 @@
+{
+ "id": "kattis-convex",
+ "title": "Association for Convex Main Office",
+ "slug": "convex",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/convex",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "Given N between three and four hundred thousand, the task is to output any convex polygon with exactly N vertices, every vertex at a lattice point with both coordinates between zero and forty million, all vertices distinct and no three of them collinear. Any valid polygon is accepted, in any vertex order, and the output is large enough that fast printing matters.",
+ "tags": [],
+ "patterns": [
+  "constructive-algorithm",
+  "geometry",
+  "gcd",
+  "sorting",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "constructive-algorithm": 0.9,
+   "geometry": 0.9,
+   "gcd": 0.9,
+   "sorting": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.1,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

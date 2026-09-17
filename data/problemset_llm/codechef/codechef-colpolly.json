@@ -1,0 +1,37 @@
+{
+  "id": "codechef-colpolly",
+  "title": "What is this, a crossover episode",
+  "slug": "colpolly",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/COLPOLLY",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "You are given a simple polygon (that is, its edges don't intersect with each other, apart from touching at the vertices) with n vertices. The vertices are numbered, in clockwise order, as 1, 2, \\ldots, n. Additionally, there are m non-intersecting chords within the polygon.",
+  "tags": [
+    "data-structures",
+    "advanced-algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/COLPOLLY"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 3,
+    "problem_code": "COLPOLLY",
+    "replay_solves": {
+      "successful": 4,
+      "total": 57,
+      "accuracy": 10.53,
+      "replay_only": true
+    }
+  }
+}

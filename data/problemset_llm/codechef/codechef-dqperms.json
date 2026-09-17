@@ -1,0 +1,39 @@
+{
+  "id": "codechef-dqperms",
+  "title": "Denethors Decryption of Dequeue permutations",
+  "slug": "dqperms",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/DQPERMS",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# Denethor's Decryption of Dequeue permutations Sauron and Saruman have been communicating from large distances using the Seeing Stones. Denethor, with great difficulty, has been able to break into their channel of communication using his strength of will.",
+  "tags": [
+    "acmamr12",
+    "admin",
+    "combinatorics",
+    "hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/DQPERMS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 3,
+    "problem_code": "DQPERMS",
+    "replay_solves": {
+      "successful": 4,
+      "total": 29,
+      "accuracy": 17.24,
+      "replay_only": true
+    }
+  }
+}

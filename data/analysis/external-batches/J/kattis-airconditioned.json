@@ -1,0 +1,25 @@
+{
+ "id": "kattis-airconditioned",
+ "status": "solved",
+ "solution": "Every minion is an interval [L,U] of acceptable temperatures and a room is one temperature, so this is the minimum piercing (stabbing) set of N intervals: pick the fewest points so that every interval contains one. Sort the intervals by right endpoint and sweep: whenever the next interval starts after the last point placed, place a new point at that interval's right endpoint. That point is the latest position that still stabs the current interval, so it dominates every other choice, giving optimality by the standard exchange argument. O(N log N) time, O(N) space, trivial for N <= 100.",
+ "solution_confidence": 0.97,
+ "statement_summary": "A company must house N minions, at most a hundred of them, in as few rooms as possible. Each room is set to a single temperature, and every minion accepts only temperatures inside a personal closed interval whose endpoints lie between one and twice N. The task is to report the minimum number of distinct temperatures needed so that every minion can be assigned to a room it likes.",
+ "patterns": [
+  "greedy",
+  "sorting",
+  "interval-scheduling"
+ ],
+ "pattern_confidence": {
+  "greedy": 0.97,
+  "sorting": 0.93,
+  "interval-scheduling": 0.8
+ },
+ "tags": [
+  "intervals",
+  "greedy",
+  "sorting"
+ ],
+ "source_text_sha256": "20640c9ff4b6841f6835180264ea034df520929aefbe8afe661fdb0297bab8b2",
+ "verify_script": "data/analysis/external-batches/J/verify_airconditioned.py",
+ "notes": "Minimum piercing set is the dual of interval scheduling and uses the same earliest-deadline greedy, which is why interval-scheduling is tagged; no binary search is involved. Statement contains no sentence addressed to the annotator."
+}

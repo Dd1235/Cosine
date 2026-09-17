@@ -1,0 +1,42 @@
+{
+  "id": "codechef-kgp16b",
+  "title": "Path by a Castle",
+  "slug": "kgp16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16B",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "Jared and Payton are on the 2D plane, at locations (x a , y a ) and (x b , y b ) , respectively. They want to meet, but Payton is lazy and doesn't want to move. So Jared wants to walk to Payton's location. But Jared is also lazy, so he wants to do it with the shortest distance possible.",
+  "tags": [
+    "acm16",
+    "admin3",
+    "geometry",
+    "icpc2016",
+    "kgp16",
+    "mathspuzzle",
+    "point-in-polygon"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 2,
+    "problem_code": "KGP16B",
+    "replay_solves": {
+      "successful": 1,
+      "total": 33,
+      "accuracy": 3.03,
+      "replay_only": true
+    }
+  }
+}

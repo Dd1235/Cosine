@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16e",
+  "title": "Jumping Frogs III",
+  "slug": "inf16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16E",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "At time 0, **R** red frogs and **G** green frogs are sitting on a straight line. Every frog can be described with an integer number **P**, denoting its initial position and a non-negative integer **V**, denoting its velocity.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 5,
+    "problem_code": "INF16E",
+    "replay_solves": {
+      "successful": 34,
+      "total": 265,
+      "accuracy": 13.21,
+      "replay_only": true
+    }
+  }
+}

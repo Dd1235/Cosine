@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16l",
+  "title": "WiFi Expenses",
+  "slug": "inf16l",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16L",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Demonetization has made a tumultuous situation in the stock market, which is responsible for recent layoffs in Information Technology jobs.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16L"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 11,
+    "problem_code": "INF16L",
+    "replay_solves": {
+      "successful": 3,
+      "total": 20,
+      "accuracy": 15.0,
+      "replay_only": true
+    }
+  }
+}

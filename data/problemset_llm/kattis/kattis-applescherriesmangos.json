@@ -1,0 +1,41 @@
+{
+ "id": "kattis-applescherriesmangos",
+ "title": "Apples, Cherries, and Mangos",
+ "slug": "applescherriesmangos",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/applescherriesmangos",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "Boxes of three fruit types, namely A apples, C cherries and M mangos with each count between one and two hundred thousand, must be shipped in a single line so that no two neighbouring boxes hold the same fruit. Two shipments differ when some position carries a different fruit. The task is to count the valid orders modulo one billion and seven.",
+ "tags": [],
+ "patterns": [
+  "combinatorics",
+  "inclusion-exclusion",
+  "fft",
+  "multinomial-coefficient",
+  "modular-arithmetic",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "combinatorics": 0.9,
+   "inclusion-exclusion": 0.9,
+   "fft": 0.9,
+   "multinomial-coefficient": 0.9,
+   "modular-arithmetic": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

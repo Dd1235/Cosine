@@ -1,0 +1,33 @@
+{
+ "id": "kattis-engaging",
+ "title": "Engaging with Loyal Customers",
+ "slug": "engaging",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/engaging",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A company has m gifts and n loyal customers, and k survey cards each state how satisfied a given customer would be with a given gift; unlisted pairs are worth nothing. Every customer takes at most one gift and every gift goes to at most one customer. The task is to maximise the total satisfaction and print one optimal allocation, with m and n up to one thousand.",
+ "tags": [],
+ "patterns": [
+  "hungarian-algorithm",
+  "bipartite-matching"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "hungarian-algorithm": 0.9,
+   "bipartite-matching": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.9,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

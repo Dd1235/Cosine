@@ -1,0 +1,38 @@
+{
+  "id": "codechef-chn05",
+  "title": "Malvika conducts a Programming Camp",
+  "slug": "chn05",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN05",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "After acquiring an extraordinary amount of knowledge through programming contests, Malvika decided to harness her expertise to train the next generation of Indian programmers. So, she decided to hold a programming camp.",
+  "tags": [
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN05"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 5,
+    "problem_code": "CHN05",
+    "replay_solves": {
+      "successful": 85,
+      "total": 266,
+      "accuracy": 32.33,
+      "replay_only": true
+    }
+  }
+}

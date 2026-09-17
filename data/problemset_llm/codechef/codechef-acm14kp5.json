@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kp5",
+  "title": "Three elements",
+  "slug": "acm14kp5",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KP5",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Given an array a[1..n] with n positive integers. You can select any 3 different indices i, j, k and sum up the values a[i], a[j], a[k] . You need to output the maximum sum you can make by selecting some i, j, k. Input The first line contains an integer T indicating the number of test cases.",
+  "tags": [
+    "acmkgp14",
+    "admin",
+    "cakewalk",
+    "programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KP5"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP14",
+    "position": 5,
+    "problem_code": "ACM14KP5",
+    "replay_solves": {
+      "successful": 414,
+      "total": 849,
+      "accuracy": 49.71,
+      "replay_only": true
+    }
+  }
+}

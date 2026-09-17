@@ -1,0 +1,29 @@
+{
+ "id": "codechef-kol16j",
+ "platform": "codechef",
+ "title": "Quentin Tarantino",
+ "slug": "kol16j",
+ "source_url": "https://www.codechef.com/problems/KOL16J",
+ "source_topic": "ICPC / Kolkata Regional 2016",
+ "source_text": "Quentin Tarantino is a famous Hollywood filmmaker and actor. His films have a unique characteristic of connecting with youth by using popular culture references. They are usually divided into various sub-parts denoted by chapters. His plot of stories is never linear, he always makes sure that the chapters should never be shown in the order of Chapter 1, Chapter 2, Chapter 3, ..., Chapter `n` linearly. He believes doing this is an insult to the intelligence of viewers. For example, Chapter 1, Chapter 2, Chapter 3 can never be a chapter sequence in Tarantino's movies. He can have a sequence of Chapter 2, Chapter 3, Chapter 1 instead. Recently Santa gifted Tom a movie which consists of `n` chapters. This movie can possibly be directed by your favorite Tarantino or by someone else. Directors in Hollywood can sometimes be very sloppy, they sometimes drop some chapters too and stupid they are that they will leave numbering of the chapters as it is and one can easily identify the chapters that were dropped. For example, if you find the sequence of chapters as - chapter 1, chapter 5, chapter 3, don't be surprised, they did not even take the burden of renumbering the chapters to chapter 1, chapter 3, chapter 2. They can sometimes repeat the chapter numbers too. Remember that Tarantino is not a sloppy director, so he never makes this kind of stupid mistakes. Tom happened to find the sequence of chapters in the movie, this sequence contains `n` chapters, `i`-th of which is denoted by `chapter_i`. Tom is a big fan of movies of Tarantino. So, Tom would like to check whether the movie could possibly be directed by Tarantino or not? Please help Tom, he really needs it. Input The first line contains an integer `T` denoting the number of test cases. `T` test cases follow. The first line of each test case contains an integer `n` denoting the number of chapters of the movie. The second line of each test case contains `n` space-separated integers `chapter_i`, denoting the numbering of the `i-th` chapter. Output For each test case, output \"yes\" or \"no\" in a separate line. Constraints - `1` ≤ `T` ≤ `100` - `2` ≤ `N` ≤ `100` - `1` ≤ `chapter_i` ≤ `500` Sample Input 4 3 2 3 1 3 1 5 3 3 1 2 3 2 1 1 Sample Output yes no no no All the examples are explained in the problem statement.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms"
+ ],
+ "date_added": "26-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL16MOS",
+  "position": 10,
+  "problem_code": "KOL16J",
+  "replay_solves": {
+   "successful": 195,
+   "total": 398,
+   "accuracy": 49.25,
+   "replay_only": true
+  }
+ }
+}

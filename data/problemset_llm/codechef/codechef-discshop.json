@@ -1,0 +1,39 @@
+{
+  "id": "codechef-discshop",
+  "title": "Discount in a Shop",
+  "slug": "discshop",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/DISCSHOP",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "I have a habit of asking for discounts when I'm buying something. Before you rush to call me a miser, let me tell you that I only ask for discounts if I have to pay at least 10 Rs, since asking for a discount on something that can be paid with just a few coins is really rude.",
+  "tags": [
+    "data-structures",
+    "basic-programming-concepts",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/DISCSHOP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 3,
+    "problem_code": "DISCSHOP",
+    "replay_solves": {
+      "successful": 3683,
+      "total": 8907,
+      "accuracy": 46.53,
+      "replay_only": true
+    }
+  }
+}

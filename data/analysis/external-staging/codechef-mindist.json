@@ -1,0 +1,29 @@
+{
+ "id": "codechef-mindist",
+ "platform": "codechef",
+ "title": "Minimize the Distance",
+ "slug": "mindist",
+ "source_url": "https://www.codechef.com/problems/MINDIST",
+ "source_topic": "ICPC / Kanpur Regional 2019",
+ "source_text": "You are given two line segments $\\mathsf{AB}$ and $\\mathsf{CD}$ in $N$-dimensional space. Find the minimum distance between them, i.e. the minimum distance $\\mathsf{|PQ|}$ over all points $\\mathsf{P} \\in \\mathsf{AB}$ and $\\mathsf{Q} \\in \\mathsf{CD}$. **Note**: Because of large I/O, please use fast I/O methods. Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first line of each test case contains a single integer $N$. - The second line contains $N$ space-separated integers $a_1, a_2, \\ldots, a_N$ denoting the coordinates of the point $\\mathsf{A}$. - The third line contains $N$ space-separated integers $b_1, b_2, \\ldots, b_N$ denoting the coordinates of the point $\\mathsf{B}$. - The fourth line contains $N$ space-separated integers $c_1, c_2, \\ldots, c_N$ denoting the coordinates of the point $\\mathsf{C}$. - The fifth line contains $N$ space-separated integers $d_1, d_2, \\ldots, d_N$ denoting the coordinates of the point $\\mathsf{D}$. Output For each query, print a single line containing one real number - the minimum distance between the line segments. Your output will be considered correct if the absolute or relative error does not exceed $10^{-12}$. Constraints - $1 \\le T \\le 10^5$ - $3 \\le N \\le 10^5$ - $0 \\le a_i, b_i, c_i, d_i \\le 1,000$ for each valid $i$ - The sum of $N$ over all test cases does not exceed $10^6$ Sample Input 2 3 879 130 645 214 801 973 487 518 681 186 74 684 3 810 702 731 598 325 737 158 871 316 336 999 983 Sample Output 146.899739355990 587.980716360221",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms"
+ ],
+ "date_added": "28-11-2019",
+ "problem_author": "msi_cse_buet",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KA19MOS",
+  "position": 8,
+  "problem_code": "MINDIST",
+  "replay_solves": {
+   "successful": 0,
+   "total": 40,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

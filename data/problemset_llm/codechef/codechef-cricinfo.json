@@ -1,0 +1,36 @@
+{
+  "id": "codechef-cricinfo",
+  "title": "CricInfo",
+  "slug": "cricinfo",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CRICINFO",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "I guess the most visited site of the past 3 months is www.cricinfo.com . First World Cup Cricket, then Australia tour to Bangladesh and now IPL T20. I believe there are lots of cricket fans among you. So I do not need to describe the game rule.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CRICINFO"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN11",
+    "position": 4,
+    "problem_code": "CRICINFO",
+    "replay_solves": {
+      "successful": 7,
+      "total": 39,
+      "accuracy": 17.95,
+      "replay_only": true
+    }
+  }
+}

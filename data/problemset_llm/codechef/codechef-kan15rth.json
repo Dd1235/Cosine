@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rth",
+  "title": "Displaying Da Vinci work",
+  "slug": "kan15rth",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTH",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The King of Florence is going to visit Da Vinci in his workshop to see his paintings. In preparation of that, Da Vinci has painted a total of N paintings that he would display to the King.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 8,
+    "problem_code": "KAN15RTH",
+    "replay_solves": {
+      "successful": 13,
+      "total": 24,
+      "accuracy": 54.17,
+      "replay_only": true
+    }
+  }
+}

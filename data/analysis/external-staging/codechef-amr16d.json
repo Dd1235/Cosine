@@ -1,0 +1,29 @@
+{
+ "id": "codechef-amr16d",
+ "platform": "codechef",
+ "title": "ATM queue",
+ "slug": "amr16d",
+ "source_url": "https://www.codechef.com/problems/AMR16D",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Ramu and his wife Lata are facing a cash crisis. They go to the nearby ATM to get some cash. There are **3** ATMs inside the same room. People are standing in queue outside, and go inside the room in groups of 3 to the ATMs, fetch their money and come out. Lata has an irrational fear in getting money from ATM that her ATM pin will somehow be stolen and all her money will be lost. So, she will always like to go into the room with Ramu. Ramu is standing at position **K** in line, immediately followed by Lata (i.e. at position **K + 1**). Can you tell whether Ramu and Lata both will be able to get money in such a way that Lata does not feel insecure? Input The first line contains an integer **T** denoting the number of test cases. **T** test cases follow. The only line of each test case contains two space separated integers **N** and **K**, where **N** denotes number of people in the queue, and **K** denotes the position of Ramu. Output For each test case, output \"yes\" or \"no\" correspondingly denoting whether they both will be able to get the money without Lata getting scared. Constraints - **1** ≤ **T** ≤ **100** - **3** ≤ **N** ≤ **100** - **1** ≤ **K** ≤ **N - 1** - **N** is divisible by **3**. Sample Input 2 3 1 6 3 Sample Output yes no **Example case 1**. Ramu is at position 1 and Lata is at position 2. They will go in the room together in the very first batch of three. **Example case 2**. Ramu is at position 3 and Lata is at position 4. The first two people and Ramu will go into the room first. Then Lata and remaining 2 people after her will go into the room, but Lata will be scared as Ramu is not there with her in the room.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 4,
+  "problem_code": "AMR16D",
+  "replay_solves": {
+   "successful": 218,
+   "total": 328,
+   "accuracy": 69.51,
+   "replay_only": true
+  }
+ }
+}

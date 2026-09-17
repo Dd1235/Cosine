@@ -1,0 +1,36 @@
+{
+  "id": "codechef-acmkanpa",
+  "title": "Problem With Strings",
+  "slug": "acmkanpa",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACMKANPA",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "Today, we will be unraveling the mysteries of one of the most twisted and curly beasts in all existence knots! The problem here is simple: given the picture of a string laid out curled on a table, you are to determine if it will curl up into a knot when the ends are pulled out. ...............",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACMKANPA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN10",
+    "position": 1,
+    "problem_code": "ACMKANPA",
+    "replay_solves": {
+      "successful": 1,
+      "total": 25,
+      "accuracy": 4.0,
+      "replay_only": true
+    }
+  }
+}

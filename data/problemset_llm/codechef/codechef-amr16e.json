@@ -1,0 +1,40 @@
+{
+  "id": "codechef-amr16e",
+  "title": "Black Money Island",
+  "slug": "amr16e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR16E",
+  "source_topic": "ICPC / Amritapuri Regional 2016",
+  "source_tags": [],
+  "statement": "The Royal Bank of Black Money Island wants to construct ATMs so that the citizens can withdraw black money easily for their day-to-day needs. The capital city can be represented as a number of checkpoints connected by a network of roadways, each of which have ATMs present on them.",
+  "tags": [
+    "acm-icpc",
+    "admin3",
+    "amritapuri",
+    "graphs",
+    "union-find"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR16E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR16MOS",
+    "position": 6,
+    "problem_code": "AMR16E",
+    "replay_solves": {
+      "successful": 1,
+      "total": 2,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

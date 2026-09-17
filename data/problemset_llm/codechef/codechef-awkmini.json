@@ -1,0 +1,36 @@
+{
+  "id": "codechef-awkmini",
+  "title": "Awkwardness Minimization",
+  "slug": "awkmini",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AWKMINI",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are teaching a class of N students. Today, during the morning prayer, all the students are standing in a line. You are given a string s with length N; for each valid i, the i-th character of this string is 'b' if the i-th student in the line is a boy or 'g' if this student is a girl.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AWKMINI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 5,
+    "problem_code": "AWKMINI",
+    "replay_solves": {
+      "successful": 45,
+      "total": 117,
+      "accuracy": 38.46,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+ "id": "kattis-mububa",
+ "title": "Association for the Country of Mububa",
+ "slug": "mububa",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/mububa",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "N briefcases, each holding some bananas, are handed out in order to executives ranked by evilness: each executive receives a positive number of the lowest-numbered briefcases still available. A more evil executive must end up with at least as many bananas as every less evil one. With N up to three thousand, the task is to maximise how many executives can be rewarded.",
+ "tags": [],
+ "patterns": [
+  "dynamic-programming",
+  "partition-dp",
+  "prefix-sum"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "dynamic-programming": 0.9,
+   "partition-dp": 0.9,
+   "prefix-sum": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.4,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

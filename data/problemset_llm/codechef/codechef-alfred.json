@@ -1,0 +1,38 @@
+{
+  "id": "codechef-alfred",
+  "title": "Almost Friends",
+  "slug": "alfred",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ALFRED",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "There are N kids labeled 1, 2, ..., N sitting in a circle such that 1 and N are adjacent to each other. i^{th} kid has A_i chocolates with him. Also, kids sitting adjacent have **almost** the same number of chocolates, so that they don't fight with each other.",
+  "tags": [
+    "special",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ALFRED"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 11,
+    "problem_code": "ALFRED",
+    "replay_solves": {
+      "successful": 0,
+      "total": 1,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

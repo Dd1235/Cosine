@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp14g",
+  "title": "Tour Planning",
+  "slug": "kgp14g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14G",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Professor PariBrajika wishes to plan a tour from Kharagpur to Himalpur using Pushpak Travels. There are K tourist locations serviced by Pushpak Travels, numbered from 1 to K , including Kharagpur (numbered 1) and Himalpur (numbered K ).",
+  "tags": [
+    "admin3",
+    "dynamic-programming",
+    "kgp14ros",
+    "medium-hard",
+    "shortest-path"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 7,
+    "problem_code": "KGP14G",
+    "replay_solves": {
+      "successful": 0,
+      "total": 1,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "codechef-kgp16g",
+  "title": "Painting a Town",
+  "slug": "kgp16g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16G",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "You are mayor of Kolkata, and you've decided to create a new town in the outskirts of the city! This new town is very well planned. All the houses in the town are arranged in a rectangle of dimensions n \\times m, i.e. there are n rows of houses with each row containing m houses.",
+  "tags": [
+    "admin3",
+    "binary-search",
+    "bfs",
+    "brute-force",
+    "expected-value",
+    "icpc2016",
+    "kgp16",
+    "pre-computation",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 7,
+    "problem_code": "KGP16G",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

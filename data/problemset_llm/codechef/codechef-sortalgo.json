@@ -1,0 +1,39 @@
+{
+  "id": "codechef-sortalgo",
+  "title": "Pseudo Sorting Algorithm",
+  "slug": "sortalgo",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SORTALGO",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "Chef has devised a new algorithm which works as follows. It takes an array a with n integers (a_0, a_1, \\ldots, a_{n-1}), and returns another array b. ```pseudo pseudo_sort(a): - Array b is initially empty. - For i = 0; i \\leq n-1; i++: - If b is empty, append a_i to b.",
+  "tags": [
+    "basic-programming-concepts",
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SORTALGO"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 7,
+    "problem_code": "SORTALGO",
+    "replay_solves": {
+      "successful": 27,
+      "total": 108,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

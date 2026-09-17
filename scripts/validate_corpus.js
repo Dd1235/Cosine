@@ -175,6 +175,19 @@ function checkProblem({ rel, platform, basename, problem }, taxonomy, driftCount
     }
   }
 
+  // The labels-pending tier: statement + judge tags, none of our labels yet.
+  // Exactly two states exist — pending, or absent (reviewed like everything
+  // else). The three checks make the tier unfakeable: nothing can be marked
+  // pending and still ship labels, and nothing pending can ship with nothing
+  // indexable in it.
+  if (problem.review_status !== undefined) {
+    if (problem.review_status !== "labels-pending") err(`${rel}: unknown review_status "${problem.review_status}"`);
+    if ((problem.patterns || []).length) err(`${rel}: labels-pending must carry no patterns`);
+    if (!(problem.tags || []).length) err(`${rel}: labels-pending must carry judge tags`);
+    if (((problem.annotation || {}).model) !== "codechef-judge-tags") err(`${rel}: labels-pending annotation.model must be codechef-judge-tags`);
+    driftCounts.pending = (driftCounts.pending || 0) + 1;
+  }
+
   const conf = (problem.annotation || {}).pattern_confidence || {};
   const patternSet = new Set(problem.patterns || []);
   const strays = Object.keys(conf).filter((k) => !patternSet.has(k));
@@ -316,6 +329,7 @@ function main() {
     console.log(`note: ${n} ${dir.name} file(s) on disk are not served (DEFAULT_PLATFORMS)`);
   }
 
+  if (driftCounts.pending) console.log(`note: ${driftCounts.pending} record(s) are labels-pending (statement + judge tags, no reviewed labels yet)`);
   for (const w of warnings) console.log(`warn: ${w}`);
   for (const e of errors) console.error(`error: ${e}`);
   const summary = `${entries.length} problems, ${queryCount} bench queries, ${errors.length} error(s), ${warnings.length} warning(s)`;

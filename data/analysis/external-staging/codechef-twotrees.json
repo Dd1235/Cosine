@@ -1,0 +1,34 @@
+{
+ "id": "codechef-twotrees",
+ "platform": "codechef",
+ "title": "A tale of two trees",
+ "slug": "twotrees",
+ "source_url": "https://www.codechef.com/problems/TWOTREES",
+ "source_topic": "CodeChef / ACM ICPC 2017, Online Preliminary Round",
+ "source_text": "There are two trees; tree 1 has N 1 nodes which are numbered from 1 to N 1 , and tree 2 has N 2 nodes which are numbered from 1 to N 2 . Each tree is rooted at its node 1. You should perform the following operation: choose an arbitrary node u in tree 2, remove the subtree of node u (the subtree formed by node u and all its direct or indirect descendants) from tree 2 and add the subtree to any leaf of tree 1 (ie. u should become a child of some leaf in tree 1). Note that u can also be the root of tree 2. Afterwards, discard the rest of tree 2 and keep only the modified tree 1. How many distinct trees can you obtain by performing this operation exactly once? Note that tree 1 will remain rooted in its own node 1. Two trees are considered identical if you can reorder (without changing the root) the children in each node and renumber the nodes (except the root) to make them equal. (Intuitively, the structure of the trees must be same - we're dealing with rooted, unlabelled, unordered isomorphic trees.) Input The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains two space-separated integers N 1 and N 2 denoting the number of nodes in tree 1 and tree 2 respectively. The second line contains N 1 - 1 space-separated integers A 2 , A 3 , ..., A N 1 with each A i denoting the parent of node i in tree 1 The third line contains N 2 - 1 space-separated integers B 2 , B 3 , ..., B N 2 with each B i denoting the parent of node i in tree 2 Output For each test case, output a single line containing the number of distinct trees obtained by performing the above operation exactly once. Constraints 1 ≤ T ≤ 10 5 2 ≤ N 1 , N 2 ≤ 10 5 The sum of N 1 across all test cases does not exceed 10 6 The sum of N 2 across all test cases does not exceed 10 6 1 ≤ A i , B i < i Sample Input 2 3 3 1 1 1 1 3 4 1 1 1 1 2 Sample Output 2 3 Example case 1. There are two distinct trees that can be formed: the first type is making the entire tree 2 a child of one of the 2 leaves of tree 2 and the other being making one of the leaves of tree 2 a child of one of the leaves of tree 1. Note that which leaf doesn't matter as they can be rearranged to obtain the other way (i.e. if we add it to left leaf, then it is same as adding to the right leaf as we can rearrange the leafs to make it same) Example case 2. The 3 distinct trees are formed by: make the entire tree 2, subtree rooted at node 2 or any of the leaf of tree 2 the child of a leaf of tree 1",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "advanced-dp",
+  "mathematics",
+  "algorithms",
+  "graph-algos",
+  "traversals"
+ ],
+ "date_added": "30-10-2017",
+ "problem_author": "balajiganapath",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMIND17",
+  "position": 4,
+  "problem_code": "TWOTREES",
+  "replay_solves": {
+   "successful": 21,
+   "total": 367,
+   "accuracy": 5.72,
+   "replay_only": true
+  }
+ }
+}

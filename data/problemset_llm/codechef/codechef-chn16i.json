@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16i",
+  "title": "Alice and Bob play Contact",
+  "slug": "chn16i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16I",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Chef Alice and Chef Bob are going to play their version of the social word game called Contact. First things first, let's say that the vocabulary of Alice and Bob are defined by English words A_1, A_2, \\ldots, A_N and B_1, B_2, \\ldots, B_M, respectively.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 9,
+    "problem_code": "CHN16I",
+    "replay_solves": {
+      "successful": 32,
+      "total": 155,
+      "accuracy": 20.65,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-readcost",
+  "title": "What is the Cost of Reading",
+  "slug": "readcost",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/READCOST",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "There is a universal library, where there is a big waiting room with seating capacity for maximum m people, each of whom completes reading n books sequentially. Reading each book requires one unit of time. Unfortunately, reading service is provided sequentially.",
+  "tags": [
+    "mathematics",
+    "basic-math",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/READCOST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 5,
+    "problem_code": "READCOST",
+    "replay_solves": {
+      "successful": 35,
+      "total": 106,
+      "accuracy": 33.02,
+      "replay_only": true
+    }
+  }
+}

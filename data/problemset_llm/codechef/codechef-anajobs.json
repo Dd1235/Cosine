@@ -1,0 +1,36 @@
+{
+  "id": "codechef-anajobs",
+  "title": "Analytics Load Jobs",
+  "slug": "anajobs",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ANAJOBS",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "You are given N events for your events-pipeline that writes the events in your system to various tables, depending on the event. Each event has two parameters, the index of the table in which it should be written and the size of the event payload (either 1 kb or 2kb).",
+  "tags": [
+    "dpraveen-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ANAJOBS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 12,
+    "problem_code": "ANAJOBS",
+    "replay_solves": {
+      "successful": 28,
+      "total": 77,
+      "accuracy": 36.36,
+      "replay_only": true
+    }
+  }
+}

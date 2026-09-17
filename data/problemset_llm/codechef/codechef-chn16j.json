@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16j",
+  "title": "Kingdom of Chef",
+  "slug": "chn16j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16J",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Chef lives in a country represented by cities numbered from **1** to **N** and connected to each other via bidirectional weighted paths in such a way that there is a unique path between any pair of cities. Chef aims to conquer a subset of these cities and form his Kingdom.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 10,
+    "problem_code": "CHN16J",
+    "replay_solves": {
+      "successful": 0,
+      "total": 5,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

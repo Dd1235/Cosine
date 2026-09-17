@@ -1,0 +1,39 @@
+{
+  "id": "codechef-standup",
+  "title": "Stand Up",
+  "slug": "standup",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/STANDUP",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "A classroom at the Academy of Bit Wizardry contains N rows of chairs. Each row, contains exactly M chairs . Each chair is expected to be filled by exactly one student; you may assume no chair is ever empty. Curiously, N*M is guaranteed to be an even number .",
+  "tags": [
+    "acmkan13",
+    "admin",
+    "dynamic-programming",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/STANDUP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN13",
+    "position": 3,
+    "problem_code": "STANDUP",
+    "replay_solves": {
+      "successful": 16,
+      "total": 127,
+      "accuracy": 12.6,
+      "replay_only": true
+    }
+  }
+}

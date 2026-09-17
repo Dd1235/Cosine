@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16h",
+ "platform": "codechef",
+ "title": "Sum and Xor",
+ "slug": "chn16h",
+ "source_url": "https://www.codechef.com/problems/CHN16H",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Let $F(s, x)$ be the number of triplets of nonnegative integers whose sum is $s$ and bitwise xor is $x$. Given $a$, $b$, and $N$, find the sum of $F(a \\cdot n, b \\cdot n)$ for all $n$ such that $1 \\leq n \\leq N$. Input The first line of input contains an integer $T$ denoting the number of test cases. The description of $T$ test cases follows. Each test case consists of a single line containing three space-separated integers: $a$, $b$ and $N$. Output For each test case, output a single line containing the answer. Since the answer can be very large, only output it modulo $10^9 + 7$. Constraints - $1 \\leq T \\leq 1500$ - $1 \\leq a, b \\leq 30$ - $1 \\leq N \\leq 10^{12}$ Sample Input 1 2 2 2 Sample Output 6 - $F(2 \\cdot 1, 2 \\cdot 1) = F(2, 2) = 3$. - $F(2 \\cdot 2, 2 \\cdot 2) = F(4, 4) = 3$. Thus, the answer is $3 + 3 = 6$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 8,
+  "problem_code": "CHN16H",
+  "replay_solves": {
+   "successful": 0,
+   "total": 1,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

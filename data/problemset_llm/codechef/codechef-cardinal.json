@@ -1,0 +1,38 @@
+{
+  "id": "codechef-cardinal",
+  "title": "Cardinality",
+  "slug": "cardinal",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CARDINAL",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "You have a set of unique numbers. You are trying to find a subset of this set such that no two numbers in the subset have a common digit . There will of course be several such subsets. You are interested in the subset with the maximum sum .",
+  "tags": [
+    "acmkan13",
+    "admin",
+    "dynamic-programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CARDINAL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN13",
+    "position": 4,
+    "problem_code": "CARDINAL",
+    "replay_solves": {
+      "successful": 41,
+      "total": 291,
+      "accuracy": 14.09,
+      "replay_only": true
+    }
+  }
+}

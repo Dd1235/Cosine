@@ -1,0 +1,30 @@
+{
+ "id": "codechef-pstrings",
+ "platform": "codechef",
+ "title": "Dyslexic Gollum",
+ "slug": "pstrings",
+ "source_url": "https://www.codechef.com/problems/PSTRINGS",
+ "source_topic": "ICPC / Amritapuri Regional 2012",
+ "source_text": "# Dyslexic Gollum Gollum has spent half a millennium in the long darkness of Moria, where his eyes grew used to the dark, and without caring for reading or writing, he became dyslexic. Indeed, as much as he hates the Moon and the Sun, he also hates strings with long palindromes in them. Gollum has a tolerance level of **K**, which means that he can read a word so long as it does not contain any palindromic substring of length **K** or more. Given the values **N** and **K**, return how many BINARY strings of length **N** can Gollum tolerate reading. Input The first line contains **T**, the number of test cases. Each test case consists of one line containing 2 integers, **N** and **K**. Output For each test case, output the answer modulo 1,000,000,007. Constraints - 1 < = T < = 100 - 1 < = N < = 400 - 1 < = K < = 10 Sample Input 3 2 2 3 3 3 4 Sample Output 2 4 8 - For the first test case, `01` and `10` are the valid binary strings, while `00` and `11` are invalid. - For the second test case, `001`, `011`, `100`, `110` are the valid binary strings. - For the third test case, all possible binary strings of length 3 are valid.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmamr12",
+  "admin"
+ ],
+ "date_added": "22-01-2013",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMAMR12",
+  "position": 9,
+  "problem_code": "PSTRINGS",
+  "replay_solves": {
+   "successful": 11,
+   "total": 80,
+   "accuracy": 13.75,
+   "replay_only": true
+  }
+ }
+}

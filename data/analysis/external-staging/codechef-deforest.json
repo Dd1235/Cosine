@@ -1,0 +1,32 @@
+{
+ "id": "codechef-deforest",
+ "platform": "codechef",
+ "title": "Chef and Deforestation",
+ "slug": "deforest",
+ "source_url": "https://www.codechef.com/problems/DEFOREST",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "The Chef has come to a forest. He sees N trees in a line. He wants to tie a rope from the top of one tree to the top of another. To successfully tie this rope, he needs to cut the trees that get in the way of the rope. However, he does not like this kind of deforestation and wants your help to choose the best pair of trees between which to tie the rope. Formally, you are given N trees on the X-axis. Tree T i has height H i and is planted at x = x i . You need to choose two trees T i and T j (where x i < x j and H i < H j ) and connect the tops of these trees with a rope such that the following conditions are satisfied: The angle between the rope and the X-axis is equal to 45 degrees. The rope does not pass through any other trees. In order to satisfy the second condition, you are allowed to reduce the height of any trees except T i and T j . Formally, you should choose numbers C 1 , C 2 , ..., C N , such that 0 ≤ C k ≤ H k for each 1 ≤ k ≤ N and C i = C j = 0 . Then decrease H k by C k for each 1 ≤ k ≤ N . Find the maximum value of (length of the rope between the two tops) - (sum of C k for each tree T k ) . Note that the rope can touch the top of some intermediate tree. Look at the examples given for such a scenario. Input The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains a single integer N denoting the number of trees. Each of the following N lines contains two space-separated integers denoting x i and H i . Output For each test case, print a single line with the maximum value of the given expression. Your answer will be considered correct if the absolute or relative error ≤ 10 -6 . If it's impossible to find any valid pair of trees to tie the rope between, print -1 instead. Constraints 1 ≤ T ≤ 100 1 ≤ x i , H i ≤ 10 9 1 ≤ N ≤ 2.5 · 10 5 all x i will be distinct sum of N over all test cases ≤ 5 · 10 5 Example Input: 2 3 1 1 2 2 3 3 3 1 1 2 5 3 3 Output: 2.82842712 -0.17157287 Explanation Example case 1: Tie the rope from tree 1 (1,1) to tree 3 (3,3). You don't need to cut down any trees. Note that this rope would touch the top of tree 2, but that is fine. Answer = length of rope = 2 · sqrt(2) = 2.82842. Example case 2: Tie the rope from tree 1 (1,1) to tree 3 (3,3). You need to cut down tree 2 from height 5 to height 2. Answer = length of rope - (height reduction of tree 2) = 2 · sqrt(2) - 3 = -0.17157287.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-data-structures",
+  "advanced-tree-structures",
+  "advanced-algorithms",
+  "pre-processing"
+ ],
+ "date_added": "13-11-2017",
+ "problem_author": "usaxena95",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 2,
+  "problem_code": "DEFOREST",
+  "replay_solves": {
+   "successful": 8,
+   "total": 25,
+   "accuracy": 32.0,
+   "replay_only": true
+  }
+ }
+}

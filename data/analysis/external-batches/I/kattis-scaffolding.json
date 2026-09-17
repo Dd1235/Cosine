@@ -1,0 +1,29 @@
+{
+  "id": "kattis-scaffolding",
+  "status": "solved",
+  "solution": "Within a round the worker's height never decreases, so the cells he touches at level h form one contiguous interval of the level-h occupied columns; hence a round is a root-to-node path in the tree whose nodes are the maximal intervals of {i : H_i >= h} for each h, i.e. the Cartesian tree of H by minimum (children of an interval are the pieces it splits into above its minimum). Every round entering a node's subtree places at most M of that subtree's cells and ends inside one child, so rounds(v) >= max(sum of rounds over children, ceil(cells(v)/M)), where cells(v) counts the subtree from v's base level upward; because cells shrink as the level rises, the whole chain of equal intervals collapses to its bottom level. That bound is achievable, so the answer is the sum of f(root) over the maximal runs of positive H, computed in O(N) time and O(N) space with a monotonic stack building the Cartesian tree.",
+  "solution_confidence": 0.9,
+  "statement_summary": "A worker must place a required number of horizontal bamboos in each of the columns of a vertical grid, building from the ground upward. In one round he carries at most M bamboos, starts at ground level, and may only move left, right or up, onto bamboos already there or ones he places, never descending while loaded. The task is the fewest rounds.",
+  "patterns": [
+    "cartesian-tree",
+    "monotonic-stack",
+    "tree-dp",
+    "dynamic-programming"
+  ],
+  "pattern_confidence": {
+    "cartesian-tree": 0.8,
+    "monotonic-stack": 0.75,
+    "tree-dp": 0.8,
+    "dynamic-programming": 0.7
+  },
+  "tags": [
+    "tree",
+    "stack",
+    "greedy",
+    "array",
+    "dynamic-programming"
+  ],
+  "verify_script": "data/analysis/external-batches/I/verify_scaffolding.py",
+  "notes": "Verified on both statement samples and 294 random shapes (N<=5, H<=4, M<=5) against a BFS over filled-cell sets that enumerates every legal round, so the achievability half of the bound is checked, not just the lower bound. The naive ceil(total/M) answer fails sample 2 (8 cells, M=10, answer 3) because three level-2 cells sit over gaps. No binary-search-answer and no greedy sweep: the recursion is a tree DP over the Cartesian tree.",
+  "source_text_sha256": "45e7df52712ff0cd0b39dc094e9fe99e5a5377fff319d9ab305ec5351432888e"
+}

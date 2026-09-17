@@ -1,0 +1,23 @@
+{
+ "id": "kattis-alicedigital",
+ "status": "solved",
+ "solution": "Call a position a barrier when a[i] <= m. A subarray has minimum exactly m with a single copy of m iff it contains exactly one barrier and that barrier holds the value m. Since all entries are positive, the best such subarray around a given m-barrier is the maximal one: it runs from just after the previous barrier to just before the next. So scan the barrier list once and, for every barrier whose value is m, take the prefix-sum of the open span between its neighbours, keeping the maximum. O(n) time and O(n) space per dataset, n <= 10^5.",
+ "solution_confidence": 0.93,
+ "statement_summary": "Given an array of positive integers and a value m, the task is the largest sum of a contiguous subarray whose minimum element equals m and which contains exactly one copy of m. The array holds up to 10^5 entries, each at most 64, and always contains at least one entry equal to m; several datasets follow.",
+ "patterns": [
+  "prefix-sum",
+  "greedy"
+ ],
+ "pattern_confidence": {
+  "prefix-sum": 0.85,
+  "greedy": 0.6
+ },
+ "tags": [
+  "array",
+  "prefix-sum",
+  "subarray"
+ ],
+ "source_text_sha256": "fa67ea23cea723386c285d5583613f9c7113f0fee05e8f7cee667437cb892c5b",
+ "verify_script": "data/analysis/external-batches/H/verify_alicedigital.py",
+ "notes": "O(n^2) brute force over every subarray agrees on 3000 random arrays plus the sample (12). The positivity of the entries is what makes maximal extension optimal; with zeros or negatives this reduction would fail."
+}

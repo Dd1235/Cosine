@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol1503",
+  "title": "The Parenthesis Tree",
+  "slug": "kol1503",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1503",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Samosa Bhai and Jalebi Bai are taking cooking classes from CodeChef. CodeChef, as the name suggests, is also a coding enthusiast. So he decides to get his pupils interested in coding. For this, he takes them both to a strange tree made up of **N** nodes.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "algorithms",
+    "graph-algos",
+    "traversals",
+    "lca"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1503"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 3,
+    "problem_code": "KOL1503",
+    "replay_solves": {
+      "successful": 2,
+      "total": 15,
+      "accuracy": 13.33,
+      "replay_only": true
+    }
+  }
+}

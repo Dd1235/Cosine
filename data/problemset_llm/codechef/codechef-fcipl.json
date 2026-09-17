@@ -1,0 +1,37 @@
+{
+  "id": "codechef-fcipl",
+  "title": "IPL Begins",
+  "slug": "fcipl",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/FCIPL",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "This year p footballers and q cricketers have been invited to participate in IPL (Indian Programming League) as guests. You have to accommodate them in r rooms such that: - No room may remain empty. - A room may contain either only footballers or only cricketers, not both.",
+  "tags": [
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/FCIPL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 7,
+    "problem_code": "FCIPL",
+    "replay_solves": {
+      "successful": 6,
+      "total": 13,
+      "accuracy": 46.15,
+      "replay_only": true
+    }
+  }
+}

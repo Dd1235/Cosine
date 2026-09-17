@@ -1,0 +1,40 @@
+{
+  "id": "codechef-mortgage",
+  "title": "Mortgage",
+  "slug": "mortgage",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MORTGAGE",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "Alexey is buying a new apartment! To pay for it, he is going to take one or more loans. There are n banks in the city. The i-th bank offers loans up to s_i rupees with a daily compound interest rate of p_i. He gets all the loans on Day 0.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "exponentiation",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MORTGAGE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 8,
+    "problem_code": "MORTGAGE",
+    "replay_solves": {
+      "successful": 6,
+      "total": 59,
+      "accuracy": 15.25,
+      "replay_only": true
+    }
+  }
+}

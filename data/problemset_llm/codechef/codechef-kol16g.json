@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kol16g",
+  "title": "Optimal use of Nuclear Power plant ",
+  "slug": "kol16g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16G",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "It is now 2050 AD. A city will be built under large protective circular dome. A nuclear power plant (NPP) built outside the city will power the whole city. For safety reasons the NPP must be at least d min distance away from the dome. The radius of the dome has not been fixed yet.",
+  "tags": [
+    "mathematics",
+    "calculus",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 7,
+    "problem_code": "KOL16G",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

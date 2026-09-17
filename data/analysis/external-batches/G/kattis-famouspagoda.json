@@ -1,0 +1,33 @@
+{
+ "id": "kattis-famouspagoda",
+ "status": "solved",
+ "solution": "Let cost(i,j) = min over integer v of sum_{s=i..j} |a_s - v|^k; for k=1 that is the sum of absolute deviations from the median and for k=2 the sum of squares around round(mean), both O(1) from prefix sums of a and a^2 (for k=2 test both floor and ceil of the mean). Minimising over partitions into G consecutive segments is the layered DP dp[g][j] = min_i dp[g-1][i] + cost(i+1,j). The cost obeys the quadrangle inequality, so each layer is computed by divide-and-conquer optimisation (or Knuth's monotone-opt) instead of a full scan, giving O(G*N log N) time with N=2000 and O(N) space per layer; the plain O(G*N^2) would be 8*10^9.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A non-decreasing sequence of N heights must be cut into G blocks of consecutive positions. A block costs the minimum over all integers v of the sum of |height - v| raised to the power k, where k is one or two. The task is to report the least achievable total cost over all such partitions, with N up to two thousand and G up to N.",
+ "patterns": [
+  "dynamic-programming",
+  "partition-dp",
+  "divide-and-conquer-dp",
+  "dp-optimization",
+  "prefix-sum",
+  "knuth-optimization"
+ ],
+ "pattern_confidence": {
+  "dynamic-programming": 0.95,
+  "partition-dp": 0.9,
+  "divide-and-conquer-dp": 0.85,
+  "dp-optimization": 0.8,
+  "prefix-sum": 0.75,
+  "knuth-optimization": 0.5
+ },
+ "tags": [
+  "dp",
+  "partition",
+  "optimization",
+  "prefix-sum",
+  "median"
+ ],
+ "source_text_sha256": "7f3f2d7fa81ff229d192079b5fa816df8cef54c8da5c1effdb251337a17eea3e",
+ "verify_script": "data/analysis/external-batches/G/verify_famouspagoda.py",
+ "notes": "verify_famouspagoda.py checks the three samples and cross-checks the D&C-optimised layers against the plain O(G*N^2) DP on 460 random sorted arrays including heavy-plateau inputs - the quadrangle inequality survives the INTEGER restriction on v for k=2, which was the thing worth testing. The Lagrangian/wqs alternative also works (the cost is convex in G) but is unnecessary at N=2000, so it is not labelled."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16h",
+  "title": "Employee Voice Surveys",
+  "slug": "inf16h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16H",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Employee voice surveys in corporates are generally touted to be anonymous, but only a fool can ignore the elephant in a room. Some such foolish employees filled the surveys with swear words.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 7,
+    "problem_code": "INF16H",
+    "replay_solves": {
+      "successful": 14,
+      "total": 68,
+      "accuracy": 20.59,
+      "replay_only": true
+    }
+  }
+}

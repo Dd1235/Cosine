@@ -1,0 +1,39 @@
+{
+  "id": "codechef-ambday",
+  "title": "Chota Mouse and his birthday cake",
+  "slug": "ambday",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMBDAY",
+  "source_topic": "ICPC / Amritapuri Regional 2015",
+  "source_tags": [],
+  "statement": "Today is *Chota Mouse's* birthday. He wants to celebrate it in a grand style. His brother *Mota Chuha* immediately contacted a nearby bakery for an online delivery of a cake. The cake is of rectangular shape with height **H** and width **W**.",
+  "tags": [
+    "acm15amr",
+    "ad-hoc",
+    "admin2",
+    "greedy"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMBDAY"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR15MOS",
+    "position": 2,
+    "problem_code": "AMBDAY",
+    "replay_solves": {
+      "successful": 237,
+      "total": 457,
+      "accuracy": 54.05,
+      "replay_only": true
+    }
+  }
+}

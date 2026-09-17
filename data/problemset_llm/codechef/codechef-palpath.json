@@ -1,0 +1,39 @@
+{
+  "id": "codechef-palpath",
+  "title": "Palindromic Walks",
+  "slug": "palpath",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PALPATH",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an undirected graph G with N vertices and M edges. The vertices are numbered from 1 to N. Each edge has associated with it, a character (a lowercase english alphabet) and a weight. You are given two **distinct** vertices s and t.",
+  "tags": [
+    "data-structures",
+    "queues",
+    "algorithms",
+    "dynamic-programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PALPATH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 3,
+    "problem_code": "PALPATH",
+    "replay_solves": {
+      "successful": 0,
+      "total": 3,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+ "id": "codechef-varmin",
+ "platform": "codechef",
+ "title": "Minimum Variance",
+ "slug": "varmin",
+ "source_url": "https://www.codechef.com/problems/VARMIN",
+ "source_topic": "ICPC / Kharagpur Regional 2019",
+ "source_text": "You are given $n$ sets $S_1, S_2, \\ldots, S_n$. For each $i$, you want to choose $x_i \\in S_i$, such that the variance of the multiset $\\{x_1, x_2, \\ldots, x_n\\}$ is minimized. The variance of a multiset $\\{x_1, x_2, \\ldots, x_n\\}$ is defined as $\\sigma^2 = \\displaystyle \\dfrac{\\sum_{i=1}^{n} (x_i - \\mu)^2}{n} $, where $\\mu$ is the mean, which equals $\\displaystyle \\dfrac{ \\sum_{i=1}^{n}x_i}{n}$. Say the minimum possible variance is $R$. Print $n^2 \\times R$. It can be proved that $n^2 R$ is always an integer. ### Input - The first line contains $n$, the number of sets. - $i^{\\text{th}} $ of the next $n$ lines contain an integer $|S_i|$ followed by $|S_i|$ distinct integers denoting the elements of set $S_i$. ### Output In the only line, print a single integer denoting the product of $n^2$ and the minimum possible variance of $\\{x_1, x_2, \\ldots, x_n\\}$ ### Constraints - $1 \\le n \\le 50,000$ - $ 1 \\le |S_i| \\le 50,000$ for all valid $i$. - $1 \\le \\displaystyle \\sum_{i=1}^{n} |S_i| \\le 50,000$ - All elements in a single set are distinct. - The elements of all the sets are between $1$ and $50,000$ inclusive Sample Input 2 3 3 7 1 2 5 11 Sample Output 4 **Example case 1:** You should choose $x_1 = 3$ from $S_1$ and $x_2 = 5$ from $S_2$, the mean is $4$ and the variance is $\\dfrac{(3-4)^2 + (5 - 4)^2}{2} = 1$. Hence, the output should be $n^2 \\times 1 = 4$. Sample Input 2 2 2 5 1 5 Sample Output 0 **Example case 2:** Choosing $x_1 = x_2 = 5$ gives a variance of $0$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "algorithms"
+ ],
+ "date_added": "26-11-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KH19MOS",
+  "position": 3,
+  "problem_code": "VARMIN",
+  "replay_solves": {
+   "successful": 2,
+   "total": 20,
+   "accuracy": 10.0,
+   "replay_only": true
+  }
+ }
+}

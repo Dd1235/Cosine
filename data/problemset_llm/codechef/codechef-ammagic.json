@@ -1,0 +1,38 @@
+{
+  "id": "codechef-ammagic",
+  "title": "Magic Board",
+  "slug": "ammagic",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMMAGIC",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "Young Alex was playing alone on the upper floor of his family house when he accidentally found a dusty magic board set in some old and rusty chest. The board is a rectangle of size n \\times m. He also finds a collection of tiles each containing a single decimal digit [ie. 0 to 9].",
+  "tags": [
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMMAGIC"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 2,
+    "problem_code": "AMMAGIC",
+    "replay_solves": {
+      "successful": 1,
+      "total": 7,
+      "accuracy": 14.29,
+      "replay_only": true
+    }
+  }
+}

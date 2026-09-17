@@ -1,0 +1,37 @@
+{
+  "id": "codechef-ni03",
+  "title": "Weapons",
+  "slug": "ni03",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NI03",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "There are N fighter aircrafts guarding the sky. Each aircraft flies at a constant altitude and at a constant velocity (vx,vy) . In other words, every hour it travels vx km in the X direction and vy km in the Y direction ( vx and vy can be negative as well). But there has been a major problem.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NI03"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP12",
+    "position": 3,
+    "problem_code": "NI03",
+    "replay_solves": {
+      "successful": 3,
+      "total": 12,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

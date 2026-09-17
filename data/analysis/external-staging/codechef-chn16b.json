@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16b",
+ "platform": "codechef",
+ "title": "Mancunian Candidate Master Forever",
+ "slug": "chn16b",
+ "source_url": "https://www.codechef.com/problems/CHN16B",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Mancunian is a Candidate Master. He participates regularly in many programming contests. Not many people know it but his secret desire is to become a Grandmaster. But it doesn't look like it's gonna happen anytime soon. It's been a year and Mancunian has become frustrated with life. Being the responsible decision maker that he is, he's decided to stop solving problems and drown his sorrows in alcohol instead. He's a weird one so he drinks alcohol with sugar and salt added to it! Mancunian went to the store. There are a total of **N** alcohols in the store. Each alcohol comes in a container of volume 1 liter and consists of certain micrograms of sugar and salt, and of course it has some price associated with it. Mancunian is craving to have a taste all of these alcohols. Sadly, he is not so very rich, so he would like to spend as less on buying the drinks from store as possible. He will come home with some of the alcohols and will try to prepare the remaining of the **N** alcohols at home and taste them up. He can prepare 1 liter of an alcohol (by filling the entire jug of 1 liter) by mixing any ratio of the already bought ones, and taste a little of it (you can assume that the quantity he tastes is negligible). Formally if **t** alcohols are mixed in the ratio **x 1 :x 2 :x 3 ....:x n ** with the **i th ** alcohol having **s i ** micrograms of sugar, then the sugar content of the mixture is **$(s_{1}*x_{1} + s_{2}*x_{2} + s_{3}*x_{3} + .... + s_{t}*x_{t})/(x_{1} + x_{2} + x_{3} + .... + x_{t})$** micrograms. Similar for salt. In this way, he would like to taste all the **N** alcohols. Also, note that a cup is not exhausted when it is used to make some mixture, i.e. it can be used again and again. Find out what is the minimum amount of money Mancunian has to spend in order to taste all the alcohols. Input The first line contains an integer **N** denoting the number of alcohols craved by Mancunian. Each of the next **N** lines contains three integers, the **s i **, **w i ** and **c i **, where **s i ** and **w i ** denote the amount in micrograms of sugar and salt in the **i**-th drink, and **c i ** denotes cost of alcohol in rupees respectively. No two alcohols will have the exact same composition. Output Output a single integer, corresponding to minimum amount of money Mancunian has to spend. Constraints - **1** ≤ **N** ≤ **200,000** - **0** ≤ **s i , w i , c i ** ≤ **1,000,000,000** - **s i + w i != 0** Sample Input 3 4 2 1 3 3 5 2 4 10 Sample Output 11 **Example case:** Mancunian will buy the first and third alcohols from the store. He will prepare the second alcohol by mixing the first and second in the ratio 1:1. So, to get taste of all the alcohols, he has to spend 1 + 10 = 11 Rupees.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 2,
+  "problem_code": "CHN16B",
+  "replay_solves": {
+   "successful": 22,
+   "total": 53,
+   "accuracy": 41.51,
+   "replay_only": true
+  }
+ }
+}

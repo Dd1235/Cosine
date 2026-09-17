@@ -1,0 +1,30 @@
+{
+ "id": "codechef-bingame",
+ "platform": "codechef",
+ "title": "1-2 Game",
+ "slug": "bingame",
+ "source_url": "https://www.codechef.com/problems/BINGAME",
+ "source_topic": "ICPC / Kharagpur Regional 2018",
+ "source_text": "There are two players $P_1$, $P_2$ playing a game on an array $A$ which has $n$ positive integers: $A_1, A_2, \\ldots, A_n$. Both the players take turns alternatively, and $P_1$ goes first. The rules of the game are as follows: - In $P_1$’s turn, he should choose any element $A_i$ which is $\\ge 1$, and subtract $1$ from it. - In $P_2$’s turn, he should choose any element $A_i$ which is $\\ge 2$, and subtract $2$ from it. - The player who is not able to make a move loses. Given the array $A$, find the number of different indices $i$ such that $P_1$ can subtract from $A_i$ in his first turn, and end up winning the game, if both the players play optimally after this. Input - The first line of the input contains an integer $T$ denoting the number of test cases. The description of the test cases follows. - The first line of each test case contains an integer $n$. - The second line of each test case contains $n$ space-separated integers denoting the array $A$. Output For each test case, output an integer corresponding to the number of possible first moves of $P_1$ that lead him to win. Constraints - $1 \\le T \\le 10^5$ - $1 \\le n \\leq 10^5$ - $1 \\le A_i \\leq 10^5$ - Sum of $n$ over all the test cases doesn't exceed $10^6$ Sample Input 3 1 1 1 3 2 1 2 Sample Output 1 0 1 **Testcase 1**: The array is {1}. $P_1$ has no choice but to pick the element and subtract 1 from it. The resulting array is {0}, and now $P_2$ is unable to make a move. Hence $P_1$ wins, and there was only one winning first move. Hence the answer is 1. **Testcase 2**: The array is {3}. $P_1$ has no choice but to pick the element and subtract 1 from it. The resulting array is {2}, and now $P_2$ has no choice but to subtract 2 from it. The resulting array is {0}, and now $P_1$ is unable to make a move. Hence $P_1$ loses. There is no starting move for $P_1$ which leads to his victory. Hence the answer is 0. **Testcase 3**: The array is {1, 2}. $P_1$ has two choices. Either subtract 1 from 1 or subtract 1 from 2. - Suppose he subtracts 1 from the first element, then the resulting array is {0, 2}, and now $P_2$ has no choice but to subtract 2 from the second element. The resulting array is {0, 0}, and now $P_1$ is unable to make a move. Hence $P_1$ loses in this case. - But suppose he subtracts 1 from the second element, then the resulting array is {1, 1}, and now $P_2$ is unable to make a move. Hence $P_1$ wins in this case. Thus, there is exactly one starting move for $P_1$ which leads to his victory. Hence the answer is 1.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "13-12-2018",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP18ROL",
+  "position": 6,
+  "problem_code": "BINGAME",
+  "replay_solves": {
+   "successful": 15,
+   "total": 39,
+   "accuracy": 38.46,
+   "replay_only": true
+  }
+ }
+}

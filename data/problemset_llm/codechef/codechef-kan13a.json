@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13a",
+  "title": "Hard Disk",
+  "slug": "kan13a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13A",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "Dipu's hard disk crashed last week. He bought a new one and has already installed all necessary software. But he has lost his personal collection of media files. It is just unbearable! How can he avoid such a loss in future?",
+  "tags": [
+    "dynamic-programming",
+    "easy-medium",
+    "jingbo-adm",
+    "kan13acm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 1,
+    "problem_code": "KAN13A",
+    "replay_solves": {
+      "successful": 5,
+      "total": 10,
+      "accuracy": 50.0,
+      "replay_only": true
+    }
+  }
+}

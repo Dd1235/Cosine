@@ -1,0 +1,36 @@
+{
+  "id": "codechef-zubgold",
+  "title": "B - Get The Gold",
+  "slug": "zubgold",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBGOLD",
+  "source_topic": "ICPC / Kolkata Regional 2017",
+  "source_tags": [],
+  "statement": "A man in his death-bed told his lazy son that throughout his life he had worked very hard. With the money he saved he has bought gold. This gold is hidden in a forest which is represented by a 2-dimensional plane in 3-dimensional space. There are two special trees **A** and **B** in the forest.",
+  "tags": [
+    "mathematics"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBGOLD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL17ROL",
+    "position": 4,
+    "problem_code": "ZUBGOLD",
+    "replay_solves": {
+      "successful": 5,
+      "total": 16,
+      "accuracy": 31.25,
+      "replay_only": true
+    }
+  }
+}

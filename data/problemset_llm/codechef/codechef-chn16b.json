@@ -1,0 +1,36 @@
+{
+  "id": "codechef-chn16b",
+  "title": "Mancunian Candidate Master Forever",
+  "slug": "chn16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN16B",
+  "source_topic": "ICPC / Chennai Regional 2016",
+  "source_tags": [],
+  "statement": "Mancunian is a Candidate Master. He participates regularly in many programming contests. Not many people know it but his secret desire is to become a Grandmaster. But it doesn't look like it's gonna happen anytime soon. It's been a year and Mancunian has become frustrated with life.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN16MOS",
+    "position": 2,
+    "problem_code": "CHN16B",
+    "replay_solves": {
+      "successful": 22,
+      "total": 53,
+      "accuracy": 41.51,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,11 @@
+verify_acm2                        PASS 1s
+verify_airconditioned              PASS 0s
+verify_applescherriesmangos        PASS 28s
+verify_cameramakers                PASS 0s
+verify_control                     PASS 0s
+verify_convex                      PASS 2s
+verify_cool1                       PASS 2s
+verify_cool2                       PASS 0s
+verify_magicallights               PASS 1s
+verify_maintenance                 PASS 0s
+verify_mububa                      PASS 1s

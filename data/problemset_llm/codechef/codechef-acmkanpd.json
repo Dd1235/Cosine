@@ -1,0 +1,37 @@
+{
+  "id": "codechef-acmkanpd",
+  "title": "A New Number System",
+  "slug": "acmkanpd",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACMKANPD",
+  "source_topic": "ICPC / Kanpur Regional unknown-year",
+  "source_tags": [],
+  "statement": "As we know, in an n-based number system, there are n different types of digits. In this way, a 1-based number system has only 1 type of digit, the ‘0’. Here are the rules to interpret 1-based numbers. Each number consists of some space separated blocks of 0. A block may have 1, 2 or more 0s.",
+  "tags": [
+    "data-structures",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACMKANPD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN10",
+    "position": 4,
+    "problem_code": "ACMKANPD",
+    "replay_solves": {
+      "successful": 75,
+      "total": 438,
+      "accuracy": 19.18,
+      "replay_only": true
+    }
+  }
+}

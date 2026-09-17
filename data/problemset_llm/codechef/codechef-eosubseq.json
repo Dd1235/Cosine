@@ -1,0 +1,36 @@
+{
+  "id": "codechef-eosubseq",
+  "title": "A - Even Odd subsequences",
+  "slug": "eosubseq",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EOSUBSEQ",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an array a of length n. A subsequence of this array is valid, if it satisfies these two conditions: - There shouldn't be any two even numbers within a distance of K, both which have been chosen in the subsequence. i.e.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EOSUBSEQ"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 4,
+    "problem_code": "EOSUBSEQ",
+    "replay_solves": {
+      "successful": 85,
+      "total": 207,
+      "accuracy": 41.06,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16a",
+ "platform": "codechef",
+ "title": "Mancunian and Sonu Generate Strings",
+ "slug": "chn16a",
+ "source_url": "https://www.codechef.com/problems/CHN16A",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Mancunian and his friend Sonu live in Mancunia. As a general rule, girls in Mancunia are very intelligent and Sonu is the best of them all. All of her friends compliment her by saying, that she is the smartest of the them, in other words, they say - \"Iska processor baaki junta se fast chalta hai\". So when Mancunian is faced with a tough problem which he himself is unable to solve, of course he turns to Sonu. But she needs help too, as the problem may be too much even for her. :( Given a set of strings, a subset of that set is called its generating set if by using the strings of the generating set, you can create any string of the original set by concatenating the individual strings. Each of the strings of the generating set can be used multiple times (possibly zero). You are given a set of strings composed of lowercase Latin alphabet. Find the smallest size of its generating set. Input The first line contains an integer `N` denoting the number of strings in the set. The `i` th of the next `N` lines contains the `i` th string of the set. Output Output a single integer, the size of smallest generating set. Constraints - `1` ≤ `N` ≤ `200,000` - `1` ≤ `sum of lengths of strings` ≤ `200,000` - All the strings in the input consist of lower case Latin alphabet (i.e. from 'a' to 'z'). Sample Input 4 a b aa abaa Sample Output 2 **Example case** You can generate all strings of the set using the strings `a` and `b` only. For example, \"aa\" = \"a\" + \"a\" and \"abaa\" = \"a\" + \"b\" + \"a\" + \"a\".",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 1,
+  "problem_code": "CHN16A",
+  "replay_solves": {
+   "successful": 5,
+   "total": 54,
+   "accuracy": 9.26,
+   "replay_only": true
+  }
+ }
+}

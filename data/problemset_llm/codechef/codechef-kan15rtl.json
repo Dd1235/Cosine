@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtl",
+  "title": "Finding Identity Integers",
+  "slug": "kan15rtl",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTL",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "Define function F on set of positive integers as A positive integer n is called an \"identity integer\" if F (n) = {n}. Given multiple queries, each consisting of a single integer K, find the K th \"identity integer\". Input First line contains a single integer Q, denoting the number of queries.",
+  "tags": [
+    "piyushkumar"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 12,
+    "problem_code": "KAN15RTL",
+    "replay_solves": {
+      "successful": 16,
+      "total": 24,
+      "accuracy": 66.67,
+      "replay_only": true
+    }
+  }
+}

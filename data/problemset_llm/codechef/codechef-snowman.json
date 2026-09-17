@@ -1,0 +1,39 @@
+{
+  "id": "codechef-snowman",
+  "title": "Do You Want to Build a Snowman",
+  "slug": "snowman",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SNOWMAN",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "On a snowy afternoon, your friend Ajay came to your house with a large pile of snowballs. You both were bored and it was freezing outside. So, you two decided to play a game. Suppose, initially there are n snowballs in the pile.",
+  "tags": [
+    "mathematics",
+    "sequences-and-progression",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SNOWMAN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 4,
+    "problem_code": "SNOWMAN",
+    "replay_solves": {
+      "successful": 20,
+      "total": 50,
+      "accuracy": 42.0,
+      "replay_only": true
+    }
+  }
+}

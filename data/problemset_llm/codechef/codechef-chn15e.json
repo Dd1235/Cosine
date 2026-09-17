@@ -1,0 +1,41 @@
+{
+  "id": "codechef-chn15e",
+  "title": "Tree Augmentation ",
+  "slug": "chn15e",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15E",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "A tree is one of the most beautiful data structures. Given a tree of N nodes (numbered 1 to N ), we can augment it by connecting any pair of nodes which sharing one or more neighbour/s. In other words, the augmentation operation joins any nodes of tree within distance two with an edge.",
+  "tags": [
+    "acmchn15",
+    "graph-squareroot",
+    "graphs",
+    "hard",
+    "jingbo-adm",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15E"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 5,
+    "problem_code": "CHN15E",
+    "replay_solves": {
+      "successful": 0,
+      "total": 340,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

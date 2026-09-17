@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtk",
+  "title": "Unlock Secrets or Leonardo",
+  "slug": "kan15rtk",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTK",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The Second Italian War of 1499 has started and the French troops have attacked Milan. Leonardo Da Vinci is worried for the safety of his diary where he keeps the secrets of all his creations. He would never want that diary to get into the hands of the French King.",
+  "tags": [
+    "piyushkumar"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 9,
+    "problem_code": "KAN15RTK",
+    "replay_solves": {
+      "successful": 169,
+      "total": 401,
+      "accuracy": 44.14,
+      "replay_only": true
+    }
+  }
+}

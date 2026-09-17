@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol16a",
+  "title": "Playing World War II",
+  "slug": "kol16a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16A",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Enigma: The military machine used by Nazi Germany to encipher messages before and during World War II. The code of Enigma was broken once by Polish Cipher Bureau in 1932 and then again, during the war, by the Codebreaker team at Bletchley Park, England.",
+  "tags": [
+    "algorithms",
+    "dynamic-programming",
+    "recursion"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 1,
+    "problem_code": "KOL16A",
+    "replay_solves": {
+      "successful": 8,
+      "total": 59,
+      "accuracy": 13.56,
+      "replay_only": true
+    }
+  }
+}

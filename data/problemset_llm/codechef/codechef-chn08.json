@@ -1,0 +1,39 @@
+{
+  "id": "codechef-chn08",
+  "title": "Crazy Malvika discovers Crazy Fibonacci function",
+  "slug": "chn08",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN08",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "Malvika was getting bored of the usual Fibonacci problems, and decided to add a little twist to it. She defined a new function **f()** with the following properties: - She'll give you two integers, **A** and **B**. **f(1)** is defined to be **A** and **f(2)** is **B**.",
+  "tags": [
+    "acm15chn",
+    "admin2",
+    "modulo",
+    "recurrence"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN08"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN15MOS",
+    "position": 8,
+    "problem_code": "CHN08",
+    "replay_solves": {
+      "successful": 115,
+      "total": 636,
+      "accuracy": 18.24,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rtg",
+  "title": "Edit Distance Revisited",
+  "slug": "kan15rtg",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTG",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "You are given N arrays of size K each, such that each array contains all numbers from 1 to K, and no two arrays are the same (two arrays are called same if for every index they have the same value).",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTG"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 7,
+    "problem_code": "KAN15RTG",
+    "replay_solves": {
+      "successful": 2,
+      "total": 3,
+      "accuracy": 66.67,
+      "replay_only": true
+    }
+  }
+}

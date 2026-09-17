@@ -1,0 +1,25 @@
+{
+ "id": "kattis-jurassicjungle",
+ "status": "solved",
+ "solution": "The happiness condition says every maximal simple path from every vertex is Hamiltonian and its far end is adjacent to the start, i.e. the graph is randomly Hamiltonian (randomly traceable). Those graphs are classified: only the cycle C_n, the complete bipartite K_{n,n} and the complete graph K_n. So for given N and M the answer is YES exactly when M = N, or N is even and M = (N/2)^2, or M = N(N-1)/2, and the corresponding graph is printed directly. Exhaustive search over all graphs on 3..6 vertices reproduces exactly this set of feasible M. O(M) per test case.",
+ "solution_confidence": 0.95,
+ "statement_summary": "Given a number of homes N and a required number of roads M, the task builds a simple undirected graph with exactly M edges so that from every vertex any walk that repeatedly steps to an arbitrary not yet visited neighbour, until it is stuck, has by then visited every vertex and can step straight back to its start. N is at most thirty; impossibility must be reported.",
+ "patterns": [
+  "constructive-algorithm",
+  "graph-modeling",
+  "bipartite-graph"
+ ],
+ "pattern_confidence": {
+  "constructive-algorithm": 0.95,
+  "graph-modeling": 0.6,
+  "bipartite-graph": 0.5
+ },
+ "tags": [
+  "graph",
+  "construction",
+  "hamiltonian"
+ ],
+ "source_text_sha256": "d5fd8d73a6d7629d833f9cd72c175bb2b704fcc82a92023c53e5a42316f2cdc2",
+ "verify_script": "data/analysis/external-batches/F/verify_jurassicjungle.py",
+ "notes": "verify_jurassicjungle.py enumerates every graph on 3..6 vertices, tests the happiness condition directly by expanding all maximal simple paths from every start, and confirms the feasible edge counts are exactly {N, (N/2)^2 when N is even, N(N-1)/2}; the printed constructions are then re-tested for N up to 8 and size-checked to N = 30. The vocabulary has no label for Hamiltonicity without DP (hamiltonian-dp would be wrong here, there is no DP), so the classification itself is unlabelled. Statement contains no sentence addressed to the annotator."
+}

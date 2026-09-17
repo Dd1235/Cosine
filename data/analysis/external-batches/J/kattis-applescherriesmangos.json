@@ -1,0 +1,29 @@
+{
+ "id": "kattis-applescherriesmangos",
+ "status": "solved",
+ "solution": "Group each fruit's boxes into i maximal runs and knock out runs of length >= 2 by inclusion-exclusion; equivalently read off the Smirnov generating function 1/(1 - x/(1+x) - y/(1+y) - z/(1+z)). That gives ans = sum over i,j,k of (-1)^(A-i+C-j+M-k) C(A-1,i-1) C(C-1,j-1) C(M-1,k-1) (i+j+k)!/(i!j!k!), which is O(A*C*M) as written. Factor it: with a_i = (-1)^(A-i)C(A-1,i-1)/i! and likewise for the other two fruits, ans = sum_n n!*(a*c*m)[n], a single triple convolution of polynomials of degree <= 2*10^5. Two NTT products (three NTT primes plus CRT, or Kronecker substitution) give O(n log n) time and O(n) space with n = A+C+M <= 6*10^5.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Boxes of three fruit types, namely A apples, C cherries and M mangos with each count between one and two hundred thousand, must be shipped in a single line so that no two neighbouring boxes hold the same fruit. Two shipments differ when some position carries a different fruit. The task is to count the valid orders modulo one billion and seven.",
+ "patterns": [
+  "combinatorics",
+  "inclusion-exclusion",
+  "fft",
+  "multinomial-coefficient",
+  "modular-arithmetic"
+ ],
+ "pattern_confidence": {
+  "combinatorics": 0.95,
+  "inclusion-exclusion": 0.9,
+  "fft": 0.82,
+  "multinomial-coefficient": 0.85,
+  "modular-arithmetic": 0.85
+ },
+ "tags": [
+  "counting",
+  "convolution",
+  "modulo"
+ ],
+ "source_text_sha256": "bbb6509a71492d60a5392f53e6b82c442f28a478612356fb85926fcfbba8c043",
+ "verify_script": "data/analysis/external-batches/J/verify_applescherriesmangos.py",
+ "notes": "The triple sum was checked against exhaustive enumeration for all 1<=A,C,M<=4 and against all three samples, and the convolution regrouping was checked to reproduce the triple sum exactly (schoolbook in the script, NTT in the real solution). The label fft covers NTT, which the vocabulary has no separate slug for. Statement contains no sentence addressed to the annotator."
+}

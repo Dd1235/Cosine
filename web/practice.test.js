@@ -60,8 +60,14 @@ function harness({ empty = false } = {}) {
     collections: [{ id: 'india-prelims', name: 'ICPC India Prelims', count: 5 }],
     document: dom.document,
     resultsEl: { innerHTML: '', appendChild() {} },
+    // Beacons are fire-and-forget in the browser and irrelevant here, but
+    // addCollection/removeCollection call track() and the vm has no window.
+    track() {},
     applyMode() {}, hideFeedback() {}, syncDifficultyControls() {}, renderCollectionControls() {},
     updatePatternPill() {}, syncJudgeControls() {}, reissueCurrentView() {}, runSearch() {},
+    // addCollection/removeCollection fire outcome beacons; without this the
+    // slice throws a ReferenceError before it reaches a single assertion.
+    track() {},
     setLibPath() {}, setStatus() {}, hideLoadMore() {}, updateLoadMore() {},
     libraryCommand: q => q === ':bookmarks' ? { type: 'bookmarked' } : null,
     difficultyParam: () => 'cf:1200-1800', activeFacets: () => [], orderNote: () => '',

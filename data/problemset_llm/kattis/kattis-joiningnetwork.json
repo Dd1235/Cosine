@@ -1,0 +1,37 @@
+{
+ "id": "kattis-joiningnetwork",
+ "title": "Joining Networks",
+ "slug": "joiningnetwork",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/joiningnetwork",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "Two trees of N and M computers are given; the cost of a network is the sum, over all unordered pairs of its computers, of the squared number of edges between them. Exactly one new cable must join a computer of the first tree to a computer of the second. The task is to report the minimum possible cost of the combined network, with both sizes up to fifty thousand.",
+ "tags": [],
+ "patterns": [
+  "rerooting-dp",
+  "tree-dp",
+  "convex-hull-trick",
+  "dynamic-programming"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "rerooting-dp": 0.9,
+   "tree-dp": 0.9,
+   "convex-hull-trick": 0.9,
+   "dynamic-programming": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.9,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

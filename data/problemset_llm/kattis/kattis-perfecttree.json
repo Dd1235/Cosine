@@ -1,0 +1,43 @@
+{
+ "id": "kattis-perfecttree",
+ "title": "Perfect k-ary Tree",
+ "slug": "perfecttree",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/perfecttree",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "A tree with up to a hundred thousand labelled nodes is given along with a value k between two and five. The task is to count, modulo one billion and seven, how many subgraphs of the tree are perfect k-ary trees, meaning they can be rooted so that every internal node has exactly k children and all leaves sit at equal depth.",
+ "tags": [],
+ "patterns": [
+  "tree-dp",
+  "dynamic-programming",
+  "rerooting-dp",
+  "combinatorics",
+  "counting",
+  "modular-arithmetic",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "tree-dp": 0.9,
+   "dynamic-programming": 0.9,
+   "rerooting-dp": 0.9,
+   "combinatorics": 0.9,
+   "counting": 0.9,
+   "modular-arithmetic": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 7.7,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amdrunk",
+  "title": "Drunk Man in Large City",
+  "slug": "amdrunk",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMDRUNK",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "A city consists of **n** junctions that are connected by **m** bidirectional roads. The junctions are numbered from 1 to **n**. It is known that each junction has at least two roads incident on it. Also, one can walk from any junction to any other junction using these roads.",
+  "tags": [
+    "algorithms",
+    "graph-algos",
+    "shortest-path"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMDRUNK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 1,
+    "problem_code": "AMDRUNK",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

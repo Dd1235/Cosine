@@ -1,0 +1,31 @@
+{
+ "id": "kattis-arrangingwine",
+ "status": "solved",
+ "solution": "With r red piles and w white piles the line alternates, so |r-w| <= 1 and there are two orders when r = w and one otherwise. Writing F(r) for the number of compositions of R into r parts of size 1..d and C(W-1,w-1) for the compositions of W, the answer is sum_r F(r) * (2C(W-1,r-1) + C(W-1,r-2) + C(W-1,r)). Substituting F(r) = [x^R] A(x)^r with A = x + ... + x^d and summing the three binomial series collapses everything to (1+A)^{W-1} * (1+A)^2, so K = [x^R] (1 + x + ... + x^d)^{W+1} = sum_j (-1)^j C(W+1,j) C(R - j(d+1) + W, W). That is O(R+W) factorials plus O(R/(d+1)) terms; the naive per-r inclusion-exclusion would be about 7*10^10 operations at d=3.",
+ "solution_confidence": 0.96,
+ "statement_summary": "R boxes of red wine and W boxes of white wine are split into non-empty single-colour piles arranged in a line so that neighbouring piles always differ in colour, and every red pile holds at most d boxes while white piles are unlimited. The task is to count the distinct arrangements modulo 10^9+7, with R and W each up to one million.",
+ "patterns": [
+  "combinatorics",
+  "inclusion-exclusion",
+  "stars-and-bars",
+  "modular-arithmetic",
+  "modular-inverse"
+ ],
+ "pattern_confidence": {
+  "combinatorics": 0.95,
+  "inclusion-exclusion": 0.92,
+  "stars-and-bars": 0.78,
+  "modular-arithmetic": 0.8,
+  "modular-inverse": 0.6
+ },
+ "tags": [
+  "math",
+  "combinatorics",
+  "counting",
+  "modular-arithmetic",
+  "generating-function"
+ ],
+ "source_text_sha256": "c66a5dc11fe29abaadd1064ea60e0bd941e5b3e9009d056866158756d182f1bc",
+ "verify_script": "data/analysis/external-batches/G/verify_arrangingwine.py",
+ "notes": "verify_arrangingwine.py proves the collapse empirically: the closed form [x^R](1+x+..+x^d)^{W+1} agrees with a direct composition DP and with explicit enumeration of every valid line for all R,W in 1..8 and all d in 1..R, plus four medium cross-checks. Worth recording because the obvious route (inclusion-exclusion inside every r) is quadratic and too slow; the vocabulary has no generating-function slug, so that idea lives in the tags only."
+}

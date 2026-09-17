@@ -135,6 +135,48 @@ class PublishGate(unittest.TestCase):
         self.assertEqual(got['patterns'], ['geometry'])
         self.assertEqual(got['statement'], 'the reviewed summary')
 
+    # ── tier two upgrading a tier-one (labels-pending) record in place ──────
+
+    def test_a_pending_record_is_upgraded_in_place_keeping_its_provenance(self):
+        # scripts/publish_pending.py wrote this: judge tags, no patterns, flagged.
+        pending = {
+            'id': 'codechef-ammagic', 'platform': 'codechef', 'title': 'Magic Board', 'slug': 'ammagic',
+            'source_url': 'https://www.codechef.com/problems/AMMAGIC',
+            'source_topic': 'ICPC / Amritapuri Regional 2017', 'source_tags': [],
+            'statement': 'Young Alex finds a dusty magic board. It is a rectangle of size n by m.',
+            'tags': ['graph-algos', 'traversals'], 'patterns': [], 'review_status': 'labels-pending',
+            'annotation': {'version': 'problem-patterns-v1', 'model': 'codechef-judge-tags',
+                           'generated_at_unix': 1, 'pattern_confidence': {}, 'reviewed_by': None,
+                           'evidence': 'https://www.codechef.com/api/contests/PRACTICE/problems/AMMAGIC'},
+            'difficulty': None,
+            'contest_source': {'host': 'codechef.com', 'name': 'AMR17ROL', 'position': 2, 'problem_code': 'AMMAGIC',
+                               'replay_solves': {'successful': 1, 'total': 7, 'accuracy': 14.29, 'replay_only': True}},
+        }
+        self.write('data/problemset_llm/codechef/codechef-ammagic.json', pending)
+        self.stage('codechef-ammagic', STATEMENT)
+        self.proposals(id='codechef-ammagic', batch='india-2017', patterns=['greedy'])
+        self.review(id='codechef-ammagic', patterns=['greedy'])
+        self.assertEqual(self.publish(batch='india-2017'), {'published': 1, 'skipped': 0})
+        got = self.record('codechef-ammagic', 'codechef')
+        # What the review earned replaces what the pending tier had.
+        self.assertEqual(got['patterns'], ['greedy'])
+        self.assertEqual(got['statement'], SUMMARY)
+        self.assertEqual(got['annotation']['model'], 'opus-solution-review')
+        self.assertNotIn('review_status', got, 'the pending flag is the whole signal; it must go')
+        # What the pending tier already knew is kept.
+        self.assertEqual(got['contest_source']['problem_code'], 'AMMAGIC')
+        self.assertEqual(got['contest_source']['replay_solves']['replay_only'], True)
+        self.assertEqual(got['tags'], ['graph-algos', 'traversals'], "the judge's tags stay; they are the judge's claim")
+
+    def test_a_reviewed_record_with_no_pending_predecessor_is_unchanged_by_the_carry(self):
+        self.proposals()
+        self.review()
+        self.publish()
+        first = self.record()
+        self.publish()  # re-running against its own output must be a no-op
+        self.assertEqual(self.record(), {**first, 'annotation': {**first['annotation'],
+                         'generated_at_unix': self.record()['annotation']['generated_at_unix']}})
+
     def test_a_dry_run_plans_but_writes_nothing(self):
         self.proposals()
         self.review()

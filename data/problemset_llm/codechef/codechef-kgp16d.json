@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kgp16d",
+  "title": "Sweet Shops of Kolkata",
+  "slug": "kgp16d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16D",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "Park Street in Kolkata is famous for its mouth-watering sweets. There are a total of **N** shops in the market, which are extended over a single street with shops following one another. The shops are enumerated from **1** to **N**, from left to right.",
+  "tags": [
+    "admin3",
+    "array",
+    "constructive",
+    "icpc2016",
+    "kgp16",
+    "looping"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 4,
+    "problem_code": "KGP16D",
+    "replay_solves": {
+      "successful": 10,
+      "total": 90,
+      "accuracy": 11.11,
+      "replay_only": true
+    }
+  }
+}

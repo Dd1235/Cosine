@@ -1,0 +1,37 @@
+{
+  "id": "codechef-kol16b",
+  "title": "Extreme Encoding",
+  "slug": "kol16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL16B",
+  "source_topic": "ICPC / Kolkata Regional 2016",
+  "source_tags": [],
+  "statement": "Lajuk is a little girl who loves playing with arrays. In her 10th birthday, she got two arrays as presents. Let’s call them **A** and **B**. Both arrays have the same size **n** and contain integers between **0** to **30000**.",
+  "tags": [
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL16MOS",
+    "position": 2,
+    "problem_code": "KOL16B",
+    "replay_solves": {
+      "successful": 159,
+      "total": 300,
+      "accuracy": 54.33,
+      "replay_only": true
+    }
+  }
+}

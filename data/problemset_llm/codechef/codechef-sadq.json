@@ -1,0 +1,40 @@
+{
+  "id": "codechef-sadq",
+  "title": "SAD Queries",
+  "slug": "sadq",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SADQ",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "The Mean Absolute Difference is a measure of statistical dispersion equal to the average absolute difference of two independent values drawn from a probability distribution.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-graph-algos",
+    "algorithms",
+    "searching",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SADQ"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 4,
+    "problem_code": "SADQ",
+    "replay_solves": {
+      "successful": 19,
+      "total": 201,
+      "accuracy": 9.45,
+      "replay_only": true
+    }
+  }
+}

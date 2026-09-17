@@ -1,0 +1,37 @@
+{
+  "id": "codechef-ball",
+  "title": "Entmoot",
+  "slug": "ball",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BALL",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "ACM International Collegiate Programming Contest, Asia-Amritapuri Site, 2012 Entmoot 'Hoo, ho! Good morning, Merry and Pippin!' he boomed, when he saw them. 'You sleep long. I have been many a hundred strides already today.",
+  "tags": [
+    "acmamr12",
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BALL"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 4,
+    "problem_code": "BALL",
+    "replay_solves": {
+      "successful": 8,
+      "total": 36,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

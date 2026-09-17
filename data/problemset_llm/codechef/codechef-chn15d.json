@@ -1,0 +1,43 @@
+{
+  "id": "codechef-chn15d",
+  "title": "Line Intersections",
+  "slug": "chn15d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/CHN15D",
+  "source_topic": "ICPC / Chennai Regional 2015",
+  "source_tags": [],
+  "statement": "You are given N lines (which extend indefinitely in both directions) on the X-Y plane. Some of these lines intersect with each other and others don't (parallel lines). We call each such intersection, an intersection point. You have to find the K th intersection from the bottom.",
+  "tags": [
+    "acmchn15",
+    "arjunarul",
+    "binary-search",
+    "fenwick-tree",
+    "intersections",
+    "inversions",
+    "medium",
+    "segment-tree"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/CHN15D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMCHN15",
+    "position": 4,
+    "problem_code": "CHN15D",
+    "replay_solves": {
+      "successful": 11,
+      "total": 590,
+      "accuracy": 2.03,
+      "replay_only": true
+    }
+  }
+}

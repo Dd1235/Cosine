@@ -1,0 +1,29 @@
+{
+ "id": "codechef-inf16e",
+ "platform": "codechef",
+ "title": "Jumping Frogs III",
+ "slug": "inf16e",
+ "source_url": "https://www.codechef.com/problems/INF16E",
+ "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+ "source_text": "At time 0, **R** red frogs and **G** green frogs are sitting on a straight line. Every frog can be described with an integer number **P**, denoting its initial position and a non-negative integer **V**, denoting its velocity. Every second, a green frog jumps from its position to its left and a red frog jumps to its right. So if the initial position of a green frog is **0** and its velocity is **5**, then after **1** second, its position will be **-5**. If the color of the frog was red, then its position would be **5**. It takes negligible time for any frog to jump from its current position to the new position. Frogs are only visible on the line at any full second. You are also given a segment **[A, B]** where **A** and **B** are two integer numbers and **$-10^{12} \\leq A \\leq B \\leq 10^{12}$**. Please find the maximum possible number of frogs within the interesting segment at any non-negative integer second since time **0** (including 0). Input Input starts with a single positive integer, **T** $(1 \\leq T \\leq 10^6)$, on a single line, denoting the number of test cases. Each of the following **T** test cases are represented in the following manner: 1. The first line has two non-negative integers **R** and **G**, $0 \\leq R+G \\leq 10^5$ (or 100000) on a single line. 2. The second line contains two integer numbers, **A** and **B** $(-10^{12} \\leq A \\leq B \\leq 10^{12})$, separated by a space. **[A, B]** is said to be the interesting segment. 3. Then comes **R** lines, each with two integers **P** and **V**, separated by a single space to denote the initial position and velocity of the $i^{th}$ red frog. 4. Then comes **G** lines, each with two integers **P** and **V**, separated by a single space to denote the initial position and velocity of the $i^{th}$ Green frog. Output For every case, print your output in the format, **\"Case X: Y\"** on a single line, where **X** is the number of the test case starting from **1** and **Y** is the maximum number of frogs that can be within the interesting segment at any point of time. Constraints - $1 \\leq T \\leq 10^6$ - $0 \\leq R+G \\leq 10^5$ (or 100000) - $-10^{12} \\leq A \\leq B \\leq 10^{12}$ - Every frog has a non-negative velocity. - The initial positions are within the range $[-10^{12}, 10^{12}]$. - The total number of frogs in the test file doesn’t exceed $10^6$ (or 1000000). Sample Input 2 2 0 -10 10 -5 5 5 5 2 2 -100 100 1 1 -200 2 -100 1 11 1 Sample Output Case 1: 2 Case 2: 3",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "kol-adm"
+ ],
+ "date_added": "27-12-2016",
+ "problem_author": "kol_adm",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "INF16MOS",
+  "position": 5,
+  "problem_code": "INF16E",
+  "replay_solves": {
+   "successful": 34,
+   "total": 265,
+   "accuracy": 13.21,
+   "replay_only": true
+  }
+ }
+}

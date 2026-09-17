@@ -1,0 +1,30 @@
+{
+ "id": "codechef-zubtrcnt",
+ "platform": "codechef",
+ "title": "D - Triangle Count",
+ "slug": "zubtrcnt",
+ "source_url": "https://www.codechef.com/problems/ZUBTRCNT",
+ "source_topic": "ICPC / Kolkata Regional 2017",
+ "source_text": "You are given an equilateral triangle $ΔABC$ with the side $BC$ being the base. Each side of the triangle is of length $L$. There are $L-1$ additional points on each of the sides dividing the sides into equal parts of unit lengths. Points on the sides of the triangle are called **major** points. Joining these points with lines parallel to the sides of $ΔABC$ will produce some more equilateral triangles. The intersection points of these parallel lines are called **minor** points. Look at the picture below. It contains: - **Major points**: $A, B, C, P_1, P_2, Q_1, Q_3, R_1, R_4, S_1, S_2, S_3$ (note that we consider $A, B, C$ as major points as well) - **Minor points**: $Q_2, R_2, R_3$ - **Equilateral triangles**: $ΔP_1Q_1Q_2, ΔQ_2S_1S_3$, etc. ![Triangle Diagram](https://codechef_shared.s3.amazonaws.com/download/upload/ACM17KOL/ZUBTRCNT/triangle_count.png) We consider an equilateral triangle to be valid if: - Each of its vertices is either a major or a minor point, **and** - The distance from its base (the base of a triangle is the side parallel to $BC$) to $BC$ is less than the distance from the other vertex of the triangle (i.e. opposite vertex that doesn't lie on the base of triangle) to $BC$. In the figure above, $ΔQ_2P_1P_2$ is not a valid triangle but $ΔQ_2R_2R_3$ is a valid triangle. You will be given $L$, the length of the original triangle $ΔABC$. You need to find out the number of valid equilateral triangles with side length exactly $K$. Input - The first line of the input contains an integer $T$ denoting the number of test cases. The description of each test case follows. - Each test case has one line containing two space-separated integers: $L$ and $K$. Output For each test case, print \"Case i: \", and then the answer, where $i$ is the test case number, 1-indexed. Constraints - $1 \\leq T \\leq 500$ - $1 \\leq L, K \\leq 5000$ Sample Input 2 4 3 4 4 Sample Output Case 1: 3 Case 2: 1 The figure presented in the problem description is a triangle with side length 4. In **test case 1**, the valid triangles are $?AR_1R_4, ?P_1BS_3, ?P_2S_1C$. In **test case 2**, the only valid triangle is $?ABC$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "mathematics",
+  "geometry"
+ ],
+ "date_added": "19-11-2017",
+ "problem_author": "zubaerkh",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KOL17ROL",
+  "position": 8,
+  "problem_code": "ZUBTRCNT",
+  "replay_solves": {
+   "successful": 93,
+   "total": 309,
+   "accuracy": 30.74,
+   "replay_only": true
+  }
+ }
+}

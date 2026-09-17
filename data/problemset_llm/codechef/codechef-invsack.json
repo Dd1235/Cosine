@@ -1,0 +1,40 @@
+{
+  "id": "codechef-invsack",
+  "title": "Inverse Knapsack",
+  "slug": "invsack",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INVSACK",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "You are given N and there exists an array of N items, which only the Chef knows. The i-th item of the array will have a weight (W_i) and a profit (P_i) value associated with it.",
+  "tags": [
+    "special",
+    "algorithms",
+    "dynamic-programming",
+    "dp-approach",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INVSACK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 2,
+    "problem_code": "INVSACK",
+    "replay_solves": {
+      "successful": 60,
+      "total": 248,
+      "accuracy": 25.0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-amraces",
+  "title": "Longest Races",
+  "slug": "amraces",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMRACES",
+  "source_topic": "ICPC / Amritapuri Regional 2017",
+  "source_tags": [],
+  "statement": "The city of Drais once was a capital of bicycle races. The city contained several junctions. Some pairs of junctions are directly connected by a bidirectional road which does not pass through any intermediate junction. In Drias there was a unique simple path to get from any junction to any other.",
+  "tags": [
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMRACES"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR17ROL",
+    "position": 3,
+    "problem_code": "AMRACES",
+    "replay_solves": {
+      "successful": 0,
+      "total": 1,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

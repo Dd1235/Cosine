@@ -224,6 +224,16 @@ def publish(batch: str, write: bool, root: Path = ROOT) -> dict[str, int]:
         platform = staged.get("platform") or platform_of(problem_id)
         out = corpus / platform / f"{problem_id}.json"
         built = build_record(problem_id, staged, record["statement_summary"].strip(), patterns)
+        # Tier two upgrading a tier-one record in place (scripts/publish_pending.py):
+        # keep the provenance the pending record already carried, replace only
+        # what the review earned — statement and patterns — and drop the
+        # pending flag. Same path, same id; nothing downstream needs to know.
+        existing = read_json(out, None) if out.exists() else None
+        if isinstance(existing, dict):
+            for key in ("contest_source", "source_tags", "tags"):
+                if key in existing and not built.get(key):
+                    built[key] = existing[key]
+            built.pop("review_status", None)
         stats["published"] += 1
         verb = "write" if write else "would write"
         print(f"  {verb} {out.relative_to(root)}  patterns={','.join(built['patterns'])}")

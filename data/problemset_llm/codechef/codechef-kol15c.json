@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol15c",
+  "title": "Just Update and Print the array",
+  "slug": "kol15c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL15C",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "You are given a 1-indexed array of size N . Initially, all elements of the array are zeros. You need to perform U updates to the array.",
+  "tags": [
+    "advanced-algorithms",
+    "algorithms",
+    "queries"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL15C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKOL15",
+    "position": 3,
+    "problem_code": "KOL15C",
+    "replay_solves": {
+      "successful": 34,
+      "total": 838,
+      "accuracy": 4.3,
+      "replay_only": true
+    }
+  }
+}

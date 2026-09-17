@@ -1,0 +1,29 @@
+{
+ "id": "codechef-chn16j",
+ "platform": "codechef",
+ "title": "Kingdom of Chef",
+ "slug": "chn16j",
+ "source_url": "https://www.codechef.com/problems/CHN16J",
+ "source_topic": "ICPC / Chennai Regional 2016",
+ "source_text": "Chef lives in a country represented by cities numbered from **1** to **N** and connected to each other via bidirectional weighted paths in such a way that there is a unique path between any pair of cities. Chef aims to conquer a subset of these cities and form his Kingdom. He can choose a subset of nodes **$v_1, v_2, \\dots, v_k$** and his followers will occupy those cities to make an initial kingdom consisting of those cities. Also, any city which lies on a path between any two occupied cities will be eventually occupied and will become a part of Chef's Kingdom. To evaluate how good or favorable the Kingdom is, Chef defines a function. Say, if the cities in Chef's Kingdom are **$c_1, c_2, \\dots, c_n$**, then Chef defines the goodness of this kingdom as **$f(c_1) + f(c_2) + \\dots + f(c_n)$**, where **$f(x)$** is defined as the minimum distance a person has to travel to visit all the cities in the Kingdom at least once, if he/she starts at city number **$x$**. Now, Chef has a total of **$Q$** plans about which cities he wants to occupy. The **$i^{th}$** plan is defined by a subset of **$K_i$** cities, **$v_{i,1}, v_{i,2}, \\dots, v_{i,K_i}$**, denoting the initial cities that his followers will occupy. He wants you to report the goodness of the Kingdoms eventually formed by his plans. Input The first line of the input contains two space-separated integers **$N$** and **$Q$** denoting the number of cities and the number of Chef's plans, respectively. The next **$N - 1$** lines contain integers **$u$**, **$v$**, and **$w$** denoting there is a bidirectional path of length **$w$** between cities numbered **$u$** and **$v$**. Each of the next **$Q$** lines describes Chef's plans. Each plan first states **$K_i$**, i.e., the number of cities in the **$i^{th}$** plan. The next **$K_i$** integers denote the cities to be occupied in this plan. Output For each plan of Chef, output in one line the goodness of the Kingdom formed by that plan. Constraints - **$1 \\leq N, Q \\leq 10^5$** - **$1 \\leq u, v \\leq N$** - **$1 \\leq w \\leq 10^4$** - **$1 \\leq K_i \\leq N$** - **$1 \\leq \\text{Sum of } K_i \\text{ for all } i \\leq 5 \\times 10^5$** - **$1 \\leq v_{i,j} \\leq N$** for all **$i, j$** Sample Input 4 3 1 2 1 2 3 2 1 4 3 1 1 2 1 2 2 3 4 Sample Output 0 2 29 **Plan 1:** Chef plans to occupy only city 1, in which case goodness is 0. **Plan 2:** Chef initially occupies cities 1 and 2. Eventually, no other city other than these two is occupied. For each city in the kingdom formed, a person will need to travel at most 1 distance to visit all the cities. **Plan 3:** Chef initially occupies city 3 and 4. However, city 1 and 2 lie on a path between initial occupied cities and therefore, belong to Chef's kingdom. Let's see how goodness of Chef's kingdom is calculated. - **$f(1)$** is 9. Path **$1 \\rightarrow 2 \\rightarrow 3 \\rightarrow 2 \\rightarrow 1 \\rightarrow 4$** is one of the paths which can be taken. - **$f(2)$** is 8. Path **$2 \\rightarrow 3 \\rightarrow 2 \\rightarrow 1 \\rightarrow 4$** is the path which needs to be taken. - **$f(3)$** is 6. Path **$3 \\rightarrow 2 \\rightarrow 1 \\rightarrow 4$** is the path which needs to be taken. - **$f(4)$** is 6. Path **$4 \\rightarrow 1 \\rightarrow 2 \\rightarrow 3$** is the path which needs to be taken. Therefore, the answer is **$9 + 8 + 6 + 6 = 29$**.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "15-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN16MOS",
+  "position": 10,
+  "problem_code": "CHN16J",
+  "replay_solves": {
+   "successful": 0,
+   "total": 5,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

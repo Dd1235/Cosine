@@ -1,0 +1,37 @@
+{
+  "id": "codechef-bingame",
+  "title": "1-2 Game",
+  "slug": "bingame",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BINGAME",
+  "source_topic": "ICPC / Kharagpur Regional 2018",
+  "source_tags": [],
+  "statement": "There are two players P_1, P_2 playing a game on an array A which has n positive integers: A_1, A_2, \\ldots, A_n. Both the players take turns alternatively, and P_1 goes first.",
+  "tags": [
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BINGAME"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP18ROL",
+    "position": 6,
+    "problem_code": "BINGAME",
+    "replay_solves": {
+      "successful": 15,
+      "total": 39,
+      "accuracy": 38.46,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-egyptfra",
+  "title": "Egyption Fractions",
+  "slug": "egyptfra",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/EGYPTFRA",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "A fraction a/b is called in its lowest form if gcd(a, b) = 1. It is possible to express a/b using the sum of a finite number of reciprocals of natural numbers. For example, 2/7 can be written as 1/4 + 1/28. Such a representation is called an Egyptian fraction representation of a/b.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/EGYPTFRA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN12",
+    "position": 1,
+    "problem_code": "EGYPTFRA",
+    "replay_solves": {
+      "successful": 16,
+      "total": 336,
+      "accuracy": 4.76,
+      "replay_only": true
+    }
+  }
+}

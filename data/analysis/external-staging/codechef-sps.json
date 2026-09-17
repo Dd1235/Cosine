@@ -1,0 +1,30 @@
+{
+ "id": "codechef-sps",
+ "platform": "codechef",
+ "title": "Shortest Palindromic Superstring",
+ "slug": "sps",
+ "source_url": "https://www.codechef.com/problems/SPS",
+ "source_topic": "ICPC / India Prelims 2019",
+ "source_text": "A palindrome is a string that is identical to its reverse. For example, \"aba\", \"abba\", \"a\" and \"aa\" are palindromes, while \"ab\", \"abb\" and \"xyz\" are not. A string $X$ is called a substring of string $Y$ if it is possible to obtain $X$ by erasing some (possibly zero) characters from the beginning of $Y$ and some (possibly zero) from the end of $Y$ without changing the order of the remaining characters. For example, \"cp\" is a substring of \"icpc\", while \"icc\" is not. You are given two strings $s$ and $t$. Find the minimum length of a string (let's denote it by $w$) that satisfies the following conditions: - $w$ is a palindrome - $s$ and $t$ are substrings of $w$ ### Input - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first and only line of each test case contains two space-separated strings $s$ and $t$. ### Output For each test case, print a single line containing one integer - the minimum length of a palindrome that contains both $s$ and $t$ as substrings. ### Constraints - $1 \\le T \\le 1,000$ - $1 \\le |s|, |t| \\le 2,000$ - $s$ and $t$ contain only lowercase English letters - the sum of the lengths of all the strings on the input does not exceed $4,000$ Sample Input 4 a a a b abc cb abbc ba Sample Output 1 3 5 7 **Example case 1:** $s$ and $t$ are both \"a\", and \"a\" is also the shortest palindrome that contains both $s$ and $t$. **Example case 2:** One possible string $w$ is \"aba\", since there is no palindrome with length $1$ or $2$ that contains both \"a\" and \"b\". **Example case 3:** One possible string $w$ is \"abcba\". **Example case 4:** One possible string $w$ is \"abbcbba\".",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "10-10-2019",
+ "problem_author": "jtnydv25",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ICPCIN19",
+  "position": 1,
+  "problem_code": "SPS",
+  "replay_solves": {
+   "successful": 12,
+   "total": 771,
+   "accuracy": 1.82,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codechef-tilebag",
+  "title": "Bag of Tiles",
+  "slug": "tilebag",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TILEBAG",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "Kajaria has an empty bag and 2 types of tiles - tiles of type 1 have the number X written and those of type 2 have the number Y written on them. He has an infinite supply of both types of tiles. In one move, Kajaria adds exactly 1 tile to the bag.",
+  "tags": [
+    "wittyceaser"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TILEBAG"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 11,
+    "problem_code": "TILEBAG",
+    "replay_solves": {
+      "successful": 34,
+      "total": 205,
+      "accuracy": 18.54,
+      "replay_only": true
+    }
+  }
+}

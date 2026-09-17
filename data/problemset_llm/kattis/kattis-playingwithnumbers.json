@@ -1,0 +1,35 @@
+{
+ "id": "kattis-playingwithnumbers",
+ "title": "Playing with Numbers",
+ "slug": "playingwithnumbers",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/playingwithnumbers",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Each of N numbers is given as two raised to some power times three raised to some power, and repeatedly two numbers are replaced by either their greatest common divisor or their least common multiple until a single number remains. For every count k of gcd merges from zero up to N-1, the task reports the largest and the smallest final value obtainable.",
+ "tags": [],
+ "patterns": [
+  "gcd",
+  "number-theory",
+  "sorting"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "gcd": 0.9,
+   "number-theory": 0.9,
+   "sorting": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.9,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

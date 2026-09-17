@@ -1,0 +1,37 @@
+{
+  "id": "codechef-walkfast",
+  "title": "Train or Walk",
+  "slug": "walkfast",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/WALKFAST",
+  "source_topic": "ICPC / Kharagpur Regional 2019",
+  "source_tags": [],
+  "statement": "Chefland has all the cities on a straight line. There are N cities in Chefland numbered 1 to N. City i is located at coordinate x_i on the x-axis. Guru wants to travel from city A to city B. He starts at time t=0. He has following choices to travel. 1. He can walk 1 metre in P secs. 2.",
+  "tags": [
+    "basic-programming-concepts",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/WALKFAST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KH19MOS",
+    "position": 7,
+    "problem_code": "WALKFAST",
+    "replay_solves": {
+      "successful": 139,
+      "total": 415,
+      "accuracy": 33.73,
+      "replay_only": true
+    }
+  }
+}

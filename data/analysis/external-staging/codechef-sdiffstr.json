@@ -1,0 +1,31 @@
+{
+ "id": "codechef-sdiffstr",
+ "platform": "codechef",
+ "title": "Sufficiently different string",
+ "slug": "sdiffstr",
+ "source_url": "https://www.codechef.com/problems/SDIFFSTR",
+ "source_topic": "ICPC / Amritapuri Regional 2019",
+ "source_text": "You are teaching students to generate strings consisting of **unique** lowercase Latin characters (a-z). You give an example reference string $s$ to the students. You notice that your students just copy-paste the reference string instead of creating their own string. So, you tweak the requirements for strings submitted by the students. Let us define a function $F(s, t)$ where $s$ and $t$ are strings as the number of characters that are the same in both strings. Note that the position doesn't matter. Here are a few examples of $F(s, t)$: - $F(\\text{\"abc\"}, \\text{\"def\"}) = 0$ - $F(\\text{\"abc\"}, \\text{\"acb\"}) = 3$ - $F(\\text{\"back\"}, \\text{\"abcd\"}) = 3$ Now you ask your students to output a string $t$ with lowercase unique characters of the same length as $s$, such that $F(s, t) \\leq k$ where you are also given the value of $k$. If there are multiple such strings, you ask them to output the lexicographically smallest possible string. If no such string is possible, output the string \"NOPE\" without quotes. Input - The first line will contain $T$, the number of test cases. Then the test cases follow. - Each test case consists of a single line of input, which contains a string $s$ and an integer $k$. Output For each test case, output in a single line the lexicographically smallest string $t$ such that $F(s, t) \\leq k$ or \"NOPE\" without quotes if no such string exists. Constraints - $1 \\leq T \\leq 10000$ - $1 \\leq$ length of string $s$ $(|s|) \\leq 26$ - $s$ only consists of characters $a$ to $z$ - There are no repeating characters in $s$ - $0 \\leq k \\leq |s|$ Sample Input 4 helowrd 0 background 0 abcdefghijklmnopqrstuvwxyz 0 b 1 Sample Output abcfgij efhijlmpqs NOPE a - For the first test case, the string \"helowrd\" has 7 unique characters. The lexicographically smallest string with 7 unique characters and no overlap with \"helowrd\" is \"abcfgij\". - For the second test case, the string \"background\" has 10 unique characters. The lexicographically smallest string with 10 unique characters and no overlap with \"background\" is \"efhijlmpqs\". - For the third test case, the string \"abcdefghijklmnopqrstuvwxyz\" contains all 26 unique lowercase letters, so no other string with 26 unique characters can be formed without overlapping. Hence, the output is \"NOPE\". - For the fourth test case, the string \"b\" has 1 character. The lexicographically smallest string with 1 unique character and at most 1 overlap is \"a\".",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "algorithms",
+  "constructive"
+ ],
+ "date_added": "23-12-2019",
+ "problem_author": "balajiganapath",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AM19MOS",
+  "position": 5,
+  "problem_code": "SDIFFSTR",
+  "replay_solves": {
+   "successful": 208,
+   "total": 674,
+   "accuracy": 31.6,
+   "replay_only": true
+  }
+ }
+}

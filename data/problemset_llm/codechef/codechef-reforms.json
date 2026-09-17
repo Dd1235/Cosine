@@ -1,0 +1,38 @@
+{
+  "id": "codechef-reforms",
+  "title": "Reforms, Reforms Never Change",
+  "slug": "reforms",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/REFORMS",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "The king of Berland wants to revise his road system. Again. This time the kingdom of Berland consists of n cities and m one-way roads. The cities are numbered from 1 to n. Each road allows to travel from some city to some other city. It is not possible to travel the road in the opposite direction.",
+  "tags": [
+    "algorithms",
+    "graph-algos",
+    "shortest-path"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/REFORMS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 8,
+    "problem_code": "REFORMS",
+    "replay_solves": {
+      "successful": 0,
+      "total": 3,
+      "accuracy": 0,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "codechef-acm14kg2",
+  "title": "The last cracker",
+  "slug": "acm14kg2",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ACM14KG2",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Ram has N different crackers. These crackers are very special, each of them can fire infinite number of fire-balls. Ram made an arrangement with those N crackers.",
+  "tags": [
+    "acmkg14r",
+    "admin",
+    "cakewalk",
+    "programming"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ACM14KG2"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKG14R",
+    "position": 2,
+    "problem_code": "ACM14KG2",
+    "replay_solves": {
+      "successful": 421,
+      "total": 616,
+      "accuracy": 68.51,
+      "replay_only": true
+    }
+  }
+}

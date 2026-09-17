@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kgp16i",
+  "title": "Monetize Mania",
+  "slug": "kgp16i",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP16I",
+  "source_topic": "ICPC / Kharagpur Regional 2016",
+  "source_tags": [],
+  "statement": "Recently The Prime Minister of India, Narendra Modi launched the ambitious Gold Monetization Scheme, under which one can deposit their gold reserves to the banks. There are n banks in Kharagpur. For simplicity, we enumerate them from 1 to n in the order.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP16I"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP16MOS",
+    "position": 9,
+    "problem_code": "KGP16I",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

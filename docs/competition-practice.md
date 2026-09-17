@@ -20,15 +20,33 @@ excludes the source contest by definition, so the pair can only be empty.
 Collection membership is separate from judge and technique. Browse uses the
 published problem order. Every card that belongs to a collection carries a
 small competition tag (the collection's short name); clicking it adds that
-collection. With a collection active, difficulty, tags, patterns and the CSES
-provenance line start hidden until revealed; the statement and the "find
-similar" / "practice this idea" links stay visible, because hiding them left
-the feature's own follow-on actions unreachable. `:compare` is a ranker lens and
+collection. Technique labels on a card are hidden by default behind a per-user
+switch — one card reveals with a click, the switch reveals all of them, and
+difficulty is always visible. `:compare` is a ranker lens and
 ignores collections; the status line says so. A resource can link an official
 booklet, editorial, practice judge or non-coding round without becoming a
 ranked problem. Counts distinguish searchable members from members still
 awaiting statement or solution review, and a collection with no indexed
 problems says so in the status line instead of reading as a broken filter.
+
+With exactly one competition selected, the resources panel offers a contest
+page (`?contest=<id>&view=contest`). It lists the whole set rather than the
+searchable part of it: one row per registry member, indexed or not, with the
+letter or CodeChef code in a fixed cell, the card the search results use where
+a statement exists, and a title, difficulty and judge link where one does not.
+The header carries the date, location and organiser, where the statements came
+from, how many of the set you have marked done, the collection's resource links
+with editorials and booklets first, and a `by topic` tally that is never open by
+default — topic labels are hints, so the view that hides them stays the one you
+land on. Order is `member.order`, then `member.letter`, then registry position;
+for the seven Kattis-sourced collections registry order is alphabetical by slug
+and no letters are published, so those headers say "problem order not verified
+— listed alphabetically" rather than inventing letters. That per-problem
+metadata lives in the registry itself: a membership in `data/contests.json` is
+either a bare id or an object carrying `letter`, `order`, `title`, `url`,
+`kattis_difficulty`, `solves` or `code`, validated by `validateRegistry` and
+shipped to the client as `members` alongside the flat `problems` id list every
+other consumer reads. There is no timer and no virtual-contest mode.
 
 Members arrive through `scripts/ingest_contest.py`, which reads a Kattis
 problem-source page (`icpc.kattis.com` and `open.kattis.com`, where ICPC World
@@ -40,9 +58,14 @@ Staging authorises nothing: a problem publishes only through
 skeptic review pinned to the statement's hash, and canonical labels. A problem
 that could not be solved stays staged and counts as "not yet indexed". Kattis
 publishes a per-host difficulty score; it is stored as `kattis_difficulty`
-metadata and shown in the detail line, never mapped onto a rating, a filter or
-a sort. No Indian regional is hosted on Kattis, so that collection remains
-resource-only until Gym- or CodeChef-hosted rounds are added.
+metadata and shown on the card as "<score> · Kattis", never mapped onto a
+rating, a filter or a sort. No Indian regional is hosted on Kattis. Indian regionals, online rounds and
+prelims from 2010–2019 come from CodeChef's public contest API instead
+(`scripts/ingest_contest.py <CODE>`), in two tiers: every statement is
+published at once as a `labels-pending` record — the problem's own words and
+the judge's tags, none of our labels, so it can never match a technique filter
+— and reviewed labels replace that in place later through the same gate
+(`scripts/publish_pending.py`, then `scripts/publish_external.py`).
 
 Find similar keeps the source in the URL, excludes the source and verified
 aliases, and filters before pagination. It retains the current facets and saved

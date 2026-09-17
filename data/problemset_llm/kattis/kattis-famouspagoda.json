@@ -1,0 +1,37 @@
+{
+ "id": "kattis-famouspagoda",
+ "title": "Famous Pagoda",
+ "slug": "famouspagoda",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/famouspagoda",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A non-decreasing sequence of N heights must be cut into G blocks of consecutive positions. A block costs the minimum over all integers v of the sum of |height - v| raised to the power k, where k is one or two. The task is to report the least achievable total cost over all such partitions, with N up to two thousand and G up to N.",
+ "tags": [],
+ "patterns": [
+  "dynamic-programming",
+  "partition-dp",
+  "divide-and-conquer-dp",
+  "prefix-sum"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "dynamic-programming": 0.9,
+   "partition-dp": 0.9,
+   "divide-and-conquer-dp": 0.9,
+   "prefix-sum": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 4.2,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

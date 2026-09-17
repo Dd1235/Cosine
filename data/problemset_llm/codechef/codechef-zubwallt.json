@@ -1,0 +1,37 @@
+{
+  "id": "codechef-zubwallt",
+  "title": "Organize The Wallet",
+  "slug": "zubwallt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ZUBWALLT",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "Ranju has many currency notes in his wallet. There are notes of denominations **10, 20, 50, 100, 200, 500**, and **2000** rupees in his wallet right now, but the notes are all messed up. He wants to organize his wallet so that all the notes of each denomination are together.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ZUBWALLT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 9,
+    "problem_code": "ZUBWALLT",
+    "replay_solves": {
+      "successful": 3,
+      "total": 17,
+      "accuracy": 23.53,
+      "replay_only": true
+    }
+  }
+}

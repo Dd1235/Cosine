@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp14c",
+  "title": "Kings Dinner",
+  "slug": "kgp14c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14C",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "The King of Neverland plans to host a Christmas dinner for all the K landlords (numbered from 1 to K ) in the kingdom. The landlords are feudal and the king feels it might be good to get them all together under one roof.",
+  "tags": [
+    "admin3",
+    "bfs",
+    "graphs",
+    "kgp14ros",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 3,
+    "problem_code": "KGP14C",
+    "replay_solves": {
+      "successful": 53,
+      "total": 191,
+      "accuracy": 28.8,
+      "replay_only": true
+    }
+  }
+}

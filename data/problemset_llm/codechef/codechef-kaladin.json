@@ -1,0 +1,37 @@
+{
+  "id": "codechef-kaladin",
+  "title": "Proprietary Probabilistic Problem",
+  "slug": "kaladin",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KALADIN",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "You are given a bag containing **N** balls, numbered from 1 to **N**, each having a given non-zero integral volume. The likelihood of a ball being taken out of the bag is directly proportional to its volume.",
+  "tags": [
+    "mathematics",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KALADIN"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 5,
+    "problem_code": "KALADIN",
+    "replay_solves": {
+      "successful": 4,
+      "total": 13,
+      "accuracy": 30.77,
+      "replay_only": true
+    }
+  }
+}

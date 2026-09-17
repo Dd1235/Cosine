@@ -6,6 +6,7 @@ Stage problems from a contest link.
     python3 scripts/ingest_contest.py https://codeforces.com/contest/2248
     python3 scripts/ingest_contest.py "https://icpc.kattis.com/problem-sources/ICPC%20World%20Finals%202024"
     python3 scripts/ingest_contest.py "https://open.kattis.com/contests/a3krcf"
+    python3 scripts/ingest_contest.py --print-registry AMR17ROL   # a CodeChef replay contest
     python3 scripts/ingest_contest.py --print-registry --dry-run "https://open.kattis.com/problem-sources/..."
     python3 scripts/ingest_contest.py --retry-pending
     python3 scripts/ingest_contest.py --dry-run <url>
@@ -49,6 +50,17 @@ is the warm-up and is nearly always Easy, and this corpus is deliberately
 hard-focused. `credit` is used rather than the difficulty label because it is
 structural and available immediately, while the label can still move.
 
+WHY CODECHEF LOOKS LIKE KATTIS
+
+The Indian ICPC regionals are not on Kattis; they are re-hosted on CodeChef as
+"replay" contests, which two login-free JSON endpoints describe: the contest
+lists its problems (in contest order) and the practice endpoint carries each
+statement. So CodeChef ingest reuses the Kattis shape exactly — stage the
+statement, stop, and let a human solve and label it. The replay's solve counts
+are staged as `replay_solves` and flagged `replay_only`, because they count
+people practising years later, not the teams in the room: a difficulty hint,
+never contest standings.
+
 WHY KATTIS STOPS AT A STAGING FILE
 
 Kattis ICPC problems carry no rating, no tag list and no editorial, so nothing
@@ -69,6 +81,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+import urllib.error
 from urllib.parse import quote, unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -137,6 +150,9 @@ def append_seed_block(title: str, urls: list[str]) -> int:
     return len(fresh)
 
 
+CODECHEF_CODE = r"[A-Z][A-Z0-9]{3,15}"
+
+
 def parse_contest_url(raw: str) -> tuple[str, Any]:
     s = raw.strip().rstrip("/")
     m = re.search(r"leetcode\.com/contest/([a-z0-9-]+)", s, re.I)
@@ -157,6 +173,15 @@ def parse_contest_url(raw: str) -> tuple[str, Any]:
         return "kattis-contest", {"kind": "kattis-contest",
                                   "host": f"{m.group(1).lower()}.kattis.com",
                                   "id": m.group(2)}
+    # A CodeChef contest code is the contest's whole identity: the page is
+    # codechef.com/<CODE> with nothing else in the path, so a bare code is
+    # accepted too. The pattern is deliberately strict — uppercase, at least
+    # four characters — so a lowercase Kattis slug or a stray word can never be
+    # mistaken for one.
+    m = re.search(rf"codechef\.com/(?:api/contests/)?({CODECHEF_CODE})$", s)
+    if m or re.fullmatch(CODECHEF_CODE, s):
+        return "codechef-contest", {"kind": "codechef-contest",
+                                    "code": m.group(1) if m else s}
     raise ValueError(f"unrecognised contest url: {raw}")
 
 
@@ -376,8 +401,9 @@ def stage_codeforces(problems: list[dict[str, Any]], contest_id: int, label: str
 # loosened regex happens to match.
 
 STAGING = ROOT / "data" / "analysis" / "external-staging"
-KATTIS_MIN_TEXT = 150
+MIN_TEXT = 150  # shorter than this is a failed fetch, not a statement
 KATTIS_FETCH_DELAY = 1.5  # seconds between statement fetches
+CODECHEF_FETCH_DELAY = 1.5
 
 KATTIS_ROW_RE = re.compile(r"<tr\b.*?</tr>", re.S | re.I)
 # The closing quote matters: a row also links /problems/<slug>/en and
@@ -388,6 +414,15 @@ KATTIS_CONTEST_LINK_RE = re.compile(
     r'href="/contests/[A-Za-z0-9_.-]+/problems/([A-Za-z0-9_.-]+)"[^>]*>\s*(.*?)\s*</a>', re.S)
 KATTIS_DIFFICULTY_RE = re.compile(
     r'difficulty_number[^"]*difficulty_(easy|medium|hard)"\s*>\s*(\d+\.\d)', re.S)
+# Full Solves ("number of users that have solved the problem fully") is a bare
+# <td>42</td> with nothing in it to match on, so it is found the same row-wise
+# way the difficulty is: by its NEIGHBOURS, not its position. Kattis always
+# renders Authors, Full Solves and Ratio adjacently and only the ratio cell
+# carries a '%', so anchoring on that cell identifies the other two no matter
+# how many columns sit to the left of them (the source table already varies:
+# a row can drop its difficulty cell entirely).
+KATTIS_FULL_SOLVES_RE = re.compile(
+    r'<td\b[^>]*>\s*(\d+)\s*</td>\s*<td\b[^>]*>\s*(\d+)\s*</td>\s*<td\b[^>]*>\s*\d+\s*%', re.S)
 KATTIS_DIFFICULTY_MARKER = 'data-name="difficulty_data"'
 KATTIS_HELD_DATE_RE = re.compile(r"\(([A-Z][a-z]+)\s+(\d{1,2}),\s*(\d{4})\)\s*$")
 MONTHS = {m: i for i, m in enumerate(
@@ -417,10 +452,15 @@ def parse_kattis_source_page(page: str) -> list[dict[str, Any]]:
         if not link:
             continue
         hit = KATTIS_DIFFICULTY_RE.search(block)
+        solves = KATTIS_FULL_SOLVES_RE.search(block)
         rows.append({
             "slug": link.group(1),
             "title": html_to_text(link.group(2)),
             "difficulty": {"score": float(hit.group(2)), "label": hit.group(1)} if hit else None,
+            # How many teams solved it is how a team picks which past contest to
+            # attempt, so it is staged alongside the position. Unknown stays
+            # None; a missing count is not zero solves.
+            "full_solves": int(solves.group(2)) if solves else None,
         })
     if not rows:
         raise ValueError("no problem rows on this page — refusing to stage nothing")
@@ -441,7 +481,7 @@ def parse_kattis_contest_page(page: str) -> list[dict[str, Any]]:
         if not link:
             continue
         rows.append({"slug": link.group(1), "title": html_to_text(link.group(2)),
-                     "difficulty": None})
+                     "difficulty": None, "full_solves": None})
     if not rows:
         raise ValueError("no problem rows on this contest page — refusing to stage nothing")
     return rows
@@ -481,14 +521,15 @@ def kattis_registry_entry(spec: dict[str, Any], url: str, display: str,
     }
 
 
-def staged_source_text(slug: str) -> str | None:
-    """The staged statement for a slug, if one is already on disk and usable.
-    A short file is a failed fetch, not a cache hit — re-fetch it."""
-    staged = read_json(STAGING / f"kattis-{slug}.json", None)
+def staged_source_text(problem_id: str) -> str | None:
+    """The staged statement for a full problem id (`kattis-<slug>`,
+    `codechef-<code>`), if one is already on disk and usable. A short file is a
+    failed fetch, not a cache hit — re-fetch it."""
+    staged = read_json(STAGING / f"{problem_id}.json", None)
     if not isinstance(staged, dict):
         return None
     text = staged.get("source_text") or ""
-    return text if len(text) >= KATTIS_MIN_TEXT else None
+    return text if len(text) >= MIN_TEXT else None
 
 
 def ingest_kattis(spec: dict[str, Any], dry_run: bool,
@@ -522,7 +563,7 @@ def ingest_kattis(spec: dict[str, Any], dry_run: bool,
             stats["present"] += 1
             print(f"    have  {slug:<28} {row['title'][:34]}   (in the corpus)")
             continue
-        if staged_source_text(slug) is not None:
+        if staged_source_text(pid) is not None:
             stats["cached"] += 1
             print(f"    have  {slug:<28} {row['title'][:34]}   (already staged)")
             continue
@@ -550,7 +591,8 @@ def ingest_kattis(spec: dict[str, Any], dry_run: bool,
                                            "observed_at": observed}
         record["contest_source"] = {"host": host,
                                     "name": spec.get("name") or spec.get("id"),
-                                    "position": position}
+                                    "position": position,
+                                    "full_solves": row.get("full_solves")}
         atomic_write_json(STAGING / f"{pid}.json", record)
         stats["staged"] += 1
         note = f"  [{row['difficulty']['score']} {row['difficulty']['label']}]" if row["difficulty"] else ""
@@ -564,6 +606,231 @@ def ingest_kattis(spec: dict[str, Any], dry_run: bool,
         for line in json.dumps(entry, ensure_ascii=False, indent=2).splitlines():
             print(f"    {line}")
     return stats
+
+# ── CodeChef ─────────────────────────────────────────────────────────────────
+#
+# CodeChef hosts the Indian ICPC regionals as "replay" contests, and describes
+# them through two login-free JSON endpoints: /api/contests/<CODE> lists the
+# problems, /api/contests/PRACTICE/problems/<CODE> carries one statement. The
+# second one already has an adapter (scripts/external_judges.py) that the
+# solve/label pipeline uses, so this path only walks the contest and hands each
+# problem to that adapter — one fetcher, one place where a CodeChef markup
+# change has to be fixed.
+#
+# Ingest stops at a staging file for exactly the Kattis reason: a CodeChef
+# regional carries no usable rating (difficulty_rating is -1 on every one of
+# these) and no editorial the script can trust, so the label has to come from
+# someone solving the problem.
+#
+# The API is trusted for structure and nothing else: if `status` is not
+# "success" or the contest lists no problems, this writes nothing and says so,
+# rather than staging a half-read contest that a reviewer would have to notice.
+
+CODECHEF_CONTEST_API = "https://www.codechef.com/api/contests/{code}"
+CODECHEF_SITES = ("amritapuri", "kolkata", "kharagpur", "chennai", "kanpur", "gwalior")
+
+
+def codechef_number(value: Any, cast: Any = int) -> Any:
+    """One counter arrives as 0, as "7" and as null in the same response, so
+    every one of them goes through here; an unreadable counter is unknown
+    rather than zero."""
+    try:
+        return cast(str(value))
+    except (TypeError, ValueError):
+        return None
+
+
+def codechef_contest_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    """The contest's problems in CONTEST order.
+
+    `problems` is a JSON object whose insertion order is the running order, and
+    json.loads preserves it — so the order is read off the response rather than
+    reconstructed from the codes, which do not sort into it."""
+    rows = []
+    for position, (key, prob) in enumerate((data.get("problems") or {}).items(), start=1):
+        prob = prob if isinstance(prob, dict) else {}
+        code = (prob.get("code") or key or "").strip()
+        if not code:
+            continue
+        rows.append({"code": code, "name": prob.get("name") or code, "position": position,
+                     "successful": codechef_number(prob.get("successful_submissions")),
+                     "total": codechef_number(prob.get("total_submissions")),
+                     "accuracy": codechef_number(prob.get("accuracy"), float),
+                     # Some replay problems were never added to the practice
+                     # section, and /problems/<CODE> 404s for those. False means
+                     # "known absent"; None means the field was not there.
+                     "in_practice": codechef_flag(prob.get("is_added_to_practice"))})
+    return rows
+
+
+def codechef_flag(value: Any) -> bool | None:
+    """CodeChef's booleans arrive as True/False, 1/0, "1"/"0" or "true"/"false"."""
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return None
+    text = str(value).strip().lower()
+    if text in ("1", "true", "yes"):
+        return True
+    if text in ("0", "false", "no"):
+        return False
+    return None
+
+
+def codechef_contest_identity(name: str) -> dict[str, Any]:
+    """Which contest a replay is a replay OF, read off its name.
+
+    "ACM-ICPC Asia-Amritapuri Onsite Replay Contest 2017" is the only statement
+    of site, year and stage anywhere in the API. A regional shared between two
+    cities is named for its host first ("Asia-Kolkata-Kanpur"), so the LEFTMOST
+    site in the name wins; "Online Round" is the all-India prelims, which has no
+    site at all. An unrecognised name keeps its own slug — visibly wrong to the
+    human who reviews this skeleton, rather than quietly filed under a city it
+    was never held in."""
+    year_match = re.search(r"(20\d{2})", name)
+    year = int(year_match.group(1)) if year_match else None
+    label = str(year) if year else "unknown-year"
+    short_year = f"{year % 100:02d}" if year else "??"
+    season = f"{year}-{year + 1}" if year else None
+    if re.search(r"online\s+round", name, re.I):
+        return {"id": f"icpc-india-prelims-{label}", "name": f"ICPC India Prelims {label}",
+                "short": f"India Prelims {short_year}"[:16], "stage": "prelims",
+                "location": "India", "season": season}
+    hits = [(m.start(), site) for site in CODECHEF_SITES
+            for m in [re.search(site, name, re.I)] if m]
+    site = min(hits)[1].title() if hits else None
+    return {"id": f"icpc-asia-{site.lower()}-{label}" if site else slugify(name),
+            "name": f"ICPC {site} Regional {label}" if site else name,
+            "short": (f"{site} {short_year}" if site else name)[:16],
+            "stage": "regional", "location": f"{site}, India" if site else "India",
+            "season": season}
+
+
+def codechef_source_topic(name: str) -> str:
+    """The same "ICPC / <contest>" shape the Kattis records use."""
+    derived = codechef_contest_identity(name)["name"]
+    return f"ICPC / {derived[5:]}" if derived.startswith("ICPC ") else f"CodeChef / {name}"
+
+
+def codechef_registry_entry(spec: dict[str, Any], rows: list[dict[str, Any]],
+                            display_name: str) -> dict[str, Any]:
+    """A data/contests.json skeleton. PRINTED, never written — same reason as
+    kattis_registry_entry: which contest this is and which problems belong to it
+    is a claim, and the script only proposes one.
+
+    `held_date` stays null on purpose. The per-problem `date_added` is when the
+    replay was uploaded to CodeChef (December 2017 for a contest held that
+    Decemberish, and years off for others), never when the contest was held."""
+    code = spec["code"]
+    ident = codechef_contest_identity(display_name)
+    url = f"https://www.codechef.com/{code}"
+    return {
+        "id": ident["id"],
+        "name": ident["name"],
+        "short": ident["short"],
+        "family": "icpc",
+        "season": ident["season"],
+        "stage": ident["stage"],
+        "location": ident["location"],
+        "organizer": "ICPC",
+        "evidence": [url],
+        "problems": [{"id": f"codechef-{slugify(r['code'])}", "order": r["position"],
+                      "code": r["code"], "title": r["name"],
+                      # /problems/<CODE> is the live practice page; a problem
+                      # never added to practice only exists inside the contest.
+                      "url": (f"https://www.codechef.com/problems/{r['code']}"
+                              if r.get("in_practice") is not False
+                              else f"https://www.codechef.com/{code}/problems/{r['code']}")}
+                     for r in rows],
+        "resources": [{"title": f"{display_name} (CodeChef replay)", "url": url,
+                       "kind": "judge", "availability": "public"}],
+        "held_date": None,
+        "observed_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+    }
+
+
+def ingest_codechef(spec: dict[str, Any], dry_run: bool,
+                    print_registry: bool = False, topic: str | None = None) -> dict[str, int]:
+    import external_judges
+    from fetch_statements import strip_agent_canaries
+
+    code = spec["code"]
+    stats = {"present": 0, "cached": 0, "staged": 0, "skipped": 0, "canaries": 0}
+    data = request_json(CODECHEF_CONTEST_API.format(code=code))
+    rows = codechef_contest_rows(data) if data.get("status") == "success" else []
+    if not rows:
+        print(f"\ncodechef {code}: status={data.get('status')!r}, "
+              f"{len(data.get('problems') or {})} problem(s) listed — "
+              "not a readable contest, staging nothing")
+        return stats
+
+    display = data.get("name") or code
+    topic = topic or codechef_source_topic(display)
+    print(f"\n{display}  ({len(rows)} problems)")
+
+    fetched_any = False
+    for row in rows:
+        pcode = row["code"]
+        pid = f"codechef-{slugify(pcode)}"
+        if already_in_corpus(pid, "codechef"):
+            stats["present"] += 1
+            print(f"    have  {pcode:<12} {row['name'][:34]}   (in the corpus)")
+            continue
+        if staged_source_text(pid) is not None:
+            stats["cached"] += 1
+            print(f"    have  {pcode:<12} {row['name'][:34]}   (already staged)")
+            continue
+        if row.get("in_practice") is False:
+            # Listed in the contest, never added to practice: the statement
+            # endpoint 404s. It still belongs to the contest and the registry
+            # skeleton keeps it as a member; there is just nothing to stage.
+            stats["skipped"] += 1
+            print(f"    skip {pcode}: not in CodeChef's practice section")
+            continue
+        if dry_run:
+            stats["staged"] += 1
+            print(f"    STAGE {pcode:<12} {row['name'][:34]}")
+            continue
+
+        if fetched_any:
+            time.sleep(CODECHEF_FETCH_DELAY)
+        fetched_any = True
+        try:
+            record = external_judges.metadata(f"https://www.codechef.com/problems/{pcode}", topic)
+        except (ValueError, urllib.error.HTTPError, urllib.error.URLError, OSError) as exc:
+            # One missing or flaky problem must not abort the contest: the
+            # first run lost six staged problems and the whole registry
+            # skeleton of AM19MOS to a single 404.
+            stats["skipped"] += 1
+            print(f"    skip {pcode}: {exc}")
+            continue
+
+        # Third-party text is data, not instructions — same strip as Kattis.
+        record["source_text"], stripped = strip_agent_canaries(record["source_text"])
+        stats["canaries"] += stripped
+        # replay_only is not decoration: these counters come from the practice
+        # replay, so they say how many people solved it at leisure years later,
+        # not how many teams solved it in the contest.
+        record["contest_source"] = {
+            "host": "codechef.com", "name": code, "position": row["position"],
+            "problem_code": pcode,
+            "replay_solves": {"successful": row["successful"], "total": row["total"],
+                              "accuracy": row["accuracy"], "replay_only": True},
+        }
+        atomic_write_json(STAGING / f"{pid}.json", record)
+        stats["staged"] += 1
+        print(f"    NEW   {pcode:<12} {row['name'][:34]}   [{row['successful']} solved]")
+
+    if stats["canaries"]:
+        print(f"  stripped {stats['canaries']} agent-directed sentence(s) from staged statements")
+    if print_registry:
+        entry = codechef_registry_entry(spec, rows, display)
+        print(f"\n  data/contests.json entry for {code} — proposed id {entry['id']!r}, "
+              f"CodeChef calls it {display!r} (review before pasting):")
+        for line in json.dumps(entry, ensure_ascii=False, indent=2).splitlines():
+            print(f"    {line}")
+    return stats
+
 
 # ── the pending queue ────────────────────────────────────────────────────────
 
@@ -628,14 +895,16 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("urls", nargs="*", help="contest URLs (leetcode.com/contest/..., "
-                    "codeforces.com/contest/N, or a Kattis problem-source/contest page)")
+                    "codeforces.com/contest/N, a Kattis problem-source/contest page, "
+                    "or a CodeChef contest code such as AMR17ROL)")
     ap.add_argument("--retry-pending", action="store_true", help="re-check queued Codeforces problems")
     ap.add_argument("--dry-run", action="store_true", help="report what would be staged; write nothing")
     ap.add_argument("--refresh-index", action="store_true",
                     help="rebuild the open-r1 key index now instead of waiting for it to age out")
     ap.add_argument("--print-registry", action="store_true",
-                    help="also print a data/contests.json entry skeleton for each Kattis page")
-    ap.add_argument("--topic", help="override the source_topic staged on Kattis records")
+                    help="also print a data/contests.json entry skeleton for each "
+                         "Kattis page or CodeChef contest")
+    ap.add_argument("--topic", help="override the source_topic staged on Kattis/CodeChef records")
     args = ap.parse_args()
 
     if not args.urls and not args.retry_pending and not args.refresh_index:
@@ -661,6 +930,10 @@ def main() -> int:
                 totals["new"] += st["new"]
             elif judge in ("kattis-source", "kattis-contest"):
                 st = ingest_kattis(ident, args.dry_run, args.print_registry, args.topic)
+                totals["new"] += st["staged"]
+                totals["skipped"] += st["skipped"]
+            elif judge == "codechef-contest":
+                st = ingest_codechef(ident, args.dry_run, args.print_registry, args.topic)
                 totals["new"] += st["staged"]
                 totals["skipped"] += st["skipped"]
             else:

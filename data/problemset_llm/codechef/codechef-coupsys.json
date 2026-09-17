@@ -1,0 +1,36 @@
+{
+  "id": "codechef-coupsys",
+  "title": "Coupon System",
+  "slug": "coupsys",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/COUPSYS",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "Chef is organizing an exam for certifying algorithmic skills. The exam will consist of three levels: 1, 2 and 3, and will be organized at various cities numbered from 1 to 100. You have received **n** coupons which give discounts for the exam.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/COUPSYS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 4,
+    "problem_code": "COUPSYS",
+    "replay_solves": {
+      "successful": 198,
+      "total": 355,
+      "accuracy": 56.9,
+      "replay_only": true
+    }
+  }
+}

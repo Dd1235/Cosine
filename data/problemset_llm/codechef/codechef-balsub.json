@@ -1,0 +1,36 @@
+{
+  "id": "codechef-balsub",
+  "title": "D - Balanced Parenthesis Substrings",
+  "slug": "balsub",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BALSUB",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "A balanced parenthesis string is defined as follows: - The empty string is balanced. - If `P` is balanced, `(P)` is also balanced. - If `P` and `Q` are balanced, `PQ` is also balanced. `\"()\"`, `\"(())()\"` are examples of balanced parenthesis strings while `\"(()\"`, `\"())\"` are not balanced.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BALSUB"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 5,
+    "problem_code": "BALSUB",
+    "replay_solves": {
+      "successful": 1,
+      "total": 18,
+      "accuracy": 11.11,
+      "replay_only": true
+    }
+  }
+}

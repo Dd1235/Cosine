@@ -1,0 +1,39 @@
+{
+  "id": "codechef-guessmid",
+  "title": "Guess the Middle",
+  "slug": "guessmid",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GUESSMID",
+  "source_topic": "ICPC / Gwalior Regional 2019",
+  "source_tags": [],
+  "statement": "Chef's father has bought three cakes for him, his brother, and sister. Unfortunately, one of the cakes is larger than the other two, so they need to decide who gets the larger cake. Chef's father decides to make them play a game, and the winner will get the larger cake.",
+  "tags": [
+    "advanced-algorithms",
+    "advanced-dp",
+    "mathematics",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GUESSMID"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GW19MOS",
+    "position": 1,
+    "problem_code": "GUESSMID",
+    "replay_solves": {
+      "successful": 2,
+      "total": 19,
+      "accuracy": 10.53,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol1504",
+  "title": "The making of a cake",
+  "slug": "kol1504",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1504",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "CodeChef has received an order from the President of Mithai country for his son's birthday cake. The president is a person of very high temper and CodeChef doesn't want to tick him off, so he had to prepare a cake exactly as described by the President's son.",
+  "tags": [
+    "mathematics",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1504"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 4,
+    "problem_code": "KOL1504",
+    "replay_solves": {
+      "successful": 88,
+      "total": 398,
+      "accuracy": 22.36,
+      "replay_only": true
+    }
+  }
+}

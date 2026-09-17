@@ -1,0 +1,37 @@
+{
+  "id": "codechef-minstr",
+  "title": "Minimize the string",
+  "slug": "minstr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MINSTR",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "You are given **n** strings **s 1 , s 2 , ..., s n **. Each of these strings consists only of letters 'a' and 'b', and the length of each string can be at most 2. In other words, the only allowed strings are \"a\", \"b\", \"aa\", \"ab\", \"ba\" and \"bb\".",
+  "tags": [
+    "data-structures",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MINSTR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 11,
+    "problem_code": "MINSTR",
+    "replay_solves": {
+      "successful": 92,
+      "total": 278,
+      "accuracy": 33.45,
+      "replay_only": true
+    }
+  }
+}

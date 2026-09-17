@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14h",
+  "title": "Pilgrimage",
+  "slug": "kgp14h",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14H",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Professor PariBrajika is in Himalpur and wishes to go to Gyankut to attend a workshop. There are K temples on the way to Gyankut. The temples are numbered from 1 to K , Himalpur is numbered 0 and Gyankut is numbered K+1 .",
+  "tags": [
+    "admin3",
+    "dynamic-programming",
+    "kgp14ros",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14H"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 8,
+    "problem_code": "KGP14H",
+    "replay_solves": {
+      "successful": 5,
+      "total": 8,
+      "accuracy": 62.5,
+      "replay_only": true
+    }
+  }
+}

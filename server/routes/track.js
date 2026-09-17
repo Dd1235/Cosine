@@ -30,6 +30,21 @@ const TYPES = new Set([
   "note_saved",
   "library_notes",
   "library_pick",
+  // The competition, similarity and CSES-level features shipped without any
+  // of these, so a fortnight in nobody could say whether they were used.
+  "collection_added",
+  "collection_removed",
+  "similar_opened",
+  "cses_level_set",
+  "help_opened",
+  // The labels switch: how many people leave labels hidden, and how often a
+  // hidden card gets opened anyway — the only way to tell a study aid from an
+  // obstacle.
+  "labels_toggled",
+  "labels_revealed",
+  // The contest page, and whether anyone opens its topic tally — the one part
+  // of it that shows labels, and the reason it is closed by default.
+  "contest_viewed",
 ]);
 
 const clip = (v, n) => (typeof v === "string" && v ? v.slice(0, n) : undefined);
@@ -82,6 +97,25 @@ function cleanProps(type, raw = {}) {
   } else if (type === "library_pick") {
     const n = Number(raw.of);
     if (Number.isInteger(n) && n >= 0 && n <= 100000) p.of = n;
+  } else if (type === "collection_added" || type === "collection_removed") {
+    p.collection = clip(raw.collection, 120);
+  } else if (type === "contest_viewed") {
+    p.collection = clip(raw.collection, 120);
+    // Only the true case is worth a row: it separates "opened the page" from
+    // "opened the page and asked what it was made of".
+    if (raw.topics === true) p.topics = true;
+  } else if (type === "similar_opened") {
+    p.problemId = clip(raw.problemId, 120);
+    if (raw.kind === "similar" || raw.kind === "practice") p.kind = raw.kind;
+  } else if (type === "cses_level_set") {
+    const band = Number(raw.band);
+    if (Number.isInteger(band) && band >= 1 && band <= 5) p.band = band;
+  } else if (type === "labels_toggled") {
+    p.shown = raw.shown === true;
+  } else if (type === "labels_revealed") {
+    p.problemId = clip(raw.problemId, 120);
+  } else if (type === "help_opened") {
+    p.section = clip(raw.section, 20) ?? "";
   } else if (type === "recall_set") {
     p.problemId = clip(raw.problemId, 120);
     p.value = clip(raw.value, 20);

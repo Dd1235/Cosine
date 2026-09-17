@@ -1,0 +1,25 @@
+{
+ "id": "kattis-icpcteamselection",
+ "status": "solved",
+ "solution": "Sort all 3N scores descending. Discard the N smallest outright -- each can be parked as the weakest member of some team without touching that team's median -- and pair up the remaining top 2N in order, so the medians are the elements at sorted positions 2,4,...,2N (1-indexed) and S is their sum. Correctness by exchange: in any optimal solution the largest score is wasted as a maximum, so it should shield the largest possible median, namely the second largest, and induction repeats the argument on the rest. O(n log n) time (or O(100) counting sort, since P_i <= 100) and O(n) space.",
+ "solution_confidence": 0.97,
+ "statement_summary": "Given 3N students with individual scores, a coach must split them into N teams of three; a team's performance is the median of its three scores and the total is the sum over teams. The task is to report the largest achievable total. Both N and every score are at most 100, over up to twenty datasets.",
+ "patterns": [
+  "greedy",
+  "sorting",
+  "exchange-argument"
+ ],
+ "pattern_confidence": {
+  "greedy": 0.95,
+  "sorting": 0.9,
+  "exchange-argument": 0.6
+ },
+ "tags": [
+  "array",
+  "greedy",
+  "sorting"
+ ],
+ "source_text_sha256": "f0df5d8534b4f2de752888f21724a26d64de32e4f61fe6ce0943d9829c75a053",
+ "verify_script": "data/analysis/external-batches/H/verify_icpcteamselection.py",
+ "notes": "Exhaustive partition brute force over all team splittings agrees on 400 random cases with N<=3, plus the sample (17)."
+}

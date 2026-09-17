@@ -1,0 +1,40 @@
+{
+  "id": "codechef-prmprt",
+  "title": "B - Prime-partite Graph",
+  "slug": "prmprt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PRMPRT",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "We have a graph with N nodes (numbered 1 through N). For each valid u and v, there is an undirected edge between nodes u and v if v is a prime divisor of u or u is a prime divisor of v. You should answer Q queries.",
+  "tags": [
+    "data-structures",
+    "mathematics",
+    "number-theory",
+    "integer-factorisation",
+    "divisors"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PRMPRT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 6,
+    "problem_code": "PRMPRT",
+    "replay_solves": {
+      "successful": 7,
+      "total": 83,
+      "accuracy": 8.43,
+      "replay_only": true
+    }
+  }
+}

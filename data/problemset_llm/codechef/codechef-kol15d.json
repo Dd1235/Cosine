@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kol15d",
+  "title": "Seats",
+  "slug": "kol15d",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL15D",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "There are N seats in a theatre, all of them in a single row. The seats are numbered from 1 to N . You are given two types of events: 1 — A person arrives. Persons are numbered from 1 in order of their arrival. 2 i — Person i leaves the theatre.",
+  "tags": [
+    "data-structures",
+    "queues",
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL15D"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKOL15",
+    "position": 4,
+    "problem_code": "KOL15D",
+    "replay_solves": {
+      "successful": 6,
+      "total": 86,
+      "accuracy": 6.98,
+      "replay_only": true
+    }
+  }
+}

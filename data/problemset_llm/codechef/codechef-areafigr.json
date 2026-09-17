@@ -1,0 +1,38 @@
+{
+  "id": "codechef-areafigr",
+  "title": "Area of an amazing figure",
+  "slug": "areafigr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AREAFIGR",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "There is an equilateral triangle ABC with side length 2*a . The coordinates of the triangle's vertices are A = (-a, 0) , B = (a, 0) and C = (0, sqrt(3) * a) . Next, there are three circles with centers at the midpoints of sides AB, BC and AC respectively and radii r 1 , r 2 and r 3 respectively.",
+  "tags": [
+    "advanced-algorithms",
+    "computational-geometry",
+    "polygons"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AREAFIGR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 6,
+    "problem_code": "AREAFIGR",
+    "replay_solves": {
+      "successful": 10,
+      "total": 25,
+      "accuracy": 44.0,
+      "replay_only": true
+    }
+  }
+}

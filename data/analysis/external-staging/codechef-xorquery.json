@@ -1,0 +1,36 @@
+{
+ "id": "codechef-xorquery",
+ "platform": "codechef",
+ "title": "Chef and XOR Queries",
+ "slug": "xorquery",
+ "source_url": "https://www.codechef.com/problems/XORQUERY",
+ "source_topic": "ICPC / Kharagpur Regional 2017",
+ "source_text": "Mr. X has given the Chef an undirected tree \\( T \\) with \\( n \\) nodes numbered from 1 to \\( n \\). Each edge \\( e_i \\) of the tree has a non-negative integer \\( w_i \\) written on it. But the edge weights are hidden from you. You have access only to the structure of the tree, i.e., you know all the edges \\( e_i \\). Mr. X has taught Chef how to compute the function \\( f(u, v) = \\) Bitwise \\( XOR \\) of all the numbers present on the edges in the unique path from \\( u \\) to \\( v \\). He now wants to test his disciple's understanding of this function. He tells the Chef various values of this function one by one. Since Mr. X wants to test Chef's skills, this information could be wrong sometimes. You being good friends with the Chef have been asked to help him out to pass the test. Total \\( Q \\) events occur each of which can be in one of the following forms: 1. **1 u v r**: Mr. X says that \\( f(u, v) = r \\). For this type of event you must print: - *AC* if the given information is consistent with all the previous information that you have accepted as AC and there is *no way* you can argue that this information is wrong. Accept this new information as correct. - *WA* when you can prove that the given information is wrong and does not fit in with the previously *AC* events. 2. **2 u v**: Print the value of \\( f(u, v) \\) using only the information provided in the previously *AC* events. If it is not possible to correctly determine this value based on only previously *AC* events, print -1. Input - The first line of the input contains an integer \\( T \\) denoting the number of test cases. The description of \\( T \\) test cases follows. - First line of each test case contains two space-separated integers \\( n \\) and \\( Q \\) denoting the number of nodes and number of events respectively. - Each of the next \\( n - 1 \\) lines contains two space-separated integers \\( u \\) \\( v \\) denoting that there is an edge between \\( u \\) and \\( v \\) in the tree. - Description of \\( Q \\) events follow. Each line follows one of these two formats: - **1 u v r**, denoting the first type of event. - **2 u v**, denoting the second type of event. Output For each event, print the answer to the event as described. Constraints - \\( 1 \\leq T \\leq 2000 \\) - \\( 1 \\leq n \\leq 10^5 \\) - \\( 1 \\leq Q \\leq 2 \\times 10^5 \\) - \\( 1 \\leq u, v \\leq n \\) - \\( 1 \\leq \\) sum of \\( n \\) over all the test cases \\( \\leq 10^5 \\) - \\( 1 \\leq \\) sum of \\( Q \\) over all the test cases \\( \\leq 2 \\times 10^5 \\) - \\( 0 \\leq r \\leq 2 \\times 10^9 \\) - \\( 0 \\leq w_i \\) - The graph represented by \\( e_i \\) is a tree. Sample Input 1 4 6 1 2 2 3 3 4 1 1 1 10 1 1 2 2 1 2 3 4 1 1 3 7 2 1 3 2 3 4 Sample Output WA AC AC WA 6 -1 - **Event 1**: \\( f(1, 1) \\) cannot be 10. Since there is no edge between 1 and 1, it must be 0 ? *WA*. - **Event 2**: You cannot argue that \\( f(1, 2) \\) cannot be 2. Therefore you accept it ? *AC*. Thus now we know that the weight of the edge between 1 and 2 is 2. - **Event 3**: You cannot argue that \\( f(2, 3) \\) cannot be 4. Therefore you accept it ? *AC*. Thus now we know that the weight of the edge between 2 and 3 is 4. - **Event 4**: \\( f(1, 3) \\) is XOR of weights of edges 1-2 and 2-3 = 2 XOR 4 = 6. Given information is wrong ? *WA*. - **Event 5**: \\( f(1, 3) \\) is 6 as calculated above ? 6. - **Event 6**: \\( f(3, 4) \\) cannot be answered using only the above information ? -1.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "graphs",
+  "advanced-data-structures",
+  "mathematics",
+  "bit-manipulation",
+  "algorithms",
+  "graph-algos",
+  "lowest-common-ancestor"
+ ],
+ "date_added": "18-11-2017",
+ "problem_author": "usaxena95",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KGP17ROL",
+  "position": 11,
+  "problem_code": "XORQUERY",
+  "replay_solves": {
+   "successful": 8,
+   "total": 17,
+   "accuracy": 52.94,
+   "replay_only": true
+  }
+ }
+}

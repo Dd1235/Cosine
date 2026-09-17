@@ -1,0 +1,37 @@
+{
+  "id": "codechef-icpc16g",
+  "title": "Robolympic Batons",
+  "slug": "icpc16g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16G",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "Today is the Robolympics athletic event. N batons numbered 0 to N - 1 are placed in a circular fashion where baton numbers increase in clockwise direction. Also, some of the batons are special . M robots start in the event by standing near a baton position and picking it up.",
+  "tags": [
+    "mathematics",
+    "transformations"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 6,
+    "problem_code": "ICPC16G",
+    "replay_solves": {
+      "successful": 11,
+      "total": 390,
+      "accuracy": 3.08,
+      "replay_only": true
+    }
+  }
+}

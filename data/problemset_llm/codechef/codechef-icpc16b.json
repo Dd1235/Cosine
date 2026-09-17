@@ -1,0 +1,36 @@
+{
+  "id": "codechef-icpc16b",
+  "title": "Beautiful Arrays",
+  "slug": "icpc16b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ICPC16B",
+  "source_topic": "CodeChef / ACM-ICPC India Regionals, Online Preliminary Round 2016",
+  "source_tags": [],
+  "statement": "An array a is called beautiful if for every pair of numbers a i , a j , ( i ≠ j ), there exists an a k such that a k = a i * a j . Note that k can be equal to i or j too. Find out whether the given array a is beautiful or not!",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ICPC16B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMIND16",
+    "position": 2,
+    "problem_code": "ICPC16B",
+    "replay_solves": {
+      "successful": 1306,
+      "total": 8003,
+      "accuracy": 16.82,
+      "replay_only": true
+    }
+  }
+}

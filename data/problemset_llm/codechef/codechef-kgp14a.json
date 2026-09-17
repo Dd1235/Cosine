@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14a",
+  "title": "Drawing Contest",
+  "slug": "kgp14a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14A",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Liliputs are holding a drawing competition for K kids, but with K human-sized pencils stolen from humans.",
+  "tags": [
+    "ad-hoc",
+    "admin3",
+    "cakewalk",
+    "kgp14ros"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 1,
+    "problem_code": "KGP14A",
+    "replay_solves": {
+      "successful": 198,
+      "total": 608,
+      "accuracy": 33.06,
+      "replay_only": true
+    }
+  }
+}

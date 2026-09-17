@@ -1,0 +1,39 @@
+{
+  "id": "codechef-minmax",
+  "title": "Wormtongues Mind",
+  "slug": "minmax",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MINMAX",
+  "source_topic": "ICPC / Amritapuri Regional 2012",
+  "source_tags": [],
+  "statement": "# Wormtongue's Mind Wormtongue's mind is a complicated system of evaluating various variables and parameters. In essence, each parameter is a uniform random floating point variable between 0 and 1 (inclusive).",
+  "tags": [
+    "acmamr12",
+    "admin",
+    "medium",
+    "probability"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MINMAX"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMAMR12",
+    "position": 8,
+    "problem_code": "MINMAX",
+    "replay_solves": {
+      "successful": 8,
+      "total": 19,
+      "accuracy": 47.37,
+      "replay_only": true
+    }
+  }
+}

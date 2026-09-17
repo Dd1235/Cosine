@@ -1,0 +1,40 @@
+{
+  "id": "codechef-aliencow",
+  "title": "Chef and Alien Invasion",
+  "slug": "aliencow",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ALIENCOW",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "Chef has a rectangular field of dimensions N \\times M which contains grass all over it. (0,0) is made the bottom left corner of the field. (N, M) is made the top right corner of the field. Aliens aim to destroy the field by sending a cow on the field which will eat all the grass.",
+  "tags": [
+    "data-structures",
+    "mathematics",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ALIENCOW"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 10,
+    "problem_code": "ALIENCOW",
+    "replay_solves": {
+      "successful": 1,
+      "total": 6,
+      "accuracy": 16.67,
+      "replay_only": true
+    }
+  }
+}

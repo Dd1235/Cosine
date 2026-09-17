@@ -1,0 +1,37 @@
+{
+  "id": "codechef-mancbst",
+  "title": "Chef Counts Semi-BSTs",
+  "slug": "mancbst",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MANCBST",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "Everyone has heard of binary search trees or BSTs. A BST is a rooted tree, such that the root has at most two children. The subtree rooted at each of root's children should be valid BSTs.",
+  "tags": [
+    "mathematics",
+    "transformations"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MANCBST"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 10,
+    "problem_code": "MANCBST",
+    "replay_solves": {
+      "successful": 4,
+      "total": 7,
+      "accuracy": 57.14,
+      "replay_only": true
+    }
+  }
+}

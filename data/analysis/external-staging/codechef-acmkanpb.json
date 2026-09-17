@@ -1,0 +1,33 @@
+{
+ "id": "codechef-acmkanpb",
+ "platform": "codechef",
+ "title": "Bonus",
+ "slug": "acmkanpb",
+ "source_url": "https://www.codechef.com/problems/ACMKANPB",
+ "source_topic": "ICPC / Kanpur Regional unknown-year",
+ "source_text": "Kinku is a project manager in his company. Recently, the executives decided to give bonus to everyone in his team, so Kinku was asked to give a list to them how much bonus each should get. To do this, he selected some pairs of members, and analyzed who should get more bonus, and how more much he should get (at least). That is, if employee Tom is better than Jerry, and Tom should get at least 300 dollars more than Jerry, then, if Jerry gets 650 dollars bonus, Tom has to get atleast 950 dollars bonus. It should also be noted that, every one will get at least a minimum, no one will go empty handed. Given all the comparisons, you have to find the minimum total bonus to be divided among the employees. Input First line contains T, the number of test cases. Each test case starts with three integers N(1 ≤ N ≤ 100), M(0 ≤ M ≤ N*(N−1)/2) and L(1 ≤ L ≤ 10000), the number of employees, number of comparisons and minimum bonus. Next M lines each contains three integers, i, j(1 ≤ i, j ≤ N) and c(0 ≤ c ≤ 1000), referring that employee i should get at least c dollars more than employee j , Output For each test case, output the minimum total bonus on the first line, and the bonus given to each employee in the next line. If comparisons are inconsistent, and it’s not possible distribute bonus among them, output “Inconsistent analysis.”(without quotes). Sample input 2 4 4 100 1 2 10 2 3 20 1 3 40 2 4 5 3 3 100 1 2 10 2 3 10 3 1 10 Sample output 460 140 120 100 100 Inconsistent analysis.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "advanced-graph-algos",
+  "algorithms",
+  "graph-algos",
+  "traversals"
+ ],
+ "date_added": "27-10-2010",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMKAN10",
+  "position": 2,
+  "problem_code": "ACMKANPB",
+  "replay_solves": {
+   "successful": 14,
+   "total": 310,
+   "accuracy": 4.52,
+   "replay_only": true
+  }
+ }
+}

@@ -25,7 +25,7 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /
+    healthCheckPath: /healthz
     # Custom domains are added in the dashboard for manually-created services;
     # listed here so the blueprint stays the source of truth if it's ever applied.
     domains:

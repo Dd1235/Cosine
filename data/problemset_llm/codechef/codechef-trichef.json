@@ -1,0 +1,43 @@
+{
+  "id": "codechef-trichef",
+  "title": "Chef and Triangles",
+  "slug": "trichef",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/TRICHEF",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "Chef has come to a 2-dimensional garden in which there are **N** points. Each point has coordinates **(x, y)**, where **x** can either be **1**, **2**, or **3**. Chef will now choose every triplet of these **N** points and make a triangle from it.",
+  "tags": [
+    "special",
+    "advanced-algorithms",
+    "mathematics",
+    "computational-geometry",
+    "polygons",
+    "algorithms",
+    "searching",
+    "simple-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/TRICHEF"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 1,
+    "problem_code": "TRICHEF",
+    "replay_solves": {
+      "successful": 16,
+      "total": 144,
+      "accuracy": 11.81,
+      "replay_only": true
+    }
+  }
+}

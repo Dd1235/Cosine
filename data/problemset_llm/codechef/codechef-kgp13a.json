@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp13a",
+  "title": "Election Campaign",
+  "slug": "kgp13a",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13A",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A district in a state has **K** villages (numbered from 1 to **K**). In order to provide better road connectivity in the district, the government has connected all the villages with two-lane paved roads.",
+  "tags": [
+    "floyd-warshall",
+    "jingbo-adm",
+    "kgp13acm",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13A"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 1,
+    "problem_code": "KGP13A",
+    "replay_solves": {
+      "successful": 15,
+      "total": 23,
+      "accuracy": 65.22,
+      "replay_only": true
+    }
+  }
+}

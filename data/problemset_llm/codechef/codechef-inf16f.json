@@ -1,0 +1,36 @@
+{
+  "id": "codechef-inf16f",
+  "title": "Lost in the Cave",
+  "slug": "inf16f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/INF16F",
+  "source_topic": "CodeChef / ACM-ICPC Asia-India Finals Mirror Contest 2016",
+  "source_tags": [],
+  "statement": "Rossiana Gones is on another adventure where he (yes, he) has stumbled upon an ancient cave. There are some ancient gold coins scattered across the cave in some of the cells of the cave.",
+  "tags": [
+    "kol-adm"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/INF16F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "INF16MOS",
+    "position": 6,
+    "problem_code": "INF16F",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

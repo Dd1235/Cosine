@@ -1,0 +1,36 @@
+{
+  "id": "codechef-presti",
+  "title": "Presti Digitator",
+  "slug": "presti",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/PRESTI",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "Presti Digitator, the world-famous magician, is highly dissatisfied with his way of shuffling cards. Just yesterday, a perky guy in the audience demanded that he shuffle the cards once again, and he was aghast to see that the bottom card had not changed. Even though Mr.",
+  "tags": [
+    "admin"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/PRESTI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKAN12",
+    "position": 4,
+    "problem_code": "PRESTI",
+    "replay_solves": {
+      "successful": 176,
+      "total": 638,
+      "accuracy": 27.9,
+      "replay_only": true
+    }
+  }
+}

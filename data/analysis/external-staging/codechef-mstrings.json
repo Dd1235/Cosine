@@ -1,0 +1,30 @@
+{
+ "id": "codechef-mstrings",
+ "platform": "codechef",
+ "title": "The Mirror of Galadriel",
+ "slug": "mstrings",
+ "source_url": "https://www.codechef.com/problems/MSTRINGS",
+ "source_topic": "ICPC / Amritapuri Regional 2012",
+ "source_text": "# The Mirror of Galadriel We call a string **S** magical if every substring of **S** appears in Galadriel's Mirror (under lateral inversion). In other words, a magical string is a string where every substring has its reverse in the string. Given a string **S**, determine if it is magical or not. Input The first line contains **T**, the number of test cases. The next **T** lines contain a string each. Output For each test case, output \"YES\" if the string is magical, and \"NO\" otherwise. Constraints - 1 < = T < = 100 - 1 < = |S| < = 10 - S contains only lower-case characters. Sample Input 2 aba ab Sample Output YES NO For the first test case, the list of substrings are: a, b, ab, ba, aba. The reverse of each of these strings is present as a substring of S too. For the second test case, the list of substrings are: a, b, ab. The reverse of \"ab\", which is \"ba\" is not present as a substring of the string.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmamr12",
+  "admin"
+ ],
+ "date_added": "22-01-2013",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMAMR12",
+  "position": 7,
+  "problem_code": "MSTRINGS",
+  "replay_solves": {
+   "successful": 536,
+   "total": 1064,
+   "accuracy": 53.76,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "codechef-sps",
+  "title": "Shortest Palindromic Superstring",
+  "slug": "sps",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/SPS",
+  "source_topic": "ICPC / India Prelims 2019",
+  "source_tags": [],
+  "statement": "A palindrome is a string that is identical to its reverse. For example, \"aba\", \"abba\", \"a\" and \"aa\" are palindromes, while \"ab\", \"abb\" and \"xyz\" are not.",
+  "tags": [
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/SPS"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ICPCIN19",
+    "position": 1,
+    "problem_code": "SPS",
+    "replay_solves": {
+      "successful": 12,
+      "total": 771,
+      "accuracy": 1.82,
+      "replay_only": true
+    }
+  }
+}

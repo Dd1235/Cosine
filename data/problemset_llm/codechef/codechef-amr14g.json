@@ -1,0 +1,36 @@
+{
+  "id": "codechef-amr14g",
+  "title": "Hugphile Order",
+  "slug": "amr14g",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AMR14G",
+  "source_topic": "ICPC / Amritapuri Regional 2014",
+  "source_tags": [],
+  "statement": "MCG (Melbourne Cricket Ground) is hosting the finals of the Cricket World Cup 2015.",
+  "tags": [
+    "murdocc007"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AMR14G"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR14ROS",
+    "position": 7,
+    "problem_code": "AMR14G",
+    "replay_solves": {
+      "successful": 3,
+      "total": 33,
+      "accuracy": 9.09,
+      "replay_only": true
+    }
+  }
+}

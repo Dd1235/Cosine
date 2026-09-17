@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kan13c",
+  "title": "Rich Rhyme",
+  "slug": "kan13c",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN13C",
+  "source_topic": "ICPC / Kanpur Regional 2013",
+  "source_tags": [],
+  "statement": "In the land of Rhyme, the King and his people always speak in rhymes. They are so accustomed to conversing using rhymes that it has become monotonous, leading to decreased productivity and a plummeting happiness index.",
+  "tags": [
+    "jingbo-adm",
+    "kan13acm",
+    "knuth-morris-pratt-algorithm",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN13C"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN13ACM",
+    "position": 3,
+    "problem_code": "KAN13C",
+    "replay_solves": {
+      "successful": 26,
+      "total": 405,
+      "accuracy": 6.91,
+      "replay_only": true
+    }
+  }
+}

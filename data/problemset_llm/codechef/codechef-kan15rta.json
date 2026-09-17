@@ -1,0 +1,36 @@
+{
+  "id": "codechef-kan15rta",
+  "title": "King test to his sons",
+  "slug": "kan15rta",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KAN15RTA",
+  "source_topic": "ICPC / Kanpur Regional 2014",
+  "source_tags": [],
+  "statement": "The King of France has turned old. He would like one of his three sons to take up his place as the next King. But he doesn’t want them to fight over the throne after his death. Over so many years in the past, his sons have been fighting with each other over trifles.",
+  "tags": [
+    "pnkjjindal"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KAN15RTA"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KAN14ROS",
+    "position": 1,
+    "problem_code": "KAN15RTA",
+    "replay_solves": {
+      "successful": 67,
+      "total": 297,
+      "accuracy": 23.23,
+      "replay_only": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "id": "kattis-droppingball",
+ "status": "solved",
+ "solution": "The ball model, pinned down by the samples: from cell (i,j) a '\\\\' wall rolls it down-right - it leaves by the right edge when j = N, and it is STUCK when cell (i,j+1) is '/' because the two diagonals meet in a V at their shared bottom corner; otherwise it enters (i+1,j+1) and exits the bottom at column j+1 when i = M. '/' is the mirror image. The V rule is what the last sample tests: flipping (4,4), a cell off the path, turns an exit into -1. For the queries, sqrt-decompose the ROWS. When M <= N a drop is simulated directly in O(M) = O(sqrt(MN)) steps; otherwise N < sqrt(MN) and rows are cut into blocks of B = sqrt(M/N) rows, each storing entry column -> exit column or dead, built in O(B*N). A drop walks M/B blocks and a flip rebuilds one block, both O(sqrt(M*N)). Total O(MN + Q sqrt(MN)) time, O(MN) space.",
+ "solution_confidence": 0.85,
+ "statement_summary": "A board of M rows and N columns holds one diagonal wall per cell, slanting either way. A ball dropped at the top of a column slides along the walls and either leaves sideways, jams between two walls, or reaches the bottom. Queries flip one wall or drop a ball, reporting its bottom exit column or minus one. Cell count and query count are each at most 100000.",
+ "patterns": [
+  "sqrt-decomposition",
+  "simulation",
+  "grid-traversal",
+  "segment-tree"
+ ],
+ "pattern_confidence": {
+  "sqrt-decomposition": 0.88,
+  "simulation": 0.8,
+  "grid-traversal": 0.62,
+  "segment-tree": 0.45
+ },
+ "tags": [
+  "grid",
+  "simulation",
+  "sqrt-decomposition",
+  "queries"
+ ],
+ "source_text_sha256": "a6bf72eeb56b151ac86868749a358b6926299fda904305bc95a08ef80dd7fe38",
+ "verify_script": "data/analysis/external-batches/G/verify_droppingball.py",
+ "notes": "Confidence is 0.85 only because the wall physics is inferred rather than stated: the rule '\\ then / to its right = stuck' is the unique model I found that reproduces all five sample answers, in particular the final -1 caused by flipping (4,4), which lies off the ball's path. Ambiguous peaks ('/' left of '\\' below the corner) are resolved by keeping the ball's momentum; no sample distinguishes that case. verify_droppingball.py checks the sample and matches the block structure against naive step-by-step simulation on 300 random boards plus tall/wide shapes. A segment tree over rows storing column->exit maps also works but its update is O(N log M), worse than sqrt in the tall regime."
+}

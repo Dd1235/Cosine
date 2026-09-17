@@ -1,0 +1,36 @@
+{
+  "id": "codechef-goodbad",
+  "title": "Good and Bad Persons",
+  "slug": "goodbad",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GOODBAD",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "Chef is a really nice and respectful person, in sharp contrast to his little brother, who is a very nasty and disrespectful person. Chef always sends messages to his friends in all small letters, whereas the little brother sends messages in all capital letters.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GOODBAD"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 9,
+    "problem_code": "GOODBAD",
+    "replay_solves": {
+      "successful": 201,
+      "total": 286,
+      "accuracy": 71.68,
+      "replay_only": true
+    }
+  }
+}

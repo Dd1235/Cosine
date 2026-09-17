@@ -1,0 +1,36 @@
+{
+  "id": "codechef-lalalant",
+  "title": "The Fools Who Dream",
+  "slug": "lalalant",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LALALANT",
+  "source_topic": "ICPC / Amritapuri Regional 2019",
+  "source_tags": [],
+  "statement": "My ant used to live in Paris. But now, he lives in La La Land, because of lower rents. There's only one disadvantage in living there: traveling in La La Land is a nightmare. La La Land is a rectangular grid with dimensions r \\times c (r rows, c columns).",
+  "tags": [
+    "kevinsogo"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LALALANT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AM19MOS",
+    "position": 11,
+    "problem_code": "LALALANT",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

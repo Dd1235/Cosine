@@ -1,0 +1,30 @@
+{
+ "id": "kattis-magicallights",
+ "status": "solved",
+ "solution": "Only a hundred colours exist, so the multiset of colours in a subtree can be summarised by a 100-bit parity mask, and the number of magical colours is its popcount. Flatten the tree with a DFS euler tour so each subtree is a contiguous index range, and keep the per-position masks in a Fenwick tree whose operation is XOR; XOR is its own inverse, so the range mask is prefix(tout) XOR prefix(tin-1). A recolour is one point XOR of two bits. O((N+Q) log N) operations on two 64-bit words, O(N) space, for N <= 3*10^5 and Q <= 10^6.",
+ "solution_confidence": 0.93,
+ "statement_summary": "A rooted tree of up to three hundred thousand nodes has every node coloured with one of a hundred colours, and a colour is called magical for a subtree when it occurs an odd number of times inside it. Up to a million operations arrive in order, each either recolouring one node or asking how many colours are currently magical in the subtree of a given node.",
+ "patterns": [
+  "euler-tour",
+  "tree-flattening",
+  "fenwick-tree",
+  "bit-manipulation",
+  "parity-argument"
+ ],
+ "pattern_confidence": {
+  "euler-tour": 0.92,
+  "tree-flattening": 0.92,
+  "fenwick-tree": 0.9,
+  "bit-manipulation": 0.88,
+  "parity-argument": 0.75
+ },
+ "tags": [
+  "tree",
+  "fenwick",
+  "bitmask",
+  "subtree-query"
+ ],
+ "source_text_sha256": "3325f84f544cc132e2471c0dccf71ade74873f1884a0c99a2d2e25a1fbe0e847",
+ "verify_script": "data/analysis/external-batches/J/verify_magicallights.py",
+ "notes": "dsu-on-tree is tempting for subtree colour counting but is ruled out: the updates are online, and small-to-large is an offline static-tree technique. The colour cap of 100 is what makes the parity mask fit in two machine words. Statement contains no sentence addressed to the annotator."
+}

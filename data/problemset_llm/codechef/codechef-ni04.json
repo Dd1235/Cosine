@@ -1,0 +1,36 @@
+{
+  "id": "codechef-ni04",
+  "title": "Small Airport",
+  "slug": "ni04",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/NI04",
+  "source_topic": "ICPC / Kanpur Regional 2012",
+  "source_tags": [],
+  "statement": "A city has a small Airport with only one runway. At any time one aeroplane can land or one aeroplane can take off, but not both at the same time. Aeroplanes arrive at the airport airspace ready to land after every m units of time.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/NI04"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP12",
+    "position": 4,
+    "problem_code": "NI04",
+    "replay_solves": {
+      "successful": 10,
+      "total": 200,
+      "accuracy": 7.5,
+      "replay_only": true
+    }
+  }
+}

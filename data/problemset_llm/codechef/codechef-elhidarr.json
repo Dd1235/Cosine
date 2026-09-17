@@ -1,0 +1,38 @@
+{
+  "id": "codechef-elhidarr",
+  "title": "Find an element in hidden array",
+  "slug": "elhidarr",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ELHIDARR",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "There is an array of length N consisting of non-negative integers. The array is sorted in non-decreasing order. Each number in the array appears exactly K times, except one element, which appears at least once, but less than K times. Your task is to identify that element.",
+  "tags": [
+    "special",
+    "algorithms",
+    "searching"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ELHIDARR"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 1,
+    "problem_code": "ELHIDARR",
+    "replay_solves": {
+      "successful": 21,
+      "total": 172,
+      "accuracy": 12.21,
+      "replay_only": true
+    }
+  }
+}

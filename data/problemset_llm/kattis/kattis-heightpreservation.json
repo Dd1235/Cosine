@@ -1,0 +1,41 @@
+{
+ "id": "kattis-heightpreservation",
+ "title": "Height Preservation",
+ "slug": "heightpreservation",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/heightpreservation",
+ "source_topic": "ICPC / The 2017 ACM - Asia Ho Chi Minh City Regional Contest",
+ "source_tags": [],
+ "statement": "A floor of m by n cells carries a virtual height for every cell. Real heights must reproduce, within each row and within each column separately, both the equalities and the strict inequalities of the virtual heights, while cells in different rows and columns are unconstrained. The task is the smallest number of distinct real height levels needed, with the cell count up to one million.",
+ "tags": [],
+ "patterns": [
+  "union-find",
+  "topological-sort",
+  "dp-on-dag",
+  "graph-modeling",
+  "sorting",
+  "dynamic-programming"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "union-find": 0.9,
+   "topological-sort": 0.9,
+   "dp-on-dag": 0.9,
+   "graph-modeling": 0.9,
+   "sorting": 0.9,
+   "dynamic-programming": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.4,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:13:23+00:00"
+ }
+}

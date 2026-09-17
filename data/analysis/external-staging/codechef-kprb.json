@@ -1,0 +1,34 @@
+{
+ "id": "codechef-kprb",
+ "platform": "codechef",
+ "title": "K-Prob",
+ "slug": "kprb",
+ "source_url": "https://www.codechef.com/problems/KPRB",
+ "source_topic": "ICPC / Kanpur Regional 2019",
+ "source_text": "You are given a string $S$ of length $n$ and an integer $K$. We will define $F(L)$ here. Let's choose $K$ random sub-strings of length $L$ from $S$. Then $F(L)$ equals the probability such that all of them are pairwise identical. See the **Explanation** section for more clarity. You have to find $F(L)$ for each $1 \\leq L \\leq n$. It can be shown that any $F(L)$ can be expressed as a fraction $\\frac{P}{Q}$, where $P$ and $Q$ are coprime integers, $P \\geq 0$, $Q > 0$ and $Q$ is coprime with $998244353$. You should compute $P \\times Q^{-1} \\mod 998244353$, where $Q^{−1}$ denotes the multiplicative inverse of $Q$ modulo $998244353$. Input - First line will contain two integers, $n$ (the length of string $S$) and $K$. - Next line will contain the string $S$. Output Print $n$ space separated integers, $F(L)$, for each $1 \\leq L \\leq n$, in a single line. Constraints - $1 \\leq n \\leq 10^6$ - $2 \\leq K \\leq 10^6$ - It’s guaranteed that $S$ contains only lower-case Latin letters. Sample Input 5 3 ababa Sample Output 239578645 748683265 332748118 748683265 1 In our sample, for $L= 3$, we have 3 sub-strings: - $aba$ (Starting from 1st position) - $bab$ (Starting from 2nd position) - $aba$ (Starting from 3rd position) Among them we can choose in the following ways, to get all 3 of them pairwise identical: - $(1, 1, 1) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(2, 2, 2) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(3, 3, 3) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(1, 1, 3) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(1, 3, 1) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(3, 1, 1) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(3, 3, 1) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(3, 1, 3) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ - $(1, 3, 3) : Probability\\ =\\ \\frac{1}{3} \\times \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{27}$ $(1, 3, 3)$ means that the three random substrings chosen are the substring starting at index 1, at index 3 and at index 3. So $F(3) = 9 \\times \\frac{1}{27} = \\frac{1}{3}$",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-data-structures",
+  "suffix-structures",
+  "mathematics",
+  "algorithms",
+  "dynamic-programming",
+  "dp-on-sequences"
+ ],
+ "date_added": "17-12-2019",
+ "problem_author": "msi_cse_buet",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KA19MOS",
+  "position": 10,
+  "problem_code": "KPRB",
+  "replay_solves": {
+   "successful": 5,
+   "total": 19,
+   "accuracy": 26.32,
+   "replay_only": true
+  }
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "id": "codechef-acm14kp2",
+ "platform": "codechef",
+ "title": "Bye, inversions!",
+ "slug": "acm14kp2",
+ "source_url": "https://www.codechef.com/problems/ACM14KP2",
+ "source_topic": "ICPC / Kharagpur Regional 2014",
+ "source_text": "Given an array $a$ of $n$ integers. You need to swap adjacent numbers exactly $k$ times. The goal is to minimise the number of inversions after exactly $k$ swaps. An inversion is a pair $(i, j)$ such that $i < j$ and $a_{i} > a_{j}$ ### Input - The first line contains an integer $T$ indicating the number of test cases. For each test case, there are two lines in total. - The first line contains two space separated integers - $n$ and $k$. - The second line contains $n$ space separated integers, the $i^{th}$ of which is $a_i$. ### Output Output $T$ lines in total. Each line should start with \"Case #: \" and followed by the minimum inversions after swaps. Here \"#\" is the number of the test case starting from $1$. ### Constraints - $1 \\leq T \\leq 10$ - $2 \\leq n \\leq 100000$ - $0 \\leq k \\leq 1000000$ - $1 \\leq a_{i} \\leq n$ ### Example Input ``` 3 3 3 3 2 1 3 1 1 2 3 3 2 1 2 3 ``` ### Example Output: ``` Case 1: 0 Case 2: 1 Case 3: 0 ``` ### Explanation **Test Case 1:** $(3 2) 1$ --> $2 3 1$ --> $2 (3 1)$ --> $2 1 3$ --> $(2 1) 3$ --> $1 2 3$ **Test Case 2:** $(1 2) 3$ --> $2 1 3$.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmkgp14",
+  "admin",
+  "easy-medium",
+  "fenwick-tree",
+  "segment-tree",
+  "sorting"
+ ],
+ "date_added": "18-09-2014",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMKGP14",
+  "position": 2,
+  "problem_code": "ACM14KP2",
+  "replay_solves": {
+   "successful": 204,
+   "total": 1417,
+   "accuracy": 14.54,
+   "replay_only": true
+  }
+ }
+}

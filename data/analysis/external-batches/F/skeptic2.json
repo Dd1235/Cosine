@@ -1,0 +1,83 @@
+{
+  "reviewer": "independent-skeptic",
+  "reviewed_at": "2026-09-16",
+  "batch": "F",
+  "reviews": [
+    {
+      "id": "kattis-insidersidentity",
+      "status": "approved",
+      "keep": ["dynamic-programming", "counting", "bitmask-dp", "string-matching"],
+      "drop": [
+        {"label": "aho-corasick", "why": "Unchanged from the first pass: route named but not taken. No trie is built, no failure links exist, and there is no pattern dictionary; the transitions are (A<<1)|1 and ((A&star)<<1)|1, textbook Shift-And over a single wildcard pattern. Aho-Corasick appears only as the ANALYSIS device that bounds the reachable state count, which is exactly what the corrected note now says. All eight aho-corasick records already in the corpus construct the automaton."}
+      ],
+      "add": [],
+      "independent_band": "hard",
+      "source_text_sha256": "1f3ef3d9d9ded3b2cfc147bb652d19018a491ccbe0c31cfb409fa2057db2c42d",
+      "review_rationale": "The one defect I filed is fixed and fixed correctly. The solution text now reads 491520 equals 15 times 2^15 with the rigorous bound stated as under 983040, which is verbatim my measurement, and the notes carry a dated review correction naming the adversarial pattern and admitting that the verify script does not measure state counts at all. Both numbers are the ones I produced, not rounded or silently re-derived, and the conclusion they support, about 5e7 transitions over n at most 50, is unchanged and still comfortable. Correctness was never the issue and was already settled against brute force on 500 random patterns.",
+      "issues": [
+        "The state count is still unmeasured by anything in the repo; the 491520 in the text is my number, and the notes now say so rather than passing it off as the proposal's own measurement. That is the honest handling, so it is a note and not a defect.",
+        "Carried forward: at 491520 masks in one layer a dict-keyed DP costs roughly 25MB per layer, so an implementation wants a BFS over reachable masks with integer ids rather than two hash maps.",
+        "Prose nit only: 'Measured worst case over adversarial patterns was 491520 (...) states' now reads awkwardly with the parenthetical wedged between the number and its noun."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-funwithfibonacci",
+      "status": "approved",
+      "keep": ["number-theory", "modular-arithmetic", "cycle-detection", "functional-graph", "matrix-exponentiation", "prime-factorization"],
+      "drop": [],
+      "add": [],
+      "independent_band": "very-hard",
+      "source_text_sha256": "af1a9859349278466b5eb5f9bccb31da51aedc023219bab1a7d88407c0312c9e",
+      "review_rationale": "I rule that an honest statement of the gap plus the cost model is enough, and I approve. What ships is a search record - labels, a band, a summary - so the questions that matter are whether the labels name what the real solution does and whether anything published misleads, and both now pass: the tower reduction is proved, every label names a live component, and the notes say in plain words that the verify PASS is correctness evidence only, that the fast path is not implemented, and that the limit claim rests on a design I costed at 25,593 pisano computations, 639,783 divisor probes and mean tower depth 5.29. This is also the standard the rest of the batch meets, since all ten verify scripts are small-case equivalence checks that establish nothing about time limits; requiring a working fast path here alone would be a stricter gate applied to one record because its author was candid.",
+      "issues": [
+        "The performance claim remains unexecuted. My arithmetic puts the design near 2e8 elementary operations and inside the limit, but nobody has run it, and the largest thing the script executes is 710 queries of the slow variant.",
+        "M=75000 is now in the fixed-point list with the measured 2501 tail-plus-cycle beside the 12501 at 375000, matching what I found scanning 23007 moduli. The correction is accurate.",
+        "Scope limit on this approval: if the record is ever promoted past a search index, to anything implying a judge would accept it, the fast path must exist in code first. As a search record it is fine; as a solution of record it is not one yet."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-enjoyingelderberries",
+      "status": "approved",
+      "keep": ["tin-tout-ancestor-check", "tree-flattening"],
+      "drop": [
+        {"label": "graph-modeling", "why": "The tree is handed to you as a tree; nothing is turned into a graph. The only thing modelled is the pairwise conflict structure among blocks of one label, and that is named better by hitting-set below. This is the same call the first pass made on jurassicjungle, also at 0.6 confidence, and the corpus backs it: of twenty tree-flattening records exactly one also carries graph-modeling, and that one builds a tree out of ancestor pairs."}
+      ],
+      "add": [
+        {"label": "hitting-set", "why": "The notes say 'the vocabulary has no label for maximum-weight independent set', but the canonical vocabulary does carry the complement: relabelling the minimum weight so that no conflicting pair survives is a minimum-weight hitting set over the conflict pairs, which is exactly what the 2^7 enumeration computes. hitting-set is already used this way in the corpus for codeforces-2253-f (minimum-cost removal so no bad configuration remains) and codeforces-68-e. Without it the record retrieves only on tree mechanics and nothing names the optimisation the problem actually asks for. Weakest of the three, since each instance is tiny.", "confidence": 0.55}
+      ],
+      "independent_band": "hard",
+      "source_text_sha256": "5def02c70058f5fca346c408b0b571a2f97ef7d657ad3047b040dd549125f65e",
+      "review_rationale": "I re-read the statement against the reduction line by line, since a two-solve problem is usually a reading trap, and every step holds: subtrees containing a common berry are nested so 'smallest controlled area' is unambiguously the deepest root; a tiny bird's parent is either big, in which case the area is unchanged, or small, in which case the nearest big ancestor is a proper ancestor of it, so areas only grow and no bird can lose its own berries; owner preservation forces a berry's label to equal its owner's, making bird-plus-berries an atomic block of cost equal to its size; and a relabelled block can always take a fresh label, of which 12.4 million exist against at most 150000 blocks, so nothing else is disturbed and label classes really are independent. I checked that the pairwise conflict list is complete - the surviving rules after relabelling are equal areas, stolen berries, coverage and the seven-bird cap, and the last two are automatic - and I re-derived all three samples by hand, getting 2, 1 and 0 with sample 2 turning on block WEIGHT rather than block count. O(n log n) and O(n) are right: seven ancestor tests per berry, at most 21 pairs and one 128-subset scan per label, one binary search per pair.",
+      "issues": [
+        "brute-force: I agree with the NO. The algorithm is O(n log n) and the 128-subset scan is a constant-size step inside the reduction, not the method; labelling it would put this record beside genuine search problems.",
+        "The 150000-vertex scale run is real, and this is the only proposal in the batch that has one, but it is unrepresentative: the generated instance gives one label 37000 berries and a single bird, every other bird a unique label, so it comes out k = 0 in 0.14s and never exercises a seven-bird class, the conflict enumeration, or the output path. The parse and Euler tour are timed; the interesting half is not.",
+        "The 720 random trees top out at 13 vertices. Correctness evidence is strong there (exhaustive over all labellings, plus an independent replay simulator) but there is nothing between 13 and 150000.",
+        "Summary nit: it says the fewest labels must change 'so no berry changes eater', which is the headline constraint but not the whole one - the new labelling must also keep the distinct-areas and seven-bird rules. Accurate enough to pass at 68 words."
+      ],
+      "summary_ok": true
+    },
+    {
+      "id": "kattis-kingdomofkittens",
+      "status": "approved",
+      "keep": ["convex-hull", "geometry", "orientation-test"],
+      "drop": [
+        {"label": "point-in-polygon", "why": "Self-flagged at 0.5 and not load-bearing as named. What the code does is the reverse of a containment query: after the hull it asks whether each point lies ON one of at most six hull edges, a collinearity test plus a bounding-box range check, and 'strictly inside' is only the fall-through. That is orientation-test again. The corpus's one real point-in-polygon record is cses-2192, the CSES Point in Polygon task itself - inside/outside/boundary queries against a general simple polygon - and a searcher arriving here from that term would find no containment routine at all."}
+      ],
+      "add": [],
+      "independent_band": "very-hard",
+      "source_text_sha256": "7307313e3a30709c0bc582e4968f0e930789b8e17d6f46b6061e02c50d3b33e9",
+      "review_rationale": "I checked the reduction rather than the lemma, as instructed. Every step above the arc question is forced and I re-derived each: a triangle containing all points contains their hull, so an interior point can never sit on a side; each side line has the hull on one side, so its contact set is one face; three faces cover at most six hull vertices, killing a seven-gon outright, which the script confirms on an explicit 7-gon; an edge with a point strictly inside it must itself be a chosen face; and pushing a side inward until it supports the hull makes containment automatic and leaves only boundedness, which is the positive-spanning condition on the three outward normals. Both samples fall out by hand - the square is YES via a vertex-cone normal such as the line x+y=4 against x=0 and y=0, and the square plus its centre is NO on the interior point alone - and the note that three sides of a square give a gap of exactly pi is why the test must be strict. On the three-gap lemma I did not attempt a proof: necessity is immediate, since the ccw gap from d_i to d_j always contains the gap from the end of arc i to the start of arc j, and for sufficiency I tested the abstract arc problem numerically on 4000 random triples of disjoint arcs, comparing the three end-to-start tests against a grid search for a feasible choice, with zero disagreements, and otherwise I rely on the 3980-case brute force, which shares none of the solution's reasoning.",
+      "issues": [
+        "Hull-size coverage in the brute-force run is lopsided: 1607 four-gons but only 105 six-gons and 16 hulls above six. Six vertices is the tightest case in the whole problem, the one where the three faces must be three alternating edges, and it is the thinnest-tested.",
+        "No scale test. The largest input run is a small random point set, while the judge allows 100000 points per case and 500000 in total. The work above the hull is O(1), so the only real cost is the hull and the input reading, but neither has been timed.",
+        "Integer margin, worth flagging for a C++ port: with coordinates to 1e9 the hull cross product reaches 8e18 against an int64 ceiling of 9.22e18, and the cross and dot tests on edge normals reach the same magnitude. Nothing overflows, but there is under 15 percent of headroom and no reduction to primitive directions on the solution path.",
+        "Vocabulary gap, same shape as the first pass recorded for jurassicjungle: the actual insight is supporting lines and normal cones, i.e. a half-plane-intersection boundedness argument, and canonical has no term for it. After the drop the record carries three fairly generic geometry labels for a 9.2 problem.",
+        "brute-force: I agree with the NO. The 220 face triples come from a set proved to have at most twelve members, so it is case enumeration of constant size, not search."
+      ],
+      "summary_ok": true
+    }
+  ],
+  "notes": "follow-up to skeptic.json; entries here override it for the four ids. Both held records were fixed correctly and are approved: insidersidentity carries my 491520 figure verbatim with the rigorous bound, and funwithfibonacci now states its unimplemented-fast-path gap in plain words, which I judge sufficient for a search record but explicitly not for anything that implies a judge would accept the code. Both new records are approved with one label change each - graph-modeling out and hitting-set in on enjoyingelderberries, point-in-polygon out on kingdomofkittens - and I concur with both brute-force refusals. I ran the two new verify scripts myself: elderberries prints k = 2, 1, 0 on the three samples (sample 1 as the alternative pair the statement permits) and kittens reproduces both samples with hull sizes 1 through 8 covered. I also tested the kingdomofkittens three-gap lemma abstractly, 4000 random triples of disjoint arcs, end-to-start tests versus a grid search for a feasible direction choice, zero disagreements; I did not prove it. The batch-wide weakness the first pass named holds here too: correctness evidence is strong and scale evidence is thin, with elderberries the only record in the batch carrying a scale run at all and that run unrepresentative."
+}

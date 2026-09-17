@@ -1,0 +1,37 @@
+{
+ "id": "kattis-airconditioned",
+ "title": "Air Conditioned Minions",
+ "slug": "airconditioned",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/airconditioned",
+ "source_topic": "ICPC / 2015 ACM Singapore Regional",
+ "source_tags": [],
+ "statement": "A company must house N minions, at most a hundred of them, in as few rooms as possible. Each room is set to a single temperature, and every minion accepts only temperatures inside a personal closed interval whose endpoints lie between one and twice N. The task is to report the minimum number of distinct temperatures needed so that every minion can be assigned to a room it likes.",
+ "tags": [],
+ "patterns": [
+  "greedy",
+  "sorting",
+  "interval-scheduling",
+  "hitting-set"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "greedy": 0.9,
+   "sorting": 0.9,
+   "interval-scheduling": 0.9,
+   "hitting-set": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 2.2,
+  "label": "easy",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:33+00:00"
+ }
+}

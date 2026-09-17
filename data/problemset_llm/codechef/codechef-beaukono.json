@@ -1,0 +1,40 @@
+{
+  "id": "codechef-beaukono",
+  "title": "Beauty of Konoha",
+  "slug": "beaukono",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/BEAUKONO",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "Naruto has become the seventh Hokage of Konoha. He is now devoted to making Konoha a developed city. In order to do so, he is going to establish some city centers and connect them with roads. A road between city centers u and v can be used to travel both from u to v and from v to u.",
+  "tags": [
+    "data-structures",
+    "arrays",
+    "graphs",
+    "algorithms",
+    "constructive"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/BEAUKONO"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 2,
+    "problem_code": "BEAUKONO",
+    "replay_solves": {
+      "successful": 53,
+      "total": 85,
+      "accuracy": 62.35,
+      "replay_only": true
+    }
+  }
+}

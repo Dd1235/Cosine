@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp14b",
+  "title": "Sequence Containment",
+  "slug": "kgp14b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14B",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "A DNA sequence can be represented by a string of letters T, A, C, and G representing four different amino acids. DNA sequences are often matched to infer structural or functional similarities between living beings.",
+  "tags": [
+    "admin3",
+    "dynamic-programming",
+    "easy-medium",
+    "kgp14ros"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 2,
+    "problem_code": "KGP14B",
+    "replay_solves": {
+      "successful": 109,
+      "total": 267,
+      "accuracy": 41.57,
+      "replay_only": true
+    }
+  }
+}

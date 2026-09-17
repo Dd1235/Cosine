@@ -1,0 +1,29 @@
+{
+ "id": "codechef-egyptfra",
+ "platform": "codechef",
+ "title": "Egyption Fractions",
+ "slug": "egyptfra",
+ "source_url": "https://www.codechef.com/problems/EGYPTFRA",
+ "source_topic": "ICPC / Kanpur Regional 2012",
+ "source_text": "A fraction a/b is called in its lowest form if gcd(a, b) = 1. It is possible to express a/b using the sum of a finite number of reciprocals of natural numbers. For example, 2/7 can be written as 1/4 + 1/28. Such a representation is called an Egyptian fraction representation of a/b. For each fraction, there could be multiple Egyptian fraction representations. Let two sets of reciprocals be (p 1 , p 2 , ..., p n ) and (q 1 , q 2 , ..., q k ). We say, the first is lexicographically lesser than the second if there is some m, 1 ≤ m ≤ min(n,k) such that, p 1 = q 1 , p 2 = q 2 , ..., p m-1 = q m-1 and p m ≤ q m . Given a set of fractions in the lowest form, the problem is to generate the lexicographically least Egyptian fraction for each input fraction. Input The input consists of several lines, each line consisting of a pair of numbers separated by a blank space. The end of the input is signaled by a line containing the pair of numbers 1 and 1. Each pair on a single line will be positive numbers, co-prime to each other (except for the last line). The first number on any line is always less than or equal to the second number on the line. Output For each pair of numbers a and b on a line, output a sequence of numbers, representing the denominators of the lexicographically least Egyptian Fraction of a/b. The denominators should be sorted in ascending order. There should be a blank space separating one denominator from the next. You should NOT output the Egyptian Fraction representation of the last line, representing 1/1 = 1. Sample Input 1 4 2 7 5 9 1 1 Sample Output 4 4 28 2 18",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin"
+ ],
+ "date_added": "2-11-2012",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMKAN12",
+  "position": 1,
+  "problem_code": "EGYPTFRA",
+  "replay_solves": {
+   "successful": 16,
+   "total": 336,
+   "accuracy": 4.76,
+   "replay_only": true
+  }
+ }
+}

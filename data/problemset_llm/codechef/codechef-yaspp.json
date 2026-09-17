@@ -1,0 +1,40 @@
+{
+  "id": "codechef-yaspp",
+  "title": "Yet another shortest path problem",
+  "slug": "yaspp",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/YASPP",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "You are given an undirected graph G with N nodes and M edges. Each edge e has a color c_e. Define the cost of a path as the number of times the edge color changes.",
+  "tags": [
+    "data-structures",
+    "algorithms",
+    "graph-algos",
+    "shortest-path",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/YASPP"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 8,
+    "problem_code": "YASPP",
+    "replay_solves": {
+      "successful": 10,
+      "total": 56,
+      "accuracy": 19.64,
+      "replay_only": true
+    }
+  }
+}

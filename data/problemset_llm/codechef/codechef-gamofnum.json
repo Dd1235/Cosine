@@ -1,0 +1,41 @@
+{
+  "id": "codechef-gamofnum",
+  "title": "Game of numbers",
+  "slug": "gamofnum",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GAMOFNUM",
+  "source_topic": "ICPC / Gwalior Regional 2018",
+  "source_tags": [],
+  "statement": "Alice and Bob love playing games, and this time they are playing with an array of N integers. They take turns alternatively, with Alice having the first turn. In a player's turn, the player can pick any number (say x) which is greater than 1 from the array.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "integer-factorisation",
+    "divisors",
+    "algorithms",
+    "game-theory"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GAMOFNUM"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR18ROL",
+    "position": 1,
+    "problem_code": "GAMOFNUM",
+    "replay_solves": {
+      "successful": 14,
+      "total": 72,
+      "accuracy": 19.44,
+      "replay_only": true
+    }
+  }
+}

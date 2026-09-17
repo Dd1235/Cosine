@@ -1,0 +1,36 @@
+{
+  "id": "codechef-avlblt",
+  "title": "Availability",
+  "slug": "avlblt",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/AVLBLT",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "You are scheduling a phone call with a friend who lives in another timezone. You are located in timezone 0, and your friend is located in timezone T (0 \\leq T < 24).",
+  "tags": [
+    "dojiboy9"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/AVLBLT"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 13,
+    "problem_code": "AVLBLT",
+    "replay_solves": {
+      "successful": 9,
+      "total": 33,
+      "accuracy": 30.3,
+      "replay_only": true
+    }
+  }
+}

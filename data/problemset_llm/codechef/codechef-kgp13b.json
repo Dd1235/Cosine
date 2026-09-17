@@ -1,0 +1,38 @@
+{
+  "id": "codechef-kgp13b",
+  "title": "Olympic Village",
+  "slug": "kgp13b",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13B",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "It is almost Olympic time, but the organizers fear that the entire Olympic village will not be ready in time given the slow progress of construction.",
+  "tags": [
+    "jingbo-adm",
+    "kgp13acm",
+    "sorting"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13B"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 2,
+    "problem_code": "KGP13B",
+    "replay_solves": {
+      "successful": 57,
+      "total": 234,
+      "accuracy": 25.21,
+      "replay_only": true
+    }
+  }
+}

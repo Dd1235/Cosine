@@ -1,0 +1,36 @@
+{
+  "id": "codechef-isitcake",
+  "title": "Is it a Cakewalk Problem",
+  "slug": "isitcake",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/ISITCAKE",
+  "source_topic": "ICPC / Amritapuri Regional 2018",
+  "source_tags": [],
+  "statement": "Estimating the difficulty of a cakewalk problem is a hard task. Our Chef Hasan has prepared a problem which he thinks is a cakewalk level problem. There are 100 participants in the contest. The problem indeed turned out to be easy and was solved by all the participants.",
+  "tags": [
+    "algorithms"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/ISITCAKE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "AMR18ROL",
+    "position": 4,
+    "problem_code": "ISITCAKE",
+    "replay_solves": {
+      "successful": 380,
+      "total": 620,
+      "accuracy": 62.58,
+      "replay_only": true
+    }
+  }
+}

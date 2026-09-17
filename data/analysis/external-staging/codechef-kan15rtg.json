@@ -1,0 +1,29 @@
+{
+ "id": "codechef-kan15rtg",
+ "platform": "codechef",
+ "title": "Edit Distance Revisited",
+ "slug": "kan15rtg",
+ "source_url": "https://www.codechef.com/problems/KAN15RTG",
+ "source_topic": "ICPC / Kanpur Regional 2014",
+ "source_text": "You are given N arrays of size K each, such that each array contains all numbers from 1 to K, and no two arrays are the same (two arrays are called same if for every index they have the same value). Edit distance between two arrays A 1 and A 2 is denoted by E(A 1 , A 2 ), and is defined as the least number of steps needed to make the two arrays same if these 2 operations are allowed: Delete any element from one of the arrays. Insert any element at any position in one of the arrays. You have to find an arrangement A such that: Each element of A is one of the arrays in the input. Each of the arrays in the input occurs at least once in A. A first increases lexicographically then decreases. Formally, let X < Y mean that array X is lexicographically smaller than array Y . If size of arrangement A is L, then there exists an i(1 ≤ i ≤ L) such that A 1 < A 2 , A 2 < A 3 ... A i−1 < A i and A i+1 < A i , A i+2 < A i+1 ... A L < A L−1 . Of all the arrangements satisfying above 3 properties, A has the least sum of edit dis tances of neighboring elements. Formally, E(A 1 , A 2 ) + E(A 2 , A 3 ) + ... + E(A L−1 , A L ) is smallest possible among all arrangements satisfying above 3 properties. For such an arrangement, output the value E(A 1 , A 2 ) + E(A 2 , A 3 ) + ... + E(A L−1 , A L ). Input First line contains T , the number of test cases. First line of each test case contains two integers N and K. Each of the next N lines of each test case contains K space separated integers. Output Output one line per test case containing the required answer. Constraints 1 ≤ T ≤ 5 1 ≤ N ≤ 1000 1 ≤ K ≤ 100 Sample Input: 1 4 3 1 2 3 3 1 2 2 3 1 2 1 3 Output: 6",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "pnkjjindal"
+ ],
+ "date_added": "1-04-2015",
+ "problem_author": "pnkjjindal",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "KAN14ROS",
+  "position": 7,
+  "problem_code": "KAN15RTG",
+  "replay_solves": {
+   "successful": 2,
+   "total": 3,
+   "accuracy": 66.67,
+   "replay_only": true
+  }
+ }
+}

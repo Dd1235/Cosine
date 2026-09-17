@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kthpath",
+  "title": "The K-th Path",
+  "slug": "kthpath",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KTHPATH",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "WARNING: The Input files may be as large as 8 MB. Use faster I/O methods. There is a tree, consisting of N nodes. A path is a sequence of one or more nodes of this tree, where every two adjacent nodes are connected by an edge and no node is visited twice. Generally, there are N 2 paths.",
+  "tags": [
+    "acmkgp13",
+    "dfs",
+    "graphs",
+    "medium",
+    "sergey-adm",
+    "trees"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KTHPATH"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "ACMKGP13",
+    "position": 1,
+    "problem_code": "KTHPATH",
+    "replay_solves": {
+      "successful": 14,
+      "total": 102,
+      "accuracy": 13.73,
+      "replay_only": true
+    }
+  }
+}

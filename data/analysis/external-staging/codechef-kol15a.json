@@ -1,0 +1,35 @@
+{
+ "id": "codechef-kol15a",
+ "platform": "codechef",
+ "title": "Processing a string",
+ "slug": "kol15a",
+ "source_url": "https://www.codechef.com/problems/KOL15A",
+ "source_topic": "ICPC / Kolkata Regional 2015",
+ "source_text": "Given an alphanumeric string made up of digits and lower case Latin characters only, find the sum of all the digit characters in the string. Input The first line of the input contains an integer T denoting the number of test cases. Then T test cases follow. Each test case is described with a single line containing a string S , the alphanumeric string. Output For each test case, output a single line containing the sum of all the digit characters in that string. Constraints 1 ≤ T ≤ 1000 1 ≤ |S| ≤ 1000 , where |S| is the length of the string S. Sample Input 1 ab1231da Sample Output 7 The digits in this string are 1, 2, 3 and 1. Hence, the sum of all of them is 7.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "data-structures",
+  "mathematics",
+  "basic-math",
+  "algorithms",
+  "constructive",
+  "cpp"
+ ],
+ "date_added": "13-10-2015",
+ "problem_author": "pnkjjindal",
+ "difficulty_rating": 1125,
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMKOL15",
+  "position": 1,
+  "problem_code": "KOL15A",
+  "replay_solves": {
+   "successful": 0,
+   "total": 570,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

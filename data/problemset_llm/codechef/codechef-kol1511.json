@@ -1,0 +1,41 @@
+{
+  "id": "codechef-kol1511",
+  "title": "Wait for it",
+  "slug": "kol1511",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KOL1511",
+  "source_topic": "ICPC / Kolkata Regional 2015",
+  "source_tags": [],
+  "statement": "Given N, A and B, find the value of the following expression: $$ \\sum_{i=0}^{N} \\sum_{j=0}^{N} \\text{gcd}(A^i + B^i, A^j + B^j) $ Since the value can be large, find it modulo (10^9 + 7). Input - The first line of the input contains an integer T denoting the number of test cases.",
+  "tags": [
+    "mathematics",
+    "number-theory",
+    "euclid-s-algorithm",
+    "algorithms",
+    "graph-algos",
+    "traversals"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KOL1511"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL15MOS",
+    "position": 11,
+    "problem_code": "KOL1511",
+    "replay_solves": {
+      "successful": 0,
+      "total": 2,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

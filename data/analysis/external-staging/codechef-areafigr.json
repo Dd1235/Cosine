@@ -1,0 +1,31 @@
+{
+ "id": "codechef-areafigr",
+ "platform": "codechef",
+ "title": "Area of an amazing figure",
+ "slug": "areafigr",
+ "source_url": "https://www.codechef.com/problems/AREAFIGR",
+ "source_topic": "ICPC / Chennai Regional 2017",
+ "source_text": "There is an equilateral triangle ABC with side length 2*a . The coordinates of the triangle's vertices are A = (-a, 0) , B = (a, 0) and C = (0, sqrt(3) * a) . Next, there are three circles with centers at the midpoints of sides AB, BC and AC respectively and radii r 1 , r 2 and r 3 respectively. Compute the area of the intersection of the triangle and the three circles. Input The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows. The first and only line of each test case contains four space-separated integers a, r 1 , r 2 , r 3 . Output For each test case, print a single line containing one real number corresponding to the area of the intersection. Your answer will be considered correct if it has an absolute or relative error ≤ 5 * 10 -2 . Constraints 1 ≤ T ≤ 20 1 ≤ a ≤ 50 1 ≤ r 1 , r 2 , r 3 ≤ 200 Example Input 5 10 5 5 5 10 6 6 7 10 12 13 14 10 15 15 15 10 19 20 18 Output 0.0000000 1.417303000 138.1789 163.712 173.2064190 Explanation Example case 2: The black colored area shown in the figure is the intersection between the triangle and the three circles.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "advanced-algorithms",
+  "computational-geometry",
+  "polygons"
+ ],
+ "date_added": "25-11-2017",
+ "problem_author": "admin2",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "CHN17ROL",
+  "position": 6,
+  "problem_code": "AREAFIGR",
+  "replay_solves": {
+   "successful": 10,
+   "total": 25,
+   "accuracy": 44.0,
+   "replay_only": true
+  }
+ }
+}

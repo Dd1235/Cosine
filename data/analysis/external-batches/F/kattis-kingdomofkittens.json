@@ -1,0 +1,28 @@
+{
+ "id": "kattis-kingdomofkittens",
+ "status": "solved",
+ "solution": "A point strictly inside the convex hull is strictly inside any triangle containing the hull, so every point must lie on the hull boundary; and each side line of such a triangle supports the hull, so the points it can carry are exactly one face of the hull - one vertex or one whole edge. Three faces cover at most six hull vertices, so a hull with seven or more vertices is immediately NO, every edge carrying a point in its interior must itself be a chosen face, and there are at most twelve faces, hence at most 220 triples to try. A side line may be pushed inward until it supports the hull without losing any point, so the outward normal of the side carrying a face may be any direction of that face's normal cone: one fixed direction for an edge, the closed arc between the two neighbouring edge normals for a vertex. Containment is then automatic and only boundedness is left, i.e. picking d1, d2, d3 from the three disjoint cyclically ordered arcs with all three ccw gaps strictly between 0 and pi; eliminating d2, then d3, then d1 from that system over the arcs collapses it to three independent tests - the ccw gap from the END of each arc to the START of the next must be below pi - each an integer cross-then-dot test on hull edge normals. Per test case the cost is the hull, O(n log n) time and O(n) space, plus O(n) classification and O(1) face triples.",
+ "solution_confidence": 0.88,
+ "statement_summary": "Given up to a hundred thousand integer lattice points, possibly repeated, the question is whether some triangle of positive area has every one of those points lying on its three sides, vertices included; the triangle's own corners need not be lattice points. Many such test cases arrive in one file, with half a million points in total, and each needs a yes or no answer.",
+ "patterns": [
+  "convex-hull",
+  "geometry",
+  "orientation-test",
+  "point-in-polygon"
+ ],
+ "pattern_confidence": {
+  "convex-hull": 0.95,
+  "geometry": 0.9,
+  "orientation-test": 0.75,
+  "point-in-polygon": 0.5
+ },
+ "tags": [
+  "geometry",
+  "convex-hull",
+  "triangle",
+  "casework"
+ ],
+ "verify_script": "data/analysis/external-batches/F/verify_kingdomofkittens.py",
+ "notes": "The three-gap test is the delicate part and it is not guessed: it is derived by eliminating the three angle variables in order, and then checked against an independent brute force (supporting lines only, candidate normals taken from the arrangement of the pairwise point normals and their negations plus one strictly interior direction per elementary arc) on 3980 random point sets - hull sizes 1 through 8, 3509 YES and 471 NO, zero disagreements. The two traps the samples set are both covered: the square is YES but only with a side whose normal lies strictly inside a vertex cone, while the three sides of a square give two parallel lines and are unbounded (that gap is exactly pi, which is why the test is strict). Rulings: brute-force NO - the enumeration is over at most 220 face triples of a provably constant-size set, it is case enumeration, not search; binary-search-answer, dp-on-dag, dsu-on-tree: none apply. point-in-polygon is included at low confidence because 'is this point strictly inside the hull or on its boundary' is a real step, though it is done by testing the at most six hull edges rather than by a general containment routine. A previous solver left an unsolved note in this file's place; it had established the hull reduction and stopped at the arc feasibility question, which is what the elimination above settles.",
+ "source_text_sha256": "7307313e3a30709c0bc582e4968f0e930789b8e17d6f46b6061e02c50d3b33e9"
+}

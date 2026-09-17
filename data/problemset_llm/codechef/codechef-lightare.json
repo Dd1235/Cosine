@@ -1,0 +1,39 @@
+{
+  "id": "codechef-lightare",
+  "title": "Find Lighted Area",
+  "slug": "lightare",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LIGHTARE",
+  "source_topic": "ICPC / Gwalior Regional 2017",
+  "source_tags": [],
+  "statement": "You are given a square with side length 2L. The coordinates of its vertices are at (-L, -L), (L, -L), (L, L), and (-L, L). You are also given N disks (each disk is opaque, and light rays cannot pass through them) each of radius R.",
+  "tags": [
+    "admin2",
+    "geometry",
+    "gwr17rol",
+    "med-hard"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LIGHTARE"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "GWR17ROL",
+    "position": 6,
+    "problem_code": "LIGHTARE",
+    "replay_solves": {
+      "successful": 0,
+      "total": 31,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

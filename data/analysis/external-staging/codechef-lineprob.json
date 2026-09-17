@@ -1,0 +1,30 @@
+{
+ "id": "codechef-lineprob",
+ "platform": "codechef",
+ "title": "Line Problem",
+ "slug": "lineprob",
+ "source_url": "https://www.codechef.com/problems/LINEPROB",
+ "source_topic": "ICPC / Kanpur Regional 2013",
+ "source_text": "A Sniper is standing at the point (x 1 , y 1 ) on the 2D XY Plane. He shoots from his position towards the point (x 2 , y 2 ) . You may assume that all points are integers. Consider the 2D grid formed by integer points on the XY Plane. The position of the Sniper and the Target are lattice points in this grid. The bullet shot by the Sniper will follow a straight line trajectory from (x 1 , y 1 ) to (x 2 , y 2 ) . The bullet goes no further than (x 2 , y 2 ) . Consider the trajectory of the bullet when the Sniper is standing at (1, 1) and the Target lies at (4, 3) . Notice how the trajectory of the bullet touches 4 cells. A cell is considered touched by the trajectory if and only if the bullet will enter the cell. How many cells are touched by the trajectory of the bullet? ￼ Input The first line contains a single integer T , the number of test cases. Each of the following T lines contain one test case each. Each test case contains 4 integers x 1 , y 1 , x 2 and y 2 . The integers are separated by single space characters. Output For each test case, output a single line, containing the number of cells touched by the trajectory of the bullet shot from (x 1 , y 1 ) to (x 2 , y 2 ) . Remember that a cell is considered touched by the trejectory if and only if the bullet enters the cell - only touching a side is not enough. Constraints 0 < T < 10100 0 ≤ x 1 , y 1 , x 2 , y 2 ≤ 1000000000 Sample Input 3 0 0 3 2 0 0 2 2 0 0 1 0 Sample Output 4 2 0 Explanation In the second test case, the trajectory of the bullet touches the point (1, 1) . The bullet does not enter the cells with bottom left corners at (0,1) and (1,0) . It directly enters the cell with the bottom left corner at (1,1) . Hence, we count only two cells as touched during its trajectory.",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "acmkan13",
+  "admin"
+ ],
+ "date_added": "13-10-2013",
+ "problem_author": "admin",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "ACMKAN13",
+  "position": 2,
+  "problem_code": "LINEPROB",
+  "replay_solves": {
+   "successful": 191,
+   "total": 607,
+   "accuracy": 31.8,
+   "replay_only": true
+  }
+ }
+}

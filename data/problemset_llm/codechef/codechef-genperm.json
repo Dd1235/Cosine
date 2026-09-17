@@ -1,0 +1,40 @@
+{
+  "id": "codechef-genperm",
+  "title": "Generating A Permutation",
+  "slug": "genperm",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/GENPERM",
+  "source_topic": "ICPC / Kharagpur Regional 2017",
+  "source_tags": [],
+  "statement": "For a permutation \\( P = (p_1, p_2, \\dots, p_N) \\) of numbers \\([1, 2, \\dots, N]\\), we define the function \\( f(P) = \\max(p_1, p_2) + \\max(p_2, p_3) + \\dots + \\max(p_{N-1}, p_N) \\). You are given \\( N \\) and an integer \\( K \\).",
+  "tags": [
+    "acm17kgp",
+    "architk",
+    "constructive",
+    "easy-medium",
+    "kgp17rol"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/GENPERM"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP17ROL",
+    "position": 9,
+    "problem_code": "GENPERM",
+    "replay_solves": {
+      "successful": 18,
+      "total": 61,
+      "accuracy": 29.51,
+      "replay_only": true
+    }
+  }
+}

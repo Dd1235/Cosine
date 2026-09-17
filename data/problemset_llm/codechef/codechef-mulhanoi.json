@@ -1,0 +1,36 @@
+{
+  "id": "codechef-mulhanoi",
+  "title": "Again Multi-Peg Tower of Hanoi",
+  "slug": "mulhanoi",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MULHANOI",
+  "source_topic": "ICPC / Kolkata Regional 2018",
+  "source_tags": [],
+  "statement": "In CSE courses, we frequently cite the Tower of Hanoi problem to make the concept of recursive procedures clear. In an ordinary Tower of Hanoi problem, there are three pegs S_1, S_2, and S_3. Initially, circular disks with holes are mounted on S_1 with smaller disks on top of larger ones.",
+  "tags": [
+    "admin3"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MULHANOI"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KOL18ROL",
+    "position": 1,
+    "problem_code": "MULHANOI",
+    "replay_solves": {
+      "successful": 2,
+      "total": 7,
+      "accuracy": 28.57,
+      "replay_only": true
+    }
+  }
+}

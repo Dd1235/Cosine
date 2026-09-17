@@ -1,0 +1,28 @@
+{
+ "id": "kattis-engaging",
+ "status": "solved",
+ "solution": "Unlisted customer-gift pairs are worth zero, so this is the assignment problem: a maximum-weight (not necessarily perfect) matching in a bipartite graph with n customers on one side and m gifts on the other, both at most 1000. Pad the satisfaction matrix with zeros to a square, negate it and run the Jonker-Volgenant form of the Hungarian algorithm, which is O(min(n,m) * max(n,m)^2) on a dense 1000x1000 matrix and yields both the optimum and the assignment; dropping the zero-weight pairs from the printed answer is safe because weights are positive, so a zero pair never helps. Min-cost max-flow with Johnson potentials, one Dijkstra augmentation per matched pair, is the equivalent alternative. O(n*m) space.",
+ "solution_confidence": 0.95,
+ "statement_summary": "A company has m gifts and n loyal customers, and k survey cards each state how satisfied a given customer would be with a given gift; unlisted pairs are worth nothing. Every customer takes at most one gift and every gift goes to at most one customer. The task is to maximise the total satisfaction and print one optimal allocation, with m and n up to one thousand.",
+ "patterns": [
+  "hungarian-algorithm",
+  "bipartite-matching",
+  "bipartite-graph",
+  "min-cost-flow"
+ ],
+ "pattern_confidence": {
+  "hungarian-algorithm": 0.9,
+  "bipartite-matching": 0.9,
+  "bipartite-graph": 0.7,
+  "min-cost-flow": 0.6
+ },
+ "tags": [
+  "graph",
+  "matching",
+  "assignment",
+  "flow"
+ ],
+ "source_text_sha256": "a20defb1d3e0f5a1f14568861d4b8c4f20bb4eb05a5c14f820feb2928da53cba",
+ "verify_script": "data/analysis/external-batches/G/verify_engaging.py",
+ "notes": "verify_engaging.py checks the sample (11, two pairs) and compares the Hungarian result against exhaustive enumeration of all partial matchings on 200 random instances with n,m<=4, also asserting the printed assignment is a valid matching with the claimed weight. Not max-flow alone: the weights make it an assignment problem, not a cardinality one."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "codechef-mro",
+  "title": "Method Resolution Order",
+  "slug": "mro",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/MRO",
+  "source_topic": "ICPC / Chennai Regional 2017",
+  "source_tags": [],
+  "statement": "Zotlin is an object-oriented programming language that provides features such as **Classes** and **Functions**. Zotlin also has the following features: - A function with the same name and same declarations can have different implementations in different classes.",
+  "tags": [
+    "data-structures",
+    "graphs",
+    "directed-graphs",
+    "mathematics",
+    "algorithms",
+    "recursion",
+    "graph-algos",
+    "dag-algos"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/MRO"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "CHN17ROL",
+    "position": 7,
+    "problem_code": "MRO",
+    "replay_solves": {
+      "successful": 29,
+      "total": 38,
+      "accuracy": 76.32,
+      "replay_only": true
+    }
+  }
+}

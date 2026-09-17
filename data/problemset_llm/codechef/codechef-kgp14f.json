@@ -1,0 +1,40 @@
+{
+  "id": "codechef-kgp14f",
+  "title": "BlindDate Contest",
+  "slug": "kgp14f",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP14F",
+  "source_topic": "ICPC / Kharagpur Regional 2014",
+  "source_tags": [],
+  "statement": "Academia University is hosting BitFest at GridLand, with participants from Academia (host) and other colleges (guest). The first event is a team coding event BlindDate, with each team containing one student from host and one from guest.",
+  "tags": [
+    "admin3",
+    "bipartite",
+    "graphs",
+    "kgp14ros",
+    "medium"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP14F"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP14ROS",
+    "position": 6,
+    "problem_code": "KGP14F",
+    "replay_solves": {
+      "successful": 4,
+      "total": 10,
+      "accuracy": 40.0,
+      "replay_only": true
+    }
+  }
+}

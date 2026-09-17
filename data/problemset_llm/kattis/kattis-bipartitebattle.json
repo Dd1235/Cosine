@@ -1,0 +1,41 @@
+{
+ "id": "kattis-bipartitebattle",
+ "title": "Bipartite Battle",
+ "slug": "bipartitebattle",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/bipartitebattle",
+ "source_topic": "ICPC / The 2018 Asia Hanoi Regional Contest",
+ "source_tags": [],
+ "statement": "Two players alternately delete one vertex or one edge from any still non-empty graph among N drawn bipartite graphs, the i-th having parts of a_i and b_i vertices, and whoever cannot move loses. The task counts, modulo 1000000007, the ways to draw the edge sets so that the second player wins under optimal play, with N up to 100000 and part sizes up to 1000000000.",
+ "tags": [],
+ "patterns": [
+  "game-theory",
+  "grundy-numbers",
+  "counting",
+  "parity-argument",
+  "modular-exponentiation",
+  "number-theory"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "game-theory": 0.9,
+   "grundy-numbers": 0.9,
+   "counting": 0.9,
+   "parity-argument": 0.9,
+   "modular-exponentiation": 0.9,
+   "number-theory": 0.7
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 6.0,
+  "label": "hard",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:12:58+00:00"
+ }
+}

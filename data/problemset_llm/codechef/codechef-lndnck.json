@@ -1,0 +1,38 @@
+{
+  "id": "codechef-lndnck",
+  "title": "Nicks Landing",
+  "slug": "lndnck",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/LNDNCK",
+  "source_topic": "ICPC / Kanpur Regional 2019",
+  "source_tags": [],
+  "statement": "In a city called *Nick's Landing*, there are N people (numbered 1 through N). For each valid i, the i-th person has beauty B_i and politeness P_i; no two people are equally beautiful. You should answer Q queries.",
+  "tags": [
+    "advanced-algorithms",
+    "algorithms",
+    "queries"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/LNDNCK"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KA19MOS",
+    "position": 4,
+    "problem_code": "LNDNCK",
+    "replay_solves": {
+      "successful": 0,
+      "total": null,
+      "accuracy": 0.0,
+      "replay_only": true
+    }
+  }
+}

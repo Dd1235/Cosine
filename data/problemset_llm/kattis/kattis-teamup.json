@@ -1,0 +1,35 @@
+{
+ "id": "kattis-teamup",
+ "title": "Team Up",
+ "slug": "teamup",
+ "platform": "kattis",
+ "source_url": "https://open.kattis.com/problems/teamup",
+ "source_topic": "Kattis / Hong Kong Regional Contest 2016",
+ "source_tags": [],
+ "statement": "Given n skills and m character classes whose skill sets are pairwise nested or disjoint, plus p players of known classes, a team is a set of players whose classes together cover every skill and each player joins at most one team. The task asks for the maximum number of teams that can be formed simultaneously and one such teaming.",
+ "tags": [],
+ "patterns": [
+  "tree-dp",
+  "dynamic-programming",
+  "constructive-algorithm"
+ ],
+ "annotation": {
+  "version": "problem-patterns-v1",
+  "model": "opus-solution-review",
+  "generated_at_unix": 1789567448,
+  "pattern_confidence": {
+   "tree-dp": 0.9,
+   "dynamic-programming": 0.9,
+   "constructive-algorithm": 0.9
+  },
+  "reviewed_by": "independent Opus skeptic",
+  "evidence": "data/analysis/external-review.json"
+ },
+ "difficulty": null,
+ "kattis_difficulty": {
+  "score": 5.4,
+  "label": "medium",
+  "host": "open.kattis.com",
+  "observed_at": "2026-09-16T09:14:10+00:00"
+ }
+}

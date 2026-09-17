@@ -1,0 +1,13 @@
+verify_amazingadventures           PASS 0s
+verify_bipartitebattle             PASS 0s
+verify_conquestcampaign            PASS 0s
+verify_dividedoughnut              PASS 39s
+verify_funwithfibonacci            PASS 0s
+verify_grabagraph                  PASS 1s
+verify_hydrasheads                 PASS 0s
+verify_insidersidentity            PASS 1s
+verify_jurassicjungle              PASS 1s
+verify_kingdomofkittens            TIMEOUT>420s
+verify_lazylearner                 PASS 0s
+verify_enjoyingelderberries        PASS 1s
+verify_kingdomofkittens            PASS 2s

@@ -1,0 +1,29 @@
+{
+ "id": "codechef-amr16a",
+ "platform": "codechef",
+ "title": "Tim and BSTs",
+ "slug": "amr16a",
+ "source_url": "https://www.codechef.com/problems/AMR16A",
+ "source_topic": "ICPC / Amritapuri Regional 2016",
+ "source_text": "Demonetization has affected everyone but Tim. He is still busy with his usual habit of finding some interesting problems over binary trees. Today also he came up with such a problem. Tim is studying **binary search trees**, or **BST**s. In Tim's book, a binary tree with **N** nodes is formalized so that: - Each node is identified by an integer between **1** and **N**, inclusive. - Each node **i** has an integer label, called **label(i)**. - The identifiers of the left and right child of node **i** are written as **L i ** and **R i **. - A nonexistent left and right child is represented as **L i = 0** and **R i = 0**, respectively. Tim understands this very well. Unfortunately, he doesn't understand the formal definition of a **binary *search* tree** quite well. He thinks that a tree is a binary search tree if and only if for all nodes **i**: - If **L i ≠ 0**, then **label(L i ) < label(i)**. - If **R i ≠ 0**, then **label(R i ) > label(i)**. Let's call a tree satisfying Tim's understanding a **pseudo-BST**. Clearly, all BSTs are pseudo-BSTs, but not all pseudo-BSTs are BSTs. To illustrate the difference further, suppose all labels are distinct and are between **1** and **N**, inclusive. Then there is a unique way to assign these labels to the **N** nodes such that the tree becomes a BST, but there are possibly many ways to assign them such that it becomes a pseudo-BST. Help Tim realize his mistake! Given a binary tree of **N** nodes, find the number of assignments of distinct labels between **1** and **N** such that the tree becomes a valid pseudo-BST! Input The first line of input contains an integer **T** denoting the number of test cases. The description of **T** test cases follows. The first line of each test case contains a single integer **N**. The next **N** lines describe the tree. Specifically, the **i th ** following line contains two integers separated by a space, **L i ** and **R i **, which are the left and right children of node **i**, respectively. Output For each test case, output a single line containing the answer. Since the answer can be very large, only output it modulo **10 9 + 7**. Constraints - **1 ≤ T ≤ 100** - **1 ≤ N ≤ 1000** - **0 ≤ L i , R i ≤ N** - Node **1** is always the root. - Each test case describes a valid binary tree. Sample Input 3 4 2 3 0 0 4 0 0 0 7 2 3 4 5 6 7 0 0 0 0 0 0 0 0 5 3 5 0 0 0 2 0 0 4 0 Sample Output 3 18 11 In the first case, the tree looks like: ![Tree](https://s3.amazonaws.com/codechef_shared/download/upload/pseudobst_tree.png) The following assignments of labels yield a pseudo-BST: - **[label(1), label(2), label(3), label(4)] = [2, 1, 4, 3].** - **[label(1), label(2), label(3), label(4)] = [3, 1, 4, 2].** - **[label(1), label(2), label(3), label(4)] = [3, 2, 4, 1].**",
+ "source_tags": [],
+ "difficulty": null,
+ "rating": null,
+ "judge_tags": [
+  "admin3"
+ ],
+ "date_added": "20-12-2016",
+ "problem_author": "admin3",
+ "contest_source": {
+  "host": "codechef.com",
+  "name": "AMR16MOS",
+  "position": 1,
+  "problem_code": "AMR16A",
+  "replay_solves": {
+   "successful": 0,
+   "total": null,
+   "accuracy": 0.0,
+   "replay_only": true
+  }
+ }
+}

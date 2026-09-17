@@ -1,0 +1,39 @@
+{
+  "id": "codechef-kgp13j",
+  "title": "Nomad Camp",
+  "slug": "kgp13j",
+  "platform": "codechef",
+  "source_url": "https://www.codechef.com/problems/KGP13J",
+  "source_topic": "ICPC / Kharagpur Regional 2013",
+  "source_tags": [],
+  "statement": "A nomadic group wants to make camp inside a large forest having thousands of trees - all very tall, slick, and upright, with leaves and branches much above man-height.",
+  "tags": [
+    "hard",
+    "jingbo-adm",
+    "kgp13acm",
+    "voronoi-diagram"
+  ],
+  "patterns": [],
+  "review_status": "labels-pending",
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codechef-judge-tags",
+    "generated_at_unix": 1789551227,
+    "pattern_confidence": {},
+    "reviewed_by": null,
+    "evidence": "https://www.codechef.com/api/contests/PRACTICE/problems/KGP13J"
+  },
+  "difficulty": null,
+  "contest_source": {
+    "host": "codechef.com",
+    "name": "KGP13ACM",
+    "position": 10,
+    "problem_code": "KGP13J",
+    "replay_solves": {
+      "successful": 2,
+      "total": 14,
+      "accuracy": 21.43,
+      "replay_only": true
+    }
+  }
+}
