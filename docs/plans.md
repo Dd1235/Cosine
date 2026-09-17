@@ -271,18 +271,19 @@ runs with an API key in CI.
 
 ---
 
-## 4a. Resume here — v86 (2026-09-16): contests as contests, labels hidden by default, India filled
+## 4a. Resume here — v86 LIVE (merged 2026-09-17): contests as contests, labels hidden by default, India filled
 
-Everything is on branch `v86` (pushed, **not merged**). Corpus **4,003**.
-Every gate is green at the head: `npm run validate` 0 errors, `npm run
-test:search` exit 0 (34 suites), `node web/help.test.js`, `npm run bench`
-worst per-slice regression 0.001 on bm25/tfidf against the pre-publish run.
+Merged as `d3b0727` and deployed; corpus **4,003**. Migration
+`0010_show_labels.sql` was run on Neon by the owner before the merge. Verified
+in production: `/healthz` 200 with no cookie and `no-store`, 60 collections
+with 456 member objects, a labels-pending record searchable by its judge tags
+while `?pattern=graph-algos` returns 0, and every page 200.
 
-**Before merging: run migration `db/migrations/0010_show_labels.sql` on Neon**
-(additive, nullable). Merge = deploy. Then point a free cron at
-`https://onebysec.com/healthz` every 10 minutes — `/healthz` sets no cookie and
-logs no visit; `/` does both. Success metric: the `boot` count on
-`/stats.html` falls from ~213/week.
+**Still to do:** point a free cron at `https://onebysec.com/healthz` every 10
+minutes — `/healthz` sets no cookie and logs no visit; `/` does both. Success
+metric: the `boot` count on `/stats.html` falls from ~213/week. And the
+signed-in check below, which no anonymous request can make (both preference
+routes return 401 before touching the database).
 
 **What shipped, in commit order.** `/healthz` with a mount-order test; the
 manual no longer describes a "both" ranker or a "to write up" chip, bare
@@ -346,6 +347,12 @@ embed/validate/bench/commit per wave.
 - Solvers and reviewers died five at once on an Opus session limit; per-problem
   files meant nothing was lost. Commit batch dirs before launching reviewers.
 - `scripts/test_ingest_safety.py` must run from `scripts/` (sibling import).
+
+**The one unverified thing:** that migration 0010 actually took effect. Both
+`/api/preferences/show-labels` routes answer 401 to anonymous requests before
+they reach Postgres, so only a signed-in session can tell. Sign in, flip the
+labels switch, reload: if it stays flipped the column is there. If it reverts,
+re-run the migration.
 
 **Browser checks that need the owner** (no test covers them): the labels
 switch survives a hard refresh signed out and follows the account on a second
