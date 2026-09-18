@@ -104,7 +104,7 @@ function sheetsInit({ clientId, userId, onChange }) {
   sheetLayout = null;
   sheetValues = [];
   sheetTabId = null;
-  if (!sheetsClientId || !sheetsUserId) return;
+  if (!sheetsUserId) return;
   try {
     const parsed = JSON.parse(localStorage.getItem(SHEET_ID_KEY) || "null");
     // The userId guard keeps two accounts on one machine out of each other's
@@ -450,18 +450,21 @@ function restoreRows() {
 // and written into the sheet by the next sync — which is already debounced and
 // already runs on its own. The alternative, "press sync to save your note", is
 // the friction this whole feature exists to remove.
-function rememberPending() {
+function rememberPending(strict = false) {
   try {
-    localStorage.setItem(SHEET_PENDING_KEY, JSON.stringify({
+    localStorage.setItem(`${SHEET_PENDING_KEY}:${sheetsUserId}`, JSON.stringify({
       userId: sheetsUserId, notes: Object.fromEntries(pendingNotes),
     }));
-  } catch (_e) {}
+  } catch (error) { if (strict) throw error; }
 }
 
 function restorePending() {
   pendingNotes = new Map();
   try {
-    const parsed = JSON.parse(localStorage.getItem(SHEET_PENDING_KEY) || "null");
+    // Read the old single-account envelope for a non-destructive migration.
+    // New writes are per-account so a second login cannot erase unsynced notes.
+    const parsed = JSON.parse(localStorage.getItem(`${SHEET_PENDING_KEY}:${sheetsUserId}`)
+      || localStorage.getItem(SHEET_PENDING_KEY) || "null");
     if (parsed && parsed.userId === sheetsUserId && parsed.notes) {
       pendingNotes = new Map(Object.entries(parsed.notes));
     }
@@ -477,6 +480,7 @@ function sheetsNoteText(problemId) {
 }
 
 function sheetsSaveNote(problemId, text) {
+  const previous = new Map(pendingNotes);
   const value = String(text == null ? "" : text);
   const row = rowByProblem.get(problemId);
   if (row && (row[NOTE_FIELD] || "") === value) {
@@ -484,7 +488,8 @@ function sheetsSaveNote(problemId, text) {
   } else {
     pendingNotes.set(problemId, value);
   }
-  rememberPending();
+  try { rememberPending(true); }
+  catch (error) { pendingNotes = previous; throw error; }
   onStateChange();
   return { pending: pendingNotes.size };
 }

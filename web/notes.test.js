@@ -126,13 +126,14 @@ for (const empty of ["", null, undefined, "\n\n"]) {
 {
   const store = new Map();
   const sheetsSrc = fs.readFileSync(path.join(__dirname, "sheets.js"), "utf8");
+  let storageBlocked = false;
   const load = () => {
     const sctx = vm.createContext({
       window: {}, console, setTimeout, clearTimeout,
       document: { head: { appendChild() {} }, createElement: () => ({}) },
       localStorage: {
         getItem: (k) => (store.has(k) ? store.get(k) : null),
-        setItem: (k, v) => store.set(k, String(v)),
+        setItem: (k, v) => { if (storageBlocked) throw new Error("quota exceeded"); store.set(k, String(v)); },
         removeItem: (k) => store.delete(k),
       },
       fetch: async () => { throw new Error("no network in this test"); },
@@ -152,6 +153,14 @@ for (const empty of ["", null, undefined, "\n\n"]) {
   assert.equal(reloaded.noteText("leetcode-two-sum"), "hash map of complements", "survived the reload");
   assert.equal(reloaded.pendingCount(), 1, "still queued — nothing reached Google");
 
+  const localOnly = load();
+  localOnly.init({ clientId: "", userId: "u1" });
+  assert.equal(localOnly.noteText("leetcode-two-sum"), "hash map of complements", "restored without Google configuration");
+  storageBlocked = true;
+  assert.throws(() => localOnly.saveNote("leetcode-two-sum", "unsaved change"), /quota/);
+  assert.equal(localOnly.noteText("leetcode-two-sum"), "hash map of complements", "failed save preserves previous note");
+  storageBlocked = false;
+
   // Disconnecting the sheet must not discard writing that exists nowhere else.
   reloaded.clearLocal();
   assert.equal(reloaded.noteText("leetcode-two-sum"), "hash map of complements", "kept through a disconnect");
@@ -161,6 +170,15 @@ for (const empty of ["", null, undefined, "\n\n"]) {
   other.init({ clientId: "cid", userId: "u2", onChange: () => {} });
   assert.equal(other.noteText("leetcode-two-sum"), "", "notes are per user");
   assert.equal(other.pendingCount(), 0);
+  other.saveNote("cses-2072", "split and merge");
+  const back = load();
+  back.init({ clientId: "", userId: "u1" });
+  assert.equal(back.noteText("leetcode-two-sum"), "hash map of complements", "another account saving cannot erase unsynced notes");
+
+  store.set("algolens_sheet_pending_v1", JSON.stringify({userId: "legacy", notes: {p: "old note"}}));
+  const legacy = load();
+  legacy.init({clientId: "", userId: "legacy"});
+  assert.equal(legacy.noteText("p"), "old note", "old note envelope remains readable");
 }
 
 console.log("note tests passed");

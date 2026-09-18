@@ -122,6 +122,8 @@ async function main() {
     }
     next();
   });
+  // Ship math assets ourselves; notes never depend on a third-party CDN.
+  app.use("/vendor/katex", express.static(path.dirname(require.resolve("katex")), { maxAge: "1d" }));
   app.use(express.static(webDir));
   app.use("/api", createAuthRouter());
   app.use("/api", createUserStateRouter({ problems }));

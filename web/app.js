@@ -416,7 +416,7 @@ function maybeInitSheets() {
     onChange: syncSheetChip,
   });
   syncSheetChip();
-  if (currentUser && cosineSheets.connected()) resumeSheet();
+  if (currentUser && cosineSheets.connected() && !sheetSyncedThisSession && !sheetSyncing) resumeSheet();
 }
 
 function syncSheetChip() {
@@ -3709,6 +3709,9 @@ const CP_NOTE_TEMPLATE = `## Idea
 - Space: \`O(·)\`
 
 ## Pitfalls
+- off-by-one / overflow
+
+## Edge cases / counterexample
 - `;
 
 function noteDialog() {
@@ -3742,7 +3745,7 @@ function setNoteMode(mode) {
   document.querySelectorAll("[data-note-mode]").forEach((btn) => {
     const active = btn.dataset.noteMode === mode;
     btn.classList.toggle("is-active", active);
-    btn.setAttribute("aria-selected", String(active));
+    btn.setAttribute("aria-pressed", String(active));
   });
   if (!previewing) text.focus();
 }
@@ -3754,6 +3757,7 @@ function openNoteEditor(hit) {
   document.getElementById("note-problem").textContent = noteTarget.title;
   const text = document.getElementById("note-text");
   text.value = cosineSheets.noteText(noteTarget.problemId);
+  noteTarget.original = text.value;
   setNoteMode("write");
   updateNotePreview();
   const link = document.getElementById("note-sheet-link");
@@ -3787,7 +3791,9 @@ function paintNoteState(saved) {
       : "markdown: **bold**, `code`, ``` blocks, - bullets";
 }
 
-function closeNoteEditor() {
+function closeNoteEditor(force = false) {
+  if (!force && noteTarget && document.getElementById("note-text").value !== noteTarget.original
+      && !window.confirm("Discard the changes to this note?")) return;
   const dlg = noteDialog();
   noteTarget = null;
   if (!dlg) return;
@@ -3798,13 +3804,18 @@ function closeNoteEditor() {
 function saveNoteEditor() {
   if (!noteTarget) return;
   const text = document.getElementById("note-text").value;
-  cosineSheets.saveNote(noteTarget.problemId, text);
+  try {
+    cosineSheets.saveNote(noteTarget.problemId, text);
+  } catch (_e) {
+    document.getElementById("note-state").textContent = "Could not save in this browser. Keep this editor open and copy your note before leaving; browser storage may be full or blocked.";
+    return;
+  }
   track("note_saved", { problemId: noteTarget.problemId, chars: text.length });
   markSheetDirty();
   paintNoteState(true);
   // Repaint whatever is on screen so the note shows without a round trip.
   const id = noteTarget.problemId;
-  closeNoteEditor();
+  closeNoteEditor(true);
   refreshNoteOnCard(id);
   // Say what actually happens next. "syncing to your sheet" is a lie on a
   // browser where the silent token never lands, and the fix for that case is
@@ -3844,8 +3855,9 @@ function applyNoteTool(btn) {
     const fence = btn.dataset.block;
     const before = a && value[a - 1] !== "\n" ? "\n" : "";
     const body = picked || "";
-    out = `${value.slice(0, a)}${before}${fence}\n${body}\n${fence}\n${value.slice(b)}`;
-    caret = a + before.length + fence.length + 1 + body.length;
+    const language = btn.dataset.language || "";
+    out = `${value.slice(0, a)}${before}${fence}${language}\n${body}\n${fence}\n${value.slice(b)}`;
+    caret = a + before.length + fence.length + language.length + 1 + body.length;
   } else {
     const p = btn.dataset.prefix || "";
     // Prefix every selected line, so bulleting three lines is one press.
@@ -3855,21 +3867,43 @@ function applyNoteTool(btn) {
     out = value.slice(0, start) + prefixed + value.slice(b);
     caret = start + prefixed.length;
   }
-  ta.value = out;
+  replaceNoteText(ta, out);
   ta.focus();
   ta.setSelectionRange(caret, caretEnd == null ? caret : caretEnd);
-  updateNotePreview();
   if (btn.dataset.insert != null) {
     const palette = btn.closest && btn.closest("details");
     if (palette) palette.open = false;
   }
 }
 
+function replaceNoteText(ta, value) {
+  ta.focus();
+  ta.select();
+  // insertText preserves the browser's undo stack; setRangeText is the
+  // fallback in engines without this editing command.
+  if (!document.execCommand || !document.execCommand("insertText", false, value)) {
+    ta.setRangeText(value, 0, ta.value.length, "end");
+  }
+}
+
+function indentNote(unindent) {
+  const ta = document.getElementById("note-text");
+  const { selectionStart: a, selectionEnd: b, value } = ta;
+  const start = value.lastIndexOf("\n", a - 1) + 1;
+  const end = b > a && value[b - 1] === "\n" ? b - 1 : b;
+  const chunk = value.slice(start, end);
+  const changed = chunk.split("\n").map(line => unindent ? line.replace(/^( {1,2}|\t)/, "") : "  " + line).join("\n");
+  replaceNoteText(ta, value.slice(0, start) + changed + value.slice(end));
+  ta.setSelectionRange(start, start + changed.length);
+  ta.focus();
+}
+
 (function wireNoteEditor() {
   const dlg = noteDialog();
   if (!dlg) return;
   document.getElementById("note-save").addEventListener("click", saveNoteEditor);
-  document.getElementById("note-cancel").addEventListener("click", closeNoteEditor);
+  document.getElementById("note-cancel").addEventListener("click", () => closeNoteEditor());
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); closeNoteEditor(); });
   document.getElementById("note-tools").addEventListener("click", (e) => {
     const btn = e.target.closest(".note-tool");
     if (btn) applyNoteTool(btn);
@@ -3878,25 +3912,28 @@ function applyNoteTool(btn) {
     btn.addEventListener("click", () => setNoteMode(btn.dataset.noteMode));
   });
   const ta = document.getElementById("note-text");
-  ta.addEventListener("input", updateNotePreview);
   ta.addEventListener("keydown", (e) => {
-    // Tab indents instead of leaving the box: this is where code goes.
-    if (e.key === "Tab") {
+    const mod = e.metaKey || e.ctrlKey;
+    // Keep Tab available for keyboard navigation; never erase selected code.
+    if (mod && (e.key === "]" || e.key === "[")) {
       e.preventDefault();
-      const { selectionStart: a, selectionEnd: b } = ta;
-      ta.value = ta.value.slice(0, a) + "  " + ta.value.slice(b);
-      ta.setSelectionRange(a + 2, a + 2);
-      updateNotePreview();
+      indentNote(e.key === "[");
       return;
     }
-    const mod = e.metaKey || e.ctrlKey;
     if (mod && e.key === "Enter") { e.preventDefault(); saveNoteEditor(); return; }
     if (mod && e.key.toLowerCase() === "b") { e.preventDefault(); applyNoteTool({ dataset: { wrap: "**" } }); return; }
-    if (mod && e.shiftKey && e.key.toLowerCase() === "c") { e.preventDefault(); applyNoteTool({ dataset: { block: "```" } }); return; }
+    if (mod && e.key.toLowerCase() === "i") { e.preventDefault(); applyNoteTool({ dataset: { wrap: "*" } }); return; }
+    if (mod && e.shiftKey && e.key.toLowerCase() === "c") { e.preventDefault(); applyNoteTool({ dataset: { block: "```", language: "cpp" } }); return; }
     if (mod && e.key.toLowerCase() === "e") { e.preventDefault(); applyNoteTool({ dataset: { wrap: "`" } }); }
   });
   // Esc fires `cancel` on a <dialog>; keep our state in step with the browser's.
   dlg.addEventListener("close", () => { noteTarget = null; });
+  window.addEventListener("beforeunload", (e) => {
+    if (noteTarget && ta.value !== noteTarget.original) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+  });
 })();
 
 function buildNoteView(problemId) {
@@ -3954,6 +3991,15 @@ function renderNoteMarkdown(text) {
   const endList = () => { list = null; listKind = null; };
   while (i < lines.length) {
     const line = lines[i];
+    if (line.trim() === "$$") {
+      endList();
+      const body = [];
+      i++;
+      while (i < lines.length && lines[i].trim() !== "$$") body.push(lines[i++]);
+      i++;
+      wrap.appendChild(renderNoteMath(body.join("\n"), true));
+      continue;
+    }
     if (line.trim().startsWith("```")) {
       endList();
       const lang = line.trim().slice(3).trim();
@@ -4007,18 +4053,61 @@ function renderNoteMarkdown(text) {
 // `code`, **bold** and *italic*, one pass, longest marker first so ** never
 // matches as two single asterisks.
 function inlineNoteMarkdown(text, into) {
-  const re = /`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
+  const re = /`([^`]+)`|\$\$([^$\n]+)\$\$|\$([^$\n]+)\$|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
   let last = 0;
   let m;
   while ((m = re.exec(text))) {
     if (m.index > last) into.appendChild(document.createTextNode(text.slice(last, m.index)));
-    const el = document.createElement(m[1] ? "code" : m[2] ? "strong" : "em");
-    el.textContent = m[1] || m[2] || m[3];
+    const el = m[2] || m[3]
+      ? renderNoteMath(m[2] || m[3], Boolean(m[2]))
+      : document.createElement(m[1] ? "code" : m[4] ? "strong" : "em");
+    if (!m[2] && !m[3]) el.textContent = m[1] || m[4] || m[5];
     into.appendChild(el);
     last = m.index + m[0].length;
   }
   if (last < text.length) into.appendChild(document.createTextNode(text.slice(last)));
   return into;
+}
+
+// Lazy and same-origin: ordinary searches and plain-text notes pay no math
+// download cost. Until it loads (or if offline), the original formula is text.
+function loadNoteMath() {
+  if (typeof katex !== "undefined") return Promise.resolve(katex);
+  if (loadNoteMath.pending) return loadNoteMath.pending;
+  loadNoteMath.pending = new Promise((resolve, reject) => {
+    if (!document.getElementById("note-math-css")) {
+      const css = document.createElement("link");
+      css.id = "note-math-css";
+      css.rel = "stylesheet";
+      css.href = "/vendor/katex/katex.min.css";
+      document.head.appendChild(css);
+    }
+    const script = document.createElement("script");
+    script.src = "/vendor/katex/katex.min.js";
+    script.onload = () => resolve(katex);
+    script.onerror = () => { script.remove(); loadNoteMath.pending = null; reject(new Error("Math unavailable")); };
+    document.head.appendChild(script);
+  });
+  return loadNoteMath.pending;
+}
+
+function renderNoteMath(source, displayMode) {
+  const el = document.createElement("span");
+  el.className = "note-math" + (displayMode ? " note-math-display" : "");
+  el.textContent = displayMode ? `$$\n${source}\n$$` : `$${source}$`;
+  loadNoteMath().then(math => {
+    try {
+      math.render(source, el, {
+        displayMode, throwOnError: true, trust: false, strict: "ignore",
+        maxExpand: 200, maxSize: 10, macros: {}, output: "htmlAndMathml",
+      });
+    } catch (_e) {
+      el.textContent = displayMode ? `$$\n${source}\n$$` : `$${source}$`;
+      el.classList.add("note-math-error");
+      el.title = "Check this LaTeX formula — shown as text so nothing is lost.";
+    }
+  }).catch(() => { el.title = "Math rendering unavailable — formula shown as text."; });
+  return el;
 }
 
 function formatRelative(iso) {

@@ -417,9 +417,9 @@
             >open in sheet ↗</a
           >
         </div>
-        <div class="note-mode-tabs" role="tablist" aria-label="note editor mode">
-          <button type="button" class="note-mode is-active" data-note-mode="write" role="tab" aria-selected="true">write</button>
-          <button type="button" class="note-mode" data-note-mode="preview" role="tab" aria-selected="false">preview</button>
+        <div class="note-mode-tabs" role="group" aria-label="note editor mode">
+          <button type="button" class="note-mode is-active" data-note-mode="write" aria-pressed="true" aria-controls="note-text">write</button>
+          <button type="button" class="note-mode" data-note-mode="preview" aria-pressed="false" aria-controls="note-preview">preview</button>
         </div>
         <div class="note-tools" id="note-tools">
           <button
@@ -441,7 +441,7 @@
           <button
             type="button"
             class="note-tool"
-            data-block="```"
+            data-block="```" data-language="cpp"
             title="code block (ctrl+shift+c)"
           >
             code block
@@ -454,6 +454,10 @@
           >
             list
           </button>
+          <button type="button" class="note-tool" data-prefix="1. " title="numbered steps">1. steps</button>
+          <button type="button" class="note-tool" data-wrap="*" title="italic"><i>I</i></button>
+          <button type="button" class="note-tool" data-wrap="$" title="inline LaTeX math">math</button>
+          <button type="button" class="note-tool" data-block="$$" title="display equation">equation</button>
           <button
             type="button"
             class="note-tool"
@@ -490,16 +494,33 @@
               <button type="button" class="note-tool" data-insert="⌈x⌉" title="ceiling">⌈x⌉</button>
             </div>
           </details>
+          <details class="note-symbols">
+            <summary>formulas</summary>
+            <div class="note-symbol-palette" aria-label="LaTeX formula snippets">
+              <button type="button" class="note-tool" data-insert="$\sum_{i=1}^{n} a_i$">sum</button>
+              <button type="button" class="note-tool" data-insert="$\prod_{i=1}^{n} a_i$">product</button>
+              <button type="button" class="note-tool" data-insert="$\frac{a}{b}$">fraction</button>
+              <button type="button" class="note-tool" data-insert="$\log_2 n$">log₂ n</button>
+              <button type="button" class="note-tool" data-insert="$\sqrt{n}$">√n</button>
+              <button type="button" class="note-tool" data-insert="$a_i^{2}$">sub/superscript</button>
+              <button type="button" class="note-tool" data-insert="$\binom{n}{k}$">n choose k</button>
+              <button type="button" class="note-tool" data-insert="$a \equiv b \pmod{m}$">modulo</button>
+              <button type="button" class="note-tool" data-insert="$dp[i] = \min(dp[i-1], dp[i-2]) + a_i$">DP recurrence</button>
+              <button type="button" class="note-tool" data-insert="$O(n \log n)$">complexity</button>
+            </div>
+          </details>
         </div>
         <textarea
           id="note-text"
           class="note-text"
+          aria-label="Problem notes" aria-describedby="note-help"
           spellcheck="false"
           placeholder="what was the idea? &#10;&#10;- key insight&#10;- complexity&#10;&#10;```cpp&#10;// the bit worth remembering&#10;```"
         ></textarea>
-        <div id="note-preview" class="note-preview" role="tabpanel" hidden></div>
+        <div id="note-preview" class="note-preview" role="region" aria-label="Formatted note preview" hidden></div>
+        <p class="note-help" id="note-help">Markdown + LaTeX: $inline math$ or $$ on separate lines for equations. Code stays literal. Ctrl/⌘+Enter saves; Ctrl/⌘+] indents, Ctrl/⌘+[ unindents. Notes stay readable as text in your sheet.</p>
         <div class="note-foot">
-          <span class="note-state" id="note-state"></span>
+          <span class="note-state" id="note-state" role="status"></span>
           <span class="note-actions">
             <button type="button" class="note-cancel" id="note-cancel">
               cancel
