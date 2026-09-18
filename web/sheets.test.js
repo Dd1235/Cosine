@@ -21,7 +21,7 @@ const ctx = vm.createContext({
 });
 vm.runInContext(
   src + "\n;this.t = { readLayout, appRuns, colLetter, appendRow, planLayout, sheetsUserColumns," +
-  " APP_HEADER, SHEET_USER_FIELDS, CANONICAL, LEGACY_HEADER, RETIRED_APP_COLUMNS," +
+  " planRowOrder, APP_HEADER, SHEET_USER_FIELDS, CANONICAL, LEGACY_HEADER, RETIRED_APP_COLUMNS," +
   " setLayout: (l) => { sheetLayout = l; } };",
   ctx
 );
@@ -57,6 +57,16 @@ function apply(grid, plan) {
   return out;
 }
 const pad = (row, n) => row.concat(Array(Math.max(0, n - row.length)).fill(""));
+
+function applyRowPlan(grid, plan) {
+  const out = grid.map((row) => row.slice());
+  for (const req of plan.requests) {
+    const from = req.moveDimension.source.startIndex;
+    const to = req.moveDimension.destinationIndex;
+    out.splice(to, 0, out.splice(from, 1)[0]);
+  }
+  return out;
+}
 
 // ── column letters ───────────────────────────────────────────────────────────
 // The sheet is the user's, so it can be wider than Z.
@@ -233,6 +243,33 @@ for (const gone of ["bookmarked", "done", "done_at", "solve_status", "concept", 
   assert.equal(none.app.has("recall"), false, "a derived layout never claims a new column");
   assert.equal(none.user.get("notes"), 13);
   assert.equal(none.user.has("done"), false, "even derived, ours is never shown as yours");
+}
+
+// ── row order ──────────────────────────────────────────────────────────────────
+// Sync mirrors the library's most-recent-first order. A whole-row move is the
+// safety property: the user's note/formula must travel with its problem.
+{
+  const grid = [
+    CANONICAL,
+    ["p2", "older", "", "", "", "", "=2+2"],
+    ["", "my manual row", "", "", "", "", "do not rewrite"],
+    ["p1", "newest", "", "", "", "", "∑ dp[i]"],
+    ["old", "not in library", "", "", "", "", "keep me"],
+  ];
+  const plan = plain(t.planRowOrder(grid, ["p1", "p2"], 0));
+  assert.equal(plan.changed, true);
+  assert.ok(plan.requests.every((r) => r.moveDimension.source.dimension === "ROWS"));
+  const after = applyRowPlan(grid, plan);
+  assert.deepEqual(after.slice(1).map((r) => r[0]), ["p1", "p2", "", "old"]);
+  assert.equal(after[1][6], "∑ dp[i]", "the note moved with p1");
+  assert.equal(after[2][6], "=2+2", "the formula moved with p2");
+  assert.equal(after[3][1], "my manual row", "manual content survived");
+}
+
+{
+  const grid = [CANONICAL, ["p1"], ["p2"], ["old"]];
+  assert.equal(plain(t.planRowOrder(grid, ["p1", "p2"], 0)).changed, false,
+    "an already ordered sheet needs no write");
 }
 
 console.log("sheet layout tests passed");

@@ -466,7 +466,7 @@ async function doSheetSync({ quiet = false } = {}) {
       // A tidy-up that failed is worth saying even though the sync worked —
       // otherwise the columns silently stay wrong and nobody knows why.
       setStatus(out.layoutError
-        ? `sheet: ${out.total} rows synced · columns not tidied (${out.layoutError})`
+        ? `sheet: ${out.total} rows synced · layout not tidied (${out.layoutError})`
         : `sheet: ${out.total} rows · ${out.added} added · ${out.updated} updated`);
     }
     // Notes may have arrived from the sheet; a library view should show them.

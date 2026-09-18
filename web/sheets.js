@@ -700,6 +700,61 @@ async function normalizeLayout(values) {
   return true;
 }
 
+// Keep app-managed rows in the same order as the library payload: most recent
+// activity first. Appending alone cannot do that — a newly saved problem always
+// lands at the bottom, so after a few weeks the spreadsheet becomes a sync
+// history rather than a usable list.
+//
+// MoveDimension carries the ENTIRE row, including user formulas, formatting,
+// validation and notes. Rows that are no longer in the library, and rows the
+// user added without a problem_id, keep their relative order after the active
+// library rows. Nothing is rewritten or deleted.
+function planRowOrder(values, orderedIds, idCol) {
+  if (idCol == null || !(values || []).length) return { changed: false, requests: [] };
+  const current = (values || []).slice(1).map((row) => String((row || [])[idCol] || ""));
+  const present = new Set(current.filter(Boolean));
+  const wanted = [];
+  const seen = new Set();
+  for (const raw of orderedIds || []) {
+    const id = String(raw || "");
+    if (!id || seen.has(id) || !present.has(id)) continue;
+    seen.add(id);
+    wanted.push(id);
+  }
+  const requests = [];
+  wanted.forEach((id, i) => {
+    const from = current.indexOf(id, i);
+    if (from < 0 || from === i) return;
+    requests.push({ moveDimension: {
+      source: { dimension: "ROWS", startIndex: from + 1, endIndex: from + 2 },
+      destinationIndex: i + 1,
+    } });
+    current.splice(i, 0, current.splice(from, 1)[0]);
+  });
+  return { changed: requests.length > 0, requests };
+}
+
+async function normalizeRowOrder(values, items) {
+  if (sheetLayout.derived) return false;
+  const plan = planRowOrder(
+    values,
+    (items || []).map((item) => item && item.problem && item.problem.id),
+    sheetLayout.app.get("problem_id")
+  );
+  if (!plan.changed) return false;
+  const id = await tabId();
+  const requests = plan.requests.map((request) => {
+    const copy = JSON.parse(JSON.stringify(request));
+    copy.moveDimension.source.sheetId = id;
+    return copy;
+  });
+  await gapi(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}:batchUpdate`, {
+    method: "POST",
+    body: JSON.stringify({ requests }),
+  }, "order rows");
+  return true;
+}
+
 // The tab's numeric id, which dimension requests address it by (the name is
 // only good for A1 ranges).
 let sheetTabId = null;
@@ -855,11 +910,10 @@ async function runSync(items) {
     }
   }
 
-  // Rows absent from the library are left COMPLETELY alone. An earlier cut
-  // blanked their status cells, but the app can't tell its own old rows from
-  // rows the user appended by hand — and "the app never touches your rows"
-  // is worth more than a fresher mirror. An un-saved problem's row simply
-  // keeps its last-synced status.
+  // Rows absent from the library keep every cell. An earlier cut blanked their
+  // status cells, but the app can't tell its own old rows from rows the user
+  // appended by hand. Row ordering below may shift them down as a whole, but
+  // preserves their contents and their order relative to one another.
 
   if (updates.length) {
     await gapi(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values:batchUpdate`, {
@@ -880,6 +934,12 @@ async function runSync(items) {
     );
   }
   await readSheet(); // pick up appended row indexes + any hand edits
+  try {
+    if (await normalizeRowOrder(sheetValues, items)) await readSheet();
+  } catch (err) {
+    lastLayoutError = lastLayoutError || (err && err.message ? err.message : String(err));
+    console.warn("sheet: could not order the rows, syncing anyway —", lastLayoutError);
+  }
   // Notes go LAST, after the read that gave every row an index — including the
   // rows appended a moment ago, which is how a note survives being written
   // before its problem was ever synced.

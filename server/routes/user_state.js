@@ -231,7 +231,8 @@ function createUserStateRouter({ problems, collectionRegistry } = {}) {
         `SELECT problem_id, done, bookmarked, done_at, bookmarked_at, updated_at, recall
            FROM user_problem_state
           WHERE ${where}
-       ORDER BY COALESCE(${orderBy}, updated_at) ${oldestFirst ? "ASC" : "DESC"} NULLS LAST`,
+       ORDER BY COALESCE(${orderBy}, updated_at) ${oldestFirst ? "ASC" : "DESC"} NULLS LAST,
+                problem_id ASC`,
         [req.user.id]
       );
       const items = [];
