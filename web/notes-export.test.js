@@ -133,6 +133,22 @@ const settle = async () => {for (let i = 0; i < 5; i++) await new Promise(setImm
   await api.start("markdown");
   assert.equal(downloaded, 1);
   assert.match(doc.getElementById("notes-export-status").textContent, /3 problems exported · 0 empty/);
+  w.open = () => { throw new Error("Direct PDF must not open a popup"); };
+  w.HTMLAnchorElement.prototype.click = function () {assert.match(this.download, /\.pdf$/);};
+  w.cosineNotesPdf = {create: async html => {
+    assert.match(html, /<math/);
+    return {bytes: new Uint8Array([37, 80, 68, 70]), formulasAsText: 0};
+  }};
+  await api.start("pdf");
+  assert.equal(downloaded, 2, "direct PDF downloads without print or popup");
+  let resolvePdf;
+  w.cosineNotesPdf.create = () => new Promise(resolve => {resolvePdf = resolve;});
+  const pendingPdf = api.start("pdf");
+  await settle();
+  api.invalidate();
+  resolvePdf({bytes: new Uint8Array(), formulasAsText: 0});
+  await pendingPdf;
+  assert.equal(downloaded, 2, "changing view cancels pending PDF download");
   api.setSource({...selected, userId: null});
   assert.equal(doc.getElementById("notes-export").hidden, true);
   await settle(); dom.window.close();

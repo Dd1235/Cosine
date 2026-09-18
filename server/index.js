@@ -124,6 +124,10 @@ async function main() {
   });
   // Ship math assets ourselves; notes never depend on a third-party CDN.
   app.use("/vendor/katex", express.static(path.dirname(require.resolve("katex")), { maxAge: "1d" }));
+  app.use("/vendor/pdfmake", express.static(path.dirname(require.resolve("pdfmake/build/pdfmake.min.js")), { maxAge: "1d" }));
+  app.get("/vendor/notes-math.js", (_req, res) => res.sendFile(require.resolve("mathjax-full/es5/mml-svg.js"), { maxAge: "1d" }));
+  app.get("/vendor/notes-mono.woff", (_req, res) => res.sendFile(require.resolve("@fontsource/roboto-mono/files/roboto-mono-latin-400-normal.woff"), { maxAge: "1d" }));
+  app.get("/vendor/notes-symbols.woff", (_req, res) => res.sendFile(require.resolve("@fontsource/noto-sans-math/files/noto-sans-math-latin-400-normal.woff"), { maxAge: "1d" }));
   app.use(express.static(webDir));
   app.use("/api", createAuthRouter());
   app.use("/api", createUserStateRouter({ problems }));

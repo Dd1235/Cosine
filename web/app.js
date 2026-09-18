@@ -2597,8 +2597,9 @@ CORPUS
 
   "export notes" above results saves this filtered view in
   its current order. HTML includes formatted notes and math;
-  "PDF / print" opens a preview with Save as PDF in the print
-  dialog. Markdown keeps the editable source and LaTeX.
+  "Download PDF" saves a PDF directly. "print preview" opens
+  Save as PDF in the print dialog. Markdown keeps the editable
+  source and LaTeX.
 
   All matching results are included, beyond the visible page.
   Sorted searches keep their chosen top-results window.

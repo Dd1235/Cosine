@@ -368,7 +368,8 @@
       <details id="notes-export" class="notes-export" hidden>
         <summary>export notes</summary>
         <div class="export-actions">
-          <button type="button" class="lib-chip" data-notes-export="print">PDF / print</button>
+          <button type="button" class="lib-chip" data-notes-export="pdf">Download PDF</button>
+          <button type="button" class="lib-chip" data-notes-export="print">print preview</button>
           <button type="button" class="lib-chip" data-notes-export="html">HTML</button>
           <button type="button" class="lib-chip" data-notes-export="markdown">Markdown</button>
           <label><input type="checkbox" id="export-empty"> include empty problems</label>
@@ -558,6 +559,7 @@
     </footer>
     <script src="/difficulty.js"></script>
     <script src="/sheets.js"></script>
+    <script src="/notes-pdf.js"></script>
     <script src="/notes-export.js"></script>
     <script src="/app.js"></script>
   </body>

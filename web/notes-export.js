@@ -172,7 +172,7 @@
     busy = true;
     controller = new AbortController();
     const abort = controller;
-    const timeout = setTimeout(() => abort.abort(), 30000);
+    const timeout = setTimeout(() => abort.abort(), format === "pdf" ? 120000 : 30000);
     const buttons = [...panel.querySelectorAll("button")]; buttons.forEach(b => { b.disabled = true; });
     try {
       if (format === "print") {
@@ -201,7 +201,20 @@
         }
         if (selected !== source || abort.signal.aborted) throw new Error("Export cancelled. Retry from the current view.");
         const result = html(plan, globalThis.renderNoteMarkdown, math);
-        if (format === "print") {
+        if (format === "pdf") {
+          status.textContent = "Building PDF… First use loads the PDF fonts and math renderer.";
+          let cancelPdf;
+          let pdf;
+          try {
+            pdf = await Promise.race([globalThis.cosineNotesPdf.create(result.text), new Promise((_, reject) => {
+              cancelPdf = () => reject(new Error("Export cancelled or timed out. Retry from the current view."));
+              abort.signal.addEventListener("abort", cancelPdf, {once: true});
+            })]);
+          } finally { abort.signal.removeEventListener("abort", cancelPdf); }
+          if (selected !== source || abort.signal.aborted) throw new Error("Export cancelled. Retry from the current view.");
+          download(pdf.bytes, "pdf", "application/pdf");
+          result.formulasAsText += pdf.formulasAsText;
+        } else if (format === "print") {
           if (!preview || preview.closed) throw new Error("The preview was closed. Retry the export.");
           preview.document.open(); preview.document.write(result.text); preview.document.close();
           preview = null; // completed previews belong to the user
