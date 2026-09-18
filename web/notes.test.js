@@ -75,6 +75,19 @@ function find(node, tag, out = []) {
   assert.equal(out.textContent, "use a monotonic stack, see push_back", "markers are consumed");
 }
 
+// Unicode math is deliberately stored as plain text, so it survives a Sheet
+// cell exactly and needs no external renderer or network request.
+{
+  const out = render("sum = ∑ aᵢ, p ≤ π, time `O(n log₂ n)`");
+  assert.equal(out.textContent, "sum = ∑ aᵢ, p ≤ π, time O(n log₂ n)");
+  assert.deepEqual(find(out, "CODE").map((n) => n.textContent), ["O(n log₂ n)"]);
+}
+
+{
+  const out = render("a *strictly smaller* state");
+  assert.deepEqual(find(out, "EM").map((n) => n.textContent), ["strictly smaller"]);
+}
+
 // ** must win over *, or bold renders as two stray asterisks.
 {
   const out = render("**both** ends");
@@ -83,9 +96,10 @@ function find(node, tag, out = []) {
 
 // ── lists and headings ──────────────────────────────────────────────────────
 {
-  const out = render("## idea\n- sort first\n- two pointers\n\nthen sweep");
+  const out = render("## idea\n- sort first\n- two pointers\n\n1. compress\n2. transition\n\nthen sweep");
   assert.equal(find(out, "UL").length, 1, "consecutive bullets are one list");
-  assert.deepEqual(find(out, "LI").map((n) => n.textContent), ["sort first", "two pointers"]);
+  assert.equal(find(out, "OL").length, 1, "numbered steps are one ordered list");
+  assert.deepEqual(find(out, "LI").map((n) => n.textContent), ["sort first", "two pointers", "compress", "transition"]);
   assert.equal(find(out, "STRONG")[0].textContent, "idea");
   assert.ok(out.textContent.includes("then sweep"));
 }

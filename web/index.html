@@ -417,6 +417,10 @@
             >open in sheet ↗</a
           >
         </div>
+        <div class="note-mode-tabs" role="tablist" aria-label="note editor mode">
+          <button type="button" class="note-mode is-active" data-note-mode="write" role="tab" aria-selected="true">write</button>
+          <button type="button" class="note-mode" data-note-mode="preview" role="tab" aria-selected="false">preview</button>
+        </div>
         <div class="note-tools" id="note-tools">
           <button
             type="button"
@@ -458,6 +462,34 @@
           >
             h
           </button>
+          <button
+            type="button"
+            class="note-tool"
+            data-template="cp"
+            title="insert a competitive-programming note template"
+          >
+            cp template
+          </button>
+          <details class="note-symbols">
+            <summary>symbols</summary>
+            <div class="note-symbol-palette" aria-label="math and algorithm symbols">
+              <button type="button" class="note-tool" data-insert="∑" title="summation">∑</button>
+              <button type="button" class="note-tool" data-insert="π" title="pi">π</button>
+              <button type="button" class="note-tool" data-insert="√" title="square root">√</button>
+              <button type="button" class="note-tool" data-insert="log₂" title="log base 2">log₂</button>
+              <button type="button" class="note-tool" data-insert="≤" title="less than or equal">≤</button>
+              <button type="button" class="note-tool" data-insert="≥" title="greater than or equal">≥</button>
+              <button type="button" class="note-tool" data-insert="≠" title="not equal">≠</button>
+              <button type="button" class="note-tool" data-insert="∞" title="infinity">∞</button>
+              <button type="button" class="note-tool" data-insert="→" title="implies or transitions to">→</button>
+              <button type="button" class="note-tool" data-insert="∈" title="is an element of">∈</button>
+              <button type="button" class="note-tool" data-insert="⊕" title="xor">⊕</button>
+              <button type="button" class="note-tool" data-insert="O(·)" title="big O">O(·)</button>
+              <button type="button" class="note-tool" data-insert="Θ(·)" title="big theta">Θ(·)</button>
+              <button type="button" class="note-tool" data-insert="⌊x⌋" title="floor">⌊x⌋</button>
+              <button type="button" class="note-tool" data-insert="⌈x⌉" title="ceiling">⌈x⌉</button>
+            </div>
+          </details>
         </div>
         <textarea
           id="note-text"
@@ -465,6 +497,7 @@
           spellcheck="false"
           placeholder="what was the idea? &#10;&#10;- key insight&#10;- complexity&#10;&#10;```cpp&#10;// the bit worth remembering&#10;```"
         ></textarea>
+        <div id="note-preview" class="note-preview" role="tabpanel" hidden></div>
         <div class="note-foot">
           <span class="note-state" id="note-state"></span>
           <span class="note-actions">
@@ -477,7 +510,7 @@
       </form>
     </dialog>
     <footer>
-      cosine · built by <a href="https://github.com/Dd1235" rel="author">Dedeepya Avancha</a> · <a href="/stats.html">stats</a> ·
+      cosine · <a href="/stats.html">stats</a> ·
       <a href="/debug.html">debug</a>
     </footer>
     <script src="/difficulty.js"></script>

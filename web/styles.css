@@ -1531,7 +1531,7 @@ html[data-theme="light"] footer::after { content: ""; }
    A real <dialog>: the browser handles the backdrop, Esc and focus trapping,
    and every hand-rolled modal I have written got at least one of those wrong. */
 .note-dialog {
-  width: min(46rem, 92vw);
+  width: min(52rem, 92vw);
   padding: 0;
   border: 1px solid var(--border-strong);
   border-radius: var(--r-card);
@@ -1553,6 +1553,24 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .note-open, .note-edit-link { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
 .note-open:hover { text-decoration: underline; }
 
+.note-mode-tabs {
+  display: flex;
+  gap: 0.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.note-mode {
+  margin: 0 0 -1px;
+  padding: 0.25rem 0.6rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+}
+.note-mode:hover { color: var(--text); }
+.note-mode.is-active { color: var(--accent); border-bottom-color: var(--accent); }
+
 .note-tools { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .note-tool {
   margin: 0;
@@ -1563,6 +1581,35 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   background: transparent;
 }
 .note-tool:hover { border-color: var(--accent); color: var(--accent); }
+
+.note-symbols { position: relative; }
+.note-symbols > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.72rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  color: var(--text-muted);
+}
+.note-symbols > summary::-webkit-details-marker { display: none; }
+.note-symbols[open] > summary { border-color: var(--accent); color: var(--accent); }
+.note-symbol-palette {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  width: min(22rem, 80vw);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.note-symbol-palette .note-tool { min-width: 2rem; color: var(--text); }
 
 .note-text {
   width: 100%;
@@ -1583,6 +1630,21 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .note-text:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 .note-text::placeholder { color: var(--text-dim); opacity: 1; }
 
+.note-preview {
+  min-height: 15rem;
+  max-height: 55vh;
+  overflow: auto;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-control);
+  background: var(--surface-code);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.note-preview.is-empty { color: var(--text-dim); }
+
 .note-foot {
   display: flex;
   align-items: center;
@@ -1602,8 +1664,10 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
    out — see renderNoteMarkdown for why it is never innerHTML. */
 .note-value .note-para { display: block; }
 .note-value .note-heading { display: block; margin-top: 0.3rem; color: var(--text); }
-.note-value .note-list { margin: 0.15rem 0 0.15rem 1rem; padding: 0; }
-.note-value code {
+.note-value .note-list, .note-preview .note-list { margin: 0.15rem 0 0.15rem 1.2rem; padding: 0; }
+.note-preview .note-para { display: block; }
+.note-preview .note-heading { display: block; margin-top: 0.45rem; color: var(--text); }
+.note-value code, .note-preview code {
   font-family: var(--mono);
   font-size: 0.92em;
   padding: 0.02rem 0.24rem;

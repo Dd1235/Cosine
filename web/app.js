@@ -2691,7 +2691,7 @@ MORE
   handles + combined heatmap: /profile.html
   live usage + latency:       /stats.html
   scoring math:               /debug.html
-  a stack that overflows:     /404.html`,
+  404 page game:              /404.html`,
   },
 ];
 
@@ -3694,8 +3694,52 @@ function reissueSearch() {
 // nothing that arrives in the cell as a tag soup.
 let noteTarget = null;   // { problemId, title }
 
+const CP_NOTE_TEMPLATE = `## Idea
+- key insight
+
+## Why it works
+
+## Complexity
+- Time: \`O(·)\`
+- Space: \`O(·)\`
+
+## Pitfalls
+- `;
+
 function noteDialog() {
   return document.getElementById("note-dialog");
+}
+
+function updateNotePreview() {
+  const preview = document.getElementById("note-preview");
+  const text = document.getElementById("note-text");
+  if (!preview || !text) return;
+  const value = text.value.trim();
+  preview.innerHTML = "";
+  preview.classList.toggle("is-empty", !value);
+  if (!value) {
+    preview.textContent = "Your formatted note will appear here.";
+    return;
+  }
+  preview.appendChild(renderNoteMarkdown(text.value));
+}
+
+function setNoteMode(mode) {
+  const previewing = mode === "preview";
+  const text = document.getElementById("note-text");
+  const preview = document.getElementById("note-preview");
+  const tools = document.getElementById("note-tools");
+  if (!text || !preview || !tools) return;
+  if (previewing) updateNotePreview();
+  text.hidden = previewing;
+  tools.hidden = previewing;
+  preview.hidden = !previewing;
+  document.querySelectorAll("[data-note-mode]").forEach((btn) => {
+    const active = btn.dataset.noteMode === mode;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-selected", String(active));
+  });
+  if (!previewing) text.focus();
 }
 
 function openNoteEditor(hit) {
@@ -3705,6 +3749,8 @@ function openNoteEditor(hit) {
   document.getElementById("note-problem").textContent = noteTarget.title;
   const text = document.getElementById("note-text");
   text.value = cosineSheets.noteText(noteTarget.problemId);
+  setNoteMode("write");
+  updateNotePreview();
   const link = document.getElementById("note-sheet-link");
   const url = cosineSheets.url();
   link.hidden = !url;
@@ -3772,8 +3818,20 @@ function applyNoteTool(btn) {
   const ta = document.getElementById("note-text");
   const { selectionStart: a, selectionEnd: b, value } = ta;
   const picked = value.slice(a, b);
-  let out, caret;
-  if (btn.dataset.wrap) {
+  let out, caret, caretEnd;
+  if (btn.dataset.insert != null) {
+    const insertion = btn.dataset.insert;
+    out = value.slice(0, a) + insertion + value.slice(b);
+    const placeholder = insertion.indexOf("·");
+    caret = a + (placeholder === -1 ? insertion.length : placeholder);
+    caretEnd = placeholder === -1 ? caret : caret + 1;
+  } else if (btn.dataset.template) {
+    const before = a && value[a - 1] !== "\n" ? "\n\n" : "";
+    const after = b < value.length && value[b] !== "\n" ? "\n\n" : "";
+    out = value.slice(0, a) + before + CP_NOTE_TEMPLATE + after + value.slice(b);
+    caret = a + before.length + CP_NOTE_TEMPLATE.indexOf("- ") + 2;
+    caretEnd = caret + "key insight".length;
+  } else if (btn.dataset.wrap) {
     const m = btn.dataset.wrap;
     out = value.slice(0, a) + m + picked + m + value.slice(b);
     caret = picked ? a + m.length * 2 + picked.length : a + m.length;
@@ -3794,7 +3852,12 @@ function applyNoteTool(btn) {
   }
   ta.value = out;
   ta.focus();
-  ta.setSelectionRange(caret, caret);
+  ta.setSelectionRange(caret, caretEnd == null ? caret : caretEnd);
+  updateNotePreview();
+  if (btn.dataset.insert != null) {
+    const palette = btn.closest && btn.closest("details");
+    if (palette) palette.open = false;
+  }
 }
 
 (function wireNoteEditor() {
@@ -3806,7 +3869,11 @@ function applyNoteTool(btn) {
     const btn = e.target.closest(".note-tool");
     if (btn) applyNoteTool(btn);
   });
+  document.querySelectorAll("[data-note-mode]").forEach((btn) => {
+    btn.addEventListener("click", () => setNoteMode(btn.dataset.noteMode));
+  });
   const ta = document.getElementById("note-text");
+  ta.addEventListener("input", updateNotePreview);
   ta.addEventListener("keydown", (e) => {
     // Tab indents instead of leaving the box: this is where code goes.
     if (e.key === "Tab") {
@@ -3814,11 +3881,13 @@ function applyNoteTool(btn) {
       const { selectionStart: a, selectionEnd: b } = ta;
       ta.value = ta.value.slice(0, a) + "  " + ta.value.slice(b);
       ta.setSelectionRange(a + 2, a + 2);
+      updateNotePreview();
       return;
     }
     const mod = e.metaKey || e.ctrlKey;
     if (mod && e.key === "Enter") { e.preventDefault(); saveNoteEditor(); return; }
     if (mod && e.key.toLowerCase() === "b") { e.preventDefault(); applyNoteTool({ dataset: { wrap: "**" } }); return; }
+    if (mod && e.shiftKey && e.key.toLowerCase() === "c") { e.preventDefault(); applyNoteTool({ dataset: { block: "```" } }); return; }
     if (mod && e.key.toLowerCase() === "e") { e.preventDefault(); applyNoteTool({ dataset: { wrap: "`" } }); }
   });
   // Esc fires `cancel` on a <dialog>; keep our state in step with the browser's.
@@ -3876,7 +3945,8 @@ function renderNoteMarkdown(text) {
   const lines = String(text || "").split("\n");
   let i = 0;
   let list = null;
-  const endList = () => { list = null; };
+  let listKind = null;
+  const endList = () => { list = null; listKind = null; };
   while (i < lines.length) {
     const line = lines[i];
     if (line.trim().startsWith("```")) {
@@ -3893,14 +3963,18 @@ function renderNoteMarkdown(text) {
       wrap.appendChild(pre);
       continue;
     }
-    if (/^\s*[-*]\s+/.test(line)) {
-      if (!list) {
-        list = document.createElement("ul");
+    const bullet = /^\s*[-*]\s+/.test(line);
+    const numbered = /^\s*\d+[.)]\s+/.test(line);
+    if (bullet || numbered) {
+      const kind = numbered ? "ol" : "ul";
+      if (!list || listKind !== kind) {
+        list = document.createElement(kind);
         list.className = "note-list";
         wrap.appendChild(list);
+        listKind = kind;
       }
       const li = document.createElement("li");
-      inlineNoteMarkdown(line.replace(/^\s*[-*]\s+/, ""), li);
+      inlineNoteMarkdown(line.replace(numbered ? /^\s*\d+[.)]\s+/ : /^\s*[-*]\s+/, ""), li);
       list.appendChild(li);
       i++;
       continue;
@@ -3925,16 +3999,16 @@ function renderNoteMarkdown(text) {
   return wrap;
 }
 
-// `code` and **bold**, one pass, longest marker first so ** never matches as
-// two single asterisks.
+// `code`, **bold** and *italic*, one pass, longest marker first so ** never
+// matches as two single asterisks.
 function inlineNoteMarkdown(text, into) {
-  const re = /`([^`]+)`|\*\*([^*]+)\*\*/g;
+  const re = /`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
   let last = 0;
   let m;
   while ((m = re.exec(text))) {
     if (m.index > last) into.appendChild(document.createTextNode(text.slice(last, m.index)));
-    const el = document.createElement(m[1] ? "code" : "strong");
-    el.textContent = m[1] || m[2];
+    const el = document.createElement(m[1] ? "code" : m[2] ? "strong" : "em");
+    el.textContent = m[1] || m[2] || m[3];
     into.appendChild(el);
     last = m.index + m[0].length;
   }
