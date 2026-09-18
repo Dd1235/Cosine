@@ -3,7 +3,8 @@ const fs = require("node:fs");
 const {JSDOM} = require("jsdom");
 const source = fs.readFileSync(`${__dirname}/app.js`, "utf8");
 const difficulty = {named: [{id: "cses-advanced", judge: "cses", label: "Advanced (estimate)", count: 5}],
-  rated: [{judge: "codeforces", short: "cf", min: 800, max: 3500, stops: [800, 1500, 1700, 3500]}]};
+  rated: [{judge: "codeforces", short: "cf", min: 800, max: 3500, stops: [800, 1500, 1700, 3500]},
+    {judge: "atcoder", short: "atc", min: 0, max: 3000, stops: [0, 800, 1000, 3000]}]};
 const settle = async () => { for (let i = 0; i < 6; i++) await new Promise(setImmediate); };
 
 async function main() {
@@ -17,7 +18,8 @@ async function main() {
     if (url === "/api/rankers") return {available: ["bm25", "dense"], default: "bm25", difficulty, googleClientId: "test"};
     if (url === "/api/user-state") return {bookmarked: [], done: []};
     if (url === "/api/collections") return {collections: []};
-    if (url === "/api/level") return {suggest: {codeforces: {difficulty: "cf:1500-1700", count: 3, why: "test"}}};
+    if (url === "/api/level") return {suggest: {codeforces: {difficulty: "cf:1500-1700", count: 3, why: "test"},
+      atcoder: {difficulty: "atc:800-1000", count: 2, why: "test"}}};
     if (url.startsWith("/api/preferences")) return {};
     return {hits: [], items: [], total: 0};
   }});
@@ -41,6 +43,25 @@ async function main() {
   };`);
   await settle();
   const style = doc.createElement("style"); style.textContent = fs.readFileSync(`${__dirname}/styles.css`, "utf8"); doc.head.appendChild(style);
+  const level = doc.getElementById("level-apply");
+  assert.equal(doc.querySelectorAll("#level-apply").length, 1);
+  assert.ok(level.closest(".filter-actions"), "shortcut is outside conditional judge controls");
+  assert.equal(level.disabled, false, "usable without selecting a judge first");
+  level.click(); await settle();
+  assert.deepEqual([...w.workbenchState().platforms], ["codeforces", "atcoder"]);
+  assert.equal(w.workbenchState().ranges.length, 2, "all available native targets applied in one click");
+  assert.equal(level.getAttribute("aria-pressed"), "true");
+  level.click(); await settle();
+  assert.equal(w.workbenchState().ranges.length, 0, "second click clears level ranges");
+  assert.equal(level.getAttribute("aria-pressed"), "false");
+  doc.getElementById("reset-filters").click(); await settle();
+  doc.querySelector('[data-platform="codeforces"]').click(); await settle();
+  level.click(); await settle();
+  assert.deepEqual([...w.workbenchState().platforms], ["codeforces"], "explicit judge choice is respected");
+  assert.equal(w.workbenchState().ranges.length, 1);
+  doc.getElementById("reset-filters").click(); await settle();
+  assert.equal(level.disabled, false);
+  assert.equal(doc.querySelector('a[href="/profile.html#practice-levels"]'), null);
   assert.equal(doc.querySelectorAll("#sheet-btn").length, 1);
   assert.equal(doc.getElementById("cses-level-select"), null, "no persistent settings in search filters");
   w.setLibPath("~/search graphs");

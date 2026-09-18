@@ -6,7 +6,7 @@ const source = fs.readFileSync(`${__dirname}/app.js`, 'utf8');
 const similar = source.slice(source.indexOf('async function runSimilar('), source.indexOf('// "Was this useful?"'));
 const syncUrl = source.slice(source.indexOf('function syncUrl({'), source.indexOf('function updatePatternPill()'));
 const collectionState = source.slice(source.indexOf('function addCollection('), source.indexOf('function renderCollectionPanel('));
-const token = source.slice(source.indexOf('function applyDifficultyToken('), source.indexOf('// The suggestions that apply'));
+const token = source.slice(source.indexOf('function applyDifficultyToken('), source.indexOf('function levelForSelection('));
 
 assert.equal(difficulty.format({ platform: 'cses', cses_difficulty: { band: 4 } }), 'Advanced · CSES estimate');
 assert.equal(difficulty.format({ platform: 'cses', difficulty: 1900 }), '', 'never map a foreign rating to CSES');

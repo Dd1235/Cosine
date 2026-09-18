@@ -1206,11 +1206,12 @@ function applyDifficultyToken(token) {
   }
 }
 
-// The suggestions that apply to what's on screen: a judge you haven't selected
-// shouldn't have its band silently set behind a control you can't see.
+// The suggestions that apply: with no filter, offer every judge-local target.
+// Applying it explicitly selects those judges so their bands stay visible.
 function levelForSelection() {
   if (!levelSuggest) return [];
-  return [...activePlatforms].map((j) => levelSuggest[j]).filter(Boolean);
+  const judges = activePlatforms.size ? [...activePlatforms] : Object.keys(levelSuggest);
+  return judges.map((j) => levelSuggest[j]).filter(Boolean);
 }
 
 function levelIsApplied() {
@@ -1219,6 +1220,21 @@ function levelIsApplied() {
   const want = suggested.flatMap((s) => s.difficulty.split(",")).sort().join(",");
   const have = (difficultyParam() || "").split(",").filter(Boolean).sort().join(",");
   return want === have;
+}
+
+function syncLevelControl() {
+  const level = document.getElementById("level-apply");
+  if (level) {
+    const suggestions = levelForSelection();
+    const applied = levelIsApplied();
+    level.disabled = !suggestions.length || !((difficultyPayload.named || []).length || (difficultyPayload.rated || []).length);
+    level.textContent = applied ? "my level ✓" : "my level";
+    level.classList.toggle("active", applied);
+    level.setAttribute("aria-pressed", String(applied));
+    level.title = suggestions.length
+      ? suggestions.map(s => `${s.why} → ${s.count} problems`).join("; ")
+      : "Set a practice level in Profile, or select a judge with an available target.";
+  }
 }
 
 function syncDifficultyControls() {
@@ -1234,6 +1250,7 @@ function syncDifficultyControls() {
     // ?platform=atcoder&sort=difficulty-asc used to boot unsorted.
     difficultyRow.classList.add("hidden");
     difficultyRow.innerHTML = "";
+    syncLevelControl();
     return;
   }
   const judges = [...activePlatforms];
@@ -1250,6 +1267,7 @@ function syncDifficultyControls() {
     sortDir = null; // no scale on screen, so no order to sort by
     difficultyRow.classList.add("hidden");
     difficultyRow.innerHTML = "";
+    syncLevelControl();
     return;
   }
   for (const id of [...activeTiers]) if (!named.some((b) => b.id === id)) activeTiers.delete(id);
@@ -1354,24 +1372,12 @@ function syncDifficultyControls() {
     sortDir = null; // the judge that made it legal is gone
   }
 
-  // "my level" sets each selected judge's band from that judge's own stats. It
-  // only shows when there IS a suggestion for something on screen, so it can
-  // never be a button that does nothing.
-  const suggested = levelForSelection();
-  if (suggested.length) {
-    const applied = levelIsApplied();
-    const why = suggested.map((x) => `${x.why} → ${x.count} problems`).join("; ");
-    groups.push(
-      `<button type="button" class="judge-chip level-chip${applied ? " active" : ""}" id="level-apply"` +
-        ` title="${escapeHtml(why)}">${applied ? "my level ✓" : "my level"}</button>`
-    );
-  }
-
   if (activeTiers.size || activeRanges.size || activeAcceptance) {
     groups.push('<button type="button" class="judge-chip judge-clear" id="difficulty-clear" title="any difficulty">any ✕</button>');
   }
   difficultyRow.innerHTML = groups.join("");
   difficultyRow.classList.toggle("hidden", groups.length === 0);
+  syncLevelControl();
 
   difficultyRow.querySelectorAll(".difficulty-chip").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -1429,28 +1435,6 @@ function syncDifficultyControls() {
     afterDifficultyChange();
   });
 
-  const level = difficultyRow.querySelector("#level-apply");
-  if (level) level.addEventListener("click", () => {
-    const suggestions = levelForSelection();
-    if (levelIsApplied()) {
-      activeTiers.clear();
-      activeRanges.clear();
-      activeAcceptance = null;
-      track("level_cleared", {});
-    } else {
-      activeTiers.clear();
-      activeRanges.clear();
-      activeAcceptance = null;
-      for (const s of suggestions) for (const tok of s.difficulty.split(",")) applyDifficultyToken(tok);
-      // Say what it did and why. A filter that changes the page without
-      // explaining itself reads as a bug, and the reasoning is a guess worth
-      // showing: these are proxies for your level, not measurements of it.
-      setStatus(`my level · ${suggestions.map((x) => `${x.why} → ${x.count} problems`).join(" · ")}`);
-      track("level_applied", { judges: suggestions.length });
-    }
-    afterDifficultyChange();
-  });
-
   const clear = difficultyRow.querySelector("#difficulty-clear");
   if (clear) clear.addEventListener("click", () => {
     activeTiers.clear();
@@ -1458,6 +1442,29 @@ function syncDifficultyControls() {
     activeAcceptance = null;
     afterDifficultyChange();
   });
+}
+
+function applyMyLevel() {
+  const suggestions = levelForSelection();
+  if (!suggestions.length) return;
+  if (levelIsApplied()) {
+    activeTiers.clear();
+    activeRanges.clear();
+    activeAcceptance = null;
+    track("level_cleared", {});
+  } else {
+    if (!activePlatforms.size) {
+      for (const judge of Object.keys(levelSuggest)) if (levelSuggest[judge]) activePlatforms.add(judge);
+    }
+    activeTiers.clear();
+    activeRanges.clear();
+    activeAcceptance = null;
+    for (const s of suggestions) for (const tok of s.difficulty.split(",")) applyDifficultyToken(tok);
+    setStatus(`my level · ${suggestions.map((x) => `${x.why} → ${x.count} problems`).join(" · ")}`);
+    track("level_applied", { judges: suggestions.length });
+  }
+  syncJudgeControls();
+  afterDifficultyChange();
 }
 
 function afterDifficultyChange() {
@@ -2462,6 +2469,8 @@ CORPUS
 
   my level     uses your saved choice in Profile → Practice
                levels, or a suggestion from your judge stats.
+               With no judge selected, applies all available
+               targets and selects their judges for you.
                It sets each selected judge's own band
                from its own scale: Codeforces and AtCoder from
                your rating (your rating to +200 — a problem at
@@ -4276,6 +4285,7 @@ function dispatchUrlView() {
 
 const bootParams = new URLSearchParams(location.search);
 document.getElementById("reset-filters")?.addEventListener("click", resetFilters);
+document.getElementById("level-apply")?.addEventListener("click", applyMyLevel);
 window.addEventListener("pageshow", event => {
   if (event.persisted) {
     levelSignalsUser = null;
