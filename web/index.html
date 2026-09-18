@@ -271,13 +271,10 @@
           </div>
         </section>
       </div>
-      <div class="search-toolbar">
-        <a href="/profile.html#practice-levels" class="practice-settings-link">practice levels ↗</a>
-        <button type="button" class="lib-chip reset-search" id="reset-search" title="Clear the query, filters and sorting; return to keyword search. Saved levels, notes and reading preferences are kept.">reset to search</button>
-      </div>
       <details class="search-filters" id="search-filters">
         <summary><span>Filters</span><span id="filter-summary" class="filter-summary">all judges · any difficulty</span></summary>
         <div class="filter-panel">
+          <div class="filter-actions"><button type="button" class="lib-chip" id="reset-filters" title="Clear all filters and sorting, keeping your current search or library view.">reset filters</button></div>
       <div class="mode-row">
         <span
           class="judge-row"
@@ -362,7 +359,6 @@
         role="group"
         aria-label="filter by difficulty"
       ></div>
-        <p class="filter-hint">“my level” uses your profile suggestion or saved choice. <a href="/profile.html#practice-levels">Set practice levels ↗</a></p>
         </div>
       </details>
       <p id="status" class="status"></p>

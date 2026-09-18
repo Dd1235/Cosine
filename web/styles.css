@@ -1884,11 +1884,8 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .library-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.65rem; border-top: 1px solid var(--border); }
 .control-caption { color: var(--text-dim); font-size: 0.73rem; margin-right: 0.35rem; }
 .library-toolbar .lib-sheet { margin-left: auto; display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.search-toolbar { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.75rem; margin: 0.75rem 0 0.5rem; }
-.practice-settings-link, .filter-hint { font-size: 0.74rem; color: var(--text-muted); }
-.filter-hint { margin: 0.8rem 0 0; line-height: 1.6; }
-.filter-hint a { color: var(--accent); }
-.search-filters { border: 1px solid var(--border); border-radius: var(--r-card); background: var(--surface); }
+.filter-actions { display: flex; justify-content: flex-end; margin-bottom: 0.75rem; }
+.search-filters { margin-top: 0.75rem; border: 1px solid var(--border); border-radius: var(--r-card); background: var(--surface); }
 .search-filters > summary { cursor: pointer; padding: 0.75rem 0.85rem; font-size: 0.8rem; }
 .filter-summary { margin-left: 0.8rem; font-size: 0.73rem; color: var(--text-dim); overflow-wrap: anywhere; }
 .filter-panel { border-top: 1px solid var(--border); padding: 0.8rem; }

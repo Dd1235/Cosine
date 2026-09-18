@@ -36,7 +36,6 @@
       const label = element("label", judge === "cses" ? "Starting band" : "Practice target", card);
       if (judge === "cses") {
         select(label, "cses", [["", "Not set"], ...bands.map((b, i) => [String(i + 1), b])], String(data.preferences.csesBand || ""));
-        element("p", "CSES estimates use their own scale. Choose a starting band; CF and AtCoder ratings are not converted into CSES levels.", card);
       } else {
         const mode = select(label, `${judge}-mode`, [["auto", "From my profile"], ["custom", "Choose my own"]], choice ? "custom" : "auto");
         const fields = element("div", null, card);
@@ -59,24 +58,22 @@
           fields.hidden = mode.value !== "custom";
           fields.querySelectorAll("input").forEach(el => { el.disabled = fields.hidden; });
         });
+        const signal = data.signals?.[judge];
+        const linked = data.linkedPlatforms?.includes(judge) || !!signal;
+        const missing = !linked ? "Link your handle below, or choose your own target."
+          : signal?.ratingState === "unrated" ? "Handle linked · no rated contests yet. Choose your own target."
+          : Number.isFinite(signal?.rating) ? "No problems in your profile range yet. Choose your own target."
+          : "Handle linked · stats not available for a suggestion. Refresh stats below, or choose your own target.";
         element("p", suggestion
           ? `Profile suggestion: ${suggestion.difficulty} · ${suggestion.why} · ${suggestion.count} problems`
-          : "No profile suggestion yet. Link your handle below and refresh stats, or choose your own target.", card);
+          : missing, card);
         const stamp = data.signals?.[judge]?.fetchedAt;
         if (stamp) element("p", `Stats as of ${new Date(stamp).toLocaleDateString()}`, card);
       }
-      const effective = data.suggest[judge];
-      if (effective) {
-        const link = element("a", `Practice saved ${title} level ↗`, card);
-        link.href = `/?platform=${encodeURIComponent(judge)}&difficulty=${encodeURIComponent(effective.difficulty)}`;
-      }
     }
-    const unsupported = element("div", null, grid); unsupported.className = "practice-level-card";
-    element("h3", "CodeChef & Kattis", unsupported);
-    element("p", "Browse these judges normally. This corpus does not yet have compatible difficulty filters for a reliable “my level” target. We do not translate another judge’s rating into one.", unsupported);
     const ready = data.preferencesReady !== false;
     save.disabled = auto.disabled = !ready;
-    status.textContent = ready ? "Saved to your account. Resetting search will keep these preferences." : "Preferences are read-only until the practice-level database migration is applied.";
+    status.textContent = ready ? "Saved to your account." : "Preferences are read-only until the practice-level database migration is applied.";
     grid.querySelectorAll("input, select").forEach(el => { if (!ready) el.disabled = true; });
   }
 

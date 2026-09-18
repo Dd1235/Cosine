@@ -14,12 +14,18 @@ const settle = async () => { for (let i = 0; i < 5; i++) await new Promise(setIm
       preferences = posts.at(-1);
       return {ok: true};
     }
-    return {ok: true, json: async () => ({preferences, preferencesReady: true, signals: {},
+    return {ok: true, json: async () => ({preferences, preferencesReady: true, signals: {}, linkedPlatforms: ["atcoder"],
       automatic: {codeforces: {difficulty: "cf:1500-1700", count: 3, why: "rated 1500"}}, suggest: {}})};
   };
   w.eval(fs.readFileSync(`${__dirname}/practice-levels.js`, "utf8"));
   await settle();
   const form = w.document.getElementById("practice-levels-form");
+  assert.equal(form.querySelectorAll(".practice-level-card").length, 4);
+  assert.equal(form.querySelectorAll(".practice-level-card a").length, 0);
+  const atcoder = [...form.querySelectorAll(".practice-level-card")].find(card => card.querySelector("h3").textContent === "AtCoder");
+  assert.match(atcoder.textContent, /Handle linked/);
+  assert.doesNotMatch(atcoder.textContent, /Link your handle/);
+  assert.doesNotMatch(form.textContent, /CodeChef|Kattis|CSES estimates use/);
   assert.equal(form.elements["codeforces-mode"].value, "custom");
   assert.equal(form.elements.cses.value, "3");
   form.elements.cses.value = "4";

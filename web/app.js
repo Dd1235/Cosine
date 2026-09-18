@@ -1033,7 +1033,6 @@ function syncLabelsToggle() {
   if (!labelsToggle) return;
   labelsToggle.textContent = showLabels ? 'labels: shown' : 'labels: hidden';
   labelsToggle.setAttribute('aria-pressed', String(showLabels));
-  labelsToggle.classList.toggle('is-active', showLabels);
   labelsToggle.disabled = showLabelsSaving;
   labelsToggle.title = showLabels
     ? 'technique labels are showing on every result'
@@ -2201,32 +2200,34 @@ function syncFilterSummary() {
   el.title = el.textContent;
 }
 
-function resetToSearch() {
+function resetFilters() {
   if (inFlight) inFlight.abort();
   ++lastQueryAt;
   clearTimeout(debounceTimer);
-  applyUrlState(new URLSearchParams());
-  activeRanker = "";
-  rankerSelect.value = "bm25";
-  rankerSelect.disabled = false;
-  compareMode = false;
-  compareEl.innerHTML = "";
-  applyMode();
+  activeCollections.clear();
+  activePlatforms.clear();
+  activeTiers.clear();
+  activeRanges.clear();
+  bootRanges.length = 0;
+  activeAcceptance = null;
+  activePattern = "";
+  libAged = libRecall = libNotes = null;
+  libOldest = false;
+  sortDir = null;
+  currentFilter = "all";
+  filterSelect.value = "all";
+  contestView = false;
   sortWindow = 20;
-  bootNeedsAuth = false;
-  currentQuery = "";
-  currentTopScore = 0;
-  currentSearchId = null;
+  currentOffset = 0;
   syncJudgeControls();
   updatePatternPill();
   renderCollectionControls();
   closeCollectionPicker({ focus: false });
-  setLibPath("~");
-  dispatchUrlView();
+  // Reset facets, not navigation: retain query, ranker, library, and related
+  // practice context. With no query, show an unfiltered browse.
+  if (currentSimilar || input.value.trim() || currentQuery) reissueCurrentView();
+  else runBrowse({ append: false });
   syncUrl({ push: true });
-  const panel = document.getElementById("search-filters");
-  if (panel) panel.open = false;
-  input.focus();
 }
 
 function updatePatternPill() {
@@ -2470,11 +2471,11 @@ CORPUS
                Hover it for the reasoning and the count; press
                it again to drop it.
 
-  reset to search
-               clears the query, all filters and sorting, and
-               returns to keyword search. Your saved levels,
-               notes, sheet connection and reading preferences
-               are kept. Filters can be expanded or collapsed;
+  reset filters
+               clears all filters and sorting, keeping your
+               query, ranker and view. Saved levels, notes,
+               sheet connection and reading preferences stay.
+               Filters can be expanded or collapsed;
                their summary always shows the active selection.
 
   pattern      click a technique label inside a result
@@ -4274,7 +4275,7 @@ function dispatchUrlView() {
 }
 
 const bootParams = new URLSearchParams(location.search);
-document.getElementById("reset-search")?.addEventListener("click", resetToSearch);
+document.getElementById("reset-filters")?.addEventListener("click", resetFilters);
 window.addEventListener("pageshow", event => {
   if (event.persisted) {
     levelSignalsUser = null;

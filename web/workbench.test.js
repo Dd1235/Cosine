@@ -30,13 +30,14 @@ async function main() {
     similar: currentSimilar, practice: practiceMode, contest: contestView, compare: compareMode,
     sort: sortDir, sortWindow, offset: currentOffset, user: currentUser, pendingAuth: bootNeedsAuth
   });
-  window.seedWorkbench = () => {
-    currentUser = {id: 'u'}; currentQuery = ':bookmarks'; input.value = currentQuery;
+  window.seedWorkbench = (view) => {
+    currentUser = {id: 'u'}; currentQuery = view === 'library' ? ':bookmarks' : view === 'search' ? 'graphs' : ''; input.value = currentQuery;
     activePlatforms.add('codeforces'); activeTiers.add('cses-advanced'); activeRanges.set('codeforces', {min: 1500, max: 1700});
     activeCollections.add('contest'); activeAcceptance = {min: 20, max: 50}; activePattern = 'graph';
     libAged = 90; libOldest = true; libRecall = 'again'; libNotes = 'yes'; currentFilter = 'done';
-    currentSimilar = {id: 'p'}; practiceMode = true; contestView = true; compareMode = true;
-    sortDir = 'desc'; sortWindow = 100; activeRanker = 'dense'; currentOffset = 40; bootNeedsAuth = true;
+    currentSimilar = view === 'similar' ? {id: 'p'} : null; practiceMode = view === 'similar'; contestView = view === 'contest'; compareMode = false;
+    sortDir = 'desc'; sortWindow = 100; activeRanker = 'dense'; rankerSelect.value = 'dense'; currentOffset = 40; bootNeedsAuth = false;
+    showLabels = true; syncLabelsToggle();
   };`);
   await settle();
   const style = doc.createElement("style"); style.textContent = fs.readFileSync(`${__dirname}/styles.css`, "utf8"); doc.head.appendChild(style);
@@ -50,22 +51,34 @@ async function main() {
   assert.equal(doc.getElementById("lib-sheet").hidden, false);
   w.setLibPath("~/similar graph");
   assert.equal(doc.getElementById("lib-sheet").hidden, true, "no Sheets control in related search");
-  w.seedWorkbench();
-  doc.getElementById("search-filters").open = true;
-  doc.getElementById("reset-search").click();
-  await settle();
-  const state = JSON.parse(JSON.stringify(w.workbenchState()));
-  for (const key of ["platforms", "tiers", "ranges", "collections"]) assert.deepEqual(state[key], [], key);
-  for (const key of ["acceptance", "aged", "recall", "notes", "similar", "sort"]) assert.equal(state[key], null, key);
-  for (const key of ["oldest", "practice", "contest", "compare", "pendingAuth"]) assert.equal(state[key], false, key);
-  assert.equal(state.query, ""); assert.equal(state.pattern, ""); assert.equal(state.ranker, "");
-  assert.equal(state.filter, "all"); assert.equal(state.sortWindow, 20); assert.equal(state.offset, 0);
-  assert.equal(state.user.id, "u", "reset does not log out or clear account preferences");
-  assert.equal(w.location.search, "");
-  assert.equal(doc.getElementById("search-filters").open, false);
-  assert.equal(doc.getElementById("lib-age-row").hidden, true);
-  assert.equal(doc.getElementById("ranker-select").value, "bm25");
-  assert.equal(doc.getElementById("filter-summary").textContent, "all judges · any difficulty");
+  assert.equal(doc.getElementById("reset-search"), null);
+  assert.equal(doc.querySelector(".search-toolbar"), null);
+  assert.ok(doc.getElementById("reset-filters").closest(".filter-panel"));
+  for (const view of ["search", "library", "similar", "contest"]) {
+    w.seedWorkbench(view);
+    assert.equal(doc.getElementById("labels-toggle").getAttribute("aria-pressed"), "true");
+    assert.equal(doc.getElementById("labels-toggle").classList.contains("is-active"), false);
+    doc.getElementById("search-filters").open = true;
+    doc.getElementById("reset-filters").click();
+    await settle();
+    const state = JSON.parse(JSON.stringify(w.workbenchState()));
+    for (const key of ["platforms", "tiers", "ranges", "collections"]) assert.deepEqual(state[key], [], key);
+    for (const key of ["acceptance", "aged", "recall", "notes", "sort"]) assert.equal(state[key], null, key);
+    for (const key of ["oldest", "contest", "compare", "pendingAuth"]) assert.equal(state[key], false, key);
+    assert.equal(state.query, view === "library" ? ":bookmarks" : view === "search" ? "graphs" : "");
+    assert.equal(state.practice, view === "similar");
+    assert.deepEqual(state.similar, view === "similar" ? {id: "p"} : null);
+    assert.equal(state.pattern, ""); assert.equal(state.ranker, "dense");
+    assert.equal(state.filter, "all"); assert.equal(state.sortWindow, 20); assert.equal(state.offset, 0);
+    assert.equal(state.user.id, "u", "reset does not log out or clear account preferences");
+    const params = new URLSearchParams(w.location.search);
+    assert.equal(params.get("ranker"), "dense");
+    for (const key of ["platform", "difficulty", "contest", "pattern", "sort", "aged", "order", "recall", "notes", "filter"]) assert.equal(params.has(key), false, key);
+    assert.equal(params.get("q") || "", state.query);
+    assert.equal(doc.getElementById("search-filters").open, true);
+    assert.equal(doc.getElementById("ranker-select").value, "dense");
+    assert.equal(doc.getElementById("filter-summary").textContent, "all judges · any difficulty");
+  }
   dom.window.close();
   console.log("workbench full-bundle DOM tests passed (visibility, reset, defaults, account preservation)");
 }
