@@ -32,5 +32,23 @@ const { fetchPlatformStats } = require("./index");
   });
   assert.equal(calls, 2);
   assert.equal(sequential.error, "timeout", "sequential calls share one deadline");
+  for (const stalledSource of ["kenkoooo", "atcoder.jp"]) {
+    let stalledSignal;
+    const partial = await fetchPlatformStats("atcoder", "test", {
+      timeoutMs: 100,
+      fetchImpl: async (url, {signal}) => {
+        if (url.includes(stalledSource)) {
+          stalledSignal = signal;
+          return {ok: true, json: () => new Promise(() => {})};
+        }
+        return {ok: true, json: async () => url.includes("atcoder.jp") ? [{NewRating: 1400}] : []};
+      },
+    });
+    assert.equal(partial.unavailable, undefined, "one slow source does not discard the other");
+    assert.equal(partial.partial, true);
+    assert.equal(stalledSignal.aborted, true);
+    if (stalledSource === "kenkoooo") assert.equal(partial.rating, 1400);
+    else assert.equal(partial.solved, 0);
+  }
   console.log("profile deadline tests passed");
 })().catch(error => {console.error(error); process.exitCode = 1;});

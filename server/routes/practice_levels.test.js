@@ -30,7 +30,9 @@ require.cache[dbPath] = {id: dbPath, filename: dbPath, loaded: true, exports: {
       return {rows: []};
     }
     if (sql.includes("user_preferences")) return {rows: prefs.has(params[0]) ? [prefs.get(params[0])] : []};
-    return {rows: [{platform: "codeforces", payload: {rating: 1500}, fetched_at: "2026-09-18T00:00:00Z"}]};
+    if (sql.includes("user_platform_handles")) return {rows: [{platform: "atcoder"}, {platform: "codeforces"}]};
+    return {rows: [{platform: "codeforces", payload: {rating: 1500}, fetched_at: "2026-09-18T00:00:00Z"},
+      {platform: "atcoder", payload: {rating: null, ratingState: "unavailable"}, fetched_at: "2026-09-18T00:00:00Z"}]};
   },
 }};
 const express = require("express");
@@ -53,6 +55,9 @@ const server = app.listen(0, "127.0.0.1");
   assert.equal((await request("a", custom)).status, 200);
   const saved = await (await request("a")).json();
   assert.deepEqual(saved.preferences, custom);
+  assert.ok(saved.linkedPlatforms.includes("atcoder"));
+  assert.equal(saved.signals.atcoder.ratingState, "unavailable");
+  assert.equal(saved.automatic.atcoder, undefined, "missing ratings never produce a fabricated suggestion");
   assert.equal(saved.suggest.codeforces.difficulty, "cf:1700-1700");
   assert.equal(saved.suggest.cses.difficulty, "cses-intermediate");
   assert.deepEqual((await (await request("b")).json()).preferences, {levels: {}, csesBand: null});

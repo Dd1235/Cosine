@@ -222,6 +222,27 @@ const htmlResponse = (html, status = 200) => ({
     });
     assert.equal(partial.solved, 1);
     assert.equal(partial.rating, null);
+    assert.equal(partial.ratingState, "unavailable");
+    assert.equal(partial.partial, true);
+
+    const ratingOnly = await fetchPlatformStats("atcoder", "someone", {
+      fetchImpl: async url => {
+        if (url.includes("kenkoooo")) throw new Error("submissions down");
+        return jsonResponse([{NewRating: 1200, IsRated: true}, {NewRating: 0, IsRated: false}]);
+      },
+    });
+    assert.equal(ratingOnly.rating, 1200);
+    assert.equal(ratingOnly.solved, null, "missing submissions are not zero solved");
+    assert.equal(ratingOnly.partial, true);
+
+    const unrated = await fetchPlatformStats("atcoder", "someone", {fetchImpl: async () => jsonResponse([])});
+    assert.equal(unrated.ratingState, "unrated");
+    assert.equal(unrated.rating, null);
+    const quietFailure = await fetchPlatformStats("atcoder", "someone", {
+      fetchImpl: async url => url.includes("kenkoooo") ? jsonResponse([]) : jsonResponse({}, 503),
+    });
+    assert.equal(quietFailure.ratingState, "unavailable", "history outage is not an unknown or unrated user");
+    assert.equal(quietFailure.unavailable, undefined);
   }
 
   // ── Timeout → unavailable, never throws ──

@@ -124,7 +124,7 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
   // has been opened once.
   router.get("/level", requireUser, async (req, res) => {
     try {
-      const [cached, preferences] = await Promise.all([
+      const [cached, preferences, handles] = await Promise.all([
         db.query(`SELECT platform, payload, fetched_at FROM user_platform_stats WHERE user_id = $1`, [req.user.id]),
         db.query("SELECT cses_band, practice_levels FROM user_preferences WHERE user_id = $1", [req.user.id])
           .catch(async err => {
@@ -132,20 +132,22 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
             const legacy = await db.query("SELECT cses_band FROM user_preferences WHERE user_id = $1", [req.user.id]);
             return {...legacy, preferencesReady: false};
           }),
+        db.query("SELECT platform FROM user_platform_handles WHERE user_id = $1", [req.user.id]),
       ]);
       const signals = {};
       if (preferences.rows[0]?.cses_band != null) signals.cses = { band: preferences.rows[0].cses_band };
       for (const row of cached.rows) {
         const stats = secrets.decryptJson(row.payload);
-        if (!stats || stats.unavailable) continue;
-        const signal = { fetchedAt: row.fetched_at };
-        if (typeof stats.rating === "number") signal.rating = stats.rating;
-        if (stats.byDifficulty) signal.byDifficulty = stats.byDifficulty;
-        if (signal.rating !== undefined || signal.byDifficulty) signals[row.platform] = signal;
+        if (!stats) continue;
+        const signal = { fetchedAt: stats.ratingFetchedAt || row.fetched_at };
+        if (!stats.unavailable && Number.isFinite(stats.rating)) signal.rating = stats.rating;
+        if (!stats.unavailable && stats.byDifficulty) signal.byDifficulty = stats.byDifficulty;
+        if (stats.ratingState) signal.ratingState = stats.ratingState;
+        signals[row.platform] = signal;
       }
       res.set("Cache-Control", "no-store");
       const levels = preferences.rows[0]?.practice_levels || {};
-      res.json({ signals, ...practiceLevels(signals, levels, problems), preferences: {
+      res.json({ signals, linkedPlatforms: handles.rows.map(row => row.platform), ...practiceLevels(signals, levels, problems), preferences: {
         levels, csesBand: preferences.rows[0]?.cses_band ?? null,
       }, preferencesReady: preferences.preferencesReady !== false });
     } catch (_err) {
@@ -228,9 +230,12 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
       await Promise.all(
         Object.entries(handles).map(async ([platform, handle]) => {
           const row = cacheByPlatform.get(platform);
+          const previous = row ? secrets.decryptJson(row.payload) : null;
           const age = row ? Date.now() - new Date(row.fetched_at).getTime() : Infinity;
-          if (row && age < maxAgeMs) {
-            platforms[platform] = { ...secrets.decryptJson(row.payload), fetchedAt: row.fetched_at };
+          const incomplete = previous?.unavailable || previous?.partial ||
+            (platform === "atcoder" && previous?.rating == null && previous?.ratingState !== "unrated");
+          if (row && age < (incomplete ? Math.min(maxAgeMs, REFRESH_FLOOR_MS) : maxAgeMs)) {
+            platforms[platform] = { ...previous, fetchedAt: row.fetched_at };
             return;
           }
           const payload = await fetchStats(platform, handle);
@@ -238,6 +243,19 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
             // stale-if-error: keep serving the last good numbers
             platforms[platform] = { ...secrets.decryptJson(row.payload), fetchedAt: row.fetched_at, stale: true };
             return;
+          }
+          // A partial AtCoder refresh should update the healthy source without
+          // erasing the last good result of the source that failed.
+          if (platform === "atcoder" && payload.partial && previous && !previous.unavailable) {
+            if (payload.ratingState === "unavailable" && Number.isFinite(previous.rating)) {
+              payload.rating = previous.rating;
+              payload.ratingFetchedAt = previous.ratingFetchedAt || row.fetched_at;
+            }
+            if (payload.solved == null && previous.solved != null) {
+              payload.solved = previous.solved;
+              payload.calendar = previous.calendar;
+              payload.activityFetchedAt = previous.activityFetchedAt || row.fetched_at;
+            }
           }
           await db.query(
             `INSERT INTO user_platform_stats (user_id, platform, payload, fetched_at)

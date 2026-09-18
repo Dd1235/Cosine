@@ -116,7 +116,7 @@ function statCard(platform, stats) {
   }
   const meta = document.createElement("p");
   meta.className = "card-meta";
-  meta.textContent = `as of ${formatRelative(stats.fetchedAt)}${stats.stale ? " · cached" : ""}`;
+  meta.textContent = `as of ${formatRelative(stats.fetchedAt)}${stats.stale ? " · cached" : ""}${stats.partial ? " · some stats unavailable or cached" : ""}`;
   card.appendChild(meta);
   return card;
 }

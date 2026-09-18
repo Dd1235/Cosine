@@ -25,7 +25,7 @@
     "test:profile": "node server/profile/profile.test.js && node server/profile/deadline.test.js && node server/crypto/secrets.test.js",
     "test:db": "node server/db.test.js",
     "test:notes": "node web/notes.test.js && node web/notes.editor.test.js",
-    "test:workbench": "node web/workbench.test.js && node web/practice-levels.test.js && node server/routes/practice_levels.test.js",
+    "test:workbench": "node web/workbench.test.js && node web/practice-levels.test.js && node server/routes/practice_levels.test.js && node server/routes/profile.cache.test.js",
     "db:migrate": "bash db/run-migrations.sh",
     "services:start": "docker compose up -d",
     "services:stop": "docker compose down",
