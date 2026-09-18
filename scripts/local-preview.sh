@@ -1,11 +1,25 @@
 #!/usr/bin/env bash
-# Existing isolated preview only. Never source .env or run production migrations.
+# Local app using the database and secrets configured in .env.
+# No migrations. Changes made in the UI affect that database (including prod).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-export DATABASE_URL='postgresql://algolens@127.0.0.1:55433/algolens_preview'
-export JWT_SECRET='local-preview-only-jwt-secret'
-export HANDLE_KEY='local-preview-only-handle-secret'
 export NODE_ENV=development TELEMETRY=off
-export CANONICAL_HOST='' GOOGLE_CLIENT_ID='' GOOGLE_SHEETS_CLIENT_ID='' GRPC_BM25_ADDR=''
+export CANONICAL_HOST='' GRPC_BM25_ADDR=''
 export PORT="${PORT:-3100}"
+# Validate connectivity without changing data. dotenv is parsed by Node, never
+# sourced as shell commands, and credentials are never printed.
+node - <<'NODE'
+require('dotenv').config({ quiet: true });
+const db = require('./server/db');
+(async () => {
+  try {
+    require('./server/crypto/secrets').assertKeyPresent();
+    await db.query('SELECT id FROM users LIMIT 0');
+    console.log('Configured database reachable. Localhost uses real account data; no migrations were run.');
+  } catch (_) {
+    console.error('Preview cannot reach the configured database or required secrets are missing. Check .env and network connectivity.');
+    process.exitCode = 1;
+  } finally { await db.close(); }
+})();
+NODE
 exec node server/index.js
