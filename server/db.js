@@ -14,11 +14,19 @@ function getPool() {
   }
   pool = new Pool({
     connectionString,
+    // Bound pool acquisition/connection and SQL execution separately. A
+    // sleeping hosted database must not leave auth/library requests queued
+    // indefinitely (telemetry shares this pool too).
+    connectionTimeoutMillis: 5000,
+    statement_timeout: 8000,
     // Managed Postgres (Render, Neon, etc.) requires SSL; local docker-compose
     // doesn't. node-postgres ignores `sslmode` in the URL, so flip ssl on
     // explicitly whenever the URL asks for it — keeps local dev cert-free.
     ssl: /sslmode=require/.test(connectionString) ? { rejectUnauthorized: false } : false,
   });
+  // An idle connection can disappear when a hosted database suspends. The
+  // pool replaces it on demand; an unhandled error would crash the web app.
+  pool.on("error", (error) => console.warn("Idle database connection lost:", error.code || "connection_error"));
   return pool;
 }
 

@@ -44,13 +44,30 @@ function unavailable(error) {
 async function fetchPlatformStats(platform, handle, { fetchImpl = fetch, timeoutMs = 6000 } = {}) {
   const fetcher = FETCHERS[platform];
   if (!fetcher) return unavailable("unknown_platform");
+  // A platform can make many sequential requests (AtCoder pages, CF profile
+  // then submissions). Per-request timeouts alone multiply into a minute-long
+  // page load and do not cover response.json()/text(). Bound the whole fetch.
+  const controller = new AbortController();
+  let timer;
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(Object.assign(new Error("Platform deadline exceeded"), { name: "AbortError" }));
+    }, timeoutMs);
+  });
+  const boundedFetch = (url, options = {}) => fetchImpl(url, {
+    ...options,
+    signal: options.signal ? AbortSignal.any([options.signal, controller.signal]) : controller.signal,
+  });
   try {
-    return await fetcher(handle, { fetchImpl, timeoutMs });
+    return await Promise.race([fetcher(handle, { fetchImpl: boundedFetch, timeoutMs }), deadline]);
   } catch (err) {
     if (err && err.name === "AbortError") return unavailable("timeout");
     if (err && err.code === "NOT_FOUND") return unavailable("not_found");
     if (err && err.code === "PARSE_FAILED") return unavailable("parse_failed");
     return unavailable("fetch_failed");
+  } finally {
+    clearTimeout(timer);
   }
 }
 
