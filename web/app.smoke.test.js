@@ -15,14 +15,14 @@ const fs = require("fs");
 const path = require("path");
 
 const WEB = __dirname;
-const FILES = ["app.js", "sheets.js", "profile.js", "patterns.js", "stats.js", "debug.js", "theme.js", "notfound.js"];
+const FILES = ["app.js", "sheets.js", "profile.js", "practice-levels.js", "patterns.js", "stats.js", "debug.js", "theme.js", "notfound.js"];
 
 // Things that exist without being declared in the file itself.
 const GLOBALS = new Set([
   "fetch", "setTimeout", "clearTimeout", "setInterval", "clearInterval", "requestAnimationFrame",
   "parseInt", "parseFloat", "isNaN", "isFinite", "encodeURIComponent", "decodeURIComponent",
   "String", "Number", "Boolean", "Array", "Object", "Set", "Map", "Date", "Math", "JSON",
-  "Promise", "Error", "RegExp", "URL", "URLSearchParams", "Blob", "AbortController", "Intl",
+  "Promise", "Error", "RegExp", "URL", "URLSearchParams", "Blob", "AbortController", "Intl", "FormData",
   "console", "alert", "confirm", "structuredClone", "queueMicrotask", "btoa", "atob",
   "matchMedia", "getComputedStyle", "scrollTo",
   // control flow and operators that look like calls to a naive regex

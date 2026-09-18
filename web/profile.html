@@ -47,6 +47,19 @@
         </nav>
       </header>
       <p class="tagline">handles across judges · one combined picture</p>
+      <section id="practice-levels" class="practice-levels" aria-labelledby="practice-levels-title">
+        <h2 id="practice-levels-title">Practice levels</h2>
+        <p>Choose what “my level” means in search. Automatic suggestions use each judge’s own profile stats; a custom choice takes priority. These are practice targets, not ratings.</p>
+        <form id="practice-levels-form">
+          <div id="practice-level-grid" class="practice-level-grid"></div>
+          <div class="practice-level-actions">
+            <button type="submit" id="practice-level-save" disabled>save levels</button>
+            <button type="button" class="lib-chip" id="practice-level-auto" disabled>use profile suggestions</button>
+            <a href="/">back to search ↗</a>
+          </div>
+          <p id="practice-level-status" role="status">Loading practice preferences…</p>
+        </form>
+      </section>
       <p id="profile-status" class="status">
         loading<span class="cursor">_</span>
       </p>
@@ -190,6 +203,7 @@
       codechef is best-effort ·
       <a href="/stats.html">stats</a> · <a href="/debug.html">debug</a>
     </footer>
+    <script src="/practice-levels.js"></script>
     <script src="/profile.js"></script>
   </body>
 </html>

@@ -129,7 +129,6 @@ let practiceMode = false;
 let contestView = false;
 let similarCorpusSize = 20000;
 let csesLevel = null;
-let csesLevelSaving = false;
 // Technique labels are the answer. Every forum agrees that reading "binary
 // search on the answer" before you attempt a problem is the spoiler, which is
 // why Codeforces ships "hide tags" as an account setting — so they are hidden
@@ -283,6 +282,7 @@ async function populateRankerSelect() {
     if (el) el.textContent = data.corpusSize.toLocaleString();
   }
   rankerSelect.value = activeRanker || data.default || "bm25";
+  syncFilterSummary();
   if (!rankerSelect.value) rankerSelect.value = data.default || "bm25";
   clearTimeout(rankerRefreshTimer);
   rankerRefreshTimer = data.initializing
@@ -423,7 +423,7 @@ function syncSheetChip() {
   const wrap = document.getElementById("lib-sheet");
   if (!wrap) return;
   const usable = typeof cosineSheets !== "undefined" && cosineSheets.available();
-  wrap.hidden = !usable;
+  wrap.hidden = !usable || !currentUser || !libraryCommand(currentQuery);
   if (!usable) return;
   const btn = document.getElementById("sheet-btn");
   const open = document.getElementById("sheet-open");
@@ -626,12 +626,15 @@ function setLibPath(path) {
     // The notes filter needs a sheet to know the answer from. Without one it
     // would silently mean "nothing", which is worse than not being offered.
     const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
-    for (const id of ["lib-notes", "lib-notes-label"]) {
+    for (const id of ["lib-notes", "lib-notes-label", "lib-notes-group"]) {
       const el = document.getElementById(id);
       if (el) el.hidden = !knowsNotes;
     }
     const notesSelect = document.getElementById("lib-notes");
     if (notesSelect) notesSelect.value = libNotes || "";
+    const sheet = document.getElementById("lib-sheet");
+    if (sheet) sheet.hidden = !/^~\/(bookmarked|done|all)\b/.test(path)
+      || typeof cosineSheets === "undefined" || !cosineSheets.available();
   }
   // Highlight the matching chip so the bar reads like a state indicator.
   libChips.forEach((c) => {
@@ -990,17 +993,6 @@ if (collectionPickerEl) {
   });
 }
 
-function syncCsesLevelControl() {
-  const row = document.getElementById('cses-level-row');
-  const select = document.getElementById('cses-level-select');
-  if (!row || !select) return;
-  row.hidden = !activePlatforms.has('cses');
-  select.value = csesLevel ? String(csesLevel) : '';
-  select.disabled = csesLevelSaving;
-  const note = document.getElementById('cses-level-note');
-  if (note) note.textContent = currentUser ? 'Your choice is saved to this account.' : 'Saved in this browser · CSES uses its own scale.';
-}
-
 function setCsesLevelSuggestion(band) {
   csesLevel = Number.isInteger(band) && band >= 1 && band <= 5 ? band : null;
   if (csesLevel) {
@@ -1027,42 +1019,9 @@ async function loadCsesLevel() {
     setCsesLevelSuggestion(band);
     return;
   }
-  try {
-    const res = await fetch('/api/preferences/cses-level');
-    if (!res.ok) return;
-    const data = await res.json();
-    if (currentUser && currentUser.id === userId) setCsesLevelSuggestion(data.band);
-  } catch (_err) {}
+  // Signed-in choices now arrive with /api/level. Keep the legacy anonymous
+  // choice readable, but edit account preferences only on Profile.
 }
-
-const csesLevelSelect = document.getElementById('cses-level-select');
-if (csesLevelSelect) csesLevelSelect.addEventListener('change', async () => {
-  const band = csesLevelSelect.value ? Number(csesLevelSelect.value) : null;
-  track("cses_level_set", band ? { band } : {});
-  if (!currentUser) {
-    try {
-      if (band) localStorage.setItem('cosine_cses_level_anon_v1', String(band));
-      else localStorage.removeItem('cosine_cses_level_anon_v1');
-      setCsesLevelSuggestion(band);
-      applyCsesLevelFilter(band);
-    } catch (_err) { setStatus('Could not save your CSES level in this browser.'); }
-    return;
-  }
-  const userId = currentUser.id;
-  csesLevelSaving = true;
-  syncCsesLevelControl();
-  try {
-    const res = await fetch('/api/preferences/cses-level', {
-      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ band }),
-    });
-    if (!res.ok) throw new Error(`save failed (${res.status})`);
-    if (currentUser && currentUser.id === userId) {
-      setCsesLevelSuggestion(band);
-      applyCsesLevelFilter(band);
-    }
-  } catch (err) { setStatus(`CSES level: ${err.message}`); }
-  finally { csesLevelSaving = false; syncCsesLevelControl(); }
-});
 
 // ── the labels switch ───────────────────────────────────────────────────────
 // Same storage shape as the CSES band: a column on the account when signed in,
@@ -1143,15 +1102,6 @@ if (labelsToggle) labelsToggle.addEventListener('click', () => {
   applyLabelVisibility();
 });
 
-// Choosing a CSES band is choosing a filter. This used to only make the
-// "my level" chip appear, which read as a control that did nothing. It goes
-// through the same token path the chip uses, so "my level ✓" agrees with it.
-function applyCsesLevelFilter(band) {
-  for (const id of [...activeTiers]) if (id.startsWith('cses-')) activeTiers.delete(id);
-  if (band) applyDifficultyToken(cosineDifficulty.tokens[band - 1]);
-  afterDifficultyChange();
-}
-
 // Judge chips. Multi-select on purpose: "codeforces + atcoder" is a real way
 // to think about practice, and the single-pick dropdown this replaced couldn't
 // express it. Lives here rather than in the library bar so anonymous users get
@@ -1186,8 +1136,7 @@ async function loadLevelSignals() {
     if (!res.ok) return;
     const data = await res.json();
     if (!currentUser || currentUser.id !== userId) return;
-    if (!data.suggest || !Object.keys(data.suggest).length) return;
-    levelSuggest = { ...data.suggest, ...(csesLevel && levelSuggest?.cses ? { cses: levelSuggest.cses } : {}) };
+    levelSuggest = data.suggest || {};
     levelSignalsUser = userId;
     syncDifficultyControls();
   } catch (_err) {
@@ -1274,7 +1223,6 @@ function levelIsApplied() {
 }
 
 function syncDifficultyControls() {
-  syncCsesLevelControl();
   if (!difficultyRow) return;
   const payloadLoaded =
     (difficultyPayload.named || []).length ||
@@ -1549,6 +1497,7 @@ function syncJudgeControls() {
   judgeRow.classList.toggle("all-on", unfiltered);
   judgeClearBtn.classList.toggle("hidden", unfiltered);
   syncDifficultyControls();
+  syncFilterSummary();
 }
 
 function applyMode() {
@@ -2205,6 +2154,7 @@ function clearPatternFilter({ reissue = true } = {}) {
 // Offset is deliberately absent — restoring page 5 would silently refetch
 // everything above it.
 function syncUrl({ push = false } = {}) {
+  syncFilterSummary();
   const p = new URLSearchParams();
   if (currentQuery) p.set("q", currentQuery);
   if (currentSimilar) {
@@ -2239,6 +2189,44 @@ function syncUrl({ push = false } = {}) {
     if (push) history.pushState({ cosine: 1 }, "", next);
     else history.replaceState(null, "", next);
   }
+}
+
+function syncFilterSummary() {
+  const el = document.getElementById("filter-summary");
+  if (!el) return;
+  const parts = activeFacets();
+  if (sortDir) parts.push(sortDir === "asc" ? "easiest first" : "hardest first");
+  if (libOldest) parts.push("oldest first");
+  el.textContent = parts.length ? parts.join(" · ") : "all judges · any difficulty";
+  el.title = el.textContent;
+}
+
+function resetToSearch() {
+  if (inFlight) inFlight.abort();
+  ++lastQueryAt;
+  clearTimeout(debounceTimer);
+  applyUrlState(new URLSearchParams());
+  activeRanker = "";
+  rankerSelect.value = "bm25";
+  rankerSelect.disabled = false;
+  compareMode = false;
+  compareEl.innerHTML = "";
+  applyMode();
+  sortWindow = 20;
+  bootNeedsAuth = false;
+  currentQuery = "";
+  currentTopScore = 0;
+  currentSearchId = null;
+  syncJudgeControls();
+  updatePatternPill();
+  renderCollectionControls();
+  closeCollectionPicker({ focus: false });
+  setLibPath("~");
+  dispatchUrlView();
+  syncUrl({ push: true });
+  const panel = document.getElementById("search-filters");
+  if (panel) panel.open = false;
+  input.focus();
 }
 
 function updatePatternPill() {
@@ -2435,9 +2423,9 @@ CORPUS
                apart; low, a computation had to settle it. That
                is agreement between reviews, not human
                calibration, and it converts to no Codeforces
-               rating. Choose "my CSES level" explicitly and it
-               filters at once; your account saves the choice,
-               or it stays in this browser while signed out.
+               rating. Set your starting CSES band in Profile
+               under Practice levels, then use "my level" here.
+               Your account remembers the choice.
 
   PYQs         add one or more competition collections. These
                combine with every other filter, and a card shows
@@ -2471,8 +2459,9 @@ CORPUS
                a tier — otherwise "easiest first" is 661
                Mediums in no particular order.
 
-  my level     appears when your profile has stats for a judge
-               you have selected, and sets that judge's band
+  my level     uses your saved choice in Profile → Practice
+               levels, or a suggestion from your judge stats.
+               It sets each selected judge's own band
                from its own scale: Codeforces and AtCoder from
                your rating (your rating to +200 — a problem at
                your rating is roughly a coin flip, so the band
@@ -2480,6 +2469,13 @@ CORPUS
                solved counts, since it publishes no rating.
                Hover it for the reasoning and the count; press
                it again to drop it.
+
+  reset to search
+               clears the query, all filters and sorting, and
+               returns to keyword search. Your saved levels,
+               notes, sheet connection and reading preferences
+               are kept. Filters can be expanded or collapsed;
+               their summary always shows the active selection.
 
   pattern      click a technique label inside a result
 
@@ -4254,6 +4250,13 @@ function dispatchUrlView() {
 }
 
 const bootParams = new URLSearchParams(location.search);
+document.getElementById("reset-search")?.addEventListener("click", resetToSearch);
+window.addEventListener("pageshow", event => {
+  if (event.persisted) {
+    levelSignalsUser = null;
+    loadLevelSignals();
+  }
+});
 const urlRanker = (bootParams.get("ranker") || "").trim().toLowerCase();
 if (/^[a-z0-9-]{1,24}$/.test(urlRanker)) activeRanker = urlRanker;
 populateRankerSelect();

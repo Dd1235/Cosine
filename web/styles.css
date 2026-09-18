@@ -1871,6 +1871,55 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   margin: 0.25rem 0;
 }
 
+/* Search workbench: navigation, filters, and library actions are separate. */
+.workbench-nav { display: grid; grid-template-columns: 1fr auto; gap: 0.65rem 1rem; align-items: center; margin: 0.85rem 0 0; }
+.workbench-nav .lib-prompt { display: none; }
+.workbench-nav .lib-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.workbench-nav .lib-chips-always { justify-content: flex-end; }
+.workbench-nav .lib-age-row { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: stretch; gap: 0.65rem; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--r-card); background: var(--surface); }
+.workbench-nav [hidden], .search-filters [hidden] { display: none !important; }
+.revision-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+.revision-group { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem; }
+.revision-group .lib-recall-label { margin-left: 0; }
+.library-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.65rem; border-top: 1px solid var(--border); }
+.control-caption { color: var(--text-dim); font-size: 0.73rem; margin-right: 0.35rem; }
+.library-toolbar .lib-sheet { margin-left: auto; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.search-toolbar { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.75rem; margin: 0.75rem 0 0.5rem; }
+.practice-settings-link, .filter-hint { font-size: 0.74rem; color: var(--text-muted); }
+.filter-hint { margin: 0.8rem 0 0; line-height: 1.6; }
+.filter-hint a { color: var(--accent); }
+.search-filters { border: 1px solid var(--border); border-radius: var(--r-card); background: var(--surface); }
+.search-filters > summary { cursor: pointer; padding: 0.75rem 0.85rem; font-size: 0.8rem; }
+.filter-summary { margin-left: 0.8rem; font-size: 0.73rem; color: var(--text-dim); overflow-wrap: anywhere; }
+.filter-panel { border-top: 1px solid var(--border); padding: 0.8rem; }
+.filter-panel .mode-row { margin: 0; }
+.filter-panel .judge-row { gap: 0.45rem; }
+.filter-panel .difficulty-row { display: grid; grid-template-columns: 1fr; gap: 0.7rem; margin-top: 0.8rem; }
+.filter-panel .difficulty-row.hidden { display: none; }
+.filter-panel .difficulty-group { flex-wrap: wrap; gap: 0.4rem; }
+.filter-panel .level-chip, .filter-panel #difficulty-clear { justify-self: start; }
+.practice-levels { border: 1px solid var(--border); border-radius: var(--r-card); padding: 1rem; margin: 1rem 0 1.5rem; scroll-margin-top: 1rem; }
+.practice-levels h2 { font-size: 1rem; margin: 0 0 0.45rem; }
+.practice-levels > p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; }
+.practice-level-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 0.75rem; }
+.practice-level-card { border: 1px solid var(--border); border-radius: var(--r-control); padding: 0.85rem; min-width: 0; }
+.practice-level-card h3 { margin: 0 0 0.55rem; font-size: 0.85rem; }
+.practice-level-card label { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.4rem; font-size: 0.75rem; }
+.practice-level-card p { font-size: 0.73rem; line-height: 1.5; color: var(--text-muted); }
+.practice-level-card a { font-size: 0.75rem; color: var(--accent); }
+.practice-level-card input, .practice-level-card select { max-width: 100%; padding: 0.35rem; border: 1px solid var(--border-strong); border-radius: var(--r-control); background: var(--surface); color: var(--text); font: inherit; }
+.practice-level-card input { width: 6rem; }
+.practice-level-card [hidden] { display: none !important; }
+.practice-level-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.8rem; }
+.practice-level-actions a { font-size: 0.75rem; color: var(--accent); }
+@media (max-width: 720px) {
+  .workbench-nav { grid-template-columns: 1fr; }
+  .workbench-nav .lib-chips-always { justify-content: flex-start; }
+  .filter-summary { display: block; margin: 0.4rem 0 0; }
+  .library-toolbar .lib-sheet { margin-left: 0; }
+  .practice-level-card input, .practice-level-card select { font-size: 16px; }
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Mobile. Everything below 720px, in one place.
 
@@ -2019,14 +2068,12 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 }
 
 /* Competition membership is a facet; resources remain separate from problems. */
-.collection-heading, .cses-level-row {
+.collection-heading {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
 }
-.cses-level-row { margin: 10px 0; font-size: .8rem; }
-.cses-level-row > label { flex-shrink: 0; }
 /* The chips are members of the judge row's flex line, not a box inside it —
    display:contents keeps them wrapping with the judge chips they sit beside. */
 .collection-chips { display: contents; }
@@ -2099,8 +2146,7 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .collection-resources summary { cursor: pointer; overflow-wrap: anywhere; }
 .collection-resources ul { margin: 6px 0; padding-left: 20px; }
 .collection-heading { justify-content: space-between; }
-.cses-level-row[hidden], .collection-resources[hidden] { display: none; }
-#cses-level-note { opacity: .7; font-size: .75rem; }
+.collection-resources[hidden] { display: none; }
 .cses-estimate { white-space: normal; }
 /* The band is an estimate; the border says how much the two reviews agreed —
    solid when both chose it, dashed when they were a band apart, dotted when a
@@ -2172,7 +2218,6 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .similar-explanation { opacity: .85; }
 .result-title[role="button"]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (max-width: 720px) {
-  .cses-level-row select { font-size: 16px; max-width: 100%; }
   .judge-chip.collection-chip { white-space: normal; text-align: left; }
   .collection-resources { overflow-wrap: anywhere; }
   /* No room to float a menu over a 350px column: it takes the next row of the

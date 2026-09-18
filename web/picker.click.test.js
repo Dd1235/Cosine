@@ -101,7 +101,7 @@ vm.runInContext(fns, ctx);
 
 const wiring = source.slice(
   source.indexOf("const collectionPickerEl = document.getElementById('collection-picker');"),
-  source.indexOf('function syncCsesLevelControl()')
+  source.indexOf('function setCsesLevelSuggestion(')
 );
 vm.runInContext(`const collectionAddBtn = document.getElementById('collection-add');\n${wiring}`, ctx);
 

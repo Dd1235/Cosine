@@ -290,7 +290,10 @@ function applyData(data, { fromCache = false } = {}) {
     ? `~/profile · ${data.combined.totalSolved} solved across judges · ${data.combined.algolensDone} done here`
     : "~/profile · add your handles to pull combined stats";
   setStatus(fromCache ? `${base} · cached, refreshing…` : base);
-  if (!fromCache) saveCache(data);
+  if (!fromCache) {
+    saveCache(data);
+    if (window.cosinePracticeLevels) window.cosinePracticeLevels.load();
+  }
 }
 
 async function fetchProfileJson(refresh) {

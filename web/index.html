@@ -99,7 +99,7 @@
         </span>
         <button type="submit">search</button>
       </form>
-      <div id="lib-bar" class="lib-bar">
+      <div id="lib-bar" class="lib-bar workbench-nav">
         <span class="lib-prompt"
           ><span class="lib-host">cosine</span
           ><span class="lib-path" id="lib-path">~</span
@@ -165,7 +165,9 @@
         <!-- The revision row: only meaningful inside a library view, so it
              renders only when the path leaves ~. "marked 3mo+ ago" is how you
              find the problems worth re-solving. -->
-        <span class="lib-age-row" id="lib-age-row" hidden>
+        <section class="lib-age-row" id="lib-age-row" aria-label="Library tools" hidden>
+          <div class="revision-controls">
+          <div class="revision-group">
           <span class="lib-age-label">marked:</span>
           <button
             type="button"
@@ -207,7 +209,9 @@
           >
             oldest first
           </button>
-          <span class="lib-age-label lib-recall-label">recall:</span>
+          </div>
+          <div class="revision-group">
+          <label for="lib-recall" class="lib-age-label lib-recall-label">recall:</label>
           <select
             class="filter-select lib-recall-select"
             id="lib-recall"
@@ -221,10 +225,12 @@
             <option value="easy">easy</option>
             <option value="none">unrated</option>
           </select>
+          </div>
+          <div class="revision-group" id="lib-notes-group" hidden>
           <!-- Notes live in the sheet and never reach the server, so this one
                filters client-side — and hides itself when there is no sheet to
                know the answer from. -->
-          <span class="lib-age-label lib-notes-label" id="lib-notes-label" hidden>notes:</span>
+          <label for="lib-notes" class="lib-age-label lib-notes-label" id="lib-notes-label" hidden>notes:</label>
           <select
             class="filter-select lib-recall-select"
             id="lib-notes"
@@ -236,6 +242,10 @@
             <option value="yes">written up</option>
             <option value="no">no note</option>
           </select>
+          </div>
+          </div>
+          <div class="library-toolbar">
+          <span class="control-caption">Your library</span>
           <button type="button" class="lib-chip lib-preset" id="lib-pick"
                   title="open one of these at random">pick one</button>
           <!-- Sheet sync lives with the library because that's what it mirrors.
@@ -255,11 +265,19 @@
               target="_blank"
               rel="noopener"
               hidden
-              >open ↗</a
+              >open sheet ↗</a
             >
           </span>
-        </span>
+          </div>
+        </section>
       </div>
+      <div class="search-toolbar">
+        <a href="/profile.html#practice-levels" class="practice-settings-link">practice levels ↗</a>
+        <button type="button" class="lib-chip reset-search" id="reset-search" title="Clear the query, filters and sorting; return to keyword search. Saved levels, notes and reading preferences are kept.">reset to search</button>
+      </div>
+      <details class="search-filters" id="search-filters">
+        <summary><span>Filters</span><span id="filter-summary" class="filter-summary">all judges · any difficulty</span></summary>
+        <div class="filter-panel">
       <div class="mode-row">
         <span
           class="judge-row"
@@ -336,16 +354,6 @@
         <span id="latency-summary" class="latency-summary"></span>
       </div>
       <div id="collection-resources" class="collection-resources" hidden></div>
-      <div id="cses-level-row" class="cses-level-row" hidden>
-        <label for="cses-level-select">my CSES level:</label>
-        <select id="cses-level-select" class="filter-select">
-          <option value="">choose your band</option>
-          <option value="1">Foundation</option><option value="2">Standard</option>
-          <option value="3">Intermediate</option><option value="4">Advanced</option>
-          <option value="5">Expert</option>
-        </select>
-        <span id="cses-level-note">CSES estimates use their own scale.</span>
-      </div>
       <!-- Difficulty is per-judge, so this row only appears once a judge is
            selected — there is no cross-judge scale to offer before then. -->
       <div
@@ -354,6 +362,9 @@
         role="group"
         aria-label="filter by difficulty"
       ></div>
+        <p class="filter-hint">“my level” uses your profile suggestion or saved choice. <a href="/profile.html#practice-levels">Set practice levels ↗</a></p>
+        </div>
+      </details>
       <p id="status" class="status"></p>
       <button
         id="pattern-pill"
