@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("../db");
 const { requireUser } = require("../auth/middleware");
-const { suggestLevel } = require("../search/level");
+const { validateLevels, practiceLevels } = require("../search/practice_levels");
 
 const PLATFORMS = ["leetcode", "codeforces", "codechef", "github", "atcoder"];
 // Each activity source belongs to a category; the client composes the
@@ -39,6 +39,24 @@ async function loadHandles(userId) {
 
 function createProfileRouter({ fetchStats = require("../profile").fetchPlatformStats, problems = [] } = {}) {
   const router = express.Router();
+
+  router.put("/preferences/practice-levels", requireUser, async (req, res) => {
+    const { levels, csesBand } = req.body || {};
+    if (!validateLevels(levels) || (csesBand !== null && (!Number.isInteger(csesBand) || csesBand < 1 || csesBand > 5))) {
+      return res.status(400).json({error: "bad_practice_levels"});
+    }
+    try {
+      await db.query(
+        `INSERT INTO user_preferences (user_id, practice_levels, cses_band) VALUES ($1, $2::jsonb, $3)
+         ON CONFLICT (user_id) DO UPDATE SET practice_levels = EXCLUDED.practice_levels,
+         cses_band = EXCLUDED.cses_band, updated_at = NOW()`,
+        [req.user.id, JSON.stringify(levels), csesBand]
+      );
+      res.set("Cache-Control", "no-store").json({levels, csesBand});
+    } catch (err) {
+      res.status(err.code === "42703" ? 503 : 500).json({error: err.code === "42703" ? "preferences_not_ready" : "db_error"});
+    }
+  });
 
   router.get("/preferences/cses-level", requireUser, async (req, res) => {
     try {
@@ -108,7 +126,12 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
     try {
       const [cached, preferences] = await Promise.all([
         db.query(`SELECT platform, payload, fetched_at FROM user_platform_stats WHERE user_id = $1`, [req.user.id]),
-        db.query("SELECT cses_band FROM user_preferences WHERE user_id = $1", [req.user.id]),
+        db.query("SELECT cses_band, practice_levels FROM user_preferences WHERE user_id = $1", [req.user.id])
+          .catch(async err => {
+            if (err.code !== "42703") throw err;
+            const legacy = await db.query("SELECT cses_band FROM user_preferences WHERE user_id = $1", [req.user.id]);
+            return {...legacy, preferencesReady: false};
+          }),
       ]);
       const signals = {};
       if (preferences.rows[0]?.cses_band != null) signals.cses = { band: preferences.rows[0].cses_band };
@@ -121,7 +144,10 @@ function createProfileRouter({ fetchStats = require("../profile").fetchPlatformS
         if (signal.rating !== undefined || signal.byDifficulty) signals[row.platform] = signal;
       }
       res.set("Cache-Control", "no-store");
-      res.json({ signals, suggest: suggestLevel(signals, problems) });
+      const levels = preferences.rows[0]?.practice_levels || {};
+      res.json({ signals, ...practiceLevels(signals, levels, problems), preferences: {
+        levels, csesBand: preferences.rows[0]?.cses_band ?? null,
+      }, preferencesReady: preferences.preferencesReady !== false });
     } catch (_err) {
       res.status(500).json({ error: "db_error" });
     }
