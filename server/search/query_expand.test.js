@@ -16,6 +16,16 @@ const { expandQuery } = require("./query_expand");
   assert.ok(r.query.includes("convex hull trick"));
 }
 
+// The corpus carries the concrete sequence-treap technique, not a generic
+// ordered-set bucket. Both forms people type must reach those problems.
+for (const q of ["treap", "treaps"]) {
+  const r = expandQuery(q);
+  assert.equal(r.expanded, true, `${q} should expand`);
+  assert.ok(r.query.includes("implicit"), `${q} should reach implicit-treap`);
+  assert.ok(r.query.includes("treap"), `${q} should retain the technique word`);
+  assert.ok(!r.query.includes("ordered set"), `${q} must not become generic ordered-set`);
+}
+
 // The exp-06 regression case: "sum over subsets" now reaches the sos-dp label.
 // "bitmask" contributes too — it became an alias of bit-manipulation once that
 // label was promoted out of the gaps report, so two aliases fire here.

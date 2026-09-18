@@ -44,7 +44,7 @@ async function loadPatterns() {
     const grid = document.createElement("div");
     grid.className = "chip-grid";
     const chips = [];
-    for (const { pattern, count } of patterns) {
+    for (const { pattern, count, aliases } of patterns) {
       const chip = document.createElement("a");
       chip.className = "pattern-chip" + (count === 0 ? " empty" : "");
       chip.href = `/?pattern=${encodeURIComponent(pattern)}`;
@@ -57,7 +57,7 @@ async function loadPatterns() {
       badge.textContent = String(count);
       chip.appendChild(badge);
       grid.appendChild(chip);
-      chips.push({ pattern, el: chip });
+      chips.push({ pattern, aliases: aliases || [], el: chip });
     }
     section.appendChild(grid);
     groupsEl.appendChild(section);
@@ -106,8 +106,9 @@ function applyFilter() {
   for (const { category, el, chips } of sections) {
     const catMatch = !!q && !group && normalize(category).includes(q);
     let visible = 0;
-    for (const { pattern, el: chip } of chips) {
-      const hit = !q || (group ? group.members.has(pattern) : catMatch || normalize(pattern).includes(q));
+    for (const { pattern, aliases, el: chip } of chips) {
+      const aliasMatch = (aliases || []).some((alias) => normalize(alias).includes(q));
+      const hit = !q || (group ? group.members.has(pattern) : catMatch || normalize(pattern).includes(q) || aliasMatch);
       chip.classList.toggle("hidden", !hit);
       if (hit) visible++;
     }
@@ -126,7 +127,9 @@ function applyFilter() {
 function literalHits(q) {
   for (const { category, chips } of sections) {
     if (normalize(category).includes(q)) return true;
-    for (const { pattern } of chips) if (normalize(pattern).includes(q)) return true;
+    for (const { pattern, aliases } of chips) {
+      if (normalize(pattern).includes(q) || (aliases || []).some((alias) => normalize(alias).includes(q))) return true;
+    }
   }
   return false;
 }

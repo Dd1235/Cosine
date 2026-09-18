@@ -84,6 +84,10 @@ function buildPatternsPayload(problems) {
   );
   const aliases = taxonomy.aliases || {};
   const counts = new Map(Object.keys(taxonomy.canonical).map((p) => [p, 0]));
+  const aliasesByPattern = new Map(Object.keys(taxonomy.canonical).map((p) => [p, []]));
+  for (const [alias, canonical] of Object.entries(aliases)) {
+    if (aliasesByPattern.has(canonical)) aliasesByPattern.get(canonical).push(alias);
+  }
   for (const problem of problems || []) {
     for (const label of problem.patterns || []) {
       const canonical = aliases[label] || label;
@@ -94,7 +98,11 @@ function buildPatternsPayload(problems) {
   for (const [pattern, meta] of Object.entries(taxonomy.canonical)) {
     const category = meta.category || "general";
     if (!byCategory.has(category)) byCategory.set(category, []);
-    byCategory.get(category).push({ pattern, count: counts.get(pattern) });
+    byCategory.get(category).push({
+      pattern,
+      count: counts.get(pattern),
+      aliases: aliasesByPattern.get(pattern) || [],
+    });
   }
   const categories = [...byCategory.entries()]
     .sort(([a], [b]) => a.localeCompare(b))
