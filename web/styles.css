@@ -1909,7 +1909,18 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
 .practice-level-card input { width: 6rem; }
 .practice-level-card [hidden] { display: none !important; }
 .practice-level-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.8rem; }
-.practice-level-actions a { font-size: 0.75rem; color: var(--accent); }
+.practice-level-actions > button, .practice-level-actions > a {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 2.15rem;
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.practice-level-actions > a { color: var(--accent); }
 @media (max-width: 720px) {
   .workbench-nav { grid-template-columns: 1fr; }
   .workbench-nav .lib-chips-always { justify-content: flex-start; }
