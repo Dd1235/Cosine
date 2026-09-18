@@ -82,6 +82,7 @@ let accessToken = null;      // memory only, ~1h lifetime
 let tokenExpiresAt = 0;
 let spreadsheetId = null;
 let rowByProblem = new Map(); // problem_id -> { rowIndex (1-based), note fields }
+let cachedUserColumns = null;
 let onStateChange = () => {};
 
 function sheetsInit({ clientId, userId, onChange }) {
@@ -101,6 +102,7 @@ function sheetsInit({ clientId, userId, onChange }) {
   sheetsUserId = userId || null;
   spreadsheetId = null;
   rowByProblem = new Map();
+  cachedUserColumns = null;
   sheetLayout = null;
   sheetValues = [];
   sheetTabId = null;
@@ -195,6 +197,7 @@ function sheetsClearLocal({ signOut = false } = {}) {
   accessToken = null;
   spreadsheetId = null;
   rowByProblem = new Map();
+  cachedUserColumns = null;
   sheetLayout = null;
   sheetValues = [];
   sheetTabId = null;
@@ -431,7 +434,7 @@ function remember() {
 function rememberRows() {
   try {
     localStorage.setItem(SHEET_ROWS_KEY,
-      JSON.stringify({ userId: sheetsUserId, rows: Object.fromEntries(rowByProblem) }));
+      JSON.stringify({ userId: sheetsUserId, rows: Object.fromEntries(rowByProblem), columns: sheetsUserColumns() }));
   } catch (_e) {}  // quota or private mode: the cache is an optimisation, not state
 }
 
@@ -440,6 +443,8 @@ function restoreRows() {
     const parsed = JSON.parse(localStorage.getItem(SHEET_ROWS_KEY) || "null");
     if (parsed && parsed.userId === sheetsUserId && parsed.rows) {
       rowByProblem = new Map(Object.entries(parsed.rows));
+      cachedUserColumns = Array.isArray(parsed.columns) ? parsed.columns.filter(c =>
+        c && typeof c.key === "string" && typeof c.label === "string" && c.key !== "rowIndex") : null;
     }
   } catch (_e) {}
 }
@@ -567,7 +572,17 @@ function readLayout(values) {
 // The columns you own, in the order they appear in your sheet — what the
 // expanded card renders.
 function sheetsUserColumns() {
-  if (!sheetLayout) return SHEET_USER_FIELDS.slice();
+  if (!sheetLayout) {
+    const cols = (cachedUserColumns || SHEET_USER_FIELDS).map(c => ({...c}));
+    // Older caches have values but no column metadata. Keep their content
+    // available until a sync can restore the original labels and order.
+    if (!cachedUserColumns) for (const row of rowByProblem.values()) for (const key of Object.keys(row)) {
+      if (key !== "rowIndex" && !cols.some(c => c.key === key)) cols.push({key, label: key});
+    }
+    if (!cols.some(c => c.key === NOTE_FIELD)) cols.unshift(SHEET_USER_FIELDS.find(c => c.key === NOTE_FIELD));
+    cachedUserColumns = cols;
+    return cols;
+  }
   const cols = [...sheetLayout.user.entries()]
     .sort((a, b) => a[1] - b[1])
     .map(([key]) => ({ key, label: sheetLayout.labels.get(key) || key }));
@@ -817,8 +832,8 @@ async function readSheet() {
   values.slice(1).forEach((row, i) => {
     const id = row[idCol];
     if (!id) return;
-    const entry = { rowIndex: i + 2 };
-    sheetLayout.user.forEach((col, key) => { entry[key] = row[col] || ""; });
+    const entry = Object.assign(Object.create(null), { rowIndex: i + 2 });
+    sheetLayout.user.forEach((col, key) => { entry[key] = row[col] ?? ""; });
     rowByProblem.set(id, entry);
   });
   return rowByProblem;
@@ -1014,6 +1029,18 @@ function sheetsNoteFor(problemId) {
   return { ...(row || {}), [NOTE_FIELD]: pendingNotes.get(problemId), pending: true };
 }
 
+function sheetsHasContent(problemId) {
+  return sheetsNoteFields(problemId).some(c => c.value.trim());
+}
+
+function sheetsNoteFields(problemId) {
+  const row = rowByProblem.get(problemId) || {};
+  return sheetsUserColumns().map(c => ({...c, value: String(
+    c.key === NOTE_FIELD && pendingNotes.has(problemId) ? pendingNotes.get(problemId)
+      : Object.hasOwn(row, c.key) ? row[c.key] ?? "" : ""
+  )}));
+}
+
 function sheetsUrl() {
   return spreadsheetId ? `https://docs.google.com/spreadsheets/d/${spreadsheetId}` : null;
 }
@@ -1029,6 +1056,9 @@ const cosineSheets = {
   sync: sheetsSync,
   noteFor: sheetsNoteFor,
   noteText: sheetsNoteText,
+  hasContent: sheetsHasContent,
+  noteFields: sheetsNoteFields,
+  hasPendingNote: problemId => pendingNotes.has(problemId),
   saveNote: sheetsSaveNote,
   pendingCount: sheetsPendingCount,
   NOTE_FIELD,

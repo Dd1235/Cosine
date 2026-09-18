@@ -25,6 +25,7 @@ async function main() {
   }});
   w.eval(fs.readFileSync(`${__dirname}/difficulty.js`, "utf8"));
   w.eval(fs.readFileSync(`${__dirname}/sheets.js`, "utf8") + "\nwindow.cosineSheets = cosineSheets;");
+  w.eval(fs.readFileSync(`${__dirname}/notes-export.js`, "utf8"));
   w.eval(source + `\nwindow.workbenchState = () => ({
     query: currentQuery, platforms: [...activePlatforms], tiers: [...activeTiers], ranges: [...activeRanges],
     collections: [...activeCollections], acceptance: activeAcceptance, pattern: activePattern, ranker: activeRanker,
@@ -99,6 +100,7 @@ async function main() {
     assert.equal(doc.getElementById("search-filters").open, true);
     assert.equal(doc.getElementById("ranker-select").value, "dense");
     assert.equal(doc.getElementById("filter-summary").textContent, "all judges · any difficulty");
+    assert.equal(doc.getElementById("notes-export").hidden, false, "the current view can be exported");
   }
   dom.window.close();
   console.log("workbench full-bundle DOM tests passed (visibility, reset, defaults, account preservation)");

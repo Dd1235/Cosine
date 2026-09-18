@@ -72,7 +72,7 @@ function harness({ empty = false } = {}) {
     libraryCommand: q => q === ':bookmarks' ? { type: 'bookmarked' } : null,
     difficultyParam: () => 'cf:1200-1800', activeFacets: () => [], orderNote: () => '',
     cosineDifficulty: difficulty, URLSearchParams, AbortController,
-    cosineSheets: { connected: () => true, noteText: id => id === 'p1' ? 'private note' : '' },
+    cosineSheets: { connected: () => true, hasContent: id => id === 'p1', noteText: id => id === 'p1' ? 'private note' : '' },
     renderHitsList: (_el, hits, opts) => rendered.push({ hits, opts }),
     fetch: async url => {
       requests.push(new URL(url, 'http://local'));

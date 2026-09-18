@@ -24,7 +24,7 @@
     "test:search": "node server/search/tfidf.test.js && node server/search/bm25.test.js && node server/search/dense.test.js && node server/search/hybrid.test.js && node server/search/query_expand.test.js && node server/search/level.test.js && node server/search/spellfix.test.js && node server/routes/search.test.js && node server/routes/library.test.js && node web/app.smoke.test.js && node web/help.test.js && node web/sheets.test.js && node web/notes.test.js && node web/notfound.test.js && node server/search/plurals.test.js && node web/library.test.js && node server/search/wordlike.test.js && node web/sheet-sync.test.js && node server/search/embedding.recipe.test.js && node server/search/cses.test.js && node server/search/dense.cache.test.js && node server/routes/preferences.test.js && node server/routes/collections.test.js && node server/routes/health.test.js && node web/practice.test.js && node web/collections.ui.test.js && node web/urlstate.test.js && node web/picker.click.test.js && node web/labels.test.js && node web/contest.test.js && node bench/similarity/evaluate.test.js && node web/difficulty.test.js",
     "test:profile": "node server/profile/profile.test.js && node server/profile/deadline.test.js && node server/crypto/secrets.test.js",
     "test:db": "node server/db.test.js",
-    "test:notes": "node web/notes.test.js && node web/notes.editor.test.js",
+    "test:notes": "node web/notes.test.js && node web/notes.editor.test.js && node web/notes-export.test.js",
     "test:workbench": "node web/workbench.test.js && node web/practice-levels.test.js && node server/routes/practice_levels.test.js && node server/routes/profile.cache.test.js",
     "db:migrate": "bash db/run-migrations.sh",
     "services:start": "docker compose up -d",

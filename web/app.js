@@ -364,6 +364,7 @@ input.addEventListener("keydown", (e) => {
 });
 
 logoutBtn.addEventListener("click", async () => {
+  globalThis.cosineNotesExport?.invalidate();
   try { await fetch("/api/auth/logout", { method: "POST" }); } catch (_e) {}
   // The profile page caches its whole response — handles included — under this
   // key so revisits paint instantly. It used to be cleared only when
@@ -623,9 +624,8 @@ function setLibPath(path) {
     if (oldest) oldest.classList.toggle("is-active", libOldest);
     const recallSelect = document.getElementById("lib-recall");
     if (recallSelect) recallSelect.value = libRecall || "";
-    // The notes filter needs a sheet to know the answer from. Without one it
-    // would silently mean "nothing", which is worse than not being offered.
-    const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
+    // Local notes also work before a Google Sheet is connected.
+    const knowsNotes = typeof cosineSheets !== "undefined";
     for (const id of ["lib-notes", "lib-notes-label", "lib-notes-group"]) {
       const el = document.getElementById(id);
       if (el) el.hidden = !knowsNotes;
@@ -1519,6 +1519,7 @@ function applyMode() {
 }
 
 async function runSearch(rawQuery, { append = false } = {}) {
+  globalThis.cosineNotesExport?.invalidate();
   contestView = false;
   const q = rawQuery.trim();
   if (currentSimilar && !q) return runSimilar(currentSimilar, { append });
@@ -1690,6 +1691,8 @@ async function runSearch(rawQuery, { append = false } = {}) {
     currentRankerAnswered = data.ranker || "";
   }
   renderSingle(data, q, append);
+  globalThis.cosineNotesExport?.setSource({url, hits: data.hits || [], total: currentTotal,
+    complete: !!data.sortWindow, userId: currentUser?.id, context: sortDir ? `Top ${sortWindow} results, ${sortDir === "asc" ? "easiest" : "hardest"} first` : "Search results"});
   // A sorted search is one fixed window of the best matches, not page 1 of
   // many — there is no coherent next page to offer.
   if (data.sortWindow) hideLoadMore();
@@ -1776,6 +1779,7 @@ function renderSingle(data, q, append) {
 // search — only the ranking is absent, so results come back in corpus order
 // and the status line says "browsing" rather than quoting a query nobody typed.
 async function runBrowse({ append = false } = {}) {
+  globalThis.cosineNotesExport?.invalidate();
   contestView = false;
   const issuedAt = ++lastQueryAt;
   hideFeedback();
@@ -1810,6 +1814,7 @@ async function runBrowse({ append = false } = {}) {
   currentTotal = data.total || 0;
   if (!append) currentTopScore = 0;
   const hits = data.hits || [];
+  globalThis.cosineNotesExport?.setSource({url, hits, total: currentTotal, userId: currentUser?.id, context: "Browse results"});
   if (!hits.length) {
     // Three collections are resource-only shells by design — an archive page
     // and a scoreboard, no indexed problems. "nothing matches" reads like a
@@ -1832,6 +1837,7 @@ async function runBrowse({ append = false } = {}) {
 }
 
 async function runLibrary(type, q) {
+  globalThis.cosineNotesExport?.invalidate();
   const issuedAt = ++lastQueryAt;
   currentSearchId = null;
   currentRankerAnswered = "";
@@ -1873,15 +1879,16 @@ async function runLibrary(type, q) {
     matchedTerms: [],
     markedAt: it.markedAt,
   }));
+  globalThis.cosineNotesExport?.setSource({hits: all, complete: true, notesFilter: libNotes,
+    userId: currentUser?.id, context: `${type === "all" ? "Library" : type}${q ? ` matching ${q}` : ""} · ${activeFacets().join(" · ")}${orderNote()}`});
 
   // The notes filter runs HERE, not on the server, because the server has
-  // never seen a note and this design is the reason. `noteText` already merges
-  // the sheet's cached rows with anything typed here and not yet synced, so a
-  // note written thirty seconds ago counts.
-  const knowsNotes = typeof cosineSheets !== "undefined" && cosineSheets.connected();
+  // never seen a note. Include local edits and custom sheet cells, so an entry
+  // with just a proof or a counterexample column still counts as written up.
+  const knowsNotes = typeof cosineSheets !== "undefined";
   const hits = (libNotes && knowsNotes)
     ? all.filter((h) => {
-        const has = !!cosineSheets.noteText(h.problem.id).trim();
+        const has = cosineSheets.hasContent(h.problem.id);
         return libNotes === "yes" ? has : !has;
       })
     : all;
@@ -1924,6 +1931,7 @@ async function runLibrary(type, q) {
 
 // Similarity is its own addressable view. Facets apply before pagination.
 async function runSimilar(problem, { append = false, practice = false } = {}) {
+  globalThis.cosineNotesExport?.invalidate();
   contestView = false;
   const entering = !currentSimilar || currentSimilar.id !== problem.id;
   if (entering) {
@@ -1959,7 +1967,7 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
   const sourceTitle = problem.title || problem.id;
   if (currentUser) setLibPath(`~/similar/${problem.id}`);
   setStatus(`finding related practice for "${sourceTitle}"`);
-  const notesActive = libNotes && typeof cosineSheets !== 'undefined' && cosineSheets.connected();
+  const notesActive = libNotes && typeof cosineSheets !== 'undefined';
   const pageSize = sortDir ? sortWindow : TOP_K;
   const params = new URLSearchParams({ k: String(notesActive ? similarCorpusSize : pageSize), offset: String(notesActive || sortDir ? 0 : currentOffset) });
   if (practiceMode) params.set('practice', '1');
@@ -1986,9 +1994,13 @@ async function runSimilar(problem, { append = false, practice = false } = {}) {
     if (data.source) currentSimilar = data.source;
     let hits = data.hits || [];
     currentTotal = data.total || hits.length;
+    globalThis.cosineNotesExport?.setSource({url: `/api/similar/${encodeURIComponent(problem.id)}?${params}`, hits,
+      total: currentTotal, complete: !!notesActive || !!data.sortWindow, notesFilter: libNotes,
+      clientSort: notesActive && sortDir ? {direction: sortDir, limit: sortWindow} : null,
+      userId: currentUser?.id, context: `Related to ${sourceTitle}${sortDir ? ` · top ${sortWindow}, ${sortDir === "asc" ? "easiest" : "hardest"} first` : ""}`});
     if (notesActive) {
       hits = hits.filter(h => {
-        const has = !!cosineSheets.noteText(h.problem.id).trim();
+        const has = cosineSheets.hasContent(h.problem.id);
         return libNotes === 'yes' ? has : !has;
       });
       currentTotal = hits.length;
@@ -2580,9 +2592,20 @@ CORPUS
     ":bookmarks" with "not done" is everything you saved and
     never solved.
 
-    Your sheet already has columns for status, time taken,
-    concept, tactics, solution summary and notes — and you
-    never type a row into it by hand. See ":help sheet".`,
+    Add your own columns for proof, time taken or pitfalls.
+    Their values appear in the app after syncing the sheet.
+
+  "export notes" above results saves this filtered view in
+  its current order. HTML includes formatted notes and math;
+  "PDF / print" opens a preview with Save as PDF in the print
+  dialog. Markdown keeps the editable source and LaTeX.
+
+  All matching results are included, beyond the visible page.
+  Sorted searches keep their chosen top-results window.
+  Empty entries are skipped unless you choose to include them;
+  a filled custom column counts even without a main note.
+  Local saved edits are included. Sync first for recent edits
+  made directly in your sheet.`,
   },
   {
     name: "sheet",
@@ -2779,6 +2802,7 @@ function hideLoadMore() {
 }
 
 async function runCompare(q) {
+  globalThis.cosineNotesExport?.invalidate();
   const issuedAt = ++lastQueryAt;
   hideFeedback();
   if (currentUser) setLibPath(`~/compare "${q.length > 24 ? q.slice(0, 24) + "…" : q}"`);
@@ -3423,6 +3447,7 @@ async function contestDoneIds() {
 }
 
 async function runContest(collectionId) {
+  globalThis.cosineNotesExport?.invalidate();
   // A ?view=contest link dispatches at boot, before /api/collections answers,
   // and this view is built out of the registry rather than out of the hits —
   // so it waits for the registry instead of falling back to a browse.
@@ -3471,6 +3496,8 @@ async function runContest(collectionId) {
   const doneIds = await contestDoneIds();
   if (issuedAt !== lastQueryAt) return;
   renderContestList(collection, hits, collection.members || [], doneIds);
+  globalThis.cosineNotesExport?.setSource({complete: true, userId: currentUser?.id, context: collection.name,
+    hits: contestRows(collection.members || [], hits).map(row => row.hit || {problem: row.member})});
   setStatus(`${collection.name} · contest view`);
 }
 
@@ -3522,7 +3549,7 @@ function buildActions(hit, libraryMode) {
 function buildNoteButton(hit) {
   const btn = document.createElement("button");
   btn.type = "button";
-  const has = typeof cosineSheets !== "undefined" && cosineSheets.noteText(hit.problem.id).trim();
+  const has = typeof cosineSheets !== "undefined" && cosineSheets.hasContent(hit.problem.id);
   btn.className = `result-action note-btn${has ? " has-note" : ""}`;
   btn.textContent = "✎";
   btn.title = has ? "edit your note" : "add a note";
@@ -3541,7 +3568,7 @@ function refreshNoteOnCard(problemId) {
   if (!li) return;
   const btn = li.querySelector(".note-btn");
   if (btn) {
-    const has = cosineSheets.noteText(problemId).trim();
+    const has = cosineSheets.hasContent(problemId);
     btn.classList.toggle("has-note", !!has);
     btn.title = has ? "edit your note" : "add a note";
   }
@@ -3971,7 +3998,7 @@ function buildNoteView(problemId) {
   if (!note) return null;
   // Whatever columns YOUR sheet has, in your order — not a fixed list of six.
   // Add a column called "revision date" and it shows up here.
-  const filled = cosineSheets.userColumns().filter((fld) => (note[fld.key] || "").trim());
+  const filled = cosineSheets.noteFields(problemId).filter(fld => fld.value.trim());
   if (!filled.length) return null;
 
   const wrap = document.createElement("div");
@@ -3983,15 +4010,15 @@ function buildNoteView(problemId) {
     cap.className = "note-label";
     cap.textContent = fld.label;
     const val = fld.key === cosineSheets.NOTE_FIELD
-      ? renderNoteMarkdown(note[fld.key])
+      ? renderNoteMarkdown(fld.value)
       : document.createElement("span");
     val.className = "note-value";
-    if (!val.childNodes.length) val.textContent = note[fld.key];
+    if (!val.childNodes.length) val.textContent = fld.value;
     row.appendChild(cap);
     row.appendChild(val);
     wrap.appendChild(row);
   }
-  if (note.pending) {
+  if (cosineSheets.hasPendingNote(problemId)) {
     const flag = document.createElement("span");
     flag.className = "note-pending";
     flag.textContent = "not in your sheet yet";
@@ -4012,9 +4039,9 @@ function buildNoteView(problemId) {
 // rather than innerHTML — the text came from a spreadsheet cell anyone could
 // have typed anything into, and building elements means there is no string
 // for a `<script>` to arrive in.
-function renderNoteMarkdown(text) {
+function renderNoteMarkdown(text, mathRenderer) {
   const wrap = document.createElement("span");
-  const lines = String(text || "").split("\n");
+  const lines = String(text ?? "").split("\n");
   let i = 0;
   let list = null;
   let listKind = null;
@@ -4027,7 +4054,7 @@ function renderNoteMarkdown(text) {
       i++;
       while (i < lines.length && lines[i].trim() !== "$$") body.push(lines[i++]);
       i++;
-      wrap.appendChild(renderNoteMath(body.join("\n"), true));
+      wrap.appendChild((mathRenderer || renderNoteMath)(body.join("\n"), true));
       continue;
     }
     if (line.trim().startsWith("```")) {
@@ -4055,7 +4082,7 @@ function renderNoteMarkdown(text) {
         listKind = kind;
       }
       const li = document.createElement("li");
-      inlineNoteMarkdown(line.replace(numbered ? /^\s*\d+[.)]\s+/ : /^\s*[-*]\s+/, ""), li);
+      inlineNoteMarkdown(line.replace(numbered ? /^\s*\d+[.)]\s+/ : /^\s*[-*]\s+/, ""), li, mathRenderer);
       list.appendChild(li);
       i++;
       continue;
@@ -4064,7 +4091,7 @@ function renderNoteMarkdown(text) {
     if (/^\s*#{1,6}\s+/.test(line)) {
       const h = document.createElement("strong");
       h.className = "note-heading";
-      inlineNoteMarkdown(line.replace(/^\s*#{1,6}\s+/, ""), h);
+      inlineNoteMarkdown(line.replace(/^\s*#{1,6}\s+/, ""), h, mathRenderer);
       wrap.appendChild(h);
       i++;
       continue;
@@ -4072,7 +4099,7 @@ function renderNoteMarkdown(text) {
     if (line.trim()) {
       const p = document.createElement("span");
       p.className = "note-para";
-      inlineNoteMarkdown(line, p);
+      inlineNoteMarkdown(line, p, mathRenderer);
       wrap.appendChild(p);
     }
     i++;
@@ -4082,14 +4109,14 @@ function renderNoteMarkdown(text) {
 
 // `code`, **bold** and *italic*, one pass, longest marker first so ** never
 // matches as two single asterisks.
-function inlineNoteMarkdown(text, into) {
+function inlineNoteMarkdown(text, into, mathRenderer) {
   const re = /`([^`]+)`|\$\$([^$\n]+)\$\$|\$([^$\n]+)\$|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
   let last = 0;
   let m;
   while ((m = re.exec(text))) {
     if (m.index > last) into.appendChild(document.createTextNode(text.slice(last, m.index)));
     const el = m[2] || m[3]
-      ? renderNoteMath(m[2] || m[3], Boolean(m[2]))
+      ? (mathRenderer || renderNoteMath)(m[2] || m[3], Boolean(m[2]))
       : document.createElement(m[1] ? "code" : m[4] ? "strong" : "em");
     if (!m[2] && !m[3]) el.textContent = m[1] || m[4] || m[5];
     into.appendChild(el);
@@ -4259,6 +4286,7 @@ function applyUrlState(params) {
 // Which view the parsed state describes. Separate from applyUrlState because
 // popstate needs the controls repainted between the two.
 function dispatchUrlView() {
+  globalThis.cosineNotesExport?.invalidate();
   const q = input.value.trim();
   if (contestView && activeCollections.size === 1) {
     input.value = "";

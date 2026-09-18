@@ -1921,6 +1921,11 @@ html[data-theme="light"] .note-dialog::backdrop { background: rgba(20, 30, 25, 0
   letter-spacing: 0.02em;
 }
 .practice-level-actions > a { color: var(--accent); }
+.notes-export { margin: 0.75rem 0; font-size: 0.74rem; color: var(--text-muted); }
+.notes-export > summary { cursor: pointer; width: fit-content; color: var(--accent); }
+.export-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; margin-top: 0.65rem; }
+.export-actions label { display: inline-flex; align-items: center; gap: 0.35rem; }
+.notes-export p { line-height: 1.5; margin: 0.5rem 0; }
 @media (max-width: 720px) {
   .workbench-nav { grid-template-columns: 1fr; }
   .workbench-nav .lib-chips-always { justify-content: flex-start; }
