@@ -8,7 +8,7 @@ function pickRanker(indexes, defaultRanker, req) {
   return defaultRanker;
 }
 
-function createDebugRouter({ problems, indexes, defaultRanker }) {
+function createDebugRouter({ problems, indexes, defaultRanker, rankerState = {} }) {
   const router = express.Router();
 
   router.get("/problems", (req, res) => {
@@ -24,6 +24,7 @@ function createDebugRouter({ problems, indexes, defaultRanker }) {
     res.json({
       available: Object.keys(indexes),
       default: defaultRanker,
+      initializing: Boolean(rankerState.initializing),
       corpusSize: problems.length,
       difficulty: buildDifficultyPayload(problems),
       // A web OAuth client ID is public by design — it names the app, it

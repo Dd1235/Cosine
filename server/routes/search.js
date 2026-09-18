@@ -130,7 +130,7 @@ function createSearchRouter({ indexes, defaultRanker, problems, collectionRegist
   const router = express.Router();
   const patternsPayload = buildPatternsPayload(problems);
   const collections = createCollections(problems, collectionRegistry);
-  const similarIndex = new SimilarIndex(problems, indexes.dense);
+  const similarIndex = new SimilarIndex(problems, () => indexes.dense);
   router.get("/collections", (_req,res) => res.json(collections.payload()));
   // "Everything you have" is exactly the corpus — asking for more just made the
   // gRPC leg serialize a nonsense k over the wire.

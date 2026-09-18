@@ -238,6 +238,7 @@ const RANKER_LABELS_SHORT = {
 const NARROW = typeof matchMedia === "function" ? matchMedia("(max-width: 720px)") : null;
 const rankerLabel = (name) =>
   (NARROW && NARROW.matches ? RANKER_LABELS_SHORT[name] : RANKER_LABELS[name]) || name;
+let rankerRefreshTimer = null;
 
 // hybrid is no longer registered server-side; the label stays in RANKER_LABELS
 // so an old ?ranker=hybrid link still renders a sensible status line.
@@ -283,6 +284,10 @@ async function populateRankerSelect() {
   }
   rankerSelect.value = activeRanker || data.default || "bm25";
   if (!rankerSelect.value) rankerSelect.value = data.default || "bm25";
+  clearTimeout(rankerRefreshTimer);
+  rankerRefreshTimer = data.initializing
+    ? setTimeout(populateRankerSelect, 1000)
+    : null;
 }
 
 rankerSelect.addEventListener("change", () => {

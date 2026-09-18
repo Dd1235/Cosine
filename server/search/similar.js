@@ -27,7 +27,11 @@ class SimilarIndex {
     const source = this.problems.find(p => p.id === id);
     if (!source) return null;
     const a = this.labels.get(id);
-    const denseResult = this.dense?.similar(id, this.problems.length);
+    // The web server starts with lexical search and registers the ONNX ranker
+    // in the background. Accepting a getter lets related-practice switch to
+    // dense as soon as it is ready without rebuilding this router.
+    const dense = typeof this.dense === 'function' ? this.dense() : this.dense;
+    const denseResult = dense?.similar(id, this.problems.length);
     const scores = new Map((denseResult?.hits || []).map(h => [h.problem.id, h.score]));
     const weight = denseResult ? this.weight : 1;
     const candidates = denseResult && weight === 0 ? denseResult.hits.map(h => h.problem) : this.problems.filter(p => p.id !== id);

@@ -30,5 +30,16 @@ const { createHealthRouter } = require("./health");
   assert.ok(mount > -1 && cookie > -1 && visit > -1, "expected all three in server/index.js");
   assert.ok(mount < cookie, "/healthz must be mounted before cookieParser");
   assert.ok(mount < visit, "/healthz must be mounted before the visit logger");
+  // Cold starts used to wait for ONNX model creation and warm-up before the
+  // socket existed. The production default is lexical, so the listener must
+  // be live before optional dense initialization begins.
+  const listen = src.indexOf("app.listen(PORT");
+  const afterListen = src.slice(listen);
+  assert.ok(listen > -1, "expected the HTTP listener in server/index.js");
+  assert.ok(afterListen.includes("setTimeout(async () =>"), "optional rankers should be deferred");
+  assert.ok(
+    afterListen.indexOf("registerDense(indexes, problems)") > afterListen.indexOf("setTimeout(async () =>"),
+    "dense initialization must run after listen() on the bm25 default path"
+  );
   console.log("health endpoint tests passed (cookie-free, uncached, mounted first)");
 })().catch((err) => { console.error(err); process.exitCode = 1; });

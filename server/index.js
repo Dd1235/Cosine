@@ -25,6 +25,29 @@ const secrets = require("./crypto/secrets");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+async function registerGrpc(indexes, address) {
+  if (!address || indexes["bm25-grpc"]) return;
+  const reachable = await probe(address);
+  if (reachable) {
+    indexes["bm25-grpc"] = new GrpcSearchIndex({ address, name: "bm25-grpc" });
+    console.log(`gRPC bm25-grpc ranker reachable at ${address} — registered`);
+  } else {
+    console.warn(`gRPC bm25-grpc at ${address} unreachable — skipping registration. Start the Go service (go/algolens_server) and restart Node, or omit GRPC_BM25_ADDR to silence this.`);
+  }
+}
+
+async function registerDense(indexes, problems) {
+  if (process.env.DENSE_DISABLED === "1" || indexes.dense) return;
+  const dense = await tryCreateDenseIndex(problems);
+  if (!dense) return;
+  indexes.dense = dense;
+  // Hybrid is no longer served. The class remains tested and available to the
+  // benchmark, but its non-zero answer to nonsense queries made it a poor UI.
+  void HybridIndex;
+  const s = dense.stats();
+  console.log(`dense ranker ready (${s.model}, ${s.dims}d, ${s.dtype}, ${s.count} vectors) — registered dense`);
+}
+
 async function main() {
   // Die here, not on the first user who saves a handle. Without the key the
   // profile route would happily write plaintext handles and nobody would find
@@ -37,46 +60,22 @@ async function main() {
     bm25: new Bm25Index(problems),
   };
 
-  const grpcAddr = process.env.GRPC_BM25_ADDR;
-  if (grpcAddr) {
-    const reachable = await probe(grpcAddr);
-    if (reachable) {
-      indexes["bm25-grpc"] = new GrpcSearchIndex({ address: grpcAddr, name: "bm25-grpc" });
-      console.log(`gRPC bm25-grpc ranker reachable at ${grpcAddr} — registered`);
-    } else {
-      console.warn(`gRPC bm25-grpc at ${grpcAddr} unreachable on boot — skipping registration. Start the Go service (go/algolens_server) and restart Node, or omit GRPC_BM25_ADDR to silence this.`);
-    }
-  }
-
-  // Dense + hybrid register only when the committed embeddings artifact is
-  // present and fresh and the ONNX model loads — same graceful-degradation
-  // pattern as the gRPC ranker. (RANKER=dense|hybrid without the artifact
-  // falls back to bm25 via the unknown-RANKER warning below.)
-  if (process.env.DENSE_DISABLED !== "1") {
-    const dense = await tryCreateDenseIndex(problems);
-    if (dense) {
-      indexes.dense = dense;
-      // Hybrid is no longer served. Users found it confusing for a reason that
-      // is inherent, not a bug: its dense leg gives every document some cosine
-      // similarity, so a nonsense query still came back with 100 confident
-      // results. Its click-through was also the worst of the three (0.02
-      // against bm25's 0.10 and dense's 0.12).
-      //
-      // The class is deliberately still here and still tested — bench/run.js
-      // builds its own, and routes/search.test.js uses it for the regression
-      // test on the fused-set pagination bug. This is a serving decision.
-      void HybridIndex;
-      const s = dense.stats();
-      console.log(`dense ranker ready (${s.model}, ${s.dims}d, ${s.dtype}, ${s.count} vectors) — registered dense`);
-    }
-  }
-
   const defaultRanker = (process.env.RANKER || "bm25").toLowerCase();
+  const grpcAddr = process.env.GRPC_BM25_ADDR;
+  // An explicitly selected optional default must be ready before routes are
+  // built; the production/default bm25 path does not pay this cost.
+  if (defaultRanker === "bm25-grpc") await registerGrpc(indexes, grpcAddr);
+  if (defaultRanker === "dense") await registerDense(indexes, problems);
   if (!indexes[defaultRanker]) {
     console.warn(`unknown RANKER='${defaultRanker}', falling back to bm25`);
   }
   const activeDefault = indexes[defaultRanker] ? defaultRanker : "bm25";
-  console.log(`Loaded ${problems.length} problems; rankers: ${Object.keys(indexes).join(", ")}; default: ${activeDefault}`);
+  const rankerState = {
+    initializing:
+      (Boolean(grpcAddr) && !indexes["bm25-grpc"]) ||
+      (process.env.DENSE_DISABLED !== "1" && !indexes.dense),
+  };
+  console.log(`Loaded ${problems.length} problems; base rankers: ${Object.keys(indexes).join(", ")}; default: ${activeDefault}`);
 
   const webDir = path.join(__dirname, "..", "web");
   // Render terminates TLS at its proxy; trust it so req.hostname/req.protocol
@@ -130,7 +129,7 @@ async function main() {
   app.use("/api", createStatsRouter());
   app.use("/api", createTrackRouter());
   app.use("/api", createSearchRouter({ indexes, defaultRanker: activeDefault, problems }));
-  app.use("/api", createDebugRouter({ problems, indexes, defaultRanker: activeDefault }));
+  app.use("/api", createDebugRouter({ problems, indexes, defaultRanker: activeDefault, rankerState }));
 
   // Nothing matched. Until now that fell off the end of the stack and Express
   // answered "Cannot GET /prfoile.html" in Times New Roman — no way back to the
@@ -158,6 +157,26 @@ async function main() {
     logEvent("boot", {
       props: { bootMs: Date.now() - BOOT_START, rankers: Object.keys(indexes), problems: problems.length },
     });
+    // Render can route the first request as soon as listen() succeeds. The
+    // keyword index is already ready, so do not make that request wait for an
+    // ONNX session warm-up (or an optional gRPC probe). A short grace period
+    // lets the HTML and its first API calls land before model initialization
+    // competes for CPU on a small free-tier instance.
+    if (rankerState.initializing) {
+      setTimeout(async () => {
+        try {
+          await Promise.all([
+            registerGrpc(indexes, grpcAddr),
+            registerDense(indexes, problems),
+          ]);
+        } catch (err) {
+          console.warn(`Optional ranker initialization failed: ${err.message || err}`);
+        } finally {
+          rankerState.initializing = false;
+          console.log(`Optional rankers settled: ${Object.keys(indexes).join(", ")}`);
+        }
+      }, 250);
+    }
   });
 }
 
