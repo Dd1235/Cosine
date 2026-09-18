@@ -3694,6 +3694,7 @@ function reissueSearch() {
 // you can read in Sheets as easily as here — no HTML, no rich-text runs, and
 // nothing that arrives in the cell as a tag soup.
 let noteTarget = null;   // { problemId, title }
+let noteScroll = { write: { top: 0, left: 0 }, preview: { top: 0, left: 0 } };
 
 const CP_NOTE_TEMPLATE = `## Idea
 - key insight
@@ -3734,6 +3735,11 @@ function setNoteMode(mode) {
   const preview = document.getElementById("note-preview");
   const tools = document.getElementById("note-tools");
   if (!text || !preview || !tools) return;
+  const dialog = noteDialog();
+  const dialogTop = dialog?.scrollTop || 0;
+  const previous = text.hidden ? "preview" : "write";
+  const previousEl = text.hidden ? preview : text;
+  noteScroll[previous] = { top: previousEl.scrollTop, left: previousEl.scrollLeft };
   if (previewing) updateNotePreview();
   text.hidden = previewing;
   tools.hidden = previewing;
@@ -3743,7 +3749,11 @@ function setNoteMode(mode) {
     btn.classList.toggle("is-active", active);
     btn.setAttribute("aria-pressed", String(active));
   });
-  if (!previewing) text.focus();
+  if (!previewing) text.focus({ preventScroll: true });
+  const active = previewing ? preview : text;
+  active.scrollTop = noteScroll[mode].top;
+  active.scrollLeft = noteScroll[mode].left;
+  if (dialog) dialog.scrollTop = dialogTop;
 }
 
 function openNoteEditor(hit) {
@@ -3752,6 +3762,10 @@ function openNoteEditor(hit) {
   noteTarget = { problemId: hit.problem.id, title: hit.problem.title || hit.problem.id };
   document.getElementById("note-problem").textContent = noteTarget.title;
   const text = document.getElementById("note-text");
+  noteScroll = { write: { top: 0, left: 0 }, preview: { top: 0, left: 0 } };
+  text.scrollTop = text.scrollLeft = 0;
+  const preview = document.getElementById("note-preview");
+  preview.scrollTop = preview.scrollLeft = 0;
   text.value = cosineSheets.noteText(noteTarget.problemId);
   noteTarget.original = text.value;
   setNoteMode("write");
@@ -3863,23 +3877,35 @@ function applyNoteTool(btn) {
     out = value.slice(0, start) + prefixed + value.slice(b);
     caret = start + prefixed.length;
   }
-  replaceNoteText(ta, out);
-  ta.focus();
-  ta.setSelectionRange(caret, caretEnd == null ? caret : caretEnd);
+  replaceNoteText(ta, out, caret, caretEnd == null ? caret : caretEnd);
   if (btn.dataset.insert != null) {
     const palette = btn.closest && btn.closest("details");
     if (palette) palette.open = false;
   }
 }
 
-function replaceNoteText(ta, value) {
-  ta.focus();
-  ta.select();
+function replaceNoteText(ta, value, caret, caretEnd = caret) {
+  const scroll = [ta, noteDialog(), document.scrollingElement].filter(Boolean)
+    .map(el => ({ el, top: el.scrollTop, left: el.scrollLeft }));
+  const before = ta.value;
+  // Replace only the changed range. Selecting the entire note can scroll a
+  // long textarea to an unrelated end and needlessly rewrites its full text.
+  let start = 0;
+  while (start < before.length && start < value.length && before[start] === value[start]) start++;
+  let end = before.length, nextEnd = value.length;
+  while (end > start && nextEnd > start && before[end - 1] === value[nextEnd - 1]) { end--; nextEnd--; }
+  ta.focus({ preventScroll: true });
+  ta.setSelectionRange(start, end);
+  const replacement = value.slice(start, nextEnd);
   // insertText preserves the browser's undo stack; setRangeText is the
   // fallback in engines without this editing command.
-  if (!document.execCommand || !document.execCommand("insertText", false, value)) {
-    ta.setRangeText(value, 0, ta.value.length, "end");
+  if (before !== value && (!document.execCommand || !document.execCommand("insertText", false, replacement))) {
+    ta.setRangeText(replacement, start, end, "end");
   }
+  ta.setSelectionRange(caret, caretEnd);
+  // Restore after BOTH the edit and caret movement: browsers may reveal a
+  // selection even with focus({preventScroll:true}). Keep the modal/page too.
+  for (const { el, top, left } of scroll) { el.scrollTop = top; el.scrollLeft = left; }
 }
 
 function indentNote(unindent) {
@@ -3889,9 +3915,7 @@ function indentNote(unindent) {
   const end = b > a && value[b - 1] === "\n" ? b - 1 : b;
   const chunk = value.slice(start, end);
   const changed = chunk.split("\n").map(line => unindent ? line.replace(/^( {1,2}|\t)/, "") : "  " + line).join("\n");
-  replaceNoteText(ta, value.slice(0, start) + changed + value.slice(end));
-  ta.setSelectionRange(start, start + changed.length);
-  ta.focus();
+  replaceNoteText(ta, value.slice(0, start) + changed + value.slice(end), start, start + changed.length);
 }
 
 (function wireNoteEditor() {

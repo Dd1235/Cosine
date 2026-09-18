@@ -37,6 +37,68 @@ async function main() {
   ta.dispatchEvent(tab);
   assert.equal(tab.defaultPrevented, false, "Tab can leave the editor");
 
+  // jsdom has no layout engine. Explicitly model browser scrolling caused by
+  // focus, edits and selection changes, then check our restoration boundary.
+  const nativeFocus = ta.focus.bind(ta);
+  const nativeSelection = ta.setSelectionRange.bind(ta);
+  ta.focus = options => {
+    if (!options?.preventScroll) { ta.scrollTop = 0; dialog.scrollTop = 0; }
+    nativeFocus(options);
+  };
+  ta.setSelectionRange = (...args) => {
+    nativeSelection(...args);
+    ta.scrollTop = 0; ta.scrollLeft = 0; dialog.scrollTop = 0;
+  };
+  const longNote = "line with code and explanation\n".repeat(100) + "target\n" + "more detail\n".repeat(100);
+  const at = longNote.indexOf("target");
+  const replacements = [];
+  for (const nativeEditing of [false, true]) {
+    w.document.execCommand = nativeEditing ? (command, _ui, replacement) => {
+      assert.equal(command, "insertText");
+      replacements.push([ta.selectionEnd - ta.selectionStart, replacement.length]);
+      ta.setRangeText(replacement, ta.selectionStart, ta.selectionEnd, "end");
+      ta.scrollTop = 0; dialog.scrollTop = 0;
+      return true;
+    } : undefined;
+    for (const dataset of [{wrap: "**"}, {insert: "π"}, {block: "```", language: "cpp"}, {prefix: "- "}, {template: "cp"}]) {
+      ta.value = longNote;
+      ta.setSelectionRange(at, at + 6);
+      ta.scrollTop = 900; ta.scrollLeft = 25; dialog.scrollTop = 120;
+      w.applyNoteTool({dataset});
+      assert.equal(ta.scrollTop, 900, "formatting preserves the long-note viewport");
+      assert.equal(ta.scrollLeft, 25, "formatting preserves horizontal code scroll");
+      assert.equal(dialog.scrollTop, 120, "formatting does not jump the modal");
+      assert.ok(ta.selectionStart >= at, "caret stays near the edit");
+    }
+    ta.value = longNote;
+    ta.setSelectionRange(at, at + 6);
+    ta.scrollTop = 900; dialog.scrollTop = 120;
+    w.indentNote(false);
+    assert.equal(ta.scrollTop, 900, "keyboard indentation preserves the viewport too");
+    assert.equal(dialog.scrollTop, 120);
+  }
+  assert.ok(replacements.every(([removed, added]) => removed < 200 && added < 300), "native undo edits only the affected range, not the whole note");
+  ta.focus = nativeFocus;
+  ta.setSelectionRange = nativeSelection;
+  delete w.document.execCommand;
+
+  // Hiding/rebuilding a pane can reset its DOM scroll offset. Each mode keeps
+  // its own remembered position and restores it after being made visible.
+  ta.scrollTop = 900; ta.scrollLeft = 25;
+  w.setNoteMode("preview");
+  preview.scrollTop = 600; preview.scrollLeft = 15;
+  w.setNoteMode("write");
+  assert.equal(ta.scrollTop, 900);
+  assert.equal(ta.scrollLeft, 25);
+  preview.scrollTop = preview.scrollLeft = 0;
+  w.setNoteMode("preview");
+  assert.equal(preview.scrollTop, 600, "returning to preview keeps the reading position");
+  assert.equal(preview.scrollLeft, 15);
+  w.openNoteEditor(hit);
+  w.setNoteMode("preview");
+  assert.equal(preview.scrollTop, 0, "reopening a note does not inherit another editing session's preview scroll");
+  w.setNoteMode("write");
+
   ta.value = "return a < b;";
   ta.select();
   w.document.querySelector('[data-block="```"]').click();
