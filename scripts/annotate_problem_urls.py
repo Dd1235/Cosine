@@ -44,6 +44,7 @@ LEETCODE_GRAPHQL_URL = "https://leetcode.com/graphql"
 ANNOTATION_VERSION = "problem-patterns-v1"
 SSL_CONTEXT = None
 PATTERN_TAXONOMY = ROOT / "data" / "pattern_taxonomy.json"
+CONTEST_REGISTRY = ROOT / "data" / "contests.json"
 
 
 def _load_taxonomy() -> tuple[list[str], dict[str, str], list[dict]]:
@@ -58,6 +59,27 @@ def _load_taxonomy() -> tuple[list[str], dict[str, str], list[dict]]:
 # Canonical pattern vocabulary + alias map shared with the Node validator and
 # normalizer (data/pattern_taxonomy.json is the single source of truth).
 CANONICAL_PATTERNS, PATTERN_ALIASES, PATTERN_FAMILIES = _load_taxonomy()
+
+
+def _load_problem_aliases() -> dict[str, str]:
+    try:
+        data = json.loads(CONTEST_REGISTRY.read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
+    aliases = data.get("aliases") or {}
+    return {str(alias): str(target) for alias, target in aliases.items()}
+
+
+PROBLEM_ALIASES = _load_problem_aliases()
+
+
+def canonical_problem_id(problem_id: str) -> str:
+    """Resolve contest aliases to the one record that owns user state."""
+    seen: set[str] = set()
+    while problem_id in PROBLEM_ALIASES and problem_id not in seen:
+        seen.add(problem_id)
+        problem_id = PROBLEM_ALIASES[problem_id]
+    return problem_id
 
 PROMPT_EXAMPLES = [
     {
@@ -288,6 +310,7 @@ def base_from_url(item: UrlItem, cf_cache: dict[tuple[int, str], dict[str, Any]]
     platform_from_source = platform_from_url(item.url)
     if platform_from_source == "codeforces":
         base = codeforces_metadata(item, cf_cache)
+        base["id"] = canonical_problem_id(base["id"])
         # The hand-written seeds in data/problems/ predate both the staged
         # dataset and the current id scheme, so they are a statement fallback
         # and nothing more. Letting them supply the id resurrected
@@ -749,7 +772,8 @@ def predicted_output_path(out_dir: Path, item: UrlItem) -> Path | None:
     if platform == "codeforces":
         key = codeforces_problem_key(item.url)
         if key:
-            return out_dir / platform / f"codeforces-{key[0]}-{str(key[1]).lower()}.json"
+            problem_id = canonical_problem_id(f"codeforces-{key[0]}-{str(key[1]).lower()}")
+            return out_dir / platform / f"{problem_id}.json"
     if platform == "atcoder":
         task = atcoder_task_id(item.url)
         if task:

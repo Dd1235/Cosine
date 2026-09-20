@@ -8,7 +8,12 @@ from unittest.mock import patch
 
 import cache_io
 import ingest_contest as ingest
-from annotate_problem_urls import codeforces_problem_key
+from annotate_problem_urls import (
+    UrlItem,
+    canonical_problem_id,
+    codeforces_problem_key,
+    predicted_output_path,
+)
 
 
 def merge_worker(path, key):
@@ -67,6 +72,15 @@ class IngestionSafetyTests(unittest.TestCase):
         self.assertEqual(codeforces_problem_key('https://codeforces.com/contest/2259/problem/B'), (2259, 'B'))
         _, entry = ingest.row_to_entry({'contest_id': 106179, 'index': 'A', 'description': 'x' * 100})
         self.assertEqual(entry['url'], 'https://codeforces.com/gym/106179/problem/A')
+
+    def test_contest_alias_uses_state_owning_record(self):
+        self.assertEqual(canonical_problem_id('codeforces-2256-c'), 'codeforces-2255-a')
+        with tempfile.TemporaryDirectory() as directory:
+            predicted = predicted_output_path(
+                Path(directory),
+                UrlItem('https://codeforces.com/contest/2256/problem/C', 'Codeforces / Contest 2256'),
+            )
+            self.assertEqual(predicted, Path(directory) / 'codeforces' / 'codeforces-2255-a.json')
 
 
 if __name__ == '__main__':
