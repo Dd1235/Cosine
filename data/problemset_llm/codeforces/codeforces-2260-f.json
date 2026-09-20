@@ -14,7 +14,9 @@
     "trees"
   ],
   "statement": "Color all edges of a connected graph using all three colors so connectivity in a lower color implies connectivity in each higher color. Decide feasibility for n at most 3000 and m at most n+9.",
-  "tags": [],
+  "tags": [
+    "union-find"
+  ],
   "patterns": [
     "cycle-detection",
     "dfs",
@@ -34,5 +36,5 @@
     "reviewed_by": "independent Codex agent skeptic",
     "evidence": "data/analysis/competition-refresh-review.json"
   },
-  "difficulty": null
+  "difficulty": 2500
 }

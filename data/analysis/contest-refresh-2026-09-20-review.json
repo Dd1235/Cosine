@@ -1,0 +1,128 @@
+{
+  "reviewer": "codex-skeptic-pass",
+  "status": "approved",
+  "observed_at": "2026-09-20",
+  "basis": "Full statements and constraints were checked against the official Codeforces editorials or official LeetCode problem pages. Generated labels that described surface wording rather than the actual solution were removed; retained patterns use the canonical taxonomy.",
+  "sources": {
+    "codeforces-2256": "https://codeforces.com/blog/entry/155840",
+    "codeforces-2262-2263": "https://codeforces.com/blog/entry/156688",
+    "codeforces-2264": "https://codeforces.com/blog/entry/156680",
+    "leetcode-520": "https://leetcode.com/contest/weekly-contest-520/"
+  },
+  "problems": [
+    {
+      "id": "leetcode-number-of-intersecting-interval-pairs-ii",
+      "tags": ["array", "intervals", "sorting"],
+      "patterns": ["line-sweep", "sorting", "two-pointers", "counting"],
+      "solution": "Sort interval endpoints and sweep them with two pointers, counting earlier starts that are not strictly beyond the current end."
+    },
+    {
+      "id": "leetcode-maximum-pulse-value-after-one-subarray-rotation",
+      "tags": ["array", "prefix-sum", "greedy"],
+      "patterns": ["difference-array", "prefix-sum", "kadane", "greedy"],
+      "solution": "Express the change caused by moving the first element of a chosen subarray to its end, then maximize the resulting alternating gain with prefix differences and Kadane-style scans."
+    },
+    {
+      "id": "leetcode-lexicographically-largest-power-array",
+      "tags": ["array", "bit-manipulation", "greedy", "sorting"],
+      "patterns": ["bit-manipulation", "greedy", "sorting", "lexicographic-order"],
+      "solution": "Order numbers by their high-to-low bit vectors, equivalently descending numeric order, so each successive bit obtains the longest possible all-set prefix."
+    },
+    {
+      "id": "codeforces-2262-a1",
+      "tags": ["array", "math", "constructive-algorithm"],
+      "patterns": ["difference-array", "prefix-sum", "constructive-algorithm", "mex"],
+      "solution": "Convert every required MEX value into a forbidden integer interval and use a difference array to output exactly the integers covered by no forbidden interval."
+    },
+    {
+      "id": "codeforces-2262-a2",
+      "tags": ["array", "math", "dynamic-programming"],
+      "patterns": ["dynamic-programming", "two-pointers", "sorting", "mex"],
+      "solution": "Build required and forbidden integer intervals, sort the required intervals, and count valid subsets with a two-pointer dynamic program over eligible values."
+    },
+    {
+      "id": "codeforces-2262-b",
+      "tags": ["array", "data-structure"],
+      "patterns": ["fenwick-tree", "ordered-set", "offline-queries"],
+      "solution": "Reverse the deletions, maintaining active champion breakpoints in an ordered set and interval sums in a Fenwick tree."
+    },
+    {
+      "id": "codeforces-2262-c",
+      "tags": ["combinatorics", "array", "math"],
+      "patterns": ["permutation-counting", "combinatorics", "sorting"],
+      "solution": "A valid value set must be the union of two opposing arithmetic progressions; test the two possible gaps and multiply the independent arrangement factorials."
+    },
+    {
+      "id": "codeforces-2262-d",
+      "tags": ["graph", "constructive-algorithm", "simulation"],
+      "patterns": ["functional-graph", "constructive-algorithm", "graph-modeling", "simulation"],
+      "solution": "Mark target-functional-graph paths needed by mismatched vertices, reject incompatible terminal components, then simulate increments and pointer moves along a valid path."
+    },
+    {
+      "id": "codeforces-2262-e",
+      "tags": ["combinatorics", "dynamic-programming", "math"],
+      "patterns": ["combinatorics", "dynamic-programming", "inclusion-exclusion", "modular-inverse"],
+      "solution": "Count bracket-pair decompositions with Catalan-derived factors and a convolution-style DP, then use binomial inversion to obtain exact common-pair counts."
+    },
+    {
+      "id": "codeforces-2262-f",
+      "tags": ["matrix", "math", "linear-algebra", "graph"],
+      "patterns": ["gaussian-elimination", "bipartite-matching", "greedy", "constructive-algorithm"],
+      "solution": "Maintain matrix rank and inverse information with Gaussian elimination, using perfect matchings and small-rank updates to construct the minimum number of removals."
+    },
+    {
+      "id": "codeforces-2263-a",
+      "tags": ["array", "game-theory", "counting"],
+      "patterns": ["counting", "game-theory"],
+      "solution": "The winner depends only on whether ones are at least as numerous as zeroes, so count the two values."
+    },
+    {
+      "id": "codeforces-2263-b",
+      "tags": ["matrix", "constructive-algorithm"],
+      "patterns": ["constructive-algorithm"],
+      "solution": "Derive the feasible first-row and first-column overlap from k, place those small values, and fill all remaining matrix cells arbitrarily."
+    },
+    {
+      "id": "codeforces-2264-a",
+      "tags": ["array", "permutation", "implementation"],
+      "patterns": ["two-pointers", "constructive-algorithm"],
+      "solution": "Collect every misplaced position and check with two pointers whether reversing exactly those selected values sorts the permutation."
+    },
+    {
+      "id": "codeforces-2264-b",
+      "tags": ["array", "greedy", "heap", "math"],
+      "patterns": ["heap", "greedy"],
+      "solution": "After telescoping the score, fix its last element and maintain the m-1 smallest earlier values in a max-heap."
+    },
+    {
+      "id": "codeforces-2264-c",
+      "tags": ["combinatorics", "tree", "math", "sorting"],
+      "patterns": ["contribution-technique", "combinatorics", "sorting", "prefix-sum"],
+      "solution": "Sort ratings, count how many increasing-parent trees contain each possible edge, and sum every edge's weighted contribution using suffix sums."
+    },
+    {
+      "id": "codeforces-2264-d",
+      "tags": ["string", "math", "constructive-algorithm"],
+      "patterns": ["prefix-sum", "modular-arithmetic", "counting", "constructive-algorithm"],
+      "solution": "Map divisible binary substrings to equal alternating-prefix residues modulo three, balance the residue frequencies, and construct a string with three ones."
+    },
+    {
+      "id": "codeforces-2264-e1",
+      "tags": ["array", "combinatorics", "number-theory", "dynamic-programming"],
+      "patterns": ["interval-dp", "dynamic-programming", "sieve", "combinatorics", "prefix-sum"],
+      "solution": "Precompute the best equalized value for every minimum-maximum pair with a radical sieve and interval DP, then count subsequences by their endpoints."
+    },
+    {
+      "id": "codeforces-2264-e2",
+      "tags": ["array", "combinatorics", "number-theory", "dynamic-programming"],
+      "patterns": ["sieve", "dp-optimization", "dynamic-programming", "prefix-sum", "contribution-technique", "combinatorics"],
+      "solution": "Generate radical-divisibility blockers, compress each DP row into a few breakpoints, and sum endpoint contributions over ranges with prefix sums."
+    },
+    {
+      "id": "codeforces-2264-f",
+      "tags": ["math", "constructive-algorithm", "combinatorics", "dynamic-programming"],
+      "patterns": ["constructive-algorithm", "dynamic-programming", "combinatorics", "linear-recurrence"],
+      "solution": "Synthesize a compact legal expression for derangement counts, using DP-built constants, threshold expressions, factorial products, and the derangement recurrence or formula."
+    }
+  ]
+}

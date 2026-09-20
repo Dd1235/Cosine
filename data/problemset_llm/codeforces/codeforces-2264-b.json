@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2264-b",
+  "title": "Knife's Pill Farm",
+  "slug": "2264-b-knife-s-pill-farm",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/B",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 1000,
+  "rating": 1000,
+  "source_tags": [
+    "data structures",
+    "greedy",
+    "math"
+  ],
+  "statement": "Given an array of integers, select exactly m elements in order (as a subsequence) to maximize a weighted sum where each chosen element's contribution depends on its position and the difference from the previous chosen element.",
+  "tags": [
+    "array",
+    "greedy",
+    "heap",
+    "math"
+  ],
+  "patterns": [
+    "heap",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909268,
+    "pattern_confidence": {
+      "heap": 0.97,
+      "greedy": 0.94
+    }
+  }
+}

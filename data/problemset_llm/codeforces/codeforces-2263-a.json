@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2263-a",
+  "title": "Min Max Game",
+  "slug": "2263-a-min-max-game",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2263/problem/A",
+  "source_topic": "Codeforces / Contest 2263",
+  "difficulty": 800,
+  "rating": 800,
+  "source_tags": [
+    "games"
+  ],
+  "statement": "Two players alternately merge adjacent elements of a binary array, with one always taking the max and the other the min, until one element remains; determine who wins if both play optimally.",
+  "tags": [
+    "array",
+    "game-theory",
+    "counting"
+  ],
+  "patterns": [
+    "counting",
+    "game-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909262,
+    "pattern_confidence": {
+      "counting": 0.97,
+      "game-theory": 0.94
+    }
+  }
+}

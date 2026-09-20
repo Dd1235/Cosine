@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2264-c",
+  "title": "Madamant's Skating Dynasty",
+  "slug": "2264-c-madamant-s-skating-dynasty",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/C",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 1300,
+  "rating": 1300,
+  "source_tags": [
+    "combinatorics",
+    "math",
+    "sortings"
+  ],
+  "statement": "Given n skaters with distinct ratings, count the sum of costs over all rooted trees (dynasties) where each parent has a higher rating than their children, with cost defined as the sum of rating differences between each parent and child, modulo 998244353.",
+  "tags": [
+    "combinatorics",
+    "tree",
+    "math",
+    "sorting"
+  ],
+  "patterns": [
+    "contribution-technique",
+    "combinatorics",
+    "sorting",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909303,
+    "pattern_confidence": {
+      "contribution-technique": 0.97,
+      "combinatorics": 0.94,
+      "sorting": 0.9099999999999999,
+      "prefix-sum": 0.88
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2262-b",
+  "title": "Culling Game",
+  "slug": "2262-b-culling-game",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/B",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 2000,
+  "rating": 2000,
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "implementation",
+    "two pointers"
+  ],
+  "statement": "Given an array of skills and a removal order, for each prefix of removals, count how many times the champion must forfeit in a left-to-right tournament simulation among the remaining sorcerers.",
+  "tags": [
+    "array",
+    "data-structure"
+  ],
+  "patterns": [
+    "fenwick-tree",
+    "ordered-set",
+    "offline-queries"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909201,
+    "pattern_confidence": {
+      "fenwick-tree": 0.97,
+      "ordered-set": 0.94,
+      "offline-queries": 0.9099999999999999
+    }
+  }
+}

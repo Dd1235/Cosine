@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-lexicographically-largest-power-array",
+  "title": "Lexicographically Largest Power Array",
+  "slug": "lexicographically-largest-power-array",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/lexicographically-largest-power-array/",
+  "source_topic": "LeetCode / Weekly Contest 520",
+  "difficulty": "Hard",
+  "acceptance_rate": 19.7,
+  "source_tags": [],
+  "statement": "Given an array of integers, rearrange its elements to maximize the lexicographical order of an array that records, for each bit position, the longest prefix where all numbers have that bit set.",
+  "tags": [
+    "array",
+    "bit-manipulation",
+    "greedy",
+    "sorting"
+  ],
+  "patterns": [
+    "bit-manipulation",
+    "greedy",
+    "sorting",
+    "lexicographic-order"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909196,
+    "pattern_confidence": {
+      "bit-manipulation": 0.97,
+      "greedy": 0.94,
+      "sorting": 0.9099999999999999,
+      "lexicographic-order": 0.88
+    }
+  }
+}

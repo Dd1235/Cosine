@@ -225,3 +225,30 @@ https://leetcode.com/problems/count-shadow-pairs-ii/
 https://leetcode.com/problems/count-values-with-equally-spaced-occurrences-ii/
 https://leetcode.com/problems/minimum-days-to-score-exactly-n-points/
 https://leetcode.com/problems/count-subarrays-with-distant-sums/
+
+# LeetCode / Weekly Contest 520
+https://leetcode.com/problems/number-of-intersecting-interval-pairs-ii/
+https://leetcode.com/problems/maximum-pulse-value-after-one-subarray-rotation/
+https://leetcode.com/problems/lexicographically-largest-power-array/
+
+# Codeforces / Contest 2262
+https://codeforces.com/contest/2262/problem/A1
+https://codeforces.com/contest/2262/problem/A2
+https://codeforces.com/contest/2262/problem/B
+https://codeforces.com/contest/2262/problem/C
+https://codeforces.com/contest/2262/problem/D
+https://codeforces.com/contest/2262/problem/E
+https://codeforces.com/contest/2262/problem/F
+
+# Codeforces / Contest 2263
+https://codeforces.com/contest/2263/problem/A
+https://codeforces.com/contest/2263/problem/B
+
+# Codeforces / Contest 2264
+https://codeforces.com/contest/2264/problem/A
+https://codeforces.com/contest/2264/problem/B
+https://codeforces.com/contest/2264/problem/C
+https://codeforces.com/contest/2264/problem/D
+https://codeforces.com/contest/2264/problem/E1
+https://codeforces.com/contest/2264/problem/E2
+https://codeforces.com/contest/2264/problem/F

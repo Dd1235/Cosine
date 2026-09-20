@@ -14,7 +14,9 @@
     "trees"
   ],
   "statement": "Each of up to 200000 vertices starts with one item and simultaneously sends one item to its fixed successor each year whenever nonempty. Multiple items may accumulate. Find the first year whose pre-transfer item counts equal the previous year.",
-  "tags": [],
+  "tags": [
+    "union-find"
+  ],
   "patterns": [
     "functional-graph",
     "topological-sort",

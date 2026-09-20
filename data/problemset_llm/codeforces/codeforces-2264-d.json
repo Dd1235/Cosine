@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2264-d",
+  "title": "Dr. Agos's Dark Mode",
+  "slug": "2264-d-dr-agos-s-dark-mode",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/D",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 1800,
+  "rating": 1800,
+  "source_tags": [
+    "brute force",
+    "chinese remainder theorem",
+    "constructive algorithms",
+    "math",
+    "strings"
+  ],
+  "statement": "Given n, construct a binary string of length n with at most three ones such that the number of contiguous substrings whose binary value is divisible by 3 is minimized.",
+  "tags": [
+    "string",
+    "math",
+    "constructive-algorithm",
+    "chinese-remainder-theorem"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "modular-arithmetic",
+    "counting",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909210,
+    "pattern_confidence": {
+      "prefix-sum": 0.97,
+      "modular-arithmetic": 0.94,
+      "counting": 0.9099999999999999,
+      "constructive-algorithm": 0.88
+    }
+  }
+}

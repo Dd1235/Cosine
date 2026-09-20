@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2262-e",
+  "title": "Paired Bracket Sequences",
+  "slug": "2262-e-paired-bracket-sequences",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/E",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 3100,
+  "rating": 3100,
+  "source_tags": [
+    "combinatorics",
+    "math"
+  ],
+  "statement": "Given n, count ordered pairs of balanced bracket sequences of length 2n with exactly k common pairings for each 0 ≤ k ≤ n, modulo a prime M.",
+  "tags": [
+    "combinatorics",
+    "dynamic-programming",
+    "math"
+  ],
+  "patterns": [
+    "combinatorics",
+    "dynamic-programming",
+    "inclusion-exclusion",
+    "modular-inverse"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909255,
+    "pattern_confidence": {
+      "combinatorics": 0.97,
+      "dynamic-programming": 0.94,
+      "inclusion-exclusion": 0.9099999999999999,
+      "modular-inverse": 0.88
+    }
+  }
+}

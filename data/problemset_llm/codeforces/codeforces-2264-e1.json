@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2264-e1",
+  "title": "A Prime Flood (Easy Version)",
+  "slug": "2264-e1-a-prime-flood-easy-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/E1",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 2100,
+  "rating": 2100,
+  "source_tags": [
+    "combinatorics",
+    "dp",
+    "number theory"
+  ],
+  "statement": "Given an array, for every non-empty subsequence, repeatedly decrease all elements divisible by a chosen prime by 1 (any number of times), and compute the maximal equal value achievable for that subsequence. Sum this value over all subsequences, modulo 998244353.",
+  "tags": [
+    "array",
+    "combinatorics",
+    "number-theory",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "interval-dp",
+    "dynamic-programming",
+    "sieve",
+    "combinatorics",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909304,
+    "pattern_confidence": {
+      "interval-dp": 0.97,
+      "dynamic-programming": 0.94,
+      "sieve": 0.9099999999999999,
+      "combinatorics": 0.88,
+      "prefix-sum": 0.85
+    }
+  }
+}

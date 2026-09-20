@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2264-a",
+  "title": "Rumb Needs a Hand",
+  "slug": "2264-a-rumb-needs-a-hand",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/A",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 800,
+  "rating": 800,
+  "source_tags": [
+    "implementation",
+    "sortings",
+    "two pointers"
+  ],
+  "statement": "Given a permutation, determine if it can be sorted in increasing order by reversing the elements at any chosen subset of indices (not necessarily consecutive) exactly once.",
+  "tags": [
+    "array",
+    "permutation",
+    "implementation"
+  ],
+  "patterns": [
+    "two-pointers",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909266,
+    "pattern_confidence": {
+      "two-pointers": 0.97,
+      "constructive-algorithm": 0.94
+    }
+  }
+}

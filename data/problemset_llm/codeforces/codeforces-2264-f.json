@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2264-f",
+  "title": "Deranged Calculator",
+  "slug": "2264-f-deranged-calculator",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/F",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 2700,
+  "rating": 2700,
+  "source_tags": [
+    "constructive algorithms",
+    "implementation",
+    "math"
+  ],
+  "statement": "Given an integer k, construct a single-line expression in a restricted language (using only n, parentheses, +, -, *, /, and round) that computes the number of derangements for all n in 2 to k, without using numeric constants or division by zero, and with a length limit.",
+  "tags": [
+    "math",
+    "constructive-algorithm",
+    "combinatorics",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "dynamic-programming",
+    "combinatorics",
+    "linear-recurrence"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909306,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.97,
+      "dynamic-programming": 0.94,
+      "combinatorics": 0.9099999999999999,
+      "linear-recurrence": 0.88
+    }
+  }
+}

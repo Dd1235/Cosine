@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2262-c",
+  "title": "Traveling the World",
+  "slug": "2262-c-traveling-the-world",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/C",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 2200,
+  "rating": 2200,
+  "source_tags": [
+    "combinatorics",
+    "constructive algorithms",
+    "graphs",
+    "greedy",
+    "math"
+  ],
+  "statement": "Given a strictly increasing array starting with 0, count the number of rearrangements such that there exists a Hamiltonian path where each move from position i to j satisfies b_i + b_j equals the maximum of b_i to b_n. Output the count modulo 1e9+7.",
+  "tags": [
+    "combinatorics",
+    "array",
+    "math"
+  ],
+  "patterns": [
+    "permutation-counting",
+    "combinatorics",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909203,
+    "pattern_confidence": {
+      "permutation-counting": 0.97,
+      "combinatorics": 0.94,
+      "sorting": 0.9099999999999999
+    }
+  }
+}

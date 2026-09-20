@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2262-d",
+  "title": "PLUSworld",
+  "slug": "2262-d-plusworld",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/D",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 2800,
+  "rating": 2800,
+  "source_tags": [
+    "constructive algorithms",
+    "graphs",
+    "greedy"
+  ],
+  "statement": "Given two arrays representing the destinations of one-way roads between barns, determine if you can transform the initial configuration into the target configuration using only increment and traversal operations, and if so, construct a valid sequence of operations.",
+  "tags": [
+    "graph",
+    "constructive-algorithm",
+    "simulation"
+  ],
+  "patterns": [
+    "functional-graph",
+    "constructive-algorithm",
+    "graph-modeling",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909253,
+    "pattern_confidence": {
+      "functional-graph": 0.97,
+      "constructive-algorithm": 0.94,
+      "graph-modeling": 0.9099999999999999,
+      "simulation": 0.88
+    }
+  }
+}

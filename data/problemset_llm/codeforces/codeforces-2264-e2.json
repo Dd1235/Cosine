@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2264-e2",
+  "title": "A Prime Flood (Hard Version)",
+  "slug": "2264-e2-a-prime-flood-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2264/problem/E2",
+  "source_topic": "Codeforces / Contest 2264",
+  "difficulty": 2700,
+  "rating": 2700,
+  "source_tags": [
+    "brute force",
+    "combinatorics",
+    "dp",
+    "number theory"
+  ],
+  "statement": "Given an array, for every non-empty subsequence, compute the largest integer all its elements can be made equal to using repeated prime-based decrement operations, and sum these values over all subsequences modulo 998244353.",
+  "tags": [
+    "array",
+    "combinatorics",
+    "number-theory",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "sieve",
+    "dp-optimization",
+    "dynamic-programming",
+    "prefix-sum",
+    "contribution-technique",
+    "combinatorics"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909272,
+    "pattern_confidence": {
+      "sieve": 0.97,
+      "dp-optimization": 0.94,
+      "dynamic-programming": 0.9099999999999999,
+      "prefix-sum": 0.88,
+      "contribution-technique": 0.85,
+      "combinatorics": 0.82
+    }
+  }
+}

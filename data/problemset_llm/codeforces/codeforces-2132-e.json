@@ -13,7 +13,9 @@
     "ternary search"
   ],
   "statement": "Two card pools contain up to 200000 values each. Answer up to 100000 queries asking for the maximum sum of exactly z cards, with separate upper limits x and y on how many may be chosen from each pool.",
-  "tags": [],
+  "tags": [
+    "ternary-search"
+  ],
   "patterns": [
     "sorting",
     "prefix-sum",

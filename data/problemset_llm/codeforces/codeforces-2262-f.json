@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2262-f",
+  "title": "Rank Removal",
+  "slug": "2262-f-rank-removal",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/F",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 3500,
+  "rating": 3500,
+  "source_tags": [
+    "math"
+  ],
+  "statement": "Given a binary n×n matrix of full rank over F2, repeatedly select exactly r linearly independent 1-entries (where r is the current rank) and set them to 0, minimizing the number of moves to reach the zero matrix. Output the minimum number of moves and a valid sequence of moves.",
+  "tags": [
+    "matrix",
+    "math",
+    "linear-algebra",
+    "graph"
+  ],
+  "patterns": [
+    "gaussian-elimination",
+    "bipartite-matching",
+    "greedy",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909259,
+    "pattern_confidence": {
+      "gaussian-elimination": 0.97,
+      "bipartite-matching": 0.94,
+      "greedy": 0.9099999999999999,
+      "constructive-algorithm": 0.88
+    }
+  }
+}

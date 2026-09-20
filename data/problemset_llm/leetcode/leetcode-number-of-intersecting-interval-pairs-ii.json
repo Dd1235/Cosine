@@ -1,0 +1,34 @@
+{
+  "id": "leetcode-number-of-intersecting-interval-pairs-ii",
+  "title": "Number of Intersecting Interval Pairs II",
+  "slug": "number-of-intersecting-interval-pairs-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/number-of-intersecting-interval-pairs-ii/",
+  "source_topic": "LeetCode / Weekly Contest 520",
+  "difficulty": "Medium",
+  "acceptance_rate": 49.8,
+  "source_tags": [],
+  "statement": "Given a list of intervals, count the number of unordered pairs of intervals that intersect, where intersection includes sharing an endpoint.",
+  "tags": [
+    "array",
+    "intervals",
+    "sorting"
+  ],
+  "patterns": [
+    "line-sweep",
+    "sorting",
+    "two-pointers",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909191,
+    "pattern_confidence": {
+      "line-sweep": 0.97,
+      "sorting": 0.94,
+      "two-pointers": 0.9099999999999999,
+      "counting": 0.88
+    }
+  }
+}

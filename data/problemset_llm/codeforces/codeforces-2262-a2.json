@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2262-a2",
+  "title": "Floor of MEX (Hard Version)",
+  "slug": "2262-a2-floor-of-mex-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2262/problem/A2",
+  "source_topic": "Codeforces / Contest 2262",
+  "difficulty": 1800,
+  "rating": 1800,
+  "source_tags": [
+    "dp",
+    "implementation",
+    "math"
+  ],
+  "statement": "Given an array a of length n, count the number of subsets B of {0,1,...,n-1} such that for every k (1 ≤ k ≤ n), the mex of the set of floor(y/k) for y in B equals a_k. Output the count modulo 1e9+7.",
+  "tags": [
+    "array",
+    "math",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "two-pointers",
+    "sorting",
+    "mex"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "gpt-4.1",
+    "generated_at_unix": 1789909199,
+    "pattern_confidence": {
+      "dynamic-programming": 0.97,
+      "two-pointers": 0.94,
+      "sorting": 0.9099999999999999,
+      "mex": 0.88
+    }
+  }
+}
