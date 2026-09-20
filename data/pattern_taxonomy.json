@@ -194,6 +194,12 @@
     "dynamic-programming": {
       "category": "dp"
     },
+    "subsequence-dp": {
+      "category": "dp"
+    },
+    "moment-dp": {
+      "category": "dp"
+    },
     "memoization": {
       "category": "dp"
     },
@@ -620,6 +626,9 @@
   },
   "aliases": {
     "dp": "dynamic-programming",
+    "dp-on-subsequences": "subsequence-dp",
+    "moment-state-dp": "moment-dp",
+    "moments-dp": "moment-dp",
     "hash-map-lookup": "hash-map",
     "hashmap": "hash-map",
     "breadth-first-search": "bfs",

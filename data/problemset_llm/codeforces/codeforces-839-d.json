@@ -21,7 +21,7 @@
   ],
   "patterns": [
     "gcd",
-    "dp-on-subsequences",
+    "subsequence-dp",
     "modular-arithmetic",
     "inclusion-exclusion",
     "number-theory",
@@ -34,7 +34,7 @@
     "generated_at_unix": 1785050404,
     "pattern_confidence": {
       "gcd": 0.95,
-      "dp-on-subsequences": 0.9,
+      "subsequence-dp": 0.9,
       "modular-arithmetic": 0.85,
       "inclusion-exclusion": 0.8
     }

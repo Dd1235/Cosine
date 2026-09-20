@@ -7,8 +7,14 @@
   "source_topic": "IICPC Codefest",
   "source_tags": [],
   "statement": "Sum the product of adjacent pair sums over every length-N array with entries in [1,M], modulo 998244353. Total N is at most 200000 and M may be 10^9.",
-  "tags": [],
+  "tags": [
+    "dynamic-programming",
+    "math",
+    "combinatorics"
+  ],
   "patterns": [
+    "moment-dp",
+    "linear-recurrence",
     "dynamic-programming",
     "modular-arithmetic",
     "number-theory"
@@ -19,6 +25,8 @@
     "generated_at_unix": 1789110673,
     "pattern_confidence": {
       "dynamic-programming": 0.9,
+      "moment-dp": 0.97,
+      "linear-recurrence": 0.95,
       "modular-arithmetic": 0.9,
       "number-theory": 0.9
     },

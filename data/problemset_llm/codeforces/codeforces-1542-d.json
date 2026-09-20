@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-1542-d",
+  "title": "Priority Queue",
+  "slug": "1542-d-priority-queue",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/problemset/problem/1542/D",
+  "source_topic": "Codeforces / rating 2000-2400",
+  "difficulty": 2200,
+  "contest_slot": "div2-d",
+  "rating": 2200,
+  "source_tags": [
+    "combinatorics",
+    "dp",
+    "implementation",
+    "math",
+    "ternary search"
+  ],
+  "statement": "Given at most 500 insert-value and delete-min operations, sum the final multiset sums produced by every subsequence of operations, modulo 998244353. A deletion removes the smallest present value and does nothing on an empty multiset, so whether a chosen insertion survives depends on the selected smaller values and deletions around it.",
+  "tags": [
+    "dynamic-programming",
+    "combinatorics",
+    "subsequence",
+    "counting"
+  ],
+  "patterns": [
+    "contribution-technique",
+    "subsequence-dp",
+    "dynamic-programming",
+    "combinatorics",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "codex-solution-review",
+    "generated_at_unix": 1789910353,
+    "pattern_confidence": {
+      "contribution-technique": 0.98,
+      "subsequence-dp": 0.97,
+      "dynamic-programming": 0.99,
+      "combinatorics": 0.9,
+      "counting": 0.92
+    },
+    "evidence": "data/analysis/codeforces-1542-d-review.json"
+  }
+}

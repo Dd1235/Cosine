@@ -18,7 +18,7 @@
   ],
   "patterns": [
     "two-subsequence-construction",
-    "dp-on-subsequences",
+    "subsequence-dp",
     "dynamic-programming"
   ],
   "annotation": {
@@ -27,7 +27,7 @@
     "generated_at_unix": 1785050995,
     "pattern_confidence": {
       "two-subsequence-construction": 0.9,
-      "dp-on-subsequences": 0.85
+      "subsequence-dp": 0.85
     }
   },
   "source_topic": "Formwise / DP Optimizations"

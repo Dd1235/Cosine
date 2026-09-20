@@ -18,7 +18,7 @@
     "combinatorics"
   ],
   "patterns": [
-    "dp-on-subsequences",
+    "subsequence-dp",
     "modular-arithmetic",
     "counting",
     "dynamic-programming",
@@ -29,7 +29,7 @@
     "model": "gpt-4.1-mini",
     "generated_at_unix": 1777922662,
     "pattern_confidence": {
-      "dp-on-subsequences": 0.98,
+      "subsequence-dp": 0.98,
       "modular-arithmetic": 0.9,
       "counting": 0.85
     }

@@ -50,13 +50,15 @@
     {
       "id": "codechef-expprod2",
       "patterns": [
+        "moment-dp",
+        "linear-recurrence",
         "dynamic-programming",
         "modular-arithmetic"
       ],
       "solution": "Maintain S=sum of prefix products and W=sum of last-value times prefix product. Appending x gives fnew=f*(last+x), hence Snew=M*W+s1*S and Wnew=s1*W+s2*S, where s1=sum x and s2=sum x^2. Initialize S=M,W=s1 at length one. Closed-form power sums modulo prime and O(N) transitions satisfy total N<=200000.",
       "statement_summary": "Sum the product of adjacent pair sums over every length-N array with entries in [1,M], modulo 998244353. Total N is at most 200000 and M may be 10^9.",
       "independent_band": 3,
-      "review_rationale": "Appending a value closes on the zeroth and first weighted moments of the old last element, giving precisely the stated two-state linear recurrence. Brute-force comparison passed all N=2..6 and M=1..4; simultaneous updates are necessary.",
+      "review_rationale": "Appending a value closes on the zeroth and first weighted moments of the old last element, giving precisely the stated two-state linear recurrence. This is a direct instance of moment-dp rather than generic DP alone. Brute-force comparison passed all N=2..6 and M=1..4; simultaneous updates are necessary.",
       "status": "approved",
       "issues": [],
       "source_text_sha256": "bde419cb20e8768830b737c90d6a01d4e5e23d4b895d1da19ad54f12cf5e77bf"

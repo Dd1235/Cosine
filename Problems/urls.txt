@@ -2226,6 +2226,7 @@ https://codeforces.com/problemset/problem/1539/D
 https://codeforces.com/problemset/problem/154/A
 https://codeforces.com/problemset/problem/154/B
 https://codeforces.com/problemset/problem/1542/C
+https://codeforces.com/problemset/problem/1542/D
 https://codeforces.com/problemset/problem/1555/D
 https://codeforces.com/problemset/problem/156/B
 https://codeforces.com/problemset/problem/1566/D2

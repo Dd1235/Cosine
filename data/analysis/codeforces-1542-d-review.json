@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-1542-d",
+  "title": "Priority Queue",
+  "source_url": "https://codeforces.com/problemset/problem/1542/D",
+  "editorial_url": "https://codeforces.com/blog/entry/92492",
+  "source_text_sha256": "a8239c2449f5edba0342ca7e468b702c622ea2ca96ae33af7574cec870b23d1f",
+  "solution": "Compute the contribution of each +X operation separately. Force that operation into the chosen subsequence, then scan all operations with dp[position][smaller], where smaller counts selected active insertions ordered before X by (value, original index). Skipping an operation preserves the state; selecting a smaller insertion increments it; selecting a deletion decrements it when possible. After X has been inserted, transitions that would delete X from state zero are forbidden. Summing the final states gives the number of subsequences in which X survives, so multiplying by X and summing over insertions gives the answer in O(n^3) time and O(n^2) memory.",
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "contribution-technique",
+      "subsequence-dp",
+      "dynamic-programming",
+      "combinatorics",
+      "counting"
+    ],
+    "rationale": "The official tutorial explicitly fixes each inserted value, counts subsequences in which it remains, and uses a DP over the number of smaller active values. contribution-technique and subsequence-dp describe the two essential ideas. The judge's ternary-search tag is not used by the editorial solution and is retained only as source metadata.",
+    "rejected_patterns": [
+      {
+        "pattern": "heap",
+        "reason": "A priority queue defines the simulated process, but no heap is used in the counting algorithm."
+      },
+      {
+        "pattern": "ternary-search",
+        "reason": "The official O(n^3) contribution DP performs no ternary search."
+      },
+      {
+        "pattern": "moment-dp",
+        "reason": "The state counts active values below a fixed pivot; it does not maintain weighted moments that close a polynomial transition."
+      }
+    ]
+  },
+  "taxonomy_decision": {
+    "subsequence-dp": "Canonicalized because it is a reusable include-or-skip DP family and was already present as an open-vocabulary label in the corpus.",
+    "moment-dp": "Added as a canonical DP subtype for transitions that close by tracking aggregate weighted moments. Expected Product 2 is a clear instance: its zeroth and first moments form a two-state linear recurrence."
+  }
+}

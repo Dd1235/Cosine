@@ -13,7 +13,7 @@
   ],
   "patterns": [
     "prefix-sum",
-    "dp-on-subsequences",
+    "subsequence-dp",
     "dynamic-programming"
   ],
   "annotation": {
@@ -22,7 +22,7 @@
     "generated_at_unix": 1785047436,
     "pattern_confidence": {
       "prefix-sum": 0.9,
-      "dp-on-subsequences": 0.95
+      "subsequence-dp": 0.95
     }
   },
   "difficulty": 1876

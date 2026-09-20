@@ -24,7 +24,7 @@
   ],
   "patterns": [
     "binary-search-answer",
-    "dp-on-subsequences",
+    "subsequence-dp",
     "lexicographic-ordering",
     "subsequence-check",
     "binary-search",
@@ -36,7 +36,7 @@
     "generated_at_unix": 1777923187,
     "pattern_confidence": {
       "binary-search-answer": 0.95,
-      "dp-on-subsequences": 0.9,
+      "subsequence-dp": 0.9,
       "lexicographic-ordering": 0.85,
       "subsequence-check": 0.9
     }
