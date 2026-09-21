@@ -1,7 +1,7 @@
 {
   "version": 2,
   "recipe": {
-    "version": 2,
+    "version": 3,
     "model": "Xenova/all-MiniLM-L6-v2",
     "tokenizer": "Xenova/all-MiniLM-L6-v2",
     "dtype": "q8",
@@ -9,7 +9,7 @@
     "pooling": "mean",
     "normalize": true,
     "inferenceBatchSize": 1,
-    "textFields": "title+statement+tags+patterns"
+    "textFields": "title+statement+tags+patterns+native-contest"
   },
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
@@ -4042,7 +4042,7 @@
     "kattis-wiknow",
     "kattis-zoomanagement"
   ],
-  "corpusHash": "8cad89927a977cc1822cf8b47dcd12c4b1de74f100e35d1489a8ce165129e536",
+  "corpusHash": "454c731635a3c69d0f2df57beef0d7d1774524694ab2ae029879a7c11647ba11",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-20T13:21:24.517Z"
+  "createdAt": "2026-09-21T04:38:13.963Z"
 }

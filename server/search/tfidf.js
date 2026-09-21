@@ -1,9 +1,6 @@
 const { tokenize } = require("./tokenize");
 const plurals = require("./plurals");
-
-function problemText(p) {
-  return [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
-}
+const { problemText } = require("./problem_text");
 
 class TfIdfIndex {
   constructor(problems) {

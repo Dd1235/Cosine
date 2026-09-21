@@ -2,28 +2,32 @@ package main
 
 import (
 	"math"
+	"regexp"
 	"sort"
 	"strings"
 )
 
+var nativeContestPattern = regexp.MustCompile(`(?i)\b((weekly|biweekly)[[:space:]]+contest|contest)[[:space:]]+[0-9]+\b`)
+
 // Problem mirrors the JSON shape on disk and the in-memory shape in the JS
 // service. Only the fields BM25 + the gRPC response need are stored.
 type Problem struct {
-	ID         string   `json:"id"`
-	Title      string   `json:"title"`
-	Slug       string   `json:"slug"`
-	Difficulty string   `json:"difficulty"`
-	Statement  string   `json:"statement"`
-	SourceURL  string   `json:"source_url"`
-	Platform   string   `json:"platform"`
-	Tags       []string `json:"tags"`
-	Patterns   []string `json:"patterns"`
+	ID          string   `json:"id"`
+	Title       string   `json:"title"`
+	Slug        string   `json:"slug"`
+	Difficulty  string   `json:"difficulty"`
+	Statement   string   `json:"statement"`
+	SourceTopic string   `json:"source_topic"`
+	SourceURL   string   `json:"source_url"`
+	Platform    string   `json:"platform"`
+	Tags        []string `json:"tags"`
+	Patterns    []string `json:"patterns"`
 }
 
 type ScoredDoc struct {
-	DocIndex      int
-	Score         float64
-	MatchedTerms  []string
+	DocIndex     int
+	Score        float64
+	MatchedTerms []string
 }
 
 // Bm25Index mirrors server/search/bm25.js exactly. RSJ IDF, k1 = 1.5, b =
@@ -53,6 +57,10 @@ func problemText(p Problem) string {
 	for _, t := range p.Patterns {
 		b.WriteByte(' ')
 		b.WriteString(t)
+	}
+	if contest := nativeContestPattern.FindString(p.SourceTopic); contest != "" {
+		b.WriteByte(' ')
+		b.WriteString(contest)
 	}
 	return b.String()
 }

@@ -9,6 +9,7 @@ const { HybridIndex } = require("../server/search/hybrid");
 const { expandQuery } = require("../server/search/query_expand");
 const { correctTerms } = require("../server/search/spellfix");
 const { tokenize } = require("../server/search/tokenize");
+const { problemText } = require("../server/search/problem_text");
 
 // The serving path expands alias queries at the route ("aliens trick" →
 // +wqs binary search), so the bench does too by default — it measures the
@@ -83,8 +84,7 @@ let vocabulary = null;
 function buildVocabulary(problems) {
   const v = new Map();
   for (const p of problems) {
-    const text = [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
-    for (const term of new Set(tokenize(text))) v.set(term, (v.get(term) || 0) + 1);
+    for (const term of new Set(tokenize(problemText(p)))) v.set(term, (v.get(term) || 0) + 1);
   }
   return v;
 }

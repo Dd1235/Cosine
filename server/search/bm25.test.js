@@ -43,4 +43,14 @@ const sx = satResult.hits.find((h) => h.problem.id === "x").score;
 const sy = satResult.hits.find((h) => h.problem.id === "y").score;
 assert.ok(sy / sx < 5, `bm25 should saturate, but ratio was ${sy / sx}`);
 
+// Native contest metadata is searchable without indexing the judge prefix on
+// every record. This is how newly added contest problems can be found before a
+// user knows their exact titles.
+const contestIndex = new Bm25Index([
+  { id: "weekly", title: "Alpha", statement: "array", tags: [], patterns: [], source_topic: "LeetCode / Weekly Contest 520" },
+  { id: "generic", title: "Beta", statement: "graph", tags: [], patterns: [], source_topic: "LeetCode / Hard (generated)" },
+]);
+assert.equal(contestIndex.search("weekly contest 520", 5).hits[0].problem.id, "weekly");
+assert.equal(contestIndex.search("leetcode", 5).total, 0, "judge names must remain facets");
+
 console.log("bm25 tests passed");

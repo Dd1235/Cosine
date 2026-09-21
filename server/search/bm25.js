@@ -1,9 +1,6 @@
 const { tokenize, normalizeNumbers } = require("./tokenize");
 const plurals = require("./plurals");
-
-function problemText(p) {
-  return [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
-}
+const { problemText } = require("./problem_text");
 
 class Bm25Index {
   constructor(problems, { k1 = 1.5, b = 0.75 } = {}) {

@@ -6,6 +6,7 @@ const db = require("../db");
 const { expandQuery } = require("../search/query_expand");
 const { correctTerms } = require("../search/spellfix");
 const { tokenize } = require("../search/tokenize");
+const { problemText } = require("../search/problem_text");
 const { queryIsWordLike } = require("../search/wordlike");
 const {
   parseSelection, passesDifficulty, parseSort, sortByDifficulty, sortableJudge, SORTABLE_JUDGES,
@@ -153,7 +154,7 @@ function createSearchRouter({ indexes, defaultRanker, problems, collectionRegist
   // both sit one edit from "tre". `.has()` reads the same either way.
   const VOCABULARY = new Map();
   for (const p of problems) {
-    for (const term of new Set(tokenize([p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ")))) {
+    for (const term of new Set(tokenize(problemText(p)))) {
       VOCABULARY.set(term, (VOCABULARY.get(term) || 0) + 1);
     }
   }

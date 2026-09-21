@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { problemText } = require("./problem_text");
 
 // Single source of truth for the dense ranker's model identity. The committed
 // corpus artifact and the query-time embedder MUST come from the same
@@ -9,7 +10,7 @@ const crypto = require("crypto");
 const MODEL_ID = "Xenova/all-MiniLM-L6-v2";
 const DTYPE = "q8"; // quantized ONNX weights (~23 MB) — fits a 512 MB instance
 const DIMS = 384;
-const RECIPE_VERSION = 2;
+const RECIPE_VERSION = 3;
 
 // This identity is shared by offline documents and online queries. Singleton
 // inference prevents dynamic batch padding from changing quantized vectors.
@@ -23,7 +24,7 @@ function embeddingRecipe() {
     pooling: "mean",
     normalize: true,
     inferenceBatchSize: 1,
-    textFields: "title+statement+tags+patterns",
+    textFields: "title+statement+tags+patterns+native-contest",
   };
 }
 
@@ -35,12 +36,6 @@ function matchesEmbeddingRecipe(recipe) {
 const ARTIFACT_DIR = path.join(__dirname, "..", "..", "data", "embeddings");
 const VECTORS_FILE = "corpus.f32"; // raw little-endian Float32Array, row i = doc i
 const MANIFEST_FILE = "manifest.json";
-
-// Same text composition as tfidf.js / bm25.js / inverted.js / go/bm25.go —
-// deliberately duplicated per ranker, like the others.
-function problemText(p) {
-  return [p.title, p.statement, ...(p.tags || []), ...(p.patterns || [])].join(" ");
-}
 
 // Fingerprint of the corpus text the vectors were computed from, in load
 // order. Boot compares this against the manifest to detect a stale artifact.

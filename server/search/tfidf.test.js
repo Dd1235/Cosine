@@ -41,4 +41,11 @@ const offsetResult = index.search("graph", 10, 1);
 assert.ok(offsetResult.total >= 1, "should have at least 1 result for 'graph'");
 assert.equal(offsetResult.hits.length, Math.min(10, offsetResult.total - 1), "offset=1 should skip first");
 
+const contestIndex = new TfIdfIndex([
+  { id: "weekly", title: "Alpha", statement: "array", tags: [], patterns: [], source_topic: "LeetCode / Weekly Contest 520" },
+  { id: "generic", title: "Beta", statement: "graph", tags: [], patterns: [], source_topic: "LeetCode / Hard (generated)" },
+]);
+assert.equal(contestIndex.search("weekly contest 520", 5).hits[0].problem.id, "weekly");
+assert.equal(contestIndex.search("leetcode", 5).total, 0, "judge names must remain facets");
+
 console.log("tfidf tests passed");
