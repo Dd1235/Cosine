@@ -1,0 +1,55 @@
+{
+  "id": "codeforces-2266-f",
+  "title": "MEX Replacement",
+  "source_url": "https://codeforces.com/contest/2266/problem/F",
+  "solution": "Producing value K requires copies of 0..K-1 together, and a single element always turns into 0 (MEX{v}=0 for v>0) or 1 (MEX{0}), so any element not used as its own value is one generic unit. Reachability is monotone (making K means K-1 was present), and max x is always reachable, so binary search K over [max x, max(max x, n+~60)]. The bound holds because each missing value at least doubles the demand, and the total count is at most 2*10^14. Feasibility check for K: sweep v from K-1 down to 0 with a demand counter carry (initially 1). Take u=min(a[v],carry) existing copies directly. The deficit d=carry-u must be built, and each build of v needs one of every smaller value, so carry+=d; stop early once carry exceeds the total. At v=0 the leftover deficit must be at most the number of elements not used directly, since each becomes a 0 via a singleton operation. Using an existing v directly is never worse than converting it, which gives an exchange argument for the greedy. Complexity is O((n+60) log n) per test.",
+  "solution_check": "true - a Python implementation reproduces all 10 sample outputs (5 10 3 4 4 7 4 3 59 5) and matches an exhaustive state-search brute force on 300 random small multisets.",
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "The feasibility check (top-down demand carry, take existing copies first, cover the final 0-deficit with singleton->0 conversions of unused elements) is correct: my reimplementation reproduces all 10 samples and matches an exhaustive state-search brute force on random small multisets with 0 mismatches. The claim that binary search is needed for speed is wrong. The n values are distinct, so max x >= n-1, and K <= n + ~47 (each missing value doubles the carry, total <= 2e14). That leaves at most ~48 candidates above max x. So the natural solution is a direct upward scan: K = max x, and while check(K+1) succeeds, K++. That is at most ~48 checks of O(n + 48) each, with no binary search. Measured: the worst case (0..199999, each with count 1e9) took 30 scan steps.",
+  "proposed": {
+    "patterns": [
+      "mex",
+      "greedy",
+      "binary-search-answer",
+      "binary-search"
+    ],
+    "tags": [
+      "greedy",
+      "binary-search",
+      "math",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "mex",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Named trap. Monotonicity holds, but the answer exceeds max x by at most ~48 (max x >= n-1 because values are distinct, and each missing value doubles demand). A direct upward scan K = max x+1, max x+2, ... with the O(n) demand check is at most ~48 checks and is what anyone would write. The proposal's reason that binary search is 'what keeps it fast' is false. The interesting part is the greedy demand propagation, not a search over the answer."
+      },
+      {
+        "pattern": "binary-search",
+        "reason": "Only present as the vehicle for binary-search-answer, which is unnecessary. There is no binary search anywhere in the direct solution."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "binary-search",
+        "reason": "Same reason as the pattern. A linear scan over at most ~48 candidates replaces it."
+      },
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The output is a single number and no operation sequence is constructed. The reasoning about which operations to use is covered by greedy."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Binary search on K with a top-down demand-propagation greedy check is the natural solution. A linear scan of candidate K is also bounded (K <= ~n+50 when K > max x), but each check is O(K), so binary search is what keeps it fast. Only the constant 60 in the upper bound is loose. Rejected dynamic-programming: the 'cost doubles' recurrence is just carried as a running counter. Also rejected bit-manipulation: the power-of-two growth is only used to justify the bound.",
+    "skeptic": "The core is a greedy top-down demand sweep. Going from v = K-1 down to 0, it uses existing copies of v first (exchange argument: using a copy directly never costs more than converting it). Each deficit is added to the carry, because building one v consumes one of every smaller value. Leftover demand at 0 is paid by singleton operations ({v} -> 0 for v > 0) on unused elements. The doubling bound (at most ~47 missing values) makes the candidate range above max x tiny, so no search over the answer is needed. I considered dynamic-programming (rejected: the carry is a running counter, not DP) and bit-manipulation (rejected: powers of two only justify the bound). Pattern coverage after edits is mex and greedy. exchange-argument is borderline: it justifies the greedy but is not what someone would search for here, so I did not add it. The work is in the scratch folder (sol.py with the brute-force cross-check)."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2266-b",
+  "title": "Three Piles",
+  "slug": "2266-b-three-piles",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/B",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "games",
+    "greedy",
+    "math"
+  ],
+  "statement": "Alice and Bob own piles of a and b stones and alternately (Alice first) move any number of stones, possibly zero, from a shared third pile of c stones into their own pile; the game ends after two consecutive zero moves. Alice maximizes and Bob minimizes the final |A−B|. With a, b, c up to 10^9, the optimal-play score must be found in O(1) by reasoning about the game.",
+  "tags": [
+    "game-theory",
+    "math"
+  ],
+  "patterns": [
+    "game-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "game-theory": 0.95
+    }
+  }
+}

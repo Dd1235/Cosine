@@ -1,0 +1,49 @@
+{
+  "id": "codeforces-2266-h",
+  "title": "Deque Malfunction",
+  "source_url": "https://codeforces.com/contest/2266/problem/H",
+  "solution": "If some value in 1..n never appears, answer -1. Pick one surviving occurrence time T_v per value (all other arrivals are pushed and popped immediately). A value v can be placed by a normal push iff T_v is smaller than all T_u for u<v (push-front) or for all u>v (push-back); every other value costs one malfunction and should use its last occurrence so it constrains nobody. So the normal-push values form a valley: a left chain v1<...<k with decreasing times and a right chain k<...<w with increasing times, meeting at k (the earliest survivor). A left-chain element v also needs T_v < PL(v)=min_{u<v} last(u), and a right-chain element needs T_v < SL(v)=min_{u>v} last(u); these prefix/suffix minima of last occurrences are the only extra constraints. Treat each occurrence (v,t) that satisfies its bound as a point. Compute the longest chain ending at each point (value increasing, time decreasing) with a Fenwick tree of maxima over time, and do the same from the right. The answer is n - max(L(k,t)+R(k,t)-1) over points valid on both sides. Runs in O(m log m).",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "longest-increasing-subsequence",
+      "dynamic-programming",
+      "fenwick-tree",
+      "greedy"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "greedy",
+      "data-structures",
+      "fenwick-tree"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "longest-increasing-subsequence",
+      "dynamic-programming",
+      "fenwick-tree",
+      "segment-tree"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "Only a side remark (malfunctioned values use their last occurrence); the core is the valley reduction plus two 2D longest-chain DPs, not a greedy choice or exchange argument."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: the last-occurrence choice is incidental, not the solving idea."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Key reduction: normally pushed survivors = values whose chosen time is a prefix-minimum from the left or suffix-minimum from the right of T over values 1..n (valley shape), which becomes two LIS-style chain DPs over (value, occurrence-time) points. Malfunctioned values greedily take their last occurrence. The prefix-min of last occurrences is a minor helper, so prefix-sum is not labelled. 'deque' is left out because the solution uses no deque; it only appears in the statement. A segment tree could replace the Fenwick tree. binary-search-answer does not apply. The statement contains an anti-AI canary sentence, which was ignored.",
+    "skeptic": "Independently re-implemented the proposed algorithm (O(m^2) version of the chain DPs) and a deque-state brute force: all 9 samples match [0,-1,2,0,1,4,0,2,3], and 0 mismatches on 3000 random cases (n<=5, m<=7) plus 600 cases (n in 3..6, m<=8). The LIS label fits: the answer is n minus the longest valley-shaped chain over (value, time) points, computed as two longest decreasing-time chains with a max-Fenwick over time. A segment tree could replace the Fenwick tree, but it is not added as a separate label. 'deque' is correctly left out because it is only statement wording. binary-search-answer does not apply. The only summary change is adding that the values come from 1..n. The anti-AI sentence in the statement was ignored."
+  }
+}

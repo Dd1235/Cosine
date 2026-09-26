@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2266-c",
+  "title": "AND, OR, Sort!",
+  "slug": "2266-c-and-or-sort",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/C",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "greedy",
+    "strings"
+  ],
+  "statement": "Given a binary string of length n up to 2·10^5, an operation replaces s_i with the AND or OR of prefix s_1..s_i. The task asks for the minimum number of operations to sort the string. Since s_1 never changes, s_1=1 forces all ones. Otherwise it reduces to minimum flips to a monotone 0...01...1 string, found by scanning split points with prefix counts.",
+  "tags": [
+    "string",
+    "prefix-sum",
+    "ad-hoc"
+  ],
+  "patterns": [
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "prefix-sum": 0.8
+    }
+  }
+}

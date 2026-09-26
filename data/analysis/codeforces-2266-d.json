@@ -1,0 +1,46 @@
+{
+  "id": "codeforces-2266-d",
+  "title": "Falling Concrete",
+  "source_url": "https://codeforces.com/contest/2266/problem/D",
+  "solution": "Define c_k = a_k - k. An operation moving section j to position i gives the moved section value a_j-(j-i) at index i, so its c stays a_j-j; each shifted section gains +1 height and +1 index, so its c is unchanged too. Hence an operation only permutes the multiset of c values (moving one c earlier), and since backward moves can realise any permutation, every arrangement of c is reachable. A flat segment of height h on positions l..r needs c_k = h-k there, i.e. c values that are consecutive integers h-l, h-l-1, ..., h-r. So the answer is the longest run of consecutive integers among the distinct values of c: sort the distinct c's (or use a hash set) and scan. O(n log n) per test, sum n ≤ 2·10^5.",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sorting",
+      "hash-map",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "math",
+      "sorting",
+      "constructive-algorithm",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "sorting",
+      "hash-map"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "constructive-algorithm",
+        "reason": "Nothing is constructed or output; 'any permutation of c = a_i - i is reachable via backward moves' is only the proof that the multiset view is exact. The algorithm is: compute a_i - i, dedupe, find the longest run of consecutive integers."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Same as the pattern: no construction; the reachability argument is proof scaffolding, not the solution."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "The real key is the invariant a_i - i (the operation just permutes these values). The vocab has no 'invariant' pattern, so the labels cover the final step: longest run of consecutive integers among distinct values (sorting, or the hash-set 'longest consecutive sequence' trick). constructive-algorithm is low confidence; it's only there because any permutation can be reached with backward moves. Rejected greedy/dp/binary-search since none of them is used.",
+    "skeptic": "Independently derived the same invariant: c_k = a_k - k is unchanged for the moved and the shifted sections, so an operation only moves one c value earlier. Backward insertions can realise any permutation, and a flat segment needs consecutive distinct c values, so the answer is the longest run of consecutive integers among the distinct a_i - i. Checked against all 8 samples (4 6 1 5 4 2 5 6) and against a BFS brute force on 200 random arrays with n<=5; all matched. The core insight is the a_i - i invariant, and the vocabulary has no invariant pattern, so sorting (sort the distinct values and scan) plus hash-map (the hash-set 'longest consecutive sequence' trick, a full alternative) is the right pair. No binary-search-answer, greedy or dp applies. The summary is accurate at 62 words and includes n <= 2e5; it is left unchanged and does not give away the invariant."
+  }
+}

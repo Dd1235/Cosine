@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2267-f1",
+  "title": "XOR Transformations (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2267/problem/F1",
+  "solution": "Key observation: the transformation collapses the array very quickly. Among m >= 5 values, many pairs share their high bits, so the m smallest pairwise XORs lose the top bit(s); after O(log C) steps (about 30 at most, under 10 in practice) the array reaches the fixed point of all zeros, where max-min = 0. So simulate directly: each step writes all m(m-1)/2 XORs and takes the m smallest (nth_element/partial sort), recording max-min of every state until the array stops changing. Each query x is answered by lookup, and any x past the stabilisation step gives 0. Complexity is O(n^2 log C) per test (about 4e6 pairs per step for about 30 steps), which fits sum n <= 2000 and the 4 s limit. The hard version needs a trie to find the m smallest XORs without listing every pair.",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "simulation",
+      "bit-manipulation",
+      "brute-force"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "simulation",
+      "brute-force",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "simulation",
+      "bit-manipulation",
+      "brute-force"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The core insight is that the process converges to all zeros in O(log C) steps, which was checked empirically here rather than proven formally. Picking the m smallest XORs uses nth_element, but that is only scaffolding, so quickselect is not a label. trie (k smallest pairwise XORs) belongs to the hard version F2, not this easy version with n <= 2000. xor-basis was considered and rejected because no linear-span argument is used.",
+    "skeptic": "The algorithm is correct: my independent simulation reproduces all 6 sample outputs. The collapse bound can be PROVEN, not just observed. Let k be the highest bit where the values differ, and split them into groups of size s and m-s by that bit. Pairs inside a group XOR to less than 2^k, and there are C(s,2)+C(m-s,2) of them. For m>=6 that count is at least m, so all m new values are below 2^k. The top set bit therefore drops strictly each step, which gives at most about 31 steps to all-equal and then all zeros. For m=5 with a 2/3 split, only 4 in-group pairs exist, so one value can keep bit k. But the next step has C(4,2)=6 pairs among the 4 small values, so the top bit drops at least every 2 steps (at most about 62 steps, trivial at n=5). No nonzero fixed point or cycle is possible: the array converges to all zeros, and a zero array is a fixed point. Exhaustive checks found no cycle and no nonzero fixed point: m=5 over values [0,32) (worst 8 steps), m=6 over [0,16) and m=7 over [0,12). Adversarial hill-climbing on 30-bit values gave worst cases of 8 (m=5), 5 (m=6) and 6 (m=8). One small correction: the proposal quotes n^2 = 4e6 pairs per step, but it is n(n-1)/2, about 2e6, so the total is about 62M. Label verdicts: simulation is the core. bit-manipulation is warranted by the highest-differing-bit argument. brute-force is fair because the easy version is exactly 'enumerate all pairs each step'. Agreed that trie belongs to F2, quickselect/sorting are scaffolding, and xor-basis does not apply. No binary-search-answer or greedy traps. The math tag is marginal (pigeonhole convergence) but acceptable. I rewrote the summary to state the proven ~31-step bound instead of 'about log(C)'. Scratch code: SP/work/skeptic-codeforces-2267-f1/{sim,growth,adv}.py"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2266-d",
+  "title": "Falling Concrete",
+  "slug": "2266-d-falling-concrete",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/D",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "constructive algorithms",
+    "data structures",
+    "math",
+    "sortings"
+  ],
+  "statement": "A road has n sections with heights a_i (n ≤ a_i ≤ 10^9, n up to 2·10^5). One operation takes section j, moves it back to position i<j, lowering it by j−i while every section it passes over rises by 1. The task is to find the maximum possible length of a contiguous segment of equal heights after any number of operations.",
+  "tags": [
+    "math",
+    "sorting",
+    "hash-map"
+  ],
+  "patterns": [
+    "sorting",
+    "hash-map"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "sorting": 0.75,
+      "hash-map": 0.6
+    }
+  }
+}

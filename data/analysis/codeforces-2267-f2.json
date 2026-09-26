@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2267-f2",
+  "title": "XOR Transformations (Hard Version)",
+  "source_url": "https://codeforces.com/contest/2267/problem/F2",
+  "solution": "The transformation quickly drives the array to a fixed point (all zeros): the top bit of the maximum drops about every one or two steps, so after O(log C) transformations it stops changing. Precompute max-min for each step until the array stops changing, then answer each query x as the value at step min(x, last). Each step needs the m smallest pairwise XORs of m numbers (m up to 1e5). Build a binary trie with subtree counts. Find the m-th smallest XOR T by walking down bit by bit, keeping one trie pointer per element and counting how many ordered pairs match the current prefix (self-pairs are subtracted). Then list every pair with XOR < T by walking the trie from each element, which yields fewer than m pairs, and pad the rest with T. Each step costs O(n log C), so the total is O(n log^2 C + q).",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "trie",
+      "bit-manipulation",
+      "simulation",
+      "order-statistics"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "trie",
+      "data-structures",
+      "simulation"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "trie",
+      "bit-manipulation",
+      "simulation",
+      "order-statistics"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The step-count bound (convergence in O(log C) steps) was checked empirically: random tests stabilise within about 8 steps. It was not proven formally. The k-th smallest XOR could also be found by binary searching T with a trie counting check, but the bit-by-bit descent is the same technique, so binary-search-answer is omitted. The easy version F1 allows O(n^2) brute force per step.",
+    "skeptic": "Step bound is provable, not just empirical: let h be the highest bit where elements differ. Splitting by bit h into groups a+b=m, same-group pairs give XOR < 2^h and number C(a,2)+C(b,2) >= m for every split when m>=6 (only the 3/2 split at m=5 falls short, by one). So for m>=6 every new value is < 2^h and h strictly drops each step (<=31 steps); for m=5 a leftover large value is fixed the next step (4/1 split gives 6>=5), so <=2 steps per bit. Adversarial checks (hill-climbing over m=5..12 with power-of-two / bit-flip mutations, plus structured inputs: 0..199, powers of two, Gray codes, arithmetic progressions, random m=300) never exceeded 8 steps. Brute force reproduces all samples (1; 9 7; 12 31; 7). Per step, the k-th smallest XOR by bit-by-bit descent with per-element trie pointers, then enumerating pairs below it, is the standard technique; order-statistics is a fair secondary label (k-th smallest pairwise XOR), simulation reflects iterating to the fixed point. binary-search-answer correctly omitted."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2267-g",
+  "title": "New LRT",
+  "slug": "2267-g-new-lrt",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/G",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "dp"
+  ],
+  "statement": "Starting at position 0, a traveller must reach position n. Each move adds a positive x that is a submask of m (m & x = x) and costs c_x. The task is to sum the costs of all ordered trips modulo 10^9+7, with n and m below 2^20 and their sums over tests at most 2^20. This rules out the direct O(n·2^popcount(m)) transition.",
+  "tags": [
+    "dynamic-programming",
+    "bit-manipulation",
+    "combinatorics",
+    "math",
+    "counting"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "bit-manipulation",
+    "contribution-technique",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "dynamic-programming": 0.95,
+      "bit-manipulation": 0.85,
+      "contribution-technique": 0.6,
+      "counting": 0.6
+    }
+  }
+}

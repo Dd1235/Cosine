@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2267-d",
+  "title": "Backrooms Hill",
+  "slug": "2267-d-backrooms-hill",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/D",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "constructive algorithms",
+    "dp",
+    "greedy",
+    "sortings",
+    "two pointers"
+  ],
+  "statement": "Given an array of n distinct integers (n up to 2·10^5, sum over tests bounded), one may repeatedly swap elements two positions apart, so odd-indexed and even-indexed values can each be rearranged freely. The task is to decide whether the array can be made a hill: strictly increasing up to some peak index, then strictly decreasing afterwards.",
+  "tags": [
+    "parity-argument",
+    "sorting"
+  ],
+  "patterns": [
+    "parity-argument",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "parity-argument": 0.95,
+      "sorting": 0.8
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2267-f2",
+  "title": "XOR Transformations (Hard Version)",
+  "slug": "2267-f2-xor-transformations-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/F2",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "bitmasks",
+    "brute force",
+    "data structures",
+    "greedy",
+    "sortings",
+    "strings",
+    "trees"
+  ],
+  "statement": "An array of n integers is repeatedly replaced by the n smallest pairwise XORs of its elements. For q independent queries x, the task is to report max minus min after x transformations. With n, q up to 1e5, values below 2^30 and x up to 2^30, the array reaches a fixed point within O(log C) steps, each a k-smallest pairwise XOR computation on a binary trie.",
+  "tags": [
+    "bit-manipulation",
+    "trie",
+    "data-structures",
+    "simulation"
+  ],
+  "patterns": [
+    "trie",
+    "bit-manipulation",
+    "simulation",
+    "order-statistics"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "trie": 0.9,
+      "bit-manipulation": 0.8,
+      "simulation": 0.7,
+      "order-statistics": 0.55
+    }
+  }
+}

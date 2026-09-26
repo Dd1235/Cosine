@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2267-c",
+  "title": "GCD Treasury",
+  "slug": "2267-c-gcd-treasury",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/C",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "greedy",
+    "math",
+    "number theory"
+  ],
+  "statement": "Given n piles of coins a_i and a number x, a pirate repeatedly picks a nonempty pile with gcd(a_i, x) ≠ 1, steals g = gcd(a_i, x) coins from it, and sets x to g. The task is to maximize the total number of coins stolen, with n, x and a_i up to 3·10^5 and the sum of n bounded by 3·10^5.",
+  "tags": [
+    "number-theory",
+    "math",
+    "gcd"
+  ],
+  "patterns": [
+    "gcd",
+    "prime-factorization",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "gcd": 0.9,
+      "prime-factorization": 0.85,
+      "number-theory": 0.8
+    }
+  }
+}

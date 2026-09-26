@@ -14,7 +14,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 4023,
+  "count": 4039,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -2863,6 +2863,22 @@
     "codeforces-2264-e1",
     "codeforces-2264-e2",
     "codeforces-2264-f",
+    "codeforces-2266-a",
+    "codeforces-2266-b",
+    "codeforces-2266-c",
+    "codeforces-2266-d",
+    "codeforces-2266-e",
+    "codeforces-2266-f",
+    "codeforces-2266-g",
+    "codeforces-2266-h",
+    "codeforces-2267-a",
+    "codeforces-2267-b",
+    "codeforces-2267-c",
+    "codeforces-2267-d",
+    "codeforces-2267-e",
+    "codeforces-2267-f1",
+    "codeforces-2267-f2",
+    "codeforces-2267-g",
     "codeforces-228-e",
     "codeforces-229-b",
     "codeforces-229-d",
@@ -4042,7 +4058,7 @@
     "kattis-wiknow",
     "kattis-zoomanagement"
   ],
-  "corpusHash": "454c731635a3c69d0f2df57beef0d7d1774524694ab2ae029879a7c11647ba11",
+  "corpusHash": "55816597faf642b446f8e212c6889a0b52aa92a59be56ebba04d4e1e18fc8be3",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-21T04:38:13.963Z"
+  "createdAt": "2026-09-26T07:42:07.154Z"
 }

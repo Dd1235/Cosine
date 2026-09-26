@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2267-a",
+  "title": "Turn Into a Palindrome",
+  "source_url": "https://codeforces.com/contest/2267/problem/A",
+  "solution": "Pairs of mirrored positions (i, n+1-i) are independent. If s_i equals s_{n+1-i} the pair costs 0. If they differ and one of them already equals c, overwrite the other with c for cost 1. If they differ and neither is c, both must become c (the only reachable common letter), costing 2. Sum over the floor(n/2) pairs; the middle character of odd n never matters. O(n) per test.",
+  "solution_check": [
+    true,
+    "Hand-checked all 5 samples pair by pair: abca/b=1, xyx=0, abcbb/e=2, adbccbad/d=2, codeforces/c=1+2+1+2+2=8."
+  ],
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "palindrome",
+      "greedy",
+      "two-pointers"
+    ],
+    "tags": [
+      "string",
+      "greedy",
+      "implementation",
+      "palindrome"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "palindrome"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No choice is being made: each mismatched mirrored pair must end up as c (the only letter you can write), so the cost of 1 or 2 is forced. There is no greedy choice or exchange argument, so the label is filler."
+      },
+      {
+        "pattern": "two-pointers",
+        "reason": "Just a loop over i and n-1-i to visit mirrored pairs, which is ordinary palindrome scaffolding. No pointer is moved based on a condition, so it is not the two-pointers technique."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same as the pattern: the per-pair cost is forced, and nothing greedy is decided."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Very easy Div-level A; per-pair case analysis. two-pointers only in the sense of scanning mirrored ends, low confidence. No DP needed.",
+    "skeptic": "Checked with code on all 5 samples: [1,0,2,2,8] matches. The pair costs are 0 if the pair matches, 1 if the pair differs and contains c, and 2 otherwise. This is a trivial Div A. The summary is 64 words, accurate, and states the deciding constraint (only c can be written), so it is unchanged."
+  }
+}

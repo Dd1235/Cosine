@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2267-a",
+  "title": "Turn Into a Palindrome",
+  "slug": "2267-a-turn-into-a-palindrome",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/A",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "greedy",
+    "strings"
+  ],
+  "statement": "Given a string of n lowercase letters (n up to 100) and a fixed letter c, each operation replaces one position with c at a cost of one coin. The task is to find the minimum number of coins needed to make the string a palindrome, which reduces to examining each mirrored pair independently and counting how many of its characters must become c.",
+  "tags": [
+    "string",
+    "implementation",
+    "palindrome"
+  ],
+  "patterns": [
+    "palindrome"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "palindrome": 0.9
+    }
+  }
+}

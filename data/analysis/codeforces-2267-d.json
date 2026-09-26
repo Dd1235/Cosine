@@ -1,0 +1,69 @@
+{
+  "id": "codeforces-2267-d",
+  "title": "Backrooms Hill",
+  "source_url": "https://codeforces.com/contest/2267/problem/D",
+  "solution": "Swapping a_i and a_{i+2} lets values at odd positions be permuted arbitrarily among odd positions, and likewise for even positions, so each value v has a fixed position-parity class c(v) and the question is whether some hill places every value on a position of its class. Build any hill by taking values in decreasing order: the maximum sits at the peak p, and each next value extends the occupied interval either one step left or one step right. Fix the parity P of p (the maximum's class must equal P). When the j-th largest value is placed after L left-extensions so far, the left slot is p-L-1 and the right slot is p+j-L, so the parity of each slot depends only on P, j and L mod 2. Run a DP over the values with state L mod 2 (a 2x2 reachability set) and accept if the final left count satisfies L_total+1 ≡ P, because then p = L_total+1 is consistent. This is O(n log n) for the sort (O(n) with counting since values are 1..n) per test.",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "dynamic-programming",
+      "greedy",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "parity-argument",
+      "dynamic-programming",
+      "sorting",
+      "constructive-algorithm",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "parity-argument",
+      "sorting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "dynamic-programming",
+        "reason": "The 2-state DP is correct but collapses to a deterministic check: at odd steps both frontier slots share a parity, at even steps exactly one fits. So the whole test is: sort values descending, each consecutive pair (1st,2nd),(3rd,4th),... must come from different index-parity classes, and when n is odd the smallest value must be in the odd-position (1-indexed) class. Verified against brute force on 3000 random arrays. Nobody searching DP should land here."
+      },
+      {
+        "pattern": "greedy",
+        "reason": "No greedy choice or exchange argument. Once values are ordered, the placement is forced by parity."
+      },
+      {
+        "pattern": "constructive-algorithm",
+        "reason": "This is a yes/no decision problem with no construction to output. Growing the hill outward from the peak is only part of the reasoning."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "sorting",
+        "reason": "The core structure is ordering values by size: in a hill the top-j values fill a contiguous block around the peak, so the check pairs consecutive values in sorted order (a counting sort works because values are 1..n)."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "dynamic-programming",
+        "reason": "same as pattern: the DP collapses to a pairwise parity check"
+      },
+      {
+        "tag": "constructive-algorithm",
+        "reason": "decision problem, nothing is constructed"
+      },
+      {
+        "tag": "greedy",
+        "reason": "no greedy core"
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Key insight is the parity invariant (distance-2 swaps preserve index parity, and odd/even classes are freely permutable). The core check is a tiny-state DP over values in decreasing order (peak parity x left-count parity); an editorial likely phrases it as a greedy/case analysis on how the parity classes of sorted values alternate (placing the largest values outward from the peak), so greedy/constructive are listed with lower confidence. Not interval-dp: although the occupied interval grows, only parities matter, so the state is O(1). Sorting is scaffolding (values are a permutation of 1..n). verified_on_samples detail is duplicated in verified_on_samples_note because the key must be boolean.",
+    "skeptic": "Proposal's DP reproduces all 7 samples and matches brute force (independently re-checked, n<=8). Simpler equivalent solution, verified against the DP on 3000 random arrays with n<=9: map each value to the parity of its index, sort descending, require vs[2i] and vs[2i+1] to differ in parity for every full pair, and if n is odd require the minimum's parity to be odd-position (1-indexed), since the minimum must sit at an end and both ends are odd positions. Only parity-argument and sorting are central. Summary is accurate at about 55 words, so it is unchanged."
+  }
+}

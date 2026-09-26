@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2266-e",
+  "title": "Prime Destruction",
+  "slug": "2266-e-prime-destruction",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/E",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "dp",
+    "math",
+    "number theory"
+  ],
+  "statement": "A multiset of n positive integers (values up to n, n up to 2·10^5) is given. One operation replaces a value x > 1 with p copies of x/p, for a prime p dividing x. The task is to find the minimum number of operations until every element is at most k. The key is a DP over values up to n using the prime divisors from a sieve.",
+  "tags": [
+    "dynamic-programming",
+    "number-theory",
+    "math"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "sieve",
+    "prime-factorization",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "dynamic-programming": 0.9,
+      "sieve": 0.8,
+      "prime-factorization": 0.8,
+      "number-theory": 0.85
+    }
+  }
+}

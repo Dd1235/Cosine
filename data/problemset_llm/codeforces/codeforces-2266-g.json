@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2266-g",
+  "title": "Modular Tree",
+  "slug": "2266-g-modular-tree",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/G",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "dfs and similar",
+    "dp",
+    "greedy",
+    "math",
+    "number theory",
+    "trees"
+  ],
+  "statement": "Given a rooted tree of up to 2·10^5 nodes where node i has value a_i and modulus b_i up to 10^9, an operation replaces a node's value with (value + sum of its children's current values) mod b_i. The task is to find the maximum achievable total of all node values after any number of operations, which reduces to per-node gcd reachability computed bottom-up.",
+  "tags": [
+    "tree",
+    "number-theory",
+    "gcd",
+    "math",
+    "dfs",
+    "modular-arithmetic"
+  ],
+  "patterns": [
+    "gcd",
+    "tree-dp",
+    "number-theory",
+    "modular-arithmetic",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "gcd": 0.95,
+      "tree-dp": 0.85,
+      "number-theory": 0.8,
+      "modular-arithmetic": 0.7
+    }
+  }
+}

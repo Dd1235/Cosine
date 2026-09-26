@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2267-b",
+  "title": "Fashionable Array",
+  "source_url": "https://codeforces.com/contest/2267/problem/B",
+  "solution": "Output the array in round-robin layers: first one copy of every distinct value in decreasing order, then one copy of every value that still has copies left in decreasing order, and so on. Within a layer all counts are tied, so the prefix mode is the largest value seen, and placing the largest value first keeps it as the mode for the whole layer. After a layer ends, every value that is used up has a count lower than the values still remaining, so it can never be the mode again, and the next layer is the same problem on the leftover multiset. This greedy was checked against a brute force over all permutations on 3000 random arrays (n<=8, values<=5) and matched every time. Complexity is O(n log n) per test with n<=100.",
+  "solution_check": [
+    true,
+    "Layering gives prefix-mode sums 8,24,18,6,49,28,31, equal to the sample outputs' sums and to brute-force optima; random brute-force stress test also passed"
+  ],
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "constructive-algorithm",
+      "sorting"
+    ],
+    "tags": [
+      "greedy",
+      "constructive-algorithm",
+      "sorting",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "greedy",
+      "constructive-algorithm",
+      "sorting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Tie-breaking toward the larger value is what makes decreasing order inside a layer optimal. Greedy optimality was checked by brute force, not proven formally. Sorting is kept at low confidence because the output is essentially sorted by (occurrence index ascending, value descending). No DP is needed.",
+    "skeptic": "Independently verified the layering construction (one copy of each remaining distinct value per layer, descending) against brute force over all permutations on 3000 random arrays (n<=8, values<=6): all matched. Greedy is genuinely the core (largest value first so tie-break keeps it as mode for the whole layer). Sorting is the mechanism of the output order (by occurrence index, then value descending) — weak but defensible. No binary search/DP; nothing missing. Summary is 57 words, accurate, includes constraints."
+  }
+}

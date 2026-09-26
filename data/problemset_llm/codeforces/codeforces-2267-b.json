@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2267-b",
+  "title": "Fashionable Array",
+  "slug": "2267-b-fashionable-array",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/B",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "brute force",
+    "constructive algorithms",
+    "sortings"
+  ],
+  "statement": "Given an array of n integers (n up to 100, values up to 100), one must permute it to maximize the sum of prefix modes. The mode of a prefix is its most frequent value, with ties going to the largest value. The answer is a constructive greedy ordering: repeated layers of distinct values in decreasing order.",
+  "tags": [
+    "greedy",
+    "constructive-algorithm",
+    "sorting",
+    "counting"
+  ],
+  "patterns": [
+    "greedy",
+    "constructive-algorithm",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "constructive-algorithm": 0.9,
+      "sorting": 0.5
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2267-f1",
+  "title": "XOR Transformations (Easy Version)",
+  "slug": "2267-f1-xor-transformations-easy-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/F1",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "bitmasks",
+    "brute force",
+    "implementation",
+    "sortings"
+  ],
+  "statement": "Each transformation replaces an array of m integers with its m smallest pairwise XORs. Given n values below 2^30 and q independent queries x, the task is to report max minus min after x transformations. With sums of n and q at most 2000, all pairwise XORs can be listed per step; a pigeonhole argument on the highest differing bit shows the array hits all zeros within about 31 steps.",
+  "tags": [
+    "bit-manipulation",
+    "simulation",
+    "brute-force",
+    "math"
+  ],
+  "patterns": [
+    "simulation",
+    "bit-manipulation",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "simulation": 0.9,
+      "bit-manipulation": 0.8,
+      "brute-force": 0.6
+    }
+  }
+}

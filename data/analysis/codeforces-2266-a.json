@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2266-a",
+  "title": "Good Contest",
+  "source_url": "https://codeforces.com/contest/2266/problem/A",
+  "solution": "Problem i is missed by exactly n - a_i participants, and those misses must fall on distinct people, so the number of weak participants is at least max_i(n - a_i) = n - min(a). That bound is always reachable: pick k = n - min(a) participants and put every problem's misses on the first n - a_i of them. Each of those k participants misses the smallest-count problem, so all k are weak, and everyone else solves all three. So the answer is n - min(a1, a2, a3). Each test case is O(1).",
+  "solution_check": [
+    true,
+    "Checked n - min(a) by hand against all 6 samples: 3-3=0, 4-3=1, 1-1=0, 9-8=1, 5-0=5, 6-2=4, all match."
+  ],
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No greedy choice or exchange argument is at the core. The solution is a counting lower bound: problem i's n - a_i misses must fall on distinct people, so at least max(n - a_i) are weak. Putting all the misses on the same people meets that bound, which gives n - min(a) in O(1). This is ad-hoc math. Labelling it greedy would surface a trivial one-liner for 'greedy' searches. If the pipeline requires a non-empty list, greedy is the least-bad fallback, but only with low confidence."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: no greedy step. The solution is a one-line bound-and-attain observation."
+      },
+      {
+        "tag": "implementation",
+        "reason": "Nothing to implement beyond printing n - min(a). The tag adds noise."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "This is a one-line ad-hoc math observation (answer = n - min a_i). 'greedy' is the closest canonical pattern: it covers the lower-bound-plus-construction argument where all misses are packed onto the same participants. Considered brute-force, since n <= 9 would allow enumerating each participant's solve subset, but the intended solution is O(1) and brute force is not needed, so it was left out. constructive-algorithm was also rejected because no scoreboard has to be output.",
+    "skeptic": "I checked n - min(a) against all 6 samples, and against an exhaustive brute force over every scoreboard (each participant's solve subset out of 8) for n = 1..5: all (n, a) combinations match. No canonical pattern really fits. brute-force is not an alternative: enumerating subsets for n = 9 is 8^9 per test, which is too slow at t = 3000. constructive-algorithm is correctly rejected because no scoreboard is output. The summary is accurate at 60 words and is kept unchanged."
+  }
+}

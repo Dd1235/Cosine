@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2267-e",
+  "title": "Clean Substrings",
+  "slug": "2267-e-clean-substrings",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2267/problem/E",
+  "source_topic": "Codeforces / Contest 2267",
+  "source_tags": [
+    "combinatorics",
+    "data structures",
+    "math"
+  ],
+  "statement": "Inverting a constant substring costs one coin; the beauty of a binary string is the minimum coins to make it constant, and its power is the sum of beauties over all substrings. Given a binary string of length n up to 2·10^5 and q up to 2·10^5 single-bit flips, the task is to output the power before and after each flip.",
+  "tags": [
+    "math",
+    "combinatorics",
+    "string",
+    "counting",
+    "queries",
+    "parity-argument"
+  ],
+  "patterns": [
+    "contribution-technique",
+    "parity-argument",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "contribution-technique": 0.95,
+      "parity-argument": 0.8,
+      "counting": 0.7
+    }
+  }
+}

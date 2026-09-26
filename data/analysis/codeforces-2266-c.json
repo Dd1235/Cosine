@@ -1,0 +1,53 @@
+{
+  "id": "codeforces-2266-c",
+  "title": "AND, OR, Sort!",
+  "source_url": "https://codeforces.com/contest/2266/problem/C",
+  "solution": "s_1 can never change, since the AND/OR of a one-element prefix is itself. If s_1 = 1, the OR of any prefix is 1, so every position can be set to 1 but the target must be all ones: the answer is the number of zeros. If s_1 = 0, the AND of any prefix is 0, so any position can be zeroed, and a position j can be set to 1 whenever some 1 exists in s_1..s_j. The target is 0^k 1^(n-k) with k >= 1, which costs (ones in s[1..k]) + (zeros in s[k+1..n]). This cost is always achievable: first fill the suffix zeros using a 1 that appears earlier, then clear the prefix ones. Each mismatched position needs at least one operation, so the cost is also a lower bound. Take the minimum over k with prefix counts in O(n) per test.",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum",
+      "greedy",
+      "bit-manipulation"
+    ],
+    "tags": [
+      "greedy",
+      "string",
+      "prefix-sum",
+      "bit-manipulation"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "prefix-sum"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No greedy choice or exchange argument is the core. The solution is an invariant observation (s_1 is fixed) followed by enumerating every split point with a lower-bound argument, so greedy is filler here."
+      },
+      {
+        "pattern": "bit-manipulation",
+        "reason": "This describes the statement's wording. AND/OR over single bits is just min/max of a prefix, and no bit tricks are involved."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: the problem is split-point enumeration, not a greedy choice."
+      },
+      {
+        "tag": "bit-manipulation",
+        "reason": "Statement wording only. Prefix AND/OR of bits is prefix min/max."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "This is an ad-hoc observation problem: s_1 is invariant and decides whether AND can make a 0 or OR can make a 1. After that it reduces to the classic 'minimum flips to make a binary string monotone' scan over split points, so prefix-sum is central. bit-manipulation is kept at low confidence because the AND/OR reasoning is trivial (single bits). constructive-algorithm and dynamic-programming were rejected: no construction is output, and a split-point scan is not a DP.",
+    "skeptic": "I re-derived the formula and checked it against a BFS brute force on every binary string of length 2 to 10 (0 mismatches). It also matches all six samples. One gap in the proposal: its claim that every split k is achievable is too strong. With s=0010 and k=1, position 2 cannot become 1. The minimum is still correct, because at an optimal k<n the character s_{k+1} is 1, so every suffix zero has a 1 before it. The algorithm is O(n)."
+  }
+}

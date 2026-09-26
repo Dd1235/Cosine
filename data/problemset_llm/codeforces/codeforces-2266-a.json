@@ -1,0 +1,23 @@
+{
+  "id": "codeforces-2266-a",
+  "title": "Good Contest",
+  "slug": "2266-a-good-contest",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/A",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "greedy"
+  ],
+  "statement": "A contest has three problems and n participants (n up to 9), and only the number of solvers a_i of each problem is known. A participant is weak if they did not solve all three. Over all scoreboards consistent with these counts, the task is to find the minimum possible number of weak participants, for up to 3000 test cases.",
+  "tags": [
+    "math",
+    "ad-hoc"
+  ],
+  "patterns": [],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {}
+  }
+}

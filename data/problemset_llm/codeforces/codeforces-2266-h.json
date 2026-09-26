@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2266-h",
+  "title": "Deque Malfunction",
+  "slug": "2266-h-deque-malfunction",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/H",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "dp",
+    "greedy"
+  ],
+  "statement": "The task gives m arriving values from 1..n (1 ≤ n ≤ m ≤ 2·10^5). Each value must be pushed to the front or back of a deque, or inserted anywhere at the cost of one malfunction, and elements may be popped from either end at any time. The goal is to finish with exactly [1..n] using the fewest malfunctions, or report -1 if that is impossible.",
+  "tags": [
+    "dynamic-programming",
+    "data-structures",
+    "fenwick-tree"
+  ],
+  "patterns": [
+    "longest-increasing-subsequence",
+    "dynamic-programming",
+    "fenwick-tree",
+    "segment-tree"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "longest-increasing-subsequence": 0.85,
+      "dynamic-programming": 0.75,
+      "fenwick-tree": 0.75
+    }
+  }
+}

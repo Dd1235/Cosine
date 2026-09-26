@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2266-f",
+  "title": "MEX Replacement",
+  "slug": "2266-f-mex-replacement",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2266/problem/F",
+  "source_topic": "Codeforces / Contest 2266",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "greedy",
+    "implementation",
+    "math",
+    "sortings"
+  ],
+  "statement": "Given a multiset of non-negative integers in compressed form (n ≤ 2·10^5 distinct values x_i ≤ 10^9 with counts y_i ≤ 10^9), an operation replaces any non-empty sub-collection by its MEX. It asks for the largest integer that can ever appear. Building K needs all of 0..K-1 at once, and each missing value doubles the required count, so the answer exceeds max x by at most about 50.",
+  "tags": [
+    "greedy",
+    "math"
+  ],
+  "patterns": [
+    "mex",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790408505,
+    "pattern_confidence": {
+      "mex": 0.95,
+      "greedy": 0.85
+    }
+  }
+}

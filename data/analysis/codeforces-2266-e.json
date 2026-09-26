@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2266-e",
+  "title": "Prime Destruction",
+  "source_url": "https://codeforces.com/contest/2266/problem/E",
+  "solution": "All p copies produced by one split are identical, so each copy faces the same subproblem independently and the cost of a single value is well defined. Let F(x) = 0 if x <= k, otherwise F(x) = min over prime divisors p of x of 1 + p * F(x/p): one operation, then p copies of x/p each need F(x/p) operations. Compute a smallest-prime-factor sieve up to max(a) <= n, evaluate F for x = 2..max(a) in increasing order (x/p < x is already known), and output the sum of F(a_i). Each x has at most 6 distinct prime factors, so each test runs in O(n log log n). Values fit in 64-bit, since F(x) < x. The same result comes from choosing a final divisor d <= k and removing the primes of x/d in ascending order, which costs 1 + p1 + p1p2 + ...; the DP takes the minimum over all such choices automatically.",
+  "solution_check": "true — a Python implementation of the sieve+DP gives 0, 4, 25, 15, 1, 0 on the six sample tests, matching the expected output",
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "sieve",
+      "prime-factorization",
+      "number-theory"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "number-theory",
+      "math",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "dynamic-programming",
+      "sieve",
+      "prime-factorization",
+      "number-theory"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Solution is a min-over-prime-divisors DP; the proposal itself says pure greedy (always split by smallest prime) is not obviously correct and the greedy view is only a side remark, so the tag would mislead greedy searchers."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Core DP is F(x) = min_p (1 + p*F(x/p)) over the prime divisors p of x, with values bounded by n so a table fits. A smallest-prime-factor sieve supplies the prime divisors. Greedy view: the optimal order removes primes smallest-first (exchange argument), but you still need to choose which divisor <= k to end at, so pure greedy (e.g. always split by the smallest prime) is not obviously correct; the DP avoids that question. The 'greedy' tag is a weak secondary. Did not add memoization or exchange-argument as patterns because they are incidental.",
+    "skeptic": "Independently re-derived F(x)=0 for x<=k else min over prime p|x of 1+p*F(x/p); copies are independent so per-value cost is well defined. Ran it in SCRATCH: outputs 0,4,25,15,1,0, matching all six samples. Sieve kept: values up to n=2e5 across many tests, SPF sieve is the natural way to get prime divisors (trial division also passes, but sieve is what the editorial-style solution uses). dp-on-dag and memoization considered and not added: plain bottom-up DP over values is the technique; divisibility-DAG framing is incidental. Summary is accurate, ~64 words, third person, includes the values<=n constraint that enables the value-indexed table."
+  }
+}

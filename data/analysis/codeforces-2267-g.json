@@ -1,0 +1,42 @@
+{
+  "id": "codeforces-2267-g",
+  "title": "New LRT",
+  "source_url": "https://codeforces.com/contest/2267/problem/G",
+  "solution": "Let P(z) = sum over nonzero submasks x of m of z^x; since submasks of m are sums of distinct set bits, 1+P(z) = prod over set bits b of (1+z^(2^b)). The number of trips to s is F = 1/(1-P), and the total cost is [z^n] F*C*F (every trip with one marked step paying c_x), where C holds c_x on submasks x of m. Both factors are computed with the same online recurrence Y(s) = base(s) + sum_{x⊆m, x>0} Y(s-x): run F with base = [s=0], then G = C*F with base = C, then H = G*F with base = G, and answer H(n). The submask-shift sum is evaluated online by keeping k = popcount(m) layer arrays A_j(s) = A_{j-1}(s) + A_{j-1}(s-2^{b_j}) (applying the product of (1+z^(2^b)) bit by bit). With Y(s) temporarily 0, the top layer gives exactly sum_{x>0} Y(s-x); then Y(s) is added to every layer at index s. This is O(n·log m) per test, about 2·10^7 operations in total, with no polynomial convolution under the 10^9+7 modulus.",
+  "solution_check": [
+    true,
+    "A Python implementation prints 15, 16, 271, 999997081 on the four samples and matches an O(n·m) brute-force DP on 300 random small cases"
+  ],
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "bit-manipulation",
+      "contribution-technique",
+      "counting"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "bit-manipulation",
+      "combinatorics",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "dynamic-programming",
+      "bit-manipulation",
+      "contribution-technique",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Core trick: the submask set of m has the product form prod(1+z^(2^b)), so the sum of Y(s-x) over submasks x can be kept online with popcount(m) prefix layers. Cost-sum is handled by two more passes of the same recurrence (F*C*F) instead of a convolution with arbitrary c. Alternative: arbitrary-mod polynomial inverse of 2-Q(z) with FFT/NTT is theoretically possible, but at 2^20 with modulus 1e9+7 it is heavy and not the intended solution, so fft was left out. sos-dp was rejected because the layers shift additively by 2^b over positions, not over masks. digit-dp was rejected because ordered move sequences don't decompose by bits.",
+    "skeptic": "Independently reimplemented the proposal (F = count DP, G = C + P*G, H = G + P*H, with popcount(m) online shift layers A_j(s)=A_{j-1}(s)+A_{j-1}(s-2^b)): prints 15 16 271 999997081 on the samples and matches an O(n*m) brute force (count,cost) DP on 300 random cases. dynamic-programming: core recurrence. bit-manipulation: the submask set of m factors as prod(1+z^(2^b)), which is what makes the per-bit layering possible. contribution-technique: kept, the cost-sum is split as sum over steps of (#prefix ways)*c_x*(#suffix ways) = [z^n]F*C*F, which is needed because the naive (cnt,cost) pair DP's c_x*cnt(s-x) term does not factor through the layers. counting: counting ordered trips. Considered and not added: submask-enumeration (solution explicitly avoids enumerating 2^popcount submasks), sos-dp (layers shift over positions, not masks), fft/divide-and-conquer (online CDQ convolution under 1e9+7 is possible but not how it is solved), subset-sum/knapsack (the per-bit layer is a 0/1-knapsack-like expansion but labeling it would mislead searchers). Summary is accurate, third person, ~62 words, includes the deciding constraint; left unchanged."
+  }
+}

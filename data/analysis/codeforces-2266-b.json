@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2266-b",
+  "title": "Three Piles",
+  "source_url": "https://codeforces.com/contest/2266/problem/B",
+  "solution": "Case analysis on who is ahead. If a >= b, Alice takes the whole third pile on her first move (Bob then can only take zero, and the game ends), giving a - b + c; Bob can never reduce this because Alice moving first can grab everything. If a < b, let d = b - a. Alice can either take all c (score |c - d|) or take zero, after which Bob ends the game immediately by also taking zero (score d); Bob taking any positive amount only helps Alice, so the answer is max(d, |c - d|). Equivalently answer = max(|a+c-b|, min(|a-b|, |a-b-c|)). O(1) per test with 64-bit integers.",
+  "solution_check": true,
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "greedy"
+    ],
+    "tags": [
+      "game-theory",
+      "math",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "game-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "Not a greedy/exchange-argument solution; the core is a two-case minimax analysis (a>=b: take all; a<b: Alice picks between taking all or ending the game at d). 'Take all or nothing' is case analysis of the game, not a greedy choice — label is filler and would surface this for greedy searches."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as pattern: solution is minimax case analysis, not greedy."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Closed form found by case analysis and confirmed against an exhaustive minimax brute force over all a,b,c in [0,7] (0 mismatches) plus all 5 samples (3,7,4,3,1024506979). Not grundy-numbers/game-dp: no Sprague-Grundy or DP is needed at the real constraints; the brute-force minimax is only a checker. greedy is low-confidence (Alice's take-all-or-nothing choice). parity-argument rejected: no parity involved.",
+    "skeptic": "Independently verified closed form (a>=b: a-b+c; else max(d,|c-d|), d=b-a) against exhaustive minimax brute force for all a,b,c in [0,8] (0 mismatches) and all 5 samples. Summary is accurate, 69 words, third person, includes 10^9 constraint forcing O(1). No grundy-numbers/game-dp/parity-argument: none needed at real constraints."
+  }
+}

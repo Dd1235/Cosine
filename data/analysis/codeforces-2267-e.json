@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2267-e",
+  "title": "Clean Substrings",
+  "source_url": "https://codeforces.com/contest/2267/problem/E",
+  "solution": "An operation is only useful when it inverts a whole maximal run, which merges it with its neighbours and removes up to 2 runs (1 at an end), so a string with k runs has beauty floor(k/2) = ceil(b/2), where b = k-1 is the number of adjacent unequal positions. Summing over substrings, ceil(b/2) = (b + [b odd])/2. The sum of b over all substrings is the contribution of each boundary j (s_j != s_{j+1}): j*(n-j). The parity of b equals [s_l != s_r], so the number of substrings with odd b is cnt0*cnt1. Hence power = (sum_j [s_j!=s_{j+1}]*j*(n-j) + cnt0*cnt1)/2. Flipping s_i only toggles boundaries i-1 and i and shifts cnt0/cnt1, so each update is O(1); total O(n+q).",
+  "solution_check": [
+    true,
+    "Python implementation of the closed formula reproduced all four sample outputs exactly (2 2 / 7 5 5 / 36 23 22 25 26 / 61 66 41 35 59 60)."
+  ],
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "contribution-technique",
+      "parity-argument",
+      "counting",
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "combinatorics",
+      "string",
+      "counting",
+      "queries"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "contribution-technique",
+      "parity-argument",
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "The beauty = floor(runs/2) fact is a structural observation (each op removes at most 2 run boundaries, and whole-run inversion achieves it), not a greedy algorithm; the solution is pure contribution counting with O(1) updates. Searching 'greedy' should not surface this."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Key insight: beauty = floor(runs/2) (greedy/exchange reasoning on runs), then per-boundary contribution j*(n-j) plus an odd-parity correction cnt0*cnt1 via s_l xor s_r. No segment tree needed since each flip changes O(1) terms; segment-tree/fenwick rejected as labels. 'greedy' is low-confidence: it only justifies the beauty formula, not the counting.",
+    "skeptic": "Brute-force BFS confirmed beauty = floor(runs/2) for all binary strings up to length 10; closed formula power = (sum over boundaries j of j*(n-j) + cnt0*cnt1)/2 matched O(n^2) brute force on 500 random strings and reproduced all four sample outputs. Each flip changes only boundaries i-1, i and cnt0/cnt1, so O(1) per query; no segment tree/fenwick needed. 'counting' kept as secondary (pairs with s_l != s_r = cnt0*cnt1); summary is accurate, ~60 words, includes n,q constraints."
+  }
+}

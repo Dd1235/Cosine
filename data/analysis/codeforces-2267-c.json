@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2267-c",
+  "title": "GCD Treasury",
+  "source_url": "https://codeforces.com/contest/2267/problem/C",
+  "solution": "After each step x becomes g = gcd(a_i, x), so the successive x values form a divisor chain of the original x, and the process can only continue while the current x is > 1. Let g be the last value in the chain. Every amount stolen is then a multiple of g, so the only piles ever touched are those with g | a_i. Conversely, every such pile can be emptied: once x = g, stealing from a pile divisible by g leaves x = g and the pile still divisible by g. You reach g by walking down from x, taking piles whose gcd with the current x is a smaller multiple of g. So the answer is the maximum, over divisors g > 1 of x, of the sum of a_i divisible by g. This maximum is always reached at a prime g, because a prime divides at least as many a_i as any of its multiples. Factor x (at most 6 distinct primes up to 3·10^5), and for each prime p sum the a_i divisible by p. That is O(n·ω(x) + sqrt(x)) per test case.",
+  "solution_check": "true - all 5 samples match (0, 6, 8, 9, 20), and a memoized brute force over the full stealing process agrees on 1500 random small cases",
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "gcd",
+      "prime-factorization",
+      "greedy",
+      "number-theory"
+    ],
+    "tags": [
+      "number-theory",
+      "math",
+      "greedy",
+      "gcd"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "gcd",
+      "prime-factorization",
+      "number-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "The core is an invariant plus an upper bound: the final x divides every stolen amount and every pile touched, so the answer is the max over primes p | x of the sum of a_i divisible by p. You try each prime and take the best one. There is no greedy choice or exchange argument, and the proposal's own notes admit there is no step-by-step greedy choice."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: it is an invariant or bounding argument, not a greedy one."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "The key insight is an invariant: the final x divides every amount stolen, so the answer reduces to choosing one prime factor of x. 'greedy' has moderate confidence. It fits the idea of committing to the best prime and emptying every pile divisible by it, but there is no step-by-step greedy choice. divisor-enumeration was considered, since enumerating all divisors of x also works, but it was dropped because restricting to primes is the natural solution. The problem has no DP or simulation.",
+    "skeptic": "I re-derived this independently. Upper bound: the x values form a divisor chain, and the last one, g_last > 1, divides every stolen amount and every touched pile. Reachability: fix a prime p | x. Every step on a pile divisible by p steals a multiple of p and keeps the pile divisible by p, so all such piles can be emptied. My implementation matches all 5 samples and agreed with a memoized brute force on 1500 random small cases. I considered divisor-enumeration and sieve and did not add them: trial-division factoring of x is enough, and restricting to primes is the natural solution. The summary is about 58 words, third person, and includes the constraints, so it is unchanged."
+  }
+}
