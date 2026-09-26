@@ -11,7 +11,7 @@
     "math",
     "sortings"
   ],
-  "statement": "A road has n sections with heights a_i (n ≤ a_i ≤ 10^9, n up to 2·10^5). One operation takes section j, moves it back to position i<j, lowering it by j−i while every section it passes over rises by 1. The task is to find the maximum possible length of a contiguous segment of equal heights after any number of operations.",
+  "statement": "A road has n sections with heights a_i (n up to 2·10^5). One operation moves section j back to position i<j, lowering it by j−i and raising each section passed by 1. The task is the longest possible flat segment. Since a_i − i is invariant and freely permutable, it reduces to the longest run of consecutive integers among the distinct a_i − i, found by sorting or a hash set.",
   "tags": [
     "math",
     "sorting",

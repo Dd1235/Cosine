@@ -4058,7 +4058,7 @@
     "kattis-wiknow",
     "kattis-zoomanagement"
   ],
-  "corpusHash": "55816597faf642b446f8e212c6889a0b52aa92a59be56ebba04d4e1e18fc8be3",
+  "corpusHash": "de44e9f99afb089bf5b1cbe0e9c67de1c787998a06dd7e6d5cd8c52b8198dfe8",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-26T07:42:07.154Z"
+  "createdAt": "2026-09-26T08:41:59.366Z"
 }
