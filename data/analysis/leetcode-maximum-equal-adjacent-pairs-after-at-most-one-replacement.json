@@ -1,0 +1,43 @@
+{
+  "id": "leetcode-maximum-equal-adjacent-pairs-after-at-most-one-replacement",
+  "title": "Maximum Equal Adjacent Pairs After at Most One Replacement",
+  "source_url": "https://leetcode.com/problems/maximum-equal-adjacent-pairs-after-at-most-one-replacement/",
+  "solution": "Key observation: replacing every x with y never destroys an equal pair ((x,x) becomes (y,y)) and never creates one out of an (x,z) pair with z != y (it becomes (y,z), still unequal); the only new equal pairs are adjacent positions holding {x,y} in either order. So the answer is B + max over unordered value pairs {a,b}, a != b, of the number of adjacent positions i with {nums[i], nums[i+1]} = {a,b}, where B is the current count of equal adjacent pairs (the gain is 0 if no unequal adjacent pair exists, i.e. do nothing). Count unordered unequal adjacent pairs keyed by (min, max) in a hash map in one pass. O(n) time and space for n up to 1e5 with values up to 1e9.",
+  "solution_check": {
+    "verified": "true - gives 2, 4, 2 on the three examples, and matches a brute force over all (x,y) choices on 3000 random small arrays.",
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "hash-map",
+      "counting"
+    ],
+    "tags": [
+      "array",
+      "hash-map",
+      "counting",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "hash-map",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "No greedy choice or exchange argument; taking the max of a frequency table is just an argmax, and the proposal's own notes admit greedy is filler."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Solution is an observation plus frequency counting of unordered adjacent pairs; no DP or greedy choice beyond picking the max-frequency pair. 'greedy' kept only as a broad tag (picking the best single pair), not as a pattern. Rejected brute-force over value pairs (O(distinct^2 * n) too slow) and any DP framing.",
+    "skeptic": "Independently derived the same O(n) solution: (x,x)->(y,y) stays equal, {x,y} adjacent becomes equal, (x,z) with z!=y stays unequal, so answer = existing equal pairs + max frequency of an unordered unequal adjacent pair (0 if none). Verified 2/4/2 on samples and against brute force over all (x,y) on 5000 random small arrays. Values up to 1e9 force hashing (or sort-based counting) rather than an array index. Summary lightly rewritten to state why only {x,y}-adjacent positions gain (original was accurate, 69 words, but omitted that half of the observation)."
+  }
+}

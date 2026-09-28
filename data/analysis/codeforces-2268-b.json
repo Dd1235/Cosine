@@ -1,0 +1,55 @@
+{
+  "id": "codeforces-2268-b",
+  "title": "What a SauSaGe! It's All Meat",
+  "source_url": "https://codeforces.com/contest/2268/problem/B",
+  "solution": "XOR-ing a_i and a_{i+1} with 3,6,9,12 or 15 (all even-popcount values) never changes the popcount parity of any element, so an element with odd popcount can never become a multiple of 3. Every multiple of 3 below 16 (0,3,6,9,12,15) has even popcount. Repeated operations on one pair give XOR by anything in span{3,6,9,12,15}, which is the whole 8-element even-popcount space E, and chaining pairs lets you move any v in E between any two positions. So every even-popcount element can be fixed. If an odd-popcount element exists it absorbs the leftover XOR. If none exists, the only constraint is that the total XOR is preserved, and since 5=3^6 and 10=6^12, with n>=2 all elements can still land in {0,3,6,9,12,15}. The answer is therefore the count of elements with even popcount. Keep that counter and update it in O(1) per point assignment: O(n+q) total.",
+  "solution_check": {
+    "verified": true,
+    "how": "Counts match all three samples (2 2 / 2 2 2 3 / 1). A Python BFS brute force over every reachable state agrees exhaustively for n=2,3 (all 16^n arrays) and on 200 random n=4 arrays."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "bit-manipulation",
+      "xor-basis",
+      "counting"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "math",
+      "parity-argument",
+      "ad-hoc",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "parity-argument",
+      "bit-manipulation"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "xor-basis",
+        "reason": "Nothing builds or queries a linear basis. The span of {3,6,9,12,15} is a fixed 4-bit fact you can check by hand once (3,6,12 generate all 8 even-popcount values), and the solution is just a popcount count. Someone searching xor-basis wants the insert/reduce-a-basis technique (max subset XOR, representability), and this problem would be a stranger in those results."
+      },
+      {
+        "pattern": "counting",
+        "reason": "Scaffolding. The answer is the number of elements with even popcount, kept in a counter under point assignments. There is no counting technique (frequency tables, combinatorial counting) involved."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The output is only a count. Showing that every even-popcount element can be fixed is a reachability proof, and nothing is built. Someone searching constructive would expect to output an array or sequence of operations."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "verified_on_samples detail is also in verified_how. The whole problem is the invariant (the XOR values 3k all have even popcount, and so do all multiples of 3 below 16), plus a reachability argument that the span of {3,6,9,12,15} is the full even-weight subspace of GF(2)^4. xor-basis is included at moderate confidence because that span argument is linear algebra over GF(2), even though no basis is built at runtime. counting is scaffolding-level (maintaining a counter under point updates). No data structure (segment tree etc.) is needed despite the update queries. constructive-algorithm is kept as a tag because the argument shows all even-popcount elements can be fixed at once.",
+    "skeptic": "I solved it independently and got the same answer. Every 3k (3,6,9,12,15) and every multiple of 3 below 16 (0,3,6,9,12,15) has even popcount, and each element's popcount parity never changes, so odd-popcount elements are lost. Pair operations realise any XOR-sum-zero difference vector over the even-popcount subspace E. With n>=2, any v in E splits into two multiples of 3 (5=3^6, 10=6^12), so all even-popcount elements can be fixed at once. My own BFS brute force (SCRATCH/bf.py) matched count-of-even-popcount on all 16^n arrays for n=2,3 and on 60 random n=4 arrays. The samples match (2 2 / 2 2 2 3 / 1). The summary is 66 words, accurate, third person, and names the deciding constraints (values <16, k<=5), so I left it unchanged. The updates need no data structure: each one is an O(1) counter change."
+  }
+}

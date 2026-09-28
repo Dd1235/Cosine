@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2269-a",
+  "title": "SauSaGe Bank",
+  "source_url": "https://codeforces.com/contest/2269/problem/A",
+  "solution": "The k withdrawals split the days into k consecutive blocks. A block of length L pays 2^L, and the last withdrawal should fall on day n so that no days are wasted, which means the block lengths are positive and sum to n. Because 2^L is convex, 2^a + 2^b <= 2^(a+b-1) + 2 for a,b >= 1, so it is always at least as good to shrink one block to length 1 and give the day to another block. The optimum is therefore k-1 blocks of length 1 and one block of length n-k+1: answer = 2^(n-k+1) + 2(k-1). This is O(1) per test, and with n <= 30 the value fits in a 64-bit integer.",
+  "solution_check": {
+    "verified": "true - formula gives 2, 4, 8, 10, 514 on all five samples, and it matched an exhaustive brute force over all withdrawal-day subsets for every n<=14, k<=n.",
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "exchange-argument"
+    ],
+    "tags": [
+      "math",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "greedy",
+      "exchange-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "This is a closed-form Div2 A. The exchange-argument label is kept at low confidence because it is only the proof that concentrating days in one block is optimal. A DP over (day, withdrawals used) with n<=30 also works, but it is overkill, so dynamic-programming was left out to avoid showing this problem to DP searches. The bit-manipulation and simulation labels were rejected because powers of two are just the payoff and nothing is simulated.",
+    "skeptic": "Independently derived the same answer, 2^(n-k+1) + 2(k-1): cash out on days 1..k-1 and let one run grow until day n. It matches all 5 samples and an exhaustive brute force over every withdrawal-day subset for n<=14 (SCRATCH/bf.py). greedy stays because the whole problem is that one greedy choice (cash out k-1 times at once, then let one block grow as long as possible). exchange-argument stays, though only just: the only real reasoning is the swap 2^a+2^b <= 2^(a+b-1)+2, which moves a day from one block into another. That is a smoothing/convexity exchange, not the classic adjacent-swap sort comparator, so it could be ranked low. Agree with leaving out dynamic-programming (overkill), bit-manipulation (powers of two are only the payoff) and simulation. The summary is accurate, third person, 65 words, and includes n<=30, so it is unchanged."
+  }
+}

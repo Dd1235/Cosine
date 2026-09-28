@@ -1,0 +1,58 @@
+{
+  "id": "codeforces-2269-b",
+  "title": "KiaKio and Squared Numbers",
+  "source_url": "https://codeforces.com/contest/2269/problem/B",
+  "solution": "The map f(x) = sum of squared decimal digits is a functional graph: any x <= 10^9 drops to <= 729 after one step, and every trajectory then falls within about a dozen steps into either the fixed point 1 or the 8-cycle 4->16->37->58->89->145->42->20->4. Two lighthouses are in tune iff their trajectories coincide from some night on, which (since f is deterministic) holds iff f^T(a_i) = f^T(a_j) for one sufficiently large common T (past every tail). So simulate every a_i for a fixed T (e.g. 100) steps, then group the final values in a hash map and add C(cnt, 2) for each group. Values in the 8-cycle only match when they are at the same phase, which comparing at a common T captures automatically. Complexity O(n * T * digits), trivial for sum n <= 1000.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python script with T=100 reproduces all four sample answers (1, 6, 0, 1); also checked that the maximum tail length into {1} or the 8-cycle over all starts <= 999 is 11."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "simulation",
+      "functional-graph",
+      "counting",
+      "cycle-detection"
+    ],
+    "tags": [
+      "math",
+      "simulation",
+      "implementation",
+      "counting",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "simulation"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "cycle-detection",
+        "reason": "No cycle is ever detected: no visited set, no Floyd/Brent, no repeat check. Because f is deterministic (once two lighthouses agree they agree forever), comparing f^T(a_i) with f^T(a_j) at one common large T is the definition read directly. T=100 (anything >= 12 works; max tail into {1} or the 8-cycle is 11 after the first step) reproduces all samples and matched an O(n^2) trajectory brute force on 300 random tests. Unlike Badge (CF 1020B), where you walk until a vertex repeats, nothing here needs a repeat found."
+      },
+      {
+        "pattern": "functional-graph",
+        "reason": "The successor structure of x -> digit-square-sum is statement structure, not a technique the solution uses. Nobody builds the graph or computes tails, cycle ids or phases; the phase subtlety (16 and 2 are both on the cycle but never match) goes away when every value is advanced the same number of steps. The only reasoning needed is that values drop to <= 729 after one step, so orbits become periodic within a bounded number of steps (pigeonhole), which is simulation-bound reasoning. Someone searching functional-graph (Planets Queries, Robots on a Grid) would get a 5-line fixed-step simulation."
+      },
+      {
+        "pattern": "counting",
+        "reason": "Scaffolding: with sum n <= 1000, even an O(n^2) pairwise comparison of final values works; the C(cnt,2) grouping by value is bookkeeping, not a counting technique."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "counting",
+        "reason": "Pair counting here is bookkeeping (O(n^2) comparison suffices for sum n <= 1000), not a combinatorial counting idea."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "The core insight is functional-graph structure (tails into the fixed point 1 or the 8-cycle, where phase matters); simulating a fixed large number of steps and comparing values avoids any explicit cycle-finding, so cycle-detection gets lower confidence (it is included because the problem is about eventual periodicity and cycle phase). Counting equal-value pairs via a hash map is minor. Rejected: number-theory (digit-square sums are not really number theory here), brute-force (subsumed by simulation).",
+    "skeptic": "Answer to the brief: fixed-step simulation is all anyone writes; neither cycle-detection nor functional-graph is used. Solution verified: simulating every a_i for T=100 steps and grouping final values gives 1,6,0,1 on the samples and matched a direct brute force (checks whether the trajectories are equal from some night k on) on 300 random tests. The only cycles among 1..999 are {1} and 4->16->37->58->89->145->42->20; max tail length is 11. The summary was rewritten to name the technique-deciding fact (one step brings values to <= 729, so they settle quickly and fixed-step simulation works) instead of implying phase tracking is needed. It keeps the words '8-cycle' and 'cycle phase' so lexical search still finds it. The proposal's max value (729) is correct. Only one pattern is left, which suits a Div2-B simulation."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2268-d",
+  "title": "AghaBalaSar and Hamed",
+  "slug": "2268-d-aghabalasar-and-hamed",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2268/problem/D",
+  "source_topic": "Codeforces / Contest 2268",
+  "source_tags": [
+    "data structures",
+    "dp",
+    "trees"
+  ],
+  "statement": "Given a permutation p of length n, with n up to 10^6 (sum over tests at most 10^6), one may step from index i to any index on its left or to the nearest index on its right holding a larger value. With f(i,j) the minimum number of steps from i to j (0 if unreachable), compute the sum of f(i,j) over all ordered pairs.",
+  "tags": [
+    "monotonic-stack",
+    "dynamic-programming",
+    "permutation",
+    "tree"
+  ],
+  "patterns": [
+    "monotonic-stack",
+    "dynamic-programming",
+    "tree-dp"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "monotonic-stack": 0.9,
+      "dynamic-programming": 0.75,
+      "tree-dp": 0.8
+    }
+  }
+}

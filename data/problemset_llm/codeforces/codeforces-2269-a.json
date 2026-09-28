@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2269-a",
+  "title": "SauSaGe Bank",
+  "slug": "2269-a-sausage-bank",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2269/problem/A",
+  "source_topic": "Codeforces / Contest 2269",
+  "source_tags": [
+    "greedy",
+    "math"
+  ],
+  "statement": "A bank balance starts at 1 and doubles each morning. On any night the holder may withdraw everything to a card, which resets the balance to 1. Over n days the holder must withdraw on exactly k distinct days, and the task is to maximize the card total, for n up to 30. The optimal split is one long doubling run plus k-1 single-day withdrawals.",
+  "tags": [
+    "math",
+    "greedy"
+  ],
+  "patterns": [
+    "greedy",
+    "exchange-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "exchange-argument": 0.45
+    }
+  }
+}

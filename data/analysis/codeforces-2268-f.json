@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2268-f",
+  "title": "Deglado",
+  "source_url": "https://codeforces.com/contest/2268/problem/F",
+  "solution": "Each operation applies one adjacent transposition to each of two neighbouring columns, flipping both columns' permutation parities, so the sum of column parities mod 2 is invariant: if it is odd print -1 (sample 2); otherwise it is always solvable (confirmed by exhaustive BFS for n=2). Construct bottom-up: for v = 2n down to 2, bring value v to row v in every column, touching only rows <= v so already-placed rows are never disturbed. Treat columns (2k-1,2k) as a pair: walk the higher of the pair's two v's down with in-pair ops (the partner column is only side-swapped among smaller values) until it sits just above the other v, make one 'alone' step with an op straddling a neighbouring pair (it only scrambles values < v there, or is scheduled before that neighbour is finished), then let both v's descend together. So a pair costs at most v-1 per phase, i.e. C(2n,2) over all phases and n*C(2n,2) in total. The O(1) extra per phase comes from boundary pairs and ordering conflicts, handled by moving the alone step to the other side (+1), first lifting the lower v one row so the straddling op avoids row v (+1), or a 5-op gadget on rows v-2..v across three adjacent columns (+4). The last phase (rows 1-2) pairs consecutive swapped columns with chains of row-1 ops (<= 2n-1 ops). Time and output are O(n^3).",
+  "solution_check": {
+    "verified": [
+      true,
+      "A Python implementation reproduces the sample output exactly (1 op '1 1'; -1; 3 ops '3 1','2 3','1 2'). Replayed checks on random and adversarial (hill-climbed) grids up to n=80 all sort correctly within n*C(2n,2)+9n (worst extra found is about 5n), and BFS for n=2 shows exactly the even-parity grids are reachable."
+    ],
+    "how": ""
+  },
+  "skeptic_solution_correct": false,
+  "skeptic_solution_fix": "The -1 condition is right: print -1 exactly when the number of odd-parity columns is odd. It is necessary because every operation flips two column parities. It is sufficient because the construction always finishes (the rows-1/2 phase pairs an even number of swapped columns), BFS for n=2 agrees, and n=1 is trivial. The framework is also right: place v = 2n..2 at row v, pair the columns, and charge each pair at most v-1 per phase. The budget is not met, though. Phase v only reads where v sits, so an adversary can choose that configuration independently in every phase. The solver's greedy fix-up spends +5 on the phase configuration (0,t-1),(0,t),...,(0,t),(t-1,0) for even n (and +7 at t=2 for n=4). The last phase can cost +(n-1) (swapped columns 0 and 2n-1), so the worst-case extra is about 11n, not 9n or less. A valid grid built this way makes the real sol.py output 451 ops against a budget of 450 at n=6. It is +5 at n=8, +9 at n=10 and +149 at n=80. All outputs sort correctly, they are just too long. Exhaustive BFS over one phase shows the optimum is only n·t+2 for n<=4 (the bad pattern is n·t+1). So the fix is a tighter per-phase schedule, with at most about 4 extra ops per phase so that 4(2n-2)+n <= 9n. The idea does not need to change.",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "parity-argument",
+      "sorting"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "permutation",
+      "sorting",
+      "grid",
+      "parity-argument"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "constructive-algorithm",
+      "parity-argument"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sorting",
+        "reason": "This is the statement's goal ('sort all columns'), not a technique. Nothing is sorted as an algorithmic step. The work is a constructive, bottom-up placement by adjacent transpositions under an operation budget. People searching the sorting technique (sort then scan or greedy, custom comparators) would get an unrelated hard constructive problem. A 'sort a permutation with adjacent-swap operations' query is served by the summary text and the sorting/permutation tags. In corpus precedent, adjacent-swap sorting problems (686B, CSES 3152) carry 'sorting' as a tag, not a pattern."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The official construction is unknown. The value-by-value, column-pair scheme above fits the budget's shape: C(2n,2) = sum of (v-1) per pair, plus O(1) per phase adds up to 9n. My implementation stayed within budget on every test, including adversarial hill-climbing (worst extra about 5n), but I did not prove the constant. The budget also equals (max total inversions)/2, and each op removes at most 2 inversions, but that is analysis only, so inversion-count was rejected as a label. 'sorting' is kept at low confidence because the construction is a bubble/insertion sort by adjacent swaps, not a sort call. greedy and simulation were rejected as not central.",
+    "skeptic": "The labels are otherwise sound. parity-argument decides -1 and is central. inversion-count stays out: the budget equals (max total inversions)/2 and each op fixes at most 2 inversions, which explains the bound, but no inversion counting is done. greedy and simulation are not central. The summary is rewritten to surface the parity invariant (house style: surface the key reduction), 68 words. Evidence is in /private/tmp/claude-501/-Users-dedeepya-Cosine/f2f039e8-da78-475b-9771-c80f5dff7932/scratchpad/r2/work/skeptic-codeforces-2268-f: phase.py is a position-only port of one phase, validated against the real solver on 1888 random configurations with 0 mismatches. ex4.py does the exhaustive per-phase worst case for n=4. optbfs.py computes the per-phase optimum. adv.py is the adaptive adversary. adv_n6.txt is a ready test (solver prints 451 > 450)."
+  }
+}

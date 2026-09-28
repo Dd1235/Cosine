@@ -1,0 +1,33 @@
+{
+  "id": "leetcode-longest-subarray-divisible-by-k-with-at-most-one-negation-i",
+  "title": "Longest Subarray Divisible by K with At Most One Negation I",
+  "slug": "longest-subarray-divisible-by-k-with-at-most-one-negation-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-i/",
+  "source_topic": "LeetCode / Biweekly Contest 192",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "The problem asks for the longest subarray of an array (n ≤ 1000) whose sum is divisible by k, or becomes divisible after negating one element. Negating x turns the sum S into S − 2x, so a subarray qualifies when S ≡ 0 or 2x ≡ S (mod k). The small n allows O(n^2) enumeration with a running sum and a set of 2x mod k residues.",
+  "tags": [
+    "array",
+    "brute-force",
+    "hash-map",
+    "modular-arithmetic"
+  ],
+  "patterns": [
+    "brute-force",
+    "modular-arithmetic",
+    "hash-map",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "brute-force": 0.9,
+      "modular-arithmetic": 0.85,
+      "hash-map": 0.7
+    }
+  }
+}

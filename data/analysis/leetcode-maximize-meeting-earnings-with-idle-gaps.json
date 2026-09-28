@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-maximize-meeting-earnings-with-idle-gaps",
+  "title": "Maximize Meeting Earnings with Idle Gaps",
+  "source_url": "https://leetcode.com/problems/maximize-meeting-earnings-with-idle-gaps/",
+  "solution": "Weighted interval scheduling DP with a telescoped gap term. For a chain ending at meeting j followed by meeting i (e_j <= s_i), total_i = total_j + (s_i - e_j) + r_i, so define g[i] = best total of a chain ending at i minus e_i; then g[i] = max(r_i - e_i, max_{e_j <= s_i} g[j] + s_i + r_i - e_i). Sort meetings by end time, keep a prefix maximum of g in that order, and for each meeting binary-search the last meeting with end <= start to read the best compatible predecessor in O(log n). The answer is max_i (g[i] + e_i). Equivalently the objective is sum(r - duration) over chosen meetings plus (last end - first start), which is why choosing more meetings is not always better and a DP is needed. Complexity O(n log n) time, O(n) memory for n up to 1e5; values need 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Hand-traced and ran in Python: outputs 8, 12, 11 on the three samples; matched an exhaustive subset brute force on 3000 random cases with n <= 8."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interval-scheduling",
+      "dynamic-programming",
+      "binary-search"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "binary-search",
+      "sorting",
+      "intervals",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "interval-scheduling",
+      "dynamic-programming",
+      "binary-search"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Core is classic weighted interval scheduling (sort by end, dp over predecessors found by binary search, prefix max) with the gap bonus folded in by storing dp minus end time. binary-search here is a predecessor lookup, not binary-search-answer. Greedy rejected: inserting a meeting between two chosen ones changes the score by r - duration, which can be negative, and selection interacts with chain endpoints. Coordinate compression + segment tree/Fenwick prefix max is an equivalent implementation, not labelled since it's a minor variant. The verified_on_samples key is written as a boolean with the explanation in verified_how.",
+    "skeptic": "Independently derived: total = sum(r - duration) + (last end - first start), so it is weighted interval scheduling with the gap term telescoped into g[i] = best chain ending at i minus e_i; prefix max over end-sorted order plus a predecessor binary search gives O(n log n). Reimplemented the proposal's DP: outputs 8, 12, 11 on the samples and matches a subset brute force on 3000 random cases with n <= 8. Greedy is correctly rejected because r - duration can be negative. binary-search is a predecessor lookup, not binary-search-answer; kept to stay consistent with sibling weighted-interval-scheduling problems in the corpus (Maximum Number of Events II, Maximize the Profit as the Salesman). An event sweep with a running max is an alternative implementation, but it is not central enough to add line-sweep. Summary tightened: the old version tied O(n log n) to the 10^9 values, but it is n <= 10^5 that rules out O(n^2), and 10^9 times that rule out a time-indexed DP."
+  }
+}

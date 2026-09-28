@@ -1,0 +1,33 @@
+{
+  "id": "leetcode-maximize-meeting-earnings-with-idle-gaps",
+  "title": "Maximize Meeting Earnings with Idle Gaps",
+  "slug": "maximize-meeting-earnings-with-idle-gaps",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximize-meeting-earnings-with-idle-gaps/",
+  "source_topic": "LeetCode / Weekly Contest 521",
+  "difficulty": "Hard",
+  "source_tags": [],
+  "statement": "Given up to 10^5 meetings, each a half-open interval [start, end) with a revenue, the task is to choose a non-empty set of non-overlapping meetings maximizing total revenue plus one unit per unit of idle time between consecutive chosen meetings (none before the first or after the last). With n up to 10^5 and times up to 10^9, quadratic or time-indexed DP is too slow.",
+  "tags": [
+    "dynamic-programming",
+    "binary-search",
+    "sorting",
+    "intervals",
+    "array"
+  ],
+  "patterns": [
+    "interval-scheduling",
+    "dynamic-programming",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "interval-scheduling": 0.9,
+      "dynamic-programming": 0.95,
+      "binary-search": 0.75
+    }
+  }
+}

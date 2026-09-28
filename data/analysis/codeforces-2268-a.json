@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2268-a",
+  "title": "K Is Important",
+  "source_url": "https://codeforces.com/contest/2268/problem/A",
+  "solution": "Exactly n-k+1 elements are removed and k-1 are kept. While length m >= 2k-1 both allowed positions (k-th from left and k-th from right) lie in the middle block [k, m-k+1], so every original middle element a_k..a_{n-k+1} is always removed. Once m <= 2k-2, tracking original indices shows each operation pairs position x = m-k+1 with y = k; whichever is removed, x shifts one left and y one right, so the unremoved one of the pair is stranded between them forever. Hence the choices are independent symmetric pairs (p, n+1-p) for p = 1..min(k-1, n-k+1), and from each pair we take the max; elements strictly inside [n-k+2, k-1] (when n <= 2k-2) are never removable. Answer = sum of a_p for p in [k, n-k+1] + sum over p <= min(k-1, n-k+1) of max(a_p, a_{n+1-p}). O(n) per test, sum n <= 1e5.",
+  "solution_check": {
+    "verified": [
+      true,
+      "Formula gives 9, 3, 1, 19 on the four samples; also matched an exhaustive memoised brute force on 20000 random arrays with n <= 9."
+    ],
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy"
+    ],
+    "tags": [
+      "greedy",
+      "array",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "math",
+        "reason": "No arithmetic, number theory or formula work; the insight is an index/structure observation about which positions pair up, which 'math' searches would not expect."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Core is an ad-hoc structural observation (middle always removed; remaining choices are independent mirror pairs a_p vs a_{n+1-p}, take the max of each). Rejected two-pointers (pairs are fixed by index symmetry, no pointer technique), simulation and dynamic-programming (brute DP only used for verification). No canonical 'ad-hoc/observation' pattern exists, so greedy is the closest label.",
+    "skeptic": "Independently verified the formula (sum of a_k..a_{n-k+1} plus sum over p<=min(k-1,n-k+1) of max(a_p, a_{n+1-p})) against an exhaustive memoised brute force on 20000 random cases (n<=9): all match, samples give 9,3,1,19. Greedy is kept on the merits, not as a fallback: a step-by-step simulation that always removes the larger of the two current candidates (a_k vs a_{m-k+1}) also matched the brute force on 20000 random cases, so the greedy choice is genuinely optimal and the pair-independence observation is exactly its correctness argument. Considered and rejected: two-pointers (pairs are fixed by mirror index, iterating inward is scaffolding), simulation (the O(n) answer does not simulate; naive simulation with mid-array deletes is O(n^2)), exchange-argument (the proof is independence of choices, not swapping), dynamic-programming (only the brute force). Summary rewritten to name the greedy/mirror-pair insight while staying 67 words."
+  }
+}

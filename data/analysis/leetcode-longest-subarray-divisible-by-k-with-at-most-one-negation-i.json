@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-longest-subarray-divisible-by-k-with-at-most-one-negation-i",
+  "title": "Longest Subarray Divisible by K with At Most One Negation I",
+  "source_url": "https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-i/",
+  "solution": "Negating element x changes the sum S to S - 2x, so subarray [l, r] is valid iff S ≡ 0 (mod k) or some x in it has 2x ≡ S (mod k). Since n ≤ 1000, enumerate all O(n^2) subarrays: fix l, extend r one step at a time, keep the running sum S and a hash set of (2·nums[i]) mod k for the elements seen so far. After adding nums[r], the subarray is valid if S mod k == 0 or S mod k is in the set, and then r-l+1 is a candidate answer. Take the maximum, or 0 if nothing is valid. Total O(n^2) time with expected O(1) set operations, O(n) extra space.",
+  "solution_check": {
+    "verified": "true - the O(n^2) code returns 3, 2, 2 on the three samples, and it matched a brute force that tries every negation on 3000 random small arrays.",
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "brute-force",
+      "modular-arithmetic",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "brute-force",
+      "hash-map",
+      "modular-arithmetic"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "brute-force",
+      "modular-arithmetic",
+      "hash-map",
+      "number-theory"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "This is the easy version (n ≤ 1000), so plain O(n^2) enumeration with a running sum and an incremental residue set is what anyone would write. I did not import the hard version's technique, which likely needs prefix-sum residues plus a harder structure over the negated element. prefix-sum was left off because the running sum is only scaffolding inside the double loop. hash-map is lower confidence: the set of 2x mod k is incremental bookkeeping that makes each check O(1), and a counting array of size k also works.",
+    "skeptic": "I checked the reduction on my own: negating x gives S - 2x, so the subarray is valid iff S ≡ 0 or 2x ≡ S (mod k). The condition is left as 2x ≡ S instead of dividing by 2, because 2 has no inverse when k is even. The proposed O(n^2) code (fix l, extend r, running sum, set of 2x mod k) gives 3, 2, 2 on the samples and matched a brute force that tries every negation on 5000 random arrays (n ≤ 8, k ≤ 12, values in [-15, 15]). All three patterns fit the easy version. brute-force is the O(n^2) subarray enumeration that n ≤ 1000 allows. modular-arithmetic is the 2x ≡ S (mod k) reduction. hash-map is the residue set, which makes each check O(1); without it the check rescans the subarray and the solution becomes O(n^3). I agree with leaving prefix-sum off: the running sum is scaffolding here, and the prefix-residue technique belongs to the hard version. greedy, binary-search-answer and sliding-window do not apply, because validity is not monotone in the subarray length. The old summary opened in the imperative ('Given ..., find ...'), so I rewrote it in the third person (68 words) and kept its content and the n ≤ 1000 constraint."
+  }
+}

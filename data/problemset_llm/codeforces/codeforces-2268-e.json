@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2268-e",
+  "title": "Kia Kio and Tree of Life",
+  "slug": "2268-e-kia-kio-and-tree-of-life",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2268/problem/E",
+  "source_topic": "Codeforces / Contest 2268",
+  "source_tags": [
+    "data structures",
+    "fft",
+    "math",
+    "trees"
+  ],
+  "statement": "Every binary tree whose in-order traversal is the array (a Catalan number of them, built by recursively choosing a root) is scored by cutting each edge and adding the XORs of the two resulting parts. The task is to sum these scores over all such trees modulo 998244353. With n up to 2·10^5 and a_i < 2^18, quadratic segment enumeration is too slow, calling for per-bit convolution.",
+  "tags": [
+    "combinatorics",
+    "fft",
+    "bit-manipulation",
+    "math",
+    "prefix-xor"
+  ],
+  "patterns": [
+    "combinatorics",
+    "fft",
+    "contribution-technique",
+    "prefix-xor",
+    "bit-manipulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "combinatorics": 0.95,
+      "fft": 0.9,
+      "contribution-technique": 0.85,
+      "prefix-xor": 0.8,
+      "bit-manipulation": 0.75
+    }
+  }
+}

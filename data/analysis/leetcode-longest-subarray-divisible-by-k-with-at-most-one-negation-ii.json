@@ -1,0 +1,53 @@
+{
+  "id": "leetcode-longest-subarray-divisible-by-k-with-at-most-one-negation-ii",
+  "title": "Longest Subarray Divisible by K with At Most One Negation II",
+  "source_url": "https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-ii/",
+  "solution": "Let P be prefix sums mod k. Subarray [l, r) with sum S is valid iff S ≡ 0 or some i in [l, r) has 2*nums[i] ≡ S (mod k), since negating x changes the sum by -2x. Both conditions depend only on the residues P[l], P[r], so an optimal subarray can always take l = first occurrence of residue c and r = last occurrence of residue d (widening keeps i inside and keeps the sum residue). That leaves at most k×k residue pairs (c, d). Process the first-occurrence positions from right to left while keeping nxt[v] = smallest index i ≥ first[c] with 2*nums[i] mod k = v. Pair (c, d) is valid iff d == c or nxt[(d-c) mod k] < last[d], and it gives length last[d]-first[c]. Total O(n + k^2) time (about 9·10^6 for k ≤ 3000) and O(n + k) memory, versus O(n^2) brute force, which is too slow at n = 10^5.",
+  "solution_check": {
+    "verified": [
+      true,
+      "Python implementation returns 3, 2, 2 on the three samples; also matches an O(n^3) brute force on 3000 random small cases and runs in 0.2s at n=1e5, k=3000"
+    ],
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum",
+      "modular-arithmetic",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "prefix-sum",
+      "hash-map",
+      "modular-arithmetic"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "prefix-sum",
+      "modular-arithmetic",
+      "number-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "hash-map",
+        "reason": "Not central. Every key is a prefix residue in [0, k) with k <= 3000, so plain arrays of size k (first[], last[], nxt[]) do the whole job. My reimplementation uses no dictionary and matches brute force. The hard step is reducing the endpoints to first/last occurrences and enumerating k^2 residue pairs, not a hash lookup."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "hash-map",
+        "reason": "Same reason: fixed-size arrays indexed by residue replace it, so it would put this problem in front of people looking for real hash-map problems."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Key step: the endpoints reduce to first/last occurrences of prefix residues, so only O(k^2) residue pairs need checking, each with an O(1) next-occurrence lookup for an element with 2x ≡ d-c. k ≤ 3000 is what makes k^2 affordable. An O(n·k) alternative fixes the negated index i and scans residues c, using first-occurrence ≤ i and last-occurrence ≥ i+1 tables; at 3·10^8 operations it is borderline. Rejected sliding-window/two-pointers (validity is not monotone in window size) and binary-search-answer (validity is not monotone in length). Left out brute-force: enumerating residue pairs is not what a brute-force search means.",
+    "skeptic": "Checked the proposal's O(n + k^2) algorithm independently: it gives 3, 2, 2 on the samples, matches an O(n^3) brute force on 4000 random cases (n <= 12, k <= 12), and runs in 0.7s in Python at n=1e5, k=3000. The widening argument is sound, since moving l to first[c] and r to last[d] keeps l < r, keeps the negated index inside and keeps the sum residue. The proposal's 'borderline O(n*k)' alternative can be amortized to O(n + k^2): keep E0[x] = first prefix with residue x and E1[y] = earliest start with one negation used. For each value v = 2*nums[i] mod k, propagate E0 into E1 only for residues whose first occurrence is new since v was last seen. That version also passed all the random tests and ran in 0.25s, and it also uses only arrays. It is a two-state residue scan rather than a real dynamic-programming labelling, so I did not add dynamic-programming. The old summary was imperative ('Given ... find') and left out the k^2 residue-pair reduction that k <= 3000 enables, so I rewrote it. LeetCode's own topic tags may list Hash Table, but the technique doesn't need one."
+  }
+}

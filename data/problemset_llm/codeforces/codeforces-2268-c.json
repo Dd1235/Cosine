@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2268-c",
+  "title": "KiaKio and Energy Intervals",
+  "slug": "2268-c-kiakio-and-energy-intervals",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2268/problem/C",
+  "source_topic": "Codeforces / Contest 2268",
+  "source_tags": [
+    "binary search",
+    "bitmasks",
+    "brute force",
+    "data structures",
+    "divide and conquer",
+    "greedy",
+    "trees",
+    "two pointers"
+  ],
+  "statement": "For up to 2·10^5 integers below 2^18, a segment of length at least two releases energy: the XOR of its elements, each ANDed with the segment maximum. The task asks for the largest energy. Since AND distributes over XOR, energy is the segment XOR ANDed with the maximum. The answer is built greedily bit by bit from the top, splitting at each maximum and scanning the smaller side.",
+  "tags": [
+    "bit-manipulation",
+    "prefix-xor",
+    "monotonic-stack",
+    "divide-and-conquer",
+    "greedy"
+  ],
+  "patterns": [
+    "bit-manipulation",
+    "prefix-xor",
+    "divide-and-conquer",
+    "cartesian-tree",
+    "monotonic-stack",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "bit-manipulation": 0.9,
+      "prefix-xor": 0.9,
+      "divide-and-conquer": 0.6,
+      "cartesian-tree": 0.5,
+      "monotonic-stack": 0.75,
+      "greedy": 0.8
+    }
+  }
+}

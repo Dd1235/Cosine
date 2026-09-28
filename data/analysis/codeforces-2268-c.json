@@ -1,0 +1,50 @@
+{
+  "id": "codeforces-2268-c",
+  "title": "KiaKio and Energy Intervals",
+  "source_url": "https://codeforces.com/contest/2268/problem/C",
+  "solution": "AND distributes over XOR, so a segment's energy is (P[r] xor P[l-1]) & max(l..r), where P is the prefix-xor array. Build the answer greedily from bit 17 down: keep a candidate T = ans | 2^b and ask whether some segment of length >= 2 has both its maximum and its xor as bit-supersets of T. If one exists, set the bit (standard argument: the greedy returns the maximum of the set of achievable values). For a fixed T, only positions p with a_p ⊇ T can be the maximum. Their max-dominance ranges (previous >= / next > via monotonic stack) form a Cartesian tree. For each such p, iterate the smaller side of its range and ask whether the other side contains a prefix index whose masked prefix-xor equals (P[x]&T)^T. The lookup is a hash map from masked value to a sorted position list plus a binary search, with the single-element segment excluded. Smaller-half iteration costs O(n log n) per check, so the total is O(18 · n log^2 n).",
+  "solution_check": {
+    "verified": true,
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bit-manipulation",
+      "prefix-xor",
+      "monotonic-stack",
+      "divide-and-conquer",
+      "cartesian-tree"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "prefix-xor",
+      "monotonic-stack",
+      "divide-and-conquer"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "bit-manipulation",
+      "prefix-xor",
+      "divide-and-conquer",
+      "cartesian-tree",
+      "monotonic-stack",
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "The core reduction is the MSB-first bitwise greedy. It fixes the answer bit by bit from bit 17, keeping T = ans|2^b if some segment has both its XOR and its maximum as supersets of T, which turns max((X)&m) into an exact masked-equality existence check. The vocabulary has no dedicated 'bitwise greedy' label, and greedy+bit-manipulation is how the corpus expresses it. The judge tags also list greedy. This is a real greedy choice with an exchange-style justification, not filler."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Sample check: Python implementation printed [6,2,5,5] on the four samples, and it matched an O(n^2) brute force on 4,500 random arrays (n up to 40, values up to 2^18, including sorted inputs). Brute force rules out the obvious shortcuts: segment length <= 4, and one side of the maximum having length <= 1 or <= 2, each has a counterexample (e.g. [3,7,1,2] needs the full length-4 segment). So a real range technique is needed. A direct per-maximum trie of max((x^q)&m) fails because bits outside m are don't-care branches. Building the answer greedily bit by bit turns each query into an exact masked-equality lookup. divide-and-conquer and cartesian-tree both name the same smaller-half-over-maximum-ranges step, so the editorial may call it either. hash-map and binary search on position lists are scaffolding. The official editorial was not consulted (no web access), so the intended solution may differ in its data structure (e.g. per-round value arrays instead of hash maps), but the solution here is verified correct.",
+    "skeptic": "I wrote my own implementation independently (SP/r2/work/skeptic-codeforces-2268-c/sol.py). It prints [6,2,5,5] on the samples and matched an O(n^2) brute force on 3,000 random arrays (n<=30; small values, full 18-bit values, and a mix of overlapping masks). Exclusion check: in P-index terms the only length-1 segment inside p's dominance range is x=p, y=p+1, and the proposal handles it. The judge tags (bitmasks, greedy, divide and conquer, trees, binary search, data structures) match this solution closely, so it is almost certainly the intended approach. Label choices: (1) Bit-by-bit greedy: the vocab has no 'bitwise-greedy' label, so I added greedy. binary-search-answer does not apply, because this is not a numeric binary search with a monotone feasibility check but a per-bit superset test. (2) Smaller half over maximum ranges: this is divide and conquer on the maximum, which is the same as walking the max-Cartesian tree and iterating the lighter child each time (O(n log n) by the small-to-large argument). A searcher would type 'divide and conquer' (the CF tag) or 'cartesian tree', so keep both. Do NOT add dsu-on-tree, even though the taxonomy aliases 'small-to-large' to it (and 'small-to-large' is a consumingAlias): dsu-on-tree means merging subtree sets, and nothing here merges sets. The consequence is that a 'small to large' query will not reach this problem, which is acceptable. monotonic-stack is kept at lower confidence (~0.6) because it only computes the previous->= / next-> dominance ranges. That is the standard 'each element as the maximum' step, not throwaway scaffolding, but it is the weakest kept label. Scaffolding I did not add: binary-search (sorted position lists, which a 2^18 array or offline sweep could replace), hash-map, trie (a masked max-XOR trie fails because bits outside m are don't-care), two-pointers, brute-force. I rewrote the summary to show the reduction and the technique (bitwise greedy, split at the maximum, scan the smaller side), in the same style as recent corpus summaries. It is 68 words."
+  }
+}

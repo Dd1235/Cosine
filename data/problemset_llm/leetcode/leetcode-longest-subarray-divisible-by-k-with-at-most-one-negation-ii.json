@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-longest-subarray-divisible-by-k-with-at-most-one-negation-ii",
+  "title": "Longest Subarray Divisible by K with At Most One Negation II",
+  "slug": "longest-subarray-divisible-by-k-with-at-most-one-negation-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-ii/",
+  "source_topic": "LeetCode / Biweekly Contest 192",
+  "difficulty": "Hard",
+  "source_tags": [],
+  "statement": "The task asks for the longest subarray of an array of up to 10^5 integers whose sum is divisible by k ≤ 3000, either as-is or after negating one element. Negating x shifts the sum by -2x, so validity depends only on the prefix-sum residues at the ends; using each residue's first and last occurrence leaves k² residue pairs, each checked in O(1).",
+  "tags": [
+    "array",
+    "prefix-sum",
+    "modular-arithmetic"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "modular-arithmetic",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "prefix-sum": 0.95,
+      "modular-arithmetic": 0.85
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2268-e",
+  "title": "Kia Kio and Tree of Life",
+  "source_url": "https://codeforces.com/contest/2268/problem/E",
+  "solution": "The trees are exactly the Catalan(n) binary trees whose in-order traversal is 1..n. Every non-root node's subtree is a contiguous segment [l,r], so the answer is a sum over segments of (number of trees containing [l,r] as a subtree) * (S + (T xor S)), where S is the segment's XOR and T is the total XOR. That count is Cat(len)*Cat(n-len): collapse the segment into a leaf, and note that inserting a leaf into a fixed in-order gap of an (n-len)-node tree is a bijection. Per bit, S+(T^S) equals T + 2*(S & ~T), so bits set in T add T times the total weight. For each bit b with T_b=0, count prefix-xor pairs i<j with P_b[i]!=P_b[j], each weighted by w(j-i)=Cat(d)Cat(n-d). Expanding [p_i!=p_j]=p_i+p_j-2p_ip_j leaves linear terms (from prefix sums of w) and a cross term sum p_i p_j w(j-i), which is one NTT convolution of P_b with w per bit. Total O(18 * n log n) mod 998244353.",
+  "solution_check": {
+    "verified": [
+      true,
+      "Enumerating all trees by brute force matches the Cat(len)*Cat(n-len) segment formula on all 5 samples (6, 10, 40, 318, 2520) and on 300 random small arrays. The per-bit linear-plus-convolution decomposition was checked against the formula on 200 random arrays."
+    ],
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "combinatorics",
+      "fft",
+      "contribution-technique",
+      "prefix-xor",
+      "bit-manipulation"
+    ],
+    "tags": [
+      "combinatorics",
+      "fft",
+      "bit-manipulation",
+      "math",
+      "prefix-xor"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "combinatorics",
+      "fft",
+      "contribution-technique",
+      "prefix-xor",
+      "bit-manipulation"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Main insight: the weight of a segment depends only on its length, Cat(len)*Cat(n-len), via a leaf-insertion bijection (a tree with m nodes where in-order node p is a leaf corresponds to a tree with m-1 nodes). The pair weight w(j-i) is not exponential or otherwise separable, so a per-bit NTT (18 bits, size about 2^19) looks like the intended approach, matching a_i < 2^18 and the 3s limit. I left out cartesian-tree: the trees are arbitrary in-order binary trees, not value-ordered Cartesian trees. I also left out interval-dp: there is no DP over segments.",
+    "skeptic": "Independently checked. A tree-enumeration brute force matches all 5 samples (6, 10, 40, 318, 2520) and agrees with the segment formula sum over proper segments of Cat(len)*Cat(n-len)*(S + (T^S)) on 300 random arrays with n<=7. The weight holds because an m-1 node tree has exactly m null pointers, one per in-order gap, so inserting the collapsed segment as a leaf is a bijection. The per-bit rewrite S+(T^S) = T + 2(S & ~T), with linear terms from prefix sums of w and one cross-term convolution per bit where T_b=0, matches the formula on 300 random arrays with n<=30. The (0,n) pair drops out automatically because P_b[0]=P_b[n] when T_b=0. Naming: catalan-numbers was deliberately retired as an alias of combinatorics (data/pattern_taxonomy.json:803, docs/internals.md), and number-theoretic-transform is an alias of fft (taxonomy line 790). So combinatorics and fft are the correct canonical labels and there is no separate Catalan or NTT label to add. For lexical recall, the summary now says 'Catalan number' explicitly instead of 'Catalan-many'. All five patterns are central: Catalan counting and the bijection (combinatorics), switching from sum over trees to sum over segments (contribution-technique), segment XOR as a pair of prefix values (prefix-xor), the per-bit split (bit-manipulation), and the per-bit NTT (fft). binary-tree-traversal is statement wording, and modular-inverse/modular-arithmetic are scaffolding, so neither was added. Agree with excluding cartesian-tree and interval-dp."
+  }
+}

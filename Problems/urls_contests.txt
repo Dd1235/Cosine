@@ -272,3 +272,25 @@ https://codeforces.com/contest/2267/problem/E
 https://codeforces.com/contest/2267/problem/F1
 https://codeforces.com/contest/2267/problem/F2
 https://codeforces.com/contest/2267/problem/G
+
+# LeetCode / Biweekly Contest 192
+https://leetcode.com/problems/transform-array-using-pair-operations/
+https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-i/
+https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-ii/
+
+# LeetCode / Weekly Contest 521
+https://leetcode.com/problems/maximum-equal-adjacent-pairs-after-at-most-one-replacement/
+https://leetcode.com/problems/longest-subarray-with-restricted-pair-sums/
+https://leetcode.com/problems/maximize-meeting-earnings-with-idle-gaps/
+
+# Codeforces / Contest 2268
+https://codeforces.com/contest/2268/problem/A
+https://codeforces.com/contest/2268/problem/B
+https://codeforces.com/contest/2268/problem/C
+https://codeforces.com/contest/2268/problem/D
+https://codeforces.com/contest/2268/problem/E
+https://codeforces.com/contest/2268/problem/F
+
+# Codeforces / Contest 2269
+https://codeforces.com/contest/2269/problem/A
+https://codeforces.com/contest/2269/problem/B

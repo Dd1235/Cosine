@@ -1,0 +1,27 @@
+{
+  "id": "leetcode-transform-array-using-pair-operations",
+  "title": "Transform Array Using Pair Operations",
+  "slug": "transform-array-using-pair-operations",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/transform-array-using-pair-operations/",
+  "source_topic": "LeetCode / Biweekly Contest 192",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "Given integer arrays source and target of equal length n (2 ≤ n ≤ 10^5, |values| ≤ 10^9), an operation picks distinct indices i, j and any integer delta, setting source[i] to source[i]+source[j]-delta and source[j] to delta. The task asks whether source can be made equal to target. The operation preserves the total sum, and that invariant is also sufficient because one pivot index can absorb every adjustment.",
+  "tags": [
+    "array",
+    "math",
+    "ad-hoc"
+  ],
+  "patterns": [
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.6
+    }
+  }
+}

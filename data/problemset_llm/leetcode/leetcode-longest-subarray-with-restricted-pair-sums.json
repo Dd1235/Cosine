@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-longest-subarray-with-restricted-pair-sums",
+  "title": "Longest Subarray With Restricted Pair Sums",
+  "slug": "longest-subarray-with-restricted-pair-sums",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/longest-subarray-with-restricted-pair-sums/",
+  "source_topic": "LeetCode / Weekly Contest 521",
+  "difficulty": "Medium",
+  "source_tags": [],
+  "statement": "Given an array of up to 1000 integers valued 1 to 500, the problem asks for the longest subarray in which no element equals the sum of two others at distinct indices. Validity is inherited by sub-subarrays, so a sliding window works: when a value enters, scan the small value range with frequency counts for a triple involving it and shrink until none remains; extending from every start also passes.",
+  "tags": [
+    "array",
+    "sliding-window",
+    "two-pointers",
+    "counting",
+    "hash-map",
+    "brute-force"
+  ],
+  "patterns": [
+    "sliding-window",
+    "two-pointers",
+    "counting",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "sliding-window": 0.95,
+      "two-pointers": 0.85,
+      "counting": 0.6,
+      "brute-force": 0.8
+    }
+  }
+}

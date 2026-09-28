@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-transform-array-using-pair-operations",
+  "title": "Transform Array Using Pair Operations",
+  "source_url": "https://leetcode.com/problems/transform-array-using-pair-operations/",
+  "solution": "The operation sets source[j] = delta and source[i] = source[i] + source[j] - delta, so source[i] + source[j] is unchanged and the total sum of the array is an invariant. That makes equal sums necessary. They are also sufficient because n >= 2: for every index j except one fixed index i, apply the operation on (i, j) with delta = target[j], which sets source[j] exactly and pushes the difference into source[i]. After n-1 operations every position except i matches, and source[i] must equal target[i] because the sums are equal. So the answer is sum(source) == sum(target), computed in O(n) with 64-bit integers (sums reach about 10^14).",
+  "solution_check": {
+    "verified": "true - Ex1: sums 6 vs 6 -> true; Ex2: -10 vs -10 -> true; Ex3: 4 vs 7 -> false; all match the expected outputs.",
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "array",
+      "math",
+      "ad-hoc"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The real technique is spotting a sum invariant, which has no canonical pattern name. parity-argument was considered and rejected (the invariant is the exact sum, not parity). constructive-algorithm fits only the sufficiency proof (fix each position one at a time through a pivot index), so its confidence is moderate. prefix-sum and simulation were rejected: nothing is simulated and summing the array is trivial.",
+    "skeptic": "Independently derived the same answer: sum(source)==sum(target). A brute-force BFS over every n=2,3 array with values in [-2,2] (intermediate values bounded to [-4,4]) matched the sum-equality criterion on every pair, and all three samples match. Keeping constructive-algorithm at moderate confidence. It is the sufficiency half, where a pivot index absorbs n-1 exact assignments. This is the standard 'invariant is the only obstruction' reachability genre that Codeforces tags as constructive, and without it the problem has no pattern at all. Rejected parity-argument (the invariant is the exact sum, not parity), prefix-sum/simulation/greedy (nothing is scanned, simulated or chosen greedily), and hash-map/counting (unused). The vocabulary has no 'invariant' pattern, so the summary now names the sum invariant and why it is sufficient, so lexical and dense retrieval can find it. The old summary left out sufficiency. Sums reach about 1e14, so 64-bit accumulation is needed."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "leetcode-longest-subarray-with-restricted-pair-sums",
+  "title": "Longest Subarray With Restricted Pair Sums",
+  "source_url": "https://leetcode.com/problems/longest-subarray-with-restricted-pair-sums/",
+  "solution": "Since every value is at least 1, nums[i]+nums[j] is strictly larger than both addends, so k is automatically distinct from i and j; a window is invalid exactly when its value multiset contains a+b=c with a,b,c present (a=b needs two copies of a). Validity is hereditary (every subarray of a valid subarray is valid), so the leftmost valid start is nondecreasing in r and a two-pointer sliding window works. Keep a frequency array cnt[1..1000] over the window and a counter bad = number of violating pairs: unordered {a<b} with a, b, a+b all present, plus values a with cnt[a]>=2 and 2a present. When a value x goes 0->1 (or 1->0) occurrences, update bad in O(V) by scanning partners b with x+b present (x as an addend) and splits a+(x-a)=x (x as the sum); when x goes 1<->2 occurrences, adjust by one if 2x is present. For each r add nums[r], then pop nums[l] while bad>0, and record r-l+1. Total O(n*V) with V=500, about 5*10^5 operations.",
+  "solution_check": {
+    "verified": "true - Python implementation returns 3 and 4 on the two samples and matched an O(n^5) brute force on 400 random small arrays.",
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "counting"
+    ],
+    "tags": [
+      "array",
+      "sliding-window",
+      "two-pointers",
+      "counting",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "counting",
+      "brute-force"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "brute-force",
+        "reason": "n <= 1000 is set to admit enumerating every start l and extending r until the new element completes a triple (checked against a value-presence array / distinct-value set), breaking at the first violation; an O(n^2) variant (for each right end r and each earlier p, look up the latest other occurrence of r-p, p-r or r+p values and prefix-max the barrier) was also verified against brute force. A legitimate, commonly written alternative full solution, so keep it as a secondary label."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Key observations: positivity makes k distinct from i,j for free, and validity is monotone under shrinking, which licenses the two-pointer window. The small value bound (500) is what makes the O(V) per-update violation bookkeeping cheap. A plain O(n^2 * V) per-start extension with an O(V) add-check is ~5*10^8 and borderline, so brute-force was not labelled. hash-map kept only as a broad tag since a frequency array over values plays that role; no subset-sum/knapsack involved (only pair sums matter). binary-search-answer rejected: binary searching the length with an O(n*V) check works but is strictly dominated by the direct window and is not the real solution.",
+    "skeptic": "Independently verified: positivity makes k distinct from i,j automatically; validity is hereditary so the leftmost valid start is monotone. Simpler than the proposal's global bad-counter: since the window was valid before adding x, any violation must involve x, so check x-as-sum (a + (x-a) with multiplicity) and x-as-addend (x+b present, b==x needs two copies) in O(V) and pop from the left while it holds; O(n*V). Scratch code: this window, an O(n^2) pair-enumeration with last-two-occurrence lookup, and an O(n^5) brute force agree on both samples (3, 4) and 1500 random small arrays. binary-search-answer correctly rejected (dominated by the direct window); no knapsack/subset-sum (only pair sums). counting kept as frequency-array usage (corpus alias frequency-array -> counting; multiplicity matters for a+a=2a). Primary labels stay sliding-window/two-pointers; brute-force is secondary."
+  }
+}

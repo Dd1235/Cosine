@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2269-b",
+  "title": "KiaKio and Squared Numbers",
+  "slug": "2269-b-kiakio-and-squared-numbers",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2269/problem/B",
+  "source_topic": "Codeforces / Contest 2269",
+  "source_tags": [
+    "brute force",
+    "implementation"
+  ],
+  "statement": "Each of n numbers (values up to 10^9) is repeatedly replaced by the sum of the squares of its digits. Two numbers are in tune if their sequences become identical from some step on; the task counts in-tune pairs. One step drops any value to at most 729 and every sequence soon reaches 1 or an 8-cycle, so simulating a fixed number of steps and comparing values handles cycle phase.",
+  "tags": [
+    "math",
+    "simulation",
+    "implementation",
+    "hash-map"
+  ],
+  "patterns": [
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "simulation": 0.85
+    }
+  }
+}

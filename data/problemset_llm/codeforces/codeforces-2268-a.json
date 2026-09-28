@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2268-a",
+  "title": "K Is Important",
+  "slug": "2268-a-k-is-important",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2268/problem/A",
+  "source_topic": "Codeforces / Contest 2268",
+  "source_tags": [
+    "constructive algorithms",
+    "greedy"
+  ],
+  "statement": "Given n positive integers and a parameter k, while at least k elements remain one removes either the k-th element from the left or the k-th from the right, scoring its value. The score must be maximised for n up to 10^5; the middle block is always removed and the remaining choices split into independent mirror pairs, so greedily taking the larger of each pair is optimal.",
+  "tags": [
+    "greedy",
+    "array",
+    "ad-hoc"
+  ],
+  "patterns": [
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1790588280,
+    "pattern_confidence": {
+      "greedy": 0.8
+    }
+  }
+}

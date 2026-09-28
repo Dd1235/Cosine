@@ -1,0 +1,63 @@
+{
+  "id": "codeforces-2268-d",
+  "title": "AghaBalaSar and Hamed",
+  "source_url": "https://codeforces.com/contest/2268/problem/D",
+  "solution": "Every j<i costs exactly 1 (one left move), giving n(n-1)/2. For j>i: the positions with no next greater element (global suffix maxima) cut the array into independent segments, and i can reach exactly [1..R(i)], where R(i) is the first suffix maximum >= i. Because left moves are free, the set reachable within t steps is a prefix [1..top_{t-1}] plus some points on the next-greater chain, so only the frontier top_t matters. The frontier obeys top_{t+1} = nxt(top_t) if a segment prefix-maximum (record) lies in (top_{t-1}, top_t], and otherwise the next record after top_t (step left to the last record, then jump). Encoding this as states (x, flag), each with one successor further right, gives a forest. A j in (top_{t-1}, top_t] costs t if lo(j) <= top_{t-1}, where lo(j) is the leftmost index whose next greater element is j (read off the monotonic-stack pops); otherwise it costs t+1 (overshoot, then step left). So sum_{j>i} f(i,j) = sum_t (R - top_t) + sum of per-edge penalty counts. A penalty count is y-x-1 for a next-greater edge, and prefix counts of lo values give it for a record edge. A DP over the states in decreasing x accumulates path length, the sum of positions and the sum of penalties, and each i reads its value from state (i, true). Next-greater, lo and records come from monotonic stacks, so the whole algorithm is O(n).",
+  "solution_check": {
+    "verified": [
+      true,
+      "Python implementation reproduces all 6 sample outputs (2,1,4,7,15,38) and matches a BFS brute force on 20000 random permutations with n<=11, 200 with n in 20..80, and monotone/zigzag permutations up to n=39."
+    ],
+    "how": ""
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "monotonic-stack",
+      "dynamic-programming",
+      "dp-on-dag",
+      "contribution-technique"
+    ],
+    "tags": [
+      "monotonic-stack",
+      "dynamic-programming",
+      "permutation",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "monotonic-stack",
+      "dynamic-programming",
+      "tree-dp"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "dp-on-dag",
+        "reason": "The only successor structures are forests: the next-greater tree (parent = nge) and the frontier map x -> nge(prefix-max(x)), which walks up that same tree. The DP just accumulates path length, position sums and penalties along each node's root path, so it is tree DP. No DAG with shared successors or path counting is involved."
+      },
+      {
+        "pattern": "contribution-technique",
+        "reason": "This is bookkeeping, not the key idea. Rewriting sum_t t*(top_t - top_{t-1}) as sum_t (R - top_t) is Abel summation of one source's distance layers. The answer is computed per source i along its tree path; no per-element contribution flip drives the solution."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "tree-dp",
+        "reason": "The natural framing is the next-greater-element tree, built with a monotonic stack: a right move is exactly a parent edge, and each suffix maximum is a root. From i, layer 1 ends at parent(i), and layer 2 ends at the lowest ancestor on the root's left spine, which is made of the segment prefix maxima. After that the frontier climbs the spine one edge per step. Each j in a layer costs t, or t+1 when its leftmost child lies beyond the previous frontier. Per-node values (depth-style counts of non-leftmost-child edges, and spine suffix sums of length, positions and penalties) are propagated top-down in O(n). This matches the judge tags trees+dp."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "graph",
+        "reason": "The moves define a graph, but the solution never treats it as one: no BFS or shortest-path search is run. The working structure is the next-greater tree, so 'tree' is the accurate tag."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "My own derivation; not checked against the editorial. Key pitfall found by testing: the frontier's 'prefix-record' jump must use records restarted after each global suffix maximum (a suffix max has no next greater element, so a prefix max that is a suffix max lands nowhere); using plain prefix maxima fails on e.g. [6,4,1,2,3,5]. The state successor graph is a functional forest with edges to strictly larger indices, so dp-on-dag (or functional-graph) fits; I kept dp-on-dag. Summing BFS layers as sum_t(R - top_t) is a contribution-style swap, hence moderate confidence. Prefix sums (used to count lo values per edge) are a helper, not labelled. The farthest-reach frontier argument is greedy-like, but I did not label greedy. Not bfs or shortest-path: no graph search is run. An offline Fenwick count of the penalty edges would also work, in O(n log n).",
+    "skeptic": "I verified the proposal's layer characterization independently. j<i always costs 1. For j>i the frontier goes i -> nge(i) -> nge(segment-prefix-max(top)) ..., and records restart after each suffix maximum. j in (top_{t-1}, top_t] costs t iff lo(j) <= top_{t-1}, else t+1. I checked this against a BFS brute force: all 6 samples, exhaustively for every permutation with n<=8, and on 300 random permutations with n in 9..60. Both variants match: the NGE-tree/spine version (scratch check2.py) and the proposal's prefix-count penalty (cntLo(x)-cntLo(m))-(#lo-defined j in (m,x]), which I checked exhaustively for n<=8 (prefcount.py). Pitfall I hit: 'j has a child <= a' is NOT the same as 'j is an ancestor of a'. It is ancestors whose path-child is not their leftmost child, plus parent(a). Cartesian-tree is not added. The segment records do form the left spine of each right-spine node's subtree in the max-Cartesian tree, but the next-greater tree is the direct framing, since a right move is literally a parent edge. functional-graph is not added: the successor map is acyclic and forms a tree. greedy is not added: the farthest-frontier argument resembles jump-game layering but is a structural lemma, not a greedy choice. The summary is accurate (65 words, includes n<=1e6 forcing O(n)); it is left unchanged."
+  }
+}
