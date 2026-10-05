@@ -1,0 +1,29 @@
+{
+  "id": "leetcode-maximum-alternating-subarray-sum-with-one-deletion",
+  "title": "Maximum Alternating Subarray Sum With One Deletion",
+  "slug": "maximum-alternating-subarray-sum-with-one-deletion",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximum-alternating-subarray-sum-with-one-deletion/",
+  "source_topic": "LeetCode / Weekly Contest 522",
+  "difficulty": "Medium",
+  "acceptance_rate": 29.5,
+  "source_tags": [],
+  "statement": "Given an integer array of up to 10^5 elements, at most one element may be deleted, after which a nonempty subarray of the result is chosen to maximize its alternating sum: elements at even positions are added and those at odd positions subtracted, counting from the subarray's start. Deleting an interior element flips the sign of every later element in the subarray.",
+  "tags": [
+    "array",
+    "dynamic-programming"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "kadane"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791206571,
+    "pattern_confidence": {
+      "dynamic-programming": 0.95,
+      "kadane": 0.9
+    }
+  }
+}

@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/maximize-meeting-earnings-with-idle-gaps/",
   "source_topic": "LeetCode / Weekly Contest 521",
   "difficulty": "Hard",
+  "acceptance_rate": 39.0,
   "source_tags": [],
   "statement": "Given up to 10^5 meetings, each a half-open interval [start, end) with a revenue, the task is to choose a non-empty set of non-overlapping meetings maximizing total revenue plus one unit per unit of idle time between consecutive chosen meetings (none before the first or after the last). With n up to 10^5 and times up to 10^9, quadratic or time-indexed DP is too slow.",
   "tags": [

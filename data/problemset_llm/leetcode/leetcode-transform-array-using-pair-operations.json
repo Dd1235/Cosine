@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/transform-array-using-pair-operations/",
   "source_topic": "LeetCode / Biweekly Contest 192",
   "difficulty": "Medium",
+  "acceptance_rate": 60.7,
   "source_tags": [],
   "statement": "Given integer arrays source and target of equal length n (2 ≤ n ≤ 10^5, |values| ≤ 10^9), an operation picks distinct indices i, j and any integer delta, setting source[i] to source[i]+source[j]-delta and source[j] to delta. The task asks whether source can be made equal to target. The operation preserves the total sum, and that invariant is also sufficient because one pivot index can absorb every adjustment.",
   "tags": [

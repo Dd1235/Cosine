@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-subarrays-with-distant-sums/",
   "source_topic": "LeetCode / Biweekly Contest 191",
   "difficulty": "Hard",
+  "acceptance_rate": 32.9,
   "source_tags": [],
   "statement": "Given an integer array and two integers goal and k, count the number of subarrays whose sum differs from goal by at least k in absolute value.",
   "tags": [

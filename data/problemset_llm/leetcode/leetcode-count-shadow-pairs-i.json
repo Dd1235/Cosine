@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-shadow-pairs-i/",
   "source_topic": "LeetCode / Weekly Contest 519",
   "difficulty": "Medium",
+  "acceptance_rate": 41.9,
   "source_tags": [],
   "statement": "Given an array, count pairs of indices (i, j) where nums[i] < nums[j], i < j, and no element between i and j is less than nums[i].",
   "tags": [

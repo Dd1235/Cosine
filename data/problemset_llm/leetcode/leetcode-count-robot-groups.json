@@ -27,5 +27,6 @@
     },
     "reviewed_by": "claude-agent skeptic pass"
   },
-  "difficulty": "Medium"
+  "difficulty": "Medium",
+  "acceptance_rate": 31.8
 }

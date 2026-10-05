@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/minimum-days-to-score-exactly-n-points/",
   "source_topic": "LeetCode / Biweekly Contest 191",
   "difficulty": "Medium",
+  "acceptance_rate": 42.1,
   "source_tags": [],
   "statement": "Given a target score n, determine the minimum number of days (including skipped days) needed to reach exactly n points, where consecutive earning days form a streak with increasing points, and skipping resets the streak.",
   "tags": [

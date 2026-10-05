@@ -1,0 +1,40 @@
+{
+  "id": "leetcode-minimum-rotations-to-dial-a-number-ii",
+  "title": "Minimum Rotations to Dial a Number II",
+  "source_url": "https://leetcode.com/problems/minimum-rotations-to-dial-a-number-ii/",
+  "solution": "The cost of dialing a string is the sum of circular distances d(a,b)=min(|a-b|,10-|a-b|) along the path 0 -> t[0] -> t[1] -> ... . Because d is symmetric, reversing the suffix s[k..n-1] leaves the internal cost of that suffix unchanged; the only edge that changes is the boundary one, s[k-1]->s[k] (with s[-1]=0), which becomes s[k-1]->s[n-1]. So with total = cost of s without any operation, the answer is min(total, min over k of total - d(s[k-1],s[k]) + d(s[k-1],s[n-1])). Equivalently, keep prefix costs pre[k] and suffix internal costs suf[k] and take min over k of pre[k] + d(s[k-1],s[n-1]) + suf[k]. This is O(n) time and O(1) extra memory (O(n) with explicit prefix/suffix arrays). With n up to 10^5, re-dialing each of the n candidate strings would be O(n^2) = 10^10, which is too slow, so each split point has to be scored in O(1).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python implementation in scratchpad/dial2.py printed 9, 12 and 6 on the three samples (expected 9, 12, 6). It agreed with a brute force that builds and dials every reversed-suffix string on 500 random strings with n<=9. It ran in 0.02s on n=10^5."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum"
+    ],
+    "tags": [
+      "string",
+      "prefix-sum",
+      "enumeration"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "prefix-sum"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "enumeration",
+        "reason": "Taxonomy aliases enumeration -> brute-force, and brute-force was rejected (re-dialing every reversal is O(n^2)); scanning split points is scaffolding."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "The key insight is that reversing a path does not change its symmetric edge costs, so only the one boundary edge changes. That makes it an O(n) scan over split points, scored with prefix and suffix cost sums or with total minus one edge. Rejected: brute-force, because simulating every reversal is O(n^2) and does not pass n=10^5; and dynamic-programming or greedy, because no state transition or exchange argument is involved. simulation and modular-arithmetic were left out because dialing and circular distance are just scaffolding.",
+    "skeptic": "Re-derived independently: dialing cost is the sum of circular distances d(a,b)=min(|a-b|,10-|a-b|) along 0->t[0]->...->t[n-1]; reversing s[k..n-1] keeps the suffix's internal edges (d is symmetric) and only swaps the boundary edge s[k-1]->s[k] for s[k-1]->s[n-1] (s[-1]=0), so answer = min(total, min_k total - d(s[k-1],s[k]) + d(s[k-1],s[n-1])), O(n). Wrote skeptic_dial2.py: the O(n) scan gives 9, 12, 6 on the three samples (matches expected), and matched an O(n^2) brute force that re-dials every reversed string on 20,000 random strings of length 1-8 with 0 mismatches. The proposed solution is the same derivation and is correct. Labels: prefix-sum is kept (moderate confidence). The usual way to write it is the prefix/suffix split pre[k] + d(s[k-1],s[n-1]) + suf[k], scored in O(1) per split point, and that split-point-over-prefix/suffix-costs pattern is what a prefix-sum search should find. The total-minus-one-edge version needs only one running sum, so this is not a strong prefix-sum problem, but no other vocabulary label fits better. Nothing added: modular-arithmetic and simulation are scaffolding for the circular distance and the dialing; greedy, dynamic-programming, brute-force, two-pointers and binary-search-answer do not apply (no exchange argument, no state transitions, no monotone feasibility test). The tags string/prefix-sum/enumeration are accurate. The summary is 65 words, third person, accurate, and states n <= 10^5, the constraint that rules out the O(n^2) re-dial, so it is unchanged."
+  }
+}

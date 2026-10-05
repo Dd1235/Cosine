@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-count-good-strings",
+  "title": "Count Good Strings",
+  "slug": "count-good-strings",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-good-strings/",
+  "source_topic": "LeetCode / Weekly Contest 522",
+  "difficulty": "Hard",
+  "acceptance_rate": 45.5,
+  "source_tags": [],
+  "statement": "Given n, the task is to count strings of length n over {a,b} that are good, modulo 1e9+7. A good string is either a single character repeated an odd number of times, or the concatenation of two good strings whose boundary characters differ. Equivalently, every maximal run has odd length. n can be up to 10^15, so the Fibonacci-like recurrence needs logarithmic-time evaluation.",
+  "tags": [
+    "math",
+    "dynamic-programming",
+    "combinatorics",
+    "matrix-exponentiation",
+    "string"
+  ],
+  "patterns": [
+    "matrix-exponentiation",
+    "linear-recurrence",
+    "dynamic-programming",
+    "combinatorics"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791206571,
+    "pattern_confidence": {
+      "matrix-exponentiation": 0.95,
+      "linear-recurrence": 0.9,
+      "dynamic-programming": 0.75,
+      "combinatorics": 0.6
+    }
+  }
+}

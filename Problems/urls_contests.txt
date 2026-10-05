@@ -294,3 +294,8 @@ https://codeforces.com/contest/2268/problem/F
 # Codeforces / Contest 2269
 https://codeforces.com/contest/2269/problem/A
 https://codeforces.com/contest/2269/problem/B
+
+# LeetCode / Weekly Contest 522
+https://leetcode.com/problems/minimum-rotations-to-dial-a-number-ii/
+https://leetcode.com/problems/maximum-alternating-subarray-sum-with-one-deletion/
+https://leetcode.com/problems/count-good-strings/

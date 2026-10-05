@@ -1,0 +1,27 @@
+{
+  "id": "leetcode-minimum-rotations-to-dial-a-number-ii",
+  "title": "Minimum Rotations to Dial a Number II",
+  "slug": "minimum-rotations-to-dial-a-number-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-rotations-to-dial-a-number-ii/",
+  "source_topic": "LeetCode / Weekly Contest 522",
+  "difficulty": "Medium",
+  "acceptance_rate": 52.7,
+  "source_tags": [],
+  "statement": "Given a digit string s of length up to 10^5 and a circular dial 0-9 whose pointer starts at 0, where each rotation moves one step either way, the task is to find the minimum total rotations needed to dial s in order. Before dialing, at most one suffix s[k..n-1] may be reversed, and the best choice of k (or no reversal) must be found.",
+  "tags": [
+    "string",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791206571,
+    "pattern_confidence": {
+      "prefix-sum": 0.8
+    }
+  }
+}

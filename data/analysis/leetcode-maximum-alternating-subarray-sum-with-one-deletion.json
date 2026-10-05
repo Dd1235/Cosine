@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-maximum-alternating-subarray-sum-with-one-deletion",
+  "title": "Maximum Alternating Subarray Sum With One Deletion",
+  "source_url": "https://leetcode.com/problems/maximum-alternating-subarray-sum-with-one-deletion/",
+  "solution": "Linear Kadane-style state DP. For each index i keep the best alternating sum of a subarray ending at i, split by the sign nums[i] gets (+ at even reindexed position, - at odd) and by whether the one deletion has been used inside the subarray. No deletion: plus[i] = max(nums[i], minus[i-1] + nums[i]) and minus[i] = plus[i-1] - nums[i]. With a deletion: plusDel[i] = max(minusDel[i-1], minus[i-2]) + nums[i] and minusDel[i] = max(plusDel[i-1], plus[i-2]) - nums[i]. The i-2 term means nums[i-1] was deleted, which keeps the sign pattern going across the gap. Deleting an element outside the chosen subarray, or at one of its ends, gives nothing a no-deletion state can't already give, so only deletions strictly inside the subarray matter. The answer is the maximum over all states and indices. With n up to 1e5 this runs in O(n) time and O(1) memory. An equivalent method runs the alternating Kadane forward (best ending at i, per parity) and backward (best starting at i, per parity), then tries each deleted index k by joining the forward value at k-1 to the backward value at k+1, using the parity that continues the pattern.",
+  "solution_check": {
+    "verified": true,
+    "how": "Wrote a Python implementation of the O(n) state DP. It gives 11, 110 and 7 on the three samples, matching the expected outputs. Checked it against a brute force (no deletion or each single deletion, then every subarray, alternating sum computed directly) on 1000 random arrays of length 1-9, with values in [-5,5], [-1e5,1e5] and all-nonpositive; all agreed. It runs on n=1e5 in about 0.01s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "kadane"
+    ],
+    "tags": [
+      "array",
+      "dynamic-programming"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "dynamic-programming",
+      "kadane"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "n up to 1e5 rules out trying every deletion with a fresh scan, which is O(n^2), and points to a linear DP. The solution is Kadane extended with parity and deletion states, so kadane and dynamic-programming are the labels. The forward/backward Kadane split is the same technique. prefix-sum was rejected: an alternating prefix sum with a min prefix can handle the no-deletion case, but it isn't the usual or the clean way to handle the deletion, and the DP doesn't need it. Greedy, sliding-window and two-pointers don't apply, because the gain from a subarray isn't monotone in its window. state-compression was rejected because the state is just two flags, not a compressed set.",
+    "skeptic": "I first wrote my own O(n) solution with O(1) memory: four states ending at i (sign of a[i] is + or -, deletion used or not), where a deletion state takes from the no-deletion states at i-2. I then implemented the proposal's recurrences exactly as written and its forward/backward Kadane variant (forward best ending at k-1 per parity, joined to the backward best starting at k+1 with the opposite parity). All three give 11, 110 and 7 on the samples. Against a brute force that tries every deletion and every subarray, there were 0 mismatches on 20,000 random arrays (n 1-9, values in [-10,10], n=1 included) and 0 on 3,000 arrays (n up to 25, values in [-1e5,1e5]). A run at n=1e5 finishes instantly. The proposal is correct, including its claim that only deletions strictly inside the subarray matter. Labels: kadane is the real technique, a max-ending-here recurrence extended with parity and deletion flags, like the classic 'max subarray sum with one deletion'. dynamic-programming is the right family label next to it. Nothing is missing. prefix-sum is not a common alternative: an alternating prefix-sum formula exists, but it still needs a max over l<k<r, which is the same DP in another form. binary-search-answer, greedy, sliding-window and two-pointers don't apply. state-compression would be wrong, because the state is just two booleans. Tags array and dynamic-programming are fine. I rewrote the summary because the original was 73 words, over the 70 limit. The new one is 62 words, keeps the n <= 10^5 constraint and the parity-shift point, and says the subarray is nonempty."
+  }
+}

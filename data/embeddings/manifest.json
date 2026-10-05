@@ -14,7 +14,7 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "dtype": "q8",
   "dims": 384,
-  "count": 4053,
+  "count": 4056,
   "normalized": true,
   "textFields": "title+statement+tags+patterns",
   "ids": [
@@ -170,6 +170,7 @@
     "leetcode-count-good-integers-in-a-range",
     "leetcode-count-good-integers-on-a-grid-path",
     "leetcode-count-good-meals",
+    "leetcode-count-good-strings",
     "leetcode-count-good-subarrays",
     "leetcode-count-good-triplets-in-an-array",
     "leetcode-count-increasing-quadruplets",
@@ -675,6 +676,7 @@
     "leetcode-maximize-total-cost-of-alternating-subarrays",
     "leetcode-maximize-value-of-function-in-a-ball-passing-game",
     "leetcode-maximize-win-from-two-segments",
+    "leetcode-maximum-alternating-subarray-sum-with-one-deletion",
     "leetcode-maximum-amount-of-money-robot-can-earn",
     "leetcode-maximum-and-minimum-sums-of-at-most-size-k-subarrays",
     "leetcode-maximum-and-minimum-sums-of-at-most-size-k-subsequences",
@@ -1028,6 +1030,7 @@
     "leetcode-minimum-removals-to-balance-array",
     "leetcode-minimum-replacements-to-sort-the-array",
     "leetcode-minimum-reverse-operations",
+    "leetcode-minimum-rotations-to-dial-a-number-ii",
     "leetcode-minimum-score-after-removals-on-a-tree",
     "leetcode-minimum-score-by-changing-two-elements",
     "leetcode-minimum-seconds-to-equalize-a-circular-array",
@@ -4072,7 +4075,7 @@
     "kattis-wiknow",
     "kattis-zoomanagement"
   ],
-  "corpusHash": "08784bd1a8c7cb1b4c9022719bd61ae9e07e8e4f0be2dc7a43bb08e60d643c4e",
+  "corpusHash": "3cae996a03ce4f5c88f9555968f4339ed610f9dc2779cb6982ba31e40237134b",
   "package": "@huggingface/transformers@4.2.0",
-  "createdAt": "2026-09-28T09:38:16.526Z"
+  "createdAt": "2026-10-05T13:24:33.940Z"
 }

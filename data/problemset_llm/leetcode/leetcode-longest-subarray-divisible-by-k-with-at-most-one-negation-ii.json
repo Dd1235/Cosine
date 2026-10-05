@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/longest-subarray-divisible-by-k-with-at-most-one-negation-ii/",
   "source_topic": "LeetCode / Biweekly Contest 192",
   "difficulty": "Hard",
+  "acceptance_rate": 24.4,
   "source_tags": [],
   "statement": "The task asks for the longest subarray of an array of up to 10^5 integers whose sum is divisible by k ≤ 3000, either as-is or after negating one element. Negating x shifts the sum by -2x, so validity depends only on the prefix-sum residues at the ends; using each residue's first and last occurrence leaves k² residue pairs, each checked in O(1).",
   "tags": [

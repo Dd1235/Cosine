@@ -1,0 +1,43 @@
+{
+  "id": "leetcode-count-good-strings",
+  "title": "Count Good Strings",
+  "source_url": "https://leetcode.com/problems/count-good-strings/",
+  "solution": "By induction on the recursive definition, a string is good exactly when every maximal run of equal characters has odd length. The base case is a single odd run. Joining two good strings whose boundary characters differ keeps all runs separate. In the other direction, any string with two or more odd runs splits at its first run boundary. So the count is 2 (for the first character) times the number of compositions of n into odd parts. That number satisfies c(n) = c(n-1) + c(n-2), which is the Fibonacci number F(n). Equivalently, a 2-state DP tracks whether the current run has odd or even length: odd' = odd + even and even' = odd. Because n can be as large as 10^15, a linear DP is impossible. Raising the 2x2 matrix [[1,1],[1,0]] to the n-th power by repeated squaring (or Fibonacci fast doubling) gives the answer 2*F(n) mod 1e9+7 in O(log n) time and O(1) memory.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python matrix-power solution on the samples: n=4 gives 6, n=3 gives 4, n=2 gives 2, all matching. A brute force that enumerates all 2^n strings and tests them with the literal memoised recursive definition matched the solution and the linear 2-state DP for every n from 1 to 16. The matrix solution also matched the linear DP on 300 random n up to 20000. n=10^15 runs instantly (296650267)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "matrix-exponentiation",
+      "linear-recurrence",
+      "dynamic-programming",
+      "combinatorics"
+    ],
+    "tags": [
+      "math",
+      "dynamic-programming",
+      "combinatorics",
+      "matrix-exponentiation",
+      "string"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "matrix-exponentiation",
+      "linear-recurrence",
+      "dynamic-programming",
+      "combinatorics"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The constraint n <= 10^15 forces O(log n) evaluation of the recurrence (matrix power or Fibonacci fast doubling). The O(n) run-parity DP is only the derivation. The combinatorics label covers the reduction to compositions into odd parts (Fibonacci). Rejected labels: modular-arithmetic and modular-exponentiation, which are scaffolding (no inverses or scalar powers). Pisano-period tricks, because the period mod 1e9+7 is about 2e9 and gives no speedup. interval-dp and partition-dp, which the recursive split wording suggests but the actual solution does not use. string-matching and palindrome, which do not apply. berlekamp-massey, because the order-2 recurrence is derived directly and does not need to be recovered.",
+    "skeptic": "I derived the solution myself before reading the proposal's reasoning. A string is good exactly when all its maximal runs have odd length. If every run is odd, split off the first run (a single odd run, so good) and induct on the rest. If two all-odd-run strings are joined at a differing boundary, their runs stay separate. So the answer is 2 * (number of compositions of n into odd parts) = 2*F(n). I wrote skeptic_count_good.py with four pieces: (a) 2x2 matrix power of [[1,1],[1,0]]; (b) Fibonacci fast doubling; (c) an independent O(n) run-parity DP (odd' = odd + even, even' = odd); (d) a brute force that applies the recursive definition literally, memoised over every split with differing boundary characters, enumerating all 2^n strings. Samples: n=4 -> 6, n=3 -> 4, n=2 -> 2, all match. The brute force matched all three fast methods for every n from 1 to 16. The DP, matrix power and fast doubling agreed on 200 random n up to 3000. Matrix power and fast doubling agree at n=10^15 (296650267). The proposal is correct. Labels: matrix-exponentiation is the required O(log n) evaluation that n <= 10^15 forces, so keep. linear-recurrence is the Fibonacci recurrence being evaluated, so keep. dynamic-programming is the 2-state run-parity DP whose transition matrix is the thing being powered. That is how most solvers model it, so it is more than scaffolding, and the specific matrix-exponentiation and linear-recurrence labels are present, so keep. combinatorics covers the key reduction: characterise good strings as all-odd runs, then count compositions into odd parts. Keep. Nothing is missing. modular-arithmetic and modular-exponentiation are scaffolding, since there is no inverse and no scalar power. interval-dp and partition-dp only echo the statement's split wording and are not used. Fast doubling has no separate label and is covered by matrix-exponentiation. binary-search-answer does not apply. Tags (math, dynamic-programming, combinatorics, matrix-exponentiation, string) are fine. The summary is 63 words, third person and accurate. It states the n <= 10^15 constraint that decides the technique, so it stays unchanged."
+  }
+}

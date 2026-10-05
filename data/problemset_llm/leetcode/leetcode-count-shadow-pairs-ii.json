@@ -6,6 +6,7 @@
   "source_url": "https://leetcode.com/problems/count-shadow-pairs-ii/",
   "source_topic": "LeetCode / Weekly Contest 519",
   "difficulty": "Hard",
+  "acceptance_rate": 18.3,
   "source_tags": [],
   "statement": "Given an array, count pairs of indices (i, j) such that nums[i] < nums[j], i < j, and there is no index k between i and j with nums[i] < nums[k] < nums[j].",
   "tags": [
