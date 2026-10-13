@@ -37,5 +37,6 @@
       "prefix-xor": 0.8,
       "bit-manipulation": 0.75
     }
-  }
+  },
+  "difficulty": 2700
 }

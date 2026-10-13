@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2271-d",
+  "title": "Target Infection",
+  "slug": "2271-d-target-infection",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/D",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "greedy",
+    "implementation",
+    "two pointers"
+  ],
+  "statement": "A window of m consecutive integers (m up to 10^9) must hold exactly k infected positions, given n ≤ 2·10^5 disjoint sorted infected intervals with coordinates up to 10^15. Shifting the window changes the count by at most one, so an answer exists iff the best window, which starts at an interval's left end (two pointers), reaches k; binary search toward the empty right end then finds it.",
+  "tags": [
+    "sliding-window",
+    "two-pointers",
+    "binary-search",
+    "prefix-sum",
+    "intervals"
+  ],
+  "patterns": [
+    "sliding-window",
+    "binary-search",
+    "prefix-sum",
+    "two-pointers"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "sliding-window": 0.85,
+      "binary-search": 0.8,
+      "prefix-sum": 0.7,
+      "two-pointers": 0.6
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2275-a",
+  "title": "In Search of Convenience",
+  "source_url": "https://codeforces.com/contest/2275/problem/A",
+  "solution": "The point does not have to be a 'diagonal' Pythagorean-triple point like the statement's example (2,1) for R=5: moving straight along an axis keeps both coordinates integral. The point (x0 + R, y0) is at squared distance R^2 + 0 = R^2 from the router, so it is always valid (as are (x0 - R, y0), (x0, y0 ± R)). Output it for each test case. Correctness is the one-line identity above; the answer always exists, so no search is needed. Complexity O(1) per test, O(t) overall. (Enumerating all dx, dy in [-R, R] also works under R <= 25, but is unnecessary.)",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py prints (x0+R, y0). A checker verifies (x-x0)^2+(y-y0)^2 == R^2 for each output. Ran on the sample (output 1 0 / 10 5 / 23 10, all accepted by the checker; the checker also accepts the sample's own expected output 0 1 / 2 1 / -2 5). Exhaustively checked every input in the full constraint box (x0, y0 in [-10,10], R in [1,25]: 11,025 cases in one run) plus 200 random batches of up to 50 tests; brute-force lattice enumeration confirms a valid point exists in every case."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "geometry"
+    ],
+    "tags": [
+      "math",
+      "geometry",
+      "constructive-algorithm",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "geometry",
+        "reason": "The solution never does any geometry. It never computes a distance, a cross product, an intersection or a lattice-point test. It just prints the axis-aligned witness, which avoids the circle altogether. People searching for the geometry technique want problems where geometric computation is the work, and a one-line Div. 3 A that only uses the distance formula as its setting would be noise for them. The circle setting stays findable through the 'geometry' tag and the summary's 'lattice point on the circle' wording, so dropping the pattern loses no recall."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The whole solution is one print statement. There is nothing to implement carefully, no simulation and no case-heavy code. Someone searching 'implementation' would find nothing behind the tag."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the whole solution is picking an explicit valid point (x0+R, y0). geometry: lattice point on a circle / Euclidean distance; a searcher for easy geometry problems would reasonably land here, though the geometry is trivial, hence moderate confidence. Rejected: brute-force (enumerating dx,dy in [-R,R] works under the tiny bounds, but it is a fallback, not a technique the problem exercises; left out to avoid polluting brute-force searches with a one-liner); number-theory / sum of two squares (the statement's Pythagorean example is a red herring; no number theory is needed); math is a tag only.",
+    "skeptic": "SOLUTION: correct. The proposal's (x0+R, y0) matches what I derived on my own. Since R^2 + 0^2 = R^2 it is valid for every input, a point always exists, and each test is O(1). Two other approaches also work: enumerating dx, dy in [-R, R] (R <= 25), or searching Pythagorean triples as the statement's (2,1) example hints. Neither is needed, and the example is a red herring. PATTERNS. constructive-algorithm: KEEP, at 0.85 rather than 0.9 because the construction is trivial. The problem is a pure 'output any witness' task, and the only insight is that the obvious axis-aligned witness works. Someone searching for easy constructive warm-ups would reasonably want it, and nothing else describes the solution. geometry: REJECT as a pattern and keep it as a tag. No geometric computation happens (see rejected_patterns). Corpus precedent such as 336-A and 127-A does label trivial geometry problems 'geometry', but those actually compute something geometric. Here the solution sidesteps the geometry completely. I agree with the proposal's other rejections. brute-force: the enumeration works under the tiny bounds but it is a fallback, not the technique. number-theory / sum-of-two-squares: not needed because the output is unbounded and an axis point always exists. MISSING LABELS: none. No more specific technique name applies. TRAP binary-search-answer: does not apply. Nothing here is monotone or optimised, there is no feasibility test, and the direct O(1) construction is what anyone would write. TRAP bitmask-dp vs interval DP (near-miss labelling): no DP is involved. The near-miss here is geometry/number-theory (lattice points on a circle, sums of two squares) versus a trivial construction. A careless annotator labels by the statement's setting. The deciding fact is that the answer's coordinates are unrestricted, so an axis point always works. That is why the summary now says so explicitly. TAGS: dropped 'implementation', since the solution is a one-line print. Kept math, geometry and constructive-algorithm. SUMMARY: changed. The proposal's 'with coordinates in [-10, 10]' reads as if the OUTPUT point were bounded, which would be a different, harder problem because (x0+R, y0) can reach 35. The fix bounds only the centre and states that the answer is unrestricted, which is the fact the construction depends on. I also removed 'Pythagorean-triple search' so the record doesn't match number-theory or Pythagorean-triple queries it has no technique for, and added 'circle of radius R' as a phrasing a searcher would use. The new summary is 63 words, third person and accurate."
+  }
+}

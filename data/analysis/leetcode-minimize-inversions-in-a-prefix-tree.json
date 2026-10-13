@@ -1,0 +1,47 @@
+{
+  "id": "leetcode-minimize-inversions-in-a-prefix-tree",
+  "title": "Minimize Inversions in a Prefix Tree",
+  "source_url": "https://leetcode.com/problems/minimize-inversions-in-a-prefix-tree/",
+  "solution": "Replace each word index by pos (its position in target); we want the pre-order sequence of pos values to have the fewest inversions. Key observation: the relative order of two words in the traversal is decided entirely at their lowest common trie node. If one word is the marked node itself, it always comes before its whole subtree, so the inversions between a marked node and its subtree are fixed (count of subtree pos values smaller than its own). Otherwise the two words lie in different child subtrees S_i, S_j of their branching node and the pair is an inversion iff the child holding the larger pos is placed first. So the per-node orderings are independent and the answer is the sum, over nodes, of the fixed mark cost plus the minimum-cost linear ordering of that node's children, where placing child i anywhere before child j costs w(i,j) = #{x in S_i, y in S_j : pos x > pos y}. w is computed per node by sweeping the subtree's pos values in sorted order with a per-child counter (cross-inversion counting, O(k * |subtree|)). Ordering the children is a linear-ordering problem: a pairwise/greedy sort is wrong because w can be intransitive (non-transitive-dice sets like {2,4,9},{1,6,8},{3,5,7}; sorting by mean pos was wrong on 27 of 2000 random cases), but the alphabet 'a'-'j' caps a node at k <= 10 children, so dp[mask] = min cost of putting the children in mask first, dp[mask | j] = dp[mask] + sum_{i in mask} w(i,j) with the column sums precomputed per mask, gives O(2^k * k) per node. Since depth <= 20 the subtree work sums to O(20 n log n) for the sorts plus O(10 * 20 n) for w, and the DPs total about sum over branching nodes of 2^k k <= ~1.1e7 operations.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (trie + per-node cross-inversion counts + subset DP) passes both samples (2, 1). Brute force enumerates every combination of child permutations at every branching node and counts inversions of the resulting pre-order directly; stress-tested 3000 random cases (alphabet 1-4 letters, word length 1-4, n<=8), 500 wide-fanout cases (alphabet 3-6, length 1-2, n<=9, up to 6 children at a node) and 2000 more (alphabet 2-5, length 1-3, n 4-9), all agreeing. Same 2000-case run showed a greedy 'sort children by mean pos' disagrees with the optimum 27 times, and the intransitive-dice construction gives optimum 13 vs greedy 14, confirming the subset DP is needed. Timing at max size in Python: n=1e4 random words length 1-20 in 0.24 s; n=1e4 complete 10-ary trie (all 4-letter words over a-j) in 0.97 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "trie",
+      "bitmask-dp",
+      "inversion-count"
+    ],
+    "tags": [
+      "trie",
+      "tree",
+      "string",
+      "dynamic-programming",
+      "bitmask-dp",
+      "dfs"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "trie",
+      "bitmask-dp",
+      "inversion-count"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "bitmask-dp",
+        "reason": "It is a pattern, not a tag. It appears as a tag on only 1 corpus record. LeetCode bitmask-DP records use the tag bit-manipulation (61 of the bitmask-dp LC records), so I swapped it for bit-manipulation. The pattern bitmask-dp stays."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "trie: the structure is literally a prefix tree that must be built and walked. bitmask-dp: ordering <=10 children (alphabet a-j is the deciding constraint) under pairwise costs is solved by DP over subsets of children already placed; with_families adds dynamic-programming. inversion-count: the objective is an inversion count, and the solution counts cross-inversions between every pair of child subtrees (pairs x in S_i, y in S_j with pos x > pos y) plus mark-vs-subtree inversions. Rejected: exchange-argument / greedy / sorting (a comparator sort of children is provably wrong here because cross-inversion preferences can be intransitive; verified by counterexample); tree-dp / subtree-dp (per-node choices are independent; nodes aggregate subtree pos sets, not children's DP values, so a 'tree dp' searcher would get a stranger); contribution-technique (pairs are attributed to their LCA, which is contribution-like, but the work is an optimisation not a counting sum; too loose); fenwick-tree / merge-sort style counting and dsu-on-tree small-to-large (optional implementations of the cross-count; depth <= 20 makes plain per-node sorting enough, so scaffolding); lexicographic-order (children order is free, not lexicographic); dfs kept only as a tag for the traversal, not a pattern (scaffolding).",
+    "skeptic": "SOLUTION: the proposal is correct and matches my own derivation. Every pair of words is ordered by their LCA in the trie. If one word is the LCA's own mark, it always comes first, which is a fixed cost. Otherwise the pair sits in two different child subtrees, and its cost depends only on the order of those two children, as sets. So the per-node problems are independent, and the answer is the sum over nodes of the fixed mark cost plus a minimum linear ordering of the children under w(i,j), with w(i,j) + w(j,i) = |S_i||S_j|. This is a linear-ordering / weighted feedback-arc-set problem. In general it is NP-hard, but the alphabet 'a'-'j' limits k to 10, so dp[mask] in O(2^k k) per node is the intended solution. The total is about 1.1e7 for a complete 10-ary trie.\n\nEXCHANGE-ARGUMENT vs BITMASK-DP (the deciding question): I tried hard to break the proposal's claim and could not. The exchange argument fails because the pairwise preference w(a,b) < w(b,a) is a Mann-Whitney-style dominance relation. It can be cyclic (non-transitive dice) and it is not even a weak order with ties: A<B, B~D, D<A happens with {0,3,4},{1,5},{2}. When the tournament happens to be transitive, sorting by it is optimal, since every pair reaches its individual minimum. The DP is needed exactly when it is not. Every sort key I tested (mean, median, pairwise comparator, insertion by comparator, Borda score) is suboptimal on many exhaustive small instances and on 24-94% of random k = 10 instances. Adjacent-swap stability, the certificate an exchange argument relies on, holds for suboptimal orders in 26% of the exhaustive k = 3..4 instances. Verdict: bitmask-dp, not exchange-argument. The alphabet bound is the constraint that decides it.\n\nPATTERNS. trie: KEEP. The prefix tree has to be built, and its branching nodes are the unit of optimisation. bitmask-dp: KEEP. It is dp over the set of children already placed. The cost of appending j depends only on the mask, not on the last child, so hamiltonian-dp (Held-Karp with a last-vertex state) does not apply. subset-dp is used loosely in this corpus (SOS / subset counting), and bitmask-dp is the canonical name for dp[mask] orderings, so I did not add it. dynamic-programming comes from with_families. inversion-count: KEEP (0.8). This is not just an echo of the statement's word 'inversions': the solution really counts cross-inversions between pairs of sorted child-subtree lists (merge / two-pointer) plus mark-vs-subtree inversions. That matches the corpus precedent codeforces-1416-c (trie + per-node cross-child inversion counting).\n\nREJECTED (agree with the proposal). exchange-argument / greedy / sorting: refuted above. tree-dp / subtree-dp: there is no state that combines children. Each node's minimum is independent, and nodes only collect subtree pos multisets, so this is aggregation, not DP. contribution-technique: attributing pairs to their LCA is decomposition for an optimisation, not summing per-element contributions to a count. Too loose. dfs: scaffolding (the traversal the statement describes), so a tag only. fenwick-tree / dsu-on-tree / merge-sort-tree: optional ways to compute cross counts. Depth <= 20 makes plain per-node sort plus two-pointer enough. lexicographic-order: the child order is free.\n\nTRAPS. binary-search-answer: not applicable, and the proposal correctly does not use it. Nothing is monotone, and there is no feasibility test; this is a direct per-node optimisation. bitmask-dp vs near-misses: the constraint decides it, as with the Elevator Requests II/III pair. Here the near-misses are exchange-argument (looks plausible because the cost is pairwise and swap-based, but it is intransitive) and hamiltonian-dp (looks plausible because it is a permutation DP, but the transition cost does not depend on the last element). k <= 10 from 'a'-'j' is what makes 2^k feasible. Without that bound the problem would be NP-hard.\n\nSUMMARY: 68 words, third person, accurate. It includes the deciding constraint ('a'-'j', at most 10 children) and the key reduction (each pair decided at its branching node). Kept verbatim.\n\nTAGS: swapped bitmask-dp for bit-manipulation (corpus tag convention). Everything else kept."
+  }
+}

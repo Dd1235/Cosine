@@ -19,5 +19,6 @@
     "model": "claude-opus-5-5 (solve + skeptic)",
     "generated_at_unix": 1790408505,
     "pattern_confidence": {}
-  }
+  },
+  "difficulty": 800
 }

@@ -1,0 +1,53 @@
+{
+  "id": "codeforces-2271-d",
+  "title": "Target Infection",
+  "source_url": "https://codeforces.com/contest/2271/problem/D",
+  "solution": "Let f(s) be the number of infected positions in the window [s, s+m-1]. Moving the window one step to the right drops position s and adds position s+m, so f(s+1)-f(s) is in {-1,0,1}: f takes every integer value between any two of its values (a discrete intermediate value property). For s = r_n+1 the window lies to the right of every interval, so f = 0 there; for k = 0 just print r_n+1. For k > 0 an answer exists iff max_s f(s) >= k. Some optimal window starts at an interval's left end. If the window starts on an uninfected cell, shifting it right never loses anything. If it starts inside an interval but not at l_i, shifting it left gains the infected cell s-1 and loses at most one cell. So the maximum is max_i f(l_i). Compute it with two pointers over the sorted intervals: for each i, advance j to the last interval with l_j <= l_i+m-1, and take prefix-summed full lengths of intervals i..j-1 plus the clipped part of interval j. If the maximum is < k, print -1. Otherwise binary search on s between lo = s* (the argmax, where f >= k) and hi = r_n+1 (f = 0 < k), keeping f(lo) >= k and f(hi) < k. f(s) is evaluated in O(log n) as cov(s+m-1) - cov(s-1), where cov(x) = number of infected cells <= x (bisect plus prefix sums). The search ends with f(lo) >= k > f(lo+1). Since f changes by at most 1 per step, f(lo) = k. Total complexity is O(n + log(10^15) * log n) per test, which fits sum n <= 2*10^5, coordinates up to 10^15 and m up to 10^9.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (work/codeforces-2271-d/sol.py) run on all 6 samples. Since any valid s is accepted, a checker confirmed f(s)=k, 1<=s<=1e18, and -1 exactly where expected; outputs were 7, -1, 2, 11, 13, 1e15, all valid. Stress test: 30,000 random cases (n<=5, m<=12, k in [0,m], intervals with lengths 0-4 and gaps of 2-6 at coordinates up to ~50) compared with a brute force that tries every s in [1, r_n+1] and counts infected cells directly. Existence matched in every case and every returned s was verified. A timing run with n=2e5, m=1e9 and coordinates near 1e15 took 0.07s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "binary-search",
+      "prefix-sum"
+    ],
+    "tags": [
+      "two-pointers",
+      "sliding-window",
+      "binary-search",
+      "prefix-sum",
+      "interval",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sliding-window",
+      "binary-search",
+      "prefix-sum",
+      "two-pointers"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Nothing is built. 'Output any s' is a witness found by search (max window plus bisection), so the tag would surface this record for constructive queries it does not answer. The proposal itself called it weak."
+      },
+      {
+        "tag": "interval",
+        "reason": "Renamed to 'intervals', the corpus's dominant spelling (35 records vs 8)."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "sliding-window and two-pointers: the max-coverage window of fixed length m over sorted disjoint intervals is computed by advancing a right pointer as the window start moves across interval left ends, which is the core feasibility step. binary-search: once max >= k, the position is found by bisecting s between the argmax and r_n+1 on the invariant f(lo) >= k > f(hi). This works because f moves by at most 1 per step (discrete intermediate value theorem). Solutions that sweep all windows directly also exist, but the bisection is the standard short route. prefix-sum: cumulative interval lengths are the evaluation primitive behind f(s) at every binary-search step and in the two-pointer window, so they appear repeatedly, not as a single range read. Confidence is moderate. Rejected binary-search-answer: the search is over a window position whose count function is not monotone, using an IVT invariant. Nothing is optimised and there is no answer value with a feasibility check. Rejected greedy: the 'optimal window starts at some l_i' shift argument is a lemma, not a greedy algorithm. Rejected line-sweep: f is piecewise linear with O(n) breakpoints (l_i, r_i+1, l_i-m, r_i+1-m), and an event sweep with interpolation would also work, but that is an uncommon way to solve it. Rejected constructive-algorithm as a pattern because it would be weak (output-any-s), though it is kept as a broad tag.",
+    "skeptic": "SOLUTION: correct, and the same as my independent derivation. Key reduction: sliding the length-m window one step changes the count by inf(s+m)-inf(s), which is in {-1,0,1}. So f hits every value between 0 (at s=r_n+1) and its maximum, and k is feasible iff max f >= k. Shift lemma: from a gap start, shift right; from inside an interval, shift left to l_i. So the max is max_i f(l_i). I verified this lemma separately by brute force. Then bisect s in [argmax, r_n+1] keeping f(lo)>=k>f(hi). At the end f(lo)>=k>f(lo+1)>=f(lo)-1, so f(lo)=k. The deciding constraint is coordinates up to 1e15 with m up to 1e9: you cannot slide cell by cell. Candidate windows are the n interval starts, f(s) is evaluated as cov(s+m-1)-cov(s-1) with bisect plus prefix lengths, and the exact position must be bisected over a ~1e15 range. PATTERNS. sliding-window KEEP (0.85): the problem is a fixed-length window over a 0/1 line, and its one-step update identity is the whole reduction. It is the same family as 'Maximum White Tiles Covered by a Carpet'. This is not a statement-word echo, because the statement says 'm people in a row', not 'window'. binary-search KEEP (0.8): it is the step that pins the exact s on a 1e15 range, and it is also the bisect inside cov(). A linear gap-walk alternative exists: f is non-increasing on [l_i, r_i+1] and drops by one per gap cell under the window's right end. Nobody would write that over a 50-step bisection. prefix-sum KEEP (0.7, raised from 0.55): cumulative interval lengths are the only way to evaluate f at an arbitrary s, and both phases need that. It is a real primitive here, not scaffolding. two-pointers KEEP (0.6, lowered from 0.85): it is a reasonable way to get f(l_i) for all i, and it is the classic carpet technique. But once cov() exists for the bisection, max(f(l) for l in L) by per-start bisect is equally natural, so it is one of two interchangeable implementations rather than the core idea. It stays because a real solution (the proposal's and mine) uses it and searchers coming from the carpet problem will query it. TRAP binary-search-answer: correctly NOT used. The bisection is over a window position with a discrete-IVT invariant f(lo)>=k>f(hi). f is not monotone in s, nothing is optimised, and there is no answer value with a feasibility check, so binary-search (generic) is the right label. TRAP bitmask-dp vs interval-dp: not applicable. There is no DP of any kind. The near-miss to watch for is line-sweep, which the analogous LC carpet record carries. An event sweep over the 4n breakpoints of the piecewise-linear f, with interpolation, would work but is uncommon, so it is rejected, as the proposal did. MISSING LABELS: none to add. greedy (the shift lemma is a proof, not an algorithm), constructive-algorithm (search, not construction), line-sweep and binary-search-answer all rejected. The discrete-IVT idea has no vocabulary entry. SUMMARY: the proposal's 70 words were accurate but at the limit. It said 'covered' where the problem says 'infected' (the title word users search) and called the second step a vague 'binary search then locates it'. The rewrite is 68 words, keeps the 1e15/1e9 constraints and the at-most-one-step reduction, adds the left-end lemma, and says where the bisection runs. TAGS: dropped constructive-algorithm and normalised interval to intervals."
+  }
+}

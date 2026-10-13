@@ -1,0 +1,79 @@
+{
+  "id": "codeforces-2273-a",
+  "title": "Lavencia Oranges",
+  "source_url": "https://codeforces.com/contest/2273/problem/A",
+  "solution": "Only the multiset of bag sizes matters: choose counts c_i >= 0 with sum i*c_i = n, minimizing max i*c_i (the number of bags used is at most n automatically). Fix a cost bound K. Size i can then be used at most floor(K/i) times, contributing at most i*floor(K/i) oranges, so the total is at most f(K) = sum_{i=1..K} i*floor(K/i) (= sum_{m<=K} sigma(m)). Conversely every total in [0, f(K)] is exactly reachable: size 1 alone covers [0, K], and adding size i (step i <= K < length of the current contiguous interval) keeps the reachable set contiguous. Hence cost <= K is feasible iff f(K) >= n, f is increasing, and the answer is the smallest such K; since f(K) ~ (pi^2/12) K^2, K is at most 494 for n = 2*10^5, so a linear scan over K (with f precomputed via divisor sums, or recomputed in O(K)) suffices. Construction is greedy from the largest size down: take c_i = min(floor(K/i), floor(r/i)) of the remaining r; either the size is saturated (r - cap stays within what smaller sizes can still cover) or the leftover r mod i < i <= K is covered by size 1, so r reaches 0. Assign each chosen bag a fresh id and repeat it i times. Total O(sqrt n) per test plus O(n) output.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (precompute f(K) via sigma prefix sums, linear scan for min K, greedy descending construction) on the sample 3/4/5/8: costs 2,3,3 match (arrays differ but are valid). Brute force over all integer partitions of n (min over partitions of max i*c_i) for every n in 1..45: optimal cost matches and an independent checker recomputes the output array's cost (length n, values in 1..n) equal to it. For 60 random n in 46..3000: checked output cost == K and, with a bitset bounded-knapsack reachability (size i used <= K/i times), that K is feasible and K-1 is not. n=2*10^5 gives K=494 in 0.02s; t=10^4 tests in 0.03s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "constructive-algorithm",
+      "greedy",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Upheld the proposal's rejection. The insight is the capacity formula f(K) = sum i*floor(K/i) and the contiguity argument. Once you have those, 'is cost K feasible' is a closed-form monotone test f(K) >= n, and finding the least such K is like taking an integer square root: K <= 494, so a linear scan (or incremental f(K) = f(K-1) + sigma(K)) is the direct solution. There is no feasibility algorithm whose cost makes the search the technique. This is the 'answer is monotone so you could binary search it' trap. The judge's binary-search tag reflects contestants who bisected anyway."
+      },
+      {
+        "pattern": "binary-search",
+        "reason": "Nothing sorted is searched. The only bisect target is the monotone f(K) over at most 494 values (same reason as above)."
+      },
+      {
+        "pattern": "bounded-knapsack",
+        "reason": "Formally, the feasibility of exact total n with c_i <= floor(K/i) is a bounded-knapsack instance, and alt.py shows a bitset knapsack inside a binary search does solve it. But the key fact of the problem is that every sum in [0, f(K)] is reachable (size 1 alone covers [0,K] and all sizes are <= K), which makes the knapsack unnecessary. Nobody who sees that one-line argument writes the DP, and a searcher practising bounded knapsack would get a problem whose point is that the knapsack trivialises. Probably this is where the judge's dp tag comes from, alongside the 'f(K) = f(K-1) + sigma(K)' recurrence, which is just a prefix sum."
+      },
+      {
+        "pattern": "knapsack",
+        "reason": "Same as bounded-knapsack."
+      },
+      {
+        "pattern": "subset-sum",
+        "reason": "Same as bounded-knapsack. Reachability is contiguous by a direct argument."
+      },
+      {
+        "pattern": "dynamic-programming",
+        "reason": "No DP state anyone needs. The judge's dp tag is either the needless knapsack or the sigma prefix-sum recurrence, which is scaffolding."
+      },
+      {
+        "pattern": "divisor-enumeration",
+        "reason": "f(K) = sum_{m<=K} sigma(m) is a correct identity, but f is computed directly in O(K) and the divisor view adds nothing a solver needs."
+      },
+      {
+        "pattern": "number-theory",
+        "reason": "Same as divisor-enumeration. The floor(K/i) sum is counting, not number theory."
+      },
+      {
+        "pattern": "counting",
+        "reason": "As a pattern it only echoes the statement's own 'frequency of frequencies' definition. It stays as a broad tag."
+      },
+      {
+        "pattern": "brute-force",
+        "reason": "Scanning about 494 candidate K is scaffolding."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the output is an explicit array achieving the optimum, and the core is reasoning about which frequency profiles are buildable. greedy: the cap i*floor(K/i) per frequency is the greedy bound, and the construction fills frequencies from largest down taking as many bags as the cap/remaining allows, with an exchange-free argument that the remainder is always coverable. Rejected binary-search-answer: although the reasoning is 'fix the cost K, check f(K) >= n', K is at most ~494 and f(K) is a running divisor-sum, so a direct linear scan is what anyone writes; the brief warns against this label in exactly that case (a binary search over K also works, which is why it was considered). Rejected bounded-knapsack/subset-sum: the reachability of all sums 0..f(K) is a one-line contiguity argument, not a DP; a knapsack DP would be O(nK) per K and is not a genuine solution at these bounds. Rejected number-theory/divisor-enumeration: f(K) = sum of sigma(m) is a neat identity but not needed (f can be computed directly in O(K)). Rejected brute-force: scanning ~500 candidate K is scaffolding. counting kept only as a broad tag (frequency-of-frequencies).",
+    "skeptic": "The solution is correct and identical to mine: min K with sum_{i<=K} i*floor(K/i) >= n, then greedy largest-first fill. Greedy termination: if size i is not saturated, then rem < i, so at most one bag of each smaller size is taken and size 1 finishes. If i is saturated, rem <= remaining capacity is invariant. Trap 1, binary-search-answer: I rejected it (confidence about 0.7 that rejection is right). The 'fix the cost K' step is genuine parametric reasoning, but the feasibility test collapses to a closed-form monotone inequality over a range of about 494. The interesting work is deriving the capacity formula and the contiguity of reachable sums, not a check algorithm, and a direct scan is what anyone writes. The summary still says 'smallest K reaching n', so min-max queries still match lexically. Trap 2, near-miss DP labels (bounded-knapsack, subset-sum, dp vs greedy): the constraint and the contiguity argument decide it. The bitset knapsack under binary search (alt.py) is a correct but overkill solution that exists only if you miss the one-line contiguity proof, so it is not a reasonable solution to label. Summary change: the proposal's 'frequency i can hold at most i·floor(K/i) elements and every total up to that bound is reachable' was ambiguous, because 'that bound' read as the per-frequency cap rather than the total Σ i·floor(K/i). I rewrote it to name the capacity sum explicitly and kept the n ≤ 2·10^5, K ≤ 494 constraint (68 words). I checked no tag changes: math, constructive-algorithm, greedy and counting are fine. I did not add binary-search or number-theory tags, for the reasons above. I could not fetch the official editorial (Codeforces returns 403)."
+  }
+}

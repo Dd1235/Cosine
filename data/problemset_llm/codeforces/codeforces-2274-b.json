@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2274-b",
+  "title": "Prefix",
+  "slug": "2274-b-prefix",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2274/problem/B",
+  "source_topic": "Codeforces / Contest 2274",
+  "source_tags": [
+    "greedy"
+  ],
+  "statement": "The task is to process an array of n (n up to 50, |a_i| up to 50) left to right, replacing each a_i with a_i - s, a_i, or a_i + s where s is the current prefix sum, and maximize the largest final element (answers exceed 32 bits). Element i reaches a_i + |s|, so a dp keeps only the maximum and minimum reachable prefix sum.",
+  "tags": [
+    "array",
+    "dynamic-programming",
+    "greedy",
+    "math",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "dynamic-programming": 0.85,
+      "greedy": 0.65
+    }
+  }
+}

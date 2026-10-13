@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2275-a",
+  "title": "In Search of Convenience",
+  "slug": "2275-a-in-search-of-convenience",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/A",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "geometry",
+    "implementation"
+  ],
+  "statement": "The task is to output any lattice point on the circle of radius R centred at a given integer point (x0, y0), where the centre's coordinates lie in [-10, 10], R is at most 25, and the answer's coordinates are unrestricted. The key observation is constructive: the axis-aligned point (x0 + R, y0) is always exactly R away, so each test is answered in O(1).",
+  "tags": [
+    "math",
+    "geometry",
+    "constructive-algorithm"
+  ],
+  "patterns": [
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.85
+    }
+  }
+}

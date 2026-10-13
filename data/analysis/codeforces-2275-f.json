@@ -1,0 +1,65 @@
+{
+  "id": "codeforces-2275-f",
+  "title": "Tea Blend",
+  "source_url": "https://codeforces.com/contest/2275/problem/F",
+  "solution": "A positive integer has an odd number of divisors iff it is a perfect square, i.e. every prime exponent is even. So F(i, j) = a_i * a_1...a_j is capricious iff the parity vector of prime exponents of a_i equals the parity vector of the prefix product P_j (they cancel mod 2). Factor every a_k with a smallest-prime-factor sieve up to 10^6 and keep only primes with odd exponent (its square-free part). Assign each prime a random 64-bit value and hash a parity vector as the XOR of the values of its primes; then the prefix hash H_j = XOR of h(a_1..a_j) is the prefix-xor of the per-element hashes, because a prime appearing an even number of times cancels. Count h(a_i) over all i in a hash map, and the answer is sum over j of cnt[H_j] (i and j are independent, so this counts all ordered pairs, including i <= j and i > j). The prefix parity set can contain many primes, so it cannot be stored as an integer; the XOR hash makes the comparison O(1) with negligible collision probability. Complexity O(MAX log log MAX) for the sieve plus O(sum n * omega(a)) for factoring, with sum n <= 2*10^5 and a_i <= 10^6; answer up to n^2 = 4*10^10 needs 64-bit.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (SPF sieve to 10^6, random 64-bit XOR hash per prime, prefix XOR, Counter lookup). Sample (4 tests) gives 4,4,11,1; the scraped expected output shows only '4 4 1' for 4 tests (one line lost in scraping), which matches positions 1,2,4, and two independent brute forces (one checking F is a perfect square with isqrt, one literally counting divisors from merged trial-division factorizations over all n^2 pairs) both give 4,4,11,1. Stress-tested against the literal divisor-count brute on 600 random files (1-5 tests, n<=9, values from 1..30, small square-rich sets, uniform 1..10^6, and mixes of large primes near 10^6): 0 mismatches. Timed n=2*10^5 random and square-heavy inputs (answer ~2*10^10) well under the limit."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prime-factorization",
+      "number-theory",
+      "prefix-xor",
+      "hash-map",
+      "randomized-algorithm",
+      "sieve",
+      "counting"
+    ],
+    "tags": [
+      "number-theory",
+      "math",
+      "hash-map",
+      "prefix-sum",
+      "counting",
+      "bit-manipulation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "number-theory",
+      "prime-factorization",
+      "prefix-xor",
+      "randomized-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sieve",
+        "reason": "Scaffolding for prime-factorization. The SPF sieve is one way to factor 2*10^5 numbers <=10^6. Trial division by the 168 primes below 1000 (~3.4e7 ops) passes just as well, and the solver itself said so (0.6). Nothing about the solution depends on a sieve."
+      },
+      {
+        "pattern": "hash-map",
+        "reason": "Scaffolding. It is only the frequency container for the final sum over keys of cnt_a[key]*cnt_prefix[key]. Sorting the 2n hashes works the same way. The defining ideas are the reduction to square-free parity, prefix XOR and random per-prime hashing. Kept as a broad tag."
+      },
+      {
+        "pattern": "counting",
+        "reason": "Echoes the statement ('count how many pairs'). The aggregation is a one-line sum of frequency products, not a counting technique such as combinatorics or contribution counting."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "counting",
+        "reason": "Echoes the statement wording. Nothing combinatorial is counted, only frequency products of equal hashes."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "prime-factorization: the whole reduction is to the square-free part / exponent parity vector of each a_i. number-theory: odd divisor count <=> perfect square. prefix-xor: the prefix product's parity vector is a prefix XOR of per-element parity hashes (the core trick). hash-map: count h(a_i) frequencies and look up each prefix hash. randomized-algorithm: random 64-bit per-prime XOR hashing (Zobrist-style) is how the unbounded prefix prime set is compared in O(1); a multiplicative hash mod a prime is the alternative, also hashing. sieve: SPF sieve to 10^6 is the natural way to factor 2*10^5 numbers (trial division by the 168 primes below 1000 also works, hence 0.6). counting: the output is a pair count via frequencies (0.5). Rejected: bit-manipulation as a pattern (XOR is only the hash combine; kept as a broad tag), string-hashing/rolling-hash (no strings or rolling windows), prefix-sum as a pattern (prefix-xor is the specific one; kept as tag), divisor-enumeration (divisors are never enumerated, only parity of the count matters), two-pointers/sorting (not needed).",
+    "skeptic": "SOLUTION: correct. An integer has an odd number of divisors iff it is a perfect square. a_i*P_j is a square iff sqf(a_i) equals the square-free part of P_j. The prefix parity vector is the XOR of the per-element parity vectors, and it can hold thousands of primes, so it is compared through random 64-bit per-prime XOR hashes. i and j are independent, so the answer is the sum over hash values of cnt_a*cnt_prefix. 64-bit answer. One factual correction to the proposal's notes: they say the only alternative is 'a multiplicative hash mod a prime, also hashing'. That is false. A deterministic O(sum n * omega * log) solution exists and I implemented and verified it: keep the set of odd-exponent primes of the prefix (each a_j toggles <=7 primes), and whenever the set has <=7 primes with product <=10^6, record that exact square-free value in an array. A prefix can only match some a_i in that case. So hashing is not forced. It is still the intended and dominant solution: the CF tags are exactly hashing/math/number theory.\n\nPATTERNS (7 -> 4). KEEP number-theory: the whole problem rests on 'odd divisor count <=> perfect square <=> all exponents even'. KEEP prime-factorization: every a_i has to be reduced to its square-free part / exponent-parity vector, and that reduction is the core step. KEEP prefix-xor: the prefix product's parity vector is a prefix XOR, the step that makes the j side O(1) each. KEEP randomized-algorithm (0.7): there is no 'xor-hashing' or 'zobrist' label in the vocabulary. randomized-algorithm is the canonical label for random 64-bit per-prime keys, and it is the key idea the CF tag 'hashing' points to. string-hashing and rolling-hash would be wrong because there is no string and no rolling window. Confidence is held below 0.8 because the deterministic set-based alternative exists. DROP sieve (SPF sieve is one optional way to factor), hash-map (frequency container; sorting works) and counting (statement echo). MISSING: none. I considered parity-argument, but the exponent-parity step is ordinary number theory, not an invariant or parity proof, and number-theory already covers it. bit-manipulation is only the XOR combine, kept as a tag. xor-basis is wrong because no linear-algebra span is involved, only equality. divisor-enumeration is wrong because divisors are never listed. contribution-technique is wrong because the count is a direct equal-key join.\n\nTRAPS. binary-search-answer: not applicable and not proposed. There is no monotone answer and no feasibility test. The solution is a direct linear pass plus hashing. bitmask-dp vs interval DP: not applicable, since there is no DP at all. The only near-miss is that a square-free value <=10^6 has <=7 primes (2*3*5*7*11*13*17=510510). That small bound might tempt a bitmask or subset label, but nothing is ever enumerated over subsets. The bound only matters in the deterministic variant, as a filter on which prefixes can match.\n\nSUMMARY: the proposal's summary was 66 words and accurate. It omitted why hashing is needed: the prefix's odd-prime set is too large to store as an integer, and that is the constraint that decides the technique. It also gave the sieve as part of the method. The rewrite (67 words, third person) names the square-free reduction, the reason hashing is needed, XOR hashing and prefix XOR. Those are the search terms that match the kept patterns. TAGS: dropped 'counting' (statement echo) and kept the rest as broad tags."
+  }
+}

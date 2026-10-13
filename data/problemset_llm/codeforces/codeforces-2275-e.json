@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2275-e",
+  "title": "Repentance Is Already on the Way",
+  "slug": "2275-e-repentance-is-already-on-the-way",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/E",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "dp",
+    "implementation"
+  ],
+  "statement": "The task is to find the longest Hamiltonian path from a_1 in a two-row graph where a_i links to b_{i-1}, b_i, b_{i+1}, each edge weighing 2 if its endpoints share a company and 1 otherwise, with n up to 2·10^5. Every such path goes straight column by column, then zigzags to the end and back, so the answer maximises prefix plus suffix sums over the turning column.",
+  "tags": [
+    "graph",
+    "prefix-sum",
+    "dynamic-programming",
+    "implementation",
+    "array"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "prefix-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "dynamic-programming": 0.75,
+      "prefix-sum": 0.65
+    }
+  }
+}

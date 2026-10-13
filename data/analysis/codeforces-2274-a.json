@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2274-a",
+  "title": "The Projections of Paco",
+  "source_url": "https://codeforces.com/contest/2274/problem/A",
+  "solution": "Reflecting about c maps x to 2c - x, so every reflection is an affine map with slope -1 and the whole chain is linear in p. Starting at 0, after reflecting about p the token is at 2p, and each later reflection about a_i negates the position and adds 2a_i. After all n points the position is 2*(a_n - a_{n-1} + a_{n-2} - ...) + (-1)^n * 2p. Setting this to 0 gives p = (-1)^(n+1) * S, where S = sum over i of (-1)^(n-i) a_i is the alternating sum taken from the end. Equivalently, simulate the reflections with p = 0 to get a final position F; changing p shifts the end point by (-1)^n * 2p, so p = -(-1)^n F / 2. The map is a bijection in p, so the integer is unique as the statement says. This is O(n) per test, O(sum n) = 1e5 overall.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n) alternating-sum solution run on the 5-case sample (outputs 3, -3, -4, -6, 0 match). Stress test against a brute force that tries every p in [-2000, 2000] and simulates the reflections: 1500 random cases with n in 1..7 and a_i in [-50, 50]. In every case the brute force found exactly one valid p and it matched."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "simulation"
+    ],
+    "tags": [
+      "math",
+      "implementation",
+      "simulation",
+      "geometry"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "simulation"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The solution is a single alternating-sum loop, or a reverse loop of x = 2c - x. There is no case analysis or careful bookkeeping, so a search for 'implementation' would find nothing behind the tag. The only implementation hazard is int32 overflow in the simulation (positions reach 2*10^9), and that belongs in notes, not in a tag."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "This is a pure math or implementation problem. Composing the reflections x -> 2c - x gives a closed-form alternating sum. 'simulation' is kept at moderate confidence because the natural way to code it is to simulate the reflections with p = 0 and then correct by the known (-1)^n * 2p shift; nothing heavier is needed. Rejected labels: prefix-sum (it is one alternating sum, not range queries), parity-argument (the parity of n only fixes a sign and is not a reasoning step about invariants), constructive-algorithm (p is uniquely determined, so nothing is constructed), and greedy and brute-force (the brute force was only used for testing). The 'geometry' tag is a broad topic word because the problem is about point reflections on a line. It is not a pattern.",
+    "skeptic": "SOLUTION: correct. A reflection about c is x -> 2c - x. Starting at 0, after p the token is at 2p, and after a_1..a_n it is at 2(a_n - a_{n-1} + ...) + (-1)^n * 2p. Setting this to 0 gives p = a_1 - a_2 + a_3 - ... The proposal's end-anchored sum times (-1)^(n+1) is the same number. Brute force agrees on 3000 random cases. Implementation note: |p| <= 10^4 * 10^5 = 10^9 fits in int32, but intermediate positions in either simulation reach 2*10^9, so C++ code that simulates needs 64-bit integers. PATTERNS. simulation: KEEP, and I raised it from 0.6 to 0.65. I tested whether it is just a generic statement echo. It is not, because a clean full solution is literally the process run backwards: each reflection is its own inverse, so reflecting 0 about a_n, ..., a_1 lands at 2p. The proposal's forward variant (simulate with p = 0, then correct by (-1)^n * 2p) is also simulation. Many contestants would instead spot the alternating sum from the samples, which is why confidence stays below 0.7. No more specific canonical name fits: the vocabulary has no 'work backwards' or 'alternating sum' entry, and 'math' is a tag, not a pattern. I agree with the proposal's rejections. parity-argument: REJECT. The proposal's own summary said the sum is 'signed by the parity of n', but that is only because it anchored the sum at the end. Written from the front, p = a_1 - a_2 + ... and does not depend on the parity of n at all, so no invariant or parity reasoning happens. That wording would also wrongly attract parity-argument searches, which is one reason the summary changed. prefix-sum: REJECT, one total and no range queries. constructive-algorithm: REJECT, p is unique and forced. geometry: REJECT as a pattern and keep it as a tag. The only geometric fact used is the 1D point-reflection formula, and no geometric computation (distances, cross products, intersections) happens. This follows the codeforces-2275-a precedent. brute-force: REJECT, testing only. TRAP binary-search-answer: the final position is a strictly monotone affine function of p (slope +/-2), so you could binary-search p over [-10^9, 10^9] with an O(n) simulation as the check. That is exactly the 'monotone, so you could binary search it' case the brief warns about. The check is not the interesting part, and anyone writes the direct O(n) closed form, so it is not labelled. TRAP bitmask-dp vs interval DP (near-miss): there is no DP here. The near-miss is parity-argument vs a plain alternating sum, and that is settled by writing the sum from the front, as above. MISSING LABELS: none from the canonical vocabulary. TAGS: dropped 'implementation' (see rejected_tags) and kept math, simulation and geometry. SUMMARY: changed. The proposal's 'signed by the parity of n' is misleading because the front alternating sum has no n-parity sign, and it did not give the reduction concretely. The new summary states the formula p = a_1 - a_2 + a_3 - ..., surfaces the involution / reverse-simulation insight so 'work backwards' and 'reflection' searches hit, and adds the 'number line' phrasing. It is about 64 real words, third person."
+  }
+}

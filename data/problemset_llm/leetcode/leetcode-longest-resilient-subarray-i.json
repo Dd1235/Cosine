@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-longest-resilient-subarray-i",
+  "title": "Longest Resilient Subarray I",
+  "slug": "longest-resilient-subarray-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/longest-resilient-subarray-i/",
+  "source_topic": "LeetCode / Biweekly Contest 193",
+  "difficulty": "Medium",
+  "acceptance_rate": 36.0,
+  "source_tags": [],
+  "statement": "The task is to find the longest subarray of nums (n up to 2500, values and k up to 10^5) such that deleting any one element leaves a sum divisible by k. The key reduction: every element must be congruent to the subarray sum modulo k, so all share one residue r and (length−1)·r ≡ 0 mod k, solved per same-residue run with gcd or by an O(n^2) scan.",
+  "tags": [
+    "array",
+    "math",
+    "number-theory",
+    "modular-arithmetic",
+    "brute-force"
+  ],
+  "patterns": [
+    "modular-arithmetic",
+    "brute-force",
+    "gcd",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791822023,
+    "pattern_confidence": {
+      "modular-arithmetic": 0.95,
+      "brute-force": 0.6,
+      "gcd": 0.5,
+      "number-theory": 0.6
+    }
+  }
+}

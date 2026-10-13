@@ -31,5 +31,6 @@
       "dynamic-programming": 0.75,
       "tree-dp": 0.8
     }
-  }
+  },
+  "difficulty": 2600
 }

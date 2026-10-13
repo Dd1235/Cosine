@@ -1,0 +1,48 @@
+{
+  "id": "leetcode-prime-subset-selection-ii",
+  "title": "Prime Subset Selection II",
+  "source_url": "https://leetcode.com/problems/prime-subset-selection-ii/",
+  "solution": "Sieve the primes up to n (at most 168 for n <= 1000). This is a 0/1 knapsack / subset-sum over those primes with capacity s <= 1000, where the DP value is the minimum number of items rather than a boolean. Build it as a suffix DP: f[i][t] = fewest primes chosen from P[i..] summing to exactly t (infinity if impossible), with f[i][t] = min(f[i+1][t], f[i+1][t-P[i]] + 1). The best sum T is the largest t <= s with f[0][t] finite; if T = 0, return []. The count is c = f[0][T]. Because all candidate answers now have the same length c, lexicographically smallest is decided element by element, so reconstruct greedily: from index i, pick the smallest P[j] (j >= i) with P[j] <= T and f[j+1][T-P[j]] == c-1, append it, set T -= P[j], c -= 1, i = j+1. The suffix table is what makes this greedy exact: f[j+1] certifies that the rest can still be finished with the remaining count using only larger primes, so the first element is the smallest possible, then the second, and so on. Time and memory O(pi(n) * s), about 1.7e5 states.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python suffix-DP solution passed all 3 samples ((7,20)->[2,3,5,7], (15,18)->[5,13], (5,1)->[]). Stress-tested against an itertools.combinations brute force that enumerates every prime subset and minimises the key (-sum, size, list), on 3000 random cases with n in [1,45] (up to 14 primes) and s in [1,250]: all matched. Max case n=s=1000 runs in about 4 ms in Python and returns [3, 997]."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "knapsack",
+      "subset-sum",
+      "dynamic-programming",
+      "lexicographic-order",
+      "sieve"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "number-theory",
+      "math",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "knapsack",
+      "subset-sum",
+      "dynamic-programming",
+      "lexicographic-order"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sieve",
+        "reason": "Scaffolding at n <= 1000: it only lists the 168 item weights, trial division does the same in ~3e4 operations, and no solution depends on it. The proposer rated it 0.6 for the same reason. The sibling Prime Subset Selection I (n <= 1e6) is the problem where sieving is the real technique, and labelling both with sieve would blur that pair on a 'sieve' query. Dropping it also drops the auto-added number-theory family pattern, which is right because no number theory is used. The prime theme stays searchable through the number-theory/math tags."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "knapsack + subset-sum: the core is a 0/1 knapsack over at most 168 primes with capacity s <= 1000, tracking the minimum item count per reachable sum; max sum <= s is the subset-sum part. dynamic-programming listed explicitly because the taxonomy family regex does not map knapsack or subset-sum to it. lexicographic-order: the third tie-break is real work. You need the DP built over suffixes (or an equivalent feasibility table) so a greedy smallest-first reconstruction is exact, and that is the part people get wrong. sieve (0.6): listing the primes up to n is required, and the sieve is the natural way to do it, but at n <= 1000 trial division works too, so confidence is moderate; it also brings in number-theory through the family map. Rejected: brute-force/backtracking (2^168 subsets is infeasible); bitmask-dp (the state is a sum, not a subset mask); greedy alone (largest-first fails, e.g. s=18 needs 5+13 and not 17); primality-test (the sieve already covers it); unbounded-knapsack (each prime is used at most once). No Goldbach-style 2-3 prime shortcut applies in general, because n can be small and limits which primes are available. Sibling Prime Subset Selection I (n <= 1e6, maximise count) is a sieve + greedy smallest-primes prefix problem; it is a different labelling and none of its labels carry over here except sieve.",
+    "skeptic": "Solution: the proposal's suffix-DP plus greedy reconstruction is correct and matches mine. O(pi(n)*s) is about 1.7e5 states. knapsack + subset-sum, both kept: 'largest reachable sum <= s' is subset sum in the narrow sense, and the table stores an optimised value (minimum item count) per capacity, so it is a 0/1 knapsack, not a boolean reachability bitset. The taxonomy aliases 0-1-knapsack to knapsack, and someone searching either '0/1 knapsack minimum items' or 'subset sum' should find this. Precedent: Partition Equal Subset Sum carries subset-sum alone because it is pure reachability; this one optimises a second objective. dynamic-programming kept explicitly because the family map does not derive it from knapsack or subset-sum. lexicographic-order kept: here it names a real technique, not a statement echo. Equal-length candidates are compared element by element, so the reconstruction must fix the smallest first element first, which needs a suffix table (or an equivalent feasibility certificate over larger primes). The natural prefix-DP backtrack from the largest prime, preferring to exclude, gives [7,11] instead of [5,13] on Example 2 and failed 1724 stress cases. Corpus precedent for this use: Minimum Cost Good Caption and Concatenated Divisibility (DP + lexicographic reconstruction). sieve rejected as scaffolding (see the rejected_patterns entry). The corpus labels Prime Subtraction Operation (values <= 1000) with sieve, so the corpus is not consistent on this, but this brief says to reject scaffolding. Missing labels considered and not added: memoization (top-down dfs(i,t) is the same DP, not a separate technique); greedy (the smallest-first walk is part of DP reconstruction, and largest-first greedy on the sum fails); number-theory or Goldbach/Richert shortcuts (n can cap the available primes and the min-count/lex tie-breaks still need the DP); bounded-knapsack/unbounded-knapsack (each prime is used at most once, so it is plain 0/1); primality-test (scaffolding). TRAP binary-search-answer: not proposed and not applicable. The best sum is read directly off the DP table as the largest finite f[0][t] with t <= s, and there is no feasibility test worth binary searching. TRAP bitmask-dp vs other DP: up to 168 primes rules out 2^168 masks. The state is (suffix index, sum), a knapsack DP, and it is neither bitmask-dp, subset-dp over masks, nor interval DP. The proposal correctly rejected bitmask-dp. Summary: the proposal's text was accurate and 65 words. Replaced 'the sieved primes' with 'at most 168 primes' to drop the scaffolding word and state the item count that decides the O(pi(n)*s) knapsack, and made 'smallest-first' explicit."
+  }
+}

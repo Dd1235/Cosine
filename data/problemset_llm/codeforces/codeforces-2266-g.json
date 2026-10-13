@@ -39,5 +39,6 @@
       "number-theory": 0.8,
       "modular-arithmetic": 0.7
     }
-  }
+  },
+  "difficulty": 2200
 }

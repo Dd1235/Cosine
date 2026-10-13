@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2275-d",
+  "title": "Precision Alignment",
+  "slug": "2275-d-precision-alignment",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/D",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "greedy",
+    "implementation"
+  ],
+  "statement": "The task is to maximize the minimum triple sum over n labs (n up to 2·10^5, k up to 10^18) using at most k sign-driven unit adjustments. Case analysis shows a lab not in ascending order gains +1 per action, a lab with a<=b<=c must first spend min(b-a,c-b)+1 decrements, and an all-equal lab is frozen; then binary search the answer on total cost.",
+  "tags": [
+    "binary-search",
+    "greedy",
+    "math",
+    "implementation",
+    "array"
+  ],
+  "patterns": [
+    "binary-search-answer",
+    "greedy",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "binary-search-answer": 0.8,
+      "greedy": 0.55
+    }
+  }
+}

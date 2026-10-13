@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2275-d",
+  "title": "Precision Alignment",
+  "source_url": "https://codeforces.com/contest/2275/problem/D",
+  "solution": "Each action changes a lab's sum by -1, 0 or +1, and the +1 moves are exactly: a+=1 when b>c, b+=1 when a>c, c+=1 when a>b. If any of b>c, a>c, a>b holds, the matching move keeps its own condition true (it only grows the larger side or touches an uninvolved value), so that lab gains +1 on every action from now on. Otherwise the triple is nondecreasing, a<=b<=c. If a=b=c every move has sgn 0 and the lab is frozen at its sum for good. Otherwise every useful move is a decrement, and the lab is unlocked only once b drops below a or c drops below b. Lowering a never helps, and lowering the other side only hurts, so the cheapest unlock costs d+1 decrements with d=min(b-a,c-b). After that every action is +1. So reaching sum S>s_i costs S-s_i for an unsorted lab, S-s_i+2(d_i+1) for a sorted non-constant lab, is impossible for a constant lab, and costs 0 when S<=s_i. Total cost is nondecreasing in S, so binary search the largest S whose summed cost is <=k, capped at the smallest frozen lab's sum. The search range is [min s, min s + k], and the cost sum is cut off once it passes k to avoid overflow. That is O(n log k) per test. An equivalent alternative sorts labs by sum and sweeps the prefix of labs that must be raised, solving the linear cost for S in each gap.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py on the statement sample: outputs -2,14,12,6,6, matching all 5 tests. Brute force: per lab, BFS over the set of triples reachable in exactly j actions (j<=k) to get the best sum within j actions, then a DP that splits k across labs to maximise the min. Stress 1: 4000 random cases, n 1-3, k 0-9, values in [-V,V] with V in {1,2,3,5}, 20% forced all-equal triples. Stress 2: 800 cases, n 1-2, k 8-14, values in [-4,4], 60% sorted triples so the d+1 unlock cost is exercised. 0 mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "binary-search-answer",
+      "greedy"
+    ],
+    "tags": [
+      "binary-search",
+      "greedy",
+      "math",
+      "implementation",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "binary-search-answer",
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "binary-search-answer: this is a maximize-the-minimum-under-a-budget problem. The natural solution guesses S and checks whether the summed per-lab cost to lift every lab to S fits in k, with k up to 1e18 so the range is huge. The check is where the real work happens: the three-way cost formula from the case analysis, the frozen-lab cap, and an overflow cutoff. That is not a 'monotone so you could' label. greedy: the per-lab optimum is a greedy argument (spend the fewest decrements to break the sorted order, then take +1 every step) and labs already at or above S are left alone. Considered and rejected: sorting and prefix-sum, which appear only in the alternative sort-and-sweep and are scaffolding there. constructive-algorithm, because nothing is constructed beyond the cost count. simulation, because k is up to 1e18 and nothing is simulated. parity-argument, because the 2(d+1) penalty is a down-then-up cost, not a parity fact. case analysis has no canonical label, so it is surfaced in the summary instead.",
+    "skeptic": "Solution: I derived it on my own and it matches the proposal. The three +1 moves are c+=1 when a>b, b+=1 when a>c and a+=1 when b>c, and each move leaves its own condition true. So a lab with a>b or b>c gains +1 per action forever. A lab with a<=b<=c can only make moves that lower its sum or leave it unchanged. To unlock it, decrement c until it falls below b, or b until it falls below a. That costs min(c-b,b-a)+1 actions, each lowering the sum by 1. Decrementing a never helps, and mixing the two directions wastes moves. An a=b=c lab is frozen. BFS confirms the formula is exactly optimal. Total cost Σ cost_i(T) never decreases as T grows.\n\nTRAP 1, binary-search-answer: I looked for a direct solution that anyone would write instead, and wrote one: sort labs by sum, then for each prefix of j labs solve j*T - Σs + Σpenalty <= k inside the gap (s_j, s_{j+1}], capped at the smallest frozen sum. It agrees with binary search on 3,000 large random cases, so the label is not required. Still, it is not the obvious solution. The cost jumps by 2(d+1) each time T passes a locked lab's sum, ties need care, and the frozen cap and 1e18 overflow have to be handled. For a 'maximize the minimum within budget k<=1e18' Div 3 D, binary search on S with an O(n) check that stops early is the natural code. The setters' own Codeforces tags include 'binary search'. The check is also where the real work is: it holds the three-way per-lab cost from the case analysis. So this is not a 'monotone, so you could binary search it' label. KEEP, 0.8 (not higher, because the sort-and-sweep alternative is real).\n\ngreedy: the per-lab optimum is a greedy strategy. Always take the +1 move once unlocked. When locked, take the cheaper unlock direction and never touch a. Labs already at or above T are left alone. The setters tag it greedy too. It is weaker than the main label but not scaffolding. KEEP, 0.55.\n\nCandidates considered and not added. sorting and prefix-sum: used only by the sort-and-sweep alternative, as plumbing for a piecewise-linear cost; labelling them would surface the problem for generic prefix-sum searches it does not answer well. brute-force (a CF tag): no solution enumerates anything; probably the setters' small-case exploration. simulation: k up to 1e18, nothing is simulated. parity-argument: the 2(d+1) penalty is a down-then-up cost, not parity. constructive-algorithm: nothing is built. There is no vocabulary label for case analysis, so the summary carries it.\n\nTRAP 2, bitmask-dp vs interval-dp near-misses: not applicable. There is no DP. The constraint that matters is k<=1e18 with n<=2e5, which rules out simulation and DP over operations and forces a closed-form per-lab cost plus binary search or a sweep.\n\nTags: all 5 kept; array is a weak tag but common across the corpus.\n\nSummary: 63 words, third person, accurate, and it states the deciding constraint and the key reduction (the d+1 unlock cost). The one change: 'an unsorted lab' became 'a lab not in ascending order', because a lab like (3,2,1) is sorted descending yet unlocked, and the original wording could suggest otherwise."
+  }
+}

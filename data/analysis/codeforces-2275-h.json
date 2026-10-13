@@ -1,0 +1,50 @@
+{
+  "id": "codeforces-2275-h",
+  "title": "A Problem to Warm Up the Eyebrows",
+  "source_url": "https://codeforces.com/contest/2275/problem/H",
+  "solution": "Build 2D prefix sums P over indices 0..n x 0..m. A submatrix with rows (r1,r2] and columns (c1,c2] has S = P[r2][c2]-P[r1][c2]-P[r2][c1]+P[r1][c1], a = r2-r1, b = c2-c1, so the sign (-1)^{a+b} = (-1)^{r1+r2}(-1)^{c1+c2} factorizes over corner parities. Fixing a row pair, D_c = P[r2][c]-P[r1][c] and S = D_{c2}-D_{c1}; the key identity for weights w_c = (-1)^c is sum_{c1<c2} w_{c1}w_{c2}(D_{c2}-D_{c1})^2 = (sum w)(sum w D^2) - (sum w D)^2, i.e. expand the square and collect each corner's contribution instead of enumerating pairs. Applying it in the column direction and then again in the row direction (the column result is itself a weighted sum of squared row differences) gives Total = sigma * sum_c s_c [tau * sum_r t_r P_rc^2 - (sum_r t_r P_rc)^2] - [tau * sum_r t_r Y_r^2 - (sum_r t_r Y_r)^2], where s_c=(-1)^c, t_r=(-1)^r, sigma = sum_{c=0..m} s_c (1 if m even else 0), tau likewise for rows, and Y_r = sum_c s_c P_rc. Every quantity is a single pass over the prefix-sum table, so the algorithm is O(nm) time and memory per test with all arithmetic mod 1e9+7, well within sum n*m <= 1e6.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(nm) solution (sol.py) run on the 4-case sample: outputs 100, 6 match the two expected values shown in the scraped statement; the scraped output omits cases 3-4, for which sol.py gives 999999967 and 999999971, identical to the O(n^2 m^2 * nm) brute force (brute.py) that enumerates every submatrix directly. Stress test: 3000 random cases with n,m in [1,6], 70% with values in [-5,5] and 30% with values in [-1e9,1e9], all equal to brute force mod 1e9+7. Timing: 1000x1000 random table with |A|<=1e9 runs in 0.24 s (Python 3.14)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum",
+      "contribution-technique"
+    ],
+    "tags": [
+      "math",
+      "prefix-sum",
+      "matrix",
+      "array",
+      "modular-arithmetic"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "prefix-sum",
+      "contribution-technique",
+      "moment-dp",
+      "dynamic-programming"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "moment-dp",
+        "reason": "This is the judge's 'dp' route, implemented and stress-tested: sweep the bottom row and track the signed zeroth, first (column-sum vector) and second (quadratic g) moments over all top rows; the transition when a row is appended closes on these moments, H' = -(H + 2B(F,x) + G g(x)) - g(x). That is exactly the corpus definition of moment-dp (transitions that close by tracking aggregate weighted moments). The 1D 'sum of sign*S^2 over subarrays ending at r via count/sum/sum-of-squares' trick is the standard way contestants meet this problem."
+      },
+      {
+        "pattern": "dynamic-programming",
+        "reason": "Family of moment-dp (with_families maps any *-dp label to dynamic-programming). It matches the judge tag 'dp', and the sweep above is a real O(nm) DP solution, not renamed scaffolding."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "prefix-sum: the 2D prefix-sum table is the core reduction, not a one-off range read: S becomes a signed four-corner combination, which is what makes the parity sign factor and the whole sum decompose; it is the search term someone would use (\"sum over all submatrices with prefix sums\"). contribution-technique: the answer comes from expanding (D_j - D_i)^2 and summing each corner's contribution in closed form (sum w)(sum w x^2) - (sum w x)^2 instead of enumerating O(n^2 m^2) submatrices, the standard 'sum of f over all subarrays' contribution trick lifted to 2D. Considered and rejected: modular-arithmetic as a pattern (only the output modulus, scaffolding; kept as a broad tag), combinatorics/counting (no counting argument, the result is algebraic), inclusion-exclusion (the four-corner prefix formula is standard 2D prefix sums, not inclusion-exclusion as a technique), dynamic-programming (running accumulators of sum w, sum wP, sum wP^2 are just the contribution sums, not a DP), difference-array (not used), math as a pattern (not in canonical list; it is a tag).",
+    "skeptic": "SOLUTION: The proposal is correct and matches my independently derived closed form. Total = sigma*sum_c s_c[tau*sum_r t_r P_rc^2 - (sum_r t_r P_rc)^2] - [tau*sum_r t_r Y_r^2 - (sum_r t_r Y_r)^2] with Y_r = sum_c s_c P_rc, where sigma and tau are the alternating sums over 0..m and 0..n (1 if the dimension is even, else 0). It runs in O(nm) and is verified against brute force. PATTERNS. prefix-sum: KEEP. Writing S as four signed corners of the 2D prefix table is the reduction that makes (-1)^{a+b} factor as (-1)^{r1+r2+c1+c2}, and the whole closed form is computed over P. contribution-technique: KEEP. The answer comes from expanding (x_j - x_i)^2 over all weighted pairs and summing each index's contribution in closed form instead of enumerating O(n^2 m^2) submatrices. The other natural framing, where each pair of cells A_x A_y contributes times the signed number of submatrices containing both (a product of alternating sums in {-1,0,1}), is also contribution technique. ADDED moment-dp and dynamic-programming: the judge tags are combinatorics, dp, math, and the proposal rejected dp as 'just accumulators'. That is true of the closed form, but a separate genuine DP solution exists. I implemented it: append rows one at a time; over all top rows keep G = signed count, F = signed column-sum vector and H = signed g(v), where g(v) is the 1D column-interval answer (itself an inner moment DP over count/sum/sum-of-squares). Appending row x gives H' = -(H + 2B(F,x) + G g(x)) - g(x). This is O(nm) and passes the brute force. It is textbook moment-dp under the corpus definition and is the likely source of the judge's 'dp' tag, so a searcher thinking 'dp keeping cnt, sum, sum of squares' should reach this problem. The confidence is below the closed form's because the closed form is cleaner. NOT ADDED combinatorics: the only counting here is the signed number of intervals covering a position pair, a product of alternating sums that are 0 or ±1. There are no binomials and no arrangements, and contribution-technique already covers that framing. Labelling it combinatorics would pollute counting searches. Also rejected: inclusion-exclusion (the four-corner rectangle formula is ordinary 2D prefix sums), modular-arithmetic as a pattern (only the output modulus; it stays as a tag), difference-array and kadane (not used), and interval-dp (see trap 2). TRAP 1, binary-search-answer: does not apply. Nothing is monotone and there is no feasibility predicate; the answer is a single algebraic sum, and the proposal correctly did not use it. TRAP 2, bitmask-dp vs interval DP: the constraint decides it. n·m ≤ 10^6 with 1.5 s allows only O(nm), so any DP over (r1,r2,c1,c2) intervals (O(n^2 m^2), or O(n^2 m) ≈ 10^9 when n=m=1000) is ruled out. The DP that works is a moment sweep, not interval-dp, and there is no subset structure for bitmask-dp. The DP label is therefore moment-dp specifically, not interval-dp. SUMMARY: the proposal's summary was accurate (60 words). I revised it to state that only O(nm) fits, to show the (Σw)(Σwx²)−(Σwx)² reduction explicitly, and to name the moment-sweep alternative for DP-minded queries. It is now 64 words. Tags: kept as proposed. The editorial could not be fetched (codeforces.com returned 403 and web search found nothing), so the DP framing rests on my implementation, not on the editorial."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2271-e",
+  "title": "Array Emptying",
+  "slug": "2271-e-array-emptying",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/E",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "binary search",
+    "greedy"
+  ],
+  "statement": "An array of n values (n ≤ 2·10^5, a_i ≤ n) must be emptied in fewest operations: erase some x ≤ k or split x > k into two ceil(x/2), k rising by one each time. Each split costs two operations, so the answer is n+2S. Splits can all move first, so S is binary searched with a greedy check that the j-th smallest leaf is at most k+S+j.",
+  "tags": [
+    "greedy",
+    "binary-search",
+    "math",
+    "array"
+  ],
+  "patterns": [
+    "binary-search-answer",
+    "greedy",
+    "exchange-argument",
+    "binary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791865349,
+    "pattern_confidence": {
+      "binary-search-answer": 0.8,
+      "greedy": 0.9,
+      "exchange-argument": 0.6
+    }
+  }
+}

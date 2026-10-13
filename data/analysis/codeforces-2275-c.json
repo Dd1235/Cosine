@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2275-c",
+  "title": "Unrequited Love",
+  "source_url": "https://codeforces.com/contest/2275/problem/C",
+  "solution": "Compute v_x = a_x + a_{x+2} - a_{x+4} for every start x in 1..n-4. Triads x < y share a key only when y - x is 2 or 4: triads with odd difference sit on keys of opposite parity, and when the difference is 6 or more their key ranges cannot overlap. So the answer is the number of unordered pairs with equal value, which is the sum of C(cnt, 2) over the frequencies in a hash map, minus the overlapping pairs (x, x+2) and (x, x+4) that also have equal value. This is complementary counting: count all equal-value pairs, then subtract the few conflicting adjacent ones. It runs in O(n) per test with a hash map, and the answer needs 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the 3 statement samples (outputs 1, 2, 5 match). Stress test against an O(m^2) brute force that enumerates all triad pairs, checks key disjointness by set intersection and compares values: 5000 random cases, n in [6,20], values in [-r,r] with r in {0,1,2,5} so ties are common. All agreed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "hash-map",
+      "counting"
+    ],
+    "tags": [
+      "array",
+      "hash-map",
+      "counting",
+      "combinatorics",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "hash-map",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "combinatorics",
+        "reason": "The only combinatorics is C(k,2) for equal-value pairs. Someone searching combinatorics would not want this easy pair-counting problem."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "hash-map: a frequency map of triad values gives the equal-value pair count C(k,2). counting: the core is pair counting plus subtracting the conflicting pairs, i.e. complementary counting. Considered inclusion-exclusion: rejected, because subtracting a handful of explicitly enumerated bad pairs is complement counting, not a real inclusion-exclusion. combinatorics only as a tag (C(k,2)). Considered parity-argument: rejected as a pattern, since the observation that odd-offset triads are disjoint is a one-line overlap check and not the technique. sorting can replace the hash map (sort the values and count equal runs), but that is scaffolding. No two-pointers, prefix-sum or dp.",
+    "skeptic": "Solution: triads x<y overlap only if y-x is 2 or 4. An odd difference puts them on keys of opposite parity, and a difference of 6 or more separates their key ranges. So the answer is the number of equal-value pairs, from a frequency map, minus the equal-value pairs at distance 2 or 4. This is O(n) and needs 64-bit. Patterns: hash-map is KEEP because the value-frequency map is the core data structure. Sorting the values and counting runs is an equivalent alternative, but it is scaffolding, so sorting is not added. counting is KEEP: the problem is pair counting with complementary subtraction of the conflicting pairs, and the corpus already uses the hash-map+counting pair for this shape (e.g. codeforces-1454-b). Rejected candidates: inclusion-exclusion, because subtracting an explicit O(n) list of bad pairs is plain complement counting; parity-argument, because the odd-offset-disjoint observation is a one-line overlap check and not the technique; combinatorics as a pattern, because it is only C(k,2). I also dropped it as a tag for the same over-labelling reason. Trap 1, binary-search-answer: not proposed and not applicable. There is no monotone feasibility, and the answer is a direct count. Trap 2, bitmask-dp vs interval-dp: not applicable, since there is no DP and no constraint suggesting one. Summary is 59 words, third person and accurate. It states n up to 2·10^5, which decides the O(n) hashing, and surfaces the key reduction (only start differences 2 and 4 conflict). Kept verbatim."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "leetcode-longest-resilient-subarray-ii",
+  "title": "Longest Resilient Subarray II",
+  "source_url": "https://leetcode.com/problems/longest-resilient-subarray-ii/",
+  "solution": "Let S be the subarray sum. Deleting position i leaves S - a_i, so resilience means a_i ≡ S (mod k) for every i in the subarray: all elements share one residue r = a_i mod k, and S ≡ L·r (mod k), so we also need L·r ≡ r, i.e. (L-1)·r ≡ 0 (mod k). The converse holds too, so these two conditions are exactly resilience. Any sub-subarray of a maximal run of equal residues also has all-equal residues, so the answer is the maximum over maximal equal-residue runs (split in one linear scan) of the longest length L <= run with (L-1) a multiple of m = k / gcd(r, k), namely L = 1 + m·floor((run-1)/m). r = 0 gives m = 1, so the whole run counts; length 1 is always valid. This is O(n log k) time (one gcd per run) and O(1) extra space, which n up to 10^5 needs. Version I's O(n^2) enumeration of subarrays with a residue/sum check does not fit here. Instead of the gcd you can also loop L downward from the run length, which is amortized O(n). Another verified O(n) route: inside each run, keep prefix sums mod k in a hash map from residue to earliest index and, at each right end, look up the earliest left boundary whose prefix residue equals (current - r) mod k.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py: the gcd closed form (solve) and the per-run prefix-mod hash-map variant (solve_hash) both reproduce all 3 samples (3, 4, 2). Both were stress-tested against an O(n^3) brute force that checks every subarray and every deletion directly, on 20,000 random cases with n in 1..14 and k in 1..12. Half the cases biased toward long equal-residue runs, including residue 0, and values ranged up to 3, 12, 40 or 10^5. All agreed. A timing run with n = 10^5 took 0.01 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "modular-arithmetic",
+      "gcd",
+      "number-theory",
+      "prefix-sum",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "math",
+      "number-theory",
+      "modular-arithmetic",
+      "prefix-sum",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "modular-arithmetic",
+      "gcd",
+      "number-theory",
+      "prefix-sum",
+      "hash-map"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "modular-arithmetic: the whole problem is the congruence argument (S - a_i ≡ 0 for all i means equal residues, and L·r ≡ r means (L-1)·r ≡ 0). It is the core, not answer-mod-p scaffolding. gcd: the clean closed form needs m = k/gcd(r,k), the smallest step with m·r ≡ 0. It is optional, since a downward loop over L is also amortized linear, hence 0.75. number-theory: the family label for this congruence/gcd reasoning. prefix-sum + hash-map at 0.45: I verified a real alternative O(n) solution (inside each equal-residue run, prefix sums mod k with an earliest-index map, the classic 'longest subarray with sum ≡ t mod k'). Contestants who pattern-match 'sum divisible by k' likely wrote it, but the gcd formula is simpler, so drop these two if you want tight labels. Rejected: sliding-window/two-pointers, because splitting into maximal equal-residue runs is a plain linear scan with no window invariant, and a window over the sum condition is not monotone. binary-search-answer is not monotone in L (validity depends on L ≡ 1 mod m) and is never needed. greedy: nothing to choose. brute-force: that is version I's O(n^2), not this one. Bound: n ≤ 10^5 rules out the O(n^2) subarray enumeration of version I and forces the linear modular/gcd characterization.",
+    "skeptic": "SOLUTION: correct, and it matches my own derivation. Each element is congruent to the subarray sum mod k, so all elements share a residue r. The remaining condition is (L-1)*r ≡ 0 (mod k), so L ≡ 1 mod k/gcd(k,r), taken per maximal run. PATTERNS, attacked one by one. modular-arithmetic: KEEP. The whole reduction is a congruence argument, not answer-mod-1e9+7 scaffolding. gcd: KEEP. Turning (L-1)*r ≡ 0 (mod k) into 'L-1 is a multiple of k/gcd(k,r)' is a real gcd fact, and it gives the closed form. It is not strictly required: looping L down from the run length until (L-1)*r%k==0 is amortized O(n). That is why confidence stays at 0.75 rather than 0.9. number-theory: KEEP, but as a decision it is redundant. It is the umbrella family, not a third technique. data/pattern_taxonomy.json 'families' maps both gcd and modular-arithmetic to number-theory, and apply_families.js / with_families() would add it back if it were dropped. So the real labels here are modular-arithmetic and gcd, and number-theory is the implied family. Dropping it would only create churn. prefix-sum + hash-map (the secondary route the solver flagged at 0.45): KEEP both. They are not scaffolding. Once you know all residues are equal, resilience of [l..R] is exactly 'sum of the window minus one element ≡ 0 mod k', i.e. prefix[l-1] ≡ prefix[R-1]. That is the classic Continuous Subarray Sum / Subarray Sums Divisible by K earliest-occurrence map, reset at each residue break. I implemented and stress-tested it. A contestant who reaches for the 'sum divisible by k' reflex instead of simplifying S ≡ L*r writes exactly this, and the prefix map is the core of that solution, not a helper. The corpus precedent agrees: leetcode-continuous-subarray-sum is labelled prefix-sum + modular-arithmetic + hash-map + number-theory. The labelling rule ('list EVERY technique that genuinely solves it; confidence = centrality') also says keep them. The two stand or fall together. 0.45 is right because the gcd closed form is the cleaner and likelier write-up. MISSING LABELS checked and rejected. two-pointers/sliding-window: splitting the array into maximal equal-residue runs is plain grouping with no window invariant, and validity is not monotone in L. brute-force: n=1e5 rules out version I's O(n^2), so it belongs only on the sibling. greedy: nothing is chosen. counting / parity-argument: k is general, and the k=2 parity case is incidental. divisor-enumeration: not used. TRAP 1, binary-search-answer: correctly absent, and it would be wrong. Feasibility is not monotone in length: with residue 1 and k=3, L=4 and L=1 are valid but L=2 and L=3 are not. The answer is a direct O(n) formula, so nobody would binary search it. TRAP 2, constraint decides the label (the bitmask-dp vs interval-DP style near-miss): the I/II pair differs only in n (2500 vs 1e5). Version I legitimately carries brute-force because an O(n^2) start/extend scan passes. Version II must not carry it, and the proposal correctly leaves it off. There is no DP of any kind in either version. SUMMARY: 67 words, third person and accurate. It includes the deciding bound (n up to 10^5) and surfaces the non-obvious reduction (shared residue, then L ≡ 1 mod k/gcd(r,k)). Kept verbatim. TAGS: fine and consistent with the sibling minus brute-force."
+  }
+}

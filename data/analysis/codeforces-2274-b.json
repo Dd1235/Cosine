@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2274-b",
+  "title": "Prefix",
+  "source_url": "https://codeforces.com/contest/2274/problem/B",
+  "solution": "Let P_i be the prefix sum after a_i has been replaced. Element i (i>=2) becomes a_i + c*P_{i-1} with c in {-1,0,1}, so the best value it can take is a_i + |P_{i-1}|, and the new prefix sum is P_i in {a_i, a_i + P_{i-1}, a_i + 2*P_{i-1}}. All three transitions are monotone non-decreasing in P_{i-1}, so the largest reachable P_i comes from the largest reachable P_{i-1} and the smallest from the smallest. The answer therefore only needs two numbers per step: hi_i = max(a_i, a_i+hi, a_i+2hi) and lo_i = min(a_i, a_i+lo, a_i+2lo), starting from hi=lo=a_1. Since |s| is convex, the maximum |s| over the reachable set is max(|hi|,|lo|), so the answer is max(a_1, max over i>=2 of a_i + max(|hi_{i-1}|, |lo_{i-1}|)). Both extremes are needed, because a smaller-magnitude extreme of the right sign can grow faster after adding a_i (hi=10, lo=-11, a_i=50 gives 70 from hi but only 28 from lo). This is max/min-tracking DP, the same pattern as maximum product subarray. Values grow roughly like 2^n * 50, so 64-bit integers are needed. Complexity is O(n) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py on the 4 statement samples gave 24, 3, 7, 4, all matching. A brute force tried all 3^(n-1) choice sequences, and 20,000 random arrays (n in 2..8, values in [-V,V] with V in {3,10,50}) matched it exactly."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "greedy"
+    ],
+    "tags": [
+      "array",
+      "dynamic-programming",
+      "greedy",
+      "math",
+      "prefix-sum"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "dynamic-programming",
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "dynamic-programming: the solution is a two-state DP that tracks the max and min reachable prefix sum, like maximum product subarray. It is generic (no specific dp label fits), so the family label is listed directly. greedy: at each step the choice pushes the prefix sum to an extreme, and each element takes a_i + |s|. Editorials for this kind of problem usually describe it as greedy, so a 'greedy' search should find it. Rejected prefix-sum as a pattern: s is defined by the statement and the prefix sum is the DP state, not a range-query technique, so it stays as a broad tag only. Rejected brute-force: 3^(n-1) is infeasible at n=50. Rejected simulation, because the process is not simulated. Rejected binary-search-answer, because there is no feasibility check. Rejected kadane: there is no subarray choice, only the max/min-tracking idea it shares with maximum product subarray. Also rejected math as a pattern, since no number theory is involved.",
+    "skeptic": "Solution: proposal's algorithm is identical to mine (hi_i = max(a_i, a_i+hi, a_i+2hi), lo_i = min(a_i, a_i+lo, a_i+2lo), answer = max(a_1, max_i a_i + max(hi_{i-1}, -lo_{i-1}))) and is correct. Minor nit in the proposal's prose only: in its example hi=10, lo=-11, a_i=50, the best |s'| reachable from lo is 50 (keep a_i), not 28; the conclusion (70 beats it) still holds. DP vs plain greedy (the caller's question): there is no simpler correct greedy. A single-trajectory greedy that keeps the largest-|s| value fails (counterexample [47,-42,-18,-35] -> 51 vs 67), and so does a min-only walk; any correct solution must carry BOTH extremes, which is the two-state max/min-tracking DP (same shape as Maximum Product Subarray, which this corpus labels dynamic-programming). The DP is therefore not over-engineering, it is the solution. greedy is also earned: the per-element choice a_i + |s| and 'push s to an extreme' are greedy arguments, and Codeforces tagged it greedy, so a greedy search should find it; it is the same O(n) code described two ways, not an alternative. KEEP dynamic-programming (0.85), KEEP greedy (0.65). prefix-sum correctly kept out of patterns: s is defined by the statement (word echo) and no prefix-sum range technique is used; fine as a broad tag. Considered and rejected adding kadane: hi_i = a_i + max(0, 2*hi_{i-1}) is reset-or-extend shaped, but there is no subarray choice and the corpus labels Maximum Product Subarray dynamic-programming, not kadane. Rejected knapsack/subset-sum (a reachable-sum set DP): sums grow like 50*2^n (~2.8e16), so a set-of-sums table is infeasible; that exponential growth is exactly why only the extremes are kept. brute-force rejected: 3^49 choices at n=50. Trap 1, binary-search-answer: does not apply. There is no feasibility test and the answer is computed directly in O(n); nothing to search over. Trap 2, bitmask-dp vs interval DP (and near-misses): n <= 50 rules out bitmask/subset enumeration over choices, and there is no interval structure; the state compresses to two scalars per prefix. The deciding constraints are n <= 50 (kills 3^(n-1)) and the exponential value growth (kills a sum-indexed DP), which force the max/min-extremes DP. Summary: 67 words, third person, accurate, states n<=50 and |a_i|<=50 plus the 64-bit note, and surfaces the key reduction (element reaches a_i + |s|; keep only max and min reachable prefix sum). Kept verbatim. Tags fine ('math' is used freely as a broad tag in neighbouring CF records)."
+  }
+}

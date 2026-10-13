@@ -1,0 +1,43 @@
+{
+  "id": "leetcode-prime-subset-selection-i",
+  "title": "Prime Subset Selection I",
+  "source_url": "https://leetcode.com/problems/prime-subset-selection-i/",
+  "solution": "To maximise the number of distinct primes whose sum stays within s, take the smallest primes first. If some valid selection has k primes, the k smallest primes have a sum no larger than it (swap each chosen prime for a smaller unchosen one, which never raises the sum), so they are valid too. That makes the optimal count the longest prefix of the sorted primes whose running sum is at most s. Generate all primes up to n with a Sieve of Eratosthenes, then walk them in increasing order, adding each while the running total stays at most s, and stop at the first prime that would exceed it. The collected primes are already in increasing order, which is the required output. Complexity is O(n log log n) for the sieve plus O(pi(n)) for the scan, which fits n up to 10^6 easily. The sum of all primes up to 10^6 is about 3.76*10^10, which is larger than s = 10^9, so the scan does stop early (it keeps 13,940 primes in the worst case). Totals fit in 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sieve + greedy prefix scan (work/leetcode-prime-subset-selection-i/sol.py). All 3 samples pass: (7,20)->[2,3,5,7]; (15,15)->[2,3,5], one of the accepted answers, checked against the brute-force optimum of 3; (5,1)->[]. Brute force enumerates every subset of the primes up to n (up to 17 primes, 2^17 subsets) and checks the answer's length equals the optimum, sum <= s, entries distinct primes <= n, sorted. Passed 3000 random cases with n in [1,60] and s in [1,300]. Max case n=10^6, s=10^9 runs instantly (13,940 primes, sum 999,866,785)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sieve",
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "number-theory",
+      "greedy",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sieve",
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "array",
+        "reason": "The input is two integers and there is no array to process. 'array' only echoes the return type ('Return an integer array'), so it would make this record match 'array' searches with nothing behind them."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "sieve: with n up to 10^6, every prime up to n has to be listed, and a Sieve of Eratosthenes is how you do it. greedy: the core of the solution is taking the smallest elements first to fit the most items under a sum budget. Considered and rejected: exchange-argument (it does prove smallest-first optimal, but the argument is trivial and only a few people would search it for this problem; 0.3 at most). prefix-sum (the running total is scaffolding; you could also binary-search a prefix-sum array of primes, but that is just as trivial). binary-search (as scaffolding only). primality-test (checking each number one at a time is too slow at 10^6, so the sieve is the technique). knapsack/subset-sum (the objective is count, not exact sum, so no DP is needed; that DP version is the sibling problem II, where n and s are at most 1000). sorting (the sieve already outputs primes in sorted order).",
+    "skeptic": "Solution: correct. Sieve to n (<= 10^6), then take primes in increasing order while the running sum stays <= s. Optimality: any k-subset of distinct primes has sum >= the sum of the k smallest primes, so the count is maximised by the longest prefix that fits. The 'any optimal selection' clause makes the prefix acceptable even though sample 2 prints [3,5,7]. Patterns: sieve KEEP. Listing every prime up to 10^6 is the step that needs a technique, and trial-division primality-testing each number is the slow alternative, so rejecting primality-test is right. greedy KEEP. Smallest-first under a budget is the entire algorithm. Proposal's rejections are all sound. prefix-sum is just the running total (scaffolding). exchange-argument: the swap proof exists but it is the one-line 'k smallest minimise the sum' fact, and nobody would search 'exchange argument' to find this problem, so leave it out. sorting is not needed because the sieve already emits primes in order. knapsack/subset-sum: the objective is count under a budget, not a reachable sum, and s up to 10^9 rules out any sum-indexed DP. That DP is the sibling Prime Subset Selection II (max sum <= s, then fewest primes, then lex smallest, with n and s <= 1000), and the constraint is what separates the pair. TRAP binary-search-answer: does not apply. You could binary-search k over a prefix-sum array of primes, but the feasibility test is a trivial prefix-sum lookup and the direct linear scan is what anyone would write, so the label would be wrong. Plain binary-search is likewise scaffolding at most. TRAP bitmask-dp vs interval DP (near-miss labelling): the analogous near-miss here is greedy (I) vs knapsack-style DP (II). The constraints (s <= 10^9 here vs <= 1000 there) decide it, and I must not inherit II's labels. No missing technique found: the only competing method is primality testing per number (worse) or a linear/Euler sieve, which still falls under 'sieve'. Tags: dropped 'array' (the input has no array, it only echoes the output type). Kept math, number-theory and greedy. Summary: 69 words, third person, accurate, states n <= 10^6 and s <= 10^9 (s rules out DP) and gives the reduction to 'k smallest primes'. Kept verbatim."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "codeforces-2271-f",
+  "title": "Beautiful Pillers",
+  "source_url": "https://codeforces.com/contest/2271/problem/F",
+  "solution": "Key characterization: b is beautiful iff it can be cut into contiguous segments of length >= 2 whose first and last elements are equal and are the segment maximum. Necessity: the global maximum must occur at least twice (a single occurrence can be neither an interior point nor an endpoint of a good pair), the block between its first and last occurrences is covered, and no good pair crosses a maximum, so the prefix before and the suffix after must each be beautiful on their own; recurse. Sufficiency: inside such a segment, consecutive occurrences of its maximum are good pairs that chain from end to end. Setting a_1 = a_n = 10^9 makes the whole array one such segment, so the answer is always 0, 1 or 2 (the 'at most n' in the statement is a red herring). The cost of a segment [s,e] is 0 if a_s = a_e >= every interior value. It is 1 if a_e >= every interior value (assign a_s := a_e), if a_s >= every interior value (assign a_e := a_s), or if a_s = a_e and exactly one interior value exceeds them (assign that element := a_s). Otherwise it is 2. dp[e] is the minimum over s of dp[s-1] + cost(s,e). All candidate sets come from one non-strict monotonic stack of equal-value groups, where each group stores min dp[s-1] and the stack keeps prefix minima. Before popping, every stack entry is a valid s for the 'assign a_e' case. After popping the values < a_e, the equal-value group on top gives the cost-0 transitions, and the entry below it is g1, the previous strictly greater element, so 'assign a_s' covers s in [g1, e-1] as a range minimum of dp. When g1 popped a group of value v, that group is stored under key (v, g1). It holds exactly the s with a_s = v that have one larger element (g1) before e, which gives the interior-change case in O(1). Reconstruction follows parent pointers. Complexity is O(n log n) with an incremental sparse table, or O(n) using the fact that dp only takes values 0, 1 and 2.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python DP solution (work/codeforces-2271-f/sol.py) run on all 5 samples. It produced k = 1,1,0,2,0, matching the expected counts, and a checker applied each printed operation and confirmed the result is beautiful (the operations differ from the sample but any optimum is accepted). The beauty checker uses a next-greater-or-equal stack and agreed with a naive O(n^3) definition check on 3,000 random arrays. Brute force: for each k from 0 upward, it tries every set of k positions and every assignment from values {1..2V+1} (originals are even, so values below, between and above them are all available) and tests beauty by the definition. Stress runs compared the brute-force minimum with the DP and validated the DP's printed operations: 1500 cases n<=5 V=3, 800 n<=6 V=3, 300 n<=7 V=2, 200 n<=7 V=4, 400 n<=8 V=4 and 1500 n<=9 V in 1..6. All matched, and answers of 0, 1 and 2 all occurred. Timing: n=2e5 cases (all equal, increasing, decreasing, random small values, random up to 1e9, periodic) each took about 0.5s in Python, and every output was validated."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "monotonic-stack",
+      "partition-dp",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "array",
+      "dynamic-programming",
+      "monotonic-stack",
+      "stack",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "monotonic-stack",
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "partition-dp",
+        "reason": "Over-reach. The proposal's min-cost segment DP (cost 0/1/2 with four stack transition types and a sparse table) is correct, but it is a heavy way to avoid a short case analysis on the global maximum. The max must occur at least twice, and the prefix before its first occurrence and the suffix after its last must each be beautiful on their own. So one change works iff one of three explicit assignments works: a_1:=M, a_n:=M, or lowering a unique max to 1 (that dominates every straddling segment, and the segment-endpoint cases are dominated by a_1/a_n:=M). Each candidate needs one O(n) coverage check, so no DP and no all-prefix 'beautiful' flags are needed. Even 'is the array partitionable into max-ended blocks' is a plain coverage check, because good-pair intervals are laminar. Keeping it would also pull in dynamic-programming through with_families and surface the problem for DP queries its clean solution never touches."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "dynamic-programming",
+        "reason": "Follows partition-dp out. A DP-free O(n) solution, checked against brute force, decides every case."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "monotonic-stack: good pairs are exactly 'next greater-or-equal element has the same value'. All DP candidate sets come from a non-strict decreasing stack: equal-value groups for cost-0 segments, entries with no larger element after them for the 'assign a_e' case, the previous-greater element g1 for the 'assign a_s' range, and groups popped by g1 for the interior-change case. partition-dp: the solution is a prefix DP that cuts the array into segments whose equal endpoints are the segment maximum, with cost 0/1/2 per segment. The intended route of prefix and suffix 'already beautiful' flags plus one fixed segment is the same partition DP; dynamic-programming is added by with_families. constructive-algorithm: the operations must be printed, and the core observation is a construction (a_1 = a_n = 10^9 caps the answer at 2), followed by exact assignments for each 1-cost case. Moderate confidence. Rejected: greedy (no exchange or greedy choice, it is an exact case DP); binary-search-answer (the answer is 0/1/2, nothing to bisect); sparse-table/prefix-sum (only scaffolding for 'exists s in a range with small dp'); stack-free 'next-greater' terms map to monotonic-stack; interval-dp (segments are chosen left to right by a prefix DP, not merged over O(n^2) intervals).",
+    "skeptic": "Own derivation. Good-pair intervals are laminar: crossing pairs (l<l'<r<r') would force a_l > a_l' > a_r = a_l. So a single occurrence of the global max M can be neither interior to nor an endpoint of a good pair, and M must occur at least twice. [first M, last M] is covered by consecutive-occurrence pairs. No pair crosses an M, so the prefix before the first M and the suffix after the last M must each be beautiful independently; recurse. Equivalently, the array splits into blocks whose first and last elements equal the block max, which is the proposal's characterization and is correct. Upper bound: a_1:=a_n:=M (or 10^9) gives one such block, so the answer is at most 2. The 'at most n' in the statement is a red herring, as the proposal says. Deciding 1: if M occurs at least twice and both sides are bad, any single change leaves one side untouched (x>M creates a unique max), so the answer is 2. If exactly one side is bad, a_1:=M or a_n:=M fixes it. If M is unique at p, then p must stay covered: either another position becomes M (i=1 or i=n dominates, which works iff the suffix after p or the prefix before p is beautiful) or a_p is lowered. When lowering, x=1 makes every straddling segment valid, and the segment-starting-at-p and segment-ending-at-p cases are dominated by the a_n/a_1:=M options. So the 1-op candidates are exactly {a_1:=M, a_n:=M, a_p:=1}, checked by brute force on 30k cases.\n\nPatterns. monotonic-stack: KEEP. Good pairs are exactly 'the next greater-or-equal element has the same value', the standard non-strict stack. It is the core of the beauty check in both my solution and the proposal's DP; a stack-free alternative would need recursive range-max queries. constructive-algorithm: KEEP. Operations must be output, the answer<=2 bound is a construction (pad both ends with the max), and the 1-op case comes down to proving which explicit assignments can work. partition-dp: REJECT as over-reach (see rejected_patterns). It is a valid alternative route and the proposal's stress-tested code shows it works, but it is not how the 0/1 cases are decided. The decision is a max-based case analysis plus at most four O(n) coverage checks. It is a judgment call, since a reasonable (heavier) solution does use it, and you can restore it at about 0.4 confidence if the corpus prefers recall. Considered and not added: difference-array/prefix-sum (coverage-marking scaffolding), cartesian-tree (the divide-by-maximum recursion is Cartesian-shaped, but nobody builds the tree), interval-union (statement echo of 'covered'), greedy (no greedy choice; it is a dominance case analysis), brute-force (trying three fixed candidates is not enumeration in the searchable sense).\n\nTrap 1, binary-search-answer: not applicable and correctly absent. The answer is 0, 1 or 2 by construction, so there is no feasibility predicate over a range of answers to bisect. Trap 2, near-miss DP families: the relevant near-miss here is partition-dp vs interval-dp vs no DP at all. interval-dp is correctly rejected because n<=2e5 rules out O(n^2) interval merging and segments are only ever cut left to right. The deciding 'constraint' is the answer<=2 cap, which turns the minimisation into checking a constant number of candidate arrays, so the DP family label goes too.\n\nSummary: the proposal's was about 65 words and accurate on the bound, but it ended with 'decided by a monotonic-stack prefix DP', which mislabels the technique, and it did not surface the reduction that actually decides 0/1 (the max must repeat, the outside parts are independent, three candidates). Rewritten to 69 words, keeping the n<=2e5 constraint and the answer<=2 construction."
+  }
+}

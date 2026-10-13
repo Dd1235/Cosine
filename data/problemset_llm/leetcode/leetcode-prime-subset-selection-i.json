@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-prime-subset-selection-i",
+  "title": "Prime Subset Selection I",
+  "slug": "prime-subset-selection-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/prime-subset-selection-i/",
+  "source_topic": "LeetCode / Weekly Contest 523",
+  "difficulty": "Medium",
+  "acceptance_rate": 43.1,
+  "source_tags": [],
+  "statement": "The task is to choose as many distinct primes no greater than n as possible so that their sum is at most s, with n up to 10^6 and s up to 10^9, returning them in increasing order. A Sieve of Eratosthenes lists the primes. A greedy pass then takes the smallest primes first while the running sum fits, since the k smallest primes have the minimum possible sum.",
+  "tags": [
+    "math",
+    "number-theory",
+    "greedy"
+  ],
+  "patterns": [
+    "sieve",
+    "greedy",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791822024,
+    "pattern_confidence": {
+      "sieve": 0.97,
+      "greedy": 0.95
+    }
+  }
+}

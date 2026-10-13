@@ -37,5 +37,6 @@
       "simulation": 0.7,
       "order-statistics": 0.55
     }
-  }
+  },
+  "difficulty": 2300
 }

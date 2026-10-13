@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2275-h",
+  "title": "A Problem to Warm Up the Eyebrows",
+  "slug": "2275-h-a-problem-to-warm-up-the-eyebrows",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/H",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "combinatorics",
+    "dp",
+    "math"
+  ],
+  "statement": "The task sums (-1)^(a+b)·S^2 over all submatrices of an n×m integer table (a rows, b columns, element sum S) modulo 10^9+7, with n·m up to 10^6, so only O(nm) fits. Writing S as four 2D prefix-sum corners makes the sign factor over corner parities, and expanding the squares collapses each dimension to (Σw)(Σwx²)−(Σwx)²; equivalently, a row sweep tracks signed count, sum and sum-of-squares moments.",
+  "tags": [
+    "math",
+    "prefix-sum",
+    "matrix",
+    "array",
+    "modular-arithmetic"
+  ],
+  "patterns": [
+    "prefix-sum",
+    "contribution-technique",
+    "moment-dp",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "prefix-sum": 0.9,
+      "contribution-technique": 0.8,
+      "moment-dp": 0.6,
+      "dynamic-programming": 0.5
+    }
+  }
+}

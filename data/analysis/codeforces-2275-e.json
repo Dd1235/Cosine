@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2275-e",
+  "title": "Repentance Is Already on the Way",
+  "source_url": "https://codeforces.com/contest/2275/problem/E",
+  "solution": "The graph is bipartite (a_i is adjacent only to b_{i-1}, b_i, b_{i+1}), so any Hamiltonian path from a_1 alternates sides and has 2n-1 edges, and the task is to maximise how many of them join equal labels. The key observation is that there are exactly n such paths. Suppose the walk is at a_k with every column before k used and b_k still free. It can either go straight to b_k and then to a_{k+1}, or it can jump to b_{k+1}. In the second case b_k has only a_{k+1} left as a neighbour, so it must be the endpoint. That forces two disjoint zigzags: the walk goes a_k, b_{k+1}, a_{k+2}, ... out to column n, crosses on the edge a_n-b_n, and comes back along ..., b_{k+2}, a_{k+1}, b_k. Any other choice leaves a vertex stranded. So a path is fixed by its turning column k in 1..n, where k = n is the all-straight path. Its length is a fixed part (every edge b_j-a_{j+1} plus a_n-b_n), plus the vertical edges a_j-b_j for j < k, plus the diagonals a_j-b_{j+1} for j >= k. Taking the maximum over k with a running prefix sum and suffix sum gives O(n) per test. The same thing can be written as a two-state DP over columns (still straight / already turned).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n) solution reproduces all 5 sample outputs (2, 10, 18, 12, 5). A DFS brute force that enumerates every Hamiltonian path from a_1 confirmed the path count is exactly n for n = 1..9. It also agreed with the solution on 6000 random cases with n in 1..8 and labels in 1..V for V in {1,2,3}. A max test (n = 2e5) runs in well under a second."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum",
+      "dynamic-programming"
+    ],
+    "tags": [
+      "graph",
+      "prefix-sum",
+      "dynamic-programming",
+      "implementation",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "dynamic-programming",
+      "prefix-sum"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "prefix-sum: the whole computation is max over the split column k of (prefix of vertical-edge weights + suffix of diagonal-edge weights), so the prefix and suffix sums are the algorithm, not a one-off range read. dynamic-programming: the most common way to write it is a two-state DP over columns (still straight vs. already in the zigzag U-turn), which is a real alternative solution. Confidence is lower because it collapses to the same prefix max. The real difficulty is characterising the Hamiltonian paths of this ladder-like graph as 'straight prefix, then one U-turn to the end'. The vocabulary has no label for that, so the summary states it in words (Hamiltonian path, zigzag, turning column). Rejected: brute-force (enumerating the n turning points is just the prefix-sum max), greedy (no local greedy choice is correct, because the turn is a global trade-off), constructive-algorithm (nothing is built for output), graph-modeling (the input already is a graph), dfs/backtracking (only used in the brute-force checker), hamiltonian-dp (that means bitmask DP over subsets, which is wrong at n = 2e5).",
+    "skeptic": "SOLUTION: the proposal matches my independent derivation, and the brute force confirms both its correctness and its claim of exactly n paths. The proof idea holds: if a_k jumps to b_{k+1} while b_k is unused, then b_k's only remaining neighbour is a_{k+1}, so b_k must be the endpoint. The vertices left over then induce a simple path b_k-a_{k+1}-b_{k+2}-..., which forces the rest of the route.\n\nPATTERNS.\n- dynamic-programming: KEEP, and I raise its confidence from 0.6 to 0.75. Codeforces officially tags 2275E 'dp'. The natural contest solution is a two-state DP over columns (still straight / already turned), so it is a real solution rather than a relabelling. On the brief's question about a more specific DP label, I checked every DP-family entry in the vocabulary and none fits:\n  - grid-dp: in the corpus this means monotone path DPs over grid cells (Working out, Cherry Pickup II). This is a Hamiltonian path on a ladder-like bipartite graph with diagonal adjacency and no edges inside a row. Rejected.\n  - profile-dp / state-compression: the state is one bit (turned or not), not a broken profile. Rejected.\n  - hamiltonian-dp: Held-Karp over subsets, impossible at n = 2e5. Rejected.\n  - dp-on-dag, interval-dp, partition-dp, subsequence-dp: no structural match.\n  So the generic family label is the right one here.\n- prefix-sum: KEEP, at lower confidence (0.8 to 0.65). Is it the technique or scaffolding? Once the path structure is known, the whole computation is max over the split column k of (prefix of vertical-edge matches plus suffix of diagonal-edge matches). The suffix sums turn the O(n^2) per-turn evaluation into O(n). That makes it the algorithm's evaluation step, not a one-off range read. I lowered confidence because the DP formulation absorbs it into a running sum, and the real difficulty is the path characterisation, which the vocabulary has no label for.\n\nMISSING-LABEL CANDIDATES, all rejected:\n- brute-force: enumerating the n turning columns is cheap only with prefix and suffix sums. Evaluated naively it is quadratic and too slow.\n- bipartite-graph: alternation is immediate because the statement defines no edges inside a row. In the corpus this label means bipartiteness checking or 2-colouring.\n- constructive-algorithm: nothing is built for output.\n- graph-modeling: the input is already the graph.\n- greedy: there is no correct local rule, since the turn is a global trade-off.\n- dfs/backtracking: used only in the brute-force checker.\n- grid-dp: see above.\n\nTRAP 1, binary-search-answer: does not apply. There is no feasibility test and no monotone answer to search; it is a direct O(n) max. Correctly absent.\nTRAP 2, bitmask-dp vs interval DP (and hamiltonian-dp): 'Hamiltonian path' in the statement tempts a bitmask or Held-Karp label. The constraint n up to 2e5 rules that out, and the structural fact (exactly n paths) is what decides the technique. Interval DP does not fit either, because the U-turn always runs to column n, so there are no free [l, r] states. Neither is labelled, which is correct.\n\nTAGS: graph, prefix-sum, dynamic-programming, implementation and array are all defensible. 'implementation' matches the official tag. No change.\n\nSUMMARY: 67 words, one paragraph, third person and accurate. It states n up to 2·10^5, which rules out subset DP and decides the linear approach. It also surfaces the key reduction: a straight prefix, then one zigzag out to the end and back, maximised over the turning column. Kept verbatim."
+  }
+}

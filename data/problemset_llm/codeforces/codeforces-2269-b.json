@@ -26,5 +26,6 @@
     "pattern_confidence": {
       "simulation": 0.85
     }
-  }
+  },
+  "difficulty": 1000
 }

@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2275-c",
+  "title": "Unrequited Love",
+  "slug": "2275-c-unrequited-love",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/C",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "brute force",
+    "data structures"
+  ],
+  "statement": "The task is to count unordered pairs of key-disjoint triads (keys x, x+2, x+4, with value a_x + a_{x+2} - a_{x+4}) that have equal value, with n up to 2·10^5. Two triads conflict only when their starts differ by 2 or 4, so the count is equal-value pairs from a hash map of value frequencies minus those few overlapping adjacent pairs.",
+  "tags": [
+    "array",
+    "hash-map",
+    "counting",
+    "math"
+  ],
+  "patterns": [
+    "hash-map",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "hash-map": 0.95,
+      "counting": 0.85
+    }
+  }
+}

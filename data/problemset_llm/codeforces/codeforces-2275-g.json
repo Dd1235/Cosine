@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2275-g",
+  "title": "Copper Squander",
+  "slug": "2275-g-copper-squander",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/G",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "binary search",
+    "data structures",
+    "dsu",
+    "graphs",
+    "greedy",
+    "math",
+    "sortings",
+    "ternary search"
+  ],
+  "statement": "The task is to sell any subset of weighted cables in a possibly disconnected n-vertex graph, then add cables costing x, 2x, 3x, ... until it is connected, maximising profit for each of q values of x (n up to 10^5, q up to 2·10^5). Only minimum-spanning-forest edges are kept; the heaviest are sold while each beats the next cable's cost, a concave cut-off binary or ternary searched per query.",
+  "tags": [
+    "graph",
+    "minimum-spanning-tree",
+    "greedy",
+    "union-find",
+    "binary-search",
+    "ternary-search",
+    "sorting",
+    "math"
+  ],
+  "patterns": [
+    "minimum-spanning-tree",
+    "kruskal",
+    "union-find",
+    "binary-search",
+    "ternary-search"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "minimum-spanning-tree": 0.95,
+      "kruskal": 0.92,
+      "union-find": 0.8,
+      "binary-search": 0.75,
+      "ternary-search": 0.6
+    }
+  }
+}

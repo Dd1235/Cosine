@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2275-f",
+  "title": "Tea Blend",
+  "slug": "2275-f-tea-blend",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/F",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "hashing",
+    "math",
+    "number theory"
+  ],
+  "statement": "Given up to 2·10^5 values a_i ≤ 10^6, the task counts pairs (i, j) for which a_i times the prefix product a_1·…·a_j has an odd number of divisors, i.e. is a perfect square. Each value reduces to its square-free part (prime-exponent parities); since the prefix's odd-prime set can be huge, primes get random 64-bit keys (XOR hashing), the prefix becomes a prefix XOR, and matching hashes are counted.",
+  "tags": [
+    "number-theory",
+    "math",
+    "hash-map",
+    "prefix-sum",
+    "bit-manipulation"
+  ],
+  "patterns": [
+    "number-theory",
+    "prime-factorization",
+    "prefix-xor",
+    "randomized-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "number-theory": 0.9,
+      "prime-factorization": 0.85,
+      "prefix-xor": 0.85,
+      "randomized-algorithm": 0.7
+    }
+  }
+}

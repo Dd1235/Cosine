@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2273-e",
+  "title": "Six-Seven Bags",
+  "source_url": "https://codeforces.com/contest/2273/problem/E",
+  "solution": "A query b returns 7*sum(b) - b_k where k is the hidden bag, so each query reveals exactly b_k, a value in [0, a_k]. After q queries bag i is identified by its column vector (b_i^1..b_i^q) in [0,a_i]^q, and adaptivity buys nothing: in any adaptive decision tree, recording the value each bag receives along its own path gives a non-adaptive scheme with pairwise-distinct vectors, and conversely distinct vectors identify the bag against any (adaptive) interactor. So f(a) is the least q for which the bags can be given pairwise-distinct vectors with bag i's vector in [0,a_i]^q. The allowed sets are nested cubes, so by Hall's theorem (or pigeonhole plus a greedy) this is possible iff for every c the number of bags with a_i <= c is at most (c+1)^q; f(a) is the maximum over c of the least such q (at most 17 since (c+1) >= 2). Construction: sort bags by a_i and hand out vectors shell by shell (all vectors with max coordinate 0, then 1, then 2, ...), generating each shell directly as 'first coordinate equal to m at position p, earlier coordinates < m, later ones <= m'; the j-th bag receives a vector of max m_j = least m with (m+1)^q > j, and the counting condition guarantees m_j <= a_j. Ask the q column queries, convert each weight to the deficit 7*sum(b) - w, and look the resulting vector up in a hash map. Total O(n log n + n q) per test with q <= 17.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (f via prefix counts #{a_i<=c} vs (c+1)^q, sorted-shell vector assignment, deficit lookup). Samples: f([1,1,2,2,2])=2 and f([3,2,4,3])=1, and sol.py run over real stdio against a fixed-hidden-bag interactor on the sample arrays (hidden bags 3 and 2) answers correctly within f queries. Brute force: exact adaptive decision-tree depth by exhaustive search over all per-bag value assignments, memoised on the candidate multiset; matched f_of on all 3412 arrays with n in 2..5, a_i in 1..n, and 150 random n=6 arrays. Each of those was also played against an adaptive interactor that keeps the consistent candidate set and always answers with the class of largest brute-force depth: query count == brute f and the final candidate set is exactly {answer}. 2000 random arrays n<=300 against a largest-class adaptive adversary passed. Timing at n=10^5: a all 1 (q=17), a=1..n (q=1), a all 2 (q=11), random (q=2) each <=0.11s in Python (an earlier version that re-iterated the whole cube per shell took 217s on a=1..n and was fixed)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interactive",
+      "constructive-algorithm",
+      "greedy",
+      "hall-theorem"
+    ],
+    "tags": [
+      "interactive",
+      "constructive-algorithm",
+      "math",
+      "greedy",
+      "sorting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interactive",
+      "constructive-algorithm",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "hall-theorem",
+        "reason": "A proof flourish here, not the argument. The lower bound, which is the hard half, is pigeonhole on the decision tree: bags with a_i <= c must reach distinct leaves along paths whose answers are all <= c, and there are at most (c+1)^q such paths. Hall's theorem gives no help with adaptivity. For sufficiency, the allowed sets [0,a_i]^q form a chain of nested cubes, so Hall's condition collapses to the same prefix inequality, and sorting by a_i then assigning greedily proves it directly. No bipartite graph is built or checked, and nothing over subsets is verified. The corpus files hall-theorem under flows-and-matching (graph), next to Buying Sets and Latin Square, where Hall really drives the solution. Someone searching for Hall's theorem would not want this problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "interactive: the problem is interactive with an adaptive interactor and an exact query bound. constructive-algorithm: the whole solution is building a query scheme (a distinct code vector per bag in [0,a_i]^q) that meets the optimal bound, plus proving the bound is optimal. greedy: bags sorted by capacity take the smallest-max vectors first, which is the greedy matching that realises the optimum. hall-theorem: the optimality/feasibility criterion is Hall's condition on a bipartite graph with nested neighbourhoods (bags with a_i <= c can only use the cube [0,c]^q), which reduces to the prefix inequalities #{a_i <= c} <= (c+1)^q; many will argue it as pigeonhole + greedy instead, hence moderate confidence. Rejected binary-search-answer: q <= 17 and is read off directly from the prefix counts. Rejected counting as a pattern: the pigeonhole count is a feasibility bound, not a counting problem, and would surface it for combinatorial-counting searches. Rejected bit-manipulation/number-theory: the codes are mixed-radix vectors, no bit or divisibility reasoning. Rejected sorting as a pattern (kept as a broad tag): it only orders the greedy assignment. Rejected hash-map: lookup of the decoded vector is scaffolding. Rejected game-theory: the adversary is handled by making the scheme non-adaptive, no game analysis needed.",
+    "skeptic": "Solution: my derivation matches the proposal. A query reveals b_k for the hidden bag k. Adaptivity buys nothing, because the lower bound counts length-q prefix-free answer paths with labels <= c, which covers adaptive trees too. f(a) = max over c of the least q with #{a_i<=c} <= (c+1)^q, and q <= 17. The construction is sorted bags plus shell-ordered vectors. Verified against an exhaustive adaptive-depth brute force and an adversarial adaptive interactor, as listed in skeptic_check. Patterns: interactive is kept because it is the problem format, with an exact optimal query bound and an adaptive interactor. constructive-algorithm is kept because the whole task is building the code-vector query scheme that meets the bound. greedy is kept at low-moderate confidence. It is a real step, not a restatement: an arbitrary assignment of the first n shell vectors can give a small-a_i bag a vector with a coordinate above a_i, and handing the smallest-max vectors to the smallest-capacity bags is the exchange-style step that makes the counting condition sufficient. It is light, though, and amounts to 'sort and assign'. hall-theorem is rejected; the reason is given above. Its nested-chain special case is exactly 'sort and check prefixes', so the label is a proof flourish a solver need not know. Because the summary is indexed, 'Hall-style counting condition' became 'pigeonhole', so this problem stops matching Hall queries. Missing labels considered: counting/combinatorics were not added, because the (c+1)^q count is a feasibility bound, not a counting problem. sorting stays a tag only, since it just orders the greedy. hash-map is scaffolding for decoding. bit-manipulation/number-theory are not used, since the codes are mixed-radix vectors. game-theory is not needed, because the non-adaptive scheme sidesteps the adversary. No vocabulary entry exists for pigeonhole or decision-tree/information-theoretic bounds. Trap 1, binary-search-answer: does not apply. q <= 17 is read straight off the prefix counts with no feasibility search, and nobody would binary search it. Trap 2, bitmask-dp vs interval DP: no DP of any kind is involved. The near-miss on this problem is hall-theorem vs pigeonhole+greedy, with the nested-cube structure deciding it, and counting vs feasibility bound. Summary: the proposal's version was accurate at 67 words but put Hall in the indexed text. The rewrite is 69 words, keeps the key reduction (a weighing reveals the hidden bag's count, hence distinct codes in [0,a_i]^q), states the deciding prefix condition, and adds 'non-adaptively' and 'sorted order' so the construction is searchable."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-design-bus-seat-booking-system",
+  "title": "Design Bus Seat Booking System",
+  "source_url": "https://leetcode.com/problems/design-bus-seat-booking-system/",
+  "solution": "Keep a hash map from each currently booked seat to the cost it was charged at booking time, plus a running total. toggle(seat): if the seat is in the map, subtract its stored cost and remove it (costs of other seats never change, per the note). Otherwise compute its cost now: a middle seat B/C costs 1; a window seat A/D costs 3 if its adjacent middle (A->B, D->C in the same row) is currently in the map, else 1; store it and add it to the total. getTotalTime returns the running total. getMinTime needs one observation: the only dependency is window-after-its-middle, and each window has exactly one adjacent middle, so booking every window seat before its middle makes every seat cost 1 and no order can do better than 1 per seat. Hence getMinTime is simply the number of booked seats, i.e. the map size. Every operation is O(1) (O(length of the seat string) to parse), O(booked seats) memory, well within 10^5 calls.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python class run on both worked samples, outputs match exactly ([null,null,null,4,2,null,null,8,4] and [null,null,null,4,null,null,null,1,1]). Naive reference: stores the toggle history, replays it from scratch on each query to recompute each currently booked seat's cost at its latest booking, and computes getMinTime by trying every permutation of the booked seats. Stress: 3000 random call sequences with n in 1..2 (up to 8 seats, so up to 8! orders), 1-30 calls each mixing toggle/getTotalTime/getMinTime; all agree."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "design",
+      "hash-map",
+      "simulation"
+    ],
+    "tags": [
+      "design",
+      "hash-map",
+      "simulation",
+      "string",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "design",
+      "hash-map",
+      "simulation"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "design: it is a class-implementation problem with a toggle and two queries. hash-map: the core structure is seat -> cost-at-booking-time (an array indexed by row works too, but the seat-keyed map is the natural write-up). simulation: getTotalTime is a direct simulation of the booking rules with costs frozen at booking time. Rejected greedy / exchange-argument: getMinTime reduces to counting booked seats once you see windows can always be booked before their middle; that one-line ordering argument is not a greedy algorithm anyone would search for this problem. Rejected counting / prefix-sum: the running total and seat count are scaffolding. Rejected ordered-set / segment-tree: no ordering or range queries are involved. string tag only for parsing the seat label.",
+    "skeptic": "Solution: confirmed by independent derivation + permutation brute force. Patterns: design (keep, 0.97) - it is a class with toggle + two queries, the whole problem. hash-map (keep, 0.8) - the seat->cost-at-booking map is the core state that makes freeing O(1) and keeps costs frozen per the Note; an n x 4 array is equivalent, so not higher. simulation (keep, 0.65) - getTotalTime is direct maintenance of the stated booking rules; weakest label but the standard LC tag for this kind of rule-following design problem, not a statement echo (the word never appears). Missing-label sweep: greedy/exchange-argument rejected - getMinTime is a lower-bound-is-achievable observation (each seat >= 1, windows-before-middles hits it), not a greedy algorithm anyone would search for; counting rejected - in this vocabulary it means combinatorial/frequency counting, the booked-seat counter is scaffolding; ordered-set/heap/segment-tree rejected - no ordering or range queries. TRAP binary-search-answer: not applicable - nothing is searched, all ops are O(1) direct updates. TRAP bitmask-dp vs interval DP: 'over every possible order' could tempt a DP-over-permutations / bitmask-dp label, but dependencies are only window-after-its-own-middle pairs within a row, independent across seats, so the minimum collapses to a count; no DP of any kind (and n up to 10^5 rows rules out any subset DP anyway). Summary: 69 words, third person, accurate, includes 10^5 calls, the 3-vs-1 rule, frozen costs, and surfaces the reduction (minimum = booked-seat count); kept verbatim. Tags: string is only seat-label parsing but harmless as an LC-style tag; implementation fits."
+  }
+}

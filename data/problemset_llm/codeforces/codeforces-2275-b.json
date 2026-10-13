@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2275-b",
+  "title": "Did Not Go to Print",
+  "slug": "2275-b-did-not-go-to-print",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2275/problem/B",
+  "source_topic": "Codeforces / Contest 2275",
+  "source_tags": [
+    "data structures",
+    "implementation"
+  ],
+  "statement": "The task is to replay n printer commands where memory is a stack: '1' at step i pushes document i, '2' pops and prints the top (or prints document i if memory is empty), and '3' prints document i. It asks for every never-printed index, n up to 2·10^5. Unprinted documents are those left in the stack plus each '2' step whose memory was non-empty, found in one O(n) pass.",
+  "tags": [
+    "implementation",
+    "simulation",
+    "stack",
+    "data-structures"
+  ],
+  "patterns": [
+    "stack",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "stack": 0.95,
+      "simulation": 0.85
+    }
+  }
+}

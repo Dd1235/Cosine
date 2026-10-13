@@ -32,5 +32,6 @@
       "dynamic-programming": 0.75,
       "fenwick-tree": 0.75
     }
-  }
+  },
+  "difficulty": 2400
 }

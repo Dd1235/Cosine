@@ -1,0 +1,60 @@
+{
+  "id": "leetcode-longest-resilient-subarray-i",
+  "title": "Longest Resilient Subarray I",
+  "source_url": "https://leetcode.com/problems/longest-resilient-subarray-i/",
+  "solution": "Let S be the subarray sum. Deleting x leaves S - x, so resilience means every element x satisfies x ≡ S (mod k): all elements share one residue r = S mod k. Since S ≡ L·r for a length-L subarray, the condition becomes 'all residues equal r' and (L-1)·r ≡ 0 (mod k), i.e. k/gcd(r,k) divides L-1 (length 1 always works; r = 0 makes every length work). Both conditions are closed under taking a sub-run, so split nums into maximal runs of equal residue; for a run of length m with residue r and g = k/gcd(r,k), the best length is 1 + floor((m-1)/g)·g. Answer = max over runs. O(n) time (plus a gcd per run), O(1) space. With n ≤ 2500 an O(n^2) scan is also fine: for each start, extend the end while residues stay equal, keep the running sum, and accept when (sum - nums[j]) % k == 0 — the naive O(L) recheck per subarray (O(n^3)) is what the observation removes. An alternative O(n) route skips the gcd: inside each equal-residue run, find the longest subarray whose sum ≡ r (mod k) with a first-occurrence hash map of prefix sums mod k.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python (sol.py in scratchpad/work/leetcode-longest-resilient-subarray-i): three solutions — O(n) run+gcd closed form, O(n^2) start/extend scan, O(n) per-run prefix-sum-mod-k first-occurrence hash map — all match the 3 samples (3, 4, 2) and an O(n^3) literal brute force on 30,000 random cases (n 1-12, k 1-8, values up to 3/10/40, half biased toward long same-residue runs). Max-size runs (n=2500, k=12, all ≡ 7 → 2497; random k up to 1e5) agree across all three, quadratic in ~0.1s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "modular-arithmetic",
+      "gcd",
+      "number-theory",
+      "brute-force",
+      "prefix-sum",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "math",
+      "number-theory",
+      "modular-arithmetic",
+      "brute-force",
+      "prefix-sum"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "modular-arithmetic",
+      "brute-force",
+      "gcd",
+      "number-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "prefix-sum",
+        "reason": "Scaffolding. The O(n^2) scan that n <= 2500 is there for keeps a running sum in one accumulator, and the O(n) route is a closed form per run. The only solution that really uses prefix sums is the per-run prefix-mod hash map, a third route that is pointless at n <= 2500. It would also pull this record into 'Subarray Sums Divisible by K' / 'Continuous Subarray Sum' queries, where it doesn't belong: the insight here is that each element is congruent to S, not a target residue for the subarray sum."
+      },
+      {
+        "pattern": "hash-map",
+        "reason": "No reasonable solution to version I needs one. Resilience forces every residue in the subarray to be the same, so a single residue variable replaces any residue map. The first-occurrence map is a convoluted alternative (verified correct, but over-engineered) that even the sibling II proposal said to drop for tight labels. Unlike longest-subarray-divisible-by-k-with-at-most-one-negation-i, where the O(n^2) scan really keeps a set of 2x mod k residues, nothing is looked up here."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "prefix-sum",
+        "reason": "Same reason as the pattern: a running sum in the O(n^2) scan is not a prefix-sum technique, and tagging it sends 'sum divisible by k with prefix sums' searches to a problem whose reduction is per-element congruence."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "modular-arithmetic: the whole problem is the congruence argument (each element ≡ S mod k, then S ≡ L·r), not an answer-mod-p wrapper. gcd: the length condition (L-1)·r ≡ 0 mod k solves to L ≡ 1 mod k/gcd(r,k), giving the closed form per run. number-theory: family label for that divisibility reasoning. brute-force: n ≤ 2500 is exactly what lets an O(n^2) enumerate-start/extend-end scan pass (the sibling II at 1e5 does not), and many Q2 solvers write that; still needs the residue observation to avoid O(n^3), so moderate confidence. prefix-sum + hash-map: genuine alternative O(n) route — longest subarray with sum ≡ r (mod k) inside each run via first occurrence of prefix residues (verified); kept at lower confidence since the gcd closed form is cleaner. Rejected: sliding-window/two-pointers (splitting into maximal equal-residue runs is a plain linear grouping, and the (L-1)·r condition is not monotone so no window shrink logic applies); greedy (taking the maximal run then the largest valid length is arithmetic, not an exchange argument); binary-search-answer (validity is not monotone in length — L=4 valid, L=3 invalid for residue 1, k=3); counting/dp (nothing counted or accumulated).",
+    "skeptic": "Solution: the proposal's algorithm matches mine exactly and is correct. Deleting x leaves S-x, so every x ≡ S (mod k), which means all elements share one residue r and S ≡ L·r, giving (L-1)·r ≡ 0 (mod k). The answer is the max over maximal equal-residue runs of 1 + floor((m-1)/p)·p with p = k/gcd(r,k). The O(n^2) scan is fine at n <= 2500. Patterns: modular-arithmetic KEEP (0.95). The congruence argument IS the problem, not an answer-mod-p wrapper. brute-force KEEP (0.6). The I/II split exists because n <= 2500 lets you enumerate start/extend in O(n^2), and the sibling II at 1e5 does not allow it. That matches corpus convention (maximum-valid-split-positions-i, longest-subarray-divisible-by-k-with-at-most-one-negation-i). The literal O(L) recheck per subarray is ~2.6e9 at n=2500, so you still need half of the modular insight (all residues equal) to get an O(1) check. Hence moderate confidence, not 0.9. gcd KEEP but lowered to 0.5 (from 0.7). It is the clean closed form L ≡ 1 mod k/gcd(r,k), a real number-theory step, not scaffolding. But version I's intended O(n^2) scan never computes a gcd, and even the linear route can avoid it by walking L down from the run length until (L-1)·r % k == 0 (verified, amortized O(n)). number-theory KEEP (0.6) as the family label. with_families() in annotate_problem_urls.py would re-add it from gcd/modular-arithmetic anyway. prefix-sum and hash-map REJECT, reasons above. They describe a third, over-engineered route, and they would make this record collide with the LC 974/523 'subarray sum ≡ 0 mod k' family. Missing labels: none. two-pointers/sliding-window would be scaffolding: the run split is a plain linear group-by, and the length condition is not monotone, so no window invariant exists. Nothing in the vocabulary names 'maximal runs of equal value'. counting/greedy/dp/parity-argument do not apply. TRAP binary-search-answer: correctly absent, and for a stronger reason than 'unnecessary'. Validity is NOT monotone in L (k=3, r=1: L=1 valid, 2 and 3 invalid, 4 valid, verified), so binary search on the length is wrong, not just overkill. TRAP near-miss pairs (bitmask-dp vs interval-dp analogue): no DP here. The near-miss that matters is I vs II, and the constraint decides it. brute-force belongs on I (n <= 2500) and must NOT be copied to II (n <= 1e5). The II proposal already omits it. The second near-miss is the prefix-mod hash-map family (Subarray Sums Divisible by K), which this problem resembles on the surface but does not need. That is why prefix-sum/hash-map are dropped. Summary: kept verbatim. It is 69 words, third person and accurate, states n up to 2500, and surfaces the non-obvious reduction (common residue r, (length-1)·r ≡ 0 mod k) plus both routes (per-run gcd or O(n^2) scan). It correctly doesn't mention the hash map."
+  }
+}

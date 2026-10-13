@@ -1,0 +1,57 @@
+{
+  "id": "codeforces-2273-f",
+  "title": "Pancho's Permutation",
+  "source_url": "https://codeforces.com/contest/2273/problem/F",
+  "solution": "Reformulate both conditions as prefix conditions. A prefix of length s is a permutation of 1..s iff its maximum equals s. A suffix of length L = n-s is a permutation of 1..L iff the complementary prefix of length s is exactly {n-s+1..n}, i.e. iff that prefix's minimum equals n-s+1. So a permutation is valid iff for every s in 1..n-1 the prefix maximum is > s and the prefix minimum is <= n-s. Let r be the number of unknown positions left after the one being filled. Every violation the choice can still cause is one of two kinds. Some are already decided: those at s before the next unknown position, and those at s after the last unknown position, which depend only on fixed values. Each of the others forces the a unknown positions up to s to receive exactly the a smallest (or a largest) remaining free values, which has probability 1/C(r,a). A union bound then gives at least r!(1 - 2*sum_{a=1}^{r-1} 1/C(r,a)) valid completions, about 0.77*20! = 1.88e18 >= 10^18 for r = 20. So until only 20 unknowns remain, a greedy step is exact. Fill each unknown with the smallest unused free value inside a window [lo, hi]. lo is one more than the largest s in the stretch of fixed positions up to the next unknown where the running max is still <= s, and hi is the smallest n-s where the running min is still > n-s. A next-unused pointer (DSU) finds that value; if none exists the answer is -1. The last R <= 20 unknowns are solved exactly with a counting DP. Whether a partial assignment is valid depends only on how many values are placed and on the min and max of the used free values, because values strictly between the current min and max can never change either. So the state (c, index of min, index of max) has O(R^3) states with O(R) transitions; from state (c,a,b) there are b-a+1-c interchangeable inner choices, plus new-min and new-max choices. Walk these counts in lexicographic order to read off the k-th completion, and output -1 if the total is below k. The total is O(n + R^4) per test with R = 20.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (prefix max/min reformulation, greedy with DSU next-unused for all but the last T=20 unknowns, (placed,min,max) counting DP for the tail) reproduces all 4 sample outputs (-1; 3 4 1 6 2 5; 3 1 4 2; 5 3 9 1 6 10 7 2 8 4). stress.py, two seeds, about 8,800 random cases, all agree. (1) 6,000 cases with n<=8, random fixed entries and k up to 5*10^4, checked against both a brute force over all permutations that tests the original prefix and suffix conditions literally and an independent bitmask DP over the free values with direct set checks. (2) 2,127 cases with n in 9..15, at most 13 unknowns, and the greedy threshold forced down to T=7/8/9 so the greedy phase actually runs, with k up to the union-bound guarantee for that T (624/10,367/132,480), checked against the bitmask DP. (3) 706 cases with n in 9..16 and k up to m!, checked against the bitmask DP. Also n=10^6 with half the entries unknown and k=10^18: the output is a valid permutation that matches the fixed entries, in 0.4s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "lexicographic-order",
+      "greedy",
+      "dynamic-programming",
+      "counting",
+      "permutation-counting",
+      "combinatorics"
+    ],
+    "tags": [
+      "permutation",
+      "greedy",
+      "dynamic-programming",
+      "combinatorics",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "lexicographic-order",
+      "permutation-counting",
+      "combinatorics",
+      "dynamic-programming",
+      "greedy",
+      "inclusion-exclusion"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "In this taxonomy 'counting' means frequency counting or aggregation. Its aliases are frequency-count, group-by, aggregation, pair-counting and frequency-array. Nothing here is a tally. Counting the valid completions is already permutation-counting, and combinatorics is its family label, so 'counting' is a duplicate of those two and not a separate idea."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "inclusion-exclusion",
+        "reason": "This is a genuine alternative way to count the tail, and it is the one I wrote independently, without the proposal. The answer is m! minus the completions with a sum cut minus those with a skew cut. The two events are disjoint for n>=2. The cut completions are counted by the first-cut recurrence g(i) = a_i! - sum g(j)(a_i-a_j)!, which is inclusion-exclusion over sets of cut points collapsed into a chain. It is the textbook count of indecomposable permutations. The proof that the greedy is exact is also a union bound over the same cut events. The proposal said 'not what one would write here', but it passes a brute-force stress test. Confidence is low because the proposal's (min,max) DP avoids it."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "lexicographic-order: the task is the k-th lexicographically smallest valid permutation, built position by position by skipping blocks of counted completions. greedy: the key observation is that all but the last ~20 unknowns get the smallest value that causes no already-decided violation, which is exact because the completion count is then at least 1e18. dynamic-programming: the tail is an exact counting DP over (placed, min index, max index). It is a generic DP, so it is listed explicitly. counting and permutation-counting: the core sub-problem is counting the valid ways to complete a partial permutation and using those counts to rank. permutation-counting gets lower confidence because this is ranking with fixed entries, not a closed-form count. combinatorics: the bound r!(1 - 2*sum 1/C(r,a)) is what makes only O(log k) positions matter, and it is the main insight. Rejected: bitmask-dp, because a 2^20 * 20 subset DP for each of up to 100 tests (sum n <= 1e6 still allows 20 unknowns per test) is about 2e9 operations and is not a viable full solution; the min/max compression is the real DP. union-find, because a DSU next-unused pointer is scaffolding (a sorted set works too). prefix-sum, because running prefix max/min is scaffolding. constructive-algorithm, because the answer is ranked by counting, not built by a construction. state-compression, because the term is ambiguous in this vocabulary and the compression to (min, max) is better described by dynamic-programming. inclusion-exclusion, because an inclusion-exclusion over 'cut' positions could count indecomposable permutations, but the solution does not need it and it is not what one would write here. Mathematical background (not a pattern): the all-unknown case counts permutations that are indecomposable from both sides.",
+    "skeptic": "The solution is correct. My independent derivation has the same structure: a k-th lexicographic walk over completion counts, a greedy phase while at least 20 unknowns remain because the union bound gives at least r!(1-2*sum 1/C(r,a)) completions, about 0.77*20! = 1.87e18 at r=20, and exact counting for the tail. My tail count used inclusion-exclusion with the first-cut recurrence. The proposal's uses a (placed, min, max) DP. Both were stress-tested and agree.\n\nAnswers to the caller's questions. (a) The permutation counting is real. The tail counts completions of a partial permutation in which no proper prefix is {1..s} or {n-s+1..n}. With no fixed entries these are the permutations that are both sum- and skew-indecomposable (1,0,0,2,22,202,...), so this is counting permutations with a property and more than a count inside a greedy. The proposal gave it 0.6 because this is ranking rather than a closed form, but ranking needs exactly these counts, so I raised it to 0.85. (b) 'counting' is not a separate idea from combinatorics: the taxonomy's 'counting' is frequency tallying, so I dropped it. combinatorics stays as the family that permutation-counting implies, and it also covers the factorial and union-bound argument. (c) The DP is generic dynamic-programming. The proposal's state (placed count, index of min, index of max of the used tail values) has no specific vocabulary label. state-compression would be wrong because in this corpus it is used almost only alongside bitmask-dp (about 70 records, nearly all bitmask or digit DP), and a searcher typing it expects a subset-mask DP. partition-dp does not fit the first-cut recurrence either, since that label means cost-optimal array segmentation.\n\ngreedy is kept at 0.6. It is the phase that makes n = 10^6 feasible: fill each early unknown with the smallest unused value that does not force a prefix to be {1..s} or {n-s+1..n}, using a [lo,hi] window. The union bound is what makes this exact, so it is more than the per-digit choice that lexicographic-order already covers. It is still the least defining label.\n\nTrap 1, binary-search-answer: it does not apply and was correctly not proposed. Nothing is binary searched. The k-th object is read off by subtracting block counts, and a linear walk is what anyone writes.\n\nTrap 2, bitmask-dp vs the compressed DP: the near-miss is a 2^R subset DP over the 20 tail values. With t <= 100 and sum n <= 10^6, every test can have 20 tail unknowns, which is about 100 * 2^20 * 20 = 2e9 operations, so it is not the solution. Feasibility depends only on the min and max of the used tail values, which collapses the subset to O(R^3) states. The first-cut DP is O(R^2) per count. So bitmask-dp, subset-dp and state-compression are all rejected, matching the proposal.\n\nI also agree with the proposal's other rejections. union-find is only a next-unused pointer, which is scaffolding. prefix-sum is wrong because running max/min is not a prefix sum. constructive-algorithm is wrong because the answer is ranked by counts, not built by a construction.\n\nSummary: it was accurate, third person, and contained the deciding constraints (n 10^6, k 10^18, 20! > 10^18) and the prefix max/min reduction. My only edit adds '(sum- and skew-indecomposable)' so a search for the mathematical name finds this problem. It is now 70 words, at the cap. Tags are unchanged, since 'counting' as a topic tag is harmless."
+  }
+}

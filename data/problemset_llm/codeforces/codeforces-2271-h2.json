@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2271-h2",
+  "title": "Personal Issues (Hard Version)",
+  "slug": "2271-h2-personal-issues-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/H2",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "games",
+    "trees"
+  ],
+  "statement": "The task asks for the optimal score difference in a tree game with n ≤ 2·10^5: from zeros x and y, players alternately zero a vertex, scoring when exactly one neighbor is zero. The value is 0 or 1, set by which x–y path vertex survives as the path shrinks from both ends; only hanging-subtree size parities matter, and a linear scan outward from the path's center decides it.",
+  "tags": [
+    "game-theory",
+    "tree",
+    "math"
+  ],
+  "patterns": [
+    "game-theory",
+    "parity-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823899,
+    "pattern_confidence": {
+      "game-theory": 0.95,
+      "parity-argument": 0.85
+    }
+  }
+}

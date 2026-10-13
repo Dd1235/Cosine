@@ -299,3 +299,46 @@ https://codeforces.com/contest/2269/problem/B
 https://leetcode.com/problems/minimum-rotations-to-dial-a-number-ii/
 https://leetcode.com/problems/maximum-alternating-subarray-sum-with-one-deletion/
 https://leetcode.com/problems/count-good-strings/
+
+# LeetCode / Biweekly Contest 193
+https://leetcode.com/problems/longest-resilient-subarray-i/
+https://leetcode.com/problems/longest-resilient-subarray-ii/
+https://leetcode.com/problems/minimize-inversions-in-a-prefix-tree/
+
+# LeetCode / Weekly Contest 523
+https://leetcode.com/problems/prime-subset-selection-i/
+https://leetcode.com/problems/design-bus-seat-booking-system/
+https://leetcode.com/problems/prime-subset-selection-ii/
+
+# Codeforces / Contest 2271
+https://codeforces.com/contest/2271/problem/A
+https://codeforces.com/contest/2271/problem/B
+https://codeforces.com/contest/2271/problem/C
+https://codeforces.com/contest/2271/problem/D
+https://codeforces.com/contest/2271/problem/E
+https://codeforces.com/contest/2271/problem/F
+https://codeforces.com/contest/2271/problem/G
+https://codeforces.com/contest/2271/problem/H1
+https://codeforces.com/contest/2271/problem/H2
+
+# Codeforces / Contest 2273
+https://codeforces.com/contest/2273/problem/A
+https://codeforces.com/contest/2273/problem/B
+https://codeforces.com/contest/2273/problem/C
+https://codeforces.com/contest/2273/problem/D
+https://codeforces.com/contest/2273/problem/E
+https://codeforces.com/contest/2273/problem/F
+
+# Codeforces / Contest 2274
+https://codeforces.com/contest/2274/problem/A
+https://codeforces.com/contest/2274/problem/B
+
+# Codeforces / Contest 2275
+https://codeforces.com/contest/2275/problem/A
+https://codeforces.com/contest/2275/problem/B
+https://codeforces.com/contest/2275/problem/C
+https://codeforces.com/contest/2275/problem/D
+https://codeforces.com/contest/2275/problem/E
+https://codeforces.com/contest/2275/problem/F
+https://codeforces.com/contest/2275/problem/G
+https://codeforces.com/contest/2275/problem/H

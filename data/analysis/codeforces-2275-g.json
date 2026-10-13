@@ -1,0 +1,56 @@
+{
+  "id": "codeforces-2275-g",
+  "title": "Copper Squander",
+  "source_url": "https://codeforces.com/contest/2275/problem/G",
+  "solution": "Profit = D - (weight of kept cables) - x*k(k+1)/2 where D is the total copper and k the number of new cables. Adding more than (components of the kept graph) - 1 cables never helps, and a kept cycle edge can always be sold, so the kept set is a forest with j edges and k = n-1-j. For fixed j the cheapest j-edge forest is, by the matroid greedy property, the first j edges Kruskal accepts, i.e. the j lightest edges of the minimum spanning forest (sorted weights w_1<=w_2<=...<=w_J, J = n - initial components). Going from j-1 to j kept edges costs w_j and saves one new cable worth x*(n-j); since w_j is non-decreasing and x*(n-j) decreasing, the objective is concave in j and the best j is the largest j with w_j < x*(n-j). Build the MSF with Kruskal + DSU once per test, prefix-sum its weights, and binary search the cut-off for each query (or sort queries offline and sweep). Answer = D - pre[j] - x*k(k+1)/2 with k = n-1-j (fits in 64-bit: about 2.5e18 max). Complexity O(m log m + q log n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (Kruskal+DSU MSF, per-query binary search on w_j < x*(n-j)) vs brute.py that enumerates every subset of kept edges, counts components c, and tries k in [c-1, c+1] new cables. Sample: both print 10 / 10 / 9 2 -5; the scraped expected output shows '10' then '9 2 -5' (the second test's line is missing from the scrape), and the third test's '9 2 -5' and first '10' match; the brute independently gives 10 for test 2 (sell all 4 edges = 20, add 4 cables = 10). Stress: 1500 random files of 1-3 tests, n<=6, m<=9 (simple graphs, possibly disconnected or m=0), q<=4, weights up to 3/20/500 and x up to 2/10/100: 0 mismatches. Max test n=1e5, m=2e5, q=2e5 runs in 0.47s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "minimum-spanning-tree",
+      "kruskal",
+      "union-find",
+      "greedy",
+      "binary-search"
+    ],
+    "tags": [
+      "graph",
+      "greedy",
+      "union-find",
+      "binary-search",
+      "sorting",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "minimum-spanning-tree",
+      "kruskal",
+      "union-find",
+      "binary-search",
+      "ternary-search"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "Redundant. The 'cheapest j-edge forest' step is Kruskal's matroid greedy restated, and the 'sell while the marginal is positive' rule is the concavity cut-off that binary-search/ternary-search already label. The corpus puts greedy on only 2 of its 19 kruskal records. Kept as a tag."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "ternary-search",
+        "reason": "Genuine alternative to binary search, and the judge tagged it. Profit as a function of the number of MSF edges sold is strictly concave: the marginal w_(r) - x*(c0-1+r) has w non-increasing and x*(c0-1+r) strictly increasing since x>=1. So integer ternary search per query is exact with no plateau problem. Implemented and stress-tested (1500 tests, 0 mismatches)."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "minimum-spanning-tree/kruskal: the core reduction is that the optimal kept set for every j is the j-edge prefix of Kruskal's minimum spanning forest. union-find: Kruskal's cycle check, also how initial components are counted. greedy: the matroid-greedy choice of cheapest forest edges plus the marginal rule 'keep edge j iff w_j < x*(n-j)'. binary-search: per-query search for that threshold (plain binary search on a monotone predicate, not binary-search-answer, since there is no feasibility check). Considered and rejected: binary-search-answer (no feasibility check, just a monotone marginal-gain predicate); ternary-search (the objective is concave in j so it works, but it is the same idea as binary searching the marginal sign); convex-hull-trick/li-chao-tree (answer is a max of lines in x, but nobody would write that here); offline-queries/two-pointers (sorting queries and sweeping is an equivalent alternative, too incidental to label); prefix-sum (scaffolding to read the sum of the first j forest edges); connected-components (only the initial component count, which Kruskal yields for free). Note: the scraped sample output lacks the second test's line; both solution and brute give 10 for it.",
+    "skeptic": "Solution: total copper D; kept edges should form a forest (a kept cycle edge can always be sold). With c kept components, exactly c-1 new cables are needed, costing x*(c-1)c/2. The cheapest j-edge forest is the j lightest edges of the minimum spanning forest (matroid greedy; all MSFs share the same sorted weight multiset). So: sell all non-MSF edges, then sell the r heaviest MSF edges; the r-th sale gains w_(r) - x*(c0-1+r), which is strictly decreasing, so the optimum is the largest r with a positive marginal. Binary search that per query in O(log n), or ternary search the concave profit, or sort queries offline and sweep. The answer can be negative because a disconnected start forces c0-1 cables (sample 3, x=10: -5). Fits int64: max x*k(k+1) is about 5e18. Patterns: minimum-spanning-tree and kruskal are the reduction (keep). union-find is Kruskal's cycle check; normally scaffolding, but kept for corpus consistency (16 of 19 kruskal records co-label it) and because DSU searchers expect MST problems. greedy rejected as Kruskal's greedy restated plus the concave cut-off (see rejected_patterns). binary-search: keep. Plain binary search on a monotone index predicate (sign of the marginal gain). TRAP binary-search-answer: correctly NOT used. Nothing has a feasibility test. The search runs over the number of edges sold, deciding where a strictly decreasing marginal crosses zero. Calling it binary-search-answer would be the 'answer is monotone' mislabel the brief warns about. ternary-search: ADDED. The judge tags it and it is a real, working solution (tern.py passes the same stress test). The proposal dismissed it as the same idea as binary search, but a user practising ternary search on unimodal functions should find this problem. TRAP bitmask-dp vs interval DP: not applicable, no DP of any kind. n up to 1e5 and q up to 2e5 force one O(m log m) MSF build plus O(log n) per query. Considered and not added: prefix-sum (scaffolding for the sum of the r heaviest MSF weights), offline-queries/two-pointers (optimal r is non-increasing in x, so sorting queries and sweeping works but is incidental), convex-hull-trick/li-chao-tree (answer(x) is a max of lines, but nobody would write that), connected-components (the initial component count c0 falls out of Kruskal). Summary: the proposal's 67-word summary was accurate. Rewrote it (70 words) to say the graph may start disconnected, to replace 'prefix of the Kruskal MSF' with the clearer 'sell the heaviest MSF edges while each beats the next cable's cost', and to name both binary and ternary search for lexical recall. Tags: added minimum-spanning-tree and ternary-search."
+  }
+}

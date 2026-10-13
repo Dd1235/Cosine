@@ -25,5 +25,6 @@
     "pattern_confidence": {
       "prefix-sum": 0.8
     }
-  }
+  },
+  "difficulty": 1000
 }

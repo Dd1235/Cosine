@@ -33,5 +33,6 @@
       "parity-argument": 0.8,
       "counting": 0.7
     }
-  }
+  },
+  "difficulty": 2000
 }

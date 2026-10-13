@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2271-f",
+  "title": "Beautiful Pillers",
+  "slug": "2271-f-beautiful-pillers",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/F",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "constructive algorithms",
+    "data structures",
+    "dp",
+    "greedy",
+    "implementation"
+  ],
+  "statement": "An array of n ≤ 2·10^5 values must be made beautiful, every index inside an equal-valued pair with only smaller values between, in the fewest assignments. Setting both ends to the maximum always works, so the answer is 0, 1 or 2. The maximum must repeat and the parts outside its first and last occurrences must be beautiful alone, so three candidate changes each need one O(n) monotonic-stack check.",
+  "tags": [
+    "array",
+    "monotonic-stack",
+    "stack",
+    "constructive-algorithm"
+  ],
+  "patterns": [
+    "monotonic-stack",
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "monotonic-stack": 0.8,
+      "constructive-algorithm": 0.75
+    }
+  }
+}

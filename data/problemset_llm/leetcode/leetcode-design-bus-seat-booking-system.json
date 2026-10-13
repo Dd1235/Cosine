@@ -1,0 +1,34 @@
+{
+  "id": "leetcode-design-bus-seat-booking-system",
+  "title": "Design Bus Seat Booking System",
+  "slug": "design-bus-seat-booking-system",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/design-bus-seat-booking-system/",
+  "source_topic": "LeetCode / Weekly Contest 523",
+  "difficulty": "Medium",
+  "acceptance_rate": 43.8,
+  "source_tags": [],
+  "statement": "The task is to design a bus booking class over n rows of seats A-D (up to 10^5 calls) supporting toggling a seat, the total booking time in toggle order (a window seat costs 3, not 1, if its adjacent middle seat was already booked), and the minimum total over all orders. A hash map of frozen per-seat costs keeps a running sum; the minimum is the booked-seat count.",
+  "tags": [
+    "design",
+    "hash-map",
+    "simulation",
+    "string",
+    "implementation"
+  ],
+  "patterns": [
+    "design",
+    "hash-map",
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791822024,
+    "pattern_confidence": {
+      "design": 0.97,
+      "hash-map": 0.8,
+      "simulation": 0.65
+    }
+  }
+}

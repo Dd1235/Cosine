@@ -25,5 +25,6 @@
     "pattern_confidence": {
       "game-theory": 0.95
     }
-  }
+  },
+  "difficulty": 800
 }

@@ -1,0 +1,55 @@
+{
+  "id": "codeforces-2271-c",
+  "title": "XOR Problem",
+  "source_url": "https://codeforces.com/contest/2271/problem/C",
+  "solution": "Let p_0=0, p_1, ..., p_k be the prefix XORs; a subarray (l, r) has XOR 0 iff p_{l-1}=p_r, so f(a)=sum over values v of C(c_v,2) where c_v is how many prefixes equal v. Hence beauty = (sum c_v) - 1 - sum C(c_v,2) = sum_v (c_v - C(c_v,2)) - 1, and c - C(c,2) is 0,1,1,0,-2,... for c=0,1,2,3,4,..., so each value contributes at most 1, attained only at c=1 or c=2. All elements are below 2^B where B is the bit length of n, so prefixes live in [0, 2^B) and the beauty is at most 2^B - 1; reaching it forces every value to appear once or twice, and the longest such array has every value exactly twice, length 2^{B+1} - 1. This is achievable: walk the prefix through the reflected Gray code of B bits (consecutive codes differ by one bit 2^j <= 2^{B-1} <= n, so the step element is a valid value) and stay on each code once by inserting a 0, giving a = [0, lowbit(1), 0, lowbit(2), 0, ..., lowbit(2^B - 1), 0]. Output length is under 4n, so total output is O(sum n) and the construction is O(n) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the sample (n=1 -> length 3, n=2 -> length 7; arrays differ from the sample's but any valid answer is accepted). Checker over every n=1..2*10^5: all elements in [0,n], length 2^{B+1}-1, beauty 2^B-1 by prefix-XOR counting (cross-checked against an O(k^2) definition-level subarray count for n<=64). Brute force 1 (C++): exhaustive enumeration of all arrays with definition-level f via incremental suffix XORs, n=1 up to length 14, n=2,3 up to length 11 -> max beauty 1/3/3 with max length 3/7/7, and beauty strictly decreasing past that length. Brute force 2 (C++): full reachability over states (current prefix XOR, per-value prefix counts capped at 5) for n=1..7 -> max beauty 7, max length 15 for n=4..7, matching the construction for all n=1..7. Worst-case output k for n=2*10^5 is 524287 <= 10^6."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-xor",
+      "constructive-algorithm",
+      "gray-code",
+      "bit-manipulation",
+      "counting"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "constructive-algorithm",
+      "math",
+      "prefix-sum",
+      "counting",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "prefix-xor",
+      "constructive-algorithm",
+      "gray-code",
+      "bit-manipulation"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "Scaffolding of the prefix-xor reduction. 'f = sum C(c_v,2)' is just how equal-prefix pairs are tallied, and 'c - C(c,2) <= 1' is a one-line per-value inequality. Nothing is counted as output and no counting technique (frequency tallying, combinatorial counting) appears in the solution. Elsewhere in the corpus, counting marks problems that count or tally frequencies, so a 'counting' query should not surface this construction problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "counting",
+        "reason": "Same reason as the pattern: the C(c,2) pair tally is part of the prefix-xor reduction, not a counting problem."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "prefix-xor: the whole bound comes from rewriting zero-XOR subarrays as equal prefix XOR pairs. constructive-algorithm: output is a built array, and the proof is an upper bound plus a matching construction. gray-code: the matching construction is a Hamiltonian walk over [0,2^B) where every step XOR is a single power of two <= n, i.e. the reflected Gray code (other walks with steps <= n also work, as the sample shows, but Gray code is the natural one). bit-manipulation: bit length of n bounds the reachable prefix values, step elements are lowbit(i). counting (lower confidence): f = sum C(c_v,2) and the per-value c - C(c,2) <= 1 argument is the core counting step. Rejected: hash-map (only my checker uses one), greedy (no greedy choice), dynamic-programming/bitmask-dp (no DP; the state search was only my brute force), combinatorics (C(c,2) is too thin to merit it), hamiltonian-dp (path is constructed directly, not searched).",
+    "skeptic": "Solution: correct and identical to my independent derivation. Prefix values lie in [0,2^B) because every element is < 2^B (B = bit length of n). Each value contributes c - C(c,2) <= 1, which is reached only at c in {1,2}. So the max beauty is 2^B-1, and the longest array reaching it has every prefix value exactly twice, giving length 2^(B+1)-1. Brute force and state search agree for n<=7.\n\ngray-code (KEEP, 0.7, lowered from 0.85): this is not the only walk. The sample's [2,2,1,0,2,0,1] is a different one. I also verified a non-Gray block walk for all bit lengths: for x = 0..2^(B-1)-1, visit x, x^top, x, x^top (steps of top <= n), alternating orientation so the jump between blocks is x^y < top. That gives arrays like [2,2,2,1,2,2,2] for n=2. Still, the reflected Gray code is the textbook way to visit every B-bit value using single-bit steps, and every such step 2^j <= 2^(B-1) <= n is a legal element. The other natural construction, the recursive A_B = A_(B-1), 2^(B-1), A_(B-1) (ruler / abacaba sequence with zeros), outputs exactly the Gray-code transition sequence. So most solvers write a Gray walk, whether or not they call it that. The corpus has only one other gray-code record (CF 1211-I), so this label also helps recall for a real 'gray code' query. Confidence is lowered because an equally short non-Gray walk exists.\n\nbit-manipulation (KEEP, 0.6): this is a borderline call, not a pure echo of the word XOR in the statement. Both the upper bound (XORs of values <= n stay below 2^B) and the legality of the construction (every 2^j with j < B is <= n because the top bit of n is 2^(B-1)) are bit-level arguments, and the output elements are lowbit(i). Ten of the corpus's 33 prefix-xor records also carry this label.\n\nprefix-xor (KEEP): the whole upper bound comes from the equal-prefix-pair rewrite. constructive-algorithm (KEEP): the answer is an upper bound plus a matching construction.\n\ncounting (REJECT): scaffolding of the prefix-xor reduction; see rejected_patterns.\n\nMissing labels considered: divide-and-conquer (the recursive A, top, A is only how the Gray sequence is generated, not a D&C algorithm), graph-modeling (the walk over values with edges XOR <= n is implicit and nobody builds a graph), greedy and combinatorics (no). None added.\n\nTrap 1, binary-search-answer: not applicable and correctly absent. There is no feasibility test; the answer is a closed form 2^(B+1)-1 with a direct O(n) construction, and nobody would binary search it.\n\nTrap 2, bitmask-dp vs interval DP (and hamiltonian-dp): not applicable and correctly absent. Hamiltonian-walk language describes the construction, but the walk is written down directly. With up to 2^18 prefix values, no subset or interval DP is possible. The state search over (prefix, counts) was only my brute-force verifier, as it was the proposal's.\n\nSummary: the proposal's text was accurate (66 words). I rewrote it to state the resulting length 2^(B+1)-1 and why the Gray walk is legal (single-bit steps never exceed n), since that is the constraint that makes the construction work. The new text is 67 words."
+  }
+}

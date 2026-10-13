@@ -1,0 +1,29 @@
+{
+  "id": "codeforces-2274-a",
+  "title": "The Projections of Paco",
+  "slug": "2274-a-the-projections-of-paco",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2274/problem/A",
+  "source_topic": "Codeforces / Contest 2274",
+  "source_tags": [
+    "implementation",
+    "math"
+  ],
+  "statement": "The task is to find the unique integer p such that a token at 0, reflected about p and then about points a_1..a_n on a number line (x -> 2c - x), ends back at 0, with n up to 10^5. Each reflection is its own inverse, so undoing them in reverse from 0 lands at 2p; equivalently, p is the alternating sum a_1 - a_2 + a_3 - ...",
+  "tags": [
+    "math",
+    "simulation",
+    "geometry"
+  ],
+  "patterns": [
+    "simulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "simulation": 0.65
+    }
+  }
+}

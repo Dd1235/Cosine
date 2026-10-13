@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2273-d",
+  "title": "Aura Battle",
+  "source_url": "https://codeforces.com/contest/2273/problem/D",
+  "solution": "The 10 rounds are a red herring. After the first answer p, x must be one of a-p, a+p, b-p, b+p (each kept only if it lies in [1,N] and really is at distance p from its nearer point), so at most four candidates remain. With two candidates you can query them both and lose 0 from then on. A 3-candidate set costs exactly ceil(min gap/2): put one point at the middle of the closer pair and the other on the far point. For the 4-candidate set {a-p,a+p,b-p,b+p}, round 2 costs at least its 2-center radius p, and querying (a+1,b+1), or the best of a few shifted midpoints, splits it into pairs for p+1. Write L=a-1, R=N-b, D=b-a with L<=R. The worst cases are then about 2L+1 (four candidates at p=L), R (x=N), D/2 (the midpoint) and 2*min(R,D/4) (three candidates). Minimising the maximum gives L:D:R = 1:4:2, so m is about 2N/7. For N=10^4, the first query is (1429, 7143), the worst total is 2857, and an exhaustive lower bound over every first query also gives 2857, so this is exactly m. The rest is O(1) per round. Rounds 3-10 cost 0.",
+  "solution_check": {
+    "verified": true,
+    "how": "I wrote an exact minimax brute force over candidate sets (brute.cpp) for N=1..45 with K<=4 rounds, and for N<=30 with K<=7. m stops changing from K=3 on, which matches 2N/7 + O(1). The Python strategy sol.py ran through a local interactor. On the sample (x=40) it lost 2777, within the 1e5 limit. In one run with t=10^4 battles covering every x=1..10^4, the worst total was 2857. bounds.cpp computes a lower bound valid for any strategy: round-1 loss plus the 2-center radius of the remaining set, over all 5e7 first queries (A,B) with 1<=A<=B<=N. That bound is also 2857, so the strategy is exactly optimal and well inside m+67=2924. A first query outside [1,N] already forces at least (N-1)/3. For N=3..45 I gave the strategy zero slack (limit = brute m) and tested every x: all passed. The strategy is deterministic, so testing every x also covers an adaptive interactor."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interactive",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "interactive",
+      "math",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interactive",
+      "constructive-algorithm",
+      "brute-force"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "brute-force",
+        "reason": "The judge tags it, and it is a real way to find the split. Once the endgame costs are known (0 for <=2 candidates, ceil(min gap/2) for 3, p+1 for 4), scanning all 5e7 first queries (a,b) with an O(1) worst-case evaluator takes about 0.5 s and returns the exact optimum (1429,7143). Only 2 pairs reach m exactly. The endgame costs themselves are most easily found by brute force over small sets, and the proposer's own sol.py picks the round-2 query for 4 candidates by enumerating about 50 shifted-midpoint pairs. The 1:4:2 ratio can be derived analytically, so the confidence is moderate, but brute force is how a reasonable solution gets there."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "interactive: obvious. constructive-algorithm: the answer is a constructed adversary-proof strategy. The insight is that after one reply at most four candidates a±p, b±p remain. After that the first query is set by case analysis and balancing worst cases (L:D:R = 1:4:2, m = 2N/7), and later rounds split the candidates at midpoints. Rejected: binary-search and binary-search-answer, because the 10 rounds invite halving but none happens; one reply already leaves at most 4 candidates. game-theory: it is a minimax against an adversary, but there is no two-player positional game, Nim or Grundy theory, so I kept it out to avoid misleading game-theory searches. 'minimax' is in the summary for lexical search. dynamic-programming and memoization: the minimax DP over candidate sets was only my brute-force checker, not the solution. brute-force: an offline search over first-query pairs confirms the bound but is not needed, since the 1:4:2 split is analytic. greedy and ternary-search: not used. math is a tag because the core is the analytic balancing of worst cases.",
+    "skeptic": "Solution: correct. My own derivation matches it. After one reply p, x is in {a-p, a+p, b-p, b+p}, with each value kept only if it lies in [1,N] and really is at distance p. Two candidates cost 0 for the rest, by querying both. You never need to know x, so the proposal's summary was wrong to say 'guess x'. Three candidates cost ceil(min gap/2), and the symmetric 4-set costs p+1 via a shifted pair such as (a+1,b-1) or (a+1,b+1); both are verified exactly by small minimax. With L=a-1, D=b-a, R=N-b, the worst case is max(2*min arm+1 for 4 candidates, min(2d, ceil(D/2)) for 3 candidates, the largest single distance), which balances at 1:4:2, giving m=2857 for N=10^4. The 10 rounds are a red herring; more rounds only force more payments, and m is fixed from K=3. Labels: interactive is kept (1.0). constructive-algorithm is kept (0.6): the deliverable is an explicit constructed query strategy, the 1:4:2 placement plus the shifted-midpoint split that pairs up the 4 candidates, and the corpus uses it this way on interactive strategy problems (9 of 21 interactive records), though the judge did not tag it. brute-force is added (0.5); see added_patterns. The proposer rejected it as 'the split is analytic', but a reasonable solution uses it and the judge tags it. game-theory is still rejected: it is a minimax against an adversary, but there is no positional game, Nim or Grundy theory, and a 'game theory' search would land on a stranger. TRAP 1, binary-search-answer: rejected. You could pose 'does some (a,b) give worst <= m?' as a monotone feasibility test, but nobody would; a direct minimum over pairs, or the analytic ratio, is what gets written. The 10 rounds invite halving, but one reply already leaves <=4 candidates, so plain binary-search is also absent. TRAP 2, bitmask-dp vs interval-dp: neither applies. There is no DP in the solution. The minimax DP over candidate sets (memoised on sets, N<=30) is only an offline checker, so dynamic-programming, memoization, game-dp and bitmask-dp are rejected. N=10^4 with at most 4 live candidates after round 1 leaves nothing for a state DP. Also not used: greedy, ternary-search (the cost is not unimodal in a useful single variable, and the scan or the analysis is direct) and simulation (the per-round candidate filtering is scaffolding). Tags: math, brute-force and implementation (the case handling for 2/3/4 candidates and boundary filtering) are added to match the judge's tags; interactive and constructive-algorithm are kept. Summary rewritten: the original said 'guess a hidden integer', which is inaccurate. The new one names the minimisation goal, the x<=10^4 bound, the four-candidate reduction, the 1:4:2 balance and the brute-force alternative, in 69 words."
+  }
+}

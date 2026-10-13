@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2271-e",
+  "title": "Array Emptying",
+  "source_url": "https://codeforces.com/contest/2271/problem/E",
+  "solution": "Each split nets one extra element, so with S splits the answer is n+2S, and the task is to minimise S. Splits have no precondition and only raise k, so an optimal schedule does all S splits first and then erases the resulting leaves in increasing order. With K=k+S, S is feasible iff the sorted leaves satisfy m_j <= K+j-1, which is the Hall condition #leaves<=u >= u-K+1 for every u in [K,n-1]. Feasibility is monotone in S (one more split never hurts), so we binary search S. To check one S, rewrite the condition in terms of split 'tokens' with exactly S of them: for every u, #tokens with value in (u,2u] - #tokens with value > 2u >= b(u) = u+1-n-2S-k+#{a_i>u}. Then sweep u from n-1 down to K. When the inequality fails at u, the only tokens that help are splits of leaves with value in (u,2u]. An exchange argument shows the smallest such leaf is best: its window [ceil(v/2),v) reaches lowest, and its -1 tail starts lowest. So we pop it from a min-heap of values that became eligible as u passed them. Its two halves (each <= u) join the pool and can be split later, so deep chains (x -> x/2 -> x/4) appear when they are needed. In the counter, every token is > u and only tokens > 2u count negatively, so a pointer gives O(1) updates. Any leftover budget is padded by splitting the smallest leaf, and the sorted condition is checked directly. One check is O((n+S) log n), for O(n log^2 n) total. Simpler greedies are wrong. Real-time 'split the smallest when stuck' fails on [1,4,4,4], k=0. A bottom-up 'largest element <= 2c, else chain' rule fails on n=16 cases where chaining a 12 (to 6 then 3) beats splitting a 4.",
+  "solution_check": {
+    "verified": true,
+    "how": "The final sol.py (binary search + top-down heap greedy) reproduces all 8 sample outputs (6 5 6 8 7 8 11 12). Ground truth: (1) a BFS over the real game state (multiset, ops), which matches the samples; (2) an exact DFS in the splits-first model, which agreed with the BFS on 3,000 random cases (n<=6, values up to 30). Stress of sol.py against the exact DFS: 648,622 random cases with n<=14 (BFS also asserted for n<=6), 67,947 cases with n<=30, and 80 cases with n in [35,70], all agreeing. On each of these, check(Y) was also evaluated for every Y in [0,2n+3] and found monotone. The prototype top-down greedy matched on 1.49M cases with n<=16, 76k with n<=30 and 397 with n<=45, while the 'pick largest' variant failed. Rejected rules each have exact counterexamples: real-time split-smallest, fixed-K largest-of-min-depth, and always-chain. Timing: n=2*10^5 single tests (all a_i=n, and random) run in about 0.5 s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "binary-search-answer",
+      "greedy",
+      "heap",
+      "exchange-argument"
+    ],
+    "tags": [
+      "greedy",
+      "binary-search",
+      "heap",
+      "math",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "binary-search-answer",
+      "greedy",
+      "exchange-argument"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "heap",
+        "reason": "Not the real data structure. In check(), values join the eligible set only as u+1 while u decreases, so each push is smaller than every value already there and the heap minimum is always the most recently pushed nonzero value. A plain stack gives the same answers on 20,000 cases (n<=40). The other heap only pads leftover splits. The proposal itself says a sorted multiset works just as well. Someone searching 'heap' would not be looking for this problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "heap",
+        "reason": "Same reason as the pattern: the min-heap works as a stack because values are pushed in decreasing order."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "binary-search-answer: the answer n+2S is monotone in the split count S. The feasibility check for a fixed S (a splits-first Hall condition plus a top-down greedy choice of which leaves to halve) is the whole difficulty, so this is the corpus-correct use of the label. No direct linear method was found: real-time greedies are provably wrong (counterexamples above). greedy: the check picks the smallest leaf in (u,2u] at each deficit. heap: a min-heap of eligible values is how that smallest leaf is found while halves keep entering the pool; a sorted multiset would work equally well. exchange-argument: it justifies both doing splits first / erasing in sorted order and preferring the smallest eligible leaf; confidence is moderate because it is the proof idea rather than code. Rejected labels: simulation (direct simulation is the wrong approach), sorting and prefix-sum and counting (scaffolding for the Hall-type count), dynamic-programming (none used), and divide-and-conquer or bit-manipulation (halving is not bit work here). Easy to miss: optimal splitting sometimes chains two levels deep on a large element rather than splitting a small one once. Depth <= 2 sufficed empirically under a_i <= n, but the greedy handles any depth.",
+    "skeptic": "SOLUTION: correct. sol.py matches the samples and an exact solver that enforces the real split rule on ~80k random cases up to n=24. Its algorithm: binary search S; for each S, sweep u from n-1 down to K=k+S on the token condition T(u,2u] - T(>2u) >= u+1-n-2S-k+#{a_i>u}, which I re-derived from #leaves>u = G(u)+T(>2u)-T(u,2u]. At each deficit it splits the smallest eligible leaf in (u,2u]. It ends with a direct sorted-leaf check. One inaccuracy, which does not change the answer: the proposal says splits 'have no precondition', but a split needs x > k (otherwise the operation erases), and the padding step may split a leaf <= k. My relaxed-vs-real BFS gives identical optima, and sol.py matches the exact solver that enforces the precondition, so the slip is harmless here. TRAP 1, binary-search-answer: KEEP. This is not a case of 'the answer is monotone so you could bisect'. (a) S is Theta(n), about 0.357n when every a_i=n, so trying each S with an O(n) check is O(n^2) at n=2e5. Something has to search over S. (b) The fixed-S check is where the difficulty lies, and it needs S as an input: S fixes the deficit (the -2S term), the sweep's lower bound K=k+S, and the token budget. (c) I tried to find a direct greedy, and every real-time rule I tried fails exhaustive comparison: split max, split min, one-step cascade lookahead, and 'largest x whose halves fit, else max/min'. Once nothing fits, the right choice is a depth-2 chain whose start depends on future slots ([5,6,6,6,6,7,7], k=0 wants the chain 7->4->2, while [6,10,6,5,10,7,8,5,5,5], k=0 wants 6->3->2 or 5->3->2). The proposal reports the same kind of failures for bottom-up rules. Caveat: I have not seen the official editorial, which might have a cleverer direct greedy, so confidence is 0.8 rather than 0.9. TRAP 2, bitmask-dp vs interval DP: does not apply. There is no DP. The constraint that decides the technique is n<=2e5 with S linear in n, and that rules out per-S scanning. greedy: KEEP. The check's choice of the smallest leaf in (u,2u] is the algorithm, and the 'erase ascending' order is also greedy. exchange-argument: KEEP at 0.6. It is the real proof of the key reduction: swapping an adjacent (erase, split) pair to (split, erase) keeps both legal, which gives splits-first and sorted erasure. It also justifies the smallest-eligible-leaf choice (a smaller v covers [ceil(v/2),v) lower and its -1 tail starts lower). The proposal's dominance argument ignores that a larger v's halves become eligible earlier, so that part rests on stress tests rather than a full proof. heap: REJECTED (see reason). Considered and not added: hall-theorem (b_j <= K+j is a sorted deadline check, not a Hall-matching argument anyone would search for), sorting/prefix-sum/counting (scaffolding), simulation (the real-time simulation greedies are wrong), dp (none). SUMMARY: rewritten. The proposal's second sentence was imperative rather than third person, and it left out the reductions that make the technique obvious: answer = n+2S and the sorted-leaf condition b_j <= k+S+j. The new summary is 69 words."
+  }
+}

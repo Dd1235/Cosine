@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2271-h1",
+  "title": "Personal Issues (Easy Version)",
+  "slug": "2271-h1-personal-issues-easy-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/H1",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "dp",
+    "games",
+    "trees"
+  ],
+  "statement": "The task is to find the optimal score difference in a tree game with n up to 3000: from zeros at x and y, players alternately zero a vertex, scoring when exactly one neighbor is zero. The value is always 0 or 1, so it reduces to a normal-play game over which x–y path vertex stays last, solved by interval DP on the path with free-move parity.",
+  "tags": [
+    "game-theory",
+    "tree",
+    "dynamic-programming",
+    "math"
+  ],
+  "patterns": [
+    "game-theory",
+    "game-dp",
+    "interval-dp",
+    "parity-argument",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823696,
+    "pattern_confidence": {
+      "game-theory": 0.95,
+      "game-dp": 0.85,
+      "interval-dp": 0.8,
+      "parity-argument": 0.8
+    }
+  }
+}

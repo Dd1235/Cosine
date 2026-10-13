@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2271-a",
+  "title": "Robot Odd Moves",
+  "source_url": "https://codeforces.com/contest/2271/problem/A",
+  "solution": "After k full operations the robot is at (k, y) where y has the same parity as k and |y| <= k, and every such y is reachable. During operation k+1, after the vertical move and before the right move, it stands at (k, y) with y of parity k+1 and |y| <= k+1. The x-coordinate only increases, so a point with x = a can be visited only at the end of operation a or in the middle of operation a+1. Hence: if a+b is even, the answer is a when b <= a and -1 otherwise (the mid-operation positions at x = a have the wrong parity); if a+b is odd, the answer is a+1 when b <= a+1 and -1 otherwise. Each test is O(1), so the whole input runs in O(t).",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 9-case sample (output 0 1 -1 2 3 3 6 1001 1000, matches). Brute force enumerated every up/down sequence of up to 12 operations (all 2^1..2^12), recorded the earliest operation count at which each point is visited (both mid-operation and end-of-operation positions), and compared with the formula on all 100 points with 0 <= a,b <= 9. All matched. The check is exhaustive there because any reachable point with a <= 9 is reached by operation a+1 <= 10."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument"
+    ],
+    "tags": [
+      "math",
+      "implementation",
+      "grid",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Nothing is constructed for output. The answer is one integer (a, a+1 or -1) from a parity test plus a bound. The only construction is the trivial zigzag that shows every y of the right parity with |y| <= x is reachable. That belongs to the proof, and no one has to write it. People searching 'constructive' want problems where the output is a witness (a sequence, a permutation or a path), and this record would be noise for them. The Codeforces judge tag 'constructive algorithms' is the loose CF habit of tagging any ad-hoc Div-A that way."
+      },
+      {
+        "tag": "implementation",
+        "reason": "The solution is a four-line parity case split. There is no simulation, no fiddly indexing and no case-heavy code. The judge did not tag it implementation either, and it matches the precedent of dropping 'implementation' from one-line Div-A records such as 2275-A."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "parity-argument: the whole solution is the observation that the y-parity at a given x is fixed by whether the robot is at the end of an operation (parity x) or in the middle of one (parity x+1), together with the bound |y| <= reachable steps. Rejected: simulation and brute-force (no search is needed, since the answer is a closed formula), greedy (there is no choice to make), manhattan-distance (the reachability cone is |y| <= x, not an L1 ball), and bfs (it works only as the brute force). For the tags, constructive-algorithm is borderline: showing that every y of the right parity within the bound is reachable is a small construction, but it is not a pattern label.",
+    "skeptic": "SOLUTION: correct. My own derivation matches the proposal exactly, and the brute force agrees on every point in [0,40]^2. PATTERNS. parity-argument: KEEP at 0.95. The whole problem is that the parity of y at a fixed x is set by the phase: parity x at the end of an operation, parity x+1 between its two moves. Add the bound |y| <= (vertical steps so far) and the answer is a closed-form case split. No other technique is used. CONSTRUCTIVE question from the brief: this is a pure parity test plus a bound, not a construction task. The output is one integer, so constructive-algorithm is rejected as a pattern (the proposal never had it as one) and now also as a tag (see rejected_tags). The zigzag that realises every reachable y is a one-line existence remark inside the proof. Nobody implements it, so labelling it would send people searching for constructive problems to a problem with nothing to construct. I agree with the proposal's other rejections. simulation/brute-force/bfs: a BFS over (x, y, phase) would pass at these limits, but it is the brute force rather than the technique anyone writes. greedy: there is no choice to make. manhattan-distance: the reachable set is the cone |y| <= x with a parity lattice, not an L1 ball. MISSING LABELS: I considered 'reachability', since the work is characterising the robot's reachable set and the corpus uses it loosely for 'which values can be generated' problems (1542-B, 1245-A). I left it out. It is mostly a graph term here, and the closest corpus precedent (LeetCode Minimum Bishop Moves, a grid parity-reachability problem) is labelled parity-argument without reachability. A searcher's 'robot reach grid point' wording is covered by the summary text. I also considered geometry, which the bishop precedent carries, and rejected it: nothing geometric is computed. TRAP binary-search-answer: does not apply. The answer is a direct O(1) formula, there is no feasibility test, and nobody would binary search it. TRAP bitmask-dp vs interval DP (near-miss labels): no DP. The near-miss pair here is constructive-algorithm vs parity-argument, the judge's 'constructive algorithms' tag against the actual technique. What decides it is that the output is a count, not a witness. TAGS: kept math and grid (it is a lattice-walk problem, matching the bishop precedent's math/grid tags). Dropped constructive-algorithm and implementation. SUMMARY: changed. The proposal's version was 76 words, over the 40-70 limit. It also left out the |y| bound that produces the -1 cases (for example (0,2)), and it did not say that the point between the two moves counts as visited, which is the statement detail that creates the a+1 case and the reason the answer is not just a. The rewrite is 70 words, third person, states both facts, and ends with the three possible answers."
+  }
+}

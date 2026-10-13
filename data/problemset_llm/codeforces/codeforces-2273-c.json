@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2273-c",
+  "title": "Matrix Puzzle",
+  "slug": "2273-c-matrix-puzzle",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2273/problem/C",
+  "source_topic": "Codeforces / Contest 2273",
+  "source_tags": [
+    "data structures",
+    "implementation",
+    "math",
+    "matrices"
+  ],
+  "statement": "For n×n matrices a, b (n ≤ 1000), q ≤ 2·10^4 operations add x to a submatrix of a or ask whether a submatrix of b−a splits as h_i + w_j. That holds iff every adjacent 2×2 mixed difference vanishes, so rectangle adds become four point updates of a 2D difference array and queries count nonzero cells with a 2D Fenwick tree, or per-row prefix counts since q is small.",
+  "tags": [
+    "matrix",
+    "data-structures",
+    "fenwick-tree",
+    "math",
+    "prefix-sum"
+  ],
+  "patterns": [
+    "difference-array",
+    "fenwick-tree",
+    "prefix-sum",
+    "segment-tree"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "difference-array": 0.95,
+      "fenwick-tree": 0.75,
+      "prefix-sum": 0.5
+    }
+  }
+}

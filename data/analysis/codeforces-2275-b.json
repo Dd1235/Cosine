@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2275-b",
+  "title": "Did Not Go to Print",
+  "source_url": "https://codeforces.com/contest/2275/problem/B",
+  "solution": "The printer memory is a LIFO stack: command '1' at step i pushes document i, command '2' pops and prints the top document if memory is non-empty (document i itself is then never printed) or prints document i if memory is empty, and command '3' prints document i directly. Simulate the n commands with an explicit stack and a printed[] boolean array, then output every index never marked. A document is unprinted exactly when it was scanned and never popped, or when its own command was '2' while the memory was non-empty. Each command is O(1), so the total is O(n) per test with sum of n up to 2*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the full 6-test sample: output identical to expected (diff clean). Brute force brute.py simulates the device literally (memory as a dict of doc->scan time, top found by max scan time each '2'). Stress: exhaustive over all strings of '123' for n=1..8 (9,840 cases) plus 20,000 random strings with n in 1..40, all matching. Timed n=2*10^5 random input: ~0.02s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "stack",
+      "simulation"
+    ],
+    "tags": [
+      "implementation",
+      "simulation",
+      "stack",
+      "data-structures",
+      "strings"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "stack",
+      "simulation"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "strings",
+        "reason": "The commands just come in as a string of characters. Nothing about the problem is string processing, and the tag would send 'string algorithm' searches to it. The proposal flagged it as droppable too."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "stack: the memory is literally LIFO (push on '1', pop top on '2'); the whole solution is maintaining that stack. simulation: the answer comes from replaying the commands step by step and marking printed documents. Rejected: greedy (no choice is made), hash-map (a boolean array indexed by document suffices, a set is incidental), sorting (indices are emitted in order by scanning 1..n), queue/deque (order is LIFO, not FIFO), brute-force (linear simulation is the intended approach, nothing is enumerated). Tag 'strings' only because input is a command string; could be dropped.",
+    "skeptic": "Solution: the proposal's algorithm matches mine and is correct (verified above). The one subtle point is that a '2' with non-empty memory prints someone else's document, so document i is lost. Sample 1 ('12' -> 2) exists to show this. Patterns: stack KEEP (0.95). The statement never says 'stack' ('placed on top', 'topmost'), so the label is a real identification and not an echo of the statement's wording. Someone searching LIFO/stack-simulation problems would want this one. A stack-free route does exist: it is bracket matching ('1' = open, '2' = close, '3' = no-op), and which brackets are matched can be found with two directional counters, which I verified. But that is a cleverer rewrite of the same LIFO matching, and stack stays the natural label. simulation KEEP, lowered slightly to 0.85. Replaying device commands step by step is the whole intended solution of this Div. 3 B, and the corpus has the same pairing elsewhere (asteroid-collision, codeforces-81-a, codeforces-1175-b). It is generic, but it is what a 'simulate the commands' searcher wants, and this is an easy problem with only two labels. Missing labels: none. The bracket-matching view has no vocabulary entry. queue/deque would be the wrong order (FIFO). greedy, counting, brute-force, hash-map and sorting all fail: no choice is made, nothing is counted or enumerated, and the output is emitted in index order. TRAP binary-search-answer: correctly absent. There is no answer parameter to search over, and the answer is a set of indices produced by one linear pass. TRAP near-miss pairs (bitmask-dp vs interval-dp analogue): there is no DP. The relevant near-miss is stack vs queue, and the statement's 'placed on top of everything already there' plus 'prints the topmost' decides it as LIFO. Tags: dropped 'strings' (input format only). Kept implementation/simulation/stack/data-structures, the corpus's usual CF-style set. Summary: the proposal's summary was accurate, but it did not surface the characterization that makes the answer easy to state: unprinted = still in memory at the end, or the document of a '2' step that popped someone else's. The rewrite adds that, keeps n up to 2·10^5, and is 70 words, third person."
+  }
+}

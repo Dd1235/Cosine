@@ -30,5 +30,6 @@
       "parity-argument": 0.95,
       "bit-manipulation": 0.9
     }
-  }
+  },
+  "difficulty": 1500
 }

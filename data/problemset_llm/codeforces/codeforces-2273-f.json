@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2273-f",
+  "title": "Pancho's Permutation",
+  "slug": "2273-f-pancho-s-permutation",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2273/problem/F",
+  "source_topic": "Codeforces / Contest 2273",
+  "source_tags": [
+    "constructive algorithms",
+    "dp",
+    "greedy",
+    "math"
+  ],
+  "statement": "The task is to find the k-th lexicographically smallest permutation of length n (n up to 10^6, k up to 10^18) consistent with partially erased entries, where no proper prefix or suffix is itself a permutation (sum- and skew-indecomposable). Equivalently every length-s prefix has maximum above s and minimum at most n-s; since 20! exceeds 10^18, early gaps are filled greedily and only the last ~20 are counted by DP.",
+  "tags": [
+    "permutation",
+    "greedy",
+    "dynamic-programming",
+    "combinatorics",
+    "counting"
+  ],
+  "patterns": [
+    "lexicographic-order",
+    "permutation-counting",
+    "combinatorics",
+    "dynamic-programming",
+    "greedy",
+    "inclusion-exclusion"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "lexicographic-order": 0.95,
+      "permutation-counting": 0.85,
+      "combinatorics": 0.8,
+      "dynamic-programming": 0.75,
+      "greedy": 0.6,
+      "inclusion-exclusion": 0.45
+    }
+  }
+}

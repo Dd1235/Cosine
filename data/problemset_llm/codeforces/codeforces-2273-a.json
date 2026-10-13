@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2273-a",
+  "title": "Lavencia Oranges",
+  "slug": "2273-a-lavencia-oranges",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2273/problem/A",
+  "source_topic": "Codeforces / Contest 2273",
+  "source_tags": [
+    "binary search",
+    "constructive algorithms",
+    "dp",
+    "greedy"
+  ],
+  "statement": "An array of length n (n up to 2·10^5, values in 1..n) must minimize max over i of i·c_i, where c_i counts values occurring exactly i times. At cost K, frequency i fits at most floor(K/i) values, so capacity is Σ i·floor(K/i) and every total up to it is reachable; the answer is the smallest K reaching n (at most 494), built greedily from the largest frequency down.",
+  "tags": [
+    "math",
+    "constructive-algorithm",
+    "greedy",
+    "counting"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "greedy": 0.8
+    }
+  }
+}

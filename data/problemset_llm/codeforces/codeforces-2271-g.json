@@ -1,0 +1,32 @@
+{
+  "id": "codeforces-2271-g",
+  "title": "Grid Filling",
+  "slug": "2271-g-grid-filling",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/G",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "constructive algorithms",
+    "greedy",
+    "implementation"
+  ],
+  "statement": "The task is to fill an n x m grid (n, m up to 1000, sums up to 1000) that full-length cuts split into rectangles, so each x-cell rectangle holds 1..x exactly once and side-adjacent cells differ, or report -1. It is impossible exactly when a height-1 strip exists and two width-1 strips are separated only by width-2 strips (or rows and columns swapped); otherwise a column-block construction works.",
+  "tags": [
+    "constructive-algorithm",
+    "grid",
+    "matrix",
+    "implementation",
+    "permutation"
+  ],
+  "patterns": [
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823863,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.96
+    }
+  }
+}

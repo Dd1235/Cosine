@@ -25,5 +25,6 @@
     "pattern_confidence": {
       "palindrome": 0.9
     }
-  }
+  },
+  "difficulty": 800
 }

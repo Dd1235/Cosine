@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2273-d",
+  "title": "Aura Battle",
+  "slug": "2273-d-aura-battle",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2273/problem/D",
+  "source_topic": "Codeforces / Contest 2273",
+  "source_tags": [
+    "brute force",
+    "implementation",
+    "interactive",
+    "math"
+  ],
+  "statement": "The task is to minimize worst-case total loss over 10 interactive rounds: each round two integers a, b are played against a hidden x in [1, 10^4], and min(|x-a|, |x-b|) is lost and revealed; the limit is m+67 for minimax optimum m. One answer leaves at most four candidates a±p, b±p, so only the first query matters; balancing its arms 1:4:2, or brute-forcing all pairs, gives m = 2857.",
+  "tags": [
+    "interactive",
+    "math",
+    "constructive-algorithm",
+    "brute-force",
+    "implementation"
+  ],
+  "patterns": [
+    "interactive",
+    "constructive-algorithm",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823696,
+    "pattern_confidence": {
+      "interactive": 1.0,
+      "constructive-algorithm": 0.6,
+      "brute-force": 0.5
+    }
+  }
+}

@@ -26,5 +26,6 @@
       "greedy": 0.9,
       "exchange-argument": 0.45
     }
-  }
+  },
+  "difficulty": 800
 }

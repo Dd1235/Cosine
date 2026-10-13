@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2271-b",
+  "title": "MEX Game",
+  "slug": "2271-b-mex-game",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/B",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "games"
+  ],
+  "statement": "The task is to decide a card-drafting game: Alice and Bob alternately take cards (n even, up to 2·10^5) until each holds n/2, and Alice wins if the mex_k of their hands (smallest number appearing fewer than k times) differ. A mirror (pairing) strategy reduces it to a frequency count: the first value with fewer than 2k copies decides, and Alice wins exactly when it has 2k−1 copies.",
+  "tags": [
+    "game-theory",
+    "math",
+    "counting",
+    "array"
+  ],
+  "patterns": [
+    "game-theory",
+    "mex"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "game-theory": 0.95,
+      "mex": 0.88
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2273-b",
+  "title": "Robot Championship",
+  "slug": "2273-b-robot-championship",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2273/problem/B",
+  "source_topic": "Codeforces / Contest 2273",
+  "source_tags": [
+    "constructive algorithms",
+    "math"
+  ],
+  "statement": "The task is to output at most 3n anti-diagonals r+c=v to shoot, one per second, on an n×n board (n up to 100) so that a hidden adversarial robot moving up, right or down-left is surely hit. The key invariant is that (r+c−t) mod 3 never changes, splitting robots into three classes; a sweep v, v−2, v−4, … from the top diagonal kills one class in about n shots.",
+  "tags": [
+    "constructive-algorithm",
+    "math",
+    "grid"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "parity-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823371,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "parity-argument": 0.6
+    }
+  }
+}

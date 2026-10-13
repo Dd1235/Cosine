@@ -31,5 +31,6 @@
       "constructive-algorithm": 0.9,
       "sorting": 0.5
     }
-  }
+  },
+  "difficulty": 800
 }

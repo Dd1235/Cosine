@@ -43,5 +43,6 @@
       "monotonic-stack": 0.75,
       "greedy": 0.8
     }
-  }
+  },
+  "difficulty": 2300
 }

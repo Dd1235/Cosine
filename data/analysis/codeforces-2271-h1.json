@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2271-h1",
+  "title": "Personal Issues (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2271/problem/H1",
+  "solution": "Key observation: from every reachable position the optimal future score difference, seen by the player to move, is 0 or 1 (checked exhaustively over every reachable state of random trees). Hence a position is worth 1 exactly when some scoring move leads to a position worth 0. Non-scoring moves never decide anything, and the problem becomes a normal-play game in which the only legal moves are scoring moves (zero a vertex with exactly one zero neighbour) and whoever makes the last such move wins. The answer is 1 iff Axial wins that game. In it, the zeros grow as two connected subtrees from x and y. If x and y are adjacent, all n-2 vertices get taken and the answer is (n-2) mod 2. Otherwise let x=v0,v1..vk,v(k+1)=y be the path and h_i the number of vertices hanging off v_i away from the path. The game ends when the path has shrunk to one vertex m adjacent to both subtrees: m and everything hanging off it are never taken, so the number of scoring moves is n-3-h_m, and the whole fight is over which path vertex stays last. Every vertex in an already released hanging subtree is an interchangeable 'pass' move, and by a pass-pairing argument only the parity of that pool matters. So run an interval DP over the remaining path segment [l,r] and the pool parity p. win[l][l][p]=p. For l<r the mover wins if eating v_l (to [l+1,r] with p xor h_l mod 2), eating v_r (to [l,r-1] with p xor h_r mod 2), or, when p=1, passing (to [l,r] with p=0) reaches a losing state. The answer is win[1][k][(h_0+h_(k+1)) mod 2]. BFS gives the path and the hanging sizes. The DP costs O(k^2) <= O(n^2) time (about 4.5M transitions at n=3000, within sum n <= 3000) and O(n) memory with rolling arrays by segment length.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (Python, BFS + O(k^2) interval DP) on the 4-case sample prints 1 1 0 0, matching. Brute force: brute.py / brute.cpp, an exhaustive minimax over all 2^n zero-sets maximising p-q with the real scoring rule (non-scoring moves allowed). The brute force also matches the sample. Stress tests, all identical: every caterpillar with path length k<=9, a 0/1 leaf on each inner vertex and a 0/1 leaf on x (1022 cases); 2400 random trees with n in [2,16] in three shapes (random parent, path-like, bushy); 120 random trees with n in [17,20]. The reduction was checked separately: over 150 random trees (n<=12), every reachable state has value 0 or 1 (27,598 states), and over 500 random trees, replacing each hanging subtree with a leaf of the same size parity never changes the brute-force answer. Timing: a bare path with n=3000 runs in 0.37 s and a 2000-path with 1000 random leaves in 0.21 s (Python 3.14)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "game-dp",
+      "interval-dp",
+      "parity-argument"
+    ],
+    "tags": [
+      "game-theory",
+      "tree",
+      "dynamic-programming",
+      "dfs",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "game-theory",
+      "game-dp",
+      "interval-dp",
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "dfs",
+        "reason": "The only traversal is one BFS/flood that finds the x-y path and counts the vertices hanging off it, and the proposal itself uses BFS. That is scaffolding. Someone searching dfs would find a parity game on a path, not a traversal problem. The judge did not tag it either; its 'trees' tag is kept as 'tree'."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "game-theory: an optimal-play two-player game, and the solution turns on game reasoning: the value is always 0 or 1, it reduces to normal play over scoring moves, and free moves act as passes. game-dp: the solution is a win/lose DP over game positions (path segment plus pool parity). interval-dp: the DP state is the still-untaken subpath [l,r] of the x-y path, shrinking from either end, like 'take from either end' games. That O(n^2) state space is exactly what n<=3000 permits, and it is what separates this Easy Version from H2 (n up to 2e5, which needs a closed-form or linear characterisation instead). parity-argument: the answer equals the parity of the number of scoring moves, hanging-subtree sizes and the free-move pool matter only mod 2 (pass-pairing), and the winner is set by whether n-3-h_m is odd. Considered and rejected: grundy-numbers (a single win/lose game, not a sum needing Sprague-Grundy values); tree-dp/subtree-dp (hanging sizes are plain counts from one traversal, not a DP over the tree); dfs/bfs as patterns (traversal only recovers the x-y path and subtree sizes, which is scaffolding, so dfs is kept only as a broad tag); greedy (the obvious 'always score when you can' does not determine which path vertex ends last); brute-force/backtracking (used only for the verifier); binary-search-answer, combinatorics, constructive-algorithm (not used). 'math' is a tag only.",
+    "skeptic": "Solution: correct. My independent derivation matches the proposal. (1) Lemma: the value from the mover's side is always 0 or 1. I checked this exhaustively over all states of about 5000 trees up to n=23. So V(P)=1 iff some scoring move leads to a V=0 position, and the game is normal play on scoring moves only, where the last scorer wins. (2) Scoring moves only extend the two zero components from x and y. The game stops when a single path vertex m, adjacent to both, is left. m and everything hanging off it are never taken, so Axial wins iff n-3-h_m is odd. If x and y are adjacent, every move scores and the answer is (n-2) mod 2. (3) A released hanging subtree is a game whose length is fixed whatever the players do, so its Grundy value is its size mod 2. A pool of such moves is therefore worth only its parity (*+*=0). That gives the state (l, r, p): eat v_l, eat v_r, or pass when p=1. Base case win[l][l][p]=p. It runs in O(k^2) <= O(n^2), which fits sum n <= 3000.\n\nPatterns. game-theory: keep. It is an optimal-play game, and the solution is the 0/1-value lemma plus the reduction to normal play. game-dp: keep. The algorithm is a win/lose DP over game positions. parity-argument: keep, and it is a real step, not decoration. The free-move pool collapses to its parity, hanging sizes matter only mod 2, the winner is set by the parity of n-3-h_m, and the adjacent case is (n-2) mod 2. Dropping any of these breaks the O(n^2) state. interval-dp: keep. This was the near-miss check. The state really is a contiguous segment [l,r] of the x-y path that shrinks from either end, plus 1 bit. It is not combined over split points, so it is not matrix-chain or partition-dp. It is the 'take from either end' interval-game DP, and the corpus labels the same shape interval-dp + game-dp: CSES 1097 Removal Game, AtCoder DP L Deque, and LC Final Element After Subarray Deletions (which is also a 'which element remains last' game). It is NOT tree-dp or subtree-dp mislabelled. No DP state is indexed by a subtree. The vertices off the path are plain counts from one traversal, and only their parity is used. No reasonable polynomial solution keeps per-subtree game states, because without the path reduction the game is exponential. So tree-dp, subtree-dp and rerooting-dp are rejected, and the judge's 'trees' tag is kept only as the 'tree' tag. The constraint decides it: n<=3000 with sum n<=3000 is exactly what allows the O(k^2) interval table. H2, with n up to 2e5, uses the same statement and needs a faster characterisation of that interval game.\n\nTrap 1, binary-search-answer: does not apply and was not proposed. The answer is 0/1 from a win/lose DP, and there is no feasibility test over a monotone parameter. Trap 2, bitmask-dp vs interval-dp: the 2^n minimax over zero-sets (my brute force and the proposal's) works only for n<=~23 and is a verifier only. With n up to 3000, bitmask-dp is not a label, and the interval DP over the path is what scales.\n\nOther rejections. grundy-numbers: the pool reduction uses the fact that a fixed-length game is *(L mod 2), but nothing computes or XORs Grundy values. It is a single win/lose game, so parity-argument covers it. bfs/dfs: scaffolding, both as patterns and as tags (dfs tag dropped). greedy: 'always score' does not decide which path vertex is left last. brute-force: used only in verification. memoization: the table is filled bottom-up by segment length, and the label adds nothing over game-dp/interval-dp.\n\nTags: dfs dropped (see rejected_tags). math kept because the proof-heavy 0/1 lemma and parity reasoning carry the solution. Summary: the proposal's version is accurate and 67 words. It includes n<=3000 and states the reduction. The only change is 'neighbour' to 'neighbor', to match the statement's spelling for lexical search."
+  }
+}

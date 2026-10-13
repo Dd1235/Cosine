@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2271-c",
+  "title": "XOR Problem",
+  "slug": "2271-c-xor-problem",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2271/problem/C",
+  "source_topic": "Codeforces / Contest 2271",
+  "source_tags": [
+    "constructive algorithms",
+    "graphs",
+    "greedy",
+    "math"
+  ],
+  "statement": "The task is to construct, for n up to 2·10^5, an array with elements in [0, n] maximizing its length minus the number of zero-XOR subarrays, taking the longest optimal one. Zero-XOR subarrays are pairs of equal prefix XORs, so each of the 2^B prefix values (B = bit length of n) must appear exactly twice (length 2^(B+1)-1), realised by a Gray-code walk whose single-bit steps never exceed n.",
+  "tags": [
+    "bit-manipulation",
+    "constructive-algorithm",
+    "math",
+    "prefix-sum",
+    "array"
+  ],
+  "patterns": [
+    "prefix-xor",
+    "constructive-algorithm",
+    "gray-code",
+    "bit-manipulation"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1791823696,
+    "pattern_confidence": {
+      "prefix-xor": 0.95,
+      "constructive-algorithm": 0.95,
+      "gray-code": 0.7,
+      "bit-manipulation": 0.6
+    }
+  }
+}

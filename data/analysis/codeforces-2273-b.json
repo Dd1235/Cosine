@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2273-b",
+  "title": "Robot Championship",
+  "source_url": "https://codeforces.com/contest/2273/problem/B",
+  "solution": "Let d = r+c be the robot's diagonal. Up and right change d by +1, down-left by −2, and both are +1 modulo 3, so u = d − t (t = seconds elapsed) never increases and changes only in steps of 3: the residue u mod 3 is an invariant, splitting all robots into three independent classes, and a shot v at second t can only hit the class (v − t) mod 3. To kill one class starting at second s, shoot its highest diagonal v0 ≤ 2n with (v0 − s) ≡ class (mod 3), then v0−2, v0−4, … until the value would drop below 2. Relative to this wall the robot's offset o = d − v changes by +3 (up/right) or 0 (down-left), so it is non-decreasing; every robot of the class starts with o ≤ 0 (o ≡ 0 mod 3, since v0 is the class's top diagonal), o = 0 means it is hit, so a survivor keeps o ≤ −3 forever. When the wall reaches 2 or 3 a survivor would need d ≤ v − 3 < 2, impossible, so the whole class is dead. A sweep from v0 ∈ {2n, 2n−1, 2n−2} takes at most n shots; doing it once for each of the three residues (each new sweep picks a class not yet swept, with its top diagonal recomputed for the current second) gives at most 3n shots. Construction is O(n) per test; the sum-of-n^3 bound only serves the checker, which simulates the set of reachable cells in O(n^2) per shot.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python construction (sol.py) checked by a belief-set simulator (start with all n^2 cells, remove the shot diagonal, expand by the three moves; valid iff the set empties within the shots and k ≤ 3n). Sample: the official outputs 3 3 3 (n=2) and 4 4 4 (n=3) are accepted by the checker; my outputs for the sample (4: 3 2 4 2; 7: 6 4 2 4 2 4 2) differ but are valid (any answer accepted). Every n from 2 to 100 checked valid, max length/n = 2.98. The simulator was cross-checked against an independent explicit DFS over every robot start cell and move sequence on 4000 random shot sequences (n=2..4, lengths 1..3n): 4000/4000 agreed (497 valid), and the DFS also accepts my construction for n=2..6. Exhaustive BFS over belief states gives optimal lengths 3,3,6,10 for n=2..5 (ours 4,7,10,13, limit 6,9,12,15). Also confirmed that a greedy 'shoot the diagonal that leaves the fewest cells' simulation fails for every n ≥ 4, so simulation/greedy are not solutions."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "parity-argument"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "math",
+      "grid"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "constructive-algorithm",
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the output is an explicit shot sequence, and the whole problem is finding a construction and proving it. parity-argument: the core insight is an invariant/colouring argument — every move shifts r+c by 1 mod 3, so (r+c−t) mod 3 is fixed and the robots split into three residue classes handled independently; it is a mod-3 rather than mod-2 invariant, hence 0.6, but it is the canonical label closest to 'invariant argument' (the summary spells out 'invariant' and 'mod 3' for text search). Rejected game-theory: although the robot is adversarial (pursuit-evasion), there is no game value, Grundy number or minimax to compute — the answer is a fixed open-loop sequence proved by an invariant. Rejected simulation and greedy: the n^3 bound exists for the checker's belief-set simulation; I tested a greedy 'pick the shot leaving fewest possible cells' simulation and it fails for all n ≥ 4. Rejected modular-arithmetic: mod 3 is used only as a residue classification, not modular computation; rejected interactive (the sequence is printed up front); rejected brute-force/bfs (BFS over belief states only works for n ≤ 5). Rejected two-pointers/sweep-line style labels: the 'sweep' is a descending wall of shots, not a line-sweep over events.",
+    "skeptic": "Solution: correct. I derived the same thing on my own before reading the proposal: every move changes d=r+c by +1 or -2, so d-t mod 3 never changes and robots fall into three classes. A wall v, v-2, v-4, ... starting at the class's top diagonal (2n, 2n-1 or 2n-2) and ending at 2 or 3 (4 also works) catches the whole class within n shots, because the offset d-v only grows, in steps of 0 or 3, and can never jump over 0. Three sweeps cover the three residues, for at most 3n shots. constructive-algorithm: KEEP (0.95). The output is an explicit fixed sequence; the whole problem is finding and proving it. parity-argument: KEEP (0.6). The caller asked whether it is the real impossibility proof or an echo of the statement. It is neither. This problem has no impossibility side (an answer always exists). The mod-3 invariant is the correctness proof of the construction. It is not a statement echo: the statement never mentions parity, residues or classes. It is load-bearing: three identical sweeps that ignore the residue bookkeeping fail exactly when n%3==0. It is mod 3, not mod 2, hence the moderate confidence. But the vocabulary has no generic 'invariant' or 'colouring' pattern, parity-argument is the closest canonical label, and the corpus already uses it for a non-mod-2 residue invariant (kattis-gameofdivisibility). The summary spells out 'invariant' and 'mod 3' so text search covers the exact wording. Considered and NOT added: modular-arithmetic. It sits in the number-theory group (aliases 'modular arithmetic', 'primes'), and nothing is computed mod anything; the residue is only a classification. A searcher typing 'number theory' should not land here. game-theory: the robot is adversarial, but there is no game value, Grundy number or minimax; it is an open-loop pursuit sequence proved by an invariant. interactive: the sequence is printed up front. simulation/greedy: the sum-of-n^3 bound is consistent with the checker's O(n^2)-per-shot belief-set simulation. Natural greedies fail: shooting the top or bottom alive diagonal, the most-populated diagonal, or the proposal's fewest-cells greedy (which fails at n=8,11,14,...). Only a tie-break-tuned 'fewest surviving diagonals' greedy happened to pass n=2..100. That is an unproven heuristic found by tuning, not a technique the problem teaches, so labelling it would mislead greedy/simulation searches. brute-force/bfs/bitmask-dp: BFS over belief states is exponential (works only for n<=5; it gives optimal k=3,3,6 for n=2..4). Trap 1, binary-search-answer: not applicable. The shot budget 3n is given, the minimum k is never asked for, and there is no feasibility predicate to search over. The answer is a direct O(n) construction. Trap 2, bitmask-dp vs interval DP: not applicable. There is no DP of any kind. n<=100 (n^2 up to 10^4 cells) rules out any bitmask over cells; the belief-set BFS is a checker or small-n experiment only, and no interval structure is optimised. Summary: 69 words, third person, accurate (d-t mod 3 is indeed invariant; each sweep is at most n shots). It includes the deciding constraint (at most 3n shots, n<=100) and surfaces the non-obvious reduction (mod-3 classes plus the step-2 down-sweep). Kept verbatim. Tags constructive-algorithm/math/grid match the CF tag conventions of neighbouring records (2267-b, 2268-b); kept."
+  }
+}

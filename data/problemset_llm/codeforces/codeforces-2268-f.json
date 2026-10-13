@@ -28,5 +28,6 @@
       "constructive-algorithm": 0.95,
       "parity-argument": 0.9
     }
-  }
+  },
+  "difficulty": 3500
 }

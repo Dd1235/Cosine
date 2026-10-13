@@ -30,5 +30,6 @@
       "prime-factorization": 0.85,
       "number-theory": 0.8
     }
-  }
+  },
+  "difficulty": 1200
 }

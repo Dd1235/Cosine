@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2271-b",
+  "title": "MEX Game",
+  "source_url": "https://codeforces.com/contest/2271/problem/B",
+  "solution": "Count occurrences c_v and let v* be the smallest value with c_{v*} < 2k. Alice wins iff c_{v*} = 2k-1. Bob's side is a mirror (pairing) strategy: pair up equal cards, leaving at most one unpaired card per value. When Alice takes a paired card Bob takes its partner. When she takes an unpaired card he takes another unpaired one, and one always exists because an odd number of cards remain after her move and the paired cards are even in number. So every value ends split with |a_v - b_v| <= 1. Each v < v* (c_v >= 2k) then gives both players at least k copies, and if c_{v*} <= 2k-2 neither gets k copies of v*, so both mex_k equal v*. When c_{v*} = 2k-1, any split of 2k-1 copies leaves exactly one player with at least k. Alice secures k copies of every v < v*: she answers each Bob take of such a value with the same value while she still needs it, and otherwise takes a value she still needs. Each such value has at least 2k copies, so Bob cannot exhaust it. If Bob is not full on some u < v*, his mex is below v* while hers is at least v*. Otherwise exactly one of them is full at v*, so one mex is v* and the other exceeds it. Either way they differ. O(n) per test with a frequency array.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py prints YES NO YES NO YES on the 5-test sample, matching the expected output. brute.py is an exact memoised minimax over (remaining counts, Alice counts); it also reproduces the sample. The closed form matched brute force exhaustively on all 2,439 count vectors with up to 4 distinct values, each count 0..2k+2, n even and <= 12, for k=1,2,3. It also matched 3,000 random cases with n<=14, k<=4 (mixed small values plus value n) and 1,500 random cases with n in {10..16}, k<=5, values<=3 (180 YES / 1,320 NO). There were 0 mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "mex"
+    ],
+    "tags": [
+      "game-theory",
+      "math",
+      "counting",
+      "array",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "game-theory",
+      "mex"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Nothing is constructed for output. The answer is YES/NO from one frequency check. The explicit strategies (Bob's pairing, Alice securing k copies) live in the correctness proof, and no submission has to build or print them. People searching 'constructive' want problems whose output is a witness, so this record would be noise for them. This follows the sibling review of 2271-A, which dropped the same tag for the same reason."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "game-theory: a two-player optimal-play game solved by explicit strategies (Bob's pairing/mirror strategy, Alice's take-what-Bob-takes strategy), not by search. mex: the win condition is a generalised mex_k, and the answer comes from scanning values in mex order for the first one with fewer than 2k copies. Rejected: game-dp and memoization, since the state space is never searched and minimax was only my brute-force check. parity-argument: considered at about 0.4 and left out. The key fact is floor/ceil splitting (|a_v-b_v|<=1, and 2k-1 cannot split below k on both sides), which is closer to pigeonhole than parity. Someone searching 'parity argument' would be poorly served. counting: kept as a tag only, because the frequency array is scaffolding for the scan. greedy: no greedy choice is involved. constructive-algorithm: kept as a tag only, because the proof builds explicit strategies but the output is YES/NO. Mirror/symmetric strategy has no canonical pattern; the summary states it so the words are searchable.",
+    "skeptic": "Solution: correct. My closed form and the proposal's are identical. The decisive value v* is itself mex_2k of the whole deck. A value with >=2k copies can be split so that both players get k. The first value with <2k copies is the one where at most one player can reach k. If c_{v*}<=2k-2, Bob's pairing/mirror strategy keeps |a_v-b_v|<=1 everywhere, so both players are full below v* and neither is full at v*, giving equal mex_k = v*. If c_{v*}=2k-1, Alice secures k copies of every v<v* (each has >=2k copies, so Bob cannot starve her). Then either Bob is short below v*, or exactly one player is full at v*, and the mex values differ. Linear time per test with n up to 2·10^5, so no state search is possible. PATTERNS. game-theory: keep. It is a two-player optimal-play game decided by explicit strategy arguments, and it is the first thing a searcher would type. mex: keep. The win condition is a generalised mex, and the solution's key quantity is a mex (mex_2k of all cards) found by scanning values in mex order. The word comes from the title, but the solution actually uses it, and 'mex game' is the natural query (cf. corpus record 1943-A 'MEX Game 1', also labelled mex + game-theory). CANDIDATES CONSIDERED AND NOT ADDED. greedy: the brief asks whether greedy names the winning strategy. It does not. Bob's strategy is copycat pairing, and Alice's is 'take a value you still need below v*'. Neither is a locally-optimal choice driving an algorithm. The algorithm is a single count check, and a 'greedy' query would get noise. 1943-A carries greedy because there Alice's grab-the-singleton choice IS the algorithm. That is not the case here. parity-argument: rejected, agreeing with the proposal. The answer is not a parity test: c_{v*}=2k-1 wins, but other odd counts such as 2k-3 lose. Parity appears only inside the pairing lemma (odd remaining implies an unpaired card exists), and that is proof scaffolding. counting: kept as a tag only. The frequency array is scaffolding. game-dp / memoization: rejected. Minimax appears only in the brute-force checker, and n<=2·10^5 rules it out as a solution. There is no canonical name for the mirror/pairing strategy in the vocabulary, so I added '(pairing)' to the summary to make that word searchable. The summary is now 68 words, third person, states n<=2·10^5 and surfaces the 2k / 2k-1 reduction. TRAP binary-search-answer: not applicable. There is no numeric answer to search and no feasibility test, only a single O(n) frequency scan. Nobody would binary search here. TRAP bitmask-dp vs interval DP: not applicable. There is no DP of any kind. Counts are up to 2·10^5 and the state (per-value split of a multiset) is exponential, which is exactly why the closed-form strategy argument is required. A careless annotator might add game-dp because it is a game, but the constraint rules any game search out."
+  }
+}

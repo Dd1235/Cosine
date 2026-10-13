@@ -1,0 +1,62 @@
+{
+  "id": "codeforces-2273-c",
+  "title": "Matrix Puzzle",
+  "source_url": "https://codeforces.com/contest/2273/problem/C",
+  "solution": "Let c = b - a. A submatrix is matchable iff c restricted to it has the form h_i + w_j, and a matrix has that form iff every adjacent 2x2 block has zero mixed second difference d[i][j] = c[i][j] - c[i+1][j] - c[i][j+1] + c[i+1][j+1] (necessity is immediate; for sufficiency, summing these differences shows c[i][j] - c[i][c1] - c[r1][j] + c[r1][c1] = 0, so h_i = c[i][c1], w_j = c[r1][j] - c[r1][c1] works). So query (r1,c1,r2,c2) is YES iff d is identically zero on rows r1..r2-1, columns c1..c2-1 (trivially YES if r1=r2 or c1=c2). Adding x to a rectangle of a subtracts x times a product of a row indicator and a column indicator from c, whose mixed difference is nonzero only at the four corner cells (r1-1,c1-1), (r1-1,c2), (r2,c1-1), (r2,c2): a 2D difference-array view in which each update is four point changes of d. Because d values can cancel, store the indicator [d != 0] in a 2D Fenwick tree (built in O(n^2)) and answer a query by counting nonzero cells in the rectangle via inclusion-exclusion of four prefix counts; an update toggles at most four indicators. Total O(n^2 + q log^2 n). With q <= 2*10^4 an O(n)-per-operation variant (per-row prefix counts of nonzeros, rebuilt for the touched rows) also passes.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (2D Fenwick over nonzero indicator of the 2D mixed difference) matches the sample output exactly (YES YES NO YES NO YES YES NO). Stress-tested against an O(n^2)-per-query brute force (apply updates literally, check c[i][j] = c[i][c1] + c[r1][j] - c[r1][c1]) on 3000 random files of 1-3 tests, n in [2,6], up to 15 ops, b built as a + h_i + w_j plus sparse perturbations so both answers occur (21052 YES / 2908 NO lines): 0 mismatches. Max-size test n=1000, q=2*10^4 runs in 0.4s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "difference-array",
+      "fenwick-tree",
+      "prefix-sum"
+    ],
+    "tags": [
+      "matrix",
+      "data-structures",
+      "fenwick-tree",
+      "math",
+      "prefix-sum"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "difference-array",
+      "fenwick-tree",
+      "prefix-sum"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "segment-tree",
+        "reason": "Kept out, but the proposal's reason ('nobody would choose it over a BIT') is factually wrong: in the round's comments two contestants say they used a 2D segment tree template. It is interchangeable, heavier machinery for point-update / rectangle-count. No lazy updates or non-invertible aggregates are involved, so it adds nothing a searcher needs beyond fenwick-tree."
+      },
+      {
+        "pattern": "lazy-propagation",
+        "reason": "Upheld rejection. The rectangle add looks like a 2D range update, but the mixed-difference transform turns it into four point updates."
+      },
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Upheld rejection. Each query is a yes/no check on a fixed rectangle; nothing is optimised and no answer is searched."
+      },
+      {
+        "pattern": "inclusion-exclusion",
+        "reason": "Upheld rejection. Only the routine four-term rectangle formula appears."
+      },
+      {
+        "pattern": "sqrt-decomposition",
+        "reason": "Upheld rejection. Periodic rebuilds would work but nobody needs them; the O(n)-per-op route is simpler."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "difference-array: the whole problem is the 2D second-difference reduction - matchable means the mixed 2x2 difference vanishes on the inner rectangle, and a rectangle add touches only four cells of that difference array. fenwick-tree: the natural structure for point toggles plus rectangle count of nonzero cells (2D BIT, O(log^2 n)). prefix-sum (lower confidence): the query is a 2D range count by inclusion-exclusion of prefix counts, and the small q admits a per-row prefix-count solution with O(n) rebuilds; it is more than one-shot scaffolding here but secondary. Rejected: segment-tree (a 2D segment tree would work but nobody would choose it over a BIT; no lazy needed since updates become point updates), lazy-propagation (the difference trick removes range updates), sqrt-decomposition (not needed), rolling-hash/randomized-algorithm (counting nonzeros is exact; hashing not required), constructive-algorithm (h and w are never built), inclusion-exclusion (only the routine 4-term rectangle formula), binary-search-answer (irrelevant). Tag 'math' for the rank/additive-decomposition characterization; 'matrix' for the 2D setting.",
+    "skeptic": "Solution: correct, verified as above. The point the proposal leaves understated is that nonzero-ness must be stored, because e values cancel. A BIT over raw e sums would be wrong; the proposal and my code both use the indicator.\n\nFenwick vs prefix-sum, the question the brief asked. A 2D Fenwick tree is NOT needed under the stated bounds. Sum of q is at most 2*10^4 against n up to 1000, so O(n) per operation is 2*10^7 in total, and my CPython per-row prefix-count version runs the worst case in 0.95s against a 2.5s limit. The setters chose q tiny relative to n^2=10^6, which a setter who wanted polylog per operation would not do. That reads as a deliberate allowance for O(n) or O(n log n) per op (per-row prefix counts or per-row 1D BITs). However, the operation shape (point toggles plus rectangle count) is the textbook 2D BIT setting, and strong solvers write that reflexively without checking q. The official CF tag is 'data structures', and the only solver reports in the round thread used a 2D tree structure (segment tree). So fenwick-tree stays the primary data-structure label (0.75: it covers the 2D BIT and per-row BIT routes). prefix-sum is kept as secondary (0.5): in the per-row route it IS the data structure, not scaffolding, though in the BIT route it is only the four-term query. I raised difference-array to 0.95 because it is the whole insight: the rank-one / h_i+w_j test is the 2D mixed difference, and the rectangle add becomes the classic four-corner 2D difference update. No labels added.\n\nSummary: the proposal's text was accurate. I rewrote it (70 words) so it names the per-row prefix-count route and ties it to the deciding constraint (q small), which also justifies the prefix-sum label.\n\nTrap 1, binary-search-answer: does not apply. Queries are independent yes/no checks on given rectangles, with no monotone parameter to search; correctly absent.\nTrap 2, bitmask-dp vs interval DP: no DP here. This problem's analogous near-misses are (a) lazy-propagation / 2D range-update segment tree vs difference-array, where the four-corner transform removes range updates entirely, and (b) fenwick-tree vs prefix-sum, which the q <= 2*10^4 constraint decides: both are valid, BIT primary, prefix counts sufficient. segment-tree is rejected as an interchangeable heavier tool, although real contestants used it."
+  }
+}
