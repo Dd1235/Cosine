@@ -33,5 +33,6 @@
       "constructive-algorithm": 0.6,
       "brute-force": 0.5
     }
-  }
+  },
+  "difficulty": 2600
 }

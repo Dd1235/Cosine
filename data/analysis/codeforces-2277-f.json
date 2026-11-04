@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2277-f",
+  "title": "Token Re-Moving",
+  "source_url": "https://codeforces.com/contest/2277/problem/F",
+  "solution": "Tokens only ever move up to an ancestor, so they never re-enter a subtree they left, and an operation on any proper ancestor of u empties subtree(u) for good. Hence the cost of operating on u under root r is S_r(u) (the initial subtree sum) if pos[u] is smaller than pos of every proper ancestor of u, and 0 otherwise. Flip it into a contribution per vertex: u pays for exactly the roots r whose path to u has all positions >= pos[u], i.e. the roots in u's component of the subgraph induced by vertices with pos >= pos[u]. Process vertices in reverse order of p and merge with union-find: when u is added, each already-present neighbour v brings a component N_v, and for every r in N_v the subtree of u is the whole tree minus the branch through v, so S_r(u) = A - B(u,v), where B(u,v) is S_1(v) if v is u's child in the tree rooted at 1 and A - S_1(u) if v is its parent; for r = u it is A. Adding a constant to an entire component is done lazily: the merge order forms the vertex-weighted Kruskal reconstruction tree (each component's top is its earliest-in-p vertex; the new u becomes the parent of the neighbours' tops), so put A - B(u,v) on the top of N_v, put A on u for r = u alone, and the answer for r is its own value plus the sum of tags on its reconstruction-tree root path, computed in increasing order of p. One DFS for rooted-at-1 subtree sums plus near-linear DSU gives O(n α(n)) per test, well within n up to 5·10^5 and 4 s.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) reproduces all 6 sample test cases exactly (diff against expected output). Brute force (brute.py) roots the tree at each r and literally simulates the moves; stress.py ran 3000 random cases with n in 1..9 (random recursive trees and paths, relabelled vertices, small a in 0..20 and 20% of cases with a up to 998244352 to exercise the modulus, random p): 0 mismatches. Timing: n = 5·10^5 random tree in Python runs in 0.95 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "union-find",
+      "contribution-technique",
+      "kruskal-reconstruction-tree"
+    ],
+    "tags": [
+      "tree",
+      "union-find",
+      "data-structures",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "union-find",
+      "contribution-technique",
+      "kruskal-reconstruction-tree"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "union-find: the core algorithm adds vertices in reverse order of p and merges each with its already-present neighbours, applying lazy component-wide adds. contribution-technique: the per-root answer is rewritten as a sum over operated vertices u of S_r(u) times an indicator, and each u's contribution is pushed to the set of roots it applies to (a component), which is the whole trick. kruskal-reconstruction-tree: the DSU merge structure keyed by vertex order is the vertex-weighted reconstruction tree (a.k.a. Cartesian tree of a tree); component-wide adds become subtree adds on it and answers are root-path sums, which is how one would implement it with Euler tour + Fenwick as an alternative. Rejected: rerooting-dp (S_r(u) = A minus the branch toward r is the all-roots subtree-sum identity from one DFS, not a reroot DP over answers); tree-dp/dfs (the single subtree-sum DFS is scaffolding); cartesian-tree (on a path the structure is literally the Cartesian tree of positions, but the canonical label means the array structure and kruskal-reconstruction-tree already covers it); offline-queries (no queries); fenwick-tree/euler-tour (only an optional way to do the subtree adds, the DSU tags are simpler); modular-arithmetic (answer mod p only). Could not reach the editorial (Codeforces 403, search found nothing), so labels come from my own verified solution.",
+    "skeptic": "Solution: proposal is correct and identical to my independently derived one. Tokens only move upward, so an earlier operation on a proper ancestor empties subtree(u) forever and later moves never refill it; operations on descendants only shuffle tokens inside subtree(u). Hence cost = S_r(u) iff u is the minimum-position vertex on path(r,u). Patterns: union-find KEEP (0.9): the core is activating vertices in reverse order of p and merging with active neighbours; without DSU there is no near-linear way to find the components. contribution-technique KEEP (0.72): the answer per root is rewritten as a sum over operated vertices u, and each u's contribution is pushed to the exact set of roots it applies to; that swap of summation is the central idea, not scaffolding. kruskal-reconstruction-tree KEEP (0.75): the brief asked whether a KRT is actually built or whether this is just DSU merging in sorted order. It is built: the set of roots for which u pays is exactly u's subtree in the vertex-weighted (min-by-position) reconstruction tree, a.k.a. Cartesian tree of a tree, as in CF 1797F. My implementation stores reconstruction-tree parent pointers (DSU rep = component top = earliest-in-p vertex, new u becomes parent of every neighbour's top) and answers by a root-path-sum DFS over that tree. DSU-with-offsets (potential) or small-to-large member lists with lazy tags are alternatives, but they carry the same tree implicitly. Not a stretch. Missing-label check: sorting REJECT, since p already gives the order and the solution only iterates it backwards, nothing gets sorted. offline-queries REJECT, since there are no queries (all-roots output, reverse activation is not query reordering). Small-to-large merging has no vocabulary label: dsu-on-tree means the sack technique on a rooted tree, which is not this, and the O(n log n) small-to-large with lazy tags is only a weaker implementation of the same component-add, so nothing added. rerooting-dp REJECT: S_r(u) = A minus the branch toward r is the standard all-roots subtree-sum identity from one DFS, not a reroot DP. cartesian-tree REJECT: the canonical label means the array structure, and kruskal-reconstruction-tree already covers the tree analogue. euler-tour/fenwick-tree REJECT: an optional way to do subtree adds, and a plain root-path DFS suffices. prefix-sum/tree-dp/dfs REJECT as scaffolding. modular-arithmetic REJECT: output mod only. connected-components REJECT: redundant with union-find. Trap binary-search-answer: not applicable and not proposed; nothing is binary searched, and the solution is a direct near-linear DSU pass. Trap bitmask-dp vs interval DP: not applicable; n up to 5·10^5 with no DP over subsets or intervals, and no exponential or cubic state fits. Tags: tree, union-find, data-structures, graph match corpus CF conventions; 'permutation' would be statement echo since p is only an order. Summary: the proposal's version (69 words) was accurate but said only that contributions go to 'whole components of roots', without saying which components or how the answers come out. Rewrote it (70 words) to state that the roots where u pays form its component among later-operated vertices, and that reverse-order union-find builds a reconstruction tree whose root-path sums give every answer. Patterns and tags unchanged; status 'changed' is for the summary only."
+  }
+}

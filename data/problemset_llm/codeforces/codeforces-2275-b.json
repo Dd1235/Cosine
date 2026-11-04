@@ -28,5 +28,6 @@
       "stack": 0.95,
       "simulation": 0.85
     }
-  }
+  },
+  "difficulty": 800
 }

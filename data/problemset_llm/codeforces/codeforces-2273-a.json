@@ -30,5 +30,6 @@
       "constructive-algorithm": 0.95,
       "greedy": 0.8
     }
-  }
+  },
+  "difficulty": 1300
 }

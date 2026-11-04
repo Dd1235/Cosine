@@ -1,0 +1,59 @@
+{
+  "id": "leetcode-count-magical-substring-pairs-i",
+  "title": "Count Magical Substring Pairs I",
+  "source_url": "https://leetcode.com/problems/count-magical-substring-pairs-i/",
+  "solution": "Enumerate the split point j (s1 ends at j, s2 starts at j+1). The choice of i only affects s1 and the choice of k only affects s2, so for a fixed j the number of magical triplets is sum over d=1..26 of L_j[d]*R_{j+1}[d], where L_j[d] is the number of starts i with distinct(s[i..j]) = d and R_{j+1}[d] the number of ends k with distinct(s[j+1..k]) = d. With n <= 2000 the direct way is to build both histograms by walking i from j down to 0 and k from j+1 up to n-1 while maintaining a seen-letters mask, which is O(n) per split and O(n^2) total (about 4·10^6 steps), plus 26 multiplications per split. The faster O(26n) route (needed for version II, n <= 10^5) uses the fact that distinct(s[i..j]) is monotone in i: either take the last occurrences of each letter up to j sorted descending, p1 > p2 > ..., so exactly p_d - p_{d+1} starts give d distinct letters (symmetric with next occurrences on the right), or run 26 sliding windows with at most d distinct characters and take exactly(d) = atMost(d) - atMost(d-1). Correctness: each triplet is counted once, at its own j, in the bucket of its common distinct count.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python: three solutions (O(n^2) split-and-scan, O(26n) at-most-d sliding windows, O(26n log 26) sorted last/next occurrences) all match the 3 samples (aba->2, kkk->4, abcac->7). Stress-tested all three against an O(n^3)-substring brute force on 2000 random strings with n in [2,14] and alphabet size 1..26, plus 30 strings with n in [30,120]; all agree. Timed n=2000 random: O(n^2) 0.23s, O(26n) 0.01s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "counting",
+      "brute-force",
+      "sliding-window",
+      "two-pointers"
+    ],
+    "tags": [
+      "string",
+      "counting",
+      "brute-force",
+      "sliding-window",
+      "two-pointers"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "counting",
+      "brute-force"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sliding-window",
+        "reason": "Carried over from version II. At n <= 2000 the intended solution walks every start/end once with a seen-letters array: no window ever shrinks, no at-most-d trick is needed. The atMost(d)-atMost(d-1) windows exist because II has n <= 1e5; the constraint is the only difference between the two problems, so labelling I with II's technique makes the pair indistinguishable to search, and the II record already answers a 'sliding window distinct characters' query."
+      },
+      {
+        "pattern": "two-pointers",
+        "reason": "Same carry-over as sliding-window, and doubly redundant: it is just the mechanism of that window (the proposal itself gave it 0.4). Nothing in the O(n^2) solution has two pointers."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "sliding-window",
+        "reason": "Version-II technique; not needed at n <= 2000 (see patterns)."
+      },
+      {
+        "tag": "two-pointers",
+        "reason": "Version-II technique / mechanism of the window; not used by the O(n^2) solution."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "counting: the core is fixing the split j and multiplying left/right histograms of distinct counts (independent choices of i and k). brute-force: n <= 2000 is exactly what admits enumerating every substring that ends at j / starts at j+1 for every split, O(n^2); this is what most would write for version I. sliding-window: the O(26n) technique that also solves it (and is required for II): count substrings with at most d distinct chars via a window per d, exactly = atMost(d) - atMost(d-1), the classic 'subarrays with K different integers' trick. two-pointers: the same window, lower confidence since it is the mechanism of the sliding window rather than a separate idea. Considered and rejected: hash-map / bit-manipulation (a seen-letters set or mask is scaffolding for distinct counting), prefix-sum (atMost differences are not prefix sums over an array), contribution-technique (we enumerate the split, not per-element contributions to a total), binary-search (monotonicity of distinct count in i could be binary searched with prefix letter counts, but nobody would write it given the direct linear routes), dynamic-programming (no recurrence).",
+    "skeptic": "Solution: correct. The proposal's split-and-histogram algorithm is what I derived independently; verified against an O(n^3) brute force. counting: KEEP. The core is the multiplication principle across the split: for fixed j the choice of i only touches s1 and of k only s2, so the count is sum_d L_j[d]*R_{j+1}[d]. That is the reduction a searcher needs and 'counting' is the vocabulary's term for it (combinatorics would overstate a single product rule). brute-force: KEEP, moderate confidence. Caveat: the literal brute force over triplets is ~1.33e9 at n=2000 and would TLE, so this is not 'enumerate the answer space'. But n <= 2000 is exactly what admits enumerating all O(n^2) substrings with incremental distinct counts, which is the intended solution and the thing that separates I from II; corpus precedent (longest-resilient-subarray-i, maximum-valid-split-positions-i) labels the small-n sibling brute-force for the same reason. sliding-window / two-pointers: REJECT, carried over from II (see reasons). Their only role in I is that the II solution also passes; at this size no reasonable solver needs a window, and I/II would otherwise be labelled near-identically when the constraint is the whole difference. Missing labels considered: hash-map / bit-manipulation (the seen set or 26-bit mask is scaffolding for distinct counting), prefix-sum (only if one counts distinct letters via 26 per-letter prefix arrays, O(26 n^2) scaffolding; not the idea), contribution-technique (triplets are partitioned by their split point, not summed as per-element contributions; note the II proposal does list contribution-technique, which is inconsistent with this rejection but is a question for II's review), meet-in-the-middle (no, that is for exponential halves). Nothing added. Traps: binary-search-answer - not proposed and not applicable; nothing is being optimised, and the monotonicity of distinct(s[i..j]) in i could be binary searched with per-letter prefix counts but nobody would write that over the direct O(n) scan per split. bitmask-dp vs interval DP analogue - the near-miss here is I vs II: n <= 2000 decides O(n^2) substring enumeration (brute-force), n <= 1e5 decides the O(26n) at-most-d sliding windows or sorted last-occurrence boundaries. Labelling I with sliding-window/two-pointers is the 'pair labelled identically' error. Summary: 69 words, third person, accurate, states n <= 2000, surfaces the split-point product reduction; kept verbatim."
+  }
+}

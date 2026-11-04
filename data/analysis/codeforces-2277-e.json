@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2277-e",
+  "title": "Tree Guessing",
+  "source_url": "https://codeforces.com/contest/2277/problem/E",
+  "solution": "Phase 1 (n-1 queries): for each v != 1 ask x=1 with p_v=n, p_1=n-1 and the rest arbitrary. Every path to 1 contains vertex 1, and it contains v exactly when i is in v's subtree, so the reply is n(n-1)+s(v), which gives every subtree size rooted at 1. Phase 2 (n-1 queries): place the vertices top-down in decreasing order of s. A parent always has a larger size than its child, so when v comes up all its ancestors are already placed, the placed set P is an ancestor-closed subtree with known parents, and v's subtree is still entirely unplaced. Query x=v. The unplaced vertices get values 1..m with p_v=m (the largest of them). The placed vertices get m+1..n in placement order, so values increase along every root-to-leaf path. Vertices in v's subtree then contribute exactly m. Any other vertex i contributes the maximum over the P-path from its anchor a(i) (the vertex itself if placed, else its deepest placed ancestor) to q=par(v), and with depth-increasing values that maximum is max(p_{a(i)}, p_q). The number of unplaced vertices anchored at u is k_u = s(u)-1-(sum of the sizes of u's placed children), which is known. So the reply for a candidate parent q is R(q) = sum_u (1+k_u)*max(p_u,p_q) - s(v)*p_q + s(v)*m. A candidate is feasible only if k_q >= s(v). For feasible q1 with p_{q1} < p_{q2}, the u=q1 term alone contributes (1+k_{q1})(p2-p1) >= (1+s(v))(p2-p1), so R(q2)-R(q1) >= p2-p1 > 0. R is therefore strictly increasing over the feasible candidates, and exactly one of them matches the reply. After placing v under q, update k_q -= s(v) and k_v = s(v)-1. That is 2n-2 queries in total. With prefix sums over the placement order each step is O(n), so the work is O(n^2) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solver (solution.py) run as a real stdin/stdout process against a pipe interactor (interactor.py). The interactor validates x and that p is a permutation, enforces <= 2n-2 queries and checks the final edge set. First checked that the interactor reproduces every reply in the sample transcript (6,7 / 10,13 / 10,11,13,16), then ran the solver on all 6 sample trees: OK. Exhaustive test against a BFS-evaluating oracle on every labeled tree for n=2..7 (1+3+16+125+1296+16807 = 18248 trees): all recovered exactly within 2n-2 queries. Then 3000 random trees with n<=60 (random/path/star/binary/caterpillar/broom/deep/mixed shapes) and 24 trees with n=500: all OK. Pipe runs: one n=500 test (998 queries, 0.16s) and a t=122 multi-test file with sum n=500: OK."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interactive",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "tree",
+      "interactive",
+      "constructive-algorithm",
+      "math",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interactive",
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "math",
+        "reason": "There is no number theory, combinatorics or algebra here. Decoding a reply is bookkeeping arithmetic, and Codeforces tags the problem only constructive algorithms, interactive, trees."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "interactive: the problem is query-based. constructive-algorithm: the whole solution is designing permutations p so that each reply decodes to one unknown. The first design isolates a subtree size, and the second uses depth-increasing values on placed vertices with the queried vertex as the maximum unplaced value, which makes the reply a strictly monotone function of the candidate parent. Rejected: binary-search and binary-search-answer (finding each parent by binary search costs about n log n queries, over the 2n-2 limit; the candidate match is a linear scan, even though R is monotone); dfs and tree-dp (no traversal or DP on the hidden tree; subtree sizes come from queries); sorting (ordering by subtree size is scaffolding); prefix-sum (only used to evaluate predicted replies quickly); contribution-technique (counting vertices per anchor is bookkeeping for the predicted reply, not the technique); greedy (nothing greedy).",
+    "skeptic": "Solution: confirmed correct. It matches my independent derivation: n-1 subtree-size queries, then one parent-decoding query per vertex taken by decreasing size, 2n-2 in total. The feasibility filter k_q >= s(v) is load-bearing. Without it my version tied on n=3, because the monotonicity argument only holds among feasible candidates. Patterns. interactive: KEEP, it is the problem format. constructive-algorithm: KEEP. The whole solution is designing two permutation families whose reply decodes to one unknown. Codeforces tags it 'constructive algorithms' too. Missing-technique hunt (the brief asked for it): binary-search over an order: NO. Two queries per vertex leaves no room for log n probes, and the parent comes from a linear scan over candidates. R(q) is monotone, but that only proves uniqueness; it is not a search. binary-search-answer TRAP: does not apply. There is no answer value and no feasibility test to bisect. centroid-decomposition / divide-and-conquer: NO. With 2n-2 queries a centroid-style approach would cost about n log n. Neither is used, and Codeforces does not tag them. dfs / bfs / BFS layers / dfs order (tin-tout, euler-tour, tree-flattening): NO. Depths and traversal orders are never learned. The placement order is simply 'parent before child', which comes from sorting by queried subtree size. sorting / topological-sort: REJECT as scaffolding. Decreasing subtree size happens to be a topological order of the rooted tree, but no toposort runs, and 'sorting' would mislead search. tree-dp / subtree-dp: NO. Subtree sizes come from queries, not from DP. contribution-technique: considered and NOT added. Predicting a reply means attributing each vertex's path maximum to the vertex that attains it (or summing #{i : max >= t} over thresholds). That analysis is real but secondary bookkeeping; the problem is about query design, not a sum-swap trick. prefix-sum: scaffolding, used only to make each step O(n). bitmask-dp vs interval-dp near-miss TRAP: no DP of any kind, so it does not arise. The deciding constraint is the 2n-2 query budget, which forces O(1) queries per vertex and rules out binary search and centroid schemes. Thin labels are correct here. This is a pure constructive interactive problem, and the CF tags (constructive algorithms, interactive, trees) agree. Summary rewritten. The proposal's version was accurate, but it named the subtree-size step without the query that produces it. The new one (70 words) states the p_v=n, p_1=n-1 trick and the decreasing-size placement."
+  }
+}

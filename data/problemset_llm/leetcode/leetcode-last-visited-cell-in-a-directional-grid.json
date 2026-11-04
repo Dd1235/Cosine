@@ -1,0 +1,32 @@
+{
+  "id": "leetcode-last-visited-cell-in-a-directional-grid",
+  "title": "Last Visited Cell in a Directional Grid",
+  "slug": "last-visited-cell-in-a-directional-grid",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/last-visited-cell-in-a-directional-grid/",
+  "source_topic": "LeetCode / Weekly Contest 524",
+  "difficulty": "Medium",
+  "acceptance_rate": 68.1,
+  "source_tags": [],
+  "statement": "The task is to follow arrows (L/R/U/D) from cell (0,0) of an m x n grid, with m*n up to 10^5, stopping when the next move would leave the grid or re-enter a visited cell, and to return the last visited cell. A direct simulation with a visited matrix works because each step reaches a new cell, so the walk takes at most m*n steps.",
+  "tags": [
+    "array",
+    "matrix",
+    "grid",
+    "simulation",
+    "implementation"
+  ],
+  "patterns": [
+    "simulation",
+    "grid-traversal"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792372,
+    "pattern_confidence": {
+      "simulation": 0.97,
+      "grid-traversal": 0.8
+    }
+  }
+}

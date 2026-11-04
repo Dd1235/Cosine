@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2278-c",
+  "title": "Math and Physics",
+  "source_url": "https://codeforces.com/contest/2278/problem/C",
+  "solution": "Mass is lost only when an end core is split, and the very last operation (two cores to one) always splits an end, so the loss is at least 1. If some interior core (position 2..n-1) has mass >= 2, split it first with no loss. Both of its neighbours now have mass >= 2, which starts a chain: remove cores one at a time toward the far end and then back toward the start, keeping one end core as the target. Every removal makes the next core >= 2, and only the final removal of the other end loses mass (choose x = 1). The answer is sum - 1. If every interior core is 1, every operation must split an end. That only adds mass to the new end and leaves the interior all ones, so each of the n-1 operations loses at least 1. Splitting with exactly 1 lost each time keeps the end >= 2, so the answer is sum - (n-1); this also covers n = 2. If all cores are 1, no move is possible and the answer is -1. Each test case is O(n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 3-case sample and got 9, -1, 12, matching the expected output. Wrote a memoised brute force that tries every split (x from 1 to v-1) at every position and takes the best mass among one-core states. Compared it with the formula on 3000 random arrays (n 2-6, values 1-4, weighted toward 1) and exhaustively on all 360 arrays with n 2-5 and values 1-3. No mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "constructive-algorithm",
+      "array",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "constructive-algorithm",
+        "reason": "The output is a single number, and no reasonable solution builds an operation sequence. The removal order (interior cores first, the far end last, x=1 on end splits) appears only in the proof that S-1 can be reached. That is proof scaffolding. The code is a sum and a max check over a[1..n-2]. Someone searching 'constructive' expects to output a construction, and this problem never asks for one."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Same reason as the pattern: only a number is printed, and the construction lives in the achievability proof."
+      },
+      {
+        "tag": "implementation",
+        "reason": "The solution is a few lines of closed-form case analysis. There is no simulation or coding-heavy bookkeeping that would earn 'implementation'."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "The solution is a lower bound plus a matching construction. greedy: an always-lose-1 split rule (x = 1 at the ends), and the choice of starting from an interior core to set off the chain reaction. constructive-algorithm (lower confidence): the proof needs an explicit order of removals that meets the bound. Only a number is printed, but the construction is the core insight. Considered and rejected: simulation (nothing is simulated, the answer is a closed form); brute-force; prefix-sum (only a total sum is used); parity-argument (the bound counts losses, not parity); dynamic-programming (no state is needed). The summary states the sum-1 / sum-(n-1) case split so that 'case analysis' and 'observation' searches find it.",
+    "skeptic": "Solution: a split of an interior core sends all of its mass to the neighbours, so no mass is lost. Splitting the current leftmost or rightmost core loses x >= 1 or y >= 1. With n >= 2, original core 1 or core n must be removed while it is an end, so the loss is at least 1. If some interior core has mass >= 2, removing it makes both neighbours >= 2, and the chain clears every interior core with no loss. The surviving end core then gets mass >= 2 and is split with x=1 into the target end, so the answer is S-1. If every interior core is 1, every legal move is an end split. Each such move leaves the interior all ones, so all n-1 moves lose at least 1 and the answer is S-(n-1), reached with x=1 each time. If every core is 1, no move is possible: -1. The statement says the process stops only when no operation is possible, which read literally would force the last core to split. The samples (9, 12) show the intended reading is to stop at one core. My brute force uses that reading and matches.\n\nPatterns. greedy: kept at moderate confidence. A real greedy choice is made: spend the free interior removals first and always lose exactly 1 on an end split (x=1). Nothing about it is scaffolding. The core of the problem is still the loss lower bound plus the case split, which no canonical pattern names. constructive-algorithm: rejected. Only a number is printed, and the construction appears only in the achievability proof.\n\nMath: the brief asked whether a math label belongs. 'math' is not in the canonical pattern vocabulary. The proposal already has it as a tag, which is correct, and I kept it. I checked every math-category canonical pattern and rejected each: parity-argument (the bound counts losses, not parity), number-theory, combinatorics, counting, modular-arithmetic and gcd. None is used. 'case-analysis' shows up as a legacy pattern on 32 records but is non-canonical, so the summary carries that phrase for search instead.\n\nOther candidates I rejected: simulation (the answer is closed form), prefix-sum (only the total is used), dynamic-programming, brute-force and exchange-argument (no swap argument is made).\n\nTrap 1, binary-search-answer: not proposed and does not apply. The answer comes from a direct closed form and there is no feasibility test to binary search. Trap 2, bitmask-dp vs interval DP: not applicable. No DP is involved, and n up to 2·10^5 with a_i up to 1000 rules out any state-space approach. The constraint only says O(n) per test.\n\nSummary: the proposal's summary was 80 words, over the 40-70 limit. It gave the answer formulas without the reduction behind them. The rewrite is 70 words. It adds that only end splits lose mass, keeps the n bound, and keeps the three-way case split."
+  }
+}

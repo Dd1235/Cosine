@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2276-a",
+  "title": "Perfect Sandwiches",
+  "source_url": "https://codeforces.com/contest/2276/problem/A",
+  "solution": "Let k be the number of sandwiches, with cheese counts c_i and sausage counts s_i. Every sandwich needs s_i >= 1, so k <= b. Every sandwich needs c_i >= s_i + 1, and summing over all sandwiches gives a >= b + k, so k <= a - b. If a <= b, no valid split exists and the answer is -1. Otherwise k = min(b, a - b) >= 1 is achievable: split the b sausage slices into k non-empty groups, give each sandwich one more cheese slice than its sausage count (b + k cheese used), and put the remaining a - b - k >= 0 cheese slices on any one sandwich, which keeps every inequality strict. The answer is therefore -1 if a <= b, otherwise min(b, a - b). That is O(1) per test case, which easily fits t <= 10^4 and a, b <= 100.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the statement sample (6 4 / 5 1 / 4 5); the output 2 / 1 / -1 matches. Wrote a memoised brute force f(a,b) that tries every (cheese, sausage) choice for one sandwich with cheese > sausage >= 1 and recurses on the rest, returning the max count or -1. Checked it exhaustively against the formula for all 1600 pairs 1 <= a, b <= 40: 0 mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No choice sequence, no exchange argument. The answer comes from two necessary bounds (k <= b, k <= a-b) found by summing the per-sandwich inequalities, plus a construction that meets them. The greedy a solver would actually write (as many minimal 1+2 sandwiches as possible) fails sample 1 (3 vs 2) and 73.5% of all inputs, so the label points searchers at the wrong idea. Codeforces' own 'greedy' tag is loose here; the corpus already keeps patterns [] for the same shape (codeforces-2266-a, CF-tagged greedy, closed form)."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same as the pattern: a greedy tag would still pull this up for 'greedy' queries, and the greedy reading gives the wrong answer."
+      },
+      {
+        "tag": "implementation",
+        "reason": "The whole solution is one comparison and one min; there is nothing to implement. Matches the codeforces-2266-a precedent (math, ad-hoc)."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "This is a math-formula problem. The solution sums the per-sandwich constraints (s_i >= 1, c_i >= s_i + 1) into two upper bounds on k, then shows the bound is reached by giving each sandwich the minimum excess cheese and dumping the leftover on one sandwich. The canonical pattern list has no 'math', so 'greedy' (minimum-per-unit allocation, leftovers to one bucket) is the only pattern that fits, at moderate confidence; 'math' is carried in tags. Rejected: constructive-algorithm (the output is a count, not a construction, and the construction only proves the bound); brute-force (looping k over 1..100 would also work, but no one would write it that way and it would mislead searchers); counting and parity-argument (neither appears in the solution); binary-search-answer (feasibility is monotone in k, but the check is trivial and the closed form is direct).",
+    "skeptic": "Verdict: the proposal's algorithm is right (-1 if a <= b, else min(b, a-b)); its label is not. 'math' is the honest description, and math is not in the canonical pattern vocabulary, so it lives in tags and patterns is left empty, as the pipeline already did for codeforces-2266-a. Candidates I checked and rejected: greedy (above). constructive-algorithm: the construction only proves the bound is reachable; the output is a number, and searchers using that label want to output a construction (contrast codeforces-2275-a, which outputs a point). counting / combinatorics: nothing gets counted or enumerated. parity-argument: no parity. brute-force: looping k over 1..b with the O(1) check is the formula in disguise. TRAP 1, binary-search-answer: feasibility is monotone in k (merge two valid sandwiches and c1+c2 > s1+s2 still holds, so k feasible means k-1 is), but the feasibility test is just the closed form k <= min(b, a-b), with nothing interesting to check, and nobody would binary search an O(1) answer. Rejected. TRAP 2, bitmask-dp vs interval DP (DP near-misses in general): no DP is needed. a, b <= 100 would allow an O(a*b*k) reachability DP (my brute force is one), but the small bound is because this is problem A, and the summed inequality settles it in O(1). No DP label. Summary: the proposal's summary called the bound 'greedy' and never said why a-b appears. The rewrite brings out the key step (each sandwich uses at least one unit of the cheese surplus a-b, and at least one sausage), keeps the constraints, and is 66 words."
+  }
+}

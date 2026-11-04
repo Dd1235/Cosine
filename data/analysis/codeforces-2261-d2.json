@@ -1,0 +1,57 @@
+{
+  "id": "codeforces-2261-d2",
+  "title": "Come Be My Friend, Don't Be So Scared (Hard Version)",
+  "source_url": "https://codeforces.com/contest/2261/problem/D2",
+  "solution": "Give every detector a random 64-bit value and take the XOR of the values covering each spot, using an XOR difference array. Spots with the same hash are exactly the spots that no detector can tell apart, and they fall into classes. Put a boundary vertex in each gap between neighbouring spots and merge gap 0 with gap n, so the boundaries form a cycle of n vertices. A detector [l,r] becomes the chord (l-1, r mod n), and two spots look the same iff the arc of gaps between them is a union of graph components. One consequence is that the classes form a non-crossing partition. For each class with sorted members c_1..c_s, union-find joins gap c_i with gap c_{i+1}-1 (taken cyclically, singletons included), which gives the blocks, or faces. Classes and blocks then form a planar tree in which class C has degree |C|. A new detector is a path between two blocks, and it splits every class it passes through. Each class has to end up with no proper cyclic arc of its gaps closed. Delete the singleton classes and let L be the number of leaf blocks (blocks touching exactly one non-singleton class). Every leaf needs its own detector endpoint, so at least ceil(L/2) detectors are required. That many always suffice: list the leaves in planar order, which is their order around the circle by smallest gap, repeat one leaf if L is odd, and pair slot i with slot i+L'/2. A closed proper arc of branches at some class would be an arc of slots that is unchanged by a half-turn, which is impossible. The answer is 0 if every class is a singleton and ceil(L/2) otherwise. Each pair of gaps (a<b) is printed as the detector [a+1, b]; it never repeats an existing detector, because existing chords stay inside one block. The whole thing runs in O((n+m) alpha + n log n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) reproduces all 7 sample answers; outputs checked for validity (1<=u<=v<=n, all signatures distinct). Brute force: tries every set of k added intervals for k=0,1,2,... and returns the smallest k that makes the signatures distinct. Compared with the brute on random cases: 1500 (n<=6), 400 (n<=8), 3x2000 (n<=7), 1000 (n<=8), with m drawn from 0 up to all n(n+1)/2 intervals. Every count matched and every construction was valid (0 mismatches). Large tests with n=m=2e5 (m=0, random short intervals, nested intervals) each run in under 0.2s, and the hash check confirms their outputs are valid."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "union-find",
+      "graph-modeling",
+      "randomized-algorithm",
+      "prefix-xor"
+    ],
+    "tags": [
+      "tree",
+      "graph",
+      "union-find",
+      "constructive-algorithm",
+      "data-structures",
+      "interval"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "graph-modeling",
+      "union-find",
+      "randomized-algorithm",
+      "prefix-xor",
+      "two-pointers"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "two-pointers",
+        "reason": "Judge tag, and a real alternative route: the minimal colliding windows (pairs of equal signatures with no equal pair nested inside) are exactly the jumps of the left pointer in the longest-distinct-window two-pointer sweep. My solution is hash + two pointers + antipodal pairing with no DSU at all, stress-verified against brute. The proposal rejected it only because it had not verified a two-pointer formulation."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "data-structures",
+        "reason": "Vague catch-all; the only data structure that matters (DSU) is already tagged union-find. Slot given to two-pointers to keep 6 tags."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the detectors have to be printed, and the antipodal leaf pairing (leaf i with leaf i+L/2 in planar order, the standard way to cover every tree edge with ceil(L/2) leaf-to-leaf paths) is the core of the problem. union-find: merges boundary gaps into faces/blocks, which builds the class-block tree. graph-modeling: the main reduction, where gaps on a cycle are vertices, detectors are chords, spots are equal iff a gap arc is a union of components, and that yields the planar class-block tree. randomized-algorithm: random 64-bit XOR hashes give each spot its signature (judge tag: hashing). prefix-xor: the signature is a prefix XOR of hashed endpoint values; this is the hashing mechanism rather than a one-off range read, but it is borderline, hence 0.5. Rejected: two-pointers (judge tag, but my solution has no such step and I have not verified a two-pointer formulation); dfs/euler-tour (the leaf order comes straight from circle order, so no explicit DFS is needed); difference-array and hash-map (scaffolding for the hash); connected-components (subsumed by union-find); greedy and tree-dp (not used). Versus D1 (m=0): there the answer is just the formula ceil(n/2) for n>=2. D2's 2400 difficulty comes from the class-block tree, its leaf count and building the construction under arbitrary existing detectors.",
+    "skeptic": "SOLUTION: proposal correct. Its cycle/class-block-tree argument (answer ceil(L/2) over leaf blocks) and my linear formulation agree on every tested case. Mine: segments [l,r] = edges (l-1,r) on gap vertices 0..n; spots i<j collide iff gap interval [i,j-1] (inside [1,n-1]) is a union of components. Minimal closed intervals are disjoint; each needs an added edge with exactly one endpoint inside, so >= ceil(k/2). Antipodal pairing t<->t+k/2 leaves only intervals containing all k windows as possibly closed; for k even, if some old collision encloses all windows (exists x<=a_1, z>=b_k with P_x=P_z), one extra edge to gap 0 is forced (all k/2 edges must lie inside the hull). The proposal's identification of gap 0 with gap n folds exactly this +1 into the leaf count. PATTERNS: constructive-algorithm keep (must output the detectors; antipodal pairing is the core). graph-modeling keep (the segment->edge-between-gaps reduction and 'collide iff union of components' is the key non-obvious step and the basis of the lower bound). union-find keep at 0.75: judge tag (dsu), the proposal's block construction, and a deterministic signature-free route (DSU spans lo/hi per component, interval closed iff min lo >= i and max hi <= j) all use it; my hash+two-pointer solution shows it is not strictly required, hence not higher. randomized-algorithm and prefix-xor: these do reflect genuine XOR hashing (random 64-bit per detector, XOR difference array, prefix XOR gives each spot's signature) - it is the judge's 'hashing' tag and the route both solutions take. It is not strictly forced (the DSU-span check is deterministic), but it is what most solvers write. The vocabulary has NO xor-hashing label; rolling-hash/string-hashing/rabin-karp are polynomial string hashes and would be wrong; hash-map is just the grouping dict (scaffolding). randomized-algorithm + prefix-xor is the closest canonical pair and matches this batch's precedent (codeforces-2275-f uses exactly that pair for XOR hashing). Kept prefix-xor at 0.5 since it is the mechanism of the hash rather than a standalone technique. Summary now says 'XOR hashing' verbatim so the lexical channel catches that query. two-pointers ADDED (see added_patterns). Considered and not added: sliding-window (same step, two-pointers is the judge's name), hash-map (scaffolding), connected-components (subsumed by union-find), dfs/euler-tour (not needed), bridge-tree (the 'cover tree with ceil(L/2) leaf paths' idea resembles 2-edge-connectivity augmentation but there are no bridges here). TRAPS: binary-search-answer - not proposed and correctly absent; the answer is a closed form from k (no monotone feasibility search). bitmask-dp vs interval-dp - not applicable, no DP of any kind is involved; n,m up to 2e5 rule out anything but near-linear. SUMMARY: proposal's was accurate and in range (69 words) but leaned on unexplained jargon ('class-block tree', 'planar order') and did not state the reduction. Rewritten to 70 words: keeps n,m<=2e5, says XOR hashing, states the segment-as-edge / union-of-components reduction, names the two-pointer window step and the antipodal pairing with the ceil(k/2)-or-one-more answer. D1 vs D2: D1 (m=0) is the closed form ceil(n/2) for n>=2; D2 labels must not inherit D1's simplicity - the hashing, reduction and pairing only appear here."
+  }
+}

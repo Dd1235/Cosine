@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2277-d1",
+  "title": "Number Operating (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2277/problem/D1",
+  "solution": "A maximal run of a consecutive Operation 1s adds 1+2+...+2^(a-1) = 2^a - 1, and consecutive runs need at least one Operation 2 between them, so with runs a_1..a_m and c >= m-1 decrements, n = sum(2^(a_i)-1) - c at cost sum a_i + c. Writing c = (m-1)+d and a_i = b_i+1 gives sum(2^(b_i)-1) = (n-1+d)/2 at cost sum(b_i+2) - 1 + d, so f(n) = h(floor(n/2)) - (n mod 2) (f(0)=0, h(0)=2), where h(w) is the cheapest way to write w as a sum of Mersenne numbers 2^b - 1 (cost b+2 each) minus an excess e (cost 2 per unit). Exchange arguments fix the shape of an optimum: two equal terms 2^c-1 (c>=1) can be merged into one 2^(c+1)-1 plus one unit of excess without increasing cost, so terms are distinct; then the largest term must be 2^b-1 or 2^(b+1)-1 where 2^b-1 is the largest Mersenne number <= w (distinct smaller terms sum to less than w, and anything bigger can be halved to save cost); and if it is the overshoot 2^(b+1)-1 nothing else is added. Hence h is computed by walking the greedy chain: at each step record the overshoot candidate (cost so far + b+3 + 2(2^(b+1)-1-w)), then take 2^b-1 (cost b+2) and continue on the remainder; the answer is the minimum over the chain and the exact greedy finish. Each f(n) costs O(log n) (about 60 steps), and since the sum of r-l+1 is at most 2*10^5 every n is evaluated individually, O(sum(r-l+1) * log r) overall.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (work/codeforces-2277-d1/sol.py) prints 6, 6, 7, 25383, 102936941 on all five samples, matching expected (0.54s incl. the 10^5-length range near 10^18). Brute force: BFS over states (x, current streak k) with x in [-40, 4N+200], k<=14; f(n) matched for every n in 0..4000 (0 mismatches), plus 2000 random [l, r] range sums within 0..1500 matched mod p. Independent check of the reduced problem: unbounded coin-change knapsack over coins 2^b-1 (cost b+2) up to 2^18 with suffix-min for the excess, compared with the greedy-chain h(w) for every w in 1..131072: 0 mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "bit-manipulation"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "bit-manipulation",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "bit-manipulation",
+        "reason": "There are no bitwise tricks, masks, XOR/AND/OR, or per-bit decisions. The solution only uses Mersenne numbers 2^b-1 and one bit_length() call to find the largest term <= w. The greedy chain walks a skew-binary decomposition, not the binary digits of n. Labelling it a pattern echoes the statement's 2^k. The D2 review already demoted it to a tag for the same reason, and D1 should agree. It stays as a tag."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "A vague catch-all. The whole solution is a roughly 10-line loop per n, and the difficulty is in the math and the greedy proof. The tag would pull implementation and simulation queries onto a problem that is neither."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "greedy: the core is the largest-Mersenne-number-first decomposition with a single overshoot alternative at each step, proved by exchange arguments. bit-manipulation: everything is in terms of powers of two / 2^b-1 and bit_length of w+1. Considered and rejected: digit-dp and memoization (needed only by D2, where the range length is unbounded and f must be summed over [l, r] by walking skew-binary digits; here sum of r-l+1 <= 2*10^5 lets each n be evaluated directly); dynamic-programming / knapsack / unbounded-knapsack (coin change over Mersenne numbers is only the brute-force check, infeasible for values up to 10^18); shortest-path / bfs (only the brute force); exchange-argument (used in the proof, not a technique a solver would search for here); brute-force (iterating every n in the range is the easy-version allowance, each f(n) is still the greedy); modular-arithmetic and prefix-sum (scaffolding for the mod-p sum).",
+    "skeptic": "SOLUTION: correct, and it matches my independent derivation. A run of m adds contributes 2^m-1, and runs are separated by at least one decrement. Pairing each run with its separator gives 2(2^(m-1)-1), so f(2k+1) = H(k)-1 and f(2k) = H(k), with f(0)=0 and H(0)=2. Here H(w) = min over W >= w of [cheapest sum of Mersenne terms 2^b-1, cost b+2 each, equal to W] + 2(W-w).\n\nOVERSHOOT, DP OR GREEDY? The overshoot does not turn this into a DP or a memoised recursion. Overshooting with 2^(b+1)-1 already covers all of w, so that branch ends immediately. The recursion min(overshoot_terminal, (b+2) + H(rest)) is a single chain of at most about 60 steps that keeps a running minimum: no overlapping subproblems, no table, nothing for a memo to reuse. Each n is solved once in O(log n), and sum(r-l+1) <= 2*10^5 makes that enough. Memoization and digit-dp belong only to D2, where r-l is unbounded and f must be summed over blocks. Pure greedy is not enough by itself: without the overshoot candidate it fails 8711 of 20001 values (first at n=10). The summary's 'with an overshoot-then-decrement option' covers that. GREEDY, KEEP (0.85): the largest-Mersenne-first chain is the algorithm, and the exchange proofs show it is optimal (two equal terms merge into one larger term plus one unit of excess at no extra cost, so terms are distinct; the largest term is either the largest Mersenne <= w or the next one up). I confirmed it against the knapsack DP.\n\nBIT-MANIPULATION, REJECT as a pattern and keep as a tag. Powers of two appear in the statement, but nothing is done bitwise beyond bit_length(). The decomposition is skew-binary, so this is a statement-word echo. It is also consistent with the D2 review.\n\nCONSIDERED AND NOT ADDED: dynamic-programming, memoization and digit-dp (see above; D2-only). exchange-argument (proof step, not a search target; D2 did not add it either). knapsack and unbounded-knapsack (used only as my verifier; infeasible at 10^18). bfs and shortest-path (brute force only). brute-force (iterating each n in [l, r] is the easy-version allowance; the per-n work is the greedy). modular-arithmetic and prefix-sum (scaffolding for the output).\n\nTRAP binary-search-answer: does not apply. The output is a sum of f values, there is no feasibility predicate over a candidate answer, and the best overshoot point is found by walking the greedy chain directly, not by binary search. TRAP bitmask-dp vs interval DP, and the near-miss here: neither applies. No subset state and no intervals. The real near-miss is greedy vs DP/memoization across the D1/D2 pair, and the constraint decides it: sum(r-l+1) <= 2*10^5 means evaluate each n by the greedy chain (D1); an unbounded range needs digit DP over self-similar blocks (D2).\n\nSUMMARY: the proposal's was 70 words and accurate, but it said 'Mersenne-number decomposition' without saying what is decomposed. I rewrote it at 70 words to name floor(n/2), the halving step that isn't obvious from the statement, and to say outright that the 2·10^5 total length is why each n is evaluated alone. TAGS: dropped 'implementation' (catch-all)."
+  }
+}

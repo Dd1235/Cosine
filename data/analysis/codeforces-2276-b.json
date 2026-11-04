@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2276-b",
+  "title": "Replace and Compress",
+  "source_url": "https://codeforces.com/contest/2276/problem/B",
+  "solution": "After compression a binary string alternates 0101... or 1010..., so it is determined entirely by its first character and its number of maximal blocks. The first character can never be changed, so distinct results correspond to distinct block counts. Not flipping gives the original count k. Flipping interior position i only interacts with s[i-1] and s[i+1]: if s[i-1]=s[i]=s[i+1] the flip splits a block and adds 2 blocks; if s[i-1]=s[i+1]!=s[i] the flip merges a length-1 block with both neighbours and removes 2 blocks; otherwise (exactly one neighbour equal) the block boundary just moves and the count is unchanged. Hence the answer is 1 + [some interior i has both neighbours equal to s[i]] + [some interior i has both neighbours different from s[i]], found by one linear scan over all candidate flips. O(n) per test, O(sum n) = 3·10^5 total.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution sol.py run on the 7-case sample: output 1 2 2 3 3 2 2 matches. Brute force (apply every allowed flip, compress, count distinct strings in a set) compared against sol.py exhaustively on all 32,760 binary strings of length 3..14 and on 20,000 random strings of length 3..60: all agree. A single 3·10^5-length test runs in ~0.03 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "brute-force"
+    ],
+    "tags": [
+      "string",
+      "implementation",
+      "math",
+      "brute-force"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [],
+    "rejected_patterns": [
+      {
+        "pattern": "brute-force",
+        "reason": "The problem is not enumeration over a small space. n is up to 3e5, and the literal brute force (apply each flip, recompress, dedupe) is O(n^2), about an hour at the limit, so it does not pass. The accepted solution loops over positions, but each step is an O(1) local case check on s[i-1], s[i], s[i+1]. That loop is the scaffolding of any linear string scan, not a technique. The real content is the observation that only the run count matters and that a flip changes it by -2/0/+2, and no canonical label covers that. Codeforces does not tag this brute force. A searcher who types 'brute force' wants problems where trying everything is the intended solution, and here it is exactly what fails. This follows the sibling precedents 2272-D (rejected: 'no solution needs it, the solution is O(sum n)') and 2276-A (rejected: 'no one would write it that way and it would mislead searchers')."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "brute-force",
+        "reason": "Same reason as the pattern: the naive enumeration is quadratic and too slow, the intended solution is an O(n) local check, and the judge tags do not include brute force."
+      },
+      {
+        "tag": "math",
+        "reason": "The solution has no arithmetic, formula or number theory. The insight is structural (a compressed binary string alternates, so with the first character fixed it is determined by its length). The judge tags are only implementation and strings. Replaced with ad-hoc, which recent curated contest records (2266-A/C, 2268-A/B) use for observation-driven problems."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "brute-force: the solution enumerates every one of the n-2 possible flips (plus no flip) and evaluates each one's effect on the block count in O(1) from its two neighbours, collecting the distinct counts; that is enumeration of all candidate operations ('enumeration' aliases to brute-force), though the O(1) local evaluation is the real insight, hence 0.6. The core of the problem is an observation (compressed binary strings alternate, so only the run count matters; a flip changes it by -2/0/+2), which has no canonical pattern, so it is surfaced in the summary instead. Rejected: counting (its canonical sense is frequency counting/aggregation; here the answer is 1 plus two existence indicators, not a count over objects); parity-argument (the run count's parity is fixed by the fixed endpoints, but the solution never needs that fact); greedy (no choice is optimised); simulation (the naive simulate-and-compress per flip is O(n^2) and too slow; the accepted solution does not simulate); hash-map (a set of at most 3 values is scaffolding); constructive-algorithm (nothing is constructed); dynamic-programming (no states).",
+    "skeptic": "SOLUTION: The proposal is correct and matches my independent derivation. After compression a binary string alternates, and the first character cannot be changed, so a result is identified by its block count alone (the last character is fixed too, so the parity is fixed, but the solution does not need that). Flipping interior i touches only the boundaries at i-1|i and i|i+1. If s[i-1]=s[i]=s[i+1] it adds 2 blocks. If s[i] differs from both neighbours it removes 2. If exactly one neighbour equals s[i] the boundary only moves. So the answer is 1 + [exists i with s[i-1]=s[i]=s[i+1]] + [exists i with s[i-1]=s[i+1]!=s[i]]. In run-length terms: +1 if some run has length >= 3, and +1 if some run that is neither first nor last has length 1. The run-length view needs no canonical label either. PATTERNS: brute-force is rejected (see rejected_patterns). The caller asked whether this is enumeration over a small space or really string/implementation: it is the latter, which agrees with the Codeforces tags [implementation, strings]. I checked every other candidate and none applies. counting: the answer is two existence bits plus 1, with no frequency counting or aggregation, and 'count' is only a statement-word echo. parity-argument: block parity is fixed by the endpoints, but no solution uses it. hash-map/set: a set of at most 3 block counts is scaffolding. simulation: per-flip simulation is the O(n^2) approach that fails. greedy, constructive-algorithm, dynamic-programming, string-hashing: no reasonable solution uses them. No canonical pattern exists for 'run-length encoding / ad-hoc observation', so patterns end up empty. The curated pipeline accepts that (2266-A Good Contest has patterns []), and the summary and tags carry the search terms instead (binary string, flip, compress, run, block, string, implementation, ad-hoc). If the curator insists on at least one pattern, brute-force at no more than 0.35 is the only candidate, and I advise against it. TRAP binary-search-answer: not applicable. The output is a count of distinct strings (1 to 3), with no monotone feasibility predicate and nothing to binary search. TRAP bitmask-dp vs interval DP: not applicable. There is no DP at all. The constraint (n up to 3e5, binary alphabet, a single flip) gives no small set to enumerate subsets of and no intervals to merge. Each candidate flip is decided by a window of 3 characters. SUMMARY: The proposal's summary was accurate and in range (about 65 words), but it said the string is 'fixed by its run count' without saying why (the first character is fixed). It also stopped short of the payoff (the answer is at most 3, decided by the two neighbour cases), and it used only 'run' where the statement says 'block'. The rewrite adds those points at 70 words, keeps the 3·10^5 constraint, and is in third person."
+  }
+}

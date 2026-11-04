@@ -1,0 +1,44 @@
+{
+  "id": "leetcode-minimum-interval-selection-to-cover-target-intervals",
+  "title": "Minimum Interval Selection to Cover Target Intervals",
+  "source_url": "https://leetcode.com/problems/minimum-interval-selection-to-cover-target-intervals/",
+  "solution": "Only the union of the target intervals matters, so the targets merge into disjoint components (intervals that overlap or touch at an endpoint merge; [1,3] and [4,5] do not, since nothing between 3 and 4 needs covering). Because every endpoint is an integer, real-point coverage reduces to a discrete one by doubling coordinates: an open gap (k,k+1) is covered by a closed integer interval iff the interval contains k+0.5, so point 2k+1 stands for the gap and [l,r] becomes [2l,2r]; this is exactly why [1,2],[3,4] fail to cover [1,4] (point 5 = 2.5 is uncovered). The problem is then classic minimum interval cover of a point set: let cur be the leftmost still-uncovered target point; among available intervals with left end <= cur take the one with the largest right end R (if R < cur, return -1), count it, and jump cur to the first target point after R. The exchange argument is the standard one: any optimal cover must contain some interval covering cur, and it starts at or before cur, so replacing it by the farthest-reaching such interval keeps a valid cover with the same count. Implemented with a prefix-max reach array over doubled coordinates (reach[x] = max 2r over intervals with 2l <= x), a difference array to mark target points, and a next-needed-point array, it runs in O(n + m + C) with C = 2·10^5; equivalently, sort available intervals by left end and sweep the merged components with a pointer in O((n + m) log(n + m)).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python: solve() (doubled-coordinate greedy with reach/next arrays) and solve_merge() (sort + merged target components + real frontier with open/closed flag) both return 3, -1, -1 on the three samples. Brute force enumerates subsets of availableIntervals in increasing size and checks real-point coverage by merging the selected closed intervals and testing each target is inside one merged block (independent of the doubling reduction). Stress: 20000 random cases, n<=8 available, m<=5 targets, coordinates in [1,V] with V in {3,5,8,12}, including point intervals; all three agree (answer distribution: -1 x12938, 1 x4992, 2 x1844, 3 x202, 4 x24). Max-size run (5·10^4 each, coords to 10^5): both agree, 0.05 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "interval-union",
+      "interval-scheduling"
+    ],
+    "tags": [
+      "array",
+      "greedy",
+      "interval",
+      "sorting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy",
+      "interval-union"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "interval-scheduling",
+        "reason": "Wrong family. In the taxonomy interval-scheduling is aliased from activity-selection / interval-selection / non-overlapping-intervals: the earliest-end-first greedy for a maximum disjoint set and its stabbing dual (Arrows). This problem is minimum interval COVER, solved by the farthest-reach jump-game greedy, which has a different choice rule and a different exchange argument. The match is a statement-word echo of 'Interval Selection' in the title, which is literally the alias 'interval-selection'. None of the corpus's own covering cousins (Minimum Number of Taps, Minimum Lights to Illuminate a Road, Set Intersection Size At Least Two) carry interval-scheduling. The proposal admitted it was a stand-in at 0.55 confidence. A wrong label sends 'activity selection' or 'interval scheduling' searchers to a covering problem, so it is worse than having no label. The covering meaning should be carried by the summary text instead."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "greedy: the whole solution is the farthest-reach interval-cover greedy (same as Video Stitching / Minimum Number of Taps, which the corpus labels greedy). interval-union: merging the target intervals into their union, with the touching-vs-gap distinction, is a genuine step and what a 'merge intervals' search should surface. interval-scheduling: the canonical list has no interval-covering label; the corpus already files interval greedy cousins (Minimum Number of Arrows, Minimum Time to Complete All Tasks) under interval-scheduling, so it is the closest reachable term, held at lower confidence since this is covering, not selection of disjoint intervals. Rejected: sorting (input pre-sort before the greedy), difference-array/prefix-sum (only used to mark target points / prefix-max reach, scaffolding), two-pointers/binary-search (pointer over merged components is scaffolding), dynamic-programming (a dp over coordinates with range-min is possible but nobody would write it over the direct greedy), binary-search-answer (no feasibility check involved), line-sweep (the left-to-right pass is just the greedy), hitting-set (that is stabbing intervals with points, the dual problem).",
+    "skeptic": "Own derivation: only the union of the targets matters. Repeatedly take the leftmost uncovered target point p, and among intervals starting at or before p take the one reaching farthest. Fail if it does not pass the covered frontier. Correctness: some interval in any optimal cover contains p and therefore starts at or before p, so swapping it for the farthest-reaching one keeps the cover valid with the same count. The real-point subtlety is that continuing from frontier f needs an interval with start <= f and end > f, so [1,2] and [3,4] leave (2,3) open, as in sample 3. The proposal handles this by doubling coordinates; my version uses a strict comparison. The two are equivalent and both stress-tested.\n\nPatterns. greedy: KEEP, it is the whole algorithm. interval-union: KEEP at 0.7. Merging the targets into their union, with touching-merges-but-a-gap-does-not, is the conceptual reduction and the step Merge Intervals carries in the corpus. My unmerged sort-sweep variant shows an explicit merge isn't strictly needed, but it is what solutions write and what a 'merge intervals' search should surface. interval-scheduling: REJECT, see rejected_patterns. The canonical list has no interval-covering term, and a wrong-family label is not a valid substitute for a missing one.\n\nConsidered and not added. sorting: the start-sorted pointer is input preparation, and the O(n + C) prefix-max version needs no sort at all; it stays in tags only. line-sweep: the left-to-right pass is the greedy itself, not an event sweep. prefix-sum / difference-array: the prefix-max reach array and point marking are scaffolding. two-pointers: the pointer into sorted intervals is scaffolding. dynamic-programming: a coordinate DP with range-min exists, but nobody would write it over the direct greedy. sparse-table / binary-lifting: not needed. Those belong to the multi-query version (min intervals to cover [l,r] per query, e.g. CF 1175E). Here there is one global query, and an O(answer + C) sweep suffices. Running a binary-lifting cover per merged component and summing the results would be WRONG, because one interval can bridge a gap and serve two components: available [[1,10]] with targets [[1,2],[5,6]] gives 1, not 2. hitting-set: that is the dual problem (stabbing intervals with points).\n\nTrap 1, binary-search-answer: rejected. Feasibility with k intervals is no easier than the direct greedy that already computes the optimum in one pass, and no reasonable solution binary-searches k.\n\nTrap 2, bitmask-dp vs interval-dp: neither applies. n up to 5e4 rules out any subset DP, and there is no split-point recurrence over a range; the constraint (5e4 intervals, coords to 1e5) points at an O(n log n) or O(n + C) greedy.\n\nSummary: the proposal's version was accurate but spent words on the doubling implementation detail. I rewrote it (64 words) to state the deciding fact (intervals must overlap or touch, adjacent integers leave a gap) and to put 'minimum interval covering' and 'jump-game-style farthest-reach greedy' in the text, since no canonical pattern carries the covering family."
+  }
+}

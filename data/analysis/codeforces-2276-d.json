@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2276-d",
+  "title": "Caveman",
+  "source_url": "https://codeforces.com/contest/2276/problem/D",
+  "solution": "Swapping red and blue maps a valid coloring to a different valid coloring and has no fixed point, so valid colorings come in complementary pairs and the count is always even: the answer is never 1. An isolated vertex has no neighbor at all, so it forces 0. Otherwise every component has at least two vertices, and the proper 2-coloring (bipartition) of any spanning tree of that component is valid, so a valid coloring exists. To decide between 2 and many: in a valid coloring the bichromatic edges cover every vertex, and any edge cover contains a spanning star forest, so the valid colorings are exactly the colorings that put each star's center opposite its leaves, for some spanning star forest whose stars each have at least two vertices. A star forest with k stars gives 2^k distinct valid colorings, so if any spanning star forest has two or more stars the answer is Many. A spanning forest that is a single star needs a vertex adjacent to everything else. If such a universal vertex c exists and there is any extra edge a-b between two leaves, then {a-b} plus the star centered at c on the remaining n-2 >= 2 vertices is a two-star forest when n >= 4, and for n = 3 the graph is a triangle with 6 colorings. So the answer is exactly 2 iff the graph is a star (m = n-1 and some vertex has degree n-1), 'Brain Melt' iff some vertex has degree 0, and Many otherwise. This needs only vertex degrees: O(n + m) per test, linear in the summed bounds of 3*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (degree-0 check -> Brain Melt; m == n-1 and max degree == n-1 -> 2; else Many) printed the expected output on the 4-case sample (Brain Melt / 2 / Many / Many). Brute force enumerates all 2^n colorings and checks every vertex for an opposite-colored neighbor. Stress test: 20000 random graphs with n in 3..9 (30% stars with up to 2 extra edges and random edge drops, 70% uniform random edge sets, half of those sparse). All matched, covering 9286 Many, 2328 '2' and 8386 Brain Melt cases. The brute force never produced '1'."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "counting",
+      "parity-argument"
+    ],
+    "tags": [
+      "graph",
+      "math",
+      "counting",
+      "combinatorics",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "parity-argument",
+        "reason": "Not genuine. The color-swap involution only shows that a valid coloring's complement is a different valid coloring, so count >= 1 implies count >= 2. That is a symmetry/pairing step. The parity of the count never decides anything: the outputs are 0 / 2 / Many, and Many would absorb any odd count >= 3 anyway. In the corpus parity-argument means mod-2 invariants (index-parity classes, sum parity, checkerboard), and someone searching that would not want this degree-check graph problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The whole program is a degree array and two comparisons. Nothing here is implementation-heavy, and the tag would surface it for people who want long, careful-coding problems."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "counting: the task counts valid 2-colorings, capped at 'more than two'. It is settled by structural case analysis (0 / 2 / many) rather than by computing the number. parity-argument (low confidence): the key trick is that the color-swap involution has no fixed point, so the count is always even and the answer '1' can never happen. It is a pairing/parity observation, though not a parity invariant in the usual sense. Rejected: bipartite-graph (a spanning tree's bipartition appears only in the proof that a coloring exists; no bipartiteness check is run, and the summary mentions 'bipartition' so lexical search still reaches it); connected-components / dfs / bfs / union-find (components matter in the proof, but the algorithm reads only degrees, and no traversal is needed); constructive-algorithm (colorings are built only inside the proof, never output); combinatorics as a pattern (it is the family of counting, added automatically); graph-modeling, brute-force (not used).",
+    "skeptic": "Solution: the proposal is correct and proved soundly. Valid coloring => the bichromatic edges form an edge cover, which contains a spanning star forest whose stars are colored center-vs-leaves; k stars give 2^k colorings. An isolated vertex gives 0. Otherwise every component has a spanning tree whose bipartition is valid, so count >= 2. Exactly 2 iff no spanning star forest has >= 2 stars, i.e. a universal vertex exists and there are no leaf-leaf edges (n=3 triangle has 6), i.e. the graph is a star. Only degrees are needed, O(n+m). Real technique hunt: there is none hiding. Greedy, simulation, sorting, two-pointers, DP and graph traversal are all unused. The core is a structural characterization (isolated vertex / star / else), and the vocabulary has no label for 'case analysis' or 'degree check'. CF's own tags (combinatorics, graphs; rating 1400) agree that this is an observation problem. counting kept at 0.55: it is a 'count the colorings' problem (the 'counting problems' sense of the combinatorics group), the proof uses the multiplication principle (2^k over independent stars or components), and the implementation is literally a degree-frequency array. It is borderline as a statement echo, but it is the closest honest label. Considered and NOT added: bipartite-graph (the taxonomy maps two-coloring to it, and the existence proof uses a spanning tree's bipartition, but no reasonable solution runs a bipartite check or 2-colors anything; the summary keeps 'bipartition' for lexical recall). connected-components / union-find / dfs / bfs (the count factors over components and some solvers would count them with DSU, but the degree test already decides connectivity, so this is scaffolding). constructive-algorithm (colorings are built only inside the proof and never output). combinatorics as a pattern (left in tags. Correction to the proposal: it is NOT added automatically from 'counting'. The combinatorics family regex matches stars-and-bars/binomial/permutation-counting/.../counting-ways, not bare 'counting'. Tags already carry it for search). brute-force (only usable for tiny n when finding the pattern; n is up to 3e5). Trap 1, binary-search-answer: not proposed and not applicable. There is no monotone quantity to search, and the answer comes straight from degrees in linear time. Trap 2, bitmask-dp vs interval DP: not applicable. n, m <= 3e5 rules out any enumeration or DP over the 2^n colorings, and that constraint is what forces the O(n+m) structural characterization. The summary states it. Summary: the proposal's version was accurate, but it led with 'complementary pairs make the count even', which reads as a parity insight. It was rewritten to say only what the pairing proves (1 never occurs) and to add that vertex degrees decide the answer. 69 words, third person, includes the n,m <= 3e5 constraint and the star reduction."
+  }
+}

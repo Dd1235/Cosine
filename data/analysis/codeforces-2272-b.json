@@ -1,0 +1,44 @@
+{
+  "id": "codeforces-2272-b",
+  "title": "Frogs Jump",
+  "source_url": "https://codeforces.com/contest/2272/problem/B",
+  "solution": "Key observation (necessity): row counts are preserved only if the number of down-jumps equals the number of up-jumps, so vertical movers are even in number; column counts are preserved only if, across every edge between columns j and j+1, as many frogs cross rightwards as leftwards (prove it by induction from column 1, whose only horizontal exits/entries use edge 1), so horizontal movers are also even. Every frog moves, so the remaining frog count must be even and k >= (total frogs) mod 2. Sufficiency (construction): call a column with one frog a single. With an even number of frogs the singles are even in number; pair consecutive singles s1,s2 / s3,s4 / ...; between a paired s_{2i-1} and s_{2i} every column is full, so run a horizontal chain: s_{2i-1}'s frog jumps right, each full column in between sends one frog left and one right, and s_{2i}'s frog jumps left, which crosses every edge of the chain once each way; all other full columns swap their two frogs vertically (one down, one up). Every row and column count is preserved, so k=0. With an odd count, remove one frog from column 1: if it was full it becomes a single (singles now even, no gap); if it was a single it becomes empty and columns 2..n form a contiguous block with an even number of singles. So k=1. Answer = (number of 'f') mod 2, O(n) per test, O(sum n) = O(2·10^5) total.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (count 'f' mod 2) printed 0 0 1 1 on the 4-case sample, matching expected output. Wrote an independent C++ brute force that, for k = 0,1,2,..., tries every removal subset of size k and every assignment of a legal in-grid direction to each remaining frog, checking row and column counts. Ran it exhaustively on ALL grids with every column non-empty for n=1..5 (363 grids) and n=6..7 (2916 grids): 3279/3279 outputs identical to the solution (answers split 0/1 evenly)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "math",
+      "constructive-algorithm",
+      "grid",
+      "parity",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "parity-argument",
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The solution is one line (count 'f' mod 2) and has no implementation burden. The judge does not tag it implementation either. The tag would put a pure-insight problem in front of people looking for heavy-coding or simulation practice."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "parity-argument: the whole lower bound is that movers come in canceling pairs (down/up, and right/left per edge), forcing an even remaining count; the answer is literally the frog count mod 2. constructive-algorithm: sufficiency needs an explicit jump scheme (horizontal chains through full columns between consecutive single-frog columns, vertical swaps elsewhere) plus the choice of which frog to remove. Rejected greedy despite the judge tag: no greedy choice or exchange argument is involved, and the label would put this in front of greedy searches it does not serve. Rejected counting (counting the f characters is scaffolding), simulation, grid-traversal and brute-force. 'parity' kept as a tag word only (not canonical) since it is a natural query; 'math' as family tag.",
+    "skeptic": "Solution confirmed: answer = number of frogs mod 2. I derived it independently, brute-forced all grids with n<=6, and checked my construction separately. Patterns: parity-argument KEEP (0.95). It is the real insight: movers cancel in pairs (down/up, and right/left across each column boundary), so the survivor count must be even, and the printed answer is exactly that parity. constructive-algorithm KEEP but lower (0.7). Only a number is printed, but the matching upper bound is half the problem and needs an explicit jump scheme (pair frogs sorted by column; vertical swap, horizontal swap or diagonal double-vertical move). The judge tags it constructive algorithms. The 'no empty column' guarantee is exactly what makes the construction always succeed. This differs from 2272-c, where constructive was rejected because the 'construction' was a trivial midpoint inside the proof and the judge did not tag it. greedy REJECTED (judge tag, not proposed, still checked as asked). No solution makes a greedy choice. The output is a closed form, and the pairing in the proof needs no optimisation or exchange argument, since any consecutive pairing works. Labelling it greedy would show a parity problem to greedy searchers. counting rejected as scaffolding (tallying 'f' characters). No missing labels: there is no more specific canonical name than parity-argument (no invariant or flow-conservation entry exists). bipartite-graph and checkerboard colouring do not give the bound here, because row and column counts do not fix colour counts. Tags: dropped 'implementation' (one-line solution, not a judge tag). Kept math, constructive-algorithm, grid, and 'parity' (a taxonomy alias of parity-argument and a natural query). Did not add greedy as a tag, for the reason above. Summary: the proposal's version was accurate and in range, but the reduction was vague ('movers pair off') and the sufficiency was unnamed ('an explicit pairing construction'). I rewrote it at 70 words to state the up/down and per-boundary cancellation, the no-empty-column constraint, and the same-or-next-column pairing. TRAP 1, binary-search-answer: not applicable. There is no feasibility check and nothing to search, because the answer is 0 or 1 by direct formula. TRAP 2, bitmask-dp vs interval DP: not applicable. There is no DP of any kind, and n up to 2·10^5 with a closed form rules out subset or interval states."
+  }
+}

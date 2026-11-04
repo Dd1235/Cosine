@@ -39,5 +39,6 @@
       "greedy": 0.6,
       "inclusion-exclusion": 0.45
     }
-  }
+  },
+  "difficulty": 3500
 }

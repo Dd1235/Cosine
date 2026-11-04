@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-minimum-cost-path-with-even-xor-parity",
+  "title": "Minimum Cost Path With Even XOR Parity",
+  "source_url": "https://leetcode.com/problems/minimum-cost-path-with-even-xor-parity/",
+  "solution": "The parity of popcount(a XOR b) equals popcount(a) parity XOR popcount(b) parity, so replace every node value by the bit p_v = popcount(values[v]) mod 2; a path is Balanced-XOR exactly when the XOR of p over its nodes is 0. Root the tree and run a subtree DP: down[v][b] is the cheapest downward path that starts at v (inclusive), ends anywhere in v's subtree, and has node-parity XOR b, initialised with down[v][p_v] = 0 (the single node v). Processing children in post-order, for child c with edge cost w, first combine with what v already holds: any x with down[v][x] + w + down[c][x] is a valid path between distinct nodes (its parity is x XOR x = 0), so take the minimum as an answer candidate; then extend the child's chains into v with down[v][p_v XOR y] = min(down[v][p_v XOR y], w + down[c][y]). Every path is counted at its topmost node, so this is correct, and it runs in O(n) time and memory for n up to 1e5 (costs reach about 1e14, needing 64-bit integers). A sharper alternative: because every edge cost is at least 1, a strictly shorter even-parity subpath would be strictly cheaper, and a pigeonhole argument on prefix parities s_0..s_k (an equal pair at distance at least 2 gives an even subpath) shows a minimal path has at most 3 nodes. So the answer is the minimum over single edges with p_u = p_v and over two-edge paths u-v-w with p_u XOR p_v XOR p_w = 0, which is found by keeping each node's two cheapest incident edges to neighbours of each parity. This is also O(n). If neither form exists, return -1.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python script work/leetcode-minimum-cost-path-with-even-xor-parity/sol.py with three implementations: the O(n) subtree parity DP, the O(n) at-most-two-edges enumeration, and a brute force running a DFS from every node over all paths with the real XOR/popcount. All three give 7, 5, -1 on the three samples. Stress test: 20,000 random trees (n 2..9; path, star and random-parent shapes; relabelled and shuffled edges; edge costs up to 3/10/1000; values up to 3/15/1e9), all three agree on every case (1,587 of them have answer -1). Timing at n=1e5: random tree, DP 0.09s and enumeration 0.06s, which agree; on a path-shaped tree they also agree."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "tree-dp",
+      "parity-argument",
+      "bit-manipulation"
+    ],
+    "tags": [
+      "tree",
+      "dynamic-programming",
+      "bit-manipulation",
+      "dfs",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "tree-dp",
+      "parity-argument",
+      "bit-manipulation"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "tree-dp: the general solution, a subtree DP with two parity states combined at each node (the path's topmost node), and almost certainly the setter's intent for a Q4. parity-argument: the problem only becomes tractable once you see that popcount parity is linear under XOR, which turns each value into one bit. The same parity reasoning (pigeonhole on prefix parities, with positive costs) proves the optimal path has at most 2 edges, which gives the second O(n) solution. bit-manipulation: the popcount/XOR identity is the key reduction, so someone searching 'xor popcount' should land here. Considered and rejected: prefix-xor (root-to-node XOR would need the LCA's bit and gives no direct min-cost method; neither solution uses it); rerooting-dp (combining at the topmost node is enough, no rerooting needed); dfs as a pattern (just the traversal for the DP, so kept as a tag only); greedy/brute-force for the two-edge enumeration (keeping the two cheapest incident edges per parity is plain minimum bookkeeping after the structural bound, and parity-argument already covers that bound); shortest-path/dijkstra/layered-graph (a parity-layered multi-source search loses track of the endpoints and allows walks that aren't simple paths, and on a tree it is unnecessary).",
+    "skeptic": "Tree or graph: it is a genuine tree (edges.length == n-1, 'edges represents a valid tree'), so a state-expanded Dijkstra on (node, parity) does not apply. The objective is a minimum over all pairs of endpoints, not from one source. A multi-source parity-layered search loses track of the endpoints and allows non-simple walks, which count a node's bit twice. On a tree it is also unnecessary. shortest-path, dijkstra, layered-graph and zero-one-bfs are correctly absent. tree-dp: KEEP. The subtree DP with a 2-state parity (cheapest downward chain of each parity, combined at the topmost node) is the natural Q4 solution, and I verified it. A second, simpler O(n) solution exists: with costs >= 1 the optimum has at most 2 edges. That shortcut is not DP, but tree-dp is still what a reasonable solver writes, so it stays. I did not add subtree-dp because it would duplicate tree-dp. I did not add rerooting-dp because combining at the topmost node needs no rerooting. parity-argument: KEEP, high. It is the crux twice over: the popcount parity of a XOR is the XOR of popcount parities, which turns each value into one bit, and the parity structure (adjacent equal pair, or alternating with 1-0-1) bounds the optimal path to 3 nodes. bit-manipulation: KEEP, moderate. I looked for scaffolding here. The label does not stand for incidental bit ops like x&1. It stands for the bitwise identity popcount(a^b) = popcount(a) + popcount(b) - 2*popcount(a&b), which is the key reduction. A search for 'xor popcount parity' should land here. The corpus labels the same popcount-parity invariant parity-argument + bit-manipulation (codeforces-2268-b). prefix-xor is correctly rejected: a root-to-node XOR needs the LCA's bit and gives no min-cost method. Neither solution uses dfs beyond the traversal, so it stays a tag. Greedy and brute-force are not warranted for the two-edge enumeration: that is minimum bookkeeping after a parity bound, which parity-argument already covers. Trap 1, binary-search-answer: not applicable and correctly absent. The answer is a direct minimum over paths. No feasibility test exists and nobody would binary search it. Trap 2, bitmask-dp vs interval DP and similar near-misses: the DP state is one parity bit per node, not a subset mask, so bitmask-dp and state-compression would be wrong. Interval DP does not apply on a tree. The constraint n <= 1e5 with a 2-state tree DP decides it. Summary: 67 words, third person, accurate. It gives the size constraint and states the key reduction (popcount parity is XOR-linear). I kept it verbatim. Adding the at-most-two-edges fact would push it past 70 words for an insight a searcher is unlikely to query. Tags are fine and match the corpus's lowercase LC-style tag naming."
+  }
+}

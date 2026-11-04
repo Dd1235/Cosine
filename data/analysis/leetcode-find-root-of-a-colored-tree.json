@@ -1,0 +1,48 @@
+{
+  "id": "leetcode-find-root-of-a-colored-tree",
+  "title": "Find Root of a Colored Tree",
+  "source_url": "https://leetcode.com/problems/find-root-of-a-colored-tree/",
+  "solution": "Since every node has degree at most 3, any non-root node has at most deg-1 <= 2 children, so the binary-tree property only constrains the root: it needs degree <= 2. The layered color pattern is equivalent to every parent->child edge stepping one place forward in the 3-cycle R->B->W->R (depth d gets color c0+d mod 3 and the start colour is free). For an edge (u,v) at most one of next(c_u)=c_v or next(c_v)=c_u can hold (both would need a 2-cycle), so each edge's direction is forced by the colours, and if neither holds the answer is -1. Orient every edge this way and count in-degrees. A valid root has all its edges pointing away from it, and every other node has exactly one parent, so the root is the unique node of in-degree 0. Conversely, if exactly one node r has in-degree 0, the n-1 in-degrees sum to n-1, so every other node has in-degree exactly 1. Walking any path out of r, each edge then points away from r (r has no incoming edge, and each next node's single incoming edge is the one it was reached by), so rooting at r satisfies the colour rule. Answer r if deg(r) <= 2, otherwise -1. Two or more sources means no root. This also shows a valid root is unique. O(n) time and memory for n up to 1e5. A rerooting DP that counts wrongly-oriented edges per root (as in minimum edge reversals) reaches the same answer, and so does finding a candidate and checking it with a BFS/DFS.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python in-degree solution passes both samples (3 and -1). A brute force tries every root, BFSes the tree, and checks <=2 children per node, one colour per depth, and the R->B->W cycle between consecutive depths. It returns the full set of valid roots. Stress test: 27,000 random max-degree-3 trees with n=2..10 (3,000 per n). Half used colourings generated from a random root (30% of those got one perturbed node), half fully random colours. 11,346 cases had a valid root. The fast answer always matched the brute force, and the brute force never found more than one valid root. A 1e5-node binary tree runs in about 0.01s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dfs",
+      "bfs",
+      "rerooting-dp"
+    ],
+    "tags": [
+      "tree",
+      "graph",
+      "dfs",
+      "bfs",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bfs"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "rerooting-dp",
+        "reason": "Overkill. The rerooting count of edges pointing toward the root (as in LC 2858 / CF 219D Choosing Capital) needs that count to be 0 here, and 'zero reversals from r' is the same as 'r is the only in-degree-0 node', so one loop over the edges does it with no DP. Someone practising rerooting gets a degenerate instance. The families rule (regex (^|-)dp($|-)) would also auto-add dynamic-programming, so DP searches would surface a problem that has no DP."
+      },
+      {
+        "pattern": "dfs",
+        "reason": "Does the same verification job as bfs, so it is a duplicate label. The main solution uses no traversal at all. Where one is used, it either checks a candidate root or tries every root with an early exit. The per-depth color rule is a level-order property, and a recursive DFS on a 10^5-node path hits Python's recursion limit on LeetCode, so BFS is the traversal people write. dfs stays as a broad tag."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The core insight is edge orientation: the colour cycle forces each edge's parent->child direction, and the root must be the unique source (in-degree 0) with degree <= 2. No canonical pattern names in-degree/source finding. topological-sort was rejected because nothing is ordered, and graph-modeling was rejected because the input is already a graph. dfs and bfs are the usual way to check the candidate root, or to find it by orienting edges during one traversal, and BFS level order fits the per-depth colour rule. They are the generic tree-traversal labels a searcher would expect, but the in-degree argument makes even them optional, hence the moderate confidence. rerooting-dp is a real O(n) alternative: count edges pointing toward the root, reroot (the count changes by +/-1 across each edge, like LC 2858 Minimum Edge Reversals), and accept a root with count 0 and degree <= 2. It is lower confidence because the in-degree shortcut makes rerooting overkill, so drop it if the threshold is above 0.4. Rejected: tree-dp (nothing aggregated), binary-tree-traversal (the input is a general tree that must become binary), counting as a pattern (in-degree counting is scaffolding, kept only as a broad tag), brute-force (trying all n roots is O(n^2) on 1e5).",
+    "skeptic": "SOLUTION: correct and identical to my independent derivation. Because every degree is at most 3, any non-root node already has at most 2 children, so the binary-tree property only requires deg(root) <= 2. The three allowed sequences are rotations of one 3-cycle, so the layered rule is exactly: every parent->child edge steps forward once in R->B->W, with any root color. For distinct colors, exactly one direction steps forward, so every edge is forced, and a same-colored edge means -1. With n-1 forced edges, exactly one in-degree-0 node means every other node has in-degree 1, and the parent chains end at that node, so it is a valid arborescence root. One inaccuracy in the proposal's notes, which does not affect correctness: it rejects brute-force as 'O(n^2) on 1e5'. That holds only if each BFS runs to completion. If each BFS stops at the first bad edge, a root with an incoming edge dies at its first expansion, and the forward regions of different sources overlap only at in-degree>=2 nodes (at most 3 sources each). The total is O(n), and I measured <= 3.5n edge checks, including on the adversarial two-source path. So 'try every degree<=2 root with an early-exit BFS' is a passing, reasonable solution. That is the main reason bfs survives as a pattern. I did not add brute-force, because nobody would choose this approach as brute force and a brute-force searcher wants small-constraint problems. PATTERNS. bfs KEEP (0.5): the verification engine in two reasonable solutions, candidate root plus level-order check and early-exit try-all. The statement's per-depth condition is literally a level-order check. It is optional under the in-degree solution, hence 0.5. dfs REJECT (kept as tag): a duplicate of bfs for the same verification step. Listing both is hedging, and a Python recursive DFS on a 10^5 path breaks. rerooting-dp REJECT: it is a genuine alternative, and an LC user who knows 2858 Minimum Edge Reversals might reuse that code. But zero required reversals collapses it to in-degree counting, so it is overkill and not the lesson. The family rule would also attach dynamic-programming to a DP-free problem. MISSING LABELS considered: graph-modeling (reject, agreeing with the proposal: the corpus uses it for turning non-graph input into a graph, such as word ladder, bombs or bus routes, and here the input is already a tree; only the edge directions are inferred). topological-sort (reject: 'in-degree 0' is Kahn vocabulary, but nothing is ordered, and a topo-sort searcher would be misled). reachability (reject: reaching every node from the root is implied by the in-degree test, never computed). counting (reject as a pattern: in-degree tallying is a one-line frequency count; kept as a broad tag). tree-dp / subtree-dp (nothing is aggregated). binary-tree-traversal (the input is a general tree). The canonical vocabulary has no in-degree/source-finding or edge-orientation label, so the key insight has to be carried by the summary, which states it lexically ('forces every edge's direction', 'unique in-degree-zero node'). TRAP 1, binary-search-answer: does not apply and was correctly absent. There is no monotone parameter and no feasibility test, and the answer is a direct O(n) scan. TRAP 2, bitmask-dp vs interval DP: no DP of any kind. The analogous near-miss here is rerooting-dp vs plain in-degree counting: CF 219D / LC 2858 look the same, but a minimum-reversal objective needs rerooting, while a zero-reversal requirement collapses to source finding. The constraint that decides the binary-tree half is 'every node has degree at most three', which is why only the root's degree matters. SUMMARY: the proposal's text was accurate (62 words), but it used British 'coloured/colour' where the title and statement say 'Colored/color', a term users search, and it did not explain why only the root's degree is checked. The rewrite is 67 words, third person, keeps n<=1e5 and the degree<=3 cap, states the forced-direction reduction, and ties the degree cap to the root-only check."
+  }
+}

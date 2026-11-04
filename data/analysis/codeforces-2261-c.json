@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2261-c",
+  "title": "I Know About a Million Things",
+  "source_url": "https://codeforces.com/contest/2261/problem/C",
+  "solution": "Only parities matter. If the total sum is even, the first player removes the whole array and wins. If the sum is odd, nobody wants to make it even while elements remain (the opponent would then clear everything), so the only sensible moves are removing a single even element or any even-sum set, i.e. any number of evens plus an even number of odds; the state is just (e, o) with o odd, and a move lowers e arbitrarily and/or lowers o by an even amount. (0,1) is a win (take the last element). (1,1) and (0,3) are losses: every move leaves (0,1) or makes the sum even with elements left. Every other odd-sum state can move to (1,1) when e >= 1 or to (0,3) when e = 0 and o >= 5, so it is a win. Answer: Larpity exactly when the sum is odd and either n = 2 or n = 3 with all three elements odd; otherwise Moggity. O(n) per test, fine for sum of n up to 10^6.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 3-case sample (outputs Moggity/Larpity/Moggity, matches). Brute force: exact memoised game search over sorted value tuples, trying every non-empty subset removal with the legality rule; stress-tested 2100 random arrays (n = 1..7, 300 each, values 1..6) against the closed form, all agree."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "parity-argument"
+    ],
+    "tags": [
+      "game-theory",
+      "math",
+      "array",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "game-theory",
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The output is only the winner's name. Nothing is constructed, and the winning move to (1,1)/(0,3) belongs to the proof, not to what gets printed. The tag would surface this problem for 'construct an array/permutation' queries it does not answer."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "game-theory: impartial win/lose analysis by hand of N/P positions on the (evens, odds) state. parity-argument: the whole solution is about the parity of the sum and of the odd count (even sum = take everything; odd sum must stay odd). Rejected game-dp (a DP over (e,o) would work but n up to 10^6 and the intended solution is a closed-form case split, a memo search is only the brute force), grundy-numbers (no sum of games, just win/lose), counting (counting odd elements is scaffolding), greedy (no greedy choice). Tag constructive-algorithm reflects the winning strategy being an explicit move to (1,1) or (0,3); could be dropped if tags should stay strictly topical.",
+    "skeptic": "Solution: correct. The proposal's case split is the same as mine. Odd sum with n=2 means exactly one even and one odd, i.e. (1,1); n=3 all odd is (0,3). Both rules agree with an exhaustive subset-removal game search. Patterns: game-theory KEEP. It is a win/lose N/P-position analysis of an impartial game, and the losing set {(1,1),(0,3)} is found by hand. parity-argument KEEP. The whole reduction is about parity: values matter only mod 2, an even total means take everything, and an odd-sum player must keep the odd count odd. Rejections I agree with: game-dp. A DP over (e,o) has O(e*o) states, up to about 2.5e11 at n=1e6, so it is a pattern-finding aid at most; the intended solution is O(n) closed form. grundy-numbers: there is no sum of games, only win/lose. counting: tallying odds is scaffolding. greedy: there is no greedy choice. Missing labels: none. No other vocabulary technique solves it; 'case analysis' has no vocab entry, and parity-argument plus game-theory already name the specific technique. Trap 1, binary-search-answer: does not apply. There is no numeric answer to search, no monotone feasibility test, and the solution is a constant-time check after an O(n) parity count. Trap 2, bitmask-dp vs interval-dp: does not apply either. The brute force is literally a subset (bitmask) game search, but n up to 1e6 rules out any DP over subsets or over (e,o). That constraint is what forces the closed form, and it is stated in the summary. Tags: dropped constructive-algorithm (reason above); kept game-theory, math, array, which matches the judge tags games and math. Summary: the proposal's version (69 words) was accurate but ended with 'loses only in two tiny cases'. That hides the actual result and its searchable terms. I rewrote it to name the two losing cases (one even plus one odd, or exactly three odds) and to say directly that only parities matter. It is 63 words, third person, and keeps the 10^6 constraint."
+  }
+}

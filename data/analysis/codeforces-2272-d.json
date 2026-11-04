@@ -1,0 +1,61 @@
+{
+  "id": "codeforces-2272-d",
+  "title": "Connecting the Conflicts",
+  "source_url": "https://codeforces.com/contest/2272/problem/D",
+  "solution": "Adding edges can only shrink the family of independent sets, so the answer is at most S = sum of the per-tree maximum independent sets m_i. Call a vertex u of a tree 'free' if some maximum independent set of its tree avoids u. If u is free in tree H and we add an edge u-v to any other tree T, the union still has an independent set of size m_H + m_T that avoids u (take H's u-avoiding MIS plus any MIS of T), so u remains free in the merged tree; by induction, attaching every other tree (at any vertex) to one free hub vertex reaches the bound S exactly. Every tree with n >= 2 has a free vertex: by the leaf exchange argument (if a leaf l is not in an MIS its neighbour p must be, and swapping p for l keeps size and independence) some MIS contains any chosen leaf, so the leaf's neighbour is free; equivalently, run the standard tree DP (dp0/dp1 for MIS), reconstruct one maximum set, and take any vertex outside it. If all k trees are single vertices, no free vertex exists and any tree on k vertices has MIS at most k-1, which a star achieves. So: pick a tree with n >= 2, find a leaf, use its neighbour as the hub and connect (hub) to vertex 1 of every other tree; otherwise output a star centred at (1,1). O(sum n) time.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) run on the statement sample: outputs '1 1 2 1' for both tests, the same undirected edges as the expected '2 1 1 1'. Stress test (stress.py): 3000 random forests with k in 2..4 and tree sizes in {1,2,3,4} (total <= 8 vertices, randomly relabelled trees); brute force enumerated every set of k-1 cross edges that yields a spanning tree and took the max MIS (MIS by 2^N subset enumeration); checked my output is k-1 edges forming a spanning tree and that its MIS equals the brute-force optimum. All 3000 passed. Also timed a 2x10^5-vertex input: ~0.07 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "tree-dp",
+      "exchange-argument"
+    ],
+    "tags": [
+      "tree",
+      "graph",
+      "constructive-algorithm",
+      "dynamic-programming",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "tree-dp"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "exchange-argument",
+        "reason": "A stretch. The problem's proof is a monotonicity bound (more edges cannot enlarge the MIS) plus a hub construction. The leaf swap (replace the leaf's neighbour by the leaf) is a standard one-line lemma used only to pick the hub in O(1), and the DP route the judge tags point to does not use it at all. In the corpus, exchange-argument means comparator or ordering swaps (Tasks and Deadlines, Course Schedule III, ICPC team selection, 922D), so a user searching that label would not want this problem."
+      },
+      {
+        "pattern": "dfs",
+        "reason": "Judge tag only. It is traversal scaffolding inside the tree DP, and the leaf-neighbour route needs only vertex degrees."
+      },
+      {
+        "pattern": "brute-force",
+        "reason": "Judge tag, but no solution needs it. The solution is O(sum n)."
+      },
+      {
+        "pattern": "tree-diameter",
+        "reason": "Considered and not added. The quantity is the maximum independent set. No diameter, height or path length is computed anywhere."
+      },
+      {
+        "pattern": "rerooting-dp",
+        "reason": "Not needed. One avoidable vertex is enough, so there is no need to classify every vertex."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the output is a construction (hub-and-spokes edge set) proven to hit the upper bound sum of m_i; this is the core of the problem. tree-dp: the setter's route (judge tags dp, dfs) is the classic dp0/dp1 maximum-independent-set DP on each tree to find a vertex avoided by some maximum set; it genuinely solves the problem, though the leaf-neighbour shortcut makes it unnecessary, hence moderate confidence. exchange-argument: the proof that some MIS contains any given leaf (swap the leaf's neighbour for the leaf) is what makes the O(1)-per-tree hub choice correct. Rejected: rerooting-dp (computing free/forced status for every vertex is overkill; one free vertex suffices), dfs (only traversal scaffolding inside the tree DP), brute-force (judge tag, not needed by any solution I found), greedy as a pattern (the leaf-first greedy MIS is only the justification, kept as a broad tag instead), bipartite-graph/hall-theorem (MIS via matching is not how anyone solves this).",
+    "skeptic": "Solution: correct and identical to mine, and verified independently (see skeptic_check). PATTERNS. constructive-algorithm: kept (0.95). The output is an edge set, and the core of the problem is the hub-and-spokes construction that meets the sum-of-MIS upper bound. tree-dp: kept (0.6). Per the brief, is it a real DP or just a dfs computation like diameter or height? It is a real DP: the two-state dp0/dp1 maximum-independent-set recurrence on a rooted tree, with a max over children's choices. Rooting at r, either dp0[r] >= dp1[r] (so r is avoidable) or every MIS contains r (so any neighbour of r is avoidable). Taking a vertex outside a reconstructed MIS also works. The judge tags dp, so this is very likely the setter's route, and MIS on trees is the textbook tree-DP problem. Confidence is moderate because the leaf-neighbour shortcut skips the DP entirely. subtree-dp was not added: tree-dp is the right family name, and the corpus uses subtree-dp alone only 3 times. exchange-argument: rejected as a stretch (reason in rejected_patterns). The exchange is real, but it is a sub-lemma with a DP alternative, not the problem's idea, and the corpus uses the label for ordering or sorting swaps. greedy stays a broad tag only: the leaf-first greedy MIS justifies the hub choice, but greedy is not the technique a searcher would match on. tree-diameter: considered per the brief and not added, since diameter is not the quantity involved. Also rejected: bipartite-graph / König (MIS = n - matching is not how anyone solves this), dfs (scaffolding), brute-force (judge tag, unused), rerooting-dp (overkill). TRAP 1, binary-search-answer: does not apply. The answer is a construction, there is no numeric parameter to search, and the bound is met directly in O(sum n). TRAP 2, bitmask-dp vs interval DP: does not apply. n reaches 2·10^5 on a tree, and the only DP is the per-vertex two-state tree DP, with no subset or interval state. SUMMARY: the proposal's summary was accurate (62 words) but left out why the bound holds (extra edges never enlarge the MIS) and the all-singleton edge case (the answer is k-1 via a star). It also put the phrase 'leaf exchange argument' into indexed text after that pattern was dropped. Rewritten at 65 words with the bound's reason, the hub reduction (a leaf's neighbour, or via tree DP) and the singleton case."
+  }
+}

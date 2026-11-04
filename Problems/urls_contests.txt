@@ -342,3 +342,71 @@ https://codeforces.com/contest/2275/problem/E
 https://codeforces.com/contest/2275/problem/F
 https://codeforces.com/contest/2275/problem/G
 https://codeforces.com/contest/2275/problem/H
+
+# LeetCode / Weekly Contest 524
+https://leetcode.com/problems/last-visited-cell-in-a-directional-grid/
+https://leetcode.com/problems/find-root-of-a-colored-tree/
+https://leetcode.com/problems/minimum-interval-selection-to-cover-target-intervals/
+
+# LeetCode / Biweekly Contest 194
+https://leetcode.com/problems/count-subarrays-with-loose-bounds/
+https://leetcode.com/problems/count-magical-substring-pairs-i/
+https://leetcode.com/problems/count-magical-substring-pairs-ii/
+
+# LeetCode / Weekly Contest 525
+https://leetcode.com/problems/maximize-sum-after-at-most-k-digit-rearrangements/
+https://leetcode.com/problems/count-frequency-staircase-subarrays-i/
+https://leetcode.com/problems/count-frequency-staircase-subarrays-ii/
+
+# LeetCode / Weekly Contest 526
+https://leetcode.com/problems/minimize-the-maximum-value-of-gcd-connected-array/
+https://leetcode.com/problems/minimum-operations-to-sort-with-locked-indices/
+https://leetcode.com/problems/minimum-cost-path-with-even-xor-parity/
+
+# Codeforces / Contest 2261
+https://codeforces.com/contest/2261/problem/A
+https://codeforces.com/contest/2261/problem/B
+https://codeforces.com/contest/2261/problem/C
+https://codeforces.com/contest/2261/problem/D1
+https://codeforces.com/contest/2261/problem/D2
+https://codeforces.com/contest/2261/problem/E
+https://codeforces.com/contest/2261/problem/F1
+https://codeforces.com/contest/2261/problem/F2
+https://codeforces.com/contest/2261/problem/G
+https://codeforces.com/contest/2261/problem/H
+
+# Codeforces / Contest 2272
+https://codeforces.com/contest/2272/problem/A
+https://codeforces.com/contest/2272/problem/B
+https://codeforces.com/contest/2272/problem/C
+https://codeforces.com/contest/2272/problem/D
+https://codeforces.com/contest/2272/problem/E
+https://codeforces.com/contest/2272/problem/F
+https://codeforces.com/contest/2272/problem/G
+
+# Codeforces / Contest 2276
+https://codeforces.com/contest/2276/problem/A
+https://codeforces.com/contest/2276/problem/B
+https://codeforces.com/contest/2276/problem/C
+https://codeforces.com/contest/2276/problem/D
+https://codeforces.com/contest/2276/problem/E
+https://codeforces.com/contest/2276/problem/F
+https://codeforces.com/contest/2276/problem/G
+
+# Codeforces / Contest 2277
+https://codeforces.com/contest/2277/problem/A
+https://codeforces.com/contest/2277/problem/B
+https://codeforces.com/contest/2277/problem/C
+https://codeforces.com/contest/2277/problem/D1
+https://codeforces.com/contest/2277/problem/D2
+https://codeforces.com/contest/2277/problem/E
+https://codeforces.com/contest/2277/problem/F
+
+# Codeforces / Contest 2278
+https://codeforces.com/contest/2278/problem/A
+https://codeforces.com/contest/2278/problem/B
+https://codeforces.com/contest/2278/problem/C
+https://codeforces.com/contest/2278/problem/D
+https://codeforces.com/contest/2278/problem/E
+https://codeforces.com/contest/2278/problem/F
+https://codeforces.com/contest/2278/problem/G

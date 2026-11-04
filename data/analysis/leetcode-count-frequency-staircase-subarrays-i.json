@@ -1,0 +1,44 @@
+{
+  "id": "leetcode-count-frequency-staircase-subarrays-i",
+  "title": "Count Frequency Staircase Subarrays I",
+  "source_url": "https://leetcode.com/problems/count-frequency-staircase-subarrays-i/",
+  "solution": "With n <= 1500, enumerate every subarray in O(n^2). Fix the left end l and extend r one step at a time. Keep a hash map from value to count and a second map from value to its rank, meaning the order of its first appearance (a new value gets rank = number of distinct values seen so far + 1). Also keep a counter `bad`: how many values currently have count != rank. A new value enters with count 1, so it is bad unless its rank is 1. A repeat updates its own bad status. The subarray [l, r] is a staircase exactly when bad == 0, so add 1 to the answer whenever that holds. Counts only grow as r moves right and ranks never change, so once a count passes its rank no longer r can be valid, and the inner loop breaks there. This pruning is optional. Each step is O(1), so the whole scan is O(n^2) time (about 1.1M steps at n = 1500) with O(n) memory. The bound for the II version (n <= 5*10^4) needs more. A staircase with k distinct values has length k(k+1)/2, so k <= ~sqrt(2n). Sweep l from right to left and keep the distinct values in first-occurrence order with a move-to-front linked list. For the j-th value, read its j-th and (j+1)-th occurrence at or after l from its occurrence list. Window [l, l+T_k-1] is valid iff it ends at or after every j-th occurrence, before every (j+1)-th occurrence (j <= k), and before the (k+1)-th value first appears. That is O(n sqrt n). I wrote and checked it too, but for this version the O(n^2) scan is what people write.",
+  "solution_check": {
+    "verified": true,
+    "how": "python3 sol.py (work/leetcode-count-frequency-staircase-subarrays-i/). It has three solvers: brute (rebuild first-appearance order and counts for every subarray, O(n^3)), quad (the O(n^2) mismatch-counter scan with early break) and fast (the O(n sqrt n) triangular-length + move-to-front-list method). All three give 9, 5, 8 on the three samples. Stress tests: 4000 random arrays (n 1..14, values 1..5), 1500 structured arrays built from shuffled staircase blocks plus noise (n <= 25), all with brute == quad == fast. Another 300 random arrays (n 50..300, values 1..30) had quad == fast. Timing at n=1500 (random 1..1e5, all-distinct, values 1..40, all-equal): quad <= 0.11 s in Python and agrees with fast. fast at n=5e4 runs in under 0.1 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "brute-force",
+      "hash-map",
+      "counting"
+    ],
+    "tags": [
+      "array",
+      "hash-map",
+      "counting",
+      "brute-force"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "brute-force",
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "hash-map",
+        "reason": "It is scaffolding. The map only holds the per-value count and rank that `counting` already names. Values are at most 1e5, so a plain array with touched-entry reset works just as well, which is what I ran. No keyed-lookup trick is involved (no complement lookup, no earlier prefix state, no grouping by a derived key). It stays in tags and the summary still says 'hash map', so a 'hash map' search still finds the record."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "brute-force: n <= 1500 is chosen so that enumerating all O(n^2) subarrays (fixed left end, extend right) passes, and that is what nearly everyone writes for the I version. hash-map: per-value count and first-appearance rank, kept as r advances. counting: the solution is frequency bookkeeping, with a counter of values whose count differs from their rank. Rejected labels: sliding-window and two-pointers (validity is not monotone in either end, and a fixed-length window per k does not give an easy order check); prefix-sum (not used); binary-search / binary-search-answer (nothing monotone to search); linked-list (only the move-to-front list in the O(n sqrt n) II solution, which this bound does not need); randomized-algorithm / hashing (an alternative check for II with random weights, not used here). The triangular-length observation (length = k(k+1)/2, k <= sqrt(2n)) is the key to II, but no canonical pattern covers it and it is not needed at n <= 1500. That faster technique belongs on the II record.",
+    "skeptic": "Solution: correct. It matches my own derivation and passed my stress tests. brute-force: keep. The n <= 1500 bound is set so that enumerating all O(n^2) subarrays with incremental extension passes, and that is the intended solution for I. 'enumeration' maps to brute-force in the taxonomy. counting: keep, at moderate confidence. In this corpus it means frequency counting (aliases frequency-count, frequency-counting, frequency-array). The validity test is a per-value frequency-vs-rank invariant, kept up with a mismatch tally (the same 'formed counter' trick as in Minimum Window Substring). That is the actual work in each step, not an echo of 'Count' in the title. hash-map: reject as a pattern, keep as a tag. It is only the container for the counts and is interchangeable with an array here. Labelling both hash-map and counting would tag one mechanism twice. Missing labels: none. sliding-window and two-pointers do not apply, because validity is not monotone in either endpoint (the proposal rejected them correctly). The early break is pruning, and no canonical label covers it. The triangular-length fact (length = k(k+1)/2, k <= sqrt(2n)) is what II needs and is not required here. prefix-sum, string-hashing and randomized-algorithm are not used at this bound. Trap 1, binary-search-answer: not applicable and correctly absent. The answer is a count of subarrays. There is no feasibility predicate to search over, and nothing is monotone in a parameter. Trap 2, near-miss pairs decided by the constraint: the I/II split works like Elevator Requests II/III. Here n <= 1500 means O(n^2) brute-force. II (n <= 5e4) needs the triangular-length bound. Neither label set should be copied onto the other. Side flag for the II reviewer: the II proposal lists sliding-window, which this I proposal itself rejects as non-monotone, and its summary describes an 'extend right' brute force. Its O(n sqrt n) claim should be checked there. Summary: the proposal's version is accurate and keeps the deciding constraint. Its last clause ('count how many values' counts differ from their rank') never states the acceptance condition. I rewrote it to say a subarray qualifies when none differ, and kept 'hash map' in the text for recall. 66 words."
+  }
+}

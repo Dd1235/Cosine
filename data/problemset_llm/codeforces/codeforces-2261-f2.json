@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2261-f2",
+  "title": "Plegma II: Ask Me Any Cell (Hard Version)",
+  "slug": "2261-f2-plegma-ii-ask-me-any-cell-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2261/problem/F2",
+  "source_topic": "Codeforces / Contest 2261",
+  "source_tags": [
+    "constructive algorithms"
+  ],
+  "statement": "The task is to encode each cell of an n×n grid as a 0/1 grid with only 3 zeros, the optimum, plus one table mapping S (ones in a memoryless robot's current rectangle) to a side to trim. Fixing the shape sequence gives each step its own S band, so zeros form a hidden counter whose drop times set the top and left cuts before a searched 4×4 endgame.",
+  "tags": [
+    "constructive-algorithm",
+    "grid",
+    "math",
+    "implementation"
+  ],
+  "patterns": [
+    "constructive-algorithm"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792521,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.97
+    }
+  },
+  "difficulty": 3300
+}

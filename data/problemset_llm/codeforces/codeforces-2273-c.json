@@ -34,5 +34,6 @@
       "fenwick-tree": 0.75,
       "prefix-sum": 0.5
     }
-  }
+  },
+  "difficulty": 2100
 }

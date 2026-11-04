@@ -1,0 +1,48 @@
+{
+  "id": "leetcode-minimize-the-maximum-value-of-gcd-connected-array",
+  "title": "Minimize the Maximum Value of GCD-Connected Array",
+  "source_url": "https://leetcode.com/problems/minimize-the-maximum-value-of-gcd-connected-array/",
+  "solution": "Consecutive integers are coprime, so every step of a valid array is at least 2, and 1 can never be next to anything (value = 1 gives -1). The prefix and suffix around nums[index] are independent. Let p be the smallest prime factor of value (p = 2 if value is even), found by trial division in O(sqrt(value)). Prefix: the element just before value is value - d with gcd(d, value) > 1, so d >= p; every earlier step is >= 2 and the first element is >= 2, so at most floor((value - p) / 2) elements fit before value. The chain 2, 4, ..., value - p, value reaches that bound (value - p is even because value and p are both odd when value is odd), so the array is feasible iff index <= (value - p) / 2. Suffix: with m = n - 1 - index elements after value, the first jump is at least p and every later jump at least 2, so nums[n-1] >= value + p + 2(m - 1) for odd value, and >= value + 2m for even value. Both bounds are met by jumping to the even number value + p (or value + 2) and then stepping by 2. If m = 0 the answer is value. Everything is a closed form, O(sqrt(value)) time and O(1) space, and the answer (up to about 4*10^9) needs 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python closed form run on all 3 samples (10, -1, 6): all match. Brute force is a layered reachability DP over positions (prefix: which values in [1, value] can sit at each position up to index; suffix: which values up to 2*value + 2m + 4 are reachable at each later position, take the minimum at n-1), sharing no reasoning with the formula. Exhaustive comparison over every n in 2..7, every index, every value in 1..49 (1323 cases) plus 400 random cases with n <= 12 and value <= 120: all agree. Also ran edge inputs at n = 10^9, value near 10^9 (prime and composite) to confirm no overflow or slow paths."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "gcd",
+      "number-theory",
+      "prime-factorization",
+      "greedy",
+      "parity-argument"
+    ],
+    "tags": [
+      "math",
+      "number-theory",
+      "greedy",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "gcd",
+      "number-theory",
+      "prime-factorization",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "parity-argument",
+        "reason": "No parity invariant decides anything here. Infeasibility (index > (value - p)/2) and the answer come from a gap-counting bound: consecutive integers are coprime, so every step is >= 2, and the step touching value is >= spf(value). Parity shows up only in the construction that meets the bound (step-2 chains live on even numbers, and odd value +/- odd p is even). That is a one-line detail of the construction, not the parity/colouring impossibility proofs this label marks elsewhere in the corpus (bishop colour, grid colouring in CF 2273B). The word 'even' stays in the summary for lexical recall."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "gcd: the adjacency condition is gcd > 1 and the key fact is gcd(k, k+1) = 1, which forces every gap to be at least 2. number-theory: the whole solution is a divisibility argument with a closed-form answer. prime-factorization: the answer depends on the smallest prime factor of value, found by trial division up to sqrt(value); it is the one non-trivial computation, not scaffolding. greedy: each side is built greedily (largest valid predecessor, smallest valid successor, then step by 2 on even numbers), and the proof is an exchange-style lower bound matched by that construction. parity-argument: the construction hinges on parity, since even numbers chain with step 2, and an odd value's nearest gcd-sharing neighbours are value -/+ spf, both even. Rejected binary-search-answer: despite the 'minimize the maximum' wording, the answer is a direct formula with no feasibility check to search over. Rejected sieve: one value up to 10^9 needs only trial division. Rejected constructive-algorithm: the output is one number and the construction is only used in the proof. Rejected math as a pattern because it is not canonical; it is kept as a tag.",
+    "skeptic": "Solution: correct, and the same as mine. Proof check: any predecessor L of value with gcd(L, value) > 1 shares a prime q | value, so L <= value - q <= value - p. Chain elements are >= 2 (1 is coprime to everything) and no two are consecutive integers, so at most (value - p)/2 fit in [2, value - p]. For odd value, value - p is even, so the bound floors correctly. The even chain 2, 4, ..., value - p attains it. The suffix argument is symmetric: first successor >= value + p, then +2 each, attained on evens.\n\nPer-pattern verdicts. gcd: KEEP. The adjacency condition is in the statement, but the solution really works on gcd identities (gcd(k, k+1) = 1, gcd(a, a+2) = gcd(a, 2), gcd(v, v+d) = gcd(v, d)), so this is more than echoing the statement. number-theory: KEEP. The whole problem is a divisibility argument with a closed-form answer. prime-factorization: KEEP, 0.6. The brief asks whether it is just 'find the smallest prime factor', and it is: trial division to sqrt(value) that stops at the first factor. It is still not scaffolding, because spf(value) is the quantity that decides both the -1 condition and the answer (prime value means index must be 0 and the next element is 2*value). The vocabulary has no smallest-prime-factor entry, and corpus precedent (e.g. smallest-value-after-replacing-with-sum-of-prime-factors, maximize-number-of-nice-divisors) attaches prime-factorization whenever a value's prime factors are computed. 'smallest prime factor' is in the summary for exact queries. Confidence is lowered from 0.75 because only the first factor is ever needed. greedy: KEEP, low (0.5). Taking the smallest valid successor (largest valid predecessor) at each step is optimal by a stays-ahead argument, and that is how most editorials frame the construction. It is borderline because nobody simulates it (n up to 1e9) and the code is a formula. parity-argument: REJECT (see reason). sieve: correctly rejected, since there is a single value up to 1e9. constructive-algorithm: correctly rejected, since the output is one number. primality-test: not added, because spf subsumes the prime case.\n\nTrap 1, binary-search-answer: correctly rejected. The 'minimize the maximum' wording invites it, but the array is strictly increasing so the maximum is just nums[n-1], and the answer is a direct O(sqrt(value)) formula. A feasibility test 'last <= X' would only compare against that formula, so no feasibility check is doing the interesting work. Trap 2, bitmask-dp vs interval DP: not applicable. There is no DP in any reasonable solution, and n, value up to 1e9 rule out DP over positions or values. A DP appears only in my brute-force checker.\n\nSummary: the proposal's 65-word summary was accurate but covered only the suffix jump ('odd value must jump by its smallest prime factor'). It said nothing about the prefix bound that produces -1, or that the answer is a closed form. That gap matters, because 'minimising' alone points readers toward binary search. Rewritten at 70 words to state both bounds and the closed form, keeping 'smallest prime factor', 'coprime' and 'even numbers'. Tags left as proposed. 'array' is weak because the input is three integers, but it matches corpus precedent (find-the-minimum-possible-sum-of-a-beautiful-array)."
+  }
+}

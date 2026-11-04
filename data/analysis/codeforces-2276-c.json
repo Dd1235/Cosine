@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2276-c",
+  "title": "Subarrays",
+  "source_url": "https://codeforces.com/contest/2276/problem/C",
+  "solution": "Let P[i] be the prefix sum of the first i elements taken mod k. Subarray (l, r) has sum divisible by k exactly when P[r] == P[l-1], and its length r-l+1 > k means the left prefix index i = l-1 satisfies i <= r-k-1. So the answer is the number of pairs i < j with P[i] == P[j] and j - i >= k+1. Sweep j from k+1 to n; before processing j, insert residue P[j-k-1] into a hash map of residue counts (a lagged insertion, so the map always holds exactly the prefixes that are far enough to the left), then add count[P[j]] to the answer. Each pair is counted once, at its right end, and only when the gap condition holds, so the count is exact. This is O(n) per test with a hash map (or O(n log n) by sorting residues), well within sum n <= 2*10^5; the answer can reach about n^2/2 so it needs 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the 3 sample tests (outputs 2, 5, 0, matching). Stress-tested against an O(n^3) brute force (enumerate all l<=r, check length > k and sum % k == 0) on 3000 random cases with n in [2,12], k in [1,n-1], values mixed between small (1..5) and large (1..1e9): all agree. Also timed on n=2*10^5, k=7 random values: fast, answer ~n^2/(2k) as expected."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "prefix-sum",
+      "hash-map",
+      "counting",
+      "modular-arithmetic"
+    ],
+    "tags": [
+      "array",
+      "prefix-sum",
+      "hash-map",
+      "math",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "prefix-sum",
+      "modular-arithmetic",
+      "hash-map"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "It repeats the statement's wording ('determine the total number'). The only counting in the solution is the residue frequency table, and prefix-sum + hash-map already describe that. There is no combinatorial counting: no C(c,2) closed form (the gap constraint rules it out), no stars-and-bars, nothing in the math category. The tag 'counting' stays because the topic-level frequency-count sense fits."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "prefix-sum: the whole solution is prefix sums mod k, with divisibility turned into equality of prefix residues; this is the core reduction, not scaffolding for one range read. hash-map: counting earlier equal residues with a frequency map is the counting engine (the classic 'subarray sums divisible by k' technique). counting: the answer is a pair count over equal residues. modular-arithmetic: residues mod k are the key the pairs are matched on, not just reducing the output; lower confidence since it is light. Rejected: sliding-window and two-pointers (the set of eligible left prefixes only grows via a lagged insertion; there is no window that shrinks), binary-search-answer (no feasibility check), dynamic-programming (no recurrence), number-theory (only plain divisibility, nothing number-theoretic beyond residues), combinatorics (no C(c,2) closed form is needed because of the gap constraint).",
+    "skeptic": "Solution: correct, checked as described in skeptic_check. modular-arithmetic, the question the caller raised: this is the actual technique, not an output modulus. The output is a plain 64-bit count with no modulus anywhere. The reduction 'sum(l..r) divisible by k iff P[r] ≡ P[l-1] (mod k)' is what the whole solution rests on. The corpus's direct analogs label it the same way: cses-1662 Subarray Divisibility, leetcode-continuous-subarray-sum (523, which also has a minimum-length side condition) and leetcode-maximum-subarray-sum-with-length-divisible-by-k all carry prefix-sum + modular-arithmetic + hash-map. I raised its confidence from 0.6 to 0.8. hash-map: kept. Because residues are < k < n, a plain array of size k works and no hashing is required. But 'frequency map of prefix residues' is the standard name for this technique, many solutions use map<ll,int>, and every analog has the label, so it is a real query term; confidence 0.8. prefix-sum: core, kept. counting: rejected as a statement echo (see rejected_patterns). Not all four labels are needed; three are enough. Missing labels considered: number-theory, which the analogs cses-1662 and LC 523 carry, is not added. The solution uses nothing beyond residues, and modular-arithmetic already covers that. sliding-window and two-pointers are rejected: the set of eligible left prefixes only grows through a lagged insertion and no window ever shrinks. combinatorics is rejected: there is no closed form. Trap 1, binary-search-answer: does not apply. There is no feasibility test and nothing to binary search, and the direct O(n) sweep is what anyone would write. Trap 2, bitmask-dp vs interval DP: does not apply. There is no DP, and k < n <= 2e5 rules out any exponential or quadratic state; the constraint forces a linear or n log n residue-counting sweep. Summary: 64 words, third person, accurate. It gives n up to 2·10^5 (the constraint that forces linear time) and the key reduction (equal prefix residues at least k+1 apart, lagged insertion), so it is kept verbatim."
+  }
+}

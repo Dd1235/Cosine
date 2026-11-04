@@ -1,0 +1,59 @@
+{
+  "id": "codeforces-2261-g",
+  "title": "1 2 3 and XOR, Where Did Everybody Go?",
+  "source_url": "https://codeforces.com/contest/2261/problem/G",
+  "solution": "Let X be the subarray XOR, A its AND, and k its length. Increasing b_i to c >= b_i gives Y xor c with Y = X xor b_i, and min_{c>=v} (Y xor c) is 0 iff Y >= v. So f = 0 if X = 0 or some element lacks X's top bit h. Otherwise every element has bit h, the best c must keep b_i's bits above h and set bit h, which forces 2^h into the answer and leaves the same problem on the bits below h: f(b) = 2^h + f(b mod 2^h). Unrolling this top-down greedy gives a closed form. Even k gives 0, because every bit of A appears an even number of times and so is missing from X, which means X's top bit is never shared by all elements. Odd k gives A within X, and f is the set of A's bits that lie above the highest bit where X and A differ: f = sum over bits b of A of 2^b * [X>>b == A>>b]. To add this over all subarrays, fix the right end r. The AND over l takes O(log V) distinct values on contiguous l-ranges, maintained incrementally. For each group with AND A, write X = P_r xor P_{l-1} with prefix XORs P. The condition becomes P_j>>b == (P_r xor A)>>b for j = l-1 in the group's range, with j of the parity that makes the length odd. Keep one persistent binary trie of P_j per parity, versioned by j. Walking T = P_r xor A down versions hi and lo-1 gives every count cnt_b at once, and the group adds sum over b in A of 2^b * cnt_b. That is O(n log^2 V) time, about 4e5*26*25 steps, and O(n log V) trie nodes. The 64-bit answer fits.",
+  "solution_check": {
+    "verified": true,
+    "how": "C++ solution (AND groups per right endpoint plus two persistent tries of prefix XOR by parity) prints 43, 21, 67, 36695941 on all 4 samples. A Python brute force that tries every i and every c in [b_i, 2^B) matches the samples. The closed form f = sum_{b in AND} 2^b [X>>b == AND>>b] for odd k (0 for even k) matched the brute f on 4000 random arrays (k<=6, values <32, half sharing a common mask). Stress tests: 400 random multi-test files (n<=7, values<16) against the full brute, and 600 files (n<=60, values up to 2^25, biased toward shared AND masks) against the O(n^2) closed form, all identical. Timing at n=4e5 on adversarial inputs (all-ones minus one rotating bit, random near-full masks, uniform random) was at most 0.25 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bit-manipulation",
+      "prefix-xor",
+      "persistent-trie",
+      "trie",
+      "contribution-technique",
+      "parity-argument",
+      "greedy"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "trie",
+      "data-structures",
+      "counting",
+      "greedy",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bit-manipulation",
+      "prefix-xor",
+      "trie",
+      "persistent-trie",
+      "parity-argument",
+      "contribution-technique"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "The top-down bit greedy appears only in the proof of the closed form for f (min over c >= v of Y xor c, keep the high bits, force bit h). The algorithm itself is counting with a trie over prefix XORs, and nobody implements a greedy. The proposal's own note calls it 'a derivation step, not the counting engine', and it gave it 0.45. A judge tag is not enough to make this problem one a greedy search should return."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: greedy is a proof step for f, not the technique. Its slot goes to prefix-sum, the broad tag for the prefix-XOR reduction that the trie query depends on."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "bit-manipulation: the whole reduction is XOR/AND bit analysis, including the fact that a subarray AND takes O(log V) distinct values per endpoint. prefix-xor: subarray XOR is P_r xor P_{l-1}, and the counted condition is a high-bit match on P_{l-1}. persistent-trie and trie: a binary trie of prefix XORs counts matches on bits >= b for every b in one walk, and persistence restricts it to the index range of each AND group. An offline sweep with a plain trie would also work, so trie is listed on its own. contribution-technique: f splits into per-bit terms 2^b * [match], and the sum over subarrays becomes per-bit counts. parity-argument: even-length subarrays contribute 0, so only j of one parity is queried. greedy (lower confidence): f comes from a top-down greedy over bits (keep the high bits, force bit h, recurse below h). It matches the judge tag, but it is a derivation step, not the counting engine. Rejected: divide-and-conquer, sorting, two-pointers (judge tags, probably the setter's route; a naive crossing-midpoint version costs about 26*26 group pairs times 25 bits per level, and I did not derive or verify a fast enough one, so they are not labelled from my solution). dynamic-programming (the f recursion is a closed form, not a DP table). binary-search, sos-dp, xor-basis (no basis or subset structure involved). offline-queries (alternative to persistence, not used).",
+    "skeptic": "SOLUTION. My own derivation agrees with the proposal. Raise b_i to c >= b_i, so the result is Y^c with Y = X^b_i. A c > b_i first differs from b_i at a bit p where b_i is 0 and c is 1, and below p it copies Y. The value is X's bits above p, plus 2^p when X_p = 0. That gives f = X with the bits at or below p cleared, where p is the highest set bit of X that some element lacks, or f = X if there is none. Even length: every bit of A appears an even number of times, so X & A = 0 and f = 0. Odd length: A is a subset of X, X & ~A = X ^ A, and f is the shared prefix of X and A above hibit(X^A). For each r the AND takes <= 26 values on contiguous l-blocks. Per block, T = P_r ^ A, and the subarray's LCP with A equals LCP(P_{l-1}, T), so one 25-step trie walk restricted to that block's j-range (parity fixed) prices every j. That is O(n * 26 * 25). Verified as described in skeptic_check.\n\nIS PERSISTENT-TRIE REQUIRED? No. The only thing persistence buys is restricting the trie to an index range [lo, hi]. Since the counts are additive, Q(hi) - Q(lo-1) over a plain trie swept in index order (offline-queries) does the same job, and I implemented and stress-verified it. The editorial could not be fetched (403). The snippets suggest the setter also counts with a trie ('a simple trie problem'), and the judge's divide-and-conquer/sortings/two-pointers tags are probably the setter's way of handling the index restriction or merging sorted prefix lists. I could not reconstruct a D&C that beats O(n*26*25): crossing-midpoint group pairs cost ~26*26 per level times log n. So I do not add divide-and-conquer, two-pointers or sorting without a verified route. I keep persistent-trie at a lower confidence, 0.65 (down from 0.8), because a range-restricted XOR trie is the textbook persistent-trie use and it solves the problem online in 0.5 s, so a 'persistent trie' search is well served. trie goes up to 0.85 because it is the engine whichever way the index range is handled. offline-queries is considered and not added: it is an implementation alternative to persistence, not the problem's insight, and as a label it would be noise.\n\nPATTERN AUDIT. bit-manipulation KEEP: the whole reduction is XOR/AND bit analysis, plus the O(log V) distinct-ANDs-per-endpoint fact. prefix-xor KEEP: not scaffolding. The query is a high-bit match on P_{l-1} against P_r ^ A, the classic 'trie of prefix XORs' reduction, not a prefix read once. trie KEEP. persistent-trie KEEP (see above). parity-argument KEEP: even length forces f = 0 and gives A within X. This is the non-obvious observation, and it splits the trie by parity. contribution-technique KEEP, weakly (0.5): f is split into per-bit terms 2^b * [bit b survives], and the sum over all subarrays becomes per-bit counts, which is a legitimate contribution-by-bit even though one could also say 'grouped counting'. greedy REJECT (see rejected_patterns).\n\nTRAPS. binary-search-answer: absent and correctly so. Nothing is a feasibility check, the answer is a direct sum, and the only 'search' is a trie walk. bitmask-dp vs interval-dp (and sos-dp): the judge's 'dp' tag does not correspond to any DP table. The f recursion f(b) = 2^h + f(b mod 2^h) unrolls to a closed form. Values < 2^25 are a 25-bit width, not a subset-state space, since 2^25 masks per position is impossible at n = 4e5, so bitmask-dp, sos-dp and xor-basis would all be wrong. No interval DP either, because subarrays are enumerated by right end and AND group, not by length.\n\nSUMMARY. The proposal's 59-word summary was accurate but vague ('counted per bit'), and it left out the deciding structural fact that the AND takes at most 26 values per right end on contiguous blocks, which is what makes the trie queries range queries. I rewrote it at 65 words. The new version states the reduction (common high-bit prefix of AND and XOR for odd length, 0 for even) and the constraints n ≤ 4·10^5, values < 2^25.\n\nTAGS. Dropped greedy (see above) and added prefix-sum as the broad tag for the prefix-XOR step. data-structures is kept because this is a data-structure counting problem (judge tag too) and trie alone undersells the persistence/offline index restriction."
+  }
+}

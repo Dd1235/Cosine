@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2272-f",
+  "title": "Tree Reduction Game",
+  "source_url": "https://codeforces.com/contest/2272/problem/F",
+  "solution": "Since roots can never be revisited, the root walks a simple path, and once the root moves from p to c the whole p-side hangs off c as a single child p that can only be deleted (its only entry vertex p was already root). The subtrees of c's other neighbours are still intact. So the position after entering c from p depends only on the directed edge (p->c): the mover has deg(c) removable children (the back child p plus deg(c)-1 forward children), and can also move into any forward child d, which hands the opponent position (c->d). If some forward child d is a losing position for its mover, entering it wins. Otherwise moving into a child loses, so only deletions matter: each move removes one child, and the mover wins iff the count deg(c) is odd. Hence (p->c) is LOSING iff deg(c) is even and no forward neighbour d has (c->d) losing. At the initial root r there is no back child, so Bob wins at r iff deg(r) is even and no neighbour c has (r->c) losing. All directed-edge states come from a rerooting DP: root at 1, compute down states bottom-up while counting losing children, then push up states top-down using cnt(p) - [down(c) losing] for the parent edge. The answer is every r with even degree and zero losing neighbours (Alice if there are none). O(n) per test, iterative BFS order, so the sum of n of 5*10^5 is fine.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n) rerooting solution (sol.py) matches all 6 sample cases exactly. Brute force (brute.py) does memoised full-game minimax over states (root, remaining vertex set, used-root set) with actual subtree deletion, for every initial root. stress.py: 3000 random trees with n in 2..9 (paths, stars, random parent trees, relabelled vertices), 0 mismatches. Timing: n=5*10^5 random tree and path each run in ~0.2s; even-length paths give Alice and odd paths give Bob {2,4,...,n-1}, both consistent with the brute force."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "rerooting-dp",
+      "game-dp",
+      "game-theory",
+      "tree-dp",
+      "parity-argument"
+    ],
+    "tags": [
+      "game-theory",
+      "tree",
+      "dynamic-programming",
+      "dfs",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "rerooting-dp",
+      "game-dp",
+      "game-theory",
+      "tree-dp",
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "rerooting-dp: Bob's answer needs the win/lose state of every directed edge, i.e. the tree DP for every possible root. That is exactly rerooting (down pass plus up pass using the count of losing children minus the child's own contribution). game-dp / game-theory: the DP values are win/lose positions of an impartial two-player game, combined by the rule 'win iff some move reaches a losing position'. tree-dp: the down pass is an ordinary subtree DP. Listed separately so a 'tree dp' search finds it. parity-argument: the key lemma is that when no child is losing, the game becomes pure deletion and the outcome is the parity of the degree. Considered and rejected: grundy-numbers (only win/lose is needed and no game sums are combined, so no Sprague-Grundy), dfs as a pattern (just the traversal order for the DP, kept as a broad tag only because it is the judge tag), memoization (the brute force uses it, the real solution does not), counting (the count of losing children is DP bookkeeping, not a counting problem).",
+    "skeptic": "Solution: matches my independent derivation and the brute force. Patterns are kept as proposed; only the summary changes. rerooting-dp KEEP: the output is every initial root where Bob wins, and each position is a directed edge, so the win/lose bit is needed for all 2(n-1) directed edges. One tree DP per root is O(n^2) at n=5e5, so the down pass plus an up pass (a vertex's losing-neighbour count minus the child's own contribution) is required. This is genuine rerooting, not a single-root DP. game-dp KEEP: the DP values are win/lose positions combined by 'win iff some move reaches a losing position'. game-theory KEEP: an impartial normal-play game, and the label people search for. tree-dp KEEP: the down pass is an ordinary subtree DP, and the corpus pairs rerooting-dp with tree-dp (CF 1324F, 1092F, LC Sum of Distances in Tree, etc.). The taxonomy has no rerooting-dp => tree-dp family rule, so it must be listed explicitly. parity-argument KEEP (0.7): this is the real insight, not scaffolding. Without it a position is (vertex, subset of surviving children, back-token), which explodes. The lemma is that once no onward edge is losing, entering any child loses, so play is pure one-at-a-time deletion and the mover wins iff the number of deletable children (deg(c), counting the back child) is odd. That collapses each position to one bit, and it is why every odd-degree vertex is always a winning entry for the opponent. Considered and not added: grundy-numbers (only the win/lose bit is needed; entering a child discards its siblings, so no Sprague-Grundy sums are combined), dfs as a pattern (traversal order only; it stays as a tag), subtree-dp (a synonym of the already-present tree-dp), memoization (the brute force uses it, the real solution does not), counting (bookkeeping). TRAP binary-search-answer: not proposed and not applicable. The answer is a vertex set with no monotone feasibility test, so nothing can be binary searched. TRAP bitmask-dp vs interval-dp: not applicable, since n<=5e5 rules out any subset state. This problem's own near-misses are grundy-numbers vs plain win/lose game-dp (resolved: no sums) and single-root tree-dp vs rerooting-dp (resolved by 'output every winning initial root' plus n<=5e5). Tags: CF API data for contest 2272 is not cached. game-theory/tree/dynamic-programming/dfs fit the usual CF judge tags (games, trees, dp, dfs and similar), and graph co-occurs with tree in about half of corpus CF tree problems, so all are kept. Summary changed: the proposal's version said only 'a degree-parity rule', which hides the key reduction, and it had an imperative clause ('list every root'). The new 69-word version names the reduction: the visited side becomes a single delete-only child, so a position is a directed edge p->c, losing iff deg(c) is even and no onward edge loses. It also keeps n<=5e5 and the all-roots requirement that force rerooting. Interpretation caveat: the statement never says outright whether the initial root counts as already rooted. The samples fit both readings, but the sample-5 note and the natural reading favour 'counts', and both the proposal and this check use that reading."
+  }
+}

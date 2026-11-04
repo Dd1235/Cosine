@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2278-b",
+  "title": "Stakes and Shapes",
+  "source_url": "https://codeforces.com/contest/2278/problem/B",
+  "solution": "If Bob plays the same move in every round, the order of Alice's moves stops mattering: all-Rock wins y rounds (against Scissors) and loses z (against Paper), all-Scissors wins z and loses x, all-Paper wins x and loses y. So Bob needs one of y >= z, z >= x, x >= y to hold. At least one always does: if all three failed we would have y < z < x < y, a contradiction around the cycle. The answer is therefore a uniform string of length x+y+z: R if y >= z, else S if z >= x, else P. Any valid string is accepted, so the sample's non-uniform answers are not required. O(x+y+z) per test to print the string, O(1) to decide it.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran both samples (0 0 3 and 1 1 2); outputs SSS and SSSS differ from the sample strings, but the problem accepts any valid answer. A checker that enumerates every distinct arrangement of Alice's moves and takes Bob's worst-case (wins - losses) gives 3 and 1 for them, and 0 and 0 for the sample's own RPS and SPSS, so it agrees with the note. Exhaustive stress over all 59 (x,y,z) with each value in 0..3 and x+y+z <= 7: the solver's string has worst case >= 0, and a brute force over all 3^(x+y+z) Bob strings confirms an answer exists. Plus 1e5 random (x,y,z) in 0..100 checked by the closed-form win-minus-loss count of the uniform string."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "math",
+      "implementation",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "There is no greedy process, only a three-way case split from an averaging fact (the three uniform nets sum to zero). 'Counter her most frequent move' is a single argmax choice, not a sequence of locally optimal choices or an exchange argument. The proposal concedes this by rejecting greedy as a pattern, and then keeps it as a tag only because CF tags it. Precedent 2261-D1, 2277-B and 2272-A drop the judge's greedy from searchable tags for this bound-and-attain or case-split shape, because it already lives in source_tags. Keeping it would surface a one-observation B for greedy queries it does not answer."
+      },
+      {
+        "tag": "implementation",
+        "reason": "The code prints one repeated character after two comparisons. There is no implementation-heavy bookkeeping. Precedent 2277-B and 2278-C drop implementation for closed-form case analysis."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the whole problem is building one valid output, and the key idea is the uniform string plus the cyclic contradiction showing one of three inequalities holds. Considered and rejected: game-theory (it is a fixed-strategy guarantee, not winning/losing positions or Grundy values); greedy as a pattern (there is no step-by-step greedy choice, just a case split; left as a broad tag only because CF-style easy constructives are often filed under greedy); brute-force (trying the three uniform strings is case analysis, not search); counting, parity-argument, simulation (none do the work). 'math' tag covers the inequality cycle argument.",
+    "skeptic": "SOLUTION: correct, same as mine. Bob's worst case depends only on his multiset against Alice's adversarial order. A uniform string removes the adversary entirely: all-Rock nets y-z, all-Scissors z-x, all-Paper x-y. The proposal proves one is >= 0 by the cyclic contradiction y<z<x<y. The cleaner equivalent is that the three nets sum to zero, so their maximum is >= 0 (averaging, i.e. generalized pigeonhole). Operationally, counter Alice's most frequent move: if x is the max, all-Paper nets x-y >= 0, and so on. A non-uniform string such as RSP against (1,1,1) can lose 0-3 to a cyclic shift, which is why the uniform string is the key idea. PATTERNS. constructive-algorithm: KEEP (0.9). The output is a witness string and building it is the whole task (unlike 2278-C/2271-A, where only a number or YES/NO is printed). PIGEONHOLE / CYCLIC-INEQUALITY (the caller's question): it does NOT get a label. The vocabulary has no pigeonhole entry. The nearest entries all fail. parity-argument: no parity is involved. counting: reading off x, y, z is scaffolding. exchange-argument: no swap of choices is compared. The argument is a one-line proof step inside a construction, the same way 2261-D1 used pigeonhole in its summary without a pattern. To keep it findable by text, the rewritten summary states the sum-to-zero averaging fact and the 'counter the most frequent move' rule. REJECTED (agree with the proposal). game-theory: a statement-word echo. RPS is the setting, but there are no positions, no optimal play by both sides and no Grundy values. The adversary is neutralised, not analysed, and game-dp/grundy-numbers fail for the same reason. brute-force: trying three uniform strings is a case split, not a search. Enumerating Bob's multisets (~5k for n=300) would still need a min-cost worst-case evaluation that nobody writes. simulation, counting, sorting: none do the work. MISSING LABELS: none found. Every valid approach goes through the uniform-string or counter-the-max observation. TAGS: dropped greedy (judge tag, already in source_tags; precedent 2261-D1/2277-B/2272-A) and implementation (trivial code; precedent 2277-B/2278-C). Kept constructive-algorithm and math. I considered string and game-theory as tags and rejected both as statement echoes. Two tags is thin, but every other candidate would mislead. TRAP binary-search-answer: NOT applicable. Nothing is monotone or searched, and the answer is decided in O(1). TRAP bitmask-dp vs interval DP: NOT applicable. There is no DP. x, y, z <= 100 only bounds the output length and admits no exponential state. SUMMARY: the proposal's summary was accurate and in range, but 'plays one move every round' is ambiguous, since every player plays one move per round. It also never said why a uniform string works (order irrelevance) or how the inequalities map to moves. The 67-word rewrite states order irrelevance, the three nets, the sum-to-zero averaging step, and the counter-the-most-frequent-move rule."
+  }
+}

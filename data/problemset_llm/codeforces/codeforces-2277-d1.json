@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2277-d1",
+  "title": "Number Operating (Easy Version)",
+  "slug": "2277-d1-number-operating-easy-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2277/problem/D1",
+  "source_topic": "Codeforces / Contest 2277",
+  "source_tags": [
+    "binary search",
+    "bitmasks",
+    "brute force",
+    "greedy"
+  ],
+  "statement": "The task sums f(n) over n in [l, r] mod 998244353, where f(n) is the fewest operations reaching n from 0 by adding 2^k (k = current add streak) or subtracting 1. With r up to 10^18 but total range length at most 2·10^5, each n is evaluated alone. A run of k adds gives 2^k − 1, so f(n) greedily splits floor(n/2) into Mersenne numbers, with an overshoot-then-decrement option.",
+  "tags": [
+    "math",
+    "greedy",
+    "bit-manipulation"
+  ],
+  "patterns": [
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792369,
+    "pattern_confidence": {
+      "greedy": 0.85
+    }
+  }
+}

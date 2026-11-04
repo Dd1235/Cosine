@@ -1,0 +1,56 @@
+{
+  "id": "codeforces-2278-g",
+  "title": "0s and 1s",
+  "source_url": "https://codeforces.com/contest/2278/problem/G",
+  "solution": "A pulse arriving at a node is exactly an increment of a binary number: a 0 bit becomes 1 and stops, a 1 bit becomes 0 and carries. Since a node forwards the same carry to every child, each root-to-leaf path behaves as an independent binary counter whose bit d is the node at depth d (the root is bit 0), and overflow past a leaf is lost. After K pulses, the node v at depth d with ancestors' initial bits A_v therefore holds bit d of (X_path + K), which depends only on K mod 2^(d+1). So the set of valid K is a single residue class modulo 2^(maxdepth+1) or empty, and the minimum answer is that residue. Find it bit by bit in BFS (or DFS) order. Each node keeps the carry it receives from adding K to the path's initial bits: carry_child = majority(x_u, k_{d(u)}, carry_u). At depth d the required bit is k_d = x_v xor y_v xor carry_v. The first node at depth d fixes k_d, and every other node at that depth must agree, otherwise the answer is -1. The answer is sum k_d 2^d mod 998244353. Correctness: bit d of the sum is x_v xor k_d xor carry_v, and the carry into depth d depends only on lower bits of K that were already fixed. O(n) per test, with sum of n up to 2*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (BFS by depth, per-node carry, k_d fixed by first node at depth d and checked by the rest) matches all 5 samples (0 1 2 -1 4). Brute force simulates pulses one at a time up to 2^(n+1) and returns the first K whose state equals y, or -1. Stress test: 2 seeds x 4000 random trees with n in [1,8] (chains, near-chains, random parents, random relabelling with root 1). Half the targets were random and half were reached by simulating a random number of pulses. 0 mismatches, about 640 of the 8000 cases answered -1 on each seed. Timing: n=2*10^5 chain (depth 2*10^5) and a random deep tree each run in under 0.1 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bit-manipulation",
+      "bfs",
+      "dfs"
+    ],
+    "tags": [
+      "tree",
+      "bit-manipulation",
+      "bfs",
+      "dfs",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bit-manipulation",
+      "bfs",
+      "rolling-hash"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "dfs",
+        "reason": "Redundant with bfs. The solution makes one parent-before-child pass, and any order works (I used a DFS stack myself). It should get one traversal label, not two. bfs is the one that carries meaning: the problem is organised by level, with depth d fixing bit d and every node on that level having to agree, and the corpus uses bfs-only for level-order tree problems (level-order traversal, maximum width)."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "rolling-hash",
+        "reason": "This is a real alternative solution, and it is the one CF's official 'hashing' tag points to. Every node pins K to (Y_v - P_v) mod 2^(d+1), a number up to 2e5 bits long. Those residues are built as a base-2 polynomial hash along the root path, then compared within each level mod two primes. I implemented and stress-tested it. Confidence is low because the carry method is simpler and deterministic."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "dfs",
+        "reason": "Same reason as the pattern: one traversal, and bfs is kept as the level-order label."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "bit-manipulation: the core idea is reading each root-to-leaf path as a binary counter, with each pulse as an increment carrying through bits. The answer K is built bit by bit (bit d from depth d) using binary addition with carries. bfs: the natural implementation is level-order, fixing k_d per depth level and checking that every node at that depth agrees. dfs: it works equally well, because ancestors are visited before descendants, so k_{d-1} is fixed by the time a depth-d node is reached. It gets lower confidence because level grouping is the clearer reading. Rejected: simulation (direct simulation needs up to 2^(depth+1) pulses, which is exponential, so it is only the brute force). tree-dp (the per-node carry is a single top-down propagated bit, not a DP over subtrees). parity-argument (the 'state = x xor parity of pulses received' view leads to the same thing, but the binary-counter reduction is the real insight, and parity alone does not solve it). modular-arithmetic (scaffolding for printing the answer mod p). constructive-algorithm and greedy (K is forced uniquely mod 2^(maxdepth+1), with no choice or exchange involved). binary-search-answer (not applicable).",
+    "skeptic": "Solution: correct, and it matches my own derivation. bit-manipulation: KEEP. It is the core, not scaffolding. The whole insight is that the tree is a set of binary counters sharing low bits, so K is built bit by bit through binary addition with carry (k_d = x^y^carry, carry = majority). bfs vs dfs: only one belongs. The pass just propagates one carry bit from parent to child. What makes the problem traversal-shaped is the per-level agreement check: bit d is shared by every node at depth d. That is level order, so I kept bfs and dropped dfs. Missing labels: rolling-hash was ADDED at low confidence for the congruence+hashing alternative, which I verified. Considered and NOT added: tree-dp. A bottom-up version, where each subtree requires its incoming count to lie in a residue class mod 2^height, does exist. It needs big-number comparisons, the natural solution is a top-down one-bit carry, and that is not DP. parity-argument: 'state = x xor parity of pulses received' is just bit 0 of the addition. The binary-counter reduction does the work. number-theory: the residue-class view (valid K = one class mod 2^(maxdepth+1), moduli nested powers of two) is real but trivial to combine. It is not what a number-theory searcher wants, so it is covered by the 'math' tag. chinese-remainder-theorem: the moduli are nested powers of two, so combining them is only a consistency check. binary-lifting, xor-basis, prefix-xor: no use. modular-arithmetic: scaffolding, only used to print the answer. simulation: the count can be about 2^(2e5), so simulation is the brute force only. TRAP binary-search-answer: does not apply. The valid K form a residue class, not a monotone set, and K is forced bit by bit with no feasibility search, so it must not be labelled. TRAP bitmask-dp vs interval DP: not bitmask-dp either. There is no subset state and n is up to 2e5. 'bit-manipulation' here means binary-counter arithmetic, which is a different thing from a DP over masks. Summary: the proposal's was accurate and 70 words. I revised it, still at 70 words, to add the modulo 998244353, which signals that the count is exponential and rules out simulation, and the rule that every node on a level must agree, which is the -1 condition and the reason for bfs."
+  }
+}

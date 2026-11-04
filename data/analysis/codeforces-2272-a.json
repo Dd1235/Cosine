@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2272-a",
+  "title": "Maximize One MEX",
+  "source_url": "https://codeforces.com/contest/2272/problem/A",
+  "solution": "Prefix MEX values are non-decreasing in i, so the k-th largest of f_1..f_n is simply f_m with m = n-k+1, and the task reduces to maximizing the MEX of the length-m prefix with one swap. Its upper bound is m (the prefix must hold exactly 0..m-1). Let x be the smallest value missing from the prefix. If x >= m the prefix already holds 0..m-1 and no swap helps, so print -1 (this always happens for k=1, since f_n = n). Otherwise any optimal swap must bring x into the prefix, because without x the MEX stays at most x. Since x < m is missing, the pigeonhole principle puts some value >= m in the prefix. Swap that value out for x: the new MEX is the next missing value, and no single swap can beat that because a swap brings in only one value. O(n) per test; trying all O(n^2) swaps with an O(n) re-evaluation (O(n^3), at most 10^6 since the sum of n is <= 100) also passes.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 3-case sample: output -1 / 1 3 / 4 5 matches exactly. stress.py: 30,000 random permutations with n in [2,8] and k in [1,n], compared with a brute force that tries no swap plus every pair (i,j) and recomputes the k-th largest prefix MEX. Checked that when the solution prints -1 no swap improves on the original, and that when it prints a swap the indices are distinct, the swap reaches the brute-force optimum, and it strictly improves (so -1 would have been wrong). All passed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "mex",
+      "greedy",
+      "brute-force",
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "array",
+      "permutation",
+      "greedy",
+      "brute-force",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "mex",
+      "constructive-algorithm",
+      "brute-force"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No greedy step. There is exactly one decision, and an upper bound forces it. A swap that does not bring in x=mex(prefix) leaves the MEX at most x. A swap that does is capped at mex(prefix ∪ {x}), and pushing out any element >= m reaches that cap. This is bound-and-attain: no sequence of locally optimal choices and no exchange argument (the proposal's 'exchange argument' is really this upper bound). The corpus precedent is codeforces-2266-A, which rejected greedy as both pattern and tag for the same bound-and-attain shape. The judge's greedy tag reflects 'put the smallest missing value in' phrasing, not a greedy algorithm. Keeping it would surface a one-observation A for 'greedy' searches."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern. The swap is forced by an upper bound and there is no greedy step. This follows the 2266-A precedent, which dropped the tag too."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "mex: the whole problem is about prefix MEX, and the key step is seeing that the k-th largest prefix MEX is f_{n-k+1}. greedy: bring in the smallest missing value and push out an element >= m; an exchange argument shows this is optimal. brute-force: with the sum of n <= 100, trying every swap and recomputing all prefix MEX in O(n^3) passes, and it is a judge tag, so it genuinely solves the problem. constructive-algorithm (lower confidence): the output is a swap to construct, and it is a judge tag, but the construction is trivial once the reduction is seen. Rejected: sorting (not used); prefix-sum (MEX is computed by a scan, not a prefix sum); exchange-argument as a pattern (it only proves the greedy correct, the solution does not sort by any exchange order); two-pointers, binary-search-answer (not applicable).",
+    "skeptic": "SOLUTION: the proposal is correct and identical to mine. f is non-decreasing, so the k-th largest is f_{n-k+1}. Maximise mex of the length-m prefix (m=n-k+1). The upper bound is mex(S ∪ {x}), where x=mex(S), and swapping x in for any prefix value >= m attains it. Print -1 iff x==m, which always happens for k=1. PATTERNS. mex: KEEP (0.9). The word is in the title, but it is not just an echo. Both steps of the solution are MEX facts: prefix MEX is monotone, which gives the reduction to f_{n-k+1}, and only the smallest missing value can raise a MEX, which forces the swap. This matches 2271-B and 1943-A, which also carry mex. constructive-algorithm: KEEP (0.6, up from 0.5). The output is a witness, the swap indices, and building it is the task. This is the opposite of the 2271-A/B precedent, where constructive was dropped because the output was only YES/NO. brute-force: KEEP (0.6). n<=100 and sum n<=100 make the all-pairs approach O(n^3) <= 10^6: try every swap and recompute every prefix MEX. That is a reasonable solution an A-level contestant would actually submit, and the judge tags it. The tiny constraint is what makes it valid, so the summary now says so. greedy: REJECT, see rejected_patterns. The swap is forced by an upper bound with no greedy step (2266-A precedent). I also removed 'Greedily' from the summary. MISSING LABELS considered and not added. hash-map/counting: the MEX scan over a seen-set is scaffolding. simulation: recomputing prefix MEX in the brute force is scaffolding. sorting/two-pointers/prefix-sum: not used. The vocabulary has no pigeonhole label. That fact (a value >= m must sit in the prefix when x<m) is proof scaffolding anyway. TRAP binary-search-answer: NOT applicable. One could binary search the target MEX, since 'can the prefix reach MEX t with one swap' is monotone in t, but the feasibility test would be trivial and the direct O(n) answer is what anyone writes. This is exactly the 'monotone so you could' misuse the brief warns about. TRAP bitmask-dp vs interval DP: NOT applicable. There is no DP of any kind. n<=100 is small only to admit O(n^3) brute force, not any exponential state. SUMMARY: the proposal's summary was accurate, but it said 'Greedily', which pushes toward the dropped label. It also did not tie n<=100 to the brute-force label it carried, and it omitted the -1 case. The rewrite is 67 words, third person, states n<=100, surfaces the f_{n-k+1} reduction and the swap rule, and mentions that trying every swap passes."
+  }
+}

@@ -28,5 +28,6 @@
       "hash-map": 0.95,
       "counting": 0.85
     }
-  }
+  },
+  "difficulty": 1000
 }

@@ -1,0 +1,39 @@
+{
+  "id": "leetcode-last-visited-cell-in-a-directional-grid",
+  "title": "Last Visited Cell in a Directional Grid",
+  "source_url": "https://leetcode.com/problems/last-visited-cell-in-a-directional-grid/",
+  "solution": "Simulate the walk directly. Keep an m x n boolean visited array, mark (0,0), and repeatedly read the arrow in the current cell to compute the next cell. If the next cell is off the grid or already marked, stop and return the current cell; otherwise mark it and move. Every successful step visits a new cell, so the loop runs at most m*n times. Correctness follows straight from the statement because the simulation applies the stopping rule exactly. Time and memory are O(m*n), at most 10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution with a visited array, run on both samples (both match: [1,0] and [0,2]). Stress-tested against an independent brute force that stores the path as a list and checks membership by linear scan: 20,000 random grids with m,n in [1,6] and random L/R/U/D, all agree. Timed the worst cases (1 x 10^5 all-'R' row and a 316 x 316 serpentine covering every cell) at about 5 ms each."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "simulation",
+      "grid-traversal"
+    ],
+    "tags": [
+      "array",
+      "matrix",
+      "grid",
+      "simulation",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "simulation",
+      "grid-traversal"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "simulation: the whole solution is stepping through the process the statement describes, with a visited array. grid-traversal: the walk moves cell to cell on a 2D grid using direction arrows and bounds checks. Rejected functional-graph and cycle-detection: each cell does have exactly one successor, but the stop-on-revisit rule is given by the statement and needs no cycle-finding technique (no Floyd, no tail/cycle decomposition), so someone searching those terms would get a trivial match. Rejected hash-map: the visited set is scaffolding (a boolean array does the job). Rejected dfs/bfs/flood-fill: there is no branching, just one path. No binary search, dp or greedy applies.",
+    "skeptic": "Approved unchanged. simulation: kept, it is the whole solution. You step through the process exactly as the statement describes, and the only reasoning needed is the bound (each step reaches a new cell, so at most m*n <= 1e5 steps). grid-traversal: kept. In this corpus the label goes broadly on problems that move cell to cell over a 2D grid with direction deltas and bounds checks (e.g. check-if-move-is-legal, escape-a-large-maze), and this problem is that. Slightly lower confidence (0.8) because the movement is forced, with no exploration. Cycle detection, the question in the brief: the walk can loop. The grid is a functional graph (out-degree 1), so the path from (0,0) has a rho shape and the answer is the node just before the first repeat. But the statement hands you the stopping rule ('enter a cell that has already been visited'), so a visited array is all you need, and nobody needs to know cycles exist to solve it. I did implement a Floyd tortoise/hare version (it agrees), but only as a cross-check; nobody would write it at m*n <= 1e5. So cycle-detection and functional-graph would just echo the statement's 'already visited' wording, and they would put a trivial Q2 into searches where the cycle structure is the insight. Rejection upheld. Note the precedent: codeforces-1020-b (Badge, also 'follow p until a repeat') is labelled cycle-detection in the corpus. That is arguably the same over-labelling and not a reason to copy it here. hash-map: rejected as scaffolding, since a boolean array does it. dfs/bfs/flood-fill: no branching, a single forced path. brute-force: not a meaningful label for a linear simulation. TRAP binary-search-answer: not applicable. There is nothing to optimise and no monotone feasibility predicate; the answer is a cell produced by a direct linear simulation. TRAP bitmask-dp vs interval DP: not applicable, since no DP exists here. The m*n <= 1e5 constraint points to linear simulation, not any exponential or interval state. No missing specific technique name: simulation is the specific name. Summary: 65 words, third person, accurate, includes the m*n <= 1e5 bound and the key fact (each step visits a new cell, so at most m*n steps). Kept verbatim. Tags: LeetCode gives no topicTags; the proposal's tags are reasonable and kept."
+  }
+}

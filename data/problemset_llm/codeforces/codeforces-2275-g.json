@@ -44,5 +44,6 @@
       "binary-search": 0.75,
       "ternary-search": 0.6
     }
-  }
+  },
+  "difficulty": 1900
 }

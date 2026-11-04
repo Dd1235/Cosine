@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2261-d1",
+  "title": "Come Be My Friend, Don't Be So Scared (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2261/problem/D1",
+  "solution": "With m = 0 the answer is a closed formula. Lower bound: a spot's signature (which detectors contain it) only changes at a segment endpoint, so k segments cut the row into at most 2k+1 maximal blocks of equal signature. Reaching 2k+1 blocks would need all 2k cuts to be interior, meaning no segment touches spot 1 or spot n, so those two spots both have the empty signature. Hence k segments separate at most 2k spots (and k = 0 separates only n = 1), giving k >= ceil(n/2) for n >= 2 and k = 0 for n = 1. Upper bound: with k = ceil(n/2), take segments [j+1, min(j+k, n)] for j = 1..k. Spot p lies in exactly the segments j with max(1, p-k) <= j <= min(k, p-1). For p <= k+1 that set is a prefix {1..p-1}, and for p > k+1 it is a suffix {p-k..k} starting at 2 or later, so every spot has a different set. The sample's choice [1,1],[2,2] for n = 3 works just as well. The whole thing is O(n) per test (only the output), fine for sum of n up to 2*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the sample (n=1,2,3). The counts 0,1,2 match; the segments differ from the sample's, which is allowed since any valid answer is accepted, and a checker confirmed they give distinct signatures. brute.py: for n=1..8, exhaustive search over all subsets of the n(n+1)/2 intervals in increasing size finds the minimum k, and it matches the formula every time. A signature-distinctness checker also validated the construction (distinct, in-range segments, all signatures unique) for every n from 1 to 2000, and the size formula was checked at n=200000."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "math",
+      "constructive-algorithm",
+      "greedy",
+      "interval"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "No greedy choice exists anywhere: the answer is a closed form plus a fixed chain of shifted segments. The judge's 'greedy' is already kept in source_tags. Copying it into searchable tags would surface this problem for greedy queries it does not answer, and the proposal's own notes concede no greedy process is involved."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the solution is a counting lower bound (k segments create at most 2k+1 constant-signature blocks, and the two outer blocks collide) plus an explicit chain construction; that construction is the core of the problem. Considered and rejected: greedy as a pattern (the judge tags it, but no greedy choice process is involved; it stays only as a broad tag to match the judge's tags); counting/combinatorics (the endpoint-counting bound is a pigeonhole argument and isn't really what those labels mean in the corpus); parity-argument (the ceil(n/2) comes from counting endpoints, not from parity); bit-manipulation (one might assume binary encoding with log n detectors, but contiguous segments rule that out, which is the point of the problem). The hard version D2 (arbitrary existing m detectors, rated 2400) needs real structure and is labelled separately.",
+    "skeptic": "Solution: correct, and the same as mine. The proposal's segments [j+1, min(j+k,n)] and my [i, i+k-1] both give prefix/suffix signature families; both pass brute force for n<=8 and the checker up to n=1499. constructive-algorithm: KEEP. The output is an explicit optimal family of segments, and the construction plus its optimality proof is the whole problem. Pigeonhole/counting-bound question (asked by caller): do NOT add 'counting'. The lower bound is literally pigeonhole (n spots into at most 2k signature classes), but the vocabulary has no pigeonhole label. In this corpus 'counting' is frequency counting: its taxonomy aliases are frequency-count, group-by, aggregation, pair-counting, prefix-counting, and records such as cses-1755 (Palindrome Reorder), codeforces-609-b (count pairs of different genres) and 2275-c (hash-map counting) use it that way. A 'counting' query would return this problem as noise. 'combinatorics' is wrong for the same reason: nothing is enumerated. Instead I put the phrase 'pigeonhole' and the 2k+1-blocks bound into the summary, so lexical search can match the argument without a misleading label. Other candidates rejected. greedy: judge tag only, no greedy step. parity-argument: ceil(n/2) comes from counting endpoints (each segment adds at most 2 cuts), not from an invariant mod 2. bit-manipulation: the signature is a bit vector, but contiguity is exactly what rules out log2(n) binary encoding, and no bit tricks are used. sliding-window: the segments [i, i+k-1] look like shifted windows, but that is surface shape, not the technique. Trap 1, binary-search-answer: does not apply. Feasibility is monotone in k, but the answer is a closed form with no feasibility test to binary search, and nobody would write one. Trap 2, bitmask-dp vs interval DP: no DP of any kind. k reaches 10^5, so a bitmask over segments is impossible, and no interval DP over positions is needed because the bound is tight by construction. The sibling D2 (m arbitrary, rated 2400) earns its union-find/XOR-hash labels from the pre-existing detectors. None of that machinery applies at m=0, so D1 correctly carries none of D2's labels. Summary: the proposal's version was fine on length (64 words) but said 'the answer is ceil(n/2)', which is wrong at n=1 (answer 0). It also omitted why 2k+1 blocks is unreachable (both end spots stay uncovered), which is the non-obvious step, and why contiguity matters (no binary encoding). Rewritten at 69 words with those included. Tag note: 'interval' kept to match the D2 proposal; the corpus uses 'intervals' more often (36 vs 8), so the caller may want to normalize both siblings together."
+  }
+}

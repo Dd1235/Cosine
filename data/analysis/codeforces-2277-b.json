@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2277-b",
+  "title": "Sequence Decreasing",
+  "source_url": "https://codeforces.com/contest/2277/problem/B",
+  "solution": "Every operation removes exactly one element, and any positive element can be removed on its own (operate on the one-element subarray containing it). So the question is only whether some element can survive as a zero. A survivor x with value v must be covered by exactly v operations, and each of them removes a different element other than x. That gives the necessary condition v <= |b| - 1, so a good array needs min(b) <= |b| - 1. The condition is also sufficient. Take the minimum element x and do v operations on the pair (x, its current neighbour), each time removing the neighbour (it is positive, so this is legal, and the next element moves up to become the new neighbour). Then remove every other remaining positive element alone, and x is left as the single 0. Zeros need no operations at all. Adding elements to a subsequence only raises its length and can only lower its minimum, so the best choice is always the whole array: the answer is n if min(a) < n, otherwise 0 (every subsequence of length L <= n then has min >= n > L-1). This is O(n) per test, which fits sum n <= 2*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (prints n if min(a) < n else 0) matches all 4 samples (1,0,0,5). brute.py does a memoised exhaustive search over every operation (each subarray of positives x each removed index) to decide goodness, and tries every subsequence from the longest down. It also matches all 4 samples. Stress test: 1500 random cases with n in 1..6 and values in 0..7 (lower bound varied among 0/1/2 so that both zero-free and zero-containing arrays come up), 0 mismatches; answer distribution 0:425, 1..6:1075."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "constructive-algorithm",
+      "array",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "There is no greedy choice in the solution, which is one min check. 'Taking more elements never hurts' is monotonicity of the characterisation min(b) <= |b|-1, not a greedy choice. Picking the minimum as the survivor isn't a greedy decision either: the construction works for ANY element with value <= |b|-1, and min is only how you test whether one exists. Same ruling as the codeforces-2261-g review: a greedy that lives only in the proof of a closed form is not a pattern. Corpus precedent also drops CF's 'greedy' source tag when nothing greedy is used (2271-c, 2271-f, 2271-g). The CF tag survives in source_tags."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the rejected pattern. The official CF 'greedy' tag is already kept in source_tags."
+      },
+      {
+        "tag": "implementation",
+        "reason": "The code is a single min comparison, so there is nothing implementation-heavy. The difficulty is entirely the observation."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "This is an ad-hoc observation problem: a counting bound for necessity (each op removes one element, and the survivor needs v ops) plus an explicit construction for sufficiency (repeatedly pair the survivor with its neighbour and delete the neighbour). constructive-algorithm covers that sufficiency construction. greedy, at lower confidence, covers the 'taking more elements never hurts, so take everything' step that reduces the subsequence choice to the whole array. Rejected: counting (the bound is a one-line op count, not combinatorial counting), binary-search-answer (the answer is n or 0 directly; nothing to search), sorting (only the min is needed), simulation (the operations are never simulated), prefix-sum/two-pointers (no range structure), parity-argument (the bound is about magnitude, not parity). Tags: math and implementation fit the O(n) min check.",
+    "skeptic": "Solution: the proposal is correct and matches my independent derivation. Its proof is right: survivor value v needs v ops, each deleting a different element, so v <= |b|-1; sufficiency comes from pairing with a neighbour and deleting it; and the condition is monotone, so the whole array is optimal. constructive-algorithm: KEEP. The output is a number, but the core of the problem is proving existence by writing down an explicit operation sequence (pair the survivor with its neighbour and delete the neighbour, then delete the leftovers singly). That is what a searcher for 'constructive' means on CF Div2 A/B. It matches the official CF tag. Confidence is moderate only because nothing is constructed in the output. greedy: REJECT, see rejected_patterns. It is the CF tag echoed, not a technique used. Missing labels: looked for any and found none. counting is wrong, because the bound is a one-line operation count, not combinatorial or frequency counting. parity-argument is wrong, because the bound is on magnitude. simulation and brute-force are wrong, because no operations are simulated. sorting is wrong, because only the min is needed. No canonical label names 'invariant / lower bound + matching construction' more specifically than constructive-algorithm. TRAP binary-search-answer: does not apply and is rightly absent. The answer is n or 0 directly. There is no feasibility test to search over, and checking 'is some subsequence of length L good' would be a pointless wrapper around a monotone O(1) condition. TRAP bitmask-dp vs interval-dp: does not apply. With n up to 2·10^5 and a closed form, there is no DP of any kind. The constraint rules out both state-space approaches, and the subarray-operation wording should not tempt interval-dp. Summary: I rewrote it lightly. The original's 'some element v needs v <= length-1' muddled element and value, and 'Counting operations' invites a false counting label. The original also never stated why the whole array is optimal, which is the reduction from subsequence choice to a min check. The new version is 69 words, third person, keeps n up to 2·10^5, and surfaces both the per-op deletion bound and the monotonicity step."
+  }
+}

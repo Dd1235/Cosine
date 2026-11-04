@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2261-a",
+  "title": "Hey, It's Me, Souvlakity",
+  "source_url": "https://codeforces.com/contest/2261/problem/A",
+  "solution": "Let k be the number of ones. Every pair of turns (Souvlakity gives one, Kalamakity gives one) leaves Souvlakity with exactly k integers, and since 10^100 is even the last move is Kalamakity's, so Souvlakity ends with k integers. If k = 1 the score is 0. If k = 2, on his last turn Souvlakity is left holding a single integer a and Kalamakity, who holds everything else, hands him a neighbour a-1 or a+1, so the score is 1 (and it cannot be less with two distinct integers). If k >= 3, Souvlakity can always give away a non-extreme element, so he never loses his initial minimum and maximum and the score is at least last1 - first1; Kalamakity can mirror by immediately returning the integer he was just given, which restores Souvlakity's set to the initial one after every round, so the score is at most last1 - first1. Hence the answer is 0, 1, or (index of last 1 - index of first 1). O(n) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py run on the 6-case sample: outputs 0 2 1 4 4 6, matching. Brute force: exact minimax value iteration over states (Souvlakity's bitmask, turn) for an even number of turns, iterated 4n+10 round-pairs and checked that the value had stabilised. Brute matches all samples; compared sol.py against it exhaustively on every binary string with at least one 1 for n = 2..9 (1012 strings) plus 60 random strings of length 10-11, 1072 cases total, all equal."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "parity-argument"
+    ],
+    "tags": [
+      "game-theory",
+      "math",
+      "string"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "game-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "parity-argument",
+        "reason": "The only parity in the problem is that 10^100 is even, so Kalamakity moves last and Souvlakity ends with his initial count k. The statement's own Note spells this out for samples 1 and 2, so it is not an insight the solver discovers, and the answer has no parity dependence on the input (it is k-1 for k <= 2, else the first-to-last-1 span). The load-bearing ideas are the count invariant and the two strategy arguments (keep both extremes / mirror each gift back), none of which is a parity argument. Someone searching parity-argument wants problems where odd/even decides the outcome; this would be a false hit."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "game-theory: the whole problem is a two-player optimal-play game solved by exhibiting a guaranteed strategy for each side (Souvlakity keeps his extremes, Kalamakity mirrors by returning each gift). parity-argument: the evenness of 10^100 is load-bearing, since it fixes the last mover and thus the final count k (with an odd number of turns the count would be k-1); kept at moderate confidence because the parity step is one of two observations, not the whole solution. Rejected: game-dp and grundy-numbers (no DP or Sprague-Grundy; the brute force is a DP but the solution is a closed form), memoization (brute only), greedy (the strategies are invariant-preserving, not greedy choices), constructive-algorithm (nothing is constructed in the output), counting (counting the ones is scaffolding), brute-force. Tag 'string' because the input is a binary string.",
+    "skeptic": "Solution: correct and matches my independent derivation. Per round Souvlakity gives one and receives one, so after Kalamakity's (final, since 10^100 is even) move he holds k integers. k = 1 -> 0. k = 2 -> on his last turn he holds one integer a and Kalamakity hands him a neighbour, so 1 (and two distinct integers cannot do better). k >= 3 -> Souvlakity always gives away a non-extreme element, so the original first and last 1 never leave him (score >= span); Kalamakity returns whatever he was just given, restoring the initial set every round (score <= span). Brute force confirms on all 1012 strings n <= 9.\n\nPatterns: game-theory kept (two-player optimal play solved by exhibiting a guaranteeing strategy for each side). parity-argument rejected: see reason; the evenness of the turn count is statement-given (the Note explains it) and the formula never branches on parity. Checked for missing labels: greedy (the strategies are invariant-preserving, not a greedy optimisation; agree with the proposal's rejection), counting (counting ones is scaffolding), constructive-algorithm (nothing constructed), game-dp/grundy-numbers/memoization (only the brute force uses DP), simulation (10^100 turns makes simulation impossible, which is the point). The vocabulary has no mirroring/strategy-stealing or invariant label, so game-theory alone is the honest set even though it is thin.\n\nTraps: binary-search-answer is not proposed and not applicable (closed form, no monotone feasibility test). bitmask-dp vs interval DP near-miss: not applicable; the only bitmask DP is my brute-force checker over 2^n states, which is not a solution at n <= 100. The analogous near-miss here is game-theory vs game-dp: n <= 100 and 10^100 turns rule out any state DP, so game-dp stays rejected.\n\nTags: kept game-theory, math (judge: games, math) and string; string matches corpus convention for string-input game problems (e.g. codeforces-2255-a, 5 of 29 game-theory CF records carry it).\n\nSummary: proposal's version was 70 words but ended 'the answer is 0, 1, or the initial ones' span' without saying which case gives which, and did not say who maximizes/minimizes. Rewrote to state the objective, the k >= 3 extremes-plus-mirroring reduction, and the exact case split (span for k >= 3, else k - 1). Dropped 'n up to 100' since it does not decide the technique; the 10^100 turn count does."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "leetcode-count-subarrays-with-loose-bounds",
+  "title": "Count Subarrays With Loose Bounds",
+  "source_url": "https://leetcode.com/problems/count-subarrays-with-loose-bounds/",
+  "solution": "A subarray is loose-bound exactly when every one of its elements lies in [minK, maxK], so the condition is per-element and the out-of-range elements act as walls that split the array into maximal runs of in-range elements. Scan left to right keeping run = length of the current in-range run ending at i (reset to 0 at an out-of-range element, otherwise incremented). The valid subarrays ending at i are exactly those starting inside that run, so add run to the answer; equivalently a run of length L contributes L(L+1)/2. This is the degenerate sliding window whose left edge sits just after the last bad index. If minK > maxK no element qualifies and the answer is 0, which the scan handles naturally. O(n) time, O(1) space for n up to 10^5; the answer can reach about 5*10^9, so it needs 64-bit integers in C++/Java.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python run-length scan; both worked samples pass ([1,4,7,3],1,5 -> 4; [1,1],1,1 -> 3). Stress-tested against an O(n^3) brute force (enumerate all subarrays, check min>=minK and max<=maxK) on 20000 random cases with n in [2,12], values in [1,V] for V in [1,8], minK/maxK drawn independently (so minK > maxK cases included); all agree. Timed n=10^5 at about 7 ms."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "counting",
+      "sliding-window"
+    ],
+    "tags": [
+      "array",
+      "counting",
+      "sliding-window",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sliding-window"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "This repeats the statement's word ('Count Subarrays'). The only counting step is the answer accumulation ans += i - last, or the triangular number L(L+1)/2 that comes with any subarray problem. In the taxonomy, 'counting' belongs to the combinatorics group, whose aliases include 'counting problems', so a combinatorics or counting query would rank this next to stars-and-bars and inclusion-exclusion problems. It contains no combinatorial or frequency-counting technique."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "counting",
+        "reason": "LeetCode's 'Counting' topic means frequency counting. No frequencies are kept here, and this is the same statement-word echo as the rejected pattern."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "counting: the whole problem is counting subarrays by right endpoint (or L(L+1)/2 per maximal run). sliding-window: the run is exactly the 'longest valid window ending at i' with the left edge jumping past each bad element; it is how most people phrase 'count subarrays where all elements satisfy a predicate', so a sliding-window search should reach it, but it is degenerate (no shrinking condition), hence 0.6. Rejected: two-pointers (same window, but no real second pointer movement beyond a reset; kept out to avoid dilution), monotonic-queue/deque (needed for the sibling 'Count Subarrays With Fixed Bounds' LC 2444 variant where min must equal minK and max equal maxK, not here since the condition is per-element), prefix-sum (none used), combinatorics (L(L+1)/2 is a triangular-number formula, scaffolding), greedy, binary-search.",
+    "skeptic": "Solution: the condition is per-element. The statement defines it as every element in [minK, maxK], and min>=minK and max<=maxK is the same thing. So out-of-range elements are walls, and each in-range index i ends exactly i - lastBad valid subarrays. That is O(n) time and O(1) space. The proposal is correct and verified.\n\nPatterns. sliding-window: KEPT at 0.6. [lastBad+1, i] is the longest valid window ending at i, and adding r-l+1 is the standard way to count subarrays whose elements all satisfy a predicate. It is a degenerate window: the left edge jumps past a bad element and never shrinks one step at a time, which is why confidence is not higher. counting: REJECTED, reason above. Weighing it was the explicit question in the brief. It is scaffolding plus title echo, and a lexical query like 'count subarrays all elements in range' already matches the summary text without it.\n\nCandidates I considered and rejected. monotonic-queue or deque: a deque tracking window min and max would work, but it is unnecessary overkill. Because the condition is per-element, window min/max is never needed. The deque belongs to the sibling LC 2444 Count Subarrays With Fixed Bounds, which the corpus labels sliding-window, two-pointers, monotonic-queue; there min must equal minK and max must equal maxK. Labelling this one with a deque would make it collide with that sibling. two-pointers: it is the same window as sliding-window, and no second pointer advances under a condition, only a reset. Adding it would dilute the record without covering a different solution. The corpus often pairs the two labels, but here two-pointers carries no separate meaning. combinatorics: L(L+1)/2 is a triangular number, which is scaffolding. dynamic-programming: run[i] = run[i-1]+1 is a degenerate recurrence, and no one would call it DP. prefix-sum: a prefix count of bad elements plus a search for the left boundary is a pointless detour.\n\nTrap 1, binary-search-answer: not applicable. Nothing is binary-searched, and there is no feasibility test. One could binary-search each right endpoint's left boundary over prefix counts of bad elements, but that is an O(n log n) detour that no one would write over the direct linear scan. Not labelled, and binary-search is not labelled either.\n\nTrap 2, bitmask-dp vs interval DP: there is no DP of any kind. n up to 10^5 rules out anything super-linear in a way that needs a state space, and the decisive constraint is simply that the predicate is per-element, which forces a linear scan. Neither label applies.\n\nSummary: 62 words, third person, accurate. It includes n<=10^5 and the reduction (out-of-range elements split the array into runs, and the run length gives the count of subarrays ending at each index). Kept verbatim. I deliberately did not add 'window min/max' wording, so that lexical queries for the fixed-bounds deque problem do not pull this one up."
+  }
+}

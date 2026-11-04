@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-find-root-of-a-colored-tree",
+  "title": "Find Root of a Colored Tree",
+  "slug": "find-root-of-a-colored-tree",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/find-root-of-a-colored-tree/",
+  "source_topic": "LeetCode / Weekly Contest 524",
+  "difficulty": "Medium",
+  "acceptance_rate": 44.1,
+  "source_tags": [],
+  "statement": "Given an undirected tree (n up to 10^5, degrees at most 3) with nodes colored R, B or W, the task is to find a root where every node has at most two children and each depth shares one color, cycling R->B->W. The color step forces every edge's direction, so the root is the unique in-degree-zero node; the degree cap leaves only the root's degree to check.",
+  "tags": [
+    "tree",
+    "graph",
+    "dfs",
+    "bfs",
+    "counting"
+  ],
+  "patterns": [
+    "bfs"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792372,
+    "pattern_confidence": {
+      "bfs": 0.5
+    }
+  }
+}

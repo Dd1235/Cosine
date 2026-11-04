@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-minimum-interval-selection-to-cover-target-intervals",
+  "title": "Minimum Interval Selection to Cover Target Intervals",
+  "slug": "minimum-interval-selection-to-cover-target-intervals",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-interval-selection-to-cover-target-intervals/",
+  "source_topic": "LeetCode / Weekly Contest 524",
+  "difficulty": "Hard",
+  "acceptance_rate": 34.8,
+  "source_tags": [],
+  "statement": "The task is to choose the fewest closed intervals from availableIntervals covering every real point of targetIntervals, or report -1, with up to 5·10^4 intervals and endpoints up to 10^5. Only the targets' union matters, and real points mean consecutive chosen intervals must overlap or touch, not just sit at adjacent integers. It reduces to minimum interval covering, solved by a jump-game-style farthest-reach greedy.",
+  "tags": [
+    "array",
+    "greedy",
+    "interval",
+    "sorting"
+  ],
+  "patterns": [
+    "greedy",
+    "interval-union"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792373,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "interval-union": 0.7
+    }
+  }
+}

@@ -35,5 +35,6 @@
       "gray-code": 0.7,
       "bit-manipulation": 0.6
     }
-  }
+  },
+  "difficulty": 1400
 }

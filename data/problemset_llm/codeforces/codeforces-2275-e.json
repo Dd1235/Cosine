@@ -29,5 +29,6 @@
       "dynamic-programming": 0.75,
       "prefix-sum": 0.65
     }
-  }
+  },
+  "difficulty": 1500
 }

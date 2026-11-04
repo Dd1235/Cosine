@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2276-e",
+  "title": "Good Substrings",
+  "source_url": "https://codeforces.com/contest/2276/problem/E",
+  "solution": "Count bad substrings covering each index and subtract from i*(n-i+1), the number of substrings covering index i (1-indexed). Fix the left end l. Greedy leftmost matching of a subsequence is optimal, so with next-occurrence tables match '2','0','2' from l to get position p; then the substring [l,r] contains 2025 iff r >= A = next '5' after p, and contains 2026 iff r >= B = next '6' after p (both share the 202 prefix). Hence the bad right ends for l are exactly the interval [A, B-1] (empty if B < A or no '5'). The contribution of this left end to index i is B-A for l <= i <= A (every bad r covers i), B-i for A < i < B (only r >= i count), and 0 elsewhere: a constant on one range and a linear function of i on the next. Both are applied in O(1) with two difference arrays (one for the constant term, one for the coefficient of i), then a single prefix pass gives bad(i) = C(i) + K(i)*i. Total O(n) time and memory per test, well within sum n <= 3·10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n) solution (next-occurrence tables + constant/linear difference arrays) reproduces both samples ('202516' -> 4 8 10 10 9 6, '20265' -> 5 8 9 8 5). Stress-tested against an O(n^3) brute force (enumerate all l,r, check 2025/2026 subsequence with an iterator, add to covered indices) on 3000 random strings with n in 1..30 over alphabets {0256}, {02567}, all digits, {025}, {26}: all matched. Max test n=3·10^5 runs in 0.12 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "contribution-technique",
+      "difference-array",
+      "counting"
+    ],
+    "tags": [
+      "string",
+      "counting",
+      "prefix-sum",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "difference-array",
+      "contribution-technique",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "difference-array: the core step is adding, per left end, a constant on [l,A] and a linear term B-i on [A+1,B-1]; this is the second-order / arithmetic-progression range-update form of a difference array, the problem's main technique. contribution-technique: answers per index are obtained by summing each left end's (equivalently each bad substring's) contribution to the indices it covers, after complementing against all covering substrings. counting: complement counting (good = all covering substrings minus bad). Tag prefix-sum because the difference arrays are accumulated by prefix passes, but not a pattern since difference-array already names it. Tag greedy for the leftmost-subsequence-match argument that makes bad right ends an interval; not a pattern since it is a standard lemma, not a greedy algorithm being searched for. Rejected: two-pointers/sliding-window (A(l),B(l) are monotone but maintaining 'window contains 2025 as subsequence' under left deletions is not a natural two-pointer state; next-occurrence jumps are what one writes); dynamic-programming / subsequence-dp (no DP over automaton states is needed); string-matching/kmp (subsequence, not substring, matching); segment-tree/fenwick-tree (offline difference arrays suffice); binary-search (next-occurrence tables are O(1) lookups).",
+    "skeptic": "Solution: correct; it matches my own derivation and passes brute-force stress. Patterns: (1) difference-array KEEP, 0.9. This is the real mechanism. Each left end adds a constant on [l,A] and a decreasing linear term on (A,B-1], which is the arithmetic-progression / second-order range-update form, the same thing CSES Polynomial Queries is labelled difference-array for in the corpus. The final prefix pass is scaffolding, so prefix-sum stays a tag only. (2) contribution-technique KEEP, but confidence lowered from 0.85 to 0.65. The textbook use is the other direction (sum over all substrings, broken down per element, e.g. Vowels of All Substrings). Here the output is already per index, and the solution adds each left end's group of bad substrings onto the indices it covers. It is the same double count over (substring, covered index) pairs, and the i(n-i+1) count of covering substrings is the textbook contribution formula. So the label is real, not statement echo, but secondary to difference-array. The sibling Clean Substrings (2267-e) carries it too. (3) counting KEEP, 0.6. Complement counting (good = all covering substrings minus bad) is a real step, and it is what makes the per-l structure a single interval: good right ends per l are two pieces, bad right ends are one. This is consistent with corpus use. Missing labels considered and rejected: string-matching / kmp / z-function / rolling-hash (the pattern is matched as a subsequence, not a substring); subsequence-dp / dynamic-programming (a DP over pattern states from the right is possible but is just a next-occurrence table, and no counting DP is involved); two-pointers (A(l) and B(l) are monotone, so a pointer plus prefix-sum formula would work, but nobody would write it over next-occurrence jumps); fenwick-tree / segment-tree (offline difference arrays suffice); greedy as a pattern (leftmost subsequence matching is a standard lemma, kept as a tag). The vocabulary has no next-occurrence or subsequence-automaton label. TRAP binary-search-answer: does not apply. Nothing is optimised over a monotone answer. The only monotonicity is 'contains 2025' as r grows for fixed l, and that would at most justify plain binary search on r, which next-occurrence tables make O(1). Both binary-search and binary-search-answer are rejected. TRAP bitmask-dp vs interval DP: no DP at all. The near-miss pair here is difference-array vs prefix-sum, i.e. mechanism vs scaffolding. The deciding constraint is n <= 3·10^5 (sum over tests), which rules out enumerating all O(n^2) (l,r) pairs and forces an O(1) interval per l plus O(1) range updates. Summary: the proposal's text was accurate and exactly 70 words, but it left out the complement against i(n-i+1) and called the update 'arithmetic-progression', when it is constant on [l,A] and linear after A. I rewrote it to 69 words with both fixed. Patterns and tags are unchanged; status is 'changed' only for the summary and the lowered contribution-technique confidence."
+  }
+}

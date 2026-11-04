@@ -1,0 +1,50 @@
+{
+  "id": "codeforces-2277-a",
+  "title": "Subset Selecting",
+  "source_url": "https://codeforces.com/contest/2277/problem/A",
+  "solution": "To get mex at least M we need, for every value v in 0..M-1, a separate group whose maximum is exactly v. That group must contain a copy of v, and its other k-1 members must all be at most v. No other groups are needed, and adding one never helps. So mex >= M is feasible iff every value 0..M-1 appears and, for each v < M, the number of elements <= v is at least (v+1)*k, because the groups for 0..v need (v+1)*k elements and each of them must be <= v. The condition is sufficient by a greedy argument: build the groups in increasing order of v, give group v one copy of v plus any k-1 unused elements <= v, and take the smallest ones first. Elements left over at step v can still go into any later group, so the prefix-count condition is exactly what the greedy needs at each step. Count frequencies, then scan v = 0,1,2,... while keeping a running total of elements <= v. Stop at the first v that is missing or has running total < (v+1)*k; that v is the answer. This is O(n) per test with n <= 100.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (frequency count plus a running prefix total over v while cnt[v]>0 and total>=(v+1)k) run on all 6 samples: output 3 0 2 1 1 3 matches the expected output. A brute force enumerated every partition of every subset into groups (restricted-growth recursion, each element unused, in an existing group or in a new group), kept only partitions whose groups all have size >= k, and took the max mex of the group maxima. Stress test: 3000 random cases with n in 1..7, k in 1..n, values in 0..min(n, random cap from {1,2,3,n}). All agreed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "mex",
+      "greedy",
+      "counting"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "counting",
+      "sorting",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "mex",
+      "greedy",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "sorting",
+        "reason": "Nothing is sorted. Values are bounded by n, so the histogram cnt[0..n] already gives the value order, and no reasonable solution needs a sort."
+      },
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The output is one integer. The groups are built only inside the sufficiency proof, so this matches the proposal's own reason for rejecting it as a pattern."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "mex: the objective is the mex of group maxima, and the solution's key reduction is 'one group per value below M', which is a mex argument. greedy: the core of the solution is the greedy construction (process v in increasing order, give group v its copy of v plus any k-1 unused smaller elements); it proves the prefix condition is sufficient. counting: the algorithm runs on frequency counts cnt[v] and running totals of elements <= v. Rejected: binary-search-answer (feasibility is monotone in M, but the direct linear scan is what anyone writes; this is the brief's named trap); prefix-sum (the running total in one linear scan is scaffolding, not a prefix-sum technique); hall-theorem (the prefix condition looks like a Hall-type condition, but no matching argument is needed and the greedy proves it directly); constructive-algorithm as a pattern (only the value is output, no construction). Tags: sorting is included because thinking in sorted order of values is how the greedy is described; constructive-algorithm is a weak tag because the proof builds the groups explicitly.",
+    "skeptic": "Solution: mex >= M needs a separate group with maximum exactly v for each v < M. Each such group needs one copy of v and k-1 more elements <= v, and extra groups never help. Necessary condition: cnt[v] >= 1 and #(elements <= v) >= (v+1)k for every v < M. It is also sufficient by greedy: build the groups in increasing v. Any leftovers <= v can be used by every later group, so they are interchangeable, and the only state is the leftover pool. The answer is the first v that fails. Runs in O(n) per test.\n\nPatterns. mex: KEEP (0.9). This is more than the objective word showing up again. The solution relies on the standard mex reduction that mex >= M means 0..M-1 are each realised, and the answer is the first v that fails. Corpus usage is consistent: CF 1406A Subset Mex is labelled [greedy, counting, mex], and so are CF 1497A, 862A and others. greedy: KEEP (0.8). The sufficiency argument and the loop itself are greedy: process values in increasing order, give each group one copy of v plus k-1 leftovers, and pass the surplus forward. Without that greedy step, the solution is only a necessary condition. counting: KEEP (0.6). The whole algorithm runs on the value histogram cnt[0..n], which a_i <= n makes natural, and both conditions (presence and cumulative count) are read straight from it. Confidence is lower because a frequency array is close to scaffolding, but here it is the entire data representation and it matches the 1406A precedent.\n\nMissing-label check. prefix-sum: rejected, agreeing with the proposal. The running total is a single accumulator in a one-pass scan with no range queries; a 'prefix sum' searcher would not be looking for this, and the summary's 'prefix-count' wording already covers the lexical match. hall-theorem: rejected. The condition looks Hall-like, but no matching is used and the greedy proves sufficiency directly. Nothing more specific than greedy applies: exchange-argument is not needed because leftovers are interchangeable, and interval-scheduling does not apply. simulation would only echo the loop.\n\nTrap 1, binary-search-answer: REJECTED. Feasibility is monotone in M, but the feasibility test is a trivial prefix check and the direct linear scan that stops at the first failure is what anyone writes. A binary search would wrap a scan that already returns the answer. This is exactly the 'monotone so you could binary search' mislabel the brief warns about. Trap 2, bitmask-dp vs interval DP: not applicable. There is no DP of any kind. n <= 100 says nothing about subsets or intervals, and the problem is a greedy over values.\n\nTags: I dropped sorting (the histogram replaces any sort) and constructive-algorithm (the output is a number, and the construction lives only in the proof). I added array, the corpus's standard domain tag and the one carried by the comparable mex records. math, greedy and counting are kept.\n\nSummary: kept verbatim. It is 70 words (at the limit), one paragraph, third person and accurate, and it states n <= 100 with values in 0..n. It surfaces the key reduction (one group per v < M with maximum exactly v) and the exact check, (v+1)k elements <= v."
+  }
+}

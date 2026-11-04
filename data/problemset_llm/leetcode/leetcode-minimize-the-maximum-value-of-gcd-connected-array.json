@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-minimize-the-maximum-value-of-gcd-connected-array",
+  "title": "Minimize the Maximum Value of GCD-Connected Array",
+  "slug": "minimize-the-maximum-value-of-gcd-connected-array",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimize-the-maximum-value-of-gcd-connected-array/",
+  "source_topic": "LeetCode / Weekly Contest 526",
+  "difficulty": "Medium",
+  "acceptance_rate": 25.7,
+  "source_tags": [],
+  "statement": "The task asks for a strictly increasing positive array of length n (up to 10^9) with nums[index] = value (up to 10^9) and every adjacent pair having gcd above 1, minimising the last element or returning -1. Consecutive integers are coprime, so steps are at least 2, the steps into and out of value are at least its smallest prime factor, and even numbers meet both bounds in closed form.",
+  "tags": [
+    "math",
+    "number-theory",
+    "greedy",
+    "array"
+  ],
+  "patterns": [
+    "gcd",
+    "number-theory",
+    "prime-factorization",
+    "greedy"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792373,
+    "pattern_confidence": {
+      "gcd": 0.9,
+      "number-theory": 0.9,
+      "prime-factorization": 0.6,
+      "greedy": 0.5
+    }
+  }
+}

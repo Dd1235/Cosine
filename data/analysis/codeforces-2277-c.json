@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2277-c",
+  "title": "Edge Addeleting",
+  "source_url": "https://codeforces.com/contest/2277/problem/C",
+  "solution": "Every added edge is incident to vertex 1 and the deleted edge lies on the cycle through 1 and v_i, so the components of T minus vertex 1 can only split, never merge. In the final tree the path from 1 to n starts with some edge (1, u) and then never revisits vertex 1, so all its remaining edges are non-1 edges, which are all original tree edges. That makes the rest of the path the original tree path from u to n, and that path must avoid vertex 1. Hence u is either 1's original child p1 on the way to n (giving the original distance) or some v_i inside the component C of n in T - {1}, giving 1 + dist_T(v_i, n). This upper bound is reachable: delete the new edge in every operation except the one with the best v_i in C, and there delete the edge (1, p1). The tree path from v_i to n stays inside C, so it is intact. Algorithm: BFS from n in the original tree with vertex 1 blocked. This gives dist(., n) on C and, via the edge into 1, the original distance d(1, n). The answer is max(d(1, n), 1 + max over v_i in C of dist(v_i, n)), and operations with v_i outside C do not matter. Complexity is O(n + m) per test, linear in the sums of n and m (5*10^5 each).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (BFS from n with vertex 1 blocked) run on the 5 statement samples: output 1 2 5 6 2 matches the expected output. Brute force enumerates every choice of deleted edge (each edge on the current 1..v_i tree path plus the new edge) for every operation and takes the max final 1-n distance. Stress test: 4000 random trees with n in [2,7] and m in [1,4] (m<=3 when n>5), random v_i, zero mismatches. Timing on a max test (n = m = 5*10^5, one test case): 0.29 s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bfs",
+      "dfs"
+    ],
+    "tags": [
+      "tree",
+      "graph",
+      "bfs",
+      "dfs",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bfs",
+      "dfs"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "The whole solution is one structural observation (the final 1-n path is one edge (1,u) plus an original tree path that avoids 1) followed by a single tree traversal from n with vertex 1 blocked, which computes distances on n's side. BFS and DFS both do this traversal, so both are listed. bfs gets slightly higher confidence because it is the natural choice for distances. The 'greedy' tag is broad only: you pick the single operation vertex farthest from n and ignore the rest. Considered and rejected: connected-components (the component of n in T-{1} is used only as a reachability mask, and no components are counted or merged; someone searching that term wants DSU or component-counting problems); constructive-algorithm (the output is a number, and the construction in the proof is trivial); tree-diameter and shortest-path (it is a plain unweighted tree distance from one source, not a diameter or a general shortest-path problem); greedy as a pattern (no exchange or choice sequence, only a max over candidates); simulation (the operations are never simulated).",
+    "skeptic": "SOLUTION: correct, and it matches my independent derivation (see skeptic_check). PATTERNS. bfs: KEEP (0.85). The only computation after the structural observation is the unweighted distance from n inside n's component of T - {1}, and a BFS from n with 1 blocked is the natural way to get it. dfs: KEEP (0.7). Whether it is genuinely used or redundant: it is a real alternative solution, not scaffolding. In a tree the DFS depth is exactly the distance, because paths are unique. My own verified solution is an iterative DFS that skips vertex 1, and many CF submissions for tree problems compute depths this way. This follows the corpus convention for two interchangeable implementations of one step, e.g. codeforces-2275-g keeps both binary-search and ternary-search. It gets lower confidence than bfs because distance computation is BFS's home ground and DFS adds no structural property here (no tin/tout, subtree sizes or back edges). If the corpus wants exactly one label per step, drop dfs and keep bfs. Considered and rejected: shortest-path (the graph is a tree with unique paths, so nothing is being minimised over alternative routes; BFS is only measuring a fixed path, and a 'shortest-path' searcher wants Dijkstra or BFS over many routes); graph-modeling (the graph is given, no modelling step); connected-components (n's component of T - {1} is just the set the BFS reaches, nothing is counted or merged; labelling it would pull this into DSU or component-count searches); reachability (same reason, it is the BFS's visited mask, not a reachability problem); tree-diameter (the max is over a candidate set from one fixed endpoint n, not a diameter); constructive-algorithm (the output is a number; the one-operation construction exists only in the proof); greedy as a pattern (the step is an upper bound plus a max over candidates, with no sequence of greedy choices or exchange argument); simulation (the operations are never simulated). TAGS: kept as proposed. 'greedy' stays as a broad topical tag because the 'use only the best operation and make the rest no-ops' strategy is what CF-style tagging calls greedy; it is not a technique label. TRAPS. binary-search-answer: not applicable and correctly absent. The answer is a direct max over BFS distances; no feasibility test exists, and nobody would binary search this. bitmask-dp vs interval DP: not applicable, there is no DP at all. The near-miss trap here is a different one: bfs vs shortest-path, and bfs vs dfs. On a tree, distance is a traversal depth, not a shortest-path problem, and BFS and DFS are interchangeable; the constraints (n, m up to 5·10^5, sums bounded) only demand a linear traversal. SUMMARY: changed. The proposal said 'the final path is one new edge 1–v_i plus an original tree path' and 'max of the original distance and dist(v_i, n)+1' without saying that the tree path must avoid vertex 1, i.e. only v_i on n's side of vertex 1 count. Read literally that is wrong: in sample 5, v=6 sits in the other subtree and would give dist_T(6,7)+1 = 6 instead of 2. The fix states the 'avoiding 1' reduction and restricts the max to reached v_i. It is 70 words, third person, and keeps the 5·10^5 constraint."
+  }
+}

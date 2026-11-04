@@ -1,0 +1,38 @@
+{
+  "id": "codeforces-2278-f",
+  "title": "Modulo and Counting",
+  "slug": "2278-f-modulo-and-counting",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2278/problem/F",
+  "source_topic": "Codeforces / Contest 2278",
+  "source_tags": [
+    "dp",
+    "math",
+    "number theory"
+  ],
+  "statement": "The task counts non-increasing arrays of length n with values in [1, m+2] whose sum of a_i mod a_{i+1} is m, modulo 998244353, for n, m <= 4000 (sums bounded). As a mod b <= a-b, equal iff a < 2b, the sum is at most a_1-a_n <= m+1, so arrays descend from m+2 to 2, each under twice the next, then optional 1s, counted by O(nm) prefix-sum dynamic programming.",
+  "tags": [
+    "math",
+    "dynamic-programming",
+    "combinatorics",
+    "prefix-sum",
+    "number-theory"
+  ],
+  "patterns": [
+    "dynamic-programming",
+    "prefix-sum",
+    "combinatorics",
+    "number-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792369,
+    "pattern_confidence": {
+      "dynamic-programming": 0.95,
+      "prefix-sum": 0.8,
+      "combinatorics": 0.6,
+      "number-theory": 0.5
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "leetcode-minimum-operations-to-sort-with-locked-indices",
+  "title": "Minimum Operations to Sort With Locked Indices",
+  "slug": "minimum-operations-to-sort-with-locked-indices",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-sort-with-locked-indices/",
+  "source_topic": "LeetCode / Weekly Contest 526",
+  "difficulty": "Medium",
+  "acceptance_rate": 44.6,
+  "source_tags": [],
+  "statement": "The task is to sort a permutation of 1..n (n up to 2000) using adjacent swaps, allowed only between two unlocked indices, plus at most k unlocks, minimising swaps plus unlocks. Swaps always equal the inversion count. The minimum unlocks are the locked indices inside non-trivial prefix-max chunks, so the answer is inversions plus unlocks, or -1 if more than k are needed.",
+  "tags": [
+    "array",
+    "sorting",
+    "permutation",
+    "fenwick-tree",
+    "counting"
+  ],
+  "patterns": [
+    "inversion-count",
+    "fenwick-tree",
+    "segment-tree"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792374,
+    "pattern_confidence": {
+      "inversion-count": 0.95,
+      "fenwick-tree": 0.65
+    }
+  }
+}

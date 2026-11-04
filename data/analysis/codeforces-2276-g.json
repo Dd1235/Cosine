@@ -1,0 +1,84 @@
+{
+  "id": "codeforces-2276-g",
+  "title": "Elimination of Players",
+  "source_url": "https://codeforces.com/contest/2276/problem/G",
+  "solution": "Let p_r be the player of strength r. Before round i the survivors are always one 'holder' plus exactly p_{i+1..n}, so the game is a left-to-right scan of p: in round i, if the holder equals a_i it is protected and p_{i+1} is eliminated, otherwise the holder is eliminated and p_{i+1} becomes the new holder. Let P_k mean that the holder is protected in round k, and let e_k = [p_k = a_k]. Split a into maximal equal runs (blocks) b = [l_b, r_b] with value v_b. Then P_k = (sum over s in (l_b, k] of e_s) + e_{l_b}(1 - c_{b-1}), where c_b = P_{r_b} is 'block b caught its value'. Since the e_s inside one block are mutually exclusive, this is a pointwise identity. Unrolling c_b = Z_b - e_{l_b} c_{b-1} gives a signed sum: P_k = sum over t <= b of (-1)^{b-t} * e_{l_{t+1}}...e_{l_b} * (sum over s in block t of e_s), i.e. inclusion-exclusion over runs of block-start fixed points. A product of m match events at distinct positions with distinct values covers (n-m)! permutations, and also forcing p_{k+1} = j for a j not among those values leaves (n-m-1)!. So Q(k,j) = #(P_k and p_{k+1} = j) = [j != v_b]((k-l_b+1)(n-2)! + sum over t from max(last_j+1, D_b) to b-1 of (-1)^{b-t} len_t (n-b+t-2)!), where D_b is the left end of the longest window of blocks with distinct values ending at b, and last_j is the latest earlier block with value j. Suffix sums per block make each Q(k,j) O(1). The answer is ans(j,k) = Q(k,j) + [j != a_k]((n-1)! - Q(k-1,j)) + [k starts a block and j = a_{k-1}] * sum over j' of Q(k-1,j'). The three terms are a non-holder eliminated after a protection, a fresh holder eliminated, and the previous block's protected holder eliminated at the boundary. Total O(n^2) time and O(n) memory, which fits sum n <= 5000.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n^2) solution (sol.py) reproduces all 7 sample outputs (2 3 96 188 2024 4610 69). Brute force enumerates all n! strength permutations and simulates the rounds; the FULL ans(player, round) table, not just the XOR, matched exactly on 1500 random cases (n in 2..7, a over a random-size alphabet so values repeat) plus every possible a for n = 2..5 (700 cases), 2200 cases in all with no mismatch. A C++ port matched the Python on 240 random tests (n up to 60) and runs the max cases (n = 5000, with a distinct, alternating, constant or random) in at most 0.06 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "combinatorics",
+      "permutation-counting",
+      "inclusion-exclusion",
+      "dynamic-programming"
+    ],
+    "tags": [
+      "math",
+      "combinatorics",
+      "permutation",
+      "counting",
+      "dynamic-programming"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "combinatorics",
+      "permutation-counting",
+      "inclusion-exclusion",
+      "dynamic-programming"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "probability-dp",
+        "reason": "Reasoning with P(E_i) is a convenience only. The output is an exact count of permutations, every term is a plain factorial count, and no probability state is propagated."
+      },
+      {
+        "pattern": "expected-value-dp",
+        "reason": "No expectation is computed anywhere. Linearity is used only on indicator identities, which are exact counts."
+      },
+      {
+        "pattern": "modular-inverse",
+        "reason": "Not needed. Every term is L*(n-m)! or L*(n-m-1)!, with no division or inverse factorial. My solution uses only a factorial table."
+      },
+      {
+        "pattern": "modular-arithmetic",
+        "reason": "Scaffolding: it is only the output modulus."
+      },
+      {
+        "pattern": "derangement",
+        "reason": "Only the building block is shared (fixing m points leaves (n-m)!). The problem does not count fixed-point-free permutations, and the signed sum runs over a chain of consecutive runs, not over subsets of forbidden positions."
+      },
+      {
+        "pattern": "prefix-sum",
+        "reason": "Scaffolding: the prefix or suffix sums over chain depth only make each Q(i,j) O(1)."
+      },
+      {
+        "pattern": "two-pointers",
+        "reason": "The distinct-value window of runs is bookkeeping. Walking back until a repeat is O(n) per block and fits O(n^2)."
+      },
+      {
+        "pattern": "simulation",
+        "reason": "Simulating each permutation is only the brute force."
+      },
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Trap check: this is an exact counting problem. Nothing is monotone and there is no feasibility test."
+      },
+      {
+        "pattern": "interval-dp",
+        "reason": "Trap check: the recurrence over runs never merges subintervals. It is a 1-D chain of runs with a signed correction, so interval DP (and bitmask-dp, given n <= 5000) does not apply."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "combinatorics and permutation-counting: the whole task is counting permutations by closed-form factorial terms. inclusion-exclusion: the core step is the signed expansion of the protection chain into products of fixed-point events p_k = a_k, each worth (n-m)!, which is classic derangement-style inclusion-exclusion over forced fixed points. dynamic-programming (low confidence): the per-block signed sums over the run length of block-start fixed points are what a dp[block][#forced fixed points] inclusion-exclusion DP computes, and that DP is a natural way to write the same O(n^2) solution, but my solution is a direct sum and needs no DP table. Rejected: derangement (the problem is not about counting fixed-point-free permutations, it only uses the same inclusion-exclusion machinery); prefix-sum (the per-block suffix sums only aggregate the inclusion-exclusion terms; scaffolding); two-pointers or sliding-window (D_b, the distinct-values window, is bookkeeping); modular-arithmetic (answer mod p); simulation (the reduction to a scan in strength order is an observation, and simulating each permutation is the brute force only); probability-dp and expected-value-dp (I reasoned with linearity of expectation, but the answer is an exact count with no probability DP); game-theory (the process is deterministic, nobody chooses moves); sorting (thinking in strength order is a viewpoint, nothing gets sorted).",
+    "skeptic": "Solution: correct, and the same as my independent derivation. Key reduction: elimination always takes the min or the second min, so before round i the survivors are exactly one 'holder' plus the players of strength i+1..n. Round i compares the holder with a_i and the newcomer is the strength-(i+1) player. With pos(x) = strength of x, E_i <=> pos(a_i) in (s,i], or pos(a_i)=s and not E_{s-1}. Since 1[A and not E] = 1[A] - 1[A and E], unrolling across runs gives an alternating signed sum of products of fixed-point events at the run starts. A term with a repeated run value is 0, so the chain stops at the first repeat. A term pinning m distinct players is worth (n-m)!.\n\nInclusion-exclusion: KEEP (0.85). The brief asks whether IE is genuinely the mechanism. It is. The signed expansion is the whole solution, and I found no non-IE route. Pinning the newcomer to j is the same as deleting j from the universe, so a pure dp[block][#pins] without the signed expansion would have to track which values are already pinned. The nested worlds W, W\\{v_b}, ... are exactly what the IE chain enumerates.\n\ndynamic-programming: KEEP at low confidence (0.45). The recurrence c_b = Z_b - e_{l_b} c_{b-1} over runs is a genuine block recurrence, and a dp[block][#forced fixed points] IE table is a natural way to write it. The official CF tags include dp. No specific canonical name fits: not interval-dp (no subinterval merging), not bitmask-dp (n <= 5000 rules it out), not linear-recurrence (the coefficients are not constant and Berlekamp/matrix power is not involved), not probability-dp or expected-value-dp (exact counts). The generic label is the honest one.\n\nprobability / expected-value: REJECT. Probabilities are a reasoning device only. The quantities are factorial counts and nothing is a DP over probabilities.\n\nmodular-inverse / binomial: REJECT. No division appears, only factorials (n-m)! and (n-m-1)!, and no binomial coefficient is used (multinomial-coefficient and stars-and-bars do not apply either).\n\nderangement: REJECT, as the proposal did. The problem shares the fixed-point IE building block but is not derangement counting.\n\nTrap 1, binary-search-answer: does not apply. This is an exact count with no monotone predicate and no feasibility test.\n\nTrap 2, bitmask-dp vs interval DP: neither applies. n <= 5000 rules out bitmask, and the run chain is linear with a signed correction, not interval merging. The O(n^2) budget (sum n <= 5000) comes from the runs x chain-depth double sum (and the n x (n-1) answer table).\n\nSummary: CHANGED. The proposal's version ('Read in strength order, protection is a fixed-point match') hides the key reduction: survivors are one holder plus every player stronger than i. It also leaves out that the fixed points sit inside runs of equal a and chain across runs. The new version is 69 words, third person, and keeps the n <= 5000 constraint."
+  }
+}

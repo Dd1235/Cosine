@@ -34,5 +34,6 @@
       "interval-dp": 0.8,
       "parity-argument": 0.8
     }
-  }
+  },
+  "difficulty": 2800
 }

@@ -1,0 +1,47 @@
+{
+  "id": "leetcode-count-magical-substring-pairs-ii",
+  "title": "Count Magical Substring Pairs II",
+  "source_url": "https://leetcode.com/problems/count-magical-substring-pairs-ii/",
+  "solution": "Group the triplets by the split point j: s1 is a substring ending at j and s2 is a substring starting at j+1, chosen independently, so the answer is sum over j of sum over d of L_j(d) * R_{j+1}(d), where L_j(d) counts left endpoints i <= j with exactly d distinct letters in s[i..j] and R_p(d) counts right endpoints k >= p with exactly d distinct letters in s[p..k]. The alphabet has 26 letters, so d only runs from 1 to 26. For each d, a sliding window (two pointers, with a 26-entry frequency array) finds for every right end r the smallest left end whose window has at most d distinct letters. That gives atMost_d(r), and L_r(d) = atMost_d(r) - atMost_{d-1}(r), the standard 'exactly K distinct = at most K minus at most K-1' trick. R comes from the same routine run on the reversed string. A second method: for a fixed end j, distinct(s[i..j]) is a step function of i that only changes at the last occurrences of each letter before j, so with those at most 26 positions sorted, L_j(d) = p_d - p_{d+1}. Both run in O(26 n) (times log 26 for the sort), which fits n <= 10^5. The O(n^2) enumeration that works for version I (n <= 2000) is too slow here. The answer can reach about 1.7e14 and needs 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python, scratchpad/work/leetcode-count-magical-substring-pairs-ii/sol.py: implemented an O(n^3) brute force, the per-d sliding-window (atMost(d) - atMost(d-1)) solution and the last-occurrence breakpoint solution. All three reproduce samples 'aba'->2, 'kkk'->4 and 'abcac'->7. Stress test: 1500 random strings with n in [2,14] over alphabets of 1-5 letters plus 300 strings with n in [15,60] over alphabets of 1-26 letters, all three agreeing on all 1800. Timing on a random n=1e5 string: breakpoint method 0.37 s, sliding-window method 0.62 s, same answer 165680554384319."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "counting",
+      "contribution-technique"
+    ],
+    "tags": [
+      "string",
+      "sliding-window",
+      "two-pointers",
+      "counting",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "contribution-technique",
+        "reason": "Grouping triplets by their split point j is plain enumeration of one free index (every triplet has exactly one j) followed by product-rule counting of two independent sides. There is no swap of summation that attributes one element's contribution across many objects, which is what the corpus uses the label for (Sum of Subarray Minimums, Total Appeal of a String, Count Unique Characters of All Substrings, Total Hamming Distance). By the proposal's logic every 'fix the middle index' count would carry it. A 'contribution technique' query would be poorly served by this problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "sliding-window: n = 1e5 forces the per-d count of substrings with exactly d distinct letters to be computed in linear time, and the standard way is atMost(d) - atMost(d-1) with a shrinking window, repeated for each d <= 26. two-pointers: the same window is the left/right pointer pair; added because people search for this kind of problem under that name. counting: the core of the problem is counting split by split, multiplying the left count by the right count for each matching distinct-count value. contribution-technique (0.5): the triplet total breaks down as the contribution of each split point j, the left count times the right count. That fits the label loosely, so it gets a lower confidence. Rejected: hash-map as a pattern (only a 26-entry frequency array, which is scaffolding, though kept as a broad tag); prefix-sum (not used); binary-search / binary-search-answer (you could binary-search the step boundaries, but nobody would, and there is no feasibility check); bit-manipulation (a letter bitmask is not needed); brute-force (that is version I's O(n^2), not this one). The last-occurrence breakpoint method, where the distinct count changes at most 26 times per endpoint, has no canonical pattern name and is described in the solution text.",
+    "skeptic": "Solution: the proposal's algorithm matches my independent derivation and both of its methods (per-d at-most windows, last-occurrence breakpoints) are correct, O(26n), 64-bit answer. sliding-window KEEP: the at-most-d minus at-most-(d-1) shrinking window, run for each d<=26, is the textbook 'exactly K distinct' method and the main reason n=1e5 is feasible; it is one of the two reasonable solutions. two-pointers KEEP at lower confidence: it is the same mechanism as the window rather than a separate idea, but the corpus labels the canonical exactly-K-distinct problems (Subarrays with K Different Integers, Count of Substrings Containing Every Vowel and K Consonants II) with both, and people search this family under 'two pointers'; dropping it here alone would be inconsistent. counting KEEP: the reduction is split by j and by distinct count d, then multiply the independent left and right counts (product rule). contribution-technique REJECT: a stretch, see rejected_patterns. The proposal itself gave it 0.5 and called the fit loose. Missing labels considered and rejected: prefix-sum (not used); sorting (sorting 26 last positions is scaffolding); binary-search (you could binary-search the step boundaries but nobody would); hash-map as a pattern (26-entry frequency array, scaffolding; kept only as a broad tag, in line with LC-style tagging of the comparable problems); brute-force (that is version I's O(n^2) path, not this one). The last-occurrence breakpoint method (distinct count of substrings ending at j takes at most 26 values, changing at the last occurrences) has no canonical vocabulary name. Trap binary-search-answer: not applicable and correctly absent. This is a pure counting problem with a direct linear solution, there is no feasibility test, and the monotonicity of distinct(s[i..j]) in i is used by the window or breakpoints, not by a search over the answer. Trap bitmask-dp vs interval DP (constraint-decides near-miss): the analogue here is the I/II pair. Version I (n<=2000) admits an O(n^2) scan and was labelled counting+brute-force+sliding-window+two-pointers; version II (n<=1e5) must not carry brute-force and needs the O(26n) windows, which the proposal gets right. Neither version involves any DP, so bitmask-dp/interval-dp are irrelevant. Summary: the proposal's was accurate, 62 words, but only implied the exact = at-most(d) - at-most(d-1) step; the revision names it explicitly since 'exactly k distinct' / 'at most k minus at most k-1' is the phrase searchers use, and keeps n up to 10^5 and d <= 26."
+  }
+}

@@ -36,5 +36,6 @@
       "prefix-sum": 0.7,
       "two-pointers": 0.6
     }
-  }
+  },
+  "difficulty": 1700
 }

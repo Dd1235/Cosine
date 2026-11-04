@@ -1,0 +1,87 @@
+{
+  "id": "codeforces-2276-f",
+  "title": "Permutation Coloring Game",
+  "source_url": "https://codeforces.com/contest/2276/problem/F",
+  "solution": "Red elements can be permuted among red positions, so the final coloring sorts iff the red position set is closed under p, i.e. every cycle of the permutation is monochromatic. If a cycle is ever left partially colored on Bob's turn, Bob paints one of its white elements the other color and wins; hence on a clean turn Alice may only color whole cycles (total size 1..k), and after Bob partially colors some cycles Alice must finish all of them, in his color, in her next move. Bob's strongest immediate threat is to touch one element in each of up to k cycles, forcing Alice to color W = sum of the k largest (s-1); Bob wins at his turn iff W > k, and since W only shrinks this only matters on his first turn. So a cycle of size >= k+2 means Bob wins. Cycles of size exactly k+1 can never be colored by Alice herself. For k >= 2, two of them give W >= 2k (Bob); with one of them W <= k forces Alice's first move to take every other nontrivial cycle (total <= k) plus x fixed points, after which only fixed points remain as tempo moves: both sides remove 1..k of them, Bob loses as soon as he must touch the (k+1)-cycle (Alice completes it with k), Alice loses if she faces zero fixed points with it still white, so this is Bachet's subtraction game and Alice wins iff some legal x leaves f-x divisible by k+1. For k = 1 every move is one element, a Bob touch on a 2-cycle is answered by Alice and returns the turn to Bob, so Alice wins iff there is no 2-cycle or the number of fixed points is odd. With no (k+1)-cycle, Alice wins iff her first move can make W <= k, after which she can always finish Bob's partials and always has a whole cycle of size <= k to take: either all cycles of size >= 3 together fit in k (leaving only 2-cycles, W = min(count, k)), or the remaining sum of (s-1) is <= k, where she maximizes the removed sum of (s-1) subject to removed sizes summing to <= k, a 0/1 knapsack of capacity k <= 20 (largest-first greedy is wrong, e.g. k = 6 with cycles {4,4,3,3}: taking 3+3 wins, taking 4 loses). Cycle decomposition is O(n) and the knapsack is O(k^2) using at most k/s copies of each size, so O(n + k^2) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (closed-form casework + knapsack) and brute.cpp (exact minimax over red/blue bitmasks of the real game, every subset of <= k white elements and both colors) both reproduce all 10 sample cases. Exhaustive: one random-labelled permutation for every cycle type with n = 2..12 and every k = 1..n, 2645 games, sol.py == brute.cpp on all. Random: 3000 uniformly random permutations n <= 10, random k, all match. brute2.py (exact search with states reduced to per-cycle (size, red, blue) counts) agreed with brute.cpp on 1721 cases, then 400 random cycle multisets with n up to 22, k = 2..8, sizes biased to <= k+1 (231 Alice / 169 Bob) all matched sol.py. brute2 confirms Alice for k = 6, cycles {4,4,3,3}, where largest-first greedy says Bob, so the knapsack step is necessary. Timing: n = 2·10^5 with k = 20 and t = 10^4 tests of n = 20 each run in well under 0.1 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "game-theory",
+      "knapsack"
+    ],
+    "tags": [
+      "game-theory",
+      "permutation",
+      "math",
+      "dynamic-programming"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "game-theory",
+      "knapsack"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "subset-sum",
+        "reason": "Not pure subset-sum: the value of removing a cycle of size s is s-1, so the count of cycles matters, not just the reachable sum. k=6 {4,4,2,2,2,2}: {2,2,2} and {4,2} both reach 6, yet only {4,2} wins (checked by exact search). A bitset of reachable sums cannot decide it; you need a min-count-per-sum DP, which is the 0/1 knapsack already labelled. ('bitset' is not in the vocabulary anyway.)"
+      },
+      {
+        "pattern": "bounded-knapsack",
+        "reason": "Grouping equal sizes into at most k/s copies is an implementation detail of a capacity-20 0/1 knapsack, not a separate technique."
+      },
+      {
+        "pattern": "greedy",
+        "reason": "Largest-first removal is wrong. k=6 {4,4,3,3}: greedy takes 4 and loses; 3+3 wins (exact search)."
+      },
+      {
+        "pattern": "functional-graph",
+        "reason": "The cycle decomposition is an O(n) preprocessing step. functional-graph means successor graphs with tail+cycle structure (k-th successor, rho shapes), and a search for that would be misled. The reduction is surfaced in the summary ('every permutation cycle ends monochromatic') and by the 'permutation' tag."
+      },
+      {
+        "pattern": "cycle-detection",
+        "reason": "Nothing detects a cycle. Every element of a permutation lies on one; you just walk them to get the sizes."
+      },
+      {
+        "pattern": "connected-components",
+        "reason": "Same scaffolding as above. Cycles are trivially the components, and no graph-component technique is used."
+      },
+      {
+        "pattern": "parity-argument",
+        "reason": "Only the k=1 special case is literal parity. The general tempo rule is Bachet's game mod k+1, covered by game-theory."
+      },
+      {
+        "pattern": "grundy-numbers",
+        "reason": "There is no sum of independent games needing XOR of Grundy values. The single subtraction game has the closed form F mod (k+1)."
+      },
+      {
+        "pattern": "game-dp",
+        "reason": "The solution is a closed-form characterization. Game-state DP appears only in the brute force."
+      },
+      {
+        "pattern": "bitmask-dp",
+        "reason": "Trap: k <= 20 smells like bitmasks, but no subset-of-elements state is ever enumerated. The only DP is over capacity <= 20 with cycle sizes as weights."
+      },
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Trap: the output is win/lose with no monotone parameter to search, so this does not apply."
+      },
+      {
+        "pattern": "sorting",
+        "reason": "Picking the k largest cycles for Bob's threat W (in the top-k formulation) is scaffolding. The proposal's formulation doesn't even need it."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "game-theory: the whole problem is an optimal-play analysis (Bob's one-element-per-cycle threat W > k, the fact that (k+1)-cycles can only be opened by Bob, and fixed points as tempo moves forming Bachet's subtraction game mod k+1). knapsack: Alice's first move chooses whole cycles of total size <= k to maximize the removed sum of (s-1); this is a genuine 0/1 knapsack with capacity k <= 20 (greedy fails on k=6, {4,4,3,3}, checked by exact search), and it is the step that decides the main case, so it is not scaffolding; confidence moderate because it is small and some solvers may phrase it as a subset-sum over reachable sums. Rejected: grundy-numbers (no sum of games, only a win/lose subtraction game with a closed form); game-dp (no DP over game states in the solution, only in the brute force); parity-argument (only the k = 1 case is literal parity, the general rule is mod k+1); functional-graph and cycle-detection (cycle decomposition of a permutation is a one-line preprocessing step, not the technique; surfaced instead via the 'permutation' tag and 'permutation cycle' in the summary); greedy (largest-first removal is wrong); brute-force and bitmask-dp (k <= 20 suggests bitmasks, but nothing in the solution enumerates subsets).",
+    "skeptic": "Solution: my independent derivation matches the proposal. A coloring sorts iff each red set is closed under p, i.e. every cycle is monochromatic. If a cycle is left partly painted on Bob's turn, Bob paints a white element of it the other color and wins, so Alice paints only whole cycles, and after Bob partly paints some cycles she must finish all of them in his color in one move. Bob's best threat is one element in each of up to k cycles. That leaves W = sum of (s-1) over the k largest cycles for Alice, and Bob wins iff W > k. W only shrinks afterwards. So: any cycle >= k+2 means Bob. For k >= 2, two (k+1)-cycles means Bob. With exactly one, Alice must take every other nontrivial cycle plus x fixed points with total in [1,k] so that F-x is divisible by k+1 (Bachet's game: whoever must touch the (k+1)-cycle first loses, and Alice can never paint it herself). For k=1 the rule is: no 2-cycle, or an odd number of fixed points. Otherwise Alice needs a first move of total size <= k that makes W <= k. The proposal's version (all >=3-cycles fit in k, or remaining sum of (s-1) <= k after a max-value 0/1 knapsack with weight s, value s-1, capacity k) is equivalent to my top-k version: it agreed on 20k random multisets and with two independent exact searches. The proposal's correctness claim holds. Patterns: game-theory is the core. Keep knapsack: the first-move choice is a genuine 0/1 knapsack (weight s, value s-1), greedy fails on the claimed counterexample (verified exactly), and it decides the main case. Confidence is 0.65 because the capacity is tiny and some solvers just enumerate the at most ~1.5k removal multisets. Subset-sum was checked and rejected: the value is s-1, so cycle count matters and reachable sums alone are insufficient (k=6 {4,4,2,2,2,2} counterexample, exact). Permutation-cycles / cycle-decomposition is not in the canonical vocabulary. The nearest canonical labels (functional-graph, cycle-detection, connected-components) each mean something else and would mis-route searches. The corpus has no consistent convention: CF 1823B uses connected-components, and cses-1698 uses the non-canonical cycle-decomposition. So the reduction stays in the summary text ('permutation cycle ... monochromatic') and the 'permutation' tag. This is a vocabulary gap, not a labelling miss. Traps: binary-search-answer does not apply, since the answer is win/lose with nothing monotone to search. bitmask-dp vs interval DP: k <= 20 is the bitmask bait, but the decisive constraint is that Alice's move has capacity k <= 20 over cycle sizes. That makes it a capacity-indexed knapsack, not a subset-of-elements DP, so bitmask-dp is rejected. Summary: the proposal's text was accurate (70 words) but its technique sentence ('Casework on cycle sizes ... a knapsack over Alice's first move') did not say what the knapsack chooses or why. I rewrote it to 69 words: it keeps 'permutation cycle ... monochromatic' and k <= 20, and adds the whole-cycles restriction and Bob's one-element-per-cycle threat that motivates the knapsack. Tags kept as proposed."
+  }
+}

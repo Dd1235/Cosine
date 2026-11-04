@@ -28,5 +28,6 @@
     "pattern_confidence": {
       "constructive-algorithm": 0.96
     }
-  }
+  },
+  "difficulty": 3100
 }

@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2278-a",
+  "title": "Fraction and Six",
+  "source_url": "https://codeforces.com/contest/2278/problem/A",
+  "solution": "A cancellation removes one copy of a letter from both sides, and the denominator must end up empty, so every letter of q has to be cancelled against a copy in p. For each letter c, exactly cnt_q[c] copies are therefore removed from p, and what is left in the numerator is cnt_p[c] - cnt_q[c]. That must equal the count of c in \"six\" (1 for s, i, x and 0 otherwise). A negative difference would mean the denominator cannot be cleared, and it fails the same equality. So the answer is YES iff cnt_p[c] - cnt_q[c] == cnt_six[c] for all 26 letters. The check compares two frequency tables in O(n + m + 26) per test, which is trivial for n, m <= 100.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 5-case sample and got YES NO YES NO NO, which matches. Stress-tested against a brute force that runs a DFS over every (numerator multiset, denominator multiset) state reachable by single-letter cancellations: 20,000 random cases with |p| <= 7 (up to 11 for planted cases), |q| <= 5 (up to 4 for planted cases), over alphabets {six, sixa, sixab, abcsix}, 30% of them planted as shuffle(six+extra)/shuffle(extra). All agreed; 6,198 were YES cases."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "counting"
+    ],
+    "tags": [
+      "string",
+      "counting",
+      "implementation",
+      "hash-map"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "counting: the whole solution compares letter-frequency tables (cnt_p - cnt_q against cnt of 'six'). Considered hash-map as a pattern and rejected it: a 26-entry frequency array is scaffolding for the counting rather than a hash-map technique. I kept it only as a broad tag because Counter-style frequency maps are how people describe this. Rejected greedy: no choice is made, since every denominator letter is forced to cancel. Rejected simulation: doing the cancellations one by one works but is not the idea, which is a closed-form frequency check. Rejected sorting: comparing sorted multisets is an equivalent alternative but is only scaffolding.",
+    "skeptic": "My solution matched the proposal's. Every q letter has to cancel against a copy in p, because the denominator must end empty and each cancellation takes one copy from each side. No choice is involved. So the numerator ends with exactly cnt_p - cnt_q, and that has to equal the multiset {s, i, x}. A negative difference fails the same equality, so no separate check is needed.\n\ncounting: KEEP. It is not a statement-word echo, because the statement never says count, frequency or tally. The whole solution is comparing letter-frequency tables. Corpus precedent labels letter-frequency anagram problems the same way: codeforces-367-b Sereja and Anagrams [hash-map, sliding-window, counting] and leetcode Minimum Length of Anagram Concatenation [counting, greedy]. It is the only pattern that names what the solver does.\n\nTechniques the caller asked me to check, all rejected as patterns: number-theory/gcd/modular-arithmetic: the 'fraction' wording is flavour, a statement-word echo. Nothing numeric is involved, and the variables are symbols, not integers. math is not in the pattern vocabulary. As a tag it would also be echoing 'fraction', so I left it off. greedy: no decision is made, since every denominator letter is forced to cancel and there is no ordering or choice to optimise. simulation: cancelling one letter at a time (my brute force does this) works, but it is not the idea. implementation: not a pattern, and kept as a tag, which is the right place for a Div. 3 A. hash-map: rejected as a pattern. A 26-slot array or a Counter is just storage for the counts. I agree with keeping it as a broad tag. sorting: comparing sorted(p minus q) with 'isx' is an equivalent formulation, but it is still just storage for the multiset comparison. brute-force: nothing is enumerated.\n\nTrap 1, binary-search-answer: not applicable. There is no numeric answer to search, the output is a yes/no frequency check, and nothing is monotone or tested for feasibility.\nTrap 2, bitmask-dp vs interval DP: not applicable. There is no DP and no state space, and n, m <= 100 only says even the slowest way to simulate cancellations is fine. The constraint does not pick the technique. The forced cancellation does, and that makes it a closed-form O(n+m+26) check.\n\nSummary: the proposal's version (69 words) was accurate and stated the iff condition. It did not say why the condition holds: the denominator must end empty, so every q letter is forced to cancel. That is the reduction that rules out any greedy choice about what to cancel. I rewrote it to include that and kept it at 69 words, third person. Patterns and tags are unchanged. The only change is the summary."
+  }
+}

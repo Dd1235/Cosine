@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-maximize-sum-after-at-most-k-digit-rearrangements",
+  "title": "Maximize Sum After At Most K Digit Rearrangements",
+  "slug": "maximize-sum-after-at-most-k-digit-rearrangements",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/maximize-sum-after-at-most-k-digit-rearrangements/",
+  "source_topic": "LeetCode / Weekly Contest 525",
+  "difficulty": "Medium",
+  "acceptance_rate": 51.7,
+  "source_tags": [],
+  "statement": "The task is to maximize an array's sum when at most k elements may each have their decimal digits rearranged, with n up to 10^5 and values up to 10^9. Each element's best rearrangement is its digits sorted descending, giving an independent nonnegative gain, so the problem reduces to greedily adding the k largest gains after sorting them.",
+  "tags": [
+    "array",
+    "greedy",
+    "sorting",
+    "math"
+  ],
+  "patterns": [
+    "greedy",
+    "sorting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792372,
+    "pattern_confidence": {
+      "greedy": 0.95,
+      "sorting": 0.85
+    }
+  }
+}

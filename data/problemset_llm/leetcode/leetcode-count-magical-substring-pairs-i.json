@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-count-magical-substring-pairs-i",
+  "title": "Count Magical Substring Pairs I",
+  "slug": "count-magical-substring-pairs-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-magical-substring-pairs-i/",
+  "source_topic": "LeetCode / Biweekly Contest 194",
+  "difficulty": "Medium",
+  "acceptance_rate": 45.7,
+  "source_tags": [],
+  "statement": "The task is to count triplets i <= j < k that split s[i..k] into adjacent substrings s[i..j] and s[j+1..k] with the same number of distinct characters, for a lowercase string of length up to 2000. Fixing the split point j, one counts left substrings ending at j and right substrings starting at j+1 by distinct count 1..26 and sums the products; n <= 2000 admits an O(n^2) scan.",
+  "tags": [
+    "string",
+    "counting",
+    "brute-force"
+  ],
+  "patterns": [
+    "counting",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792371,
+    "pattern_confidence": {
+      "counting": 0.85,
+      "brute-force": 0.65
+    }
+  }
+}

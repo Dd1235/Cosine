@@ -34,5 +34,6 @@
       "prefix-xor": 0.85,
       "randomized-algorithm": 0.7
     }
-  }
+  },
+  "difficulty": 1800
 }

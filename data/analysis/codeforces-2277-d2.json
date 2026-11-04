@@ -1,0 +1,46 @@
+{
+  "id": "codeforces-2277-d2",
+  "title": "Number Operating (Hard Version)",
+  "source_url": "https://codeforces.com/contest/2277/problem/D2",
+  "solution": "A run of a consecutive Operation 1s adds 1+2+...+2^(a-1) = 2^a - 1, and runs must be separated by at least one Operation 2. With runs a_1..a_j and b >= j-1 decrements, n = sum(2^(a_i)-1) - b at cost sum a_i + b, so if P = sum(2^(a_i)-1) - (j-1) is the peak reached with C = sum a_i + j - 1 operations, f(n) = min over peaks P >= n of (C + P) - n: f(n)+n is a suffix minimum. Writing each run as 1 + 2(2^(a-1)-1) gives P = 2Q+1 and C+P = 2Q + h(Q), where h(Q) is the cheapest way to write Q as a sum of Mersenne numbers 2^c - 1 (c >= 1) at cost c+2 each (h(0)=2 for the forced single run). Taking the largest Mersenne number <= Q each time (the skew-binary greedy) is optimal for h, so f(n) = SM(floor(n/2)) - n with SM(Q) = min over Q' >= Q of H(Q') = 2Q' + h(Q'). The structure is self-similar: on block c = [2^c - 1, 2^(c+1) - 2], H(2^c - 1 + R) = (2^(c+1) + c) + H(R) for R in [0, 2^c - 1], and the suffix minimum from inside a block can only escape to the next block's start, which acts as a cap (2^(c+1)+1 relative to the block offset). So SM on a block is X_c + A(c, R, cap), with A(c, R, cap) = min(suffix min of H over [R, 2^c - 1], cap), and A recurses into the sub-block containing R with cap' = min(2^(c'+1)+1, cap - X_(c')). Full-block sums full(c, cap) are memoized (O(log^2) distinct states), and the prefix sum F(N) = sum_{n<=N} f(n) is computed by walking the tight path of N's skew-binary digits like a digit DP, adding memoized full sub-blocks on the way; the answer is F(r) - F(l-1) mod 998244353. Each test is O(log^2 r) with r up to 10^18, independent of r - l, which is what the hard version needs (the easy version could evaluate f(n) for each of at most 2*10^5 values).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution sol.py matched all 5 samples (6, 6, 7, 25383, 102936941, including the 999999999999900001..10^18 range). Independent brute force: BFS over states (x, current streak) with x in [-5, 4N+70] for N=6000; the fast prefix F(n) matched the BFS prefix sums for every n in 0..6000 (6001 checks) and 3000 random ranges [l, r] within [0, 6000]. Also checked: greedy Mersenne decomposition equals an unbounded-knapsack min-cost DP for all Q <= 4000, and f(n) = SM(floor(n/2)) - n equals BFS for all n < 2000. Timing: t=10^4 random l, r <= 10^18 runs in 3.9 s in pure Python (O(log^2) per test; a C++ port is well inside the 3 s limit)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "digit-dp",
+      "greedy",
+      "memoization"
+    ],
+    "tags": [
+      "math",
+      "digit-dp",
+      "greedy",
+      "bit-manipulation",
+      "memoization",
+      "recursion"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "digit-dp",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "memoization",
+        "reason": "It is just how the digit DP is written, not a separate technique. The per-level full-block sums can be filled bottom-up in a 61-entry table with an iterative tight walk; tab.py does this and matches the lru_cache version exactly. In the corpus only 2 of 52 digit-dp records also carry memoization. digit-dp already implies the dynamic-programming family through with_families, so dropping memoization loses nothing. The word 'memoized' can still appear in prose for lexical recall."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "digit-dp: with r up to 10^18 and no bound on r - l (the only change from D1), f must be summed over a huge range, done as prefix sums that walk the bound's (skew-)binary digits along the tight path while adding memoized sums of free sub-blocks, carrying a small state (the cap); this is the digit-DP shape and a bitwise digit DP over the non-increasing run-count formulation (r_0 >= r_1 >= ..., n + b = sum r_t 2^t) is the other natural way to write it. greedy: the core lemma is that writing Q as a sum of Mersenne numbers 2^c - 1 is cheapest when you take the largest one each time; verified against a knapsack DP. memoization: full(c, cap) block sums are memoized recursion and are what makes each query O(log^2). Considered and rejected: binary-search / binary-search-answer (nothing monotone is searched); bfs / shortest-path (only the brute force; useless at 10^18); divide-and-conquer (the recursion is over self-similar power-of-two blocks, already covered by digit-dp/memoization, and would mislead array-D&C searches); bit-manipulation as a pattern (no bit tricks, only binary structure, so it is a tag only); prefix-sum and modular-arithmetic (scaffolding: F(r) - F(l-1) and the answer mod p); knapsack (only used to verify the greedy). D1 differs only in allowing per-n evaluation, so D2's distinguishing label is the digit-DP range sum.",
+    "skeptic": "SOLUTION: The proposal is correct and matches my independent derivation: same reduction f(n)=SM(floor(n/2))-n, same Mersenne/skew-binary greedy. It handles the overshoot with a carried 'cap', where I used a per-block threshold found by binary search on the monotone G(T)+2T; the two are equivalent and agreed on 20,900 cases. DIGIT-DP, KEEP (0.6), with a caveat. This is not a textbook DP over the plain binary digits of N, and f(n) is not a digit-local automaton. The 'digits' are N's greedy Mersenne (skew-binary) decomposition, and f is self-similar on blocks [2^c-1, 2^(c+1)-2]: H(2^c-1+R) = X_c + H(R). Still, the range-sum skeleton is digit-DP shaped: F(r)-F(l-1); walk the bound's representation from the top; at each level add a precomputed sum over every complete free sub-block, keyed by (level, small state = cap/threshold); then descend into the tight branch. My memo-free rewrite makes this concrete: one table indexed by level plus a tight walk, which is exactly the digit-DP layout. It is also the only thing that separates D2 from D1. D1's sum(r-l+1) <= 2e5 allows a per-n O(log) greedy; D2 needs a range sum independent of r-l. A searcher looking for '10^18 range sum of a digit-structured function' should find this problem. Confidence is held at 0.6 because the numeral system is skew binary, not binary or decimal. The run-count bitwise formulation the solver calls 'the other natural way' does not give a digit DP directly. A per-n min cannot be summed digit by digit without determinizing a min-plus automaton, so I did not rely on it. GREEDY, KEEP (0.72). Taking the largest Mersenne number <= Q each time is exactly optimal; I verified it against an unbounded-knapsack DP up to 2e5. Together with the single overshoot choice per block, it is the per-n core shared with D1. MEMOIZATION, REJECT: see rejected_patterns. Without caching, the top-down recursion would branch exponentially across about 60 levels, but that is true of any top-down DP. Bottom-up per-level tabulation is just as natural here. OTHERS CONSIDERED AND NOT ADDED: bit-manipulation: no bitwise tricks or masks, only power-of-two/Mersenne number structure plus bit_length to find the block, so it stays a tag. Note the D1 proposal lists bit-manipulation as a pattern, and the two should be reconciled. divide-and-conquer: the self-similar block recursion is covered by digit-dp, and the label would pull in array split/merge searches. binary-search: only my threshold-finding detail, which the cap formulation avoids; not core. knapsack/unbounded-knapsack: used only to verify the greedy; infeasible at 10^18. bfs/shortest-path: brute force only. prefix-sum and modular-arithmetic: scaffolding (F(r)-F(l-1) and the output mod p). TRAP binary-search-answer: does not apply. The answer is a sum, there is no feasibility predicate over candidate answers, and nothing monotone in the answer is searched. TRAP bitmask-dp vs interval DP: neither applies. There is no subset state (f is over runs, not masks), and [l,r] is just a prefix-difference range with no interval DP over it. The analogous near-miss is D1 vs D2, which the constraint decides: bounded sum(r-l+1) means per-n greedy (D1), unbounded means a digit-DP range sum (D2). SUMMARY: The proposal's summary was 68 words but imprecise. 'Peaks are greedy sums of Mersenne numbers' blurs the reduction: the peak is 1 + twice a Mersenne sum, and the key step, climbing to a peak >= n and then decrementing, was missing. k was also overloaded between the streak and the run length. I rewrote it at 70 words to surface the run = 2^a-1 reduction, the climb-then-decrement structure, the greedy, the deciding constraint (r <= 10^18, no bound on r-l) and the digit DP."
+  }
+}

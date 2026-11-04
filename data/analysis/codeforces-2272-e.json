@@ -1,0 +1,53 @@
+{
+  "id": "codeforces-2272-e",
+  "title": "Memory Cell Interception",
+  "source_url": "https://codeforces.com/contest/2272/problem/E",
+  "solution": "Fix a READ at position p of s and let a be the last W in s before p (a=0 if none); the read happens at lattice state (p-1, j) for some j in [0, m]. The value it sees is the timestamp of the last write on the path. If that write is s_a, executed after k commands of t, its timestamp is a+k and any k in [0, m] is achievable (take j=k, the s commands between a and p are all R), giving the full range [a, a+m]. If it is t_b (a W in t) executed after x commands of s, its timestamp is b+x, and it survives exactly when s_{x+1..p-1} contains no W, i.e. x in [a, p-1] (take j=b), giving the interval [b+a, b+p-1]; value 0 is possible only when a=0. When a>0 every interval [b+a, b+p-1] starts inside [a, a+m], so the union is one contiguous range and the answer is max(m, Bmax+p-1-a)+1 with Bmax the last W of t (just m+1 if t has no W). When a=0 (reads before the first W of s) the answer is 1 + |union of [b, b+p-1] over W positions b of t| = 1 + p + sum over consecutive W gaps g of min(g, p); as p grows by one this increases by 1 + #{gaps >= p}, so a suffix count of gap lengths gives every answer in O(1) (equivalently: sort the gaps and keep a pointer, or binary search with prefix sums). Do the same with the roles of s and t swapped. Total O(n+m) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n+m) solution (side(s,t) per thread) matched the sample exactly (1 / 1 / 2 / 2 / 4 / '3 4'). Brute force: DP over lattice states (x,y) carrying the full set of reachable last-write values, recording the set at each READ. Random stress with R/W strings (each with at least one R): 3000 cases with n,m<=6, 2000 with n,m<=12, 300 with n,m<=25 -- all identical. Max test n=m=2·10^5 runs in ~0.06 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interval-union",
+      "two-pointers",
+      "counting",
+      "binary-search"
+    ],
+    "tags": [
+      "string",
+      "math",
+      "interval",
+      "two-pointers",
+      "binary-search",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interval-union",
+      "two-pointers",
+      "binary-search"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "The frequency array of gap lengths only replaces sorting the gaps (bucket-sort role), and the proposal itself rejected sorting as scaffolding. The real step is evaluating sum min(g, p) over sorted gaps, which two-pointers and binary-search already cover. As a label it also reads as an echo of 'count how many distinct values'; nothing here is a counting problem."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "string",
+        "reason": "The input is R/W strings, but no string technique is involved. A user browsing 'string' for hashing, KMP or palindromes would get noise. Codeforces does not tag it strings either."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "interval-union: the whole solution is showing the reachable values are the intervals [a, a+m] and [b+a, b+p-1] and measuring their union (contiguous after the reader's own first write, a gapped union of length-p windows before it). two-pointers: the setter's tag and a genuine way to evaluate sum min(g, p) for increasing p over sorted W-gaps; counting: my implementation instead uses a suffix count of gap lengths (f(p)-f(p-1) = 1 + #{gaps >= p}). binary-search (plain, low confidence): per-read lookup in sorted gaps with prefix sums is the other standard evaluation and is the judge tag; it is a lookup, not a feasibility search. Rejected binary-search-answer: there is no monotone feasibility check -- the answer is a closed form / union length computed directly. Rejected greedy (judge tag): the argument is an exact characterization of the last write on a lattice path, not a greedy choice. Rejected prefix-sum and sorting (scaffolding for the gap sum), combinatorics (interleavings are reasoned about as lattice paths but nothing is counted combinatorially), dynamic-programming (only the brute force is a DP), simulation.",
+    "skeptic": "Solution: correct. My own derivation matched the proposal's before I read it, and both pass brute-force stress. TRAP 1, binary-search-answer: reject, agreeing with the proposal. No feasibility predicate exists anywhere. Each answer is either the closed form max(m, Bmax+p-1-a)+1 or 1+p+sum over consecutive W gaps g of min(g,p). Binary search shows up only as an upper_bound into the sorted gap list to evaluate that sum, which is a lookup, not a search over the answer. The answer being 'monotone in p' does not make it binary-search-answer. TRAP 2, near-miss DP labels: no DP is involved. The O(nm) lattice DP is only the brute force, and n,m up to 2e5 rule it out. 'interval' here is interval-union, not interval-dp. A careless annotator seeing intervals might add interval-dp; it is wrong. Keeps: interval-union (0.8) is the core reduction. Reachable values are [a,a+m] together with windows [b+a,b+p-1], and the answer is the union's length. That union is contiguous when a>0, and for a=0 it is a gapped union of equal-length windows, which is the only non-trivial computation. two-pointers (0.4) is a setter tag and a real method: for the reads before the reader's first W, p increases by one each step, so a pointer over the sorted W-gaps tracks which gaps are below p while sum min(g,p) is maintained. It is a minor evaluation step, but it is what brings the time from O(nm) down to linear, so it is not throwaway scaffolding. binary-search (0.3) is a setter tag and the other standard way to evaluate the same sum per read (bisect + prefix sums). I kept it at low confidence as plain binary-search only. Rejected counting: it is a third way to evaluate the same sum (suffix count of gap lengths, f(p)-f(p-1)=1+#{g>=p}). It plays the role that sorting plays, and the proposal already rejected sorting as scaffolding. Three labels for one minor step overweight it, and 'counting' doubles as a statement echo. It remains a broad tag. Greedy (setter tag) is not missing. The argument is an exact characterization of which write can be the last one on a lattice path, with achievability shown by an explicit placement (put the read right after t_b, or push k commands of t before s_a). There is no objective and no locally optimal choice, so a 'greedy' searcher would be poorly served. Also considered and rejected: constructive-algorithm (the construction is only a proof, and the output is counts), prefix-sum and sorting (scaffolding for the gap sum), difference-array and line-sweep (one union per read would be too slow, and no sweep is used), reachability and graph-modeling (the lattice view is the proof device, not a graph algorithm), combinatorics (nothing is counted combinatorially). Summary: the proposal's summary was inaccurate. It claimed the reachable values are the union of [b, b+p-1] over the other thread's writes, but that holds only for reads before the reader's own first write. After one, the windows shift to [b+a, b+p-1], [a, a+m] is added, and everything merges into one contiguous range. It also used p without defining it. Rewritten at 70 words: it keeps the 2·10^5 bound and the 'interval union' terms, and it states both cases. Tags: dropped 'string' (input format only). Kept math, interval, two-pointers, binary-search, counting."
+  }
+}

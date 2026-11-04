@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2261-f2",
+  "title": "Plegma II: Ask Me Any Cell (Hard Version)",
+  "source_url": "https://codeforces.com/contest/2261/problem/F2",
+  "solution": "Reduction: the robot only sees S = h*w - z, where h x w is the current subrectangle and z the zeros still inside it. A zero leaves exactly when its row or column is trimmed, so a grid is the same thing as a drop schedule: at each step drop d <= (line length) zeros, and at most one zero may survive (on the target). The state is (h, w, z), and z is a counter that only goes down and is never seen directly. Optimum: f(n) = 3. The construction keeps the shape trajectory fixed by putting the phases in disjoint S-windows [A-3, A]. Rows phase on shapes (h, n), h = n..5 (areas n apart): a[hn-3] = U and a[hn-2..hn] = D, so the moment the counter first drops below 3 sets how many top rows are cut (u in [0, n-4]). Columns phase on shapes (4, w), w = n..5 (areas 4 apart, which is why the trimmed side is 4 and windows need spacing >= 4): a[4w-3], a[4w-2] = L and a[4w-1], a[4w] = R, so the next drop sets l in [0, n-4]. This reaches the 4x4 endgame with z = 0 or z = 1 for any (u, l) in the box, with z = 2 for (any, n-4), and with z = 3 for (n-4, n-4). A 17-entry table for S <= 16 (RLRDUDUDULLRUULRL, found offline by local search over the endgame entries) gives offset sets from (4,4): z=0 -> {(3,2)}, z=1 -> 6 offsets including (0,0), (3,0), (0,1), and z=2 and z=3 -> 11 and 9 offsets reaching (0,3) and (3,3). These shifted boxes cover all n^2 targets for every n >= 5. For each target, a forward reachability DP over states (h, w, z <= 3), holding (u, l) sets as bitsets, picks a drop schedule; backtracking it and writing the dropped zeros into the trimmed lines gives the grid. n = 3 reuses the sample. Lower bound: an exhaustive search over all 4^10 tables at n = 3 shows 2 zeros cover at most 8 of 9 cells; local search with 2 zeros never exceeded n^2 - 1 at n = 10 or 12. Cost: O(n^2 * k * n^2/64) per DP plus the n^4 output characters. F1 (k = 24 at n = 20) allows a row-by-row strategy with about n zeros. F2 needs this 3-zero counter-timing encoding.",
+  "solution_check": {
+    "verified": true,
+    "how": "solve.py (construction + bitset reachability DP + backtracking) generated outputs for n = 3 and every judged n = 10..40. A separate checker.py parses only the output tokens and simulates the robot with direct 2D prefix-sum counts of ones. It checks the path never bugs out, the robot ends on (r, c) and each grid has <= 3 zeros. All 32 cases pass with a worst case of 3 zeros. The construction also covers n = 5..9, and the n = 3 sample output passes the checker (it fails with k = 2, as expected). Brute force for the optimum: brute3.cpp enumerates all 4^10 decision tables for n = 3. With k = 2 the best covers 8/9 cells, with k = 3 it covers 9/9, so f(3) = 3. Simulated annealing with k = 2 reached at most 99/100 over 16 seeds at n = 10 and 143/144 over 6 seeds at n = 12; with k = 3, full-table annealing also stalls at n^2 - 1 for n = 20, which is why the phased construction is used. Model stress: the (h, w, z) drop-schedule reachability was compared with brute force over every grid with <= k zeros. It matched on 300 random tables (n = 3..5, k = 1..3) and on 72 structured or SA-found tables (n = 3..7, k = 1..3, 70 with nonempty reach sets)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "grid",
+      "math",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "brute-force",
+        "reason": "Main-thread override for consistency with F1, whose skeptic dropped it: the offline endgame/table search is precomputation, not the technique a brute-force searcher wants; the headline idea is the zero-counter construction."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the problem is purely building the encoding (decision table plus grids), and it is the only judge tag. Considered and rejected: interactive (it is a two-phase encode/decode but output-only, with no judge dialogue); simulation, prefix-sum, bit-manipulation (these are only the checker and the bitset scaffolding); dynamic-programming / dp-on-dag (the (h, w, z) reachability DP only finds each target's drop schedule, which the phase design also gives by formula: drop times = u and l, plus a known endgame offset); randomized-algorithm / brute-force (local search was used offline to find a 17-entry endgame table and exhaustive search to confirm f(3) = 3, but the submitted solution is a fixed construction, and someone searching those terms wants runtime randomization or enumeration); game-theory, grid-traversal (no game, and nothing is traversed). Easy/Hard difference: F1 fixes n = 20 with k = 24, enough for a 1D row-then-column approach that uses about n zeros. F2 demands the true optimum f(n) = 3 for n in {3} and 10..40, which forces the counter-timing idea with phases in disjoint S-windows. The summary states the deciding constraint (only 3 zeros) and the reduction.",
+    "skeptic": "Solution: correct. Reading it independently: S = h*w - z, where z (the zeros still inside) only falls, when a zero's line is trimmed. Trimming all rows at full width first, then all columns at height 4, makes each step's area known, so the windows [A-3, A] are disjoint (spacing n >= 4 and 4, rows-phase minimum 5n-3 > 4n, columns minimum 17 > 16). a[S] can then read both the step and z. Rows phase: z = 3 -> U, else D, so the first drop sets the top-row cut u. Columns phase: z >= 2 -> L, else R, so the next drop sets the left cut l. The leftover z in {0..3} picks one of the endgame offset sets, and the shifted boxes cover all n^2 cells. My checker confirmed this for all judged n, and the endgame offset sets and fixed shape trajectory match the proposal's claims. The proposal's lower-bound evidence (SA stalling at n^2-1) is now stronger: exact SAT says 2 zeros are infeasible for n = 3..29. n = 30..40 is unverified, stopped on request. Patterns: constructive-algorithm kept (0.97): the problem is designing the encoder/decoder pair. brute-force ADDED (0.4): the 4x4 endgame table comes from an offline search scored by exhaustive enumeration of schedules. The per-target schedule is found by an exhaustive reachability search over (h,w,z). An offline SAT/search for the whole table is a viable alternative route. F1 carries brute-force for the identical offline-endgame step, and the two should match. I agree with the proposal's rejections: dp-on-dag/dynamic-programming/reachability (the layered (h,w,z) DP only inverts the decoder and is scaffolding; a reader searching dp-on-dag would not want this), bit-manipulation (bitset scaffolding), simulation (checker only), interactive (output-only, no judge dialogue), randomized-algorithm (the randomness is offline only; brute-force is the better name for searching a small case and hardcoding it), and game-theory/grid-traversal (absent). Trap 1, binary-search-answer: not applicable. There is no numeric answer to search: k = f(n) is fixed at 3, and nothing is monotone-tested. Trap 2, bitmask-dp vs interval DP: also absent. The bitsets in the DP hold sets of (u, l) offsets, not subset states, and the 4x4 endgame is a searched table, not interval DP. The constraint that decides the technique is k = f(n) = 3 zeros, not n <= 40 (F1's k = 24 allows a crude ~n-zero row/column scheme). Summary: the proposal's version (69 words) was accurate but left out the S-band idea and the searched endgame, the two things a searcher for this construction would type. I replaced it with a 69-word version that states the 3-zero optimum, the fixed-shape S banding, the counter whose drop times set the top/left cuts, and the searched 4x4 endgame. I dropped the n-range, which does not decide the technique. Tags: brute-force added to match the pattern and F1; the others are kept. [main thread: dropped brute-force to match the F1 review.]"
+  }
+}

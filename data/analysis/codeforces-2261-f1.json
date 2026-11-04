@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2261-f1",
+  "title": "Plegma II: Ask Me Any Cell (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2261/problem/F1",
+  "solution": "Key observation: S equals the rectangle's area minus Z, the zeros still inside it. If the order of row and column trims is the same for every target and Z stays small, the area at each step is known and the S values of different steps fall in disjoint bands, so a[S] can depend on both the step and Z. Schedule: 15 row trims at full width (h x 20 strips, S in [20h-5, 20h]), then 15 column trims at height 5 (5 x w strips, S in [5w-4, 5w], all at most 100), then a 5x5 endgame (S at most 25). For target (r,c) take the window rows x0..x0+4 with x0 = clamp(r-2, 1, n-4), and the columns the same way. Inside the window place an endgame pattern P with at most 3 zeros for the target's offset. The 5x5 table a[0..25] and the 25 patterns were found offline: for a candidate table, enumerate all 2,626 patterns with at most 3 zeros, simulate the 8 decisions, and hill-climb the table until every cell is reached. Markers: if columns must be cut from the left, put 4-|P| zeros in column y0-1 inside the row window. While that column is present Z = 4, afterwards Z = |P| <= 3, so a[5w-4] = L and a[5w-z] = R for z <= 3. If rows must be cut from the top, put zeros in row x0-1 (inside the column window) until the total is 5, so a[20h-5] = U and a[20h-z] = D for z <= 4. The robot cuts the top until the marker row is gone, then the bottom, then the left until the marker column is gone, then the right, then follows the endgame table. Every grid has at most 5 zeros (24 are allowed). The output has n^4 = 160,000 cells. For n = 3 (k = 9) the sample output is printed.",
+  "solution_check": {
+    "verified": true,
+    "how": "checker.py simulates all 2n-2 decisions for every target from the printed grids and table. It asserts that the robot never bugs out, that it ends on the target, and that no grid has more than k zeros. The sample output (n=3, k=9) passes. solve.py for n=20 passes with k=24, with at most 5 zeros per grid. Stress: the same construction for every n from 6 to 40 passes the exhaustive checker (at most 5 zeros each). The 5x5 endgame on its own, as an n=5 instance, passes with at most 3 zeros. Brute force: endgame2.cpp enumerates every pattern with at most p zeros on an RxC window for each candidate table (hill-climbing plus restarts). It found full 5x5, 5x4, 5x3, 4x4 and 3x3 endgames with p=3. An earlier alternating row/column marker scheme was checked the same way and failed only in the last 5 steps, so the endgame is needed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "brute-force"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "math",
+      "grid",
+      "matrix",
+      "brute-force"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "brute-force",
+        "reason": "The submitted program prints a fixed construction with a hardcoded 26-entry table and 25 patterns; nothing is enumerated at runtime. The offline tool that found the 5x5 endgame is hill-climbing over tables, i.e. local search; only its scoring function enumerates the 2,626 patterns. Someone searching brute-force wants problems whose answer is to enumerate candidates, and the insight here is the S-band and marker encoding. The F2 sibling proposal rejects brute-force and randomized-algorithm for the same kind of offline search, so keeping it on F1 would be inconsistent."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "brute-force",
+        "reason": "Same reason as the pattern: an offline gadget search is not the technique, and tags are search-matched too."
+      },
+      {
+        "tag": "greedy",
+        "reason": "Judge tag, but no greedy choice appears in any construction I could find or check. The trim order is a fixed schedule set by marker timing. Possible readings, such as backward minimal-drop zero placement for a given table, are not needed and could not be confirmed against the editorial. Earlier reviews (2261-d1, 2261-g) also dropped judge-tag greedy when it was unused."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "constructive-algorithm (0.95): the whole problem is designing an encoding (zero patterns) and a shared decoding table, and checking it by simulation. Nothing is optimised or counted. brute-force (0.4): the small endgame base case (a 5x5 table and its patterns) is found by offline exhaustive enumeration of all patterns with at most 3 zeros under each candidate table. Searching small base cases like this is the usual way to finish such a construction, but a hand-made endgame would avoid it, hence the low confidence. Rejected: interactive (not interactive: both phases are one printed output, nothing is exchanged with a judge); greedy and math are judge tags, but no greedy choice is made (math is kept only as a broad tag for the area/band arithmetic); simulation (only the verifier simulates, so it is scaffolding); grid-traversal (the robot shrinks a rectangle and walks no path); randomized-algorithm (the hill-climbing is an offline tool, not part of the submitted algorithm); parity-argument and bit-manipulation (not used). Constraint notes: the easy version has exactly two tests (n=3, k=9, where anything goes, and n=20, k=24). The generous k allows cruder constructions with about n zeros, but this one shows 5 zeros suffice for every n >= 6. The hard version F2 asks for the exact minimum f(n) for n up to 40 and should be labelled separately.",
+    "skeptic": "Own derivation before reading the proposal. S = (area of the current rectangle) - Z, where Z is the zeros still inside. Z only goes down, and a zero leaves exactly when its line is trimmed. A grid is therefore the same as a schedule of when the zeros drop out. If the row/column trim order is the same for every target, the area at each step is known. While the gap between consecutive areas exceeds the largest Z, each step's S values sit in their own band, so a[S] can depend on both the step and Z. A marker line of zeros that is the last line trimmed from one side flips the decision when it disappears. That much is the proposal's idea too, and it holds. The proposal adds a fixed schedule: 15 row trims at width 20, then 15 column trims at height 5, then a 5x5 endgame whose 26-entry table and 25 patterns of at most 3 zeros came from an offline search. I verified it independently (see skeptic_check). It uses at most 5 zeros for every n from 6 to 40, far below k=24, so the solution is correct. Is the endgame really needed? Exhaustive search shows a 1D final strip of width W needs W-1 zeros. The marker phase before it has band spacing W, so it allows at most W-1. A rows-then-1D-columns scheme therefore misses by one, and the last few steps need a 2D gadget. That gadget is a small found object, not a technique a searcher would look for, so brute-force goes. randomized-algorithm is rejected for the same reason (the proposal agrees). Also rejected: interactive (output-only; both phases are printed at once); simulation and prefix-sum (only the checker uses them); grid-traversal (the rectangle shrinks, nothing walks a path); dynamic-programming and dp-on-dag (a reachability DP over (box, Z) can find drop schedules, but the band/marker design gives them directly). greedy (judge tag) is rejected for lack of any greedy step. The editorial was unreachable (Codeforces returned 403), so the label rests on the constructions I could check. Traps: binary-search-answer does not apply, since nothing is optimized and there is no monotone feasibility test. bitmask-dp vs interval-dp does not apply either, since no DP is involved. The deciding constraint is the fixed n=20 with k=24 (one main test). F2 needs the true minimum for n up to 40 and is labelled separately. Summary: the proposal's text was accurate but only hinted at the reduction ('area band'). I rewrote it to say S = area minus the zeros still inside, why a fixed schedule separates the steps, and what the marker zeros do: 70 words, constraint included."
+  }
+}

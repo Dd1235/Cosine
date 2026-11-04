@@ -1,0 +1,71 @@
+{
+  "id": "codeforces-2278-d",
+  "title": "Lock and Unlock",
+  "source_url": "https://codeforces.com/contest/2278/problem/D",
+  "solution": "Only relative differences matter, because the common final value is free. Let P and M be the numbers of + and - operations, and let element i be locked in p_i of the + operations and m_i of the - operations. Its final value is a_i + (P - M) - p_i + m_i, so every element is equal exactly when a_i - p_i + m_i = C for one constant C. The cost is the sum of (p_i + m_i), and this is at least |a_i - C| for each i. So the minimum cost is min over C of sum |a_i - C|, which is reached when C is a median. At minimum cost every inequality is tight, which forces p_i = max(0, a_i - C) and m_i = max(0, C - a_i). Then P >= max p_i = max(a) - C and M >= max m_i = C - min(a), so at least max(a) - min(a) operations are needed whichever median is chosen. That many is enough: in the j-th + operation lock {i : p_i >= j}, and do the same for the - operations. Each of these locked sets is non-empty, so k >= 1 always holds. Answer: the sum of absolute deviations from the median, and max - min. It runs in O(n log n) for the sort (the sum reaches about 4e14, so C++ needs 64-bit integers).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (sort, median, sum |a_i - median|, max - min) printed all 5 sample outputs exactly (2 2 / 0 0 / 22 20 / 19 7 / 61 61). The brute force is a Dijkstra over normalised array states with lexicographic (cost, ops) edge weights (k, 1). From each state it tries every non-empty locked subset with both +1 and -1, and differences are bounded to range+2. It was stress-tested against the solution on 600 random cases (n in 2..5, values in [-V, V] with V in {2, 3, 5}, seed 7), with 0 mismatches."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "sorting"
+    ],
+    "tags": [
+      "array",
+      "math",
+      "greedy",
+      "sorting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy",
+      "sorting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "order-statistics",
+        "reason": "The median is an order statistic, but every corpus use of order-statistics (CSES List Removals, Sliding Window Median, CF 1491A, Create Sorted Array...) is about dynamic k-th queries backed by a data structure. Here a single static median is read off a sorted array."
+      },
+      {
+        "pattern": "quickselect",
+        "reason": "nth_element would give the median in O(n), but at n = 2e5 nobody needs it. Corpus quickselect records (Kth Largest Element, Wiggle Sort II) are ones where selection is the point."
+      },
+      {
+        "pattern": "ternary-search",
+        "reason": "sum |a_i - C| is convex in C, so ternary search over C would work, but the median gives it directly. This is the 'could search it' trap."
+      },
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Trap check: there is no feasibility test anywhere. The cost and the operation count are both closed forms, so this label would be wrong."
+      },
+      {
+        "pattern": "constructive-algorithm",
+        "reason": "The layered locking schedule only proves that max - min operations suffice. The output is two numbers, and no construction is printed."
+      },
+      {
+        "pattern": "prefix-sum",
+        "reason": "There is one median and one O(n) pass. No range sums are needed (unlike Sliding Window Cost or median queries)."
+      },
+      {
+        "pattern": "exchange-argument",
+        "reason": "The median optimality proof is a marginal-shift argument on a convex function, not swapping adjacent items in an ordering."
+      },
+      {
+        "pattern": "simulation",
+        "reason": "|a_i| <= 1e9 makes the operation count up to ~2e9, so step-by-step simulation is impossible. The answer is a closed form."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "Kept: greedy, for the classic proof that a median minimises the sum of absolute deviations, plus the per-element tight choice of lock counts. Kept: sorting, because finding the median is the real algorithm here and not preprocessing. The corpus's CSES Stick Lengths, the same median core, is also labelled sorting. The key reduction (incrementing the unlocked elements equals decrementing the locked ones) has no canonical pattern, so the summary spells it out along with 'median' and 'sum of absolute deviations' for lexical recall. Rejected: ternary-search. sum |a_i - C| is convex, so ternary search over C would work, but that is the 'could binary search it' trap when the median is direct. Rejected: quickselect, which could find the median in O(n), but nobody needs it at n = 2·10^5. Rejected: order-statistics, which the corpus uses for k-th-element data-structure queries, not a static median. Rejected: prefix-sum, which is not needed. Rejected: constructive-algorithm, since the layered locking only proves feasibility and the output is just two numbers. Rejected: simulation.",
+    "skeptic": "Solution: correct and identical to my independent derivation (median L1 cost, max - min operations). It was verified on the samples and against a Dijkstra brute force on 1,430 random cases.\n\nIs median/math the real technique rather than greedy? Mostly yes. The core is a math fact: the median minimises sum |a_i - C|. On top of that sit the relative-shift reduction and a tight lower bound for the operation count. Neither the reduction nor the bound has a canonical name, and the canonical vocabulary has no median, math or L1 label (Stick Lengths' 'median-finding' is off-vocabulary). So the choice is between greedy, sorting, order-statistics and quickselect. I keep greedy at 0.6, a little lower than proposed, because there is a genuine optimal choice: picking the target value C, by the 'move C toward the side with more elements' argument, plus the per-element tight lock counts. Codeforces tags this problem only 'greedy', and the corpus files the same make-equal-with-absolute-cost family under greedy (LC Minimum Cost to Make Array Equal, Equalindromic, CF 1661A). This differs from 2277-b, where greedy was rejected because there was no choice at all. Here the target is a real choice resolved optimally.\n\nIs sorting scaffolding? It is borderline, and I keep it at 0.55. The only computation is getting the median, and the median is by definition the middle of the sorted order, so sorting is the median step itself and does not serve some other technique. The corpus labels the identical core (CSES Stick Lengths) with sorting at 0.95. The operation count needs only max and min, so the confidence is not high.\n\nOrder-statistics and quickselect are rejected (see reasons): the corpus uses them for dynamic k-th queries or for selection-as-the-point problems.\n\nTrap 1, binary-search-answer: it does not apply. There is no feasibility predicate. The cost is a convex function minimised in closed form at the median, and the operation count is max - min. Even ternary search over C, which would technically work, is rejected as the 'it's convex/monotone so you could search it' trap.\n\nTrap 2, bitmask-dp vs interval DP: it does not apply. With n up to 2e5 and |a_i| up to 1e9 there is no DP or state search of any kind. The constraints force O(n log n) closed forms, and the 1e9 value bound (up to ~2e9 operations) is what rules out simulating operations.\n\nMissing labels: I found nothing canonical that names the relative-shift reduction or the max-demand layering bound, so the summary has to carry 'median', 'sum of absolute deviations' and the reduction for lexical recall, which it does.\n\nSummary: accurate, third person, and surfaces the reduction. I changed one thing: I added |a_i| up to 10^9, because the value bound is what decides closed form over simulation. I also dropped one 'the' to stay at 70 words. Tags are fine."
+  }
+}

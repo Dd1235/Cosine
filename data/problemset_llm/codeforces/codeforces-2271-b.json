@@ -27,5 +27,6 @@
       "game-theory": 0.95,
       "mex": 0.88
     }
-  }
+  },
+  "difficulty": 1000
 }

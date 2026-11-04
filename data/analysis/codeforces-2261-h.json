@@ -1,0 +1,43 @@
+{
+  "id": "codeforces-2261-h",
+  "title": "Oh Tree Tree Tree, No Need to Leave",
+  "source_url": "https://codeforces.com/contest/2261/problem/H",
+  "solution": "Treat it as a single-error-correcting linear code (a tree-shaped Hamming code). Give every node v at depth D with root-to-v direction bits p_1..p_D a weight w(v) in GF(2)^14: the path bits placed at FIXED positions (step i always at bit i-1, 10 bits) concatenated with the depth D in binary (4 bits). Isabel only sends trees whose syndrome S = XOR of w(v) over nodes holding 1 is zero: the weights span all 14 dimensions, so she picks 14 nodes with independent weights as parity nodes, writes the 2030 message bits (plus 3 zero pads) on the other 2033 nodes, and sets the parity nodes by solving a 14-dimensional GF(2) system. Lord Verity's move at u (depth d) changes S in a fully predictable way: flipping u XORs in w(u), and swapping u's children toggles direction bit p_{d+1} of every node strictly below u, which with fixed-position path bits is the same bit d for all of them, so S also gains (parity of 1s strictly below u) << d. That bit lies just past u's own path, so the received syndrome reads off depth d from its depth field, then u's path from bits 0..d-1, identifying u exactly (u keeps its label after relabelling). Tara applies the same operation at u again (it is an involution), recovering Isabel's tree, and reads the data nodes. Redundancy 14 <= 17 and the n=1,h=2 sample case fits too (1 path bit + 1 depth bit). Each run is O(2^h) per test, about 2M node operations for t=1024.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (handles 'first'/'second') plus harness.py that runs both players as separate processes: run 1, validate output format (length 2^h-1, binary), apply the attack with an independent explicit-tree-rebuild implementation (cross-checked against the index-swap one), shuffle the test order, run 2, compare with b. Sample n=1,h=2: both bits x all 3 attack nodes correct (the sample's literal outputs 000/101 and 010->1, 001->0 are illustrative only: I proved by enumeration that no correct strategy can produce them, and the Note says its own strategy is write-b-everywhere/majority). h=11: 6 runs of t=1024 random messages with random attacks; 23 messages (all-0, all-1, alternating, single-1, sparse/dense, random) x every attack node 1..2047 (47,081 decodings, so any adaptive choice is covered); an adaptive adversary choosing u from the written tree; 53,437 decodings total, 0 errors, max run 0.17 s for t=1024. Brute force: for h=2,3,4 all codewords (h=4: 1024 x 15 attacks) and h=5,6 3000 sampled codewords, checked attack balls are pairwise disjoint (decoder-independent code property) and the fast decoder agrees; for h=11, 40 cases with a brute-force decoder that undoes every one of the 2047 nodes and keeps codeword results: always a unique message equal to the fast decoder's."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "bit-manipulation",
+      "interactive",
+      "parity-argument"
+    ],
+    "tags": [
+      "interactive",
+      "constructive-algorithm",
+      "bit-manipulation",
+      "tree",
+      "binary-tree"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "bit-manipulation",
+      "interactive",
+      "parity-argument"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the whole problem is building the code (Hamming-style syndrome with path+depth weights). bit-manipulation: weights are XOR-combined bit vectors read off heap labels; decoding is extracting bit fields of the syndrome. interactive: it is a two-run communication problem (judge tag 'interactive'/'communication'; 'interactive' is the only canonical term for it). parity-argument (moderate): the crux is that the swap's effect on the syndrome is one bit equal to the parity of the 1s below u, which Tara can recompute since the swap preserves counts. Rejected: dfs (judge tag 'dfs and similar', but the solution only walks one root-to-u path and swaps index ranges), gaussian-elimination / xor-basis (only used to choose 14 independent parity nodes and solve a 14x14 GF(2) system; parity nodes can be hand-picked, so scaffolding), binary-tree-traversal (no traversal order matters), tree-dp, game-theory (adversary but no game analysis), randomized-algorithm. No canonical 'hamming code'/'error-correcting code' pattern exists, so those terms are surfaced in the summary instead.",
+    "skeptic": "SOLUTION: correct. I reached the same construction on my own. Level-wise parity checks are swap-invariant because the swap keeps every node's depth, so the depth field of the syndrome gives d = depth(u). With turn i always at bit i-1, the swap at u toggles turn d+1 of every strict descendant, which is the same syndrome bit d for all of them. Bits 0..d-1 are therefore exactly w(u), u's path. u keeps its label, and the operation is an involution, so Tara reapplies it. 14 <= 17 redundancy. One correction to the proposal's notes: Tara never needs to recompute the parity of the 1s below u. Bit d is just ignored, so that is not the crux. PATTERNS. constructive-algorithm KEEP: the whole task is designing the code. bit-manipulation KEEP: XOR syndrome of bit-vector weights, turn bits read from heap labels, subtree swap = label XOR 2^(k-1); the judge tags it bitmasks. interactive KEEP (format/genre): a two-run communication problem; the judge tags it interactive, and the corpus precedent codeforces-2255-c (communication) carries it. parity-argument KEEP at low confidence 0.5. The proposal's justification is wrong (see above), but a valid one exists. A Hamming code is a set of parity checks, and the correctness proof is that the depth checks, and the turn-i checks for i <= d, are parities left invariant by the swap. In this vocabulary it is also the nearest hook for 'parity check code'. CODING-THEORY LABELS: none exist in the canonical vocabulary. Checked data/pattern_taxonomy.json: no hamming-code, error-correcting-code or xor-hashing. The summary therefore carries 'Hamming-style error-correcting code' and 'XOR syndrome' for lexical search. REJECTED (not added): gaussian-elimination / xor-basis. Only a 14-dim GF(2) system to pick parity nodes, and unit-vector parity nodes can be hand-picked, as my implementation does, so it is scaffolding. The proposal's own code happens to use a greedy XOR basis for it. dfs (judge tag 'dfs and similar'): only Tara's undo of the swap could be written recursively; it is equally an index-range block swap or label XOR. That is applying the given operation, not a technique. binary-tree-traversal / tree-dp: no traversal order or subtree DP matters. Trees stay as descriptive tags (tree, binary-tree) only. brute-force: 'undo every u and test the syndrome' is a valid decoder but O(2047^2 * 1024), too slow, and not how anyone solves it. game-theory: adversarial but no game analysis. SUMMARY: the proposal's summary (about 62 words) was close. But 'node weights = root-to-node path bits' does not say the turns sit at FIXED top-aligned positions, and that is the trick: the naive heap-label weight fails (control experiment above). Rewritten to 69 words, keeping the 17-spare-bits constraint that decides a logarithmic-redundancy syndrome code. TRAPS: binary-search-answer is not applicable and not proposed; there is no search over an answer. bitmask-dp vs interval DP: not applicable. No DP of any kind. The bitmasks judge tag means XOR bit-vectors, not bitmask-dp, and nobody should add bitmask-dp or state-compression here."
+  }
+}

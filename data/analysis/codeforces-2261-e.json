@@ -1,0 +1,50 @@
+{
+  "id": "codeforces-2261-e",
+  "title": "What Does the Cow Say?",
+  "source_url": "https://codeforces.com/contest/2261/problem/E",
+  "solution": "Treat the RBS as a forest of matched pairs (node = pair, children = pairs directly nested inside). After j operations the string is always '('^j + t + ')'^j, where t is the original string with j adjacent '()' pairs removed one after another; the added wrapper brackets can never be removed, because '(' wrappers are followed by '(' and ')' wrappers are preceded by ')'. Repeatedly deleting an adjacent '()' deletes exactly a union of whole subtrees. A run of consecutive '(' is a chain v1, v2, ..., vd where each v(i+1) is the first remaining child of v(i), so to build a chain along a downward tree path you must delete every left-sibling subtree of v2..vd. That cost equals (number of ')' before w's '(') minus (number of ')' before v1's '('), where w is the bottom of the path, and the chain length is the difference in depth plus one. There are two cases. (1) Leading run: v1 is the top-level ancestor of w, the cost is C(w) = number of ')' before w, and the operations also prepend '(' characters. Extra operations can delete any other nodes without breaking the chain, so the score is min(k + depth(w), n/2) whenever C(w) <= k. (2) Internal run: for every '(' at w, keep a stack of its open ancestors with their C values, which are non-decreasing from bottom to top. Binary search for the highest ancestor q with C(q) >= C(w) - k; the run length is the number of stack entries from q to the top. The answer is the maximum over both cases. This is one linear scan with a bisect per '(', O(n log n) in total; a single amortized pointer into the stack makes it O(n). The score can never exceed n/2, since the string always holds exactly n/2 '(' characters.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (stack scan with bisect on the ancestor stack's close-count values) printed 1 2 3 4 4 6 6 6 4 on the 9-case sample, which matches the expected output; the brute force printed the same. Brute force: BFS over every string reachable with up to k operations, taking the max run of '(' at each step. Exhaustive stress over all RBS with n/2 = 1..6 and every k in 0..n/2 (1,274 cases, all agree). Random stress: 1,500 random RBS with n/2 in 7..9 and k in 0..5 (all agree). Timing: n = 4*10^5 runs in about 0.1 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "stack",
+      "binary-search",
+      "dfs"
+    ],
+    "tags": [
+      "string",
+      "tree",
+      "greedy",
+      "stack",
+      "binary-search",
+      "dfs"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy",
+      "stack",
+      "binary-search",
+      "dfs",
+      "sliding-window"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "sliding-window",
+        "reason": "A genuine alternative O(n) solution, verified against brute force. The internal-run case is exactly the maximum rise of prefix balance over a window containing at most k ')' characters, which is a classic at-most-k window. The window minimum is maintained with a monotonic deque, which is left unlabeled to avoid diluting the list. Low confidence because the intended route is the tree/stack one."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "greedy: the core is an exchange-style observation. The best configuration is a single downward path with exactly its left-sibling subtrees deleted, and leftover operations are always worth spending, because each adds a leading '(' (score min(k+depth, n/2)). stack: the bracket sequence is scanned with a stack of open ancestors, and that stack is the data structure being queried. binary-search: for each '(' you binary search the monotone stack of ancestors' close-counts for the highest ancestor still within budget k (the judge tags include binary search). dfs: the bracket scan is an implicit DFS of the pair tree, and the stack is the DFS root-to-node path (judge tag 'dfs and similar'), so it gets lower confidence. Rejected: binary-search-answer. You could binary search the run length x and check stack[len-x] for every node, but that check is a trivial O(n) index lookup. The direct per-node bisect, or an O(n) amortized pointer, is the natural solution, so this is the 'answer is monotone' trap. Rejected: two-pointers. The amortized pointer into the stack works but is an unusual variant, and labeling it would mislead two-pointer searches. Rejected: binary-lifting, an alternative way to find the highest in-budget ancestor that nobody would need here. Rejected: prefix-sum. The running counts of ')' and the depth are scaffolding. Rejected: tree-dp and dp. No DP is involved.",
+    "skeptic": "Solution: correct. It matches my own independent derivation. Deletions remove unions of whole subtrees of the pair tree. A leading run along a top-level path ending at w costs C(w) = #')' before w and gains j wrapper '(' (score min(k+depth(w), n/2)). An internal run from ancestor q down to w costs C(w)-C(q). The O(n) amortized-pointer remark is also right: the threshold C(w)-k only grows, and pops only clamp the pointer. TRAP binary-search-answer: does not apply, and the solver correctly rejected it. The binary search is a plain bisect per '(' over the non-decreasing C values on the ancestor stack, finding the highest in-budget ancestor. There is no guess-and-check on the answer. Binary searching the run length x would come with a trivial O(n) check, the 'answer is monotone' trap. So binary-search is kept and binary-search-answer is not added. TRAP bitmask-dp vs interval DP (near-miss check): no DP of any kind is involved, so tree-dp, interval-dp and similar labels stay out. stack: KEEP. This is the bracket-matching or DFS ancestor stack, not scaffolding here, because it is the structure the binary search runs over. Not monotonic-stack: it pops on matching ')', not on comparison. In prefix-balance terms it does coincide with the suffix-minima stack of B, but labeling it monotonic-stack would mislead searchers looking for next-greater-element-style problems. dfs: KEEP at 0.5. The scan is an implicit DFS of the pair tree, the query is on the root-to-node path, and the judge tags include 'dfs and similar' and 'trees'. greedy: KEEP at 0.55. This is weaker than the proposal claims: the content is that leftover operations never hurt and that you pick the deepest in-budget node. The judge tags include greedy, so it is kept with lower confidence. tree (tag): KEEP. The pair-tree view is the key reduction. Missing labels: sliding-window added as a verified alternative; see added_patterns. binary-lifting rejected: it is an unnecessary alternative for the ancestor search. prefix-sum rejected: it is scaffolding in the tree solution and only the substrate of the window alternative. euler-tour and tree-flattening rejected: the bracket string is the Euler tour, but no technique is applied to it. Summary: the proposal's version was accurate, at 63 words. I replaced its last clause so the summary links path cost to the budget k ('costing one operation per deleted pair') and kept the prepend-one-'(' reduction. The result is 69 words, third person, and keeps the n up to 4·10^5 constraint."
+  }
+}

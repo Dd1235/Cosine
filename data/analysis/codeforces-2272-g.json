@@ -1,0 +1,49 @@
+{
+  "id": "codeforces-2272-g",
+  "title": "Ranges",
+  "source_url": "https://codeforces.com/contest/2272/problem/G",
+  "solution": "Write each interval [l,r] as the half-open pair (l-1, r] of cut points 0..n, and treat every required interval as an edge l-1 -- r in a graph G on the cut points. Claim: the answer is rank(G) = (#distinct endpoints) - (#connected components of G), i.e. the number of successful unions in a DSU over vertices 0..n. Lower bound: if the queried set D tiles every required interval, then each required edge's endpoints are joined by a (monotone) path of D-edges, so every component of G lies inside one component of the D-graph; then |D| >= sum over D-components C of (|C|-1) >= |S| - c(G). Upper bound: for each component of G with sorted vertices v1<...<vk, query the k-1 elementary pieces (v1,v2], ..., (v_{k-1},v_k]; any required interval with both endpoints in that component is a concatenation of consecutive pieces, giving cost exactly |S| - c(G). So the problem reduces to maintaining the number of DSU merges under edge insertions and deletions (each modification deletes one edge and inserts another), which is offline dynamic connectivity: every edge is alive on a contiguous time range [start, end] of the q+1 configurations; insert it into the O(log q) nodes of a segment tree over time, DFS the tree applying unions with a union-by-size DSU without path compression, read the merge count at each leaf, and roll back on exit. Complexity O((m+q) log q log n) time, O((m+q) log q) memory, well within n, m, q <= 2*10^5 and 5 s. An equivalent alternative is a link-cut tree maintaining a maximum spanning forest keyed by edge deletion time.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (segment tree over time + rollback DSU) matches all 3 sample test cases (16 output lines) exactly. Exhaustive brute force independent of the rank formula (enumerates every set D of the n(n+1)/2 intervals, computes its combine-closure by interval DP, superset-min over required masks) for n<=5 agrees with the brute on samples 1-2 and with the solution on 400 random files (1-3 tests each, n<=5, m<=6, q<=6). Second stress: solution vs per-configuration plain-DSU recomputation of the formula on 500 random files (n<=60, m<=40, q<=80, up to 4 tests): all equal. Max test n=m=q=2*10^5 random runs in 2.3 s in CPython."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dsu-rollback",
+      "union-find",
+      "offline-queries",
+      "divide-and-conquer",
+      "graph-modeling",
+      "connected-components",
+      "link-cut-tree"
+    ],
+    "tags": [
+      "graph",
+      "union-find",
+      "divide-and-conquer",
+      "data-structures",
+      "interval"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "dsu-rollback",
+      "union-find",
+      "offline-queries",
+      "divide-and-conquer",
+      "graph-modeling",
+      "connected-components",
+      "link-cut-tree"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "dsu-rollback: the core data structure, unions undone when leaving a segment-tree-over-time node. union-find: family label, DSU is what counts components. offline-queries: the whole modification sequence is read first so each edge's lifetime [start,end] is known; this is offline dynamic connectivity. divide-and-conquer: the segment tree over time is the divide-and-conquer-on-queries (time-interval decomposition) technique, matching the judge tag. graph-modeling: the non-obvious reduction is intervals -> edges between cut points l-1 and r, answer = graphic-matroid rank (#vertices - #components). connected-components: the answer is literally endpoints minus components. link-cut-tree (low confidence 0.4): a genuine alternative for offline dynamic connectivity (maximum spanning forest by deletion time), but not the intended or common route. Rejected: segment-tree (the tree over time is only an interval-decomposition scaffold, no range queries/updates; the phrase is kept in the summary for lexical matching), greedy/interval-scheduling/interval-union (no greedy on intervals once the rank formula is known), minimum-spanning-tree/kruskal (no weights in the main solution), dsu-on-tree (different technique), sqrt-decomposition (possible but not natural here), interval-dp (only used in the brute force).",
+    "skeptic": "Solution: correct, and it is the intended one (judge tags: data structures, divide and conquer, dsu). Offline dynamic connectivity is genuinely needed. Any graph on 0..n can be realised by intervals, so the problem is general fully-dynamic spanning-forest size. All modifications are given up front, so the offline segment tree over time with rollback DSU is the natural route. Online HDT would also work, but nobody writes it and it is not in the vocab. PATTERNS. dsu-rollback KEEP 0.95: the core structure; unions are undone on leaving a time-tree node. union-find KEEP 0.9: family label, and corpus precedent (cses-2133, cf 813-f, 1140-f all carry it with dsu-rollback). offline-queries KEEP 0.9: each edge's lifetime [start,end] is known only because the whole modification list is read first. divide-and-conquer KEEP 0.75: the segment tree over time is divide and conquer on time ('segment-tree divide and conquer'). The judge tag says so (checked via API; the proposal's claim was right), and cf 1140-f, the same technique, carries it. It is a real search term for this family, not scaffolding. Slightly lowered from 0.8 because generic D&C searches mostly mean merge-style recursion. graph-modeling KEEP 0.85: the non-obvious step is turning intervals into edges between cut points l-1 and r. Nothing in the statement mentions a graph, which is exactly what the label is for. Closest corpus analogue is atcoder-abc206-d (union-find + graph-modeling, answer V - C). connected-components KEEP 0.7: the maintained quantity is vertices minus components under edge updates, i.e. dynamic component counting (cf. atcoder-abc126-e, labelled connected-components for a component-count answer). Lowered from 0.8 because the code only counts successful unions and never enumerates components. link-cut-tree KEEP 0.4: a genuine alternative, not a stretch. I implemented it (max spanning forest by deletion time; a deleted forest edge has no replacement because any covering non-tree edge would have a later deletion time and would have been swapped in). It matches the definition brute force and the DSU solution and runs in 0.43 s on max tests. It is still not the intended or majority route, so the confidence stays low; corpus precedent cf 1416-d lists link-cut-tree as an alternative too. Considered and not added: segment-tree (the time tree only decomposes lifetimes into O(log q) nodes and has no range query or update; corpus offline-dynamic-connectivity records cses-2133/813-f/1140-f do not label it, and the phrase stays in the summary for lexical match); minimum-spanning-tree/kruskal (only inside the LCT alternative's deletion-time forest, too far removed); interval-union/greedy/interval-scheduling (nothing greedy once the rank formula is known). TAGS: proposal's five are all from the preferred set and accurate. Added dynamic-connectivity, the standard name of the technique and absent from the pattern vocab, so tags are the only label slot for it. Corpus precedent: cses-2133 and cf 813-f carry it. TRAP 1, binary-search-answer: not proposed and not applicable. Each configuration's answer is a closed-form rank read from the DSU, with no monotone feasibility test anywhere. TRAP 2, interval-dp / bitmask-dp near-miss: the statement's 'combine [l,k] and [k+1,r] for some k' wording is the matrix-chain / interval-DP signature, and both the proposal's and my brute forces are interval-DP closures over interval subsets (bitmask enumeration). But n, m, q ≤ 2·10^5 with q re-answers rules out any O(n^3) interval DP or subset enumeration. The constraint forces the cut-point graph reduction, so interval-dp and bitmask-dp are correctly absent. SUMMARY: 70 words (upper limit), third person, accurate. It carries the deciding constraint and surfaces the key reduction (cut points as vertices, answer = endpoints minus components) plus the technique names. Kept verbatim. Status is 'changed' only because of the added tag and the two small confidence adjustments."
+  }
+}

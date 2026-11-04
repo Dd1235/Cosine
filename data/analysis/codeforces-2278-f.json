@@ -1,0 +1,58 @@
+{
+  "id": "codeforces-2278-f",
+  "title": "Modulo and Counting",
+  "source_url": "https://codeforces.com/contest/2278/problem/F",
+  "solution": "Key inequality: for a >= b, a mod b <= a - b, with equality iff a < 2b (the loss a - b - (a mod b) = b*(floor(a/b) - 1) is 0 when a < 2b and at least b otherwise). Summing over consecutive pairs telescopes: m = sum (a_i mod a_{i+1}) <= a_1 - a_n <= (m+2) - 1 = m+1, so the total loss is 0 or 1. Loss 0: every pair has a_{i+1} <= a_i < 2a_{i+1} and a_1 - a_n = m; a_n = 1 would force all ones (m = 0, impossible), so a_n = 2 and a_1 = m+2. Loss 1: a loss of exactly 1 needs b = 1 and a = 2, so the array is a loss-free chain from m+2 down to 2 followed by at least one 1 (everything after a 1 is 1). Hence the answer is sum over k = 1..n of f(k), where f(k) counts non-increasing sequences of length k starting at m+2, ending at 2, with a_i < 2a_{i+1}. Compute this with a DP over positions: dp_i[v] = number of valid length-i prefixes ending at value v; dp_{i+1}[w] = sum of dp_i[v] for v in [w, min(m+2, 2w-1)], a range sum read from suffix sums of the previous layer; accumulate dp_i[2] for every i. Equivalently, count strict chains of j distinct values from m+2 to 2 (same prefix-sum DP) and multiply by C(n, j), since spreading k positions over j distinct values gives C(k-1, j-1) and the hockey-stick identity sums these to C(n, j). Complexity O(n*m) per test, at most 1.6e7 with sum n, sum m <= 4000.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python position-DP (sol.py) on the full sample: outputs 3, 1, 60, 972763487, 288208692, 566410295, all matching. Exhaustive brute force (enumerate every non-increasing array with a_1 <= m+2, pruning when the remainder sum exceeds m) agreed with both the position DP and the alternative distinct-chain * C(n,j) formula for all 54 pairs n in 2..7, m in 1..9; the two DP formulations also agreed on 300 random (n, m) in [2,60] x [1,60]. Worst case n = m = 4000 ran in 1.5 s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "prefix-sum",
+      "combinatorics",
+      "counting"
+    ],
+    "tags": [
+      "math",
+      "dynamic-programming",
+      "combinatorics",
+      "prefix-sum",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "dynamic-programming",
+      "prefix-sum",
+      "combinatorics",
+      "number-theory"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "This only echoes the title ('Modulo and Counting') and 'find the number of good arrays', and the title is already indexed. Across the corpus the label means frequency tallying (its aliases are frequency-count, frequency-array, pair-counting, group-by, aggregation), and nothing is tallied here. combinatorics already covers the enumerative sense. The sibling review of 2272-e rejected counting for the same echo."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "number-theory",
+        "reason": "The whole reduction rests on a remainder-structure lemma: for a >= b, a mod b = a - b - b*(floor(a/b)-1), so a mod b <= a-b, with equality iff a < 2b. That lemma turns the mod-sum condition into a bound with at most one unit of slack. The setters' own Codeforces tags are dp, math, number theory. Corpus precedent tags x-mod-y structure problems as number-theory (1684-b, 1613-b, 1650-b, 2260-b). modular-arithmetic was considered and not added: there are no congruences, and next to the mod-998244353 answer it would read as scaffolding."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "counting",
+        "reason": "Same echo of the title as the pattern; the title is already part of the indexed text."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "dynamic-programming: the count is a layered DP over (position, value) with no more specific canonical shape, so the generic family label is the right one. prefix-sum: every DP layer's transition is a range sum over v in [w, 2w-1], read from a suffix-sum array; this is what takes it from O(n*m^2) to O(n*m), so it is part of the algorithm rather than one-off scaffolding. combinatorics/counting: it is a counting-arrays-mod-p problem whose crux is the telescoping inequality turning the mod-sum condition into a structural one; the alternative solution counts distinct-value chains and multiplies by C(n, j) via hockey stick. Considered and rejected: stars-and-bars (only shows up in the alternative formulation as C(k-1, j-1) multiplicities; the direct DP does not need it, so it is too minor to carry the label); dp-optimization (that label means CHT/D&C/Knuth-style speedups, not a range-sum prefix array); modular-arithmetic (only the answer is taken mod 998244353); number-theory (the remainder fact is an elementary inequality, not number theory); greedy, binary-search-answer (nothing monotone to search).",
+    "skeptic": "Solution: correct. It matches my independent derivation and survives brute force. The proposal's C(n, j) over j distinct values is my C(n, j+1) over j strict steps. Its claims check out: a_n = 1 with no loss forces all ones (impossible for m >= 1), and a loss of exactly 1 needs b = 1 and a = 2. Labels. dynamic-programming: keep. I looked for a more specific canonical name and found none. It is a layered (position, last value) DP, with no [l, r] subproblems, so it is not interval-dp, and m up to 4000 rules out any exponential state, so it is not bitmask-dp. That is the bitmask-dp vs interval-DP trap; neither applies. subsequence-dp, knapsack, linear-recurrence and partition-dp do not fit. Counting distinct-value chains is technically path counting in a value DAG, but dp-on-dag would mislead a searcher. dp-optimization: not added. Only 7 of the 116 corpus records carrying both dynamic-programming and prefix-sum also carry it, and its umbrella group (CHT, D&C DP, Knuth, slope trick, WQS, monotonic-queue optimization) is about heavyweight speedups. A prefix-sum range transition is served by prefix-sum itself. prefix-sum: keep. It is the transition optimisation, not scaffolding. Each state w sums the previous layer over v in [w, 2w-1], a window of length about w, so the naive DP is O(n*m^2), about 6.4e10 at n = m = 4000, and suffix sums bring it to O(nm), 1.6e7. This differs from 2276-g, where prefix sums only made a closed formula O(1). combinatorics: keep at reduced confidence. The direct position DP uses no binomials, and the setters did not tag combinatorics. But the alternative formulation (count strict chains, spread the n positions over them with C(k-1, j-1), collapse with the hockey-stick identity to C(n, j)) is a reasonable solution. The problem is also a pure enumerative count mod p, which is what the corpus uses the label for. stars-and-bars: considered and not added. It appears only as the C(k-1, j-1) multiplicity in the alternative and is immediately absorbed by the hockey stick, so a stars-and-bars query would be poorly served. counting: rejected as a title echo (see above). number-theory: added (see above). binary-search-answer trap: not applicable and not proposed. Nothing is searched over and there is no feasibility test; the answer is a direct sum of DP values. Summary: the proposal's summary was accurate but dropped the loss-1 case. Arrays can end with a 2 -> 1 step followed by 1s, which is why the answer sums f(k) over every length k <= n and not just f(n). It also said 'a mod b <= a-b' without the bound it implies. Rewritten to state the bound a_1 - a_n <= m+1 and the optional trailing 1s, with the n, m <= 4000 sums constraint that makes O(nm) the target. Editorial: the CF problem page returned 403 and a web search found no editorial; the API tags were the only official signal."
+  }
+}

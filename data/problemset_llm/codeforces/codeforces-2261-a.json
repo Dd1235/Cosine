@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2261-a",
+  "title": "Hey, It's Me, Souvlakity",
+  "slug": "2261-a-hey-it-s-me-souvlakity",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2261/problem/A",
+  "source_topic": "Codeforces / Contest 2261",
+  "source_tags": [
+    "games",
+    "math"
+  ],
+  "statement": "The task is the final range (max minus min) of the first player's integers, which he maximizes and the opponent minimizes, when a binary string splits 1..n and players alternately give one integer away for 10^100 turns. Turn pairs keep his count k; for k ≥ 3 he keeps his extremes while the opponent mirrors each gift back, so the answer is the first-to-last-1 span, else k − 1.",
+  "tags": [
+    "game-theory",
+    "math",
+    "string"
+  ],
+  "patterns": [
+    "game-theory"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792369,
+    "pattern_confidence": {
+      "game-theory": 1.0
+    }
+  },
+  "difficulty": 800
+}

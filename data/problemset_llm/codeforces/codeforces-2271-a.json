@@ -24,5 +24,6 @@
     "pattern_confidence": {
       "parity-argument": 0.95
     }
-  }
+  },
+  "difficulty": 800
 }

@@ -1,0 +1,35 @@
+{
+  "id": "leetcode-minimum-cost-path-with-even-xor-parity",
+  "title": "Minimum Cost Path With Even XOR Parity",
+  "slug": "minimum-cost-path-with-even-xor-parity",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-cost-path-with-even-xor-parity/",
+  "source_topic": "LeetCode / Weekly Contest 526",
+  "difficulty": "Hard",
+  "acceptance_rate": 55.5,
+  "source_tags": [],
+  "statement": "The task is to find, in a weighted tree of up to 10^5 nodes, the cheapest path between two distinct nodes whose XOR of node values has an even number of set bits, or -1. Popcount parity of an XOR is the XOR of each value's popcount parity, so each node becomes a 0/1 bit and a tree DP tracks the cheapest downward path of each parity.",
+  "tags": [
+    "tree",
+    "dynamic-programming",
+    "bit-manipulation",
+    "dfs",
+    "graph"
+  ],
+  "patterns": [
+    "tree-dp",
+    "parity-argument",
+    "bit-manipulation",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792373,
+    "pattern_confidence": {
+      "tree-dp": 0.85,
+      "parity-argument": 0.9,
+      "bit-manipulation": 0.65
+    }
+  }
+}

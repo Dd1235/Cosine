@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2272-c",
+  "title": "Yet Another Black Cell Problem",
+  "source_url": "https://codeforces.com/contest/2272/problem/C",
+  "solution": "Operations may repaint already-black cells, so pairs can overlap and a black set S is achievable with parameter k exactly when every cell of S has another cell of S within distance k (k >= 1). Feasibility is monotone in k, so binary search k over [1, 10^9]. For a fixed k, call a given cell a_i isolated if both its gaps to a_{i-1} and a_{i+1} exceed k. A non-isolated cell needs nothing. An extra cell can only rescue the nearest given cell on each side of it (any other given cell within k of it would already be within k of that nearest one, so not isolated), so one extra rescues at most two isolated cells, and only if they are consecutive in a with gap <= 2k (put the extra in the middle; the gap is > k >= 1 so an empty cell exists there). Otherwise one extra placed next to an isolated cell (a_i+-1 is free because both gaps exceed k) rescues it. The minimum number of extras is therefore (#isolated) minus a maximum matching on the path of consecutive isolated pairs with gap <= 2k, which a left-to-right greedy (or an equivalent prefix dp) computes in O(n). k is feasible iff that count <= x. Total O(n log 10^9).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (binary search on k + greedy isolated-cell pairing) reproduces all 4 samples (2,1,2,3). Brute force: for each k from 1 up, enumerate every subset of at most x extra cells in [max(0,min a - k), max a + k] not in a and test that every black cell has another within k. Stress-tested 3000 cases (n<=5, coords<=16, x<=3) plus 20000 cases (n<=7, coords<=30, x<=3), 0 mismatches; extras changed the answer in 13231 of the 20000. Max test n=2e5 random coords runs in 0.65s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "binary-search-answer",
+      "greedy",
+      "dynamic-programming"
+    ],
+    "tags": [
+      "binary-search",
+      "greedy",
+      "dynamic-programming",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "binary-search-answer",
+      "greedy",
+      "dynamic-programming"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "binary-search-answer: genuine. There is no direct formula, because which isolated cells can share a helper depends on k; the interesting work is the feasibility check (count cells whose both gaps exceed k, then pair consecutive ones with gap <= 2k). Anyone would binary search k here. greedy: the check is a left-to-right greedy maximum matching on a path, and the proof that one extra rescues at most two consecutive isolated cells is the core argument. dynamic-programming (0.5): the same check is naturally written as a prefix dp (min extras to fix the first i cells, pairing i-1 with i or not), and the judge tags list dp, so a dp search should be able to find it; it is the family label only, since no specific dp pattern fits. Rejected: constructive-algorithm (judge tag, but the task outputs only k and nothing is built beyond putting the helper in the middle of a gap); sorting (input is already sorted); two-pointers and prefix-sum (not used); simulation (no).",
+    "skeptic": "Patterns unchanged; only the summary is rewritten. TRAP 1, binary-search-answer: kept, and it is genuine here. The feasibility check is the whole problem: for a fixed k you identify the cells whose both gaps exceed k and work out which pairs of them can share one helper (consecutive in a, gap <= 2k), which needs the proof that a helper can only rescue the nearest given cell on each side. There is no direct linear or closed-form answer. The minimum extras f(k) = sum over chains of consecutive isolated cells of ceil(L/2), where both chain membership and chain edges depend on k; it is no order statistic of the gaps. Avoiding the binary search would take a sweep over O(n) candidate k values while maintaining chains as nodes leave (d_i <= k) and edges appear (g_i <= 2k), and nobody writes that. Positions up to 1e9 rule out trying every k. greedy: kept. The check is a left-to-right greedy maximum matching on the path of consecutive isolated pairs, and the 'one helper serves at most two consecutive isolated cells' argument is the core of the problem. dynamic-programming: kept, low confidence (0.45). It is not needed, since the greedy is provably optimal (matching on a path). But the same check is naturally written as a 2-state prefix dp (verified equal to the greedy), the judge tags list dp, so the editorial or many contestants likely wrote it that way. No more specific DP label applies: this is a linear prefix dp over a path, not interval-dp, bitmask-dp, knapsack or partition-dp (calling a 1-or-2 tiling partition-dp would be a stretch). TRAP 2, bitmask-dp vs interval DP: does not apply. With n up to 2e5 and a 1D linear structure there is no subset or interval state, so neither label is a candidate. Rejected candidates (agree with proposal): constructive-algorithm (judge tag, but only k is printed; placing a helper at a gap's midpoint is part of the proof, not something built for output); sorting (input already sorted); two-pointers, prefix-sum, simulation (not used). binary-search is the family of binary-search-answer and is added automatically by with_families(). Summary: the proposal's summary was accurate but left out the 1e9 position bound (the constraint that forces binary search over k rather than trying each k) and did not say repainting is allowed, which is why this is a cover and not a perfect pairing as in the inspiring 2026B. Rewritten at 68 words with both, keeping the reduction and the 2k sharing rule."
+  }
+}

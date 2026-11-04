@@ -1,0 +1,56 @@
+{
+  "id": "leetcode-count-frequency-staircase-subarrays-ii",
+  "title": "Count Frequency Staircase Subarrays II",
+  "source_url": "https://leetcode.com/problems/count-frequency-staircase-subarrays-ii/",
+  "solution": "A staircase with k distinct values has length 1+2+...+k = k(k+1)/2 <= n, so k <= K, where K is about sqrt(2n) (315 for n = 5*10^4). Fix the left end l and extend r, keeping a count per value and each value's rank, meaning its index in first-appearance order within [l, r]. Ranks never change while only r grows. A value whose count exceeds its rank can never come back down, so the scan for this l stops there. It also stops once the distinct count passes K. The window [l, r] is a staircase exactly when every distinct value has count equal to its rank. Track good = the number of values with count == rank: counts only rise toward their rank, so good only increases, and r is counted when good == distinct. Amortized bound: suppose several scans starting at l1 < l2 < ... all reach a position x. Then each nums[li] sits inside the scan from l1, and each nums[li] stays unique (rank 1, count 1) in its own scan. So these values are pairwise distinct values of one scan, and there are at most K+2 of them. Each position is therefore visited by at most K+2 scans, and the total work is O(n*sqrt(n)), about 1.6*10^7 steps. This is the step that n <= 5*10^4 forces; the plain O(n^2) enumeration only works for version I (n <= 1500). A second method with the same O(n*sqrt n) cost: for each k >= 2, slide a window of length k(k+1)/2. Keep buckets indexed by count, each holding its size, the sum of its values and the sum of its values' first-occurrence positions (each value's positions live in a deque). The window is valid iff buckets 1..k each hold exactly one value and those first-occurrence positions increase with the count. Keep a counter of good adjacent bucket pairs; each add or remove changes only O(1) buckets, so the window is valid iff the counter equals k-1. The k = 1 case contributes n.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python, scratchpad/work/leetcode-count-frequency-staircase-subarrays-ii/sol.py and big.py: wrote an O(n^3) brute force (rebuilds first-appearance order and counts for every subarray), the left-endpoint extension with early termination, and the per-k fixed-length sliding window with count buckets. All three give 9, 5 and 8 on the three samples. Stress tests: 4000 random arrays (n <= 14, values <= 5, 30% with a planted random staircase) plus 1500 more (n up to ~33, 50% planted, 1258 of them with answers above n), where all three agree; then 60 arrays of length about 400 built from mixed staircases and noise, where the extension and window methods agree. Scale check at n = 5*10^4 with the extension method, counting inner-loop steps: all-distinct and cyclic-316 take 15.75M steps (315 per left end, as the bound predicts, 0.9 s in Python); random values <= 316 take 10.9M; random values <= 1000 take 15.4M; one repeated value takes 0.1M; one big staircase takes 0.15M; distinct prefix plus staircase, repeated, takes 8.1M. Every case stays within (K+1)*n."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "brute-force",
+      "sliding-window",
+      "counting",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "hash-map",
+      "counting",
+      "brute-force",
+      "sliding-window",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "brute-force",
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sliding-window",
+        "reason": "The main solution never slides a window. The right end restarts from every l, which is enumeration of left ends plus extension. The only sliding-window route is the proposal's second method: fix each of the about 315 lengths k(k+1)/2, then slide a fixed window and keep, per count bucket, its size and the sum of first-occurrence positions, a per-value occurrence pointer, and a counter of good adjacent bucket pairs. I reimplemented it (window.py) and it matches brute force, so it is correct, but it is a convoluted alternative to a simpler scan. The cheaper per-k check (count-of-counts test, then verify order by rescanning the window) is O(n*L) for one k on a periodic input, about 2.5e9, so the O(1) bucket machinery is required. That makes it the 'verified but over-engineered' case the corpus has dropped before (longest-resilient-subarray-i). A 'sliding window' searcher expects a window whose validity can be maintained as it moves. Here validity is not monotone in r (only triangular lengths qualify), and that is why the third-party 'O(n) sliding window' write-ups for this problem are wrong. Labelling it sliding-window would reinforce exactly that misreading."
+      },
+      {
+        "pattern": "hash-map",
+        "reason": "Scaffolding. It is only the container for per-value count, rank and visit stamp. Values are <= 1e5, so plain arrays do the whole job (my proposal_scan uses arrays and no dictionary), and 'counting' already names the frequency-table idea. Same call as codeforces-2275-f and longest-subarray-divisible-by-k-...-ii. Kept as a broad tag."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "sliding-window",
+        "reason": "Same reason as the pattern. As a tag it would still pull 'sliding window' queries onto a problem whose standard solution restarts r for every l, and whose window-sliding variant is an over-engineered alternative."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "brute-force: the intended solution enumerates every left endpoint and extends right. What makes it fast enough for n = 5*10^4 is pruning plus an amortized argument: stop when a count exceeds its first-occurrence rank or the distinct count passes sqrt(2n), and each position is then visited at most K+2 times, for O(n sqrt n) total. That is enumeration with a sqrt bound, and the closest canonical name is brute-force. sliding-window: a second genuine O(n sqrt n) solution enumerates the ~316 possible lengths k(k+1)/2 and slides a fixed-length window with O(1) updates (count buckets plus adjacent-pair order checks). I implemented it and it matches the brute force, but it is less natural, hence 0.55. counting: the whole condition is about value frequencies, and the task is counting subarrays. hash-map (0.45): per-value count and rank maps are the algorithm's entire state, so this is more than one-off scaffolding. It is still the weakest label, since a size-1e5 array does the same job. Rejected: sqrt-decomposition (no blocks or threshold split, only a sqrt bound on k from the triangular length, so a search for block decomposition should not land here); two-pointers (the right pointer restarts for each l, so this is not a monotone two-pointer sweep); prefix-sum, fenwick-tree and segment-tree (a Fenwick tree over first-occurrence positions can maintain sum(count*rank) for a rearrangement-inequality check in O(n sqrt n log n), but that is a heavier and unnatural variant); hashing (a multiset-hash check is possible but not needed); math is kept only as a tag, for the triangular-number length bound.",
+    "skeptic": "Solution: correct. The proposal's amortized argument holds. If scans from l1 < l2 < ... < lm < x all reach x, then each nums[li] is absent from (li, x), so the values nums[l2..lm] are pairwise distinct, lie in [l1, x-1], and differ from nums[l1]. That window has at most K distinct values, so at most K+1 scans visit any x, for O(nK) total. The distinct > K cap is what saves the all-distinct case. Without it the scan is n^2/2 (measured). brute-force: keep (0.65). The enumeration of (l, r) with early exit IS the algorithm. The insight is why the enumeration is fast: the triangular-length cap K ≈ sqrt(2n) plus the amortized K+1 visits per position. This differs from codeforces-2273-a, where scanning 494 candidate K was scaffolding after a closed-form insight. Here no non-enumerative core exists. The vocabulary has no 'pruning' or 'sqrt bound' label, and brute-force (aliases enumeration and exhaustive-search) is the honest name for pruned exhaustive enumeration, as Codeforces tags it. sqrt-decomposition: upheld the rejection. Nothing is split into blocks and there is no heavy/light threshold. The taxonomy puts sqrt-decomposition in the 'range queries' and 'data structures' groups, and its consumingAliases note says outright that 'square root decomposition is not about square roots'. Labelling a sqrt bound on k as sqrt-decomposition would surface this problem for block-decomposition and range-query searches. The sqrt idea is real and searchable, so I moved it into the summary. Summary fix: the proposal wrote '√(2n)' and 'O(n√n)'. server/search/tokenize.js strips every non-[a-z0-9] character, so the '√' vanishes and 'O(n√n)' tokenizes to 'o n n', which leaves the sqrt bound invisible to lexical search. I rewrote it as 'sqrt(2n)' and 'O(n sqrt n)'. I also corrected the cap: K = 315, because 315*316/2 = 49770 <= 5e4 < 50086 = 316*317/2, while the proposal said 'about 316'. I named the amortization, at most K+1 scans per position, because that is the non-obvious reduction. The summary is 70 words. counting: keep (0.6). Per-value frequency tallies compared against first-appearance ranks are the whole state, and this taxonomy's counting means frequency counting (aliases frequency-count and frequency-array). It is more than an echo of 'count subarrays'. Upheld the other rejections. two-pointers is out because r is not monotone across l. fenwick-tree/segment-tree, prefix-sum and string-hashing would be heavier and unnatural. My own linked-list-of-first-occurrences sweep is a valid third O(n sqrt n) method, but it is idiosyncratic, so I did not add linked-list. TRAP binary-search-answer: not proposed and not applicable. This is a counting problem with no monotone answer to bisect, and validity in r is not monotone either (only lengths k(k+1)/2 can qualify), so you cannot binary search the right end for a fixed l. TRAP near-miss pair (the analogue of bitmask-dp vs interval DP): the constraint decides. Sibling I (n <= 1500) is plain O(n^2) enumeration. II (n <= 5e4) needs the sqrt cap and the amortized bound. Both map to brute-force plus counting in this vocabulary, since no canonical label separates them, so the summary must carry the difference (n bound, sqrt(2n) cap, O(n sqrt n)). The tempting near-miss label for II is sqrt-decomposition, and that is a different technique (see above)."
+  }
+}

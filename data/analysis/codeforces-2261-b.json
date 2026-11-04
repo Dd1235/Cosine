@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2261-b",
+  "title": "What's the Capital of France?",
+  "source_url": "https://codeforces.com/contest/2261/problem/B",
+  "solution": "An operation only ever raises the smaller of two adjacent values, and only while its neighbour is strictly larger, so every value stays inside [m, M] where m = min(a) and M = max(a), and M itself never changes. Conversely, for n >= 2 any element can be raised to any value between its own value and M: raise the elements between it and a maximum up to M one by one, then raise the target while its neighbour equals M. Every number in [m, M] shares the binary prefix of m and M above their highest differing bit k, so the OR can never exceed that prefix followed by all ones in bits k..0. That bound is reached: the element equal to m has bit k clear, so it can be raised to prefix | (2^k - 1), and OR-ing that with M fills bits k..0. The answer is therefore M | (2^(bitlen(M xor m)) - 1), which is M when all values are equal (this covers n = 1). Equivalently, strip the leading bit while every element has it, and stop with all ones the first time some element lacks it. O(n) per test, fine for sum of n up to 2*10^5 and a_i up to 10^9.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution sol.py run on the 4 sample tests, output 0 3 7 8 matching expected. Stress test brute.py: BFS over every reachable array state applying all legal operations, taking the max OR over reachable states; 4000 random cases with n in 1..5 and values in 0..V for V in {3,7,15,20,40}, all matched the closed form."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bit-manipulation",
+      "greedy"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "math",
+      "greedy",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bit-manipulation"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No choice is made greedily. The algorithm is max, min, one XOR and a highest-bit lookup. The 'keep the top bit while every element has it, then take all ones' view is the proof of a closed-form bound (every reachable value lies in [a_j, M], so it shares M's binary prefix above the highest differing bit) plus a one-element construction that reaches it. This is the same situation as codeforces-2261-g, where the top-down bit greedy was only a proof step and greedy was dropped. The proposal itself gave it 0.5. The judge tag alone does not make this a problem a 'greedy' search should return."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same reason as the pattern: greedy is a proof step for the closed-form bound, not the technique. This follows the codeforces-2261-g precedent, which dropped the tag as well."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "bit-manipulation: the whole solution is the highest differing bit of min and max, then filling the lower bits with ones (max | (2^(bitlen(max^min)) - 1)). greedy: the setter's tag; it fits the bit-by-bit view (keep the highest bit while every element has it, then grab all ones), but the argument is mostly a bound plus a construction, hence the moderate confidence. Rejected: constructive-algorithm (the construction only proves reachability, you never output it); simulation/bfs (only the brute force uses them); binary-search-answer and dp (nothing monotone or overlapping to exploit); prefix-sum/sorting (only min and max are needed).",
+    "skeptic": "SOLUTION. An operation raises only the smaller element of an unequal adjacent pair, and only to at most its neighbour's value. So the maximum M never changes and every final b_j lies in [a_j, M]. For n >= 2 any element can reach any value in [a_j, M]: raise everything between it and a maximum up to M, then raise the target. Those intermediate M's cost nothing, since M is already in the OR. Every value in [a_j, M] shares M's binary prefix above the highest bit p where a_j and M differ, and that p is largest for the minimum. So the OR is at most M's prefix above p followed by all ones. Raising the minimum to prefix | (2^p - 1) reaches that bound. The answer is M | (2^p - 1), or M if all values are equal (this covers n = 1). It runs in O(n). The proposal's derivation and formula are the same as mine, and both were stress-verified against a BFS brute force.\n\nPATTERNS. bit-manipulation: kept. The whole solution is the highest differing bit of max and min plus filling the lower bits, which is the classic 'max OR over an interval [L, R]' shared-prefix trick. greedy: rejected (see reason). No greedy choice exists, and the algorithm is a closed form. Missing labels considered and not added: constructive-algorithm (the output is one number, and the construction only proves the bound is reachable). simulation and bfs (only the brute force uses them). prefix-sum and sorting (only min and max are needed). parity-argument and number-theory (not involved). There is no more specific bit pattern in the vocabulary. xor-basis, sos-dp and submask-enumeration do not apply.\n\nTRAP 1, binary-search-answer: not applicable and correctly not proposed. Nothing is binary searched, and there is no feasibility test. The answer is computed directly in O(n).\n\nTRAP 2, bitmask-dp vs interval DP: not applicable. The 'bitmasks' judge tag means bitwise operations on the values (OR, XOR, highest bit), not DP over subsets. With n up to 2*10^5 and a_i up to 10^9, neither bitmask-dp nor interval DP is possible or needed. The constraint points to an O(n) closed form.\n\nSUMMARY. The proposal's summary is kept verbatim. It is 67 words, third person and accurate. It gives n up to 2*10^5 and a_i up to 10^9, and it states the key reduction: values stay in [min, max], and the answer is the max with every bit from the highest min/max differing bit downward set.\n\nTAGS. greedy dropped (judge-tag echo, same reason as the pattern). bit-manipulation, math and array kept."
+  }
+}

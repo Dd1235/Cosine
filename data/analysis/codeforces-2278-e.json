@@ -1,0 +1,46 @@
+{
+  "id": "codeforces-2278-e",
+  "title": "Swap and Negate",
+  "source_url": "https://codeforces.com/contest/2278/problem/E",
+  "solution": "Each operation swaps two adjacent elements and flips the sign of both, so every element flips sign exactly once per step it moves. An element that starts at position p and ends at position q has moved a number of times with the same parity as p-q, so its final sign is (-1)^(p-q): its sign stays the same if it lands on a position of the same parity and flips if the parity changes. Adjacent swaps can produce any permutation, so any arrangement is reachable, and the signs are then fixed by those parities. The number of odd-position elements that move to even positions must equal the number of even-position elements that move to odd positions, so the reachable outcomes are exactly 'negate k elements from odd indices and k elements from even indices' for any k. To maximise the sum, sort the odd-index and even-index elements separately and pair the i-th smallest of each. Pair sums do not decrease, so greedily take pairs while the pair sum is negative, adding -2*(x+y) to the total each time. This is O(n log n) per test, with the sum of n up to 2*10^5, and the answer fits in 64 bits.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the 4-case sample (outputs -3, 10, 18, 1 match). Brute force does a BFS over every reachable array state and takes the maximum sum; stress-tested on 3000 random arrays with n in [1,7] and values in [-6,6], all agree."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "greedy",
+      "sorting"
+    ],
+    "tags": [
+      "greedy",
+      "math",
+      "sorting",
+      "array",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "parity-argument",
+      "greedy",
+      "sorting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The output is a single number, so no construction is printed. The only reachability fact needed (adjacent swaps generate every permutation) is textbook. A user searching 'constructive' expects a build-the-sequence problem, and this tag would be a false hit. The proposal already rejected it as a pattern for the same reason."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "parity-argument: this is the key observation. The sign of an element depends on the parity of its displacement, and the odd->even and even->odd counts must balance. greedy: after the reduction, take the smallest-sum pairs while the pair sum is negative. sorting: kept at lower confidence. It is part of the greedy (sorting each parity class and pairing the k smallest), not just preprocessing of the input. Rejected: dynamic-programming (not needed, the greedy is exact); constructive-algorithm as a pattern (no construction is output, though it stays as a loose tag because of the reachability argument); prefix-sum (the running total is trivial); exchange-argument (pairing smallest with smallest follows directly from sorting, not from an exchange proof); simulation/bfs (only the brute force uses them).",
+    "skeptic": "Solution: correct. The proposal's solution matches my own derivation, and the brute force confirms it. There is an equivalent, cleaner reduction: with b_i = (-1)^i a_i, the operation (a_i, a_{i+1}) -> (-a_{i+1}, -a_i) becomes exactly (b_i, b_{i+1}) -> (b_{i+1}, b_i). So the multiset of b never changes, every arrangement of b is reachable, and the answer is sum(largest floor(n/2) of b) - sum(rest). This also handles n=1 for free. I put this transform into the summary because it is the reduction an editorial would state, and a searcher might look for the '(-1)^i turns it into a swap' trick.\n\nPatterns:\n- parity-argument: KEEP (0.95). It is the key observation, a parity invariant: an element's sign is (-1)^(displacement), or equivalently b = (-1)^i a_i is preserved as a multiset. The vocabulary has no 'invariant' label, and parity-argument is the exact fit for an invariant that is a parity. Nothing better exists in the vocabulary.\n- greedy: KEEP (0.85). After the reduction the work is a greedy choice: either put the largest b values on the + positions, or take sorted pairs while their sum is negative. Pair sums are nondecreasing, so the prefix rule is exact.\n- sorting: KEEP (0.65). I checked whether it is scaffolding. It is not a 'sort the input first' preprocessing step. It is how the solution selects which elements get negated: the k smallest of each parity class, or the top floor(n/2) of b. Neither solution works without it. Selection via nth_element would also work for formulation (2), but that is still order-based selection, not a different technique. It is a modest label, so the confidence stays moderate.\n\nMissing labels considered and rejected: order-statistics/quickselect (no k-th-element queries; picking the top half is just sorting), exchange-argument (the optimality of pairing smallest with smallest follows directly from sorted pair sums, and no exchange proof is needed), constructive-algorithm (nothing is constructed), dynamic-programming (unnecessary), prefix-sum (only a running total), bfs/simulation (brute force only).\n\nTag change: dropped constructive-algorithm (see rejected_tags). math, array, greedy and sorting stay.\n\nTrap 1, binary-search-answer: not applicable and not proposed. Nothing is monotone-searched. The answer comes directly from one sort plus a linear pass.\nTrap 2, bitmask-dp vs interval DP: not applicable. With n up to 2·10^5, both subset DP and interval DP are ruled out, and the O(n log n) sort-plus-greedy is what the constraint decides.\n\nSummary: the proposal's summary is accurate and exactly 70 words, but it does not name the (-1)^i transform. My rewrite is 68 words. It keeps the n <= 2·10^5 constraint and the parity-argument/greedy/sorting hooks, adds the swap-equivalence reduction, and drops the |a_i| <= 10^9 detail, which does not decide the technique (it only implies 64-bit sums)."
+  }
+}

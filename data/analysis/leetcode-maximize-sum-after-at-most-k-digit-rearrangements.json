@@ -1,0 +1,50 @@
+{
+  "id": "leetcode-maximize-sum-after-at-most-k-digit-rearrangements",
+  "title": "Maximize Sum After At Most K Digit Rearrangements",
+  "source_url": "https://leetcode.com/problems/maximize-sum-after-at-most-k-digit-rearrangements/",
+  "solution": "Operations on different elements are independent, and the best rearrangement of a single element is its digits sorted in descending order (the largest digit goes to the most significant position; this never produces a leading zero because some digit is nonzero). So operating on nums[i] raises the sum by gain_i = desc(nums[i]) - nums[i] >= 0, and the problem reduces to choosing at most k elements with the largest total gain. Since gains are nonnegative, greedily take the k largest gains (exchange argument: swapping any chosen element for an unchosen one with a larger gain never hurts). Compute each gain in O(digits) with at most 10 digits, then select the top k by sorting the gains or with a size-k min-heap (heapq.nlargest), or quickselect for O(n). The answer is sum(nums) + sum of the top-k gains. Total O(n log n) (or O(n log k)) time for n up to 10^5, O(n) space; the answer fits in 64-bit (at most 10^5 * ~10^10).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (gain = digits-sorted-descending minus value, sum + heapq.nlargest(k, gains)) passed both samples ([123,45],k=1 -> 366; [102,90,14],k=2 -> 341). Brute force enumerates every subset of at most k indices and every digit permutation of each chosen element (product over choices), max sum; also passes both samples. Stress test: 3000 random cases, n in 1..5, values in 1..9/99/999/9999 (includes zeros inside numbers like 102, 90), k in 1..n, all agree. Timing check n=10^5, values up to 10^9: 0.07s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "sorting",
+      "heap"
+    ],
+    "tags": [
+      "array",
+      "greedy",
+      "sorting",
+      "math",
+      "heap"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy",
+      "sorting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "heap",
+        "reason": "Not needed. The gains are a static list computed once: nothing is inserted, popped and reinserted, and no gain changes after a pick. Selecting the top k is one sort and a slice. A size-k min-heap (heapq.nlargest) does the same job, so the label adds nothing over sorting. Keeping it would put this problem under heap searches, where the priority queue should be the mechanism the solution depends on (e.g. Maximal Score After Applying K Operations, where each pick changes the pool). The proposal itself gave it only 0.6 and kept it so heap searchers would find the problem. That is a reason to label alternative implementations, which the brief rejects."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "heap",
+        "reason": "Same reason as the pattern: a heap is just another way to do the static top-k that sorting already does. The problem never uses a priority queue in any essential way."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "greedy: core idea is per-element independent gains and taking the k largest. sorting: sorting the gains descending is the selection step itself (not input preprocessing), and also forming the max number is a digit sort. heap: size-k min-heap / nlargest is the natural alternative top-k selection, so someone searching heap top-k should find it; lower confidence. Considered quickselect (valid O(n) top-k, but nobody would write it here; omitted), exchange-argument (the justification is trivial since gains are independent and nonnegative; omitted), bit-manipulation/digit-dp (no, digit handling is just string sort), knapsack (no, unit weights make it top-k), counting (digit counting sort is an implementation detail). Tag math for the digit-rearrangement observation.",
+    "skeptic": "greedy: KEEP. The whole solution is the greedy step: notice the per-element gains are independent and nonnegative, then take the k largest. 'At most k' becomes 'top k' because no gain is negative. The exchange argument behind this is trivial (swap a chosen element for an unchosen one with a larger gain), so exchange-argument is not added. sorting: KEEP. I checked whether it is scaffolding, and it is not. Sorting is the actual operation in both steps: (1) the best rearrangement of a number is its digits sorted descending, which is the key observation; (2) the top-k selection is a descending sort of the gains followed by a slice. Nothing else is done on top of the sort, unlike 'sort, then two pointers'. heap: REJECT (see rejected_patterns). It is only a redundant top-k implementation, because the gain list never changes. This matches LeetCode's own tags on the closest analogues: Maximum Happiness of Selected Children and Maximize Sum Of Array After K Negations are Greedy+Sorting with no Heap. quickselect: not added. It gives a valid O(n) top-k, but the same redundancy argument as heap applies, and nobody would write it here. Also rejected: knapsack (unit weights, so it is top-k), digit-dp (digits are only sorted, never counted under a bound), counting (counting-sort of digits is an implementation detail), bit-manipulation (no). Tags: dropped heap; kept math because digit-rearrangement problems are conventionally tagged math in the corpus and on LeetCode. Summary: the proposal's version was accurate but ended with '(top-k selection by sorting or a heap)'. That phrase would match heap searches lexically and undo the rejected label, so I rewrote the tail to keep only sorting. The new summary is 58 words, third person, and states n up to 10^5 plus the descending-digit-sort reduction. TRAP binary-search-answer: does not apply. Nothing is searched over and there is no feasibility test: the answer is a direct sum plus the top-k gains, computed in O(n log n). TRAP bitmask-dp vs interval DP: does not apply. There is no DP of any kind. n is up to 10^5 and each number has at most 10 digits, but the digits are only sorted, never enumerated as subsets or intervals."
+  }
+}

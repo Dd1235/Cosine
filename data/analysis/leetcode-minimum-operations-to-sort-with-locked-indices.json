@@ -1,0 +1,39 @@
+{
+  "id": "leetcode-minimum-operations-to-sort-with-locked-indices",
+  "title": "Minimum Operations to Sort With Locked Indices",
+  "source_url": "https://leetcode.com/problems/minimum-operations-to-sort-with-locked-indices/",
+  "solution": "Two operation types are counted separately. Swaps: every adjacent swap removes at most one inversion, so at least inv(nums) swaps are needed, and if the sort is feasible at all then inv(nums) swaps are enough. Once the unlocks are fixed, the unlocked positions form maximal segments and each segment must already hold exactly its own target values, so no cross-segment pair is an inversion, and bubble-sorting each segment uses exactly the total inversion count. The swap cost therefore does not depend on which indices are unlocked, and the only thing to minimise is the number of unlocks. Split the array into the finest 'sorted chunks', cutting after index i whenever max(nums[0..i]) == i+1 (as in Max Chunks To Make Sorted). Every valid segmentation coarsens these chunks. Inside a chunk of length >= 2 every index must be unlocked: a locked index i inside it would be a fixed singleton, forcing the part of the chunk to its left to be closed and creating an earlier cut, which is a contradiction. Singleton chunks (nums[i] == i+1) can stay locked. So the minimum number of unlocks is the number of locked indices in chunks of length >= 2. If that is more than k the answer is -1, otherwise it is inversions + unlocks. Inversions are counted with a Fenwick tree in O(n log n), which is the follow-up. With n <= 2000 an O(n^2) pair count also passes. The chunk scan is O(n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (Fenwick inversion count + prefix-max chunk scan) gave the expected output on all 3 samples (2, 4, -1). The brute force is a BFS over (permutation, locked-mask) states with unit-cost swap/unlock edges and the unlock budget k enforced. Stress test: 5,400 random cases with n=1..6 (300 each for n<=3, 1,500 each for n=4..6), random locks and k in [0,n]. Exhaustive test: every permutation x lock mask x k for n<=5 (25,180 cases). All matched."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "inversion-count",
+      "fenwick-tree"
+    ],
+    "tags": [
+      "array",
+      "sorting",
+      "permutation",
+      "fenwick-tree",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "inversion-count",
+      "fenwick-tree"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "inversion-count: the core observation is that the minimum number of adjacent swaps is the inversion count, and it does not depend on which indices get unlocked. fenwick-tree: the standard O(n log n) way to count inversions, which is the stated follow-up. Confidence is lower because n<=2000 lets an O(n^2) count pass. Considered and rejected: divide-and-conquer (merge-sort inversion counting works too, but it is the same step implemented another way, not a separate technique for this problem). greedy (the unlock set is forced by the chunk structure, with no greedy choice). prefix-sum (a prefix sum can test whether a chunk is closed, but the natural test is the prefix max, and either is scaffolding). sorting as a pattern (nothing gets sorted algorithmically; the 'sort' is the goal of the problem). binary-search-answer (no monotone feasibility check is involved). Search terms like 'max chunks to make sorted', 'prefix max' and 'minimum adjacent swaps' are carried by the summary.",
+    "skeptic": "Solution: correct and identical to my own derivation. Inversion count vs per-segment counting: once the unlock set is feasible, every maximal unlocked segment holds exactly its own target values and every locked index is a fixed point, so no pair that crosses a segment boundary is inverted. Per-segment inversions therefore sum to the global inversion count, and the swap cost does not depend on which indices get unlocked. Counting per segment gives the same number, so it is not a separate technique. The brute force confirms swaps + unlocks is minimised by the minimum feasible unlock set (unlocking extra never helps). inversion-count: KEEP. This is the core reduction (minimum adjacent swaps = inversions). fenwick-tree: KEEP at a lower confidence (0.65). n <= 2000 lets an O(n^2) pair count pass, but the statement asks for O(n log n) as an explicit follow-up, and a BIT is the usual way to count inversions in this corpus (codeforces-1579-e2, leetcode-minimum-inversion-count-in-subarrays-of-fixed-length and leetcode-minimum-number-of-moves-to-make-palindrome all pair inversion-count with fenwick-tree). divide-and-conquer (merge-sort inversion counting): NOT ADDED. It is just as standard as the BIT for the follow-up, but the canonical vocabulary has no merge-sort label, only the generic divide-and-conquer, and none of the corpus's inversion-count records use divide-and-conquer for plain counting (the only overlap, codeforces-1416-c, is a trie/XOR divide-and-conquer). A divide-and-conquer query wants problems where splitting is the insight, which is not the case here. inversion-count already names the step and fenwick-tree covers the follow-up. Locked indices splitting the array into segments: there is no canonical label for the prefix-max chunk decomposition (it is the Max Chunks To Make Sorted test). prefix-sum does not fit (it is a prefix max, not a sum) and connected-components or interval-union would be a stretch. The summary carries 'prefix-max chunks', so the idea is still searchable. greedy: rejected, because the unlock set is forced by the chunk structure and there is no choice to make. sorting as a pattern: rejected, since it only echoes the goal word (it stays as a tag). Trap 1, binary-search-answer: not applicable. There is no feasibility test over a monotone parameter, the answer comes from a direct O(n log n) formula, and nothing about it would be binary searched. Trap 2, bitmask-dp vs interval DP: not applicable. n <= 2000 rules out any subset DP over unlock choices, and the forced chunk structure means no interval DP is needed either. The constraint (n <= 2000 with an O(n log n) follow-up) is what puts fenwick-tree on the label list, not on the required path. Summary: 63 words, third person, accurate, includes n <= 2000, and surfaces both reductions (swaps = inversions, forced unlocks = locked indices in non-trivial prefix-max chunks). Kept verbatim. Tags: fine. 'counting' is weak, but the tag is used 55 times in the LeetCode corpus and is harmless here."
+  }
+}

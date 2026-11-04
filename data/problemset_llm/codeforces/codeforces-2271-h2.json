@@ -27,5 +27,6 @@
       "game-theory": 0.95,
       "parity-argument": 0.85
     }
-  }
+  },
+  "difficulty": 3300
 }

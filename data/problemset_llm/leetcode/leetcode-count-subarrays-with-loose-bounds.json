@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-count-subarrays-with-loose-bounds",
+  "title": "Count Subarrays With Loose Bounds",
+  "slug": "count-subarrays-with-loose-bounds",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-subarrays-with-loose-bounds/",
+  "source_topic": "LeetCode / Biweekly Contest 194",
+  "difficulty": "Medium",
+  "acceptance_rate": 52.1,
+  "source_tags": [],
+  "statement": "The task is to count subarrays of an integer array, with n up to 10^5 and values up to 10^6, in which every element lies between minK and maxK inclusive. Out-of-range elements split the array into maximal valid runs, so a linear scan adds the current run length (the number of valid subarrays ending there) at each index, giving L(L+1)/2 per run.",
+  "tags": [
+    "array",
+    "sliding-window",
+    "math"
+  ],
+  "patterns": [
+    "sliding-window"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1793792371,
+    "pattern_confidence": {
+      "sliding-window": 0.6
+    }
+  }
+}
