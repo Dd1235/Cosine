@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2284-c1",
+  "title": "Disgusting + GCD (Constructive Version)",
+  "source_url": "https://codeforces.com/contest/2284/problem/C1",
+  "solution": "An array is safe exactly when every pair is either coprime or one element divides the other (gcd = min). Primes satisfy this trivially: two distinct primes are coprime and two equal primes have gcd equal to the minimum. So replace every element by the smallest prime p >= a_i. If a_i is already prime, do nothing; otherwise use one operation with x = p - a_i. It is legal because gcd(a_i, x) = gcd(a_i, p) = 1 (p is a prime larger than a_i, so it cannot divide a_i). By Bertrand's postulate p < 2a_i, so x < a_i and the sum of all x is below the sum of the original array; at most n operations are used, well within n+10. Note that the total of x is just sum(b) - sum(a) regardless of the path, so the cost restriction reduces to sum(b) <= 2 sum(a). Precompute a sieve of Eratosthenes up to slightly above 10^5 (the largest prime gap in that range is 71) and a next-prime table; each test is then O(n), overall O(maxA log log maxA + sum n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (sieve + next-prime table). Wrote checker.py: validates b_i in [a_i, 1e9], no disgusting pair (O(n^2)), sum(b)-sum(a) <= sum(a), and sum of per-element minimum op counts (BFS over values, itself validated on C2 samples 2->2=0, 15->25=2, 2184->2200=3) <= n+10. Checker accepts all three official sample outputs and rejects the unmodified sample 2 input; solution's outputs on the 3 samples ([7 13], [7 11 13], [11 79 53 29 29 83 101]) pass the checker. Stress: 1200 random tests (n 2-8, values up to 10/30/100/1000) all pass the checker; every a in [2, 1e5] maps in <=1 legal op with x < a (max x = 71). Brute force: exhaustive search over all b with b_i in [a_i, a_i+sum a] for 150 random tests (n 2-3, values 2-9) confirms a valid b exists and agrees with the solution's validity in all 150."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "gcd",
+      "number-theory",
+      "sieve",
+      "primality-test"
+    ],
+    "tags": [
+      "math",
+      "number-theory",
+      "constructive-algorithm",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "gcd",
+      "number-theory",
+      "primality-test"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sieve",
+        "reason": "Implementation scaffolding for 'find the next prime'. Values are at most 1e5 and prime gaps there are at most 71, so a trial-division scan upward from a_i is just as reasonable. The sieve does no aggregate work (no counting, no SPF factoring, no range enumeration); it only answers is-prime lookups. Keeping both sieve and primality-test labels the same one-line subroutine twice. Of the two, primality-test names what is done (find the smallest prime >= a_i), and it matches corpus convention for prime-constructive problems (1844-b Permutations & Primes, 1838-c No Prime Differences, abc096-d, cses-3423)."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the task is to output any valid array and the whole difficulty is the construction (map everything to primes). gcd: the validity condition and the operation's legality are both gcd conditions, and the key identity gcd(a, p-a) = gcd(a, p) is what makes one operation suffice. number-theory: the argument rests on primes being pairwise coprime-or-equal and Bertrand's postulate bounding the step. sieve: the natural implementation precomputes primes up to ~1e5 with Eratosthenes to get the next prime of each element; moderate confidence because it is the computational core but simple. primality-test: equally valid alternative is trial-division scanning upward from a_i (prime gaps <= 71 below 1e5), so someone searching 'next prime / primality test' should find it; lower confidence. Rejected: greedy (no choice-ordering argument), prime-factorization (factors of a_i never needed), brute-force, bit-manipulation (a powers-of-two target fails because even a_i needs two operations, exceeding n+10), binary-search (none). C2 (Checker Version) is a different task (minimum number of coprime additions from a to b) and was not used for these labels.",
+    "skeptic": "SOLUTION: correct, and identical to my independent derivation. The condition 1 < gcd < min fails exactly when a pair is coprime or the smaller element divides the larger. Distinct primes are coprime and equal primes have gcd = min, so an all-prime array is safe. For composite a_i, the next prime p > a_i cannot divide a_i, so gcd(a_i, p - a_i) = gcd(a_i, p) = 1 and one op suffices. Bertrand gives p < 2a_i, so each x < a_i: at most n ops (the +10 is slack) and sum x < sum a. Verified by checker plus stress (3,006 cases) and an exhaustive per-value sweep over [2, 1e5]. The proposal's own remark is also right: the cost restriction is just sum(b) - sum(a) <= sum(a), whatever path is taken. PATTERNS: constructive-algorithm is kept; the output is any valid array, and the whole problem is choosing the target family (primes). gcd is kept, though it sits close to a statement echo. The validity condition is gcd-defined, but the identity gcd(a, a+x) = gcd(a, x) does real work, since it makes one op legal. number-theory is kept: prime structure plus Bertrand's postulate. primality-test is kept as the single 'primes' label: the step is 'find the smallest prime >= a_i', and the corpus uses primality-test for problems whose construction is 'use primes' (1844-b, 1838-c, abc096-d, cses-3423). sieve is rejected as scaffolding for that same step; see rejected_patterns. A reviewer who prefers sieve could swap the two, but keeping both double-labels one subroutine in a 5-label Div2 C. NOT ADDED: greedy (the smallest prime is convenient, not forced: any prime in [a, 2a) works, and there is no exchange or choice argument). prime-factorization (a_i is never factored). bit-manipulation (a powers-of-two target fails because an even a_i needs two ops, and 2n > n+10). brute-force, parity-argument, divisor-enumeration (none used). CF's real tags for C1 also list dp and graphs. They match nothing in any C1 solution; they are almost certainly inherited from C2, whose solution is a BFS/DP over a small interval of values. So they are not added. TRAP binary-search-answer: it does not apply. Nothing is monotone-searched: each element maps directly to its next prime in O(1) after precomputation, and there is no feasibility test. TRAP bitmask-dp vs interval DP: no DP of any kind. n and values up to 1e5 rule out subset or interval states, and the construction is per-element and independent. SUMMARY: the proposal's 69-word summary was accurate and already surfaced 'raise each element to the next prime' and Bertrand. It was rewritten at 69 words for two reasons: to state the condition in its searchable form ('every pair is coprime or one divides the other', not the statement's 'gcd strictly between 1 and their minimum'), and to name why one operation is legal (gcd(a, p-a) = 1). Those two facts are the non-obvious part of the reduction. DATA NOTES: CF tags for C1 are ['constructive algorithms','dp','graphs','greedy','math','number theory'] if source_tags needs filling. Aside, outside this problem: problemset_llm/cses/cses-3396.json ('Next Prime') carries binary-search-answer and a non-canonical 'miller-rabin-primality-test' pattern, which look like wrong labels worth a separate look."
+  }
+}

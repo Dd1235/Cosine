@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2283-a",
+  "title": "Numbers on the Board",
+  "source_url": "https://codeforces.com/contest/2283/problem/A",
+  "solution": "A kept set S has a beautiful number x exactly when the other kept numbers T = S \\ {x} sum to zero, so we maximise |T| + 1 over zero-sum subsets T of [l, r] that leave at least one element outside. If the range is one-signed (l > 0 or r < 0) no nonempty T sums to zero, so only one number survives and the answer is r - l. Otherwise let a = -l and b = r. Taking -1..-a with 1..a together with 0 is a zero-sum set of size 2*min(a,b)+1, and it is optimal: if T uses q positives their sum is at least q(q+1)/2, which must not exceed the sum of the p largest available negative magnitudes, and this forces p + q <= 2*min(a,b). If a = b the whole board already sums to zero, so drop 0 from T and use it as x: answer 0. If a != b any unpaired number on the longer side can be x, so 2*min(a,b)+2 numbers survive and the answer is |a - b| - 1. O(1) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python closed-form solution run on the 8-case sample (output 0 4 2 0 0 2 3 3 matches). Brute force enumerates every nonempty subset of [l, r] and checks whether one of its elements equals the subset sum; compared exhaustively on all 152 pairs l <= r in [-8, 8] with r-l+1 <= 16, all equal."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "greedy"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The whole solution is a two-branch closed-form formula; the casework is mathematical, not coding work, so this tag would put a pure-math A problem in front of people looking for implementation-heavy problems. Replaced with ad-hoc, which the corpus already uses for comparable math A problems (codeforces-2266-a, codeforces-2276-a)."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Solved by a sign-casework formula: the beautiful number x means the rest sums to zero, and the largest zero-sum subset of a range is the symmetric +/-k pairs plus 0. greedy (0.55): keep every number that cancels against its mirror, then add one more as x; that is a greedy keep-maximum choice, though the problem is really math. Tags: math (the core is the q(q+1)/2 bound and the formula), greedy, implementation (casework). Rejected: constructive-algorithm (the output is a count, not a construction); brute-force (subset enumeration is exponential even at |l|,|r| <= 100, and the only practical alternative is a knapsack, which nobody would write for this); knapsack/subset-sum (a max-cardinality zero-sum DP would work but is not how the problem is solved and would mislead searchers); prefix-sum, counting, parity-argument (not used).",
+    "skeptic": "Solution: correct and identical to mine (answer r-l when the range is one-signed, else max(0,|l+r|-1); the proposal's |a-b|-1 for a != b and 0 for a == b is the same). Verified on samples and two independent brute forces.\n\nIs greedy honest? Partly. Nobody writes a greedy loop, since the code is a formula. But the optimality argument is greedy: to fit the most distinct numbers into a zero-sum set, take the smallest magnitudes first (q positives cost at least 1+..+q, so the cheapest q are 1..q and the matching negatives are -1..-q). That is the same 'most items within a budget, cheapest first' reasoning that greedy covers, so the label describes a real step and is not filler. It is the derivation, not the implementation, and the problem is mostly math, so confidence drops from 0.55 to 0.5. The vocabulary has no math, casework, closed-form or formula label; I checked data/pattern_taxonomy.json, and its math category contains only combinatorics, number-theory, counting, parity-argument and similar, and none of them fits. With an empty list not allowed, greedy is the only canonical label that describes something the solution actually does. The 'closed-form', 'formula', 'casework', 'zero-sum' and 'math' search terms are carried by the summary and the math tag instead.\n\nAlternatives considered and rejected: constructive-algorithm (the output is a count; the kept set is only built to prove achievability). brute-force (enumerating subsets is 2^201; small bounds do not make enumeration feasible). knapsack / subset-sum (a per-x max-cardinality zero-sum knapsack is correct, and I used it as my brute force, but 201 x values * 201 items * ~2*10^4 sums * 10^4 tests is far too slow, nobody would write it, and the label would mislead knapsack searchers). exchange-argument (the bound is a direct sum bound, not a swap between solutions). parity-argument, counting, number-theory, prefix-sum (none used).\n\nTrap 1, binary-search-answer: not applicable. Nothing here is a feasibility test; the answer is O(1) closed form, and binary searching the count of erasures would be the 'monotone so you could' misuse the brief warns about. Trap 2, bitmask-dp vs interval-dp (constraint decides): not applicable. There is no DP at all. The only DP-shaped alternative (subset-sum knapsack) fails on the constraints, and bitmask over up to 201 numbers is impossible (my 2^n brute force only runs for r-l+1 <= 16).\n\nSummary: the proposal's was 74 words, over the 70 limit, and 'symmetric pairs plus/minus k' left k undefined. Rewritten at 70 words: it states the bounds, surfaces the zero-sum-subset reduction and the optimal pairs +/-1..+/-min(-l, r), and keeps the closed-form/casework search terms.\n\nTags: math and greedy kept; implementation replaced by ad-hoc (see rejected_tags)."
+  }
+}

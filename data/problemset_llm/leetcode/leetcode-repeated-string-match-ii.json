@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-repeated-string-match-ii",
+  "title": "Repeated String Match II",
+  "slug": "repeated-string-match-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/repeated-string-match-ii/",
+  "source_topic": "LeetCode / Biweekly Contest 195",
+  "difficulty": "Hard",
+  "acceptance_rate": 30.4,
+  "source_tags": [],
+  "statement": "It asks whether b repeated y times is a substring of a repeated x times, where |a|,|b| ≤ 100 but x, y reach 10^9, so neither string can be built. Both strings are periodic and their alignment repeats every lcm(|a|,|b|) characters, so only that prefix of b^y needs a substring search in copies of a; the earliest match offset s then fits iff s + |b|·y ≤ |a|·x.",
+  "tags": [
+    "string",
+    "string-matching",
+    "math"
+  ],
+  "patterns": [
+    "string-matching"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295748,
+    "pattern_confidence": {
+      "string-matching": 0.9
+    }
+  }
+}

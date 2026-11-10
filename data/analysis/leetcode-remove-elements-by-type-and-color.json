@@ -1,0 +1,51 @@
+{
+  "id": "leetcode-remove-elements-by-type-and-color",
+  "title": "Remove Elements by Type and Color",
+  "source_url": "https://leetcode.com/problems/remove-elements-by-type-and-color/",
+  "solution": "Treat each element as the key (type, color); a key of type t can only be deleted as a block of exactly g = groupSize[t] adjacent equal keys. The rewriting system 'k^g -> empty' is terminating (length drops) and locally confluent: two different keys' blocks can never overlap, and two overlapping blocks of the same key inside a run of length g+j (0<j<g) both leave k^j. By Newman's lemma every maximal removal sequence ends at the same irreducible sequence, so the order of removals never matters and the answer is true exactly when that normal form is empty. Compute it with a stack of (key, run-count) pairs, as in 'remove all adjacent duplicates II': push each element, merging into the top run when the key matches, and pop the run the moment its count reaches its type's groupSize (immediately when g = 1). The stack is always irreducible and reachable from the processed prefix, so the final stack is the normal form; return whether it is empty. O(n) time, O(n) space, for n up to 1e5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python stack solution run on all 3 statement examples (true, false, false: all match). Brute force = memoised DFS over every reachable sequence trying every valid window of g equal keys. Stress: 30,000 random cases with n in [1,10], m in [1,3], colors in {1,2}, groupSize in [1,min(n,4)]; 0 mismatches (8,834 true answers, so both outcomes covered). Also timed n=1e5 single run with g=n: 7 ms."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "stack",
+      "simulation"
+    ],
+    "tags": [
+      "array",
+      "stack",
+      "simulation",
+      "string"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "stack"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "simulation",
+        "reason": "The statement's wording, not a technique. The question is existential (does ANY removal order empty the sequence), so neither a literal simulation of the statement (scan for a window, delete it, repeat: O(n^2)) nor a search over orders (exponential) is what solves it. The work is the confluence argument that collapses all orders to one, followed by the 'remove k adjacent duplicates' stack. That differs from corpus precedent where stack+simulation is earned (asteroid-collision, merge-adjacent-equal-elements), because those statements prescribe ONE deterministic process and the stack just runs it faster. Here the stack's order is valid only because of a proof the statement never hints at. LC 1209/1047, the direct ancestors, carry stack and no simulation. The proposer's own 0.5 reflects this."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "simulation",
+        "reason": "Same reasoning as the pattern: it echoes 'sequence of valid operations' / 'after each removal'; no solution simulates the stated nondeterministic process."
+      },
+      {
+        "tag": "string",
+        "reason": "Inputs are three integer arrays. The corpus uses 'string' on non-string inputs in only 16 of 345 tagged LC records, and those involve digit or character manipulation. The link to the adjacent-duplicates family is already carried by the summary's 'like removing adjacent duplicates' and the stack pattern. A string-filtered search should not surface this."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "stack: the solution is the run-length stack from 'Remove All Adjacent Duplicates in String II' with a per-type k, the only real technique. simulation (0.5): the stack literally simulates the cancellation process in a canonical order; kept at low confidence since a 'simulate the process' search is a fair match. Considered greedy and rejected as a pattern: the 'cancel as soon as possible' order is justified by confluence (order independence), not by an exchange/greedy-choice argument, and greedy searchers would expect an optimisation choice. Rejected hash-map (no counting by key beyond the stack top), interval-dp (n=1e5 rules out O(n^3) Zuma-style dp; confluence makes it unnecessary), two-pointers, brute-force. Tag 'string' included because it is the adjacent-duplicate-removal family usually filed under strings; drop if the corpus keeps string for literal string inputs only.",
+    "skeptic": "SOLUTION: correct. The proposal's confluence argument is right. Blocks of different keys cannot overlap. Two overlapping blocks of the same key lie inside one maximal run and both shorten that run by g, giving the identical sequence. Disjoint blocks commute, since removing one leaves the other consecutive. With termination, Newman's lemma gives a unique normal form. The stack invariant (adjacent runs have distinct keys and every count is below g) keeps the stack irreducible and reachable, so it IS the normal form. Brute force confirmed a single terminal state on all 38,000 random inputs, which is stronger than matching the boolean. PATTERNS: stack kept (0.95). It is the LC 1209 run-length stack with a per-type k and the only real technique. simulation rejected as statement echo (see reason). greedy correctly rejected by the proposer: 'cancel as soon as possible' is justified by confluence, not by an exchange argument, and nothing is optimised. hash-map rejected: only the stack top is compared. monotonic-stack: not monotone. linked-list: a doubly linked list of runs also works but is the same reduction with worse constants and adds no searchable idea. two-pointers: an in-place write pointer is just an array-backed stack. Nothing missing. TRAP 1, binary-search-answer: not applicable. This is a yes/no decision with no monotone parameter, and a direct O(n) stack decides it; nobody would binary search anything here. TRAP 2, interval DP near-miss: the near-miss here is interval DP, not bitmask-dp. The surface ('remove a block of equal adjacent elements, the rest close up, can you clear it') reads like Zuma Game (LC 488) or Remove Boxes, which are interval/memo DP because insertion choices or scoring make order matter. Here the removal size is fixed per type and there is nothing to optimise, so order is irrelevant by confluence, and n <= 1e5 rules out O(n^3) interval DP anyway. The constraint and the exactly-g rule decide it: stack, not interval-dp. SUMMARY: 69 words (within 40-70), third person, accurate. It states the 10^5 bound and 'exactly groupSize[type]', and surfaces the non-obvious reduction (order never matters) plus the family hook (adjacent duplicates). Kept verbatim. TAGS: dropped simulation (echo) and string (inputs are integer arrays). Final tags: array, stack."
+  }
+}

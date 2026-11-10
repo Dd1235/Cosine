@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2284-c1",
+  "title": "Disgusting + GCD (Constructive Version)",
+  "slug": "2284-c1-disgusting-gcd-constructive-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/C1",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "constructive algorithms",
+    "dp",
+    "graphs",
+    "greedy",
+    "math",
+    "number theory"
+  ],
+  "statement": "Given up to 10^5 values, each at most 10^5, the task is to raise elements so every pair is coprime or one divides the other; each operation adds an amount coprime to the current value, within n+10 operations and a total no larger than the original sum. Rounding every element up to the next prime works: gcd(a, p-a) = 1 makes it one step, and Bertrand's postulate bounds it.",
+  "tags": [
+    "math",
+    "number-theory",
+    "constructive-algorithm",
+    "array"
+  ],
+  "patterns": [
+    "constructive-algorithm",
+    "gcd",
+    "number-theory",
+    "primality-test"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "constructive-algorithm": 0.95,
+      "gcd": 0.8,
+      "number-theory": 0.85,
+      "primality-test": 0.6
+    }
+  }
+}

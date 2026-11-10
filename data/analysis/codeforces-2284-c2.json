@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2284-c2",
+  "title": "Disgusting + GCD (Checker Version)",
+  "source_url": "https://codeforces.com/contest/2284/problem/C2",
+  "solution": "Key identity: adding x to c is allowed iff gcd(c, x) = 1, and gcd(c, x) = gcd(c, c+x), so a valid sequence is exactly a strictly increasing chain a = c0 < c1 < ... < ck = b in which consecutive values are coprime. Hence k = 0 iff a = b; k = 1 iff gcd(a, b) = 1; k = 2 iff some c in (a, b) is coprime to both a and b; otherwise k >= 3, and since consecutive integers are always coprime a chain a -> c -> c+1 -> b with gcd(a, c) = 1 and gcd(c+1, b) = 1 gives 3. The middle value for k = 2 is found by brute-force scanning c = a+1, a+2, ...: integers coprime to rad(ab) (at most ~15 distinct primes) occur with a small bounded gap (Jacobsthal function), so the scan stops after a few dozen steps, and if it reaches b without success the interval is tiny (exhaustively, b - a <= 16) and a BFS/scan over it gives the exact optimum. Exhaustive search over all a <= 10^5 and b <= a + 200 shows the answer is never more than 3 and equals 3 for only seven pairs (e.g. 2184 -> 2200, where every number strictly between is divisible by 2, 3, 5, 7, 11 or 13). Each test costs O(gap * log b), so t = 10^4 is trivial.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (0/1 via gcd, scan for a middle value coprime to a and b, BFS over the interval as fallback) run on the sample: k = 0, 2, 3, 2 matching the expected counts, and every output sequence validated by a checker (gcd(cur, x) = 1 at each step, sum reaches b). Stress vs brute.py (BFS on the raw definition over all values a..b): exhaustive a in [2,120], b in [a,240] (21,420 pairs) plus 3,000 random pairs with primorial-rich a and b - a <= 120, all lengths equal and sequences valid. C++ exhaustive search over a <= 10^5, b <= a+200 (20M pairs): answer distribution k=1: 12.2M, k=2: 7.8M, k=3: 7, never more; the largest b - a with no 2-step middle is 16; the 7 hard pairs re-checked against brute. 20,000 random large-b cases (b up to 10^9, b a multiple of many small primes) all valid with <= 3 ops; 10^4 adversarial tests run in 0.03 s."
+  },
+  "skeptic_solution_correct": false,
+  "skeptic_solution_fix": "The implemented algorithm (0 if a=b, 1 if gcd(a,b)=1, 2 if a scan from a+1 finds c in (a,b) coprime to a and b, else BFS over the interval) and every answer it prints are correct. The written argument for the 3-step case is false: the chain a -> c -> c+1 -> b with gcd(a,c)=1 and gcd(c+1,b)=1 exists in NONE of the seven k=3 pairs. All seven have a and b even, so c must be odd (coprime to a) and c+1 must be odd (coprime to b), which is impossible. A correct 3-step witness is a -> a+1 -> d -> b with d in (a+1,b) coprime to a+1 and b. It works for all seven pairs, e.g. 2184 -> 2185 -> 2187 -> 2200 (x = 1, 2, 13) and 27830 -> 27831 -> 27835 -> 27846 (x = 1, 4, 11). So the answer <= 3 rests on the exhaustive check plus the gap bound, not on a c, c+1 construction.",
+  "proposed": {
+    "patterns": [
+      "gcd",
+      "number-theory",
+      "brute-force"
+    ],
+    "tags": [
+      "math",
+      "number-theory",
+      "brute-force",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "gcd",
+      "number-theory",
+      "brute-force"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "The solution is a few gcd calls and a scan bounded by a number-theoretic gap argument, with no implementation-heavy component. Codeforces' own tags for C2 omit it."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "gcd: the whole problem is coprimality; the reduction gcd(c, x) = gcd(c, c+x) turns operations into a coprime chain and the 0/1/2/3 tests are gcd checks. number-theory: the bound that the answer is at most 3 and that a coprime middle value is always near (bounded gaps of integers coprime to ab) is the number-theoretic core. brute-force: the 2-step (and 3-step c, c+1) middle value is found by scanning candidates, which terminates fast only because of that gap bound. Rejected: bfs/shortest-path - BFS over [a, b] is impossible at b = 10^9 and only serves as an optional fallback for a <=17-length interval hit by 7 inputs; most solvers just output 3 there, so a BFS search would surface a number-theory case analysis. constructive-algorithm - the output sequence is trivial once the middle value is known; the task is computing the optimum (it is the checker for C1, which is the constructive version). greedy, math-only labels like prime-factorization/sieve - not needed (gcd suffices, no factorization). C1 (array not 'disgusting' with n+10 ops) is a different constructive task and its labels do not carry over.",
+    "skeptic": "Derived independently before reading the proposal. gcd(a,x)=gcd(a,a+x), so a step a->c is legal iff c>a and gcd(a,c)=1, and the task is the shortest increasing chain with coprime neighbours. The answer is 0/1/2 by direct tests, else 3. COVERAGE QUESTION: the proposal's a<=1e5, b<=a+200 exhaustive check is enough, but only together with a bound on the scan for large b. The proposal argued that bound with Jacobsthal (rad(ab) has at most 15 primes, h(15)=100<200). I confirmed it concretely for these bounds: over every a<=1e5 and any b<=1e9 (b's primes chosen adversarially, product<=1e9), the longest run a+1..a+L of values sharing a factor with ab is L=38. A 2-step middle therefore always exists once b-a>=40, so every case that can need 3 or more steps has b-a<=39 and lies inside the exhaustive window. The exhaustive exact DP (not just the scan) over a<=1e5 and gaps up to 300 finds the maximum is 3, reached by exactly 7 pairs, all with gap 16. The claim answer<=3 is true. SOLUTION PROSE ERROR: the stated 3-step chain a->c->c+1->b never exists in those 7 pairs, because a and b are both even, so c and c+1 would both have to be odd. The code is unaffected because it falls back to BFS. The fix is the witness a->a+1->d->b. PATTERNS: gcd kept, since every test is a gcd check and the key identity is gcd(c,x)=gcd(c,c+x). number-theory kept: the density of integers coprime to ab, a Jacobsthal-type gap bound, is what makes the scan short and caps the answer at 3. brute-force kept: is 'scan a short range' really brute force? Yes, here it is the genuine technique. The solution enumerates candidates c=a+1,a+2,... with no structure beyond a gcd test, and the 3-step case is a plain pair or BFS enumeration of a <=16-gap interval. It is feasible only because the search space is provably small (<=39), which is the classic brute-force-with-bounded-search pattern. Codeforces' official tags for C2 include 'brute force'. Considered and not added: dp-on-dag, shortest-path and bfs. CF tags list dp and graphs, reflecting a min-chain DP or BFS over the tiny interval. That DP runs over at most ~40 nodes, only for 7 inputs, and could be replaced by printing 3. Someone searching DAG DP or shortest path would get a number-theory case analysis, so I agree with the proposer's rejection. greedy (CF tag): at most the a+1 first step of the 3-witness, not a greedy algorithm. constructive-algorithm: C2 is the checker and finds the optimum, while C1 is the constructive one. sieve, primality-test and prime-factorization: not needed, gcd suffices. TRAP binary-search-answer: not applicable, since the answer is in {0,1,2,3} and is decided by direct tests with nothing monotone to search. TRAP bitmask-dp vs interval-dp: not applicable, since no DP is required and the bounds (b up to 1e9) rule out any DP over values except on the <=39-wide hard window. SUMMARY: the proposal's summary was accurate and within length. I rewrote it to state the fact that justifies the brute force (the scan ends within 40 values), drop t, which does not decide the technique, and lead with the a and b bounds (69 words)."
+  }
+}

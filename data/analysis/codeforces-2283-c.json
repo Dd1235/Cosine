@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2283-c",
+  "title": "Big XOR",
+  "source_url": "https://codeforces.com/contest/2283/problem/C",
+  "solution": "Let L be the bit length of n. The OR of 1..n is k = 2^L - 1, and every element of b is at most 2n < 2^(L+1), so m < 2^(L+1) and m >= 2k holds exactly when m >> 1 = k (all of bits 1..L of m are set). Let S be the doubled set with s = XOR(S) and P = XOR(1..n) (closed form by n mod 4); the undoubled part has XOR P ^ s, so m = (P ^ s) XOR (s << 1), hence m >> 1 = ((P ^ s) >> 1) ^ s. Requiring this to equal k gives s ^ (s >> 1) = k ^ (P >> 1): the left side is the Gray code of s, which is a bijection on L-bit values, so s is uniquely determined as the inverse Gray code of k ^ (P >> 1) (prefix XOR of its bits from the top). Every valid answer is exactly a subset whose XOR is this s; one such subset is the powers of two 2^j (all <= n since 2^(L-1) <= n) for the set bits j of s. O(n) per test to print, O(log n) to compute.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py run on the sample (n = 3, 6, 9, 5, 11); a checker computes k and m and confirms m >= 2k for my output and also for the sample's own answers (my output differs from the sample, any valid answer is accepted). Brute force: for every n = 1..16 enumerated all 2^n doubling subsets (131,070 total) and asserted a subset is valid iff the XOR of its doubled elements equals the derived s, and that a valid subset always exists. Also checked my construction with the checker for every n < 3000 and ~400 random n up to 2e5."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bit-manipulation",
+      "constructive-algorithm",
+      "gray-code"
+    ],
+    "tags": [
+      "bit-manipulation",
+      "constructive-algorithm",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bit-manipulation",
+      "constructive-algorithm",
+      "gray-code"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "bit-manipulation: the whole problem is reasoning about bits of XOR/OR and shifts. constructive-algorithm: output any doubling set meeting the bound. gray-code: the deciding equation s ^ (s >> 1) = c is literally the Gray code, and solving it is Gray decoding (equivalently fixing bits top-down); confidence 0.6 because a setter's editorial may phrase it as bit-by-bit determination rather than naming Gray code, but every correct solution performs this inversion. Rejected: prefix-xor (XOR of 1..n is a one-off closed form, scaffolding), xor-basis (target is reachable trivially with powers of two, no basis needed), greedy (the bits are forced, not chosen), binary-search-answer/brute-force (not applicable).",
+    "skeptic": "Own derivation (before reading the proposal): k = OR(1..n) = 2^L-1 and every b_i <= 2n < 2^(L+1), so m >= 2k <=> bits 1..L of m are all set (bit 0 free). With X = XOR of doubled elements and P = XOR(1..n), m = P ^ X ^ (X<<1); fixing m's bits from the top gives x_{j-1} = 1 ^ P_j ^ x_j with x_L = 0, then double the powers of two 2^j for set bits of x (all <= n since 2^(L-1) <= n). That is exactly the proposal's algorithm: its s ^ (s>>1) = k ^ (P>>1) is the same system, and Gray decoding (prefix XOR from the top) is the same top-down recurrence; my outputs equal the proposal's for every n < 5000. Solution is correct. GRAY-CODE RULING: keep, at 0.5. The decisive equation is literally g = s ^ (s>>1), the definition of the binary-reflected Gray code, and its unique solution is the Gray decode; brute force confirms a doubling set is valid iff its XOR equals that decoded s, so every correct solution computes this inverse. Someone practising Gray-code identities (encode/decode, x ^ (x>>1) is a bijection) gets a genuine application here, and the corpus's gray-code set is tiny (CSES Gray Code, CF 1211-I, CF 2271-C) so this adds a real hit, not noise. Against it: I solved it without ever naming Gray code, by forcing m's bits from the top, and that is at least as natural; the Gray-code view only appears if you shift variables so the equation reads s ^ (s>>1) instead of x ^ (x<<1). Hence 0.5 not higher. Is there a better label for the top-down bit fixing? No. The vocabulary has no greedy-bitwise / bitwise-greedy label, and plain `greedy` would be wrong: each bit of s is forced (the map is a bijection and the valid s is unique), so nothing is chosen, no exchange argument, nothing locally optimal; a 'greedy' searcher should not land here. The top-down fixing is covered by bit-manipulation. Other patterns: bit-manipulation keep (OR/XOR/shift reasoning is the whole problem). constructive-algorithm keep (output any doubling set; realising s with powers of two is the second insight). Rejected candidates not in the proposal: prefix-xor (XOR(1..n) is a one-off closed form, and the Gray decode is a prefix XOR over bits of one number, not over an array), xor-basis (powers of two trivially span every L-bit s), parity-argument (bit 0 of m is free, no parity condition decides feasibility), greedy (forced, see above), brute-force (2^n subsets, n up to 2e5). TRAP binary-search-answer: not applicable and not proposed; there is no monotone answer or feasibility test, it is a direct O(log n) construction. TRAP bitmask-dp vs interval DP: not applicable; 'bit' here is bitwise arithmetic on values, there is no DP over subsets (n up to 2e5), and no interval structure. Summary: proposal's was accurate but used L undefined and omitted the deciding fact (OR = 2^L-1 and all values < 2^(L+1), so bits 1..L of m must all be set); rewritten to include it. Tags: bit-manipulation, constructive-algorithm, math all fine."
+  }
+}

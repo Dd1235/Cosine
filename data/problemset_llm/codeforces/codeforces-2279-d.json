@@ -1,0 +1,42 @@
+{
+  "id": "codeforces-2279-d",
+  "title": "Meta Graph",
+  "slug": "2279-d-meta-graph",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2279/problem/D",
+  "source_topic": "Codeforces / Contest 2279",
+  "source_tags": [
+    "brute force",
+    "constructive algorithms",
+    "dp",
+    "graphs",
+    "shortest paths"
+  ],
+  "statement": "The task is to find the shortest path from w_x to y_z in the n²-vertex meta-graph of a graph G (n, m up to 2·10^5), where pair (a,b) moves its second coordinate along a G-edge or swaps to (b,a) when a~b. Viewed as two leapfrogging tokens, it reduces to BFS distances plus a three-layer shortest path minimising dist(x,a)+3·dist(a,b)+dist(b,z) over a adjacent to w, b adjacent to y.",
+  "tags": [
+    "graph",
+    "shortest-path",
+    "bfs"
+  ],
+  "patterns": [
+    "bfs",
+    "shortest-path",
+    "graph-modeling",
+    "layered-graph",
+    "dijkstra",
+    "multi-source-bfs"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "bfs": 0.95,
+      "shortest-path": 0.9,
+      "graph-modeling": 0.7,
+      "layered-graph": 0.7,
+      "dijkstra": 0.65,
+      "multi-source-bfs": 0.45
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2283-b",
+  "title": "Rhythmic String",
+  "slug": "2283-b-rhythmic-string",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2283/problem/B",
+  "source_topic": "Codeforces / Contest 2283",
+  "source_tags": [
+    "brute force",
+    "number theory"
+  ],
+  "statement": "The task is to delete the fewest array elements (sum of n up to 5000, values up to 10^9) so that marking every multiple of each kept value in a huge binary string makes it rhythmic, with exactly one 1 per period. The period must equal the smallest kept value, so all kept values must be its multiples; an O(n^2) count of multiples per candidate minimum gives the answer.",
+  "tags": [
+    "math",
+    "number-theory",
+    "brute-force",
+    "array",
+    "counting"
+  ],
+  "patterns": [
+    "number-theory",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "number-theory": 0.85,
+      "brute-force": 0.65
+    }
+  }
+}

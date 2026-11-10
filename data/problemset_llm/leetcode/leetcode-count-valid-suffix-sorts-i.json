@@ -1,0 +1,29 @@
+{
+  "id": "leetcode-count-valid-suffix-sorts-i",
+  "title": "Count Valid Suffix Sorts I",
+  "slug": "count-valid-suffix-sorts-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-valid-suffix-sorts-i/",
+  "source_topic": "LeetCode / Weekly Contest 527",
+  "difficulty": "Medium",
+  "acceptance_rate": 32.7,
+  "source_tags": [],
+  "statement": "Given nums and target of the same length n (up to 10^5), it counts indices i where sorting the suffix nums[i..n-1] in non-increasing order yields target. The key reduction is that valid i form a window: i must be at least the start of target's longest non-increasing suffix and at most the longest common prefix of nums and target, and the two arrays need equal element frequency counts.",
+  "tags": [
+    "array",
+    "counting",
+    "hash-map",
+    "implementation"
+  ],
+  "patterns": [
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295746,
+    "pattern_confidence": {
+      "counting": 0.75
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2284-a1",
+  "title": "15K4JR3B (Easy Version)",
+  "source_url": "https://codeforces.com/contest/2284/problem/A1",
+  "solution": "Placing a point at (x, y) costs |x|+|y| moves (its Manhattan distance from the origin), and leftover moves can only be burned in pairs, so the reachable configurations are exactly those whose total L1 cost is at most n with the same parity. A triangle inside a W x H bounding box has doubled area at most W*H. The x-span W = max x - min x is covered by at most two of the points on opposite sides of 0 (or one side only), so W <= sum of |x_i|; likewise H <= sum of |y_i|; hence W + H <= n and the doubled area is at most max W*H = floor(n/2)*ceil(n/2) by AM-GM. The bound is reached with A = (-a, 0), B = (b, 0), C = (0, c), a + b = floor(n/2), c = ceil(n/2), which uses exactly n moves and has doubled area (a+b)*c. So each test is O(1): print floor(n/2)*ceil(n/2), i.e. floor(n^2/4). (With n <= 1000 one could also loop over the split k*(n-k), but that is the same closed form.)",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the statement sample (n = 2, 5, 15, 43, 769 -> 1, 6, 56, 462, 147840): all match. Brute 1: exact layer-by-layer BFS over all 6-coordinate states reachable with exactly n unit moves, max doubled area, for every n = 2..6: matches floor(n^2/4). Brute 2: enumerate every (A, B, C) with total L1 cost <= n and matching parity (validated against brute 1 on n = 2..6), for every n = 2..11: matches floor(n^2/4). Input is a single integer per test, so exhaustive small-n checking stands in for random stress."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "geometry",
+      "constructive-algorithm",
+      "manhattan-distance"
+    ],
+    "tags": [
+      "math",
+      "geometry",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "geometry",
+      "manhattan-distance"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "constructive-algorithm",
+        "reason": "The output is one closed-form integer, floor(n^2/4). The configuration (two vertices on the x-axis on opposite sides, one on the y-axis) only shows the upper bound is tight; no solution builds or prints anything, and many solvers read n^2/4 off the samples. The real work is the bound (bounding box, W + H <= n, AM-GM). Almost every 'maximum = bound' problem has a tightness witness like this, so the label would not separate this problem from the rest. Someone searching 'constructive' wants problems whose output is a construction, like this round's own C1 'Disgusting + GCD (Constructive Version)'."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Same reason as the pattern. Tags are matched by search too, so keeping the tag would undo dropping the pattern. Here constructive is not even literally true, because the answer is a number. 'math' and 'geometry' cover the topic. No other tag was added just to fill the list."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "geometry: the quantity is a triangle's (doubled) area via the cross product, and the upper bound is the bounding-box argument (triangle area <= W*H/2). constructive-algorithm: the answer comes with an explicit placement (two points on the x-axis on opposite sides, one on the y-axis) that meets the bound. manhattan-distance (low confidence): each point's cost is its L1 distance from the origin and the bound W + H <= n is an L1-budget argument; included so 'manhattan' searches can reach it, drop if the threshold is strict. Rejected: greedy (the split is AM-GM, not a greedy choice), brute-force (looping k*(n-k) over splits with n <= 1000 is only an alternative way to evaluate the closed form, not a different technique), parity-argument (all n moves are used productively, parity never binds), binary-search-answer/dp (nothing to search or tabulate). Tags kept to math/geometry/constructive-algorithm; the hard version A2 (moves of 2^{a_i}) needs different machinery and is labelled separately.",
+    "skeptic": "Solution: correct, and identical to mine in both the closed form and the proof: W <= sum|x_i|, H <= sum|y_i|, triangle doubled area <= W*H, AM-GM, and the matching axis placement. It is O(1) per test. geometry KEEP (0.85): the quantity is a triangle's cross-product area, and the bound is a geometric fact (a triangle has at most half its bounding box's area). manhattan-distance KEEP (0.5), which the brief asked me to rule on: yes, but it is borderline. The statement never says 'Manhattan', so this is not a statement-word echo. The reduction is to three points whose total L1 distance from the origin is n, which is how most people would describe the problem in a search ('max triangle area with a Manhattan distance budget'). The L1 structure also does real work in the proof. L1 splits into separate x and y budgets: sum|x_i| bounds the width and sum|y_i| bounds the height, so W + H <= n, and the optimum puts all the budget on the axes. A Euclidean budget would give a different answer. The corpus already gives this label for 'unit axis moves cost L1' modelling at the same depth: codeforces-263-a Beautiful Matrix, codeforces-1713-a Traveling Salesman Problem (points on the axes, unit grid walk), and leetcode Determine if a Cell Is Reachable at a Given Time. Leaving it out would be inconsistent. The confidence stays at 0.5 because the L1 observation is the first step, not the hard part; the hard part is the bounding-box bound. constructive-algorithm REJECT, both as a pattern and as a tag. A number output does not rule the label out on its own; some corpus records with a number output (codeforces-1313-b, codeforces-1467-a) carry it. Here, though, the construction is only a one-line tightness witness, and nothing about it needs an algorithm. The setters put the constructive problem of this round in C1. Considered and rejected: parity-argument (total L1 equals n exactly in the optimum, so parity never binds; the proposal is right); polygon-area (no shoelace computation is done, the area appears only inside the proof); brute-force (looping max k*(n-k) over k <= 1000 just evaluates the same formula); greedy (the axis split is AM-GM, not a greedy exchange). Trap 1, binary-search-answer: does not apply and was not proposed. The answer is a closed form, and there is no feasibility test to search over. Trap 2, bitmask-dp vs interval-dp: does not apply. There is no DP at all, and n <= 1000 is a single scalar with nothing to tabulate. The constraint only confirms that O(1) or O(n) per test is enough. Summary: 67 words, third person, includes n up to 1000, and surfaces the Manhattan-cost and bounding-box reduction. Kept verbatim. Easy/hard split: A2 (moves of 2^{a_i}, n <= 100) needs different reasoning about how to distribute the powers of two and should be labelled on its own. Nothing here carries over to it automatically."
+  }
+}

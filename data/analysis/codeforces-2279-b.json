@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2279-b",
+  "title": "Balanced Subsets",
+  "source_url": "https://codeforces.com/contest/2279/problem/B",
+  "solution": "Key observation: in any subset S the maximum element is always unstable (none of x+1..x+3 is in S) and the second largest is also always unstable (only the maximum can lie above it, so at most one of x+1..x+3 is present). Hence every subset of size 1 or 2 is balanced (n + C(n,2) of them), and a subset of size k>=3 is balanced iff every element except the top two is stable. Writing S sorted as s_1<...<s_k with gaps d_i = s_{i+1}-s_i, stability of s_i (i<=k-2) means s_{i+2} <= s_i+3 and s_{i+3} > s_i+3, i.e. d_i+d_{i+1} <= 3 and d_i+d_{i+1}+d_{i+2} >= 4. So the gap sequence uses only 1s and 2s, never two 2s in a row and never three 1s in a row. Count such chains with at least two gaps by a linear DP over values v = 1..max(a) (values are at most 3n): dp[v][state][g] where state is the gap suffix (start / last gap 2 / last gap 1 after a non-1 / last two gaps 1,1) and g = number of gaps capped at 2; from a present value v-1 append with gap 1 unless the state is '1,1', from v-2 append with gap 2 unless the last gap was 2. Sum dp[v][*][2] over present v and add n + n(n-1)/2. Correctness follows from the characterisation above; complexity O(max a) = O(n) per test with a constant number of states.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the 4 samples: outputs 14, 66, 23, 1 match expected. Brute force enumerating all 2^n subsets and counting unstable elements directly; stress-tested 3000 random cases with n in [1,12] and values a random n-subset of [1,3n] (plus ~30% dense cases 1..n), all agree. Max-size test n=2*10^5 random values in [1,6*10^5] runs in 0.57s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "dynamic-programming",
+      "counting"
+    ],
+    "tags": [
+      "dynamic-programming",
+      "combinatorics",
+      "counting",
+      "math",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "dynamic-programming",
+      "subsequence-dp",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "subsequence-dp",
+        "reason": "A subset of the sorted input is a subsequence of A, and the DP is the textbook 'number of valid subsequences ending at element v, keyed by a small suffix state' counting DP with a constraint between consecutive picked elements. Corpus precedent: leetcode-find-the-sum-of-subsequence-powers (subsets of a sorted array constrained by adjacent differences) carries subsequence-dp. The proposal rejected it as 'not LIS/LCS-style', but the corpus uses the label for counting/selecting subsequences generally (Count Palindromic Subsequences, Knapsack for All Segments), not only LIS/LCS. Moderate confidence: the DP runs over values with predecessors v-1, v-2 rather than over all earlier indices."
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "dynamic-programming: the counting is a linear DP over values with a constant-size gap-suffix state; no specific canonical dp label fits (not grid/interval/bitmask/digit/subsequence in the LIS sense), so the family label is used. counting: the problem is counting subsets satisfying a structural condition mod p. Considered and rejected: combinatorics as a pattern (kept as a tag only; the count comes from the DP, not a closed formula), modular-arithmetic (answer mod p is scaffolding), dp-on-dag (values with +1/+2 edges form a DAG but nobody would search it that way), subsequence-dp (we do choose a subsequence of A, but the condition is on value gaps, not an LIS/LCS-style subsequence DP; weak, omitted), constructive-algorithm/greedy (no construction or greedy choice), binary-search-answer (not applicable). The non-obvious reduction (top two always unstable, so the rest must be stable, forcing gaps in {1,2} without 22 or 111) is surfaced in the summary.",
+    "skeptic": "Solution: correct; identical to my independent derivation and verified by brute-force stress on both my code and a literal implementation of the proposal's state machine. Patterns: dynamic-programming KEEP (0.95), the count of size>=3 subsets is a linear DP over values with a constant-size gap-suffix state. counting KEEP (0.8), the task is counting subsets with a structural property mod p. subsequence-dp ADDED (0.55), the specific DP name for 'count valid subsequences ending here with a constraint on consecutive picks' (see added_patterns; matches corpus precedent Find the Sum of Subsequence Powers). Considered and rejected: combinatorics as a pattern (only the trivial n + C(n,2) term is a formula; no closed form exists for the size>=3 part because A is arbitrary and the admissible gap words (no 22, no 111) grow Fibonacci-like, so the count genuinely needs the DP; kept as a tag only, as proposed). linear-recurrence (the gap-word count obeys one only when A = 1..N; for arbitrary A it is a DP, not a recurrence/matrix power). state-compression and profile-dp (one could encode 'which of v-1, v-2, v-3 are chosen' as a 3-bit window, but the corpus reserves state-compression for bitmask/hashed states and profile-dp for grid broken profiles; the proposal's 4-state gap suffix is the natural formulation). dp-on-dag (values with +1/+2 edges form a DAG, but corpus uses this for explicit graphs; agree with proposal). modular-arithmetic (answer mod p is scaffolding). Trap 1, binary-search-answer: not applicable and not proposed; there is no optimisation or monotone feasibility predicate, the answer is a direct count. Trap 2, bitmask-dp vs interval DP (and near-misses): neither fits. n up to 2*10^5 rules out any bitmask over elements, and there are no intervals being merged; the deciding constraint is values <= 3n, which makes a value-indexed linear DP O(n). Summary: 68 words, third person, accurate, includes n <= 2*10^5 and values <= 3n (the constraint that licenses the DP over values) and surfaces the non-obvious reduction (top two elements always unstable, so all others must be stable, forcing gaps 1 or 2 with no '2,2' or '1,1,1'); kept verbatim. Tags kept as proposed. Status 'changed' only because of the added subsequence-dp pattern."
+  }
+}

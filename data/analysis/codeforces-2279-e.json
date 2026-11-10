@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2279-e",
+  "title": "Save Me!",
+  "source_url": "https://codeforces.com/contest/2279/problem/E",
+  "solution": "Each operation is an invertible elementary row operation over GF(2), so every value ever present is the XOR of some subset of the originals and the multiset stays linearly independent if it starts so: the answer is -1 exactly when the a_i are linearly independent (no subset XORs to 0; in particular n=1 with a_1!=0, and always when n>25 it is solvable). Otherwise the cost of producing a zero from a zero-XOR subset S with leftmost index l and rightmost r is (r-l) + (number of indices in (l,r) not in S): carry an accumulator rightwards from a_l, where absorbing the next element of S costs one op (a_{i+1}^=a_i) and hopping over a non-member costs two (a_i^=a_{i+1}, a_{i+1}^=a_i), and the last absorb makes a_r zero; the matching lower bound was confirmed by exhaustive BFS over whole-array states. So the answer is the cheapest path that starts at some l (cost 0), pays 1 per included and 2 per skipped later position, and whose included XOR is 0. Taking a minimal window that contains a zero-XOR subset shows the window has at most 26 elements (25-bit rank), so the answer is at most 25+24=49 when it exists. The natural DP over (position, current XOR) needs a 2^25-entry table per position, which the 16 MB limit forbids; instead meet in the middle on cost: for every split position i, DFS backwards over all include/skip sequences ending at i with cost <= 24 (Fibonacci-many, about 2*10^5) and store min cost per XOR value in a hash map, then DFS forwards over sequences starting at i+1 with cost <= 26 ending on an included element and look up the matching XOR. Every optimal path of cost A<=49 is split at the last position where its running cost is <= 24 (running cost there is 23 or 24, so the right part costs <= 26), and paths with A<=24 are caught as left paths with XOR 0. Complexity O(n * phi^25) ~ 4*10^7 hash operations, memory a few MB; measured 1.55 s and 9.9 MB RSS on the worst case found (n=100, period-25 basis, answer 49).",
+  "solution_check": {
+    "verified": true,
+    "how": "C++ meet-in-the-middle (sol.cpp) prints 3 2 -1 0 -1 on the 5 samples, matching the expected output; so do the formula D-DP over all 2^B XOR values (dp.cpp) and an exhaustive BFS over packed whole-array states (brute_bfs.cpp). Formula vs exact BFS: Python BFS on 5,500 random arrays (n<=7, values <16) and C++ BFS on 3,800 random arrays (n<=9 with 3-bit values, n<=7 with 4-bit, n<=5 with 5-bit, n<=13 with 2-bit; uniform, powers of two, sparse, periodic-basis and small-pool modes; answers up to 7) plus 8 hand-built arrays (answers up to 7), 0 mismatches. MITM vs D-DP: 1,200 tests n<=30 6-bit, 300 tests n<=100 10-bit, 80 tests n in [50,100] 14-bit, 50 structured 25-bit tests n in [20,100] (periodic bases of period 15-25 with perturbations; answers 24-47, -1 and 1), plus n=100 period-25 unit vectors (49) and n=100 random 25-bit (24): 0 mismatches. Worst time 1.55 s, max RSS 9.9 MB (the 2^25 D-DP needs 68 MB)."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "meet-in-the-middle",
+      "bit-manipulation",
+      "xor-basis"
+    ],
+    "tags": [
+      "array",
+      "bit-manipulation",
+      "math",
+      "brute-force",
+      "meet-in-the-middle"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "meet-in-the-middle",
+      "bit-manipulation",
+      "xor-basis"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "meet-in-the-middle: the verified algorithm splits each include(1)/skip(2) path at half cost and joins the two halves on XOR value; the 16 MB limit exists to kill the 2^25-state DP, so a low-memory search like this is the point of the problem (the setter may use a different low-memory search, hence 0.8). bit-manipulation: the whole problem is XOR algebra on 25-bit values. xor-basis: -1 iff the values are linearly independent over GF(2), and the rank bound (any 26 values are dependent) is what caps the window at 26 and the answer at 49; no basis has to be built in code, so 0.55. Rejected: dynamic-programming (the DP over (position, XOR) is the obvious formulation but needs 2^25 entries per position, which the memory limit forbids; it is the thing being avoided), shortest-path (the 1/2 step costs describe a path but no graph search is run), brute-force as a pattern (the half enumerations are part of meet-in-the-middle), hash-map (join scaffolding), constructive-algorithm (the accumulator-carrying moves only prove the cost formula; output is a number), gaussian-elimination (independence is a reasoning step, not computed), binary-search-answer and greedy (not used).",
+    "skeptic": "Derived independently before opening the proposal: operations are invertible GF(2) row operations on adjacent entries, so rank is preserved and -1 iff the a_i are linearly independent (n=1 nonzero, sample 3); otherwise the answer is min over zero-XOR subsets S with l=min S, r=max S of (r-l)+#(skipped indices in (l,r)) = 2(r-l)+1-|S| (absorb a member: 1 op; hop a non-member: 2 ops, (c,b)->(c^b,b)->(c^b,c)). I confirmed this formula against a true BFS over whole-array states (2,100 random/crafted arrays, n<=8, values <16, answers up to 7, 0 mismatches), so the proposal's cost model is right. (1) Bound: correct and it does come from the bit width. Any 26 consecutive values in a 25-dim space are dependent, so if a solution exists some S has r-l<=25 and |S|>=2, giving <=25+24=49; it is tight ([e0,e1..e24,e0] -> 49, verified). Caveat the proposal handles but a reader might not: 49 bounds the COST, not the window. The optimal S can span more than 26 positions (cost>=r-l, so r-l<=48): my first independent solution enumerated only windows r-l<=25 and was WRONG on a perturbed period-23 test (45 vs true 39, confirmed by an exact 2^25 DP). The proposal's search bounds cost (left<=24, right<=26) rather than window length, so it is immune. (2) Meet-in-the-middle is genuinely the technique: the exact (position, XOR) DP needs 2^25 entries (32 MB even at one byte; 6-bit costs need 24 MB), which is what the 16 MB limit kills; a cost-bounded brute force from each l is ~Fib(49) paths; the 'window of 26, enumerate 2^25 subsets' brute force is both ~3.4e9 steps and wrong (window can exceed 26). Splitting each include(+1)/skip(+2) path at half cost and joining on XOR in a hash map is ~phi^25 per split, 1.34 s and 9.9 MB RSS on the n=100 period-25 worst case. I could not reach the editorial (codeforces.com 403, mirror refused), so 0.85 not higher. (3) xor-basis: kept at 0.5. No basis is built in code, but GF(2) rank is load-bearing twice: the -1 criterion and the <=49 cap that makes the cost-bounded search complete (without it the half-cost bounds 24/26 have no justification). A searcher looking for 'xor basis / linear independence' problems should find this. gaussian-elimination stays rejected (nothing is eliminated). bit-manipulation kept (XOR algebra throughout; CF-style tag). Rejections in the proposal agreed with: dynamic-programming (the DP is the formulation the memory limit forbids), brute-force/hash-map (scaffolding of MITM), shortest-path, constructive-algorithm, greedy. No missing labels: prefix-xor only appears in the (wrong) window-pair formulation; subset-sum/knapsack-style names do not describe a min-weight zero-XOR path. Trap binary-search-answer: not proposed and correctly absent; there is no feasibility oracle cheaper than computing the optimum, and the MITM yields the minimum directly. Trap near-miss (bitmask-dp vs interval DP analogue): here it is meet-in-the-middle vs a (position, XOR) DP / bitmask enumeration; the 16 MB limit with 2^25 values is the constraint that decides it, exactly as m<=1500 vs <=16 decides Elevator Requests II vs III. bitmask-dp would be wrong (no DP over item subsets). Summary changed: the proposal's 'so -1 means ... independent' is a non sequitur after the cost formula (independence follows from invertibility, not the cost), and it omitted the <=49 cap and why MITM (2^25 DP vs 16 MB). New summary is 69 words."
+  }
+}

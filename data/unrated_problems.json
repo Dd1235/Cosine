@@ -1,7 +1,7 @@
 {
  "note": "Codeforces problems with no rating yet. Ratings land days to weeks after a contest; re-run scripts/refresh_cf_ratings.py --write to collect them.",
- "checked_at": "2026-11-04",
- "count": 26,
+ "checked_at": "2026-11-10",
+ "count": 49,
  "problems": [
   "codeforces-106179-a",
   "codeforces-106179-b",
@@ -28,6 +28,29 @@
   "codeforces-2278-d",
   "codeforces-2278-e",
   "codeforces-2278-f",
-  "codeforces-2278-g"
+  "codeforces-2278-g",
+  "codeforces-2279-a",
+  "codeforces-2279-b",
+  "codeforces-2279-c",
+  "codeforces-2279-d",
+  "codeforces-2279-e",
+  "codeforces-2279-f",
+  "codeforces-2280-a",
+  "codeforces-2280-b",
+  "codeforces-2283-a",
+  "codeforces-2283-b",
+  "codeforces-2283-c",
+  "codeforces-2283-d",
+  "codeforces-2283-e",
+  "codeforces-2283-f",
+  "codeforces-2283-g",
+  "codeforces-2284-a1",
+  "codeforces-2284-a2",
+  "codeforces-2284-b",
+  "codeforces-2284-c1",
+  "codeforces-2284-c2",
+  "codeforces-2284-d",
+  "codeforces-2284-e",
+  "codeforces-2284-f"
  ]
 }

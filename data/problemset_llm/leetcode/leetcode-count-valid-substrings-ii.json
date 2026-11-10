@@ -1,0 +1,38 @@
+{
+  "id": "leetcode-count-valid-substrings-ii",
+  "title": "Count Valid Substrings II",
+  "slug": "count-valid-substrings-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-valid-substrings-ii/",
+  "source_topic": "LeetCode / Biweekly Contest 195",
+  "difficulty": "Medium",
+  "acceptance_rate": 53.7,
+  "source_tags": [],
+  "statement": "The task is to count the substrings of a string over {a, b, c}, with length up to 10^5, that do not contain \"abc\" as a subsequence. The valid left ends for each right end form a suffix, so a sliding window (two pointers) or a linear DP that tracks the latest start of an \"a\", \"ab\" and \"abc\" subsequence gives each right end's count in O(1).",
+  "tags": [
+    "string",
+    "sliding-window",
+    "two-pointers",
+    "dynamic-programming",
+    "counting"
+  ],
+  "patterns": [
+    "sliding-window",
+    "two-pointers",
+    "dynamic-programming",
+    "subsequence-dp",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295746,
+    "pattern_confidence": {
+      "sliding-window": 0.8,
+      "two-pointers": 0.6,
+      "dynamic-programming": 0.6,
+      "subsequence-dp": 0.5,
+      "counting": 0.6
+    }
+  }
+}

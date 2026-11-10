@@ -1,0 +1,34 @@
+{
+  "id": "codeforces-2279-f",
+  "title": "The Stones of Nim",
+  "slug": "2279-f-the-stones-of-nim",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2279/problem/F",
+  "source_topic": "Codeforces / Contest 2279",
+  "source_tags": [
+    "bitmasks",
+    "graphs",
+    "greedy"
+  ],
+  "statement": "The task is to color n distinct piles (n up to 7000, sizes in [1, 2n]) with the fewest colors so that Alice, moving first, wins Nim on every nonempty same-color subset; XOR-encoded input forces an answer per prefix, online. By the Nim theorem each class must be linearly independent over GF(2), at most 14 values, so this is matroid partition (matroid union) via incremental augmenting paths.",
+  "tags": [
+    "math",
+    "bit-manipulation",
+    "game-theory",
+    "matroid",
+    "linear-algebra"
+  ],
+  "patterns": [
+    "xor-basis",
+    "matroid-intersection"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "xor-basis": 0.95,
+      "matroid-intersection": 0.65
+    }
+  }
+}

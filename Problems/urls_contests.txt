@@ -410,3 +410,46 @@ https://codeforces.com/contest/2278/problem/D
 https://codeforces.com/contest/2278/problem/E
 https://codeforces.com/contest/2278/problem/F
 https://codeforces.com/contest/2278/problem/G
+
+# LeetCode / Weekly Contest 527
+https://leetcode.com/problems/find-mismatched-segments-between-two-strings/
+https://leetcode.com/problems/count-valid-suffix-sorts-i/
+https://leetcode.com/problems/minimum-cost-to-make-red-nodes-connected/
+https://leetcode.com/problems/count-valid-suffix-sorts-ii/
+
+# LeetCode / Biweekly Contest 195
+https://leetcode.com/problems/count-valid-substrings-i/
+https://leetcode.com/problems/remove-elements-by-type-and-color/
+https://leetcode.com/problems/count-valid-substrings-ii/
+https://leetcode.com/problems/repeated-string-match-ii/
+
+# Codeforces / Contest 2279
+https://codeforces.com/contest/2279/problem/A
+https://codeforces.com/contest/2279/problem/B
+https://codeforces.com/contest/2279/problem/C
+https://codeforces.com/contest/2279/problem/D
+https://codeforces.com/contest/2279/problem/E
+https://codeforces.com/contest/2279/problem/F
+
+# Codeforces / Contest 2280
+https://codeforces.com/contest/2280/problem/A
+https://codeforces.com/contest/2280/problem/B
+
+# Codeforces / Contest 2283
+https://codeforces.com/contest/2283/problem/A
+https://codeforces.com/contest/2283/problem/B
+https://codeforces.com/contest/2283/problem/C
+https://codeforces.com/contest/2283/problem/D
+https://codeforces.com/contest/2283/problem/E
+https://codeforces.com/contest/2283/problem/F
+https://codeforces.com/contest/2283/problem/G
+
+# Codeforces / Contest 2284
+https://codeforces.com/contest/2284/problem/A1
+https://codeforces.com/contest/2284/problem/A2
+https://codeforces.com/contest/2284/problem/B
+https://codeforces.com/contest/2284/problem/C1
+https://codeforces.com/contest/2284/problem/C2
+https://codeforces.com/contest/2284/problem/D
+https://codeforces.com/contest/2284/problem/E
+https://codeforces.com/contest/2284/problem/F

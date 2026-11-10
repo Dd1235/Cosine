@@ -1,0 +1,31 @@
+{
+  "id": "leetcode-count-valid-substrings-i",
+  "title": "Count Valid Substrings I",
+  "slug": "count-valid-substrings-i",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-valid-substrings-i/",
+  "source_topic": "LeetCode / Biweekly Contest 195",
+  "difficulty": "Medium",
+  "acceptance_rate": 44.5,
+  "source_tags": [],
+  "statement": "The task is to count the substrings of a string over 'a', 'b', 'c' (length up to 10^5) that do not contain \"abc\" as a contiguous substring. For each right end r, valid starts are exactly those after the start of the latest \"abc\" finishing at or before r, so one linear sliding-window scan adds r minus that start at every index.",
+  "tags": [
+    "string",
+    "counting",
+    "sliding-window",
+    "two-pointers"
+  ],
+  "patterns": [
+    "sliding-window",
+    "counting"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "sliding-window": 0.85,
+      "counting": 0.75
+    }
+  }
+}

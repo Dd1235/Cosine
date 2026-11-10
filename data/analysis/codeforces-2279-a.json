@@ -1,0 +1,47 @@
+{
+  "id": "codeforces-2279-a",
+  "title": "Reverse and Double",
+  "source_url": "https://codeforces.com/contest/2279/problem/A",
+  "solution": "Let d_i = |a_i - a_{i+1}| and G = max d_i (the answer is at most G, the no-op). After operating on [l, r], every edge outside [l-1, r] keeps its value d_i, every interior edge i in [l, r-1] becomes 2*d_i, and only the two boundary edges change freely: |a_{l-1} - 2a_r| and |2a_l - a_{r+1}|. So to get below G, every edge with d_i = G must be one of the two boundary edges (interior ones double, outside ones stay). Hence: if three or more edges attain G, the answer is G; if exactly two (b1 < b2), the segment is forced to l = b1+1, r = b2 and the answer is min(G, cost of that segment); if exactly one edge b attains G, either l = b+1 (enumerate every r >= l) or r = b (enumerate every l <= r). Each candidate's cost is max(prefix max of d before l-1, suffix max of d after r, 2 * running max of interior edges, the two boundary values), all O(1) with precomputed prefix/suffix maxima and a running interior max; the scan can stop once 2*interior max reaches the best found. This covers every segment that could beat G, so it is correct. Total O(n) per test, fine for sum n <= 3*10^5. (Binary search on the answer also works, but its check is the same pinned-endpoint scan, so it adds nothing.)",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) run on the 6-case sample: output 4 1 6 4 2 3 matches. Brute force (brute.py) tries every (l, r) plus no-op directly. Stress: 40,000 random arrays with n in [2,9], values up to {3,6,10,30,100} (stress.py), and 5,000 piecewise-smooth arrays with n in [2,25] so long reversed segments matter (stress2.py); zero mismatches. Timing on n = 3*10^5 worst cases (unique max edge forcing a full scan, two max edges, many max edges): all under 0.15 s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "greedy",
+      "brute-force"
+    ],
+    "tags": [
+      "array",
+      "greedy",
+      "brute-force",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "brute-force"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "greedy",
+        "reason": "No greedy choice is made anywhere. The key step is a necessary condition, a case analysis: an edge with d_i = G outside [l-1, r] stays G and one inside doubles, so to beat G every max edge must be a boundary edge. That rules out candidates. It does not pick a locally optimal move, and there is no exchange argument to justify one. Codeforces' official tags (binary search, brute force, data structures, implementation) also omit greedy. Someone searching 'greedy' would not want this problem. The proposal's 'exchange-style observation' wording is a stretch."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "Same as the pattern: case analysis and enumeration, no greedy choice. Not in the official CF tags."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "greedy: the whole solution rests on the exchange-style observation that the maximal adjacent gap must sit on a segment boundary (otherwise it is unchanged or doubled), which collapses the O(n^2) segment space; this is the kind of observation-driven reasoning the greedy label covers. brute-force: once one endpoint is pinned, the other endpoint is enumerated exhaustively and each candidate is evaluated directly. Rejected binary-search-answer: the answer is monotone and a check 'edges > X are at most two and pin the endpoints, then scan' works, but that check is the same pinned-endpoint scan as the direct O(n) solution, so per the brief it is not a real binary-search-answer problem. Rejected prefix-sum: only prefix/suffix maxima are used, as scaffolding to read outside-edge maxima in O(1). Rejected constructive-algorithm (nothing is built), two-pointers/sliding-window (one endpoint is fixed, not two moving pointers), dynamic-programming (no state recurrence).",
+    "skeptic": "SOLUTION: correct. My independent derivation matches the proposal exactly, and both pass samples plus brute-force stress tests. O(n) per test fits sum n <= 3e5.\n\nGREEDY: rejected. The proposal admits there is no greedy choice and justifies the label as 'observation-driven reasoning', which turns greedy into a label for any problem with a key insight. The insight is a pinning argument: a max edge that is not a boundary edge is either unchanged or doubled. That is case analysis (are there 0, 1, 2 or 3+ max edges?), not a greedy choice or exchange argument. The vocabulary has no case-analysis label, and that gap should not be filled with greedy. Codeforces' official tags for 2279A do not include greedy.\n\nBRUTE-FORCE: kept, confidence 0.6. The question was whether this is a real technique or just a loop. Here it is the second half of the method. The observation cuts the O(n^2) segment space to O(n) candidates (one endpoint pinned), and the solution then tries every candidate and evaluates each in O(1). The taxonomy treats enumeration and exhaustive search as aliases of brute-force, and Codeforces' official tags include 'brute force'. It is a weak label, but an honest one.\n\nTRAP 1, BINARY-SEARCH-ANSWER: rejection confirmed, though not for free. Codeforces officially tags the problem 'binary search', so some reference or popular solutions apparently binary-search the answer X. That check would be: more than 2 edges above X means infeasible; otherwise pin those edges as boundaries, require 2*d <= X on interior edges, and scan the free endpoint for boundary values <= X. That check is the same pinned scan as the direct solution with '<= X' in place of 'min', so the feasibility test is not where the difficulty lies. The direct O(n) minimisation is what both independent solvers wrote without thinking of a binary search. By the brief's rule (never when a direct linear solution is what anyone would write) it stays out. The 'binary search' plus 'data structures' tags may also just reflect a sparse-table range max with a binary search for how far the free endpoint can go. That is scaffolding a running max makes unnecessary, so binary-search and sparse-table are rejected too.\n\nTRAP 2, BITMASK-DP VS INTERVAL-DP: does not apply. There is no DP of any kind, and nothing about n <= 3e5 suggests subset or interval states. The near-miss here is greedy vs case analysis, covered above.\n\nPREFIX-SUM: I agree with the proposal's rejection. Only prefix and suffix maxima are used, as O(1) lookups for the max outside edge. They are scaffolding, and a 'prefix sum' search would be misled. The summary keeps the words 'prefix and suffix maxima', so lexical search still reaches the problem.\n\nOTHERS considered and rejected: two-pointers/sliding-window (one endpoint is fixed, nothing slides), constructive-algorithm (nothing is built), simulation, exchange-argument (no swap or exchange proof), parity-argument, dynamic-programming.\n\nSUMMARY: lightly fixed. The proposal said 'the largest original gap must become a boundary edge', which is only true for beating the no-op and ignores ties (2 max edges pin both ends; 3+ make the operation useless). The new wording, 'beating the original maximum requires every largest gap to be a boundary edge', is precise. It is 69 words, third person, includes n <= 3·10^5, and states the key reduction."
+  }
+}

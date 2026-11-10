@@ -1,0 +1,38 @@
+{
+  "id": "leetcode-count-valid-suffix-sorts-ii",
+  "title": "Count Valid Suffix Sorts II",
+  "slug": "count-valid-suffix-sorts-ii",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/count-valid-suffix-sorts-ii/",
+  "source_topic": "LeetCode / Weekly Contest 527",
+  "difficulty": "Hard",
+  "acceptance_rate": 46.5,
+  "source_tags": [],
+  "statement": "For every length-n window of target (n <= m <= 10^5), it counts indices i where sorting nums[i..n-1] in non-increasing order makes nums equal that window. The reduction: a window can match only if it is an anagram of nums (sliding frequency-count window); valid i then form an interval, capped by the window's longest common prefix with nums (one Z-function pass) and floored by where its non-increasing tail starts.",
+  "tags": [
+    "array",
+    "string",
+    "sliding-window",
+    "counting",
+    "hash-map"
+  ],
+  "patterns": [
+    "z-function",
+    "sliding-window",
+    "counting",
+    "string-matching",
+    "rolling-hash"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295746,
+    "pattern_confidence": {
+      "z-function": 0.95,
+      "sliding-window": 0.85,
+      "counting": 0.65,
+      "string-matching": 0.6,
+      "rolling-hash": 0.5
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2283-e",
+  "title": "Partition of a Binary String",
+  "source_url": "https://codeforces.com/contest/2283/problem/E",
+  "solution": "A set whose characters all agree costs |M|; a set containing both characters costs 2|M|, so the total cost is n plus the number of positions placed in mixed sets. In a mixed set every 0 must be adjacent to every 1, and a position has only two neighbours, so a mixed set is either an adjacent differing pair (01/10) or a triple b-1,b,b+1 with pattern aba. Split the string into maximal alternating runs (cut wherever s_i = s_{i+1}); mixed sets lie inside one run, and any run of length L >= 2 can be fully tiled by blocks of length 2 and 3, while a run of length 1 cannot be covered. Hence the maximum cost is n + (sum of lengths of runs with L >= 2), and every optimal partition leaves exactly the same set of isolated positions uncovered. The count is the product over long runs of ways[L] (compositions of L into 2s and 3s, ways[L] = ways[L-2] + ways[L-3]) times Bell(z) * Bell(o), where z and o are the numbers of uncovered 0s and 1s, because those same-character leftovers may be grouped into any set partition. Bell numbers up to 5000 modulo 998244353 are precomputed with the Bell triangle (or Stirling numbers of the second kind) in O(N^2) = 12.5M steps, which is why n is capped at 5000; each test is then O(n).",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py: alternating-run split, ways[L]=ways[L-2]+ways[L-3], Bell triangle via itertools.accumulate) reproduces all 3 samples (13 5 / 8 4 / 16 4). Brute force (brute.py) enumerates every set partition of 1..n, checks the pair condition, and takes max cost and count; it also matches the samples. Stress: all 254 binary strings of length 1..7 exhaustively plus 150 random strings of length 8-9, 0 mismatches. Bell table cross-checked against a Stirling-numbers-of-the-second-kind sum for N=600 (equal). Worst case n=5000 runs in 0.37s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "combinatorics",
+      "dynamic-programming",
+      "counting"
+    ],
+    "tags": [
+      "string",
+      "math",
+      "combinatorics",
+      "dynamic-programming",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "combinatorics",
+      "dynamic-programming",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "combinatorics: the count is Bell(z)*Bell(o), i.e. set partitions of the leftover same-character positions, times compositions of each alternating run into parts 2 and 3. That is the core of the answer. dynamic-programming: generic DP, used twice: the O(n^2) Bell triangle / Stirling-number table that the n <= 5000 bound is sized for, and the tiling recurrence ways[L] = ways[L-2] + ways[L-3]. No specific DP label fits, so I kept the family label. counting: this is a count-the-optimal-structures problem, but lower confidence because in the corpus the label may lean toward frequency counting. Rejected: greedy (the fact that every run of length >= 2 can be fully covered is a structural observation, not a greedy choice); partition-dp (tiling a run with blocks of 2 and 3 is a fixed two-term recurrence, not a dp over cut points with a segment cost); linear-recurrence (the 2/3 recurrence is evaluated directly up to n, with no matrix power or Berlekamp-Massey); modular-arithmetic (only the answer modulus); constructive-algorithm and two-pointers (run splitting is scaffolding). Bell numbers and Stirling numbers have no canonical pattern, so the summary names Bell numbers to put that search term in the text.",
+    "skeptic": "SOLUTION: correct; it matches my independent derivation and was verified exhaustively for n<=9 against a set-partition brute force. BELL/STIRLING VOCABULARY: neither is a canonical pattern, and data/pattern_taxonomy.json has no alias for them either (grep for bell|stirling|set-partition finds only bellman-ford). The canonical label they belong under is combinatorics, already present. The only way a 'Bell numbers' query reaches this record is the summary text, which names Bell numbers, so the proposal handled it correctly. Taxonomy suggestion for the parent (not a label change): 'catalan-numbers' is already an alias of combinatorics, so 'bell-numbers', 'stirling-numbers' and 'set-partitions' could be added the same way. No corpus record mentions Bell or Stirling today. PATTERNS. combinatorics KEEP (0.9): the answer is a product of set-partition counts (Bell(z)*Bell(o)) and composition counts (parts 2 and 3), which is the core of the problem. dynamic-programming KEEP (0.8, up from 0.75): the label is honest, not filler. (a) The n<=5000 bound exists for the O(N^2) Bell-triangle / Stirling S(n,k)=k*S(n-1,k)+S(n-1,k-1) table, a 2-D DP precomputed once. (b) ways[L]=ways[L-2]+ways[L-3] is the tiling-count DP. (c) A natural alternative solution skips the run-structure argument and runs a prefix DP over (max cost, number of ways), with the last block of length 1, 2 or 3. I implemented that alternative and it matches brute force on all 1022 strings, so a DP really solves this. counting KEEP (0.65): the deliverable is a number of optimal structures mod p. Sibling review codeforces-2279-b kept counting for the same reason, though the taxonomy's aliases (frequency-count, pair-counting, group-by) lean towards frequency counting, hence the moderate confidence. CONSIDERED AND REJECTED (agreeing with the proposal). partition-dp: the alternative prefix DP does have a 'choose the last block' shape, but its blocks have length at most 3 and the transitions go only to i-1, i-2 and i-3, which is a tiling recurrence. Corpus partition-dp (Partition Array for Maximum Sum, Kindergarten, Skyline Photo) means many cut points with a segment cost. The statement's 'partition' is a SET partition whose monochrome sets are non-contiguous, so the label would mostly echo the title. linear-recurrence: ways[] is a Padovan-type constant-coefficient recurrence, but with n<=5000 it is filled directly, with no matrix power, Berlekamp-Massey or Kitamasa, so the label would draw searchers wanting huge-n recurrences. stars-and-bars: compositions with parts restricted to {2,3} give sum_b C(a+b,b), a binomial count, not distributing identical items into bins. inclusion-exclusion: only through the explicit Stirling formula, which nobody would use here. permutation-counting and multinomial-coefficient: these count set partitions, not permutations. greedy: full coverage of every run with L>=2 is a structural fact, not a greedy choice. modular-arithmetic: only the answer modulus. two-pointers and constructive-algorithm: run splitting is scaffolding. TRAP 1, binary-search-answer: not proposed and not applicable. There is no monotone feasibility predicate; the maximum is the closed form n + (total length of alternating runs with L>=2), read off in O(n). TRAP 2, bitmask-dp vs interval DP (and near-misses): n<=5000 rules out any bitmask over positions. The real near-miss is reading n<=5000 as licence for an O(n^2) interval-dp or partition-dp over the string. That reading is wrong: per-test work is O(n), and the quadratic cost is the one-time Bell table. t<=500 with no sum-of-n bound means the table is precomputed once to 5000, and that is what the bound is sized for. SUMMARY: 69 words, third person, accurate. It includes n up to 5000 (the bound that sizes the O(n^2) Bell precomputation), surfaces the non-obvious reduction (mixed sets are only adjacent pairs or aba triples, so alternating runs are tiled by 2s and 3s) and names Bell numbers, the only route for that search term. Kept verbatim. TAGS: kept as proposed."
+  }
+}

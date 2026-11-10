@@ -1,0 +1,30 @@
+{
+  "id": "leetcode-minimum-cost-to-make-red-nodes-connected",
+  "title": "Minimum Cost to Make Red Nodes Connected",
+  "slug": "minimum-cost-to-make-red-nodes-connected",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/minimum-cost-to-make-red-nodes-connected/",
+  "source_topic": "LeetCode / Weekly Contest 527",
+  "difficulty": "Medium",
+  "acceptance_rate": 58.0,
+  "source_tags": [],
+  "statement": "The task is to flip node colors in a tree rooted at 0 with n up to 10^5 so the red nodes form one connected component (or none), where flipping a node costs its subtree size, at minimum total cost. Measured from turning every red node blue, it reduces to a minimum-weight connected subtree with weight +size for blue and -size for red nodes, solved by a tree DP.",
+  "tags": [
+    "tree",
+    "dynamic-programming",
+    "dfs",
+    "graph"
+  ],
+  "patterns": [
+    "tree-dp",
+    "dynamic-programming"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295747,
+    "pattern_confidence": {
+      "tree-dp": 0.95
+    }
+  }
+}

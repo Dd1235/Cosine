@@ -1,0 +1,69 @@
+{
+  "id": "codeforces-2283-b",
+  "title": "Rhythmic String",
+  "source_url": "https://codeforces.com/contest/2283/problem/B",
+  "solution": "Let S be the kept elements and m = min(S). An empty S gives an all-zero string, which is not rhythmic. If s is rhythmic with period p, the single 1 in the first p characters must be at position m (the first 1), so the ones are exactly m, m+p, m+2p, ... Position 2m is also a 1, so p divides m, and m <= p forces p = m. Hence the ones are exactly the multiples of m, which means every kept element must be a multiple of m. Conversely, if every element of S is a multiple of m, the string has ones exactly at multiples of m: its smallest period is m and the first m characters contain one 1, so it is rhythmic (m = 1 gives all ones, also fine). The answer is therefore n minus the maximum, over candidate minimums a_i, of the number of a_j divisible by a_i. With sum of n <= 5000 this is a direct O(n^2) pair check (about 2.5*10^7 modulo operations), or O(d^2) over distinct values with multiplicities.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py on the 4 samples: output 2,0,1,2 matches. brute.py enumerates every subset (largest first), builds a prefix of length 2*lcm(S)+3, finds its smallest period directly and counts ones in the first p characters (by Fine-Wilf this period equals the period of the 10^18 string). The brute also reproduces the samples. Stress test: 3000 random cases with n in 1..7 and values in 1..6, 1..10 or 1..12, zero mismatches. Timing: n=5000 worst case runs in about 0.16s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "number-theory",
+      "brute-force"
+    ],
+    "tags": [
+      "math",
+      "number-theory",
+      "brute-force",
+      "string",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "number-theory",
+      "brute-force"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "Counting multiples of x inside the O(n^2) loop is scaffolding of the enumeration. The harmonic-series multiples sieve that would make it a real frequency-of-multiples technique is impossible here: values go to 10^9, so there is no value-indexed array to sieve over (x = 1 alone would walk 10^9 multiples)."
+      },
+      {
+        "pattern": "sieve",
+        "reason": "Same reason: a harmonic sieve over values needs small values; a_i <= 10^9 rules it out, and nothing is sieved."
+      },
+      {
+        "pattern": "divisor-enumeration",
+        "reason": "An O(n sqrt V) ~ 1.6e8 alternative (enumerate divisors of each a_j, bump those present in a) is feasible but strictly worse than the 2.5e7 pair check; nobody would write it when sum n <= 5000."
+      },
+      {
+        "pattern": "gcd",
+        "reason": "The condition can be restated as gcd(kept) = min(kept), but no algorithm computes a gcd; it is a proof-level restatement."
+      },
+      {
+        "pattern": "string-matching / kmp / z-function",
+        "reason": "Periodic-string framing is a disguise; the period is derived analytically, no prefix function or matching is run."
+      },
+      {
+        "pattern": "greedy",
+        "reason": "For a fixed minimum, keeping all its multiples is forced, not a greedy choice; the outer step is an exhaustive max."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "string",
+        "reason": "Statement-word echo: the binary string is a fictional construct, the input is an integer array, and no string technique is used (the proposal's own notes call the framing a disguise). Tagging it 'string' would surface it for string queries it cannot answer. Replaced with 'array'."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "number-theory: the whole problem reduces to a divisibility condition (all kept elements are multiples of the minimum), derived from the period argument p | m and m <= p. brute-force: the intended solution tries every element as the minimum and checks every other element for divisibility in O(n^2), which the sum n <= 5000 bound allows. Rejected: divisor-enumeration (the solution counts multiples among array elements; enumerating divisors of each a_j up to sqrt(10^9) is slower and unnecessary), gcd/lcm (the lcm only matters in the proof, not the algorithm), greedy (no greedy choice, just an exhaustive max), counting as a pattern (the count of divisible elements is scaffolding, so it appears only as a tag), hash-map (only used optionally to merge duplicate values), and string-matching/kmp/z-function (the 'periodic string' framing is a disguise and no string algorithm is used).",
+    "skeptic": "Solution: correct and identical to mine. number-theory KEEP (0.85): the entire problem is the divisibility reduction (period p = min kept value m, all kept values multiples of m). brute-force KEEP (0.65): borderline but justified. It is not merely 'the loop': the constraint sum n <= 5000 is what makes the intended O(n^2) try-every-candidate-minimum check the solution, while the 'smarter' counting routes (harmonic multiples sieve) are blocked by values up to 10^9. This matches corpus precedent for skeptic-reviewed records where small n licenses O(n^2) enumeration (leetcode-longest-resilient-subarray-i n<=2500, leetcode-longest-subarray-divisible-by-k-with-at-most-one-negation-i n<=1000, both brute-force + number-theory). Brief question on a counting / frequency-of-multiples label: rejected as a pattern. The harmonic-series multiples count (for x, walk x,2x,3x,... over a value-frequency array) is the technique that name would advertise, and it cannot run at V = 10^9; what remains is a per-pair modulo test inside the brute force. Kept 'counting' only as a tag since the quantity maximised is literally a count of multiples. Divisor-enumeration rejected (works at ~1.6e8 but is the worse option and not intended). gcd rejected (proof-level restatement gcd = min). Tags: dropped 'string' (disguise/statement echo), added 'array'. Summary: the proposal's was 82 words, over the 40-70 limit; rewritten to 69 words keeping the deciding constraints (sum n <= 5000, values <= 10^9) and the key reduction (period equals the smallest kept value, so all kept values are its multiples). Trap 1, binary-search-answer: not applicable and not proposed; there is no monotone feasibility test, the answer is a direct max over candidates. Trap 2, bitmask-dp vs interval DP: not applicable; no DP of any kind, subsets are never enumerated (n up to 5000), the structural reduction collapses the subset choice to a choice of minimum."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2283-g",
+  "title": "Order Statistics on the Graph",
+  "slug": "2283-g-order-statistics-on-the-graph",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2283/problem/G",
+  "source_topic": "Codeforces / Contest 2283",
+  "source_tags": [
+    "bitmasks",
+    "brute force",
+    "sortings"
+  ],
+  "statement": "The task is to answer q ≤ 10^5 queries on a directed graph of n ≤ 20 vertices where each second every vertex takes the k_v-th smallest value among its in-neighbours: given initial values, report them after t ≤ 10^18 seconds. Thresholding at each value turns the state into an n-bit bitmask, so answers come from a functional graph on 2^n masks with cycle detection and binary lifting.",
+  "tags": [
+    "graph",
+    "bit-manipulation",
+    "binary-lifting",
+    "math"
+  ],
+  "patterns": [
+    "functional-graph",
+    "binary-lifting",
+    "state-compression",
+    "cycle-detection",
+    "bit-manipulation",
+    "order-statistics"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "functional-graph": 0.92,
+      "binary-lifting": 0.85,
+      "state-compression": 0.75,
+      "cycle-detection": 0.5,
+      "bit-manipulation": 0.6,
+      "order-statistics": 0.55
+    }
+  }
+}

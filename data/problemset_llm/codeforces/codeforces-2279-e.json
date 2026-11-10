@@ -1,0 +1,36 @@
+{
+  "id": "codeforces-2279-e",
+  "title": "Save Me!",
+  "slug": "2279-e-save-me",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2279/problem/E",
+  "source_topic": "Codeforces / Contest 2279",
+  "source_tags": [
+    "brute force",
+    "dfs and similar",
+    "meet-in-the-middle"
+  ],
+  "statement": "It asks for the fewest operations, each replacing a_i or a_{i+1} by a_i XOR a_{i+1}, until some element is zero (else -1), for n ≤ 100 values below 2^25 under 16 MB. Operations are invertible, so -1 iff the values are GF(2)-independent. A zero-XOR subset spanning [l, r] costs r−l plus skipped elements, at most 49; a 2^25 XOR DP exceeds memory, so meet-in-the-middle splits paths at half cost.",
+  "tags": [
+    "array",
+    "bit-manipulation",
+    "math",
+    "brute-force",
+    "meet-in-the-middle"
+  ],
+  "patterns": [
+    "meet-in-the-middle",
+    "bit-manipulation",
+    "xor-basis"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794296641,
+    "pattern_confidence": {
+      "meet-in-the-middle": 0.85,
+      "bit-manipulation": 0.7,
+      "xor-basis": 0.5
+    }
+  }
+}

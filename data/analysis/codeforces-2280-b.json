@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2280-b",
+  "title": "Secret String Patterns",
+  "source_url": "https://codeforces.com/contest/2280/problem/B",
+  "solution": "A binary string contains no adjacent pair \"01\" exactly when it is non-increasing, i.e. of the form 1^c 0^(n-c): once a 0 appears, a later 1 would create a 0-to-1 step somewhere between them. So ask \"? 1 n\" to learn the total number of ones c. If c = 0 the string is all zeros and the answer is NO. Otherwise ask \"? 1 c\": the string is 1^c 0^(n-c) iff all c ones sit in the first c positions, i.e. the reply equals c (answer NO); any smaller reply means some 1 lies after a 0 (answer YES). This uses at most 2 of the 5 allowed queries and O(1) work per test case, independent of n up to 2*10^4.",
+  "solution_check": {
+    "verified": true,
+    "how": "Wrote sol.py (real stdin/stdout interactive program) and a local non-adaptive interactor that pipes to it, validates 1<=l<=r<=n, enforces the 5-query limit and checks the verdict against brute force ('01' in s). Ran the sample strings 10101 (YES), 10000 and 00000 (NO): all correct. Exhaustively ran all 8,188 binary strings with n=2..12: all correct, max 2 queries. Then 20,000 random strings with n up to 20,000 (uniform random, exactly-sorted 1^c0^(n-c), and sorted with one extra 1 planted after the zeros start): all correct, max 2 queries."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interactive"
+    ],
+    "tags": [
+      "interactive",
+      "string",
+      "counting",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interactive"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "constructive-algorithm",
+        "reason": "Nothing is constructed: no output object, and the query strategy is two fixed prefix-count queries that follow directly from the characterization. Codeforces does not tag it constructive either. Corpus interactive problems carry constructive-algorithm when the query design is a real construction, as in 1780-d or 2273-d. Here the tag would put this problem in front of people searching for build-an-object problems."
+      },
+      {
+        "tag": "counting",
+        "reason": "This echoes the query semantics ('number of 1's'). The task is a yes/no decision, not a count. In the corpus the counting tag marks 'count the number of X' problems (2276-g, 929-c, 2276-c), so the tag would mislead."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "interactive: the problem is a query-limited interactive task and the solution is a fixed 2-query strategy. The whole difficulty is one observation (no '01' <=> string is 1^c 0^(n-c), i.e. sorted non-increasing), so there is no further algorithmic technique to name. Rejected: binary-search / binary-search-answer (5 queries is far too few for n=2*10^4, and no search is needed); prefix-sum (the range-count oracle is given, nothing is accumulated); counting as a pattern (counting ones is just the query semantics, kept only as a broad tag); constructive-algorithm as a pattern (choosing two queries is not a construction of an output object; kept only as a loose tag since the query design is the crux); sorting (the 'sorted string' view is the observation, no sorting is done); greedy, bit-manipulation (nothing of the kind is used).",
+    "skeptic": "Solution: correct, and identical to mine. A 0 followed later by a 1 forces a 01 step between them, so no '01' means s is non-increasing, 1^c 0^(n-c). One query gets c, a second checks that the first c positions hold all c ones. The case c=n also works in the proposal's code: ? 1 n returns n, so it answers NO. That is at most 2 of 5 queries and O(1) per test.\n\nThe query model checks out against the statement. A query returns the count of ones in s[l..r] for any 1<=l<=r<=n. The limit is 5 queries per test case and the interactor is explicitly non-adaptive. The sample's second case (? 2 5 -> 0) is just another valid strategy, not the intended one.\n\nI attacked each pattern. interactive stays: it is the problem's genre, and the 5-query budget is the defining constraint. It is also the only official Codeforces tag.\n\nI looked for missing labels and found no honest second pattern. counting is statement echo: the oracle counts, the solution only decides. prefix-sum is not used: the oracle hands over range counts and nothing is accumulated, which makes it scaffolding at best. sorting: 'the string is sorted non-increasingly' is the observation, but nothing gets sorted. The summary already carries 'all ones followed by all zeros' for search. constructive-algorithm: the query plan is forced by the characterization, so nothing is built. greedy, parity-argument and bit-manipulation have no role. A characterization-only interactive problem honestly carries just 'interactive', and Codeforces' own tagging agrees.\n\nTrap 1, binary-search-answer: it does not apply, and neither does plain binary-search. This is a decision problem with no numeric answer to search. log2(2·10^4) is about 15, far above the 5-query budget, so no search strategy of any kind fits. The solution is a fixed 2-query check.\n\nTrap 2, bitmask-dp vs interval-dp (constraint decides): there is no DP. The deciding constraint is the 5-query cap against n up to 2·10^4. It rules out reconstructing or searching the string and forces an O(1)-query structural characterization, which the summary states.\n\nTags: I dropped constructive-algorithm and counting (reasons above). The final tags are interactive and string: two rather than the typical 4-6, but each one is accurate.\n\nSummary: 70 words, third person, accurate. It includes the deciding constraints (5 queries, n up to 2·10^4) and surfaces the key reduction (no 01 <=> ones then zeros), so I kept it verbatim."
+  }
+}

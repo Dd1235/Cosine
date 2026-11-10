@@ -1,0 +1,41 @@
+{
+  "id": "leetcode-find-mismatched-segments-between-two-strings",
+  "title": "Find Mismatched Segments Between Two Strings",
+  "source_url": "https://leetcode.com/problems/find-mismatched-segments-between-two-strings/",
+  "solution": "A mismatched segment is a maximal run of consecutive indices i with s1[i] != s2[i], so the answer is just the runs of the boolean sequence diff[i] = (s1[i] != s2[i]). Scan left to right with an index i; when diff[i] is true, advance a second index j from i while diff[j] stays true, emit [s1[i:j], s2[i:j]], and resume at j; otherwise step i by one. Each run is closed exactly where an equal position or the string end appears, so every emitted range is maximal, and runs come out in increasing start order automatically. Every index is visited a constant number of times, giving O(n) time (plus output size) and O(1) extra space beyond the output; with n <= 100 even an O(n^3) enumeration of intervals would pass, but the linear run-grouping scan is the natural solution.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python run-grouping scan (sol.py in scratchpad/work/<id>/) matched all 3 statement samples (earth/empty, action/nation, hot/hot). Stress-tested against an O(n^3) brute force that enumerates every interval [l,r], checks all positions differ and that both neighbours are equal or out of range, then sorts by start: 20,000 random cases with n in 1..12 over alphabets of size 1-3, plus 500 cases at the max n=100 over a 2-letter alphabet; all agreed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "two-pointers"
+    ],
+    "tags": [
+      "string",
+      "implementation",
+      "two-pointers",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "two-pointers"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "array",
+        "reason": "Both inputs are strings. The only array is the 2D return format, so the tag echoes the output type and describes no topic of the problem."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "Pure implementation: group maximal runs of positions where s1[i] != s2[i]. two-pointers kept (moderate confidence) because the canonical way to write it is the i/j run-grouping scan, the same shape as 'group consecutive equal elements' problems; it is the only canonical pattern a searcher for this kind of run-splitting would use. Rejected: sliding-window (no window invariant being maintained or optimized, just maximal runs), simulation (nothing is simulated), brute-force (O(n^3) interval enumeration passes at n<=100 but nobody would write it and it would mislead brute-force searchers), prefix-sum/hash-map/counting (not used). Tags keep it findable under string/implementation; no deeper technique exists.",
+    "skeptic": "Solution: correct. A segment is exactly a maximal run of True in the indicator s1[i] != s2[i]. A run closes at the first equal position or at the end of the string, so every emitted run is maximal and starts come out in increasing order. O(n). Nothing about this problem is hard; it is a Q1.\n\nIs two-pointers honest? Plainly: no canonical technique label fits. The real description is 'group consecutive runs', also called a group loop or run-length grouping, and the vocabulary has no slug for it. The question is only which slug is least wrong. two-pointers wins because the idiom really is two monotone indices: i marks the run start and j extends to the run end, then i jumps to j. The community files this idiom under two pointers. LeetCode tags its run-grouping problems String Compression (443) and Count Binary Substrings (696) as Two Pointers, and the widely used Chinese problem list (灵茶山艾府's 滑动窗口与双指针) puts 分组循环 (group loop) inside its two-pointers section. A searcher looking for 'group consecutive equal/mismatched elements' practice is most likely to type two pointers. It is still a weak fit: the classic two-pointer insight is absent here, with no sorted pair search, no invariant kept while a left pointer shrinks and no merge. My own first solution used one index plus a start marker. So I lower the confidence from 0.55 to 0.5, which says 'least-wrong, not a real fit'.\n\nAlternatives considered and rejected. simulation: the statement describes no process to follow step by step. brute-force: O(n^3) interval enumeration passes at n <= 100, but nobody would write it, and the label would mislead someone who wants enumeration problems. sliding-window: no window is shrunk or optimised under an invariant; when the property fails the run simply resets, which is the group loop and not a window. counting, hash-map, prefix-sum: not used. Nothing else is missing; no other technique genuinely solves it.\n\nTrap 1, binary-search-answer: not applicable and not proposed. No quantity is searched for and no feasibility test exists; the answer is a list of segments read off directly.\n\nTrap 2, bitmask-dp vs interval DP: not applicable. There is no DP of any kind, and n <= 100 caps nothing because the direct scan is linear. The word 'segment' is not interval DP.\n\nTags: dropped 'array', which only echoes the 2D return format since both inputs are strings. Kept string, implementation and two-pointers.\n\nSummary: the proposal's summary was accurate, third person and inside the word limits. I kept its first sentence and reworded the reduction to name the mismatch indicator and the phrase 'run-length grouping'. With no honest technique slug, the summary is the main recall channel for 'group consecutive runs' and 'run length' queries. 66 words."
+  }
+}

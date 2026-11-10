@@ -1,0 +1,52 @@
+{
+  "id": "leetcode-repeated-string-match-ii",
+  "title": "Repeated String Match II",
+  "source_url": "https://leetcode.com/problems/repeated-string-match-ii/",
+  "solution": "Let m = |b|*y and n = |a|*x (up to 10^11, so neither string can be built). If m > n the answer is false. Otherwise b^y occurs in a^x iff it occurs in the infinite periodic string a^inf at some start s in [0,|a|) with s + m <= n (any occurrence at p in a^x can be shifted left by multiples of |a| to p mod |a|, staying inside a^x). Whether b^y matches a^inf from offset s depends only on the pairs (i mod |b|, (s+i) mod |a|), which repeat with period lcm(|a|,|b|) <= 9900, so it suffices to match the prefix of b^y of length L = min(m, lcm(|a|,|b|)). Build that prefix and a text of L/|a|+2 copies of a, find the first occurrence with KMP (or any substring search); the first occurrence is automatically < |a| because the text is periodic. If none, false; else return s + m <= n. Complexity O(|a|*|b|) time and memory, about 10^4 per call.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (lcm-truncated prefix + KMP + length check) ran all 3 statement examples (true, false, true: all match). Stress-tested against brute force ((b*y) in (a*x)) on 2 x 200,000 random cases (seeds 1 and 7): |a|,|b| in 1..8 over alphabets {a},{a,b},{a,b,c}, 40% built from a shared root with random rotations to force many true answers (~48k trues per run), x,y in 1..30 so m often exceeds lcm and the truncation is exercised; 0 mismatches. Also checked the boundary a='ab'*50, b='ba'*49/'ba'*50 at x=y=10^9 (true/false, the false being the s+m>n offset case) and timed 400 worst-size calls with x=y=10^9 at 0.1 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "string-matching",
+      "kmp",
+      "gcd"
+    ],
+    "tags": [
+      "string",
+      "string-matching",
+      "math",
+      "number-theory"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "string-matching"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "kmp",
+        "reason": "Not required and not the idea. The truncated pattern is at most lcm <= 9900 chars (and by Fine-Wilf only |a|+|b| <= 200 chars ever matter) against ~10^4 chars of text, so a built-in find, a direct comparison at each of the |a| offsets (O(|a|*|a||b|) ~ 10^6), Z-function or a rolling hash all pass equally; I ran the direct-compare and str.find versions and they agree with KMP everywhere. The proposal itself rejects z-function and rolling-hash as 'interchangeable engines covered by string-matching'; kmp is exactly such an engine, so keeping it alone is inconsistent. Someone practising KMP gains nothing here. string-matching carries the search."
+      },
+      {
+        "pattern": "gcd",
+        "reason": "Scaffolding: gcd only computes lcm(|a|,|b|) to size the truncation window, and the window does not need to be the lcm. |a|*|b| (no gcd, what many contest solutions write via min(y,|a|) copies of b) or the Fine-Wilf bound |a|+|b| work identically (both verified). No reasoning about divisors happens. Keeping it would also drag in the number-theory family label and put a string problem in front of gcd/number-theory searchers. The real idea is string periodicity, which has no canonical label; the words 'periodic' and 'lcm' stay in the summary so lexical and dense search still reach it ('lcm' is append-only aliased, so the summary term still scores)."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "number-theory",
+        "reason": "Same reason as the gcd pattern: the only arithmetic is a common multiple of two string lengths used as a window bound, replaceable by |a||b| or |a|+|b|; it is not a number-theory problem."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "string-matching: the problem is substring search of a periodic pattern in a periodic text once the lengths are bounded. kmp: the natural way to run that search on the ~10^4-length truncated strings; at these sizes a naive/built-in find also passes, hence moderate confidence. gcd: the key Hard-version observation is the lcm(|a|,|b|) (= |a||b|/gcd) periodicity bound that makes the huge x, y irrelevant beyond a length check; it is the reason the problem is not just LC 686, so someone searching gcd/lcm periodicity tricks should find it, but it is light number theory, hence 0.5. Rejected: z-function and rolling-hash (interchangeable substring-search engines, already covered by string-matching; listing every engine would be sprawl), brute-force (trying all |a| offsets against an lcm-length prefix is an implementation of the matching, not the idea), modular-arithmetic (index mod |a| is scaffolding), binary-search-answer/greedy (no monotone search or choice involved). The corpus's LC 686 entry uses the non-canonical 'string-repetition'; not reused.",
+    "skeptic": "Solution: the proposal is correct and matches my independent derivation. Any occurrence at p in a^x shifts left by multiples of |a| to p mod |a| and stays inside, so only starts s < |a| matter and the earliest matching s is the one to length-check (s + |b|y <= |a|x); the per-offset check only needs a bounded prefix because (i mod |b|, (s+i) mod |a|) repeats every lcm. Stronger fact worth knowing: by Fine-Wilf, if b^inf and a^inf[s:] agree on |a|+|b|-gcd characters they agree forever, so even a |a|+|b| window suffices (verified). The proposal's claim that the first KMP occurrence is automatically < |a| holds (the text is |a|-periodic and has >= L+|a| chars); I asserted it in every run. Patterns: string-matching kept, it is the operation every solution performs. kmp rejected: one interchangeable engine among naive find, Z-function and rolling hash at 10^4 scale; the proposal's own logic for rejecting z-function/rolling-hash applies to it. gcd rejected: it only computes an lcm, and the lcm itself is optional (|a||b| or |a|+|b| windows work). Periodicity: the vocabulary has no periodicity/string-period label (old non-canonical 'string-period', 'string-periodicity' appear on cses-1733, codeforces-182-d, codeforces-823-d, but are not in the canonical list and have no alias), so the summary carries 'periodic' and 'lcm' instead. Considered and not added: brute-force (trying |a| offsets is how the match is implemented, not the idea), modular-arithmetic (the shift to p mod |a| is scaffolding), number-theory (see gcd), z-function/rolling-hash/string-hashing (same reason as kmp). Trap 1, binary-search-answer: not applicable. There is no monotone feasibility search; the answer is a single yes/no decided by one bounded match plus a length comparison. Trap 2, bitmask-dp vs interval DP near-misses: not applicable, no DP. The analogous near-miss here is kmp vs string-matching (specific engine vs generic operation). The constraint |a|,|b| <= 100 is what makes the specific engine irrelevant. Summary: the proposal's version was 64 words but named KMP (re-injecting the rejected label lexically) and said 'length-checked' without saying what is checked. Rewritten at 68 words: keeps the deciding constraint (|a|,|b| <= 100, x,y up to 1e9), the periodic/lcm reduction, and the exact fit condition."
+  }
+}

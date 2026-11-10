@@ -1,0 +1,40 @@
+{
+  "id": "codeforces-2283-f",
+  "title": "Minimize the Graph",
+  "slug": "2283-f-minimize-the-graph",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2283/problem/F",
+  "source_topic": "Codeforces / Contest 2283",
+  "source_tags": [
+    "brute force",
+    "data structures",
+    "graphs",
+    "greedy"
+  ],
+  "statement": "The task is the fewest edges preserving reachability in a DAG where each vertex i receives edges from every j in an interval [l_i, r_i] below it, with sum of n up to 3·10^5 and Θ(n²) edges. It is the transitive reduction: edge j→i survives iff j's smallest successor exceeds r_i, meaning no interval of a vertex up to r_i covers j, counted by a Fenwick-tree sweep over r.",
+  "tags": [
+    "graph",
+    "dag",
+    "data-structures",
+    "fenwick-tree",
+    "interval"
+  ],
+  "patterns": [
+    "reachability",
+    "fenwick-tree",
+    "line-sweep",
+    "interval-union",
+    "segment-tree"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "reachability": 0.65,
+      "fenwick-tree": 0.8,
+      "line-sweep": 0.7,
+      "interval-union": 0.5
+    }
+  }
+}

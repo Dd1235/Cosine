@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2280-a",
+  "title": "Are They the Same?",
+  "source_url": "https://codeforces.com/contest/2280/problem/A",
+  "solution": "Since values may be shifted by +2 or -2 freely and without bounds, an element can reach every integer of its current parity, so only parities matter. The operation a := 2a + k always produces a value with the parity of k. Hence an element whose parity equals k mod 2 is stuck in that parity class forever, while an element of the other parity can stay in its class or jump to k's parity (one doubling, then adjust by +-2). Matching a to a permutation of b is therefore possible iff the number of a-elements with parity k mod 2 is at most the number of b-elements with that parity: the forced elements take b's parity-(k mod 2) slots, and the flexible ones fill the remaining slots of either parity (counts work out since both arrays have length n). This is O(n) per test with n up to 100.",
+  "solution_check": {
+    "verified": true,
+    "how": "Ran sol.py on the 5-case sample (YES YES NO YES YES, matches). Stress-tested against a brute force that BFS-computes each a_i's reachable set over values in [-60,60] under all three operations and tries every permutation of b: 3000 random cases, n in 1..5, k in 0..10, values in 0..15, all agreed."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "counting"
+    ],
+    "tags": [
+      "math",
+      "counting",
+      "greedy",
+      "implementation",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "parity-argument"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "Scaffolding. The solution's last step tallies two numbers (a's and b's elements of parity k mod 2) and compares them. That is the output of the parity argument, not a separate technique. In this corpus, counting means either combinatorial counting (number of configurations) or a real frequency-table method (e.g. Fraction and Six compares 26-letter frequency tables, and that comparison is the whole solution). Here the parity reduction collapses the multiset to one number per side, so nobody searching for counting or frequency technique is helped by this hit. The proposal's own 0.6 confidence reflects that."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "greedy",
+        "reason": "No greedy choice is made. Locked elements must take b's k-parity slots and flexible elements fill whatever remains. That is a forced Hall-type count condition, closed-form, with nothing ordered or chosen. The solver also called it 'a one-line count comparison'."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "parity-argument: the whole solution is the observation that +-2 makes only parity matter and 2a+k fixes parity to k mod 2. counting: final check compares parity counts between a and b. Considered greedy as a pattern (the forced-then-flexible assignment is greedy-ish) but it is a one-line count comparison, so kept greedy only as a broad tag. Rejected bipartite-matching (the matching collapses to a count inequality, no matching algorithm needed), constructive-algorithm (decision only), number-theory (only mod 2), simulation/bfs (only used in the brute force).",
+    "skeptic": "Solution: a_i +-2 keeps the parity and, because values are unrestricted, reaches every integer of that parity. 2a_i + k always has parity k mod 2. So an element of parity k mod 2 can never leave that class, while an element of the other parity can stay or move to k's parity. The assignment to b is a bipartite graph with only two vertex types: flexible elements are adjacent to every slot, and locked elements are adjacent only to k-parity slots. Hall's condition therefore reduces to one inequality, #locked(a) <= #(k-parity in b). Both arrays have n elements, so the flexible ones always fill the rest. Proposal's algorithm and proof are correct and match mine. Verified on the samples plus 20k brute-force cases. Patterns: parity-argument KEPT. It is the entire insight, so a search for 'parity' should find this problem. counting REJECTED as scaffolding (see reason), but kept as a broad tag, matching the Fraction-and-Six handling of hash-map. Multiset-equality question: the statement asks whether a can be made a permutation of b, which normally invites sorting or frequency-matching labels. Here they do not apply. After the reduction, values are irrelevant and only two class counts remain. sorting: nothing is sorted, rejected. bipartite-matching: the matching collapses to a count inequality and no augmenting-path algorithm is needed, rejected. hall-theorem: the condition is technically Hall's condition on a two-type graph, but nobody would invoke the theorem for a Div2 A one-liner, rejected as overreach. hash-map: no map is needed, rejected. greedy: no choice is made, rejected as both pattern and tag. constructive-algorithm: decision only, rejected. number-theory and modular-arithmetic: only mod 2, already covered by parity-argument, rejected. bfs and simulation: used only by the brute force, rejected. Missing labels: none. No other technique genuinely solves it, and parity-argument is already the specific name. Trap 1, binary-search-answer: not applicable. There is no quantity to optimize and no feasibility test to search over; the decision is a closed-form O(n) count, so the label would be pure noise. Trap 2, bitmask-dp vs interval DP: not applicable. There is no DP, and n <= 100 does not decide the technique; the solution is O(n) for any n. The constraint that does decide it is the unrestricted value range, which makes +-2 reach the whole parity class. Summary: the proposal's version was accurate but did not state that values are unrestricted (the constraint that makes parity sufficient) or the final YES condition. Rewrote it as a 70-word third-person paragraph that includes both and drops the vague phrase 'parity counting argument'."
+  }
+}

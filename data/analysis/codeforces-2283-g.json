@@ -1,0 +1,52 @@
+{
+  "id": "codeforces-2283-g",
+  "title": "Order Statistics on the Graph",
+  "source_url": "https://codeforces.com/contest/2283/problem/G",
+  "solution": "Threshold the values. For a fixed x, let S be the set of vertices whose value is >= x. The k_v-th smallest of v's in-neighbour values is >= x exactly when at least d_v - k_v + 1 in-neighbours lie in S. So the binary state evolves by a fixed map f on n-bit masks, f(S) = {v : popcount(S & in[v]) >= d_v - k_v + 1}, and thresholding commutes with the update: after t seconds, vertex v holds a value >= x iff v is in f^t(S_x). Precompute f for all 2^n <= 2^20 masks in O(2^n n). f is a functional graph on 2^n nodes. Decompose it once into cycles and tails: each node gets its distance to its cycle and its cycle id and position. Build binary lifting over the tails, which needs about log2(max tail depth) levels. Then f^t(S) is either a tail ancestor (t < depth) or the cycle entry advanced by (t - depth) mod cycle length, so t up to 10^18 costs nothing extra. For a query, sort the a_i. The threshold sets S_x for the distinct values form a nested chain of at most n masks. Compute R_x = f^t(S_x) for each, and vertex v's answer is the largest x with v in R_x; the smallest value always survives because f(all) = all. Complexity is O(2^n n + 2^n log D) preprocessing plus O(q n (n + log D)) for the queries, which runs in about 0.5 s at n = 20 and q = 10^5 against a 7 s limit.",
+  "solution_check": {
+    "verified": true,
+    "how": "C++ solution (sol.cpp) matched all 3 samples exactly. I stress-tested it against a Python brute force that simulates the actual value vectors and detects the cycle on the vector, so any t up to 10^18 works: 1500 random cases with n in 1..6, values in {1..3}, {1..10} or {1..1e9}, t in {0,1,2,3, rand<=50, rand<=1e18, 1e18} and up to 8 queries each, plus 300 cases with n in 7..10 and values in {1..2} or {1..3}. All matched. Max-size timing at n=20, q=1e5, t random up to 1e18 on a complete graph with self-loops, a 20-cycle and random sparse graphs took 0.31-0.49 s. Tail depths observed reached 19, and a 20-cycle produced 52488 cycles of length up to 20, so both the tail (lifting) path and the cycle path were exercised."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "functional-graph",
+      "cycle-detection",
+      "binary-lifting",
+      "state-compression",
+      "bit-manipulation",
+      "order-statistics"
+    ],
+    "tags": [
+      "graph",
+      "bit-manipulation",
+      "binary-lifting",
+      "math",
+      "implementation"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "functional-graph",
+      "binary-lifting",
+      "state-compression",
+      "cycle-detection",
+      "bit-manipulation",
+      "order-statistics"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "implementation",
+        "reason": "Nothing about it is implementation-heavy. The whole solution is ~40 lines: f over all masks, a jump table and a chain scan. The judge's tags (bitmasks, brute force, sortings) don't include implementation either."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "functional-graph: the core of the solution. The threshold reduction makes the update a fixed map on 2^n masks, and f^t with t up to 1e18 is a successor query on that functional graph. cycle-detection: decomposing into tails and cycles and reducing (t - depth) mod cycle length is what handles t = 1e18. binary-lifting: the standard way to take k-th successors, either on tails or the classic 60-level table (2^20 x 60 ints fits in 512 MB); an offline DFS stack also works for tails, hence 0.65. state-compression: the binarized vertex state is packed into a 20-bit mask, and n <= 20 is the deciding constraint. bit-manipulation: popcount(S & in[v]) on masks and nested-mask chains. order-statistics: the key reduction is the threshold property of the k-th order statistic (k-th smallest >= x iff at least d-k+1 elements are >= x, the 0-1 principle), but it is a characterization rather than a data structure, so 0.5. Rejected: bitmask-dp (f over all masks is computed directly with no subset recurrence), simulation (t up to 1e18 rules out step-by-step simulation), binary-search / binary-search-answer (the per-vertex answer is just the largest threshold in an n-element chain, scanned directly), matrix-exponentiation (min/max semiring powering is not the route here because the order statistic is not a semiring operation), graph-modeling (borderline: the state graph is implicit in the functional-graph label), offline-queries (not needed with lifting).",
+    "skeptic": "SOLUTION: correct (see skeptic_check). Same threshold reduction as mine. One factual correction to the proposal's verification: it says tail depths reached 19. Over the full 2^n state space on random graphs I measured tails of 82-146, so transients are not O(n). Something has to answer 'ancestor at distance t < tail' quickly, which is lifting or an offline DFS stack, never direct stepping.\n\nBINARY-LIFTING vs CYCLE-DETECTION (the brief's question): they partly overlap, but they are not interchangeable. 60-level binary lifting ALONE solves it: 2^20 x 60 int32 = 252 MB. The ML is 512 MB, just above the 256 MB default this table would break, and the TL is 7 s, which reads as the setter making room for exactly this table. My run: 0.87 s / 295 MB. Cycle decomposition ALONE does not solve it, because the tails (up to 146 measured) still need a level-ancestor structure. So binary-lifting is what anyone writes. The proposal's confidences were inverted (cycle 0.85, lifting 0.65); I set binary-lifting 0.85 and cycle-detection 0.5. I still kept cycle-detection, because the proposal's own verified solution is a natural, standard alternative. Cycles+tails reduces t mod the cycle length, uses ~20 lifting levels or an offline DFS stack for tails, and drops memory to ~80 MB, the same pattern as CSES Planets Queries II, which carries both labels. The skill's rule is to name every technique that genuinely solves it. If the corpus wants only the canonical route, cycle-detection is the label to cut.\n\nfunctional-graph: keep. The reduction gives a fixed successor map on 2^n masks, and the queries are t-th successors with t <= 1e18.\nstate-compression: keep. In corpus usage it means a state encoded as a mask over n <= 20 items, with the solution working over all 2^n states, including BFS/graph-over-masks problems such as Shortest Path to Get All Keys and Unique Paths III. That is exactly what happens here, and n <= 20 is the deciding constraint. Caveat: the taxonomy puts it in the dp-optimization group, so a 'dp optimization' group search will surface this non-DP problem. That is a taxonomy issue, not a labelling error.\nbit-manipulation: keep at 0.6. f is evaluated as popcount(S & in[v]) >= d_v-k_v+1, and answers come from nested-mask differences. It is also the canonical target of the judge's 'bitmasks' tag. It sits close to scaffolding, but it is consistent with corpus convention.\norder-statistics: keep at 0.55, NOT as a title echo. No order statistic is ever computed: no sorting of neighbours, no order-statistic tree, no quickselect. What the solution rests on is the threshold-decomposition (0-1) property of the k-th order statistic, [kth(S) >= x] = [#{s >= x} >= |S|-k+1]. That is the standard way to handle k-th/median operators, the same trick as CF 993E 'Nikita and Order Statistics' (labelled order-statistics with prefix-sum/two-pointers). The vocabulary has no threshold or binarization label, so this is the only one that names the key reduction. If the title alone were the justification, I would reject it.\n\nTRAP 1, binary-search-answer: correctly absent. There is no feasibility test and no searched answer. t is given and per-vertex answers are read off a nested chain of <= n masks by a linear scan. Binary search over that chain would be pointless, so binary-search and binary-search-answer are both rejected.\nTRAP 2, bitmask-dp near-miss: here the near-miss is bitmask-dp/subset-dp/sos-dp vs state-compression. f is computed independently for each mask in O(n) with popcount. There is no recurrence over submasks or supersets, so bitmask-dp, subset-dp and sos-dp are wrong. state-compression (the 2^n mask state space, decided by n <= 20) is right. A second near-miss is matrix-exponentiation vs binary-lifting for 't up to 1e18': a k-th order statistic is not a semiring product, so there is no n x n matrix to power. The jump has to be over the 2^n-state functional graph. Rejected.\n\nMISSING-LABEL SWEEP: sorting (sorting a query's values to build the threshold chain), brute-force (evaluating f on all 2^20 masks) and graph-modeling (the implicit state graph, already covered by functional-graph) are all scaffolding, even though the judge tags 'brute force, sortings'. offline-queries and dfs belong only to an offline-DFS tail variant nobody needs. simulation is ruled out by t <= 1e18. Nothing added.\n\nSUMMARY: the proposal's is kept verbatim. It is 68 words, third person and accurate, it states n <= 20, q <= 1e5 and t <= 1e18, and it surfaces the non-obvious thresholding-to-bitmask reduction plus both jump techniques.\n\nTAGS: dropped 'implementation'. graph, bit-manipulation, binary-lifting and math stay ('math' is weak but defensible, given the 0-1 property of order statistics)."
+  }
+}

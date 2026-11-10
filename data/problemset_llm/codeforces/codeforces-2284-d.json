@@ -1,0 +1,42 @@
+{
+  "id": "codeforces-2284-d",
+  "title": "The Theorem of Two Cans",
+  "slug": "2284-d-the-theorem-of-two-cans",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/D",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "communication",
+    "constructive algorithms",
+    "dfs and similar",
+    "graphs",
+    "interactive",
+    "math",
+    "trees"
+  ],
+  "statement": "The task, a run-twice communication problem, is to encode a binary string of length n−1 (n up to 1000) as a connected graph on n vertices robust to an adversary deleting an edge of any simple even-vertex path and joining its endpoints. The deleted edge stays bridged by an odd path, so bipartiteness and the 2-coloring are invariant: the bipartition carries the string, a non-bipartite graph the all-zero one.",
+  "tags": [
+    "graph",
+    "constructive-algorithm",
+    "interactive",
+    "dfs",
+    "math"
+  ],
+  "patterns": [
+    "bipartite-graph",
+    "constructive-algorithm",
+    "parity-argument",
+    "interactive"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "bipartite-graph": 0.95,
+      "constructive-algorithm": 0.9,
+      "parity-argument": 0.7,
+      "interactive": 0.7
+    }
+  }
+}

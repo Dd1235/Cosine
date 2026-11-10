@@ -1,0 +1,27 @@
+{
+  "id": "leetcode-remove-elements-by-type-and-color",
+  "title": "Remove Elements by Type and Color",
+  "slug": "remove-elements-by-type-and-color",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/remove-elements-by-type-and-color/",
+  "source_topic": "LeetCode / Biweekly Contest 195",
+  "difficulty": "Medium",
+  "acceptance_rate": 64.5,
+  "source_tags": [],
+  "statement": "The task is to decide whether a sequence of up to 10^5 elements, each with a type and color, can be fully erased when one move deletes exactly groupSize[type] adjacent elements sharing both type and color and the rest close up. Because removal order never matters, a stack of (type, color, run count) that pops a run once it reaches its group size decides it, like removing adjacent duplicates.",
+  "tags": [
+    "array",
+    "stack"
+  ],
+  "patterns": [
+    "stack"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295747,
+    "pattern_confidence": {
+      "stack": 0.95
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "leetcode-count-valid-suffix-sorts-i",
+  "title": "Count Valid Suffix Sorts I",
+  "source_url": "https://leetcode.com/problems/count-valid-suffix-sorts-i/",
+  "solution": "Sorting the suffix from i leaves nums[0..i-1] untouched and puts the multiset of nums[i..n-1] in non-increasing order. So index i is valid iff (a) nums[0..i-1] == target[0..i-1], i.e. i <= L where L is the length of the longest common prefix of nums and target; (b) target[i..n-1] is non-increasing, i.e. i >= S where S is the start of target's maximal non-increasing suffix; and (c) nums[i..] and target[i..] hold the same multiset, which given (a) is equivalent to nums and target having identical element frequencies overall. Conditions (a) and (b) are monotone in i in opposite directions, so the valid indices are exactly the interval [S, min(L, n-1)] when the whole-array frequency counts match, and none otherwise. Compute the frequency comparison with a counter or a count array (values <= 1e5), L by a forward scan and S by a backward scan: O(n) time and O(n + V) memory for n <= 1e5. An equivalent formulation scans i from n-1 down to 0, maintaining a frequency-difference map of the two suffixes and the number of non-zero entries, plus a running non-increasing flag, and counts i when all hold and i <= L. (Version II, n <= m with every window of target, needs window-wise prefix matching, i.e. Z-function/hashing, plus a sliding multiset; version I needs none of that.)",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py: closed-form interval solution and an incremental right-to-left frequency-difference variant both match all 3 statement samples (1, 2, 0). Brute force builds nums[:i]+sorted(nums[i:],reverse=True) for every i and compares to target. Stress: 200,000 random cases, n in 1..8, values in 1..V with V in 1..4, targets drawn half from a real suffix-sort (30% then perturbed in one cell), 30% shuffles of nums, 20% fully random; 132,795 cases had a non-zero answer; all three agreed on every case. Timing at n = 1e5 (random values and all-equal values): under 0.05 s each."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "counting",
+      "hash-map"
+    ],
+    "tags": [
+      "array",
+      "counting",
+      "hash-map",
+      "implementation",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "hash-map",
+        "reason": "Same idea named twice. The only data-structure step is the multiset-equality test (condition c), and its canonical name is counting (the taxonomy aliases frequency-count, frequency-array and frequency-counting to counting). Values are <= 1e5, so a plain count array does the job and a hash map is just one way to store the same frequency table. The proposal's own note says hash-map is 'the same frequency comparison as a Counter'. In the incremental variant, the diff map with a non-zero counter is still a frequency table. No step needs keyed lookup. I kept hash-map as a tag, since LeetCode-style topic tags put frequency problems under Hash Table."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "math",
+        "reason": "There is no arithmetic, number theory or formula. The interval length min(L, n-1) - S + 1 is index bookkeeping. The reduction is a structural argument about prefix equality and sortedness, not math."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "counting: the only non-trivial check is that the two suffixes hold the same multiset, done by comparing element frequency counts (count array, values <= 1e5). hash-map: the same frequency comparison as a Counter / frequency-difference map with a non-zero-entry counter in the incremental formulation. The rest (longest common prefix by a forward scan, non-increasing suffix by a backward scan) is plain linear scanning with no canonical name. Rejected: sorting (sorting both arrays to compare multisets is scaffolding and the statement's own word; the solution never sorts a suffix), greedy (no choice is made), two-pointers (two independent scans, not pointers moving together), prefix-sum (no range sums), binary-search / binary-search-answer (interval bounds come from direct scans), z-function / string-hashing / sliding-window (those belong to version II, where n <= m forces matching every window of target; here n == m so there is a single alignment), brute-force (the O(n^2 log n) simulation does not fit n = 1e5).",
+    "skeptic": "SOLUTION. Sorting nums[i..] leaves nums[0..i-1] alone. So i is valid iff (a) nums[0..i-1] == target[0..i-1], i.e. i <= L where L is the LCP length; (b) target[i..] is non-increasing, i.e. i >= S, the start of target's maximal non-increasing suffix; and (c) nums[i..] and target[i..] are the same multiset. Given (a), (c) holds iff the two whole arrays have the same frequencies. Then (a) is downward-closed and (b) is upward-closed in i, so the answer is the window [S, min(L, n-1)] when the global counts match, and 0 otherwise. The global check matters: nums=[1], target=[2] gives L=0 and S=0 but the answer is 0. The proposal's algorithm, proof and complexity are correct, and its incremental variant is also correct (verified).\nARE THE TWO LABELS DIFFERENT IDEAS? No. counting and hash-map both name the single multiset-equality test, and the proposal's notes say as much. The parts that carry the insight (the forward LCP scan and the backward non-increasing-suffix scan, which is the same scan as next-permutation's pivot search) have no canonical vocabulary name. So the honest label set is one pattern, counting, and the summary has to surface the window. In this corpus, counting is right when a real frequency-table comparison is a load-bearing step (precedent: the 2280-a review). Here it is necessary for correctness, as the counterexample above shows. Confidence is 0.75, not higher, because it is not the insight that makes the problem medium.\nMISSING LABELS CONSIDERED AND NOT ADDED. sorting: sorting both arrays to compare multisets is a valid O(n log n) way to do the same check, but that would name one idea a third way, and 'sort' is the statement's own verb. lexicographic-order: the non-increasing-suffix scan comes from next-permutation, which the corpus labels lexicographic-order, but nothing here compares sequences lexicographically. two-pointers: L and S come from two independent scans, not coordinated pointers. greedy: nothing is chosen. prefix-sum / difference-array: no range sums. string-matching / z-function / string-hashing / sliding-window: these belong to version II (n <= m, every length-n window of target needs prefix matching and a sliding multiset). Version I has one alignment and does not need them. brute-force: the O(n^2 log n) simulation does not fit n = 1e5.\nTRAP 1, binary-search-answer: does not apply. The answer is a count, not an optimum with a feasibility test. The window bounds L and S come from direct linear scans, and no reasonable solution binary searches anything. binary-search is rejected too.\nTRAP 2, bitmask-dp vs interval DP (near-miss labels): there is no DP. A careless annotator might read 'valid i form an interval' and add interval-dp, interval-scheduling or interval-union. All three are wrong. The interval is just the overlap of two one-sided conditions on the index. The deciding near-miss here is between siblings: n == m in version I means one alignment and O(n) scans, while n <= m in version II brings in Z-function or hashing plus a sliding window. The two siblings must not share labels.\nSUMMARY. The proposal's summary is accurate, 68 words and in range, and it mentions the LCP bound, but the suffix bound is only implicit ('target must be non-increasing from i on'). I rewrote it to name both ends of the window in searchable words ('start of target's longest non-increasing suffix' and 'longest common prefix of nums and target'), to keep the frequency condition and the n <= 10^5 constraint that rules out the per-i sort, and to note that the arrays have the same length, which separates it from version II."
+  }
+}

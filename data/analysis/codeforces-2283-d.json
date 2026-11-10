@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2283-d",
+  "title": "Black, Gray and White",
+  "source_url": "https://codeforces.com/contest/2283/problem/D",
+  "solution": "Every endpoint of a performed operation ends black (later paths only recolor white vertices), so the black set is exactly {i : 1 <= k-i <= n, k-i != i} and the gray set is the union of the pair paths minus that black set. The number of valid i is k-1 for k <= n+1 and 2n-k+1 for k >= n+1, minus one when k is even (the self-pair i = k/2). If n is even, k = n+1 is odd and pairs every vertex, so all n are black and nothing better exists. If n is odd, the maximum black count is n-1 and it is reached only by k = n (vertex n unpaired), k = n+1 (vertex (n+1)/2 unpaired) and k = n+2 (vertex 1 unpaired); the gray count is then 1 exactly when the single unpaired vertex v lies on some pair's path, else 0. Root the tree at v and label every other vertex by the child subtree of v it belongs to (one DFS/BFS); v is on path(i, k-i) iff the two endpoints carry different labels. Try the three candidates and return the first that yields a gray vertex (any of them otherwise). O(n) per test, sum n <= 3*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) run on the statement's 5-test sample: output 6 7 7 5 5 matches expected exactly (and the brute-force scores of chosen vs expected k agree). Brute force (brute.py) simulates the coloring for every k in [1, 2n] with explicit path recoloring and takes the lexicographic max of (black, gray). Stress test: 2 seeds x 4000 random trees, n in [3, 11], mixing paths, stars and random-parent trees with shuffled labels; asserted score(solution k) == best score every time, all 8000 passed. Max-size run (n = 299999, random tree) finishes in 0.29 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "parity-argument",
+      "dfs"
+    ],
+    "tags": [
+      "tree",
+      "math",
+      "dfs",
+      "graph",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "parity-argument",
+      "dfs"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "parity-argument: the whole reduction is the parity of n — k = n+1 pairs everything when n is even, and for odd n the self-pair k/2 (or the range edge) forces exactly one unpaired vertex, narrowing k to three candidates. dfs: the only algorithmic step is rooting the tree at the unpaired vertex and labelling child subtrees to test 'vertex on path between i and k−i' for all pairs in O(n); BFS works equally (I used BFS) but dfs is the conventional label for subtree labelling, so bfs was not added separately. Considered and rejected: lca / tin-tout-ancestor-check (an LCA distance test dist(a,v)+dist(v,b)=dist(a,b) also works, but rooting at v makes it trivial and the problem is not an LCA exercise); connected-components (the check is literally 'different components of T−v', but a components searcher would be misled); brute-force (trying three candidate k is scaffolding); constructive-algorithm kept only as a broad tag since the answer is a derived choice of k, not a built object; greedy rejected (no exchange or greedy choice involved).",
+    "skeptic": "Solution: identical to my independently derived one; verified as above. parity-argument (keep, 0.6): the case split is about parity. Covering all n vertices needs k=n+1, and the k-i!=i rule removes the midpoint exactly when k is even, so all n are black iff n is even. For odd n the same rule plus the range edges leave exactly three k with n-1 black vertices. Someone remembering 'tree problem, answer n+1 when n is even' would search parity. It is not a deep invariant, which is why confidence is moderate. dfs (keep, 0.75): this is the technique, not just traversal scaffolding. After the counting/parity step, the whole algorithmic content is: root at the unpaired vertex v and label every other vertex by the child subtree it hangs from. Then v is on path(i,k-i) iff the labels differ. Codeforces' own tags list 'dfs and similar'. No other tree technique is needed. Considered and NOT added: lca / tin-tout-ancestor-check. These are the 'more specific tree labels' for a vertex-on-path test, and dist(a,v)+dist(v,b)=dist(a,b) or an ancestor-xor test with a fixed root would work. But each candidate has a single fixed v, so rooting at v reduces the test to comparing branch labels. Nobody needs LCA or tin/tout here, and labelling it lca would mislead someone searching for LCA problems. connected-components: the branches of T-v are literally components, but that label means DSU/flood-fill on general graphs in this corpus (38 uses), so it would mislead. brute-force (CF tag): enumerating 3 fixed candidate k is scaffolding, not a brute-force search; correctly left out of patterns. constructive-algorithm kept only as a tag (matches the official CF tag), not as a pattern: the output is a derived k, not a built object. Trap 1, binary-search-answer: not applicable and correctly absent. Nothing is monotone in k, and the answer comes from a constant-size candidate set fixed by counting, not from a feasibility test. Trap 2, near-miss labels (bitmask-dp vs interval-dp style): no DP here. The near-miss for this problem is dfs vs lca/tin-tout-ancestor-check, and the structure decides it: one fixed vertex per candidate plus n up to 3e5 means an O(n) branch-labelling DFS, not per-pair LCA queries. Summary: 69 words, third person, accurate. It names n up to 3e5, the parity reduction, the three candidates and the key branch-label test, so it is kept verbatim."
+  }
+}

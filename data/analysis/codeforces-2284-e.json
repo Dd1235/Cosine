@@ -1,0 +1,45 @@
+{
+  "id": "codeforces-2284-e",
+  "title": "My Mind Is Going",
+  "source_url": "https://codeforces.com/contest/2284/problem/E",
+  "solution": "Each hidden edge alone keeps G bipartite, so each one either joins two different components of G or joins opposite colours inside one component. An edge of the second kind changes neither the component structure nor the parity constraints, so the odd cycle in G+e1+e2 has to use both edges. That means both edges join the same two components A and B, with conflicting colour parity. Order the vertices component by component, each in BFS order, so that every prefix is connected inside each component. Then the subgraph of G' induced on a prefix is non-bipartite exactly when it contains all hidden endpoints (a1, a2 in A and b1, b2 in B). The predicate is monotone, so binary search over the prefix length (11 queries for n<=2000) finds the last endpoint x and fixes its component A. A second binary search over the order 'A first, then everything else' finds the last endpoint y on the B side (at most ceil(log2(n-|A|))<=11 queries). Bipartiteness queries cannot tell which A endpoint pairs with which B endpoint, because both pairings satisfy the parity condition. So one type-2 query checks (x,y). If it is present, report it. If not, x and y are not shared endpoints, and the hidden edges are (x,y') and (x',y). In the smaller of A and B, do a BFS from x (or y) and binary search the prefix with the whole other component as a fixed base, which finds x' (or y'). That costs at most ceil(log2(min(|A|,|B|)-1))<=10 queries since min(|A|,|B|)<=n/2. The total worst case is 11+11+1+10=33, exactly the limit. Each query costs O(n+m), well within sum n^2<=4e6 and sum m<=2e5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solver in scratchpad/work/codeforces-2284-e/sol.py. (1) Real stdin/stdout run of sol.py against a local non-adaptive interactor (interactor.py) on both sample test cases (hidden (1,3),(1,4) and (1,4),(3,5)): both answered correctly, max 3 queries. (2) Exhaustive brute force (test.py): 2000 random bipartite graphs with n=4..9 (sparse to dense, many components). For each graph, every valid unordered hidden pair {e1,e2} was enumerated by brute force (all absent edges, bipartiteness checked by BFS), and the solver ran against each pair in both orders: 42,010 cases, all correct, every run within 33 queries. (3) 300 random n=2000 cases with two tree components of mixed sizes (balanced, skewed |A|=2..1998, extra singletons), max 32 queries. (4) 12 adversarial n=2000 path-graph cases through the subprocess interactor, with |A| in {2,514,700,975,1000,1998}, endpoints at the far ends of the BFS orders and both pairings, all correct, max 30 queries. The analytic worst case is 11+11+1+10=33."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "interactive",
+      "binary-search",
+      "bipartite-graph",
+      "connected-components",
+      "bfs"
+    ],
+    "tags": [
+      "graph",
+      "interactive",
+      "binary-search",
+      "bfs",
+      "dfs"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "interactive",
+      "binary-search",
+      "bipartite-graph",
+      "connected-components",
+      "bfs"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "interactive: the problem is interactive, with a 33-query budget. binary-search: the core technique is three binary searches over prefixes of a vertex order, driven by a monotone oracle ('induced subgraph non-bipartite'), and the 33-query budget is exactly 11+11+1+10. bipartite-graph: everything rests on 2-colouring and odd cycles. G is bipartite, the oracle tests bipartiteness, and the key lemma is that a single edge keeps the graph bipartite while the pair creates an odd cycle. connected-components: the key observation is that both hidden edges must join the same two components of G, and the second and third searches order or fix whole components. bfs: a BFS order per component makes every prefix connected within its component, which is what makes the oracle monotone; the last search runs a BFS from the found endpoint. Any traversal order works, which is why dfs is a tag and not a pattern. Rejected: binary-search-answer (no answer value with a feasibility check is searched; this is a search for a position in an ordering), parity-argument (colour parity shows that the A/B pairing cannot be determined, but the algorithm never uses colours), graph-modeling and reachability (nothing is modelled as a graph; the graph is given), constructive-algorithm (nothing is constructed), and divide-and-conquer (a plain prefix binary search, not recursive splitting).",
+    "skeptic": "Solution: correct. The proposal's algorithm (prefix search -> x in later component A; 'A first, then rest' search -> y in B; ?2(x,y); if absent, BFS from x or y in the smaller component with the whole other component as base -> x' or y') matches my derivation in every lemma. (i) A hidden edge inside a component must join opposite colours and changes nothing, so both edges cross the same two components with conflicting parity. (ii) With connected prefixes per component, the minimal non-bipartite prefix ends at a hidden endpoint. (iii) Bipartiteness answers depend only on the endpoint sets, so the swapped pairing is indistinguishable and a type-2 query (or equivalent) is unavoidable. The 33 bound is tight but safe: ceil(log2 1998)=11, ceil(log2(n-|A|))<=11, 1, and ceil(log2(min-1))<=ceil(log2 999)=10. An adaptive interactor cannot exceed this because every loop's iteration count is capped by its range alone. The proposal's own adversarial runs only reached 30-32; my crafted path instance and the adaptive interactor both reach exactly 33.\nPatterns. interactive: keep. binary-search: keep. It genuinely is the query strategy, three lower_bound searches over prefix lengths of a vertex order with the interactor as a monotone oracle, and the budget 33 = 11+11+1+10 is pure log arithmetic. bipartite-graph: keep. The whole reduction is 2-colouring and odd-cycle reasoning: an edge inside a component between opposite colours is inert, and the two edges have conflicting colour parity. It is not statement-word echo; the reasoning needs it. connected-components: keep. It is not scaffolding for colouring (the solver never 2-colours anything). The key lemma is that both hidden edges join the same pair of components. The algorithm orders vertices component by component, puts x's component first in search 2, uses whole components as fixed bases, and the 10-query bound for search 4 comes from min(|A|,|B|) <= n/2. bfs: keep, weaker (0.6). It is also not colouring scaffolding. The BFS order is the connected-prefix ordering that makes the minimal prefix end exactly at an endpoint, and search 4 is literally 'BFS from the found endpoint, binary search the prefix'. A DFS preorder would work equally, which is why dfs stays a tag only. The proposal's note implies the same, though its own wording ('any traversal works, so dfs is a tag') applies equally to bfs; I keep bfs because the from-x BFS order is a named, load-bearing step, not because DFS fails.\nMissing labels checked and rejected: parity-argument (colour parity proves the lemma and the pairing ambiguity, but the algorithm never uses colours; bipartite-graph already covers it); cycle-detection (the interactor detects odd cycles, the solver does not); dfs as a pattern (an interchangeable traversal choice, kept as a tag); divide-and-conquer, graph-modeling, reachability, constructive-algorithm (none apply).\nTrap 1, binary-search-answer: correctly absent. No answer value is guessed and feasibility-tested. The searches locate a threshold position in a vertex ordering, and the 'test' is the interactor's response, not a check the solver implements. Plain binary-search is the right label. Trap 2, bitmask-dp vs interval DP: not applicable (no DP). The deciding constraint here is 33 = about 3*log2(2000) with n <= 2000, which forces logarithmic searches rather than anything per-vertex.\nSummary: changed. The proposal's summary claimed 'a BFS vertex order makes prefix non-bipartiteness monotone'. That is wrong: monotonicity holds for any order, since induced subgraphs of supersets keep odd cycles. What the BFS order buys is connected prefixes, so the shortest non-bipartite prefix ends at a hidden endpoint. It also said binary search 'finds the endpoints' without the extra edge query needed to resolve the pairing. The rewrite (70 words, third person) keeps n<=2000 and 33 queries, states the same-two-components reduction, and corrects the BFS-order role."
+  }
+}

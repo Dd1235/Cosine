@@ -1,0 +1,33 @@
+{
+  "id": "codeforces-2283-c",
+  "title": "Big XOR",
+  "slug": "2283-c-big-xor",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2283/problem/C",
+  "source_topic": "Codeforces / Contest 2283",
+  "source_tags": [
+    "bitmasks",
+    "constructive algorithms"
+  ],
+  "statement": "The task picks which of 1..n to double so the final XOR is at least twice their OR (n ≤ 2·10^5). That OR is 2^L−1 and every value stays below 2^(L+1), so XOR bits 1..L must all be set. This forces the doubled elements' XOR s to satisfy s XOR (s>>1) = fixed target, a Gray-code inversion done from the top bit and realised by doubling powers of two.",
+  "tags": [
+    "bit-manipulation",
+    "constructive-algorithm",
+    "math"
+  ],
+  "patterns": [
+    "bit-manipulation",
+    "constructive-algorithm",
+    "gray-code"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "bit-manipulation": 0.95,
+      "constructive-algorithm": 0.9,
+      "gray-code": 0.5
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "leetcode-count-valid-substrings-i",
+  "title": "Count Valid Substrings I",
+  "source_url": "https://leetcode.com/problems/count-valid-substrings-i/",
+  "solution": "A substring s[l..r] is invalid exactly when it fully contains some occurrence of \"abc\", i.e. some start p with l <= p and p+2 <= r. So for a fixed right end r, the valid left ends are exactly l in (p_r, r], where p_r is the start of the latest \"abc\" occurrence ending at or before r (p_r = -1 if none). Scan r from left to right; whenever s[r-2..r] == \"abc\" set p = r-2, then add r - p to the answer. The left boundary only moves right, so this is a sliding window whose left edge jumps just past the most recent forbidden occurrence. Equivalent contribution form: answer = n(n+1)/2 minus, for each occurrence at i (previous occurrence at prev), (i - prev) * (n - i - 2) substrings whose leftmost contained occurrence is i. O(n) time, O(1) space, for n up to 1e5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py in scratchpad/work/leetcode-count-valid-substrings-i: both the sliding-window scan and the total-minus-contribution form pass all 3 samples (abac->10, abc->5, ac->3); stress vs O(n^3) brute force on 20,000 random strings over {a,b,c} with n in 1..14 plus 5,000 strings built from chunks {abc,a,b,c,ab,bc} (dense overlapping occurrences), all agree; n=1e5 random and 'abc'*33333 run in under 0.01s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sliding-window",
+      "counting",
+      "two-pointers",
+      "contribution-technique"
+    ],
+    "tags": [
+      "string",
+      "counting",
+      "sliding-window",
+      "two-pointers"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sliding-window",
+      "counting"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "two-pointers",
+        "reason": "This is the sliding window named a second time, and it fits worse. The left boundary is a single 'start of the latest abc' variable that jumps straight to p+1. No second pointer moves step by step under a condition, and no shrink loop is needed. The proposal also gave it only 0.6 confidence for this reason."
+      },
+      {
+        "pattern": "contribution-technique",
+        "reason": "No natural solution uses it. Anyone solving this Q1 writes the per-right-end scan. The total-minus form (charge each invalid substring to its leftmost occurrence, giving (i-prev)*(n-i-2)) is correct but secondary. Labelling it would show a trivial Q1 to users searching contribution technique, who are looking for problems like sum of subarray minimums, where swapping the sum to per-element contributions is the actual insight."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "sliding-window: the core is 'count substrings ending at r whose left edge is past the last forbidden occurrence', the textbook count-valid-windows scan with a monotone left boundary. counting: the answer is a sum over right ends of window sizes. two-pointers: same monotone left/right pointer view, lower confidence as the left pointer jumps rather than advancing step by step. contribution-technique: a genuine alternative, total n(n+1)/2 minus invalid substrings each attributed to its leftmost contained occurrence ((i-prev)*(n-i-2)). Rejected: string-matching/kmp/rolling-hash (the pattern is a fixed 3-char literal checked directly; matching is scaffolding), prefix-sum (not needed), dynamic-programming (the running count is not a real DP state), binary-search (no). Differs from sibling II, where 'abc' as a subsequence requires tracking the latest a and the latest a-before-b positions; here only contiguous occurrences matter, so the window boundary is just the last occurrence start.",
+    "skeptic": "Own derivation: a substring s[l..r] is invalid exactly when it fully contains an occurrence starting at some p with l <= p and p+2 <= r. Fix r and let p_r be the latest such start; then the valid l are (p_r, r], which gives r - p_r substrings. Sum this in O(n). Because a, b and c are distinct, occurrences of \"abc\" never overlap, so the latest occurrence is updated only when s[r-2..r] == \"abc\". The proposal's algorithm is the same and is correct, and its contribution formula is also correct (verified). PATTERNS: sliding-window is kept. [l, r] is the maximal valid window ending at r, the answer is the sum of window lengths, and the left edge only moves right. That is the standard way to count subarrays that avoid a forbidden pattern, and it is the term a user would search. counting is kept. It is corpus convention for the count-the-windows variant of sliding window (as opposed to the longest-window variant), and the answer really is a sum of per-endpoint counts. Confidence is moderate because it partly echoes 'return the number of'. two-pointers is rejected: it names the window a second time, and the left edge is a last-occurrence variable rather than an advancing pointer. contribution-technique is rejected: it is a valid but unnatural alternative for this Q1 (reasons above). Nothing is missing: matching a fixed 3-character literal is not string-matching, kmp or rolling-hash; nothing needs prefix-sum; the running count is not a DP. TAGS: two-pointers is kept only as a coarse topic tag, since LC users often file count-windows problems under two pointers and tags are the low-weight recall field. It is not kept as a technique pattern. SUMMARY: the proposal said valid starts lie 'strictly after the most recent abc occurrence'. That can be read as 'after its end', which is wrong, because l = p+1 (inside the occurrence) is valid. I rewrote it to say after the START of the latest occurrence finishing at or before r. Now 61 words, third person, keeps n <= 10^5. TRAP binary-search-answer: not proposed and correctly absent. There is no feasibility test, and the left boundary is O(1) per index. Binary-searching each r's left edge would be strictly worse than the direct linear scan. TRAP near-miss (the bitmask-dp vs interval-dp analogue here is substring vs subsequence across the I/II pair): sibling II forbids \"abc\" as a SUBSEQUENCE and needs the latest positions of 'a' and 'ab', which is the reason for its subsequence-dp/dynamic-programming labels. Here the forbidden pattern is contiguous, so only the last occurrence start matters and no DP label applies. The two must not share DP labels, and they don't."
+  }
+}

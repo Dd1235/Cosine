@@ -1,0 +1,37 @@
+{
+  "id": "codeforces-2284-c2",
+  "title": "Disgusting + GCD (Checker Version)",
+  "slug": "2284-c2-disgusting-gcd-checker-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/C2",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "brute force",
+    "dp",
+    "graphs",
+    "greedy",
+    "math",
+    "number theory"
+  ],
+  "statement": "Starting from a (up to 10^5), the task is to reach b (up to 10^9) with the fewest additions of a positive x coprime to the current value. Since gcd(c, x) = gcd(c, c+x), this is a shortest increasing chain whose neighbours are coprime: one step if gcd(a, b) = 1, two if a short brute-force scan above a (under 40 values) finds one coprime to both, otherwise three.",
+  "tags": [
+    "math",
+    "number-theory",
+    "brute-force"
+  ],
+  "patterns": [
+    "gcd",
+    "number-theory",
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "gcd": 0.95,
+      "number-theory": 0.9,
+      "brute-force": 0.75
+    }
+  }
+}

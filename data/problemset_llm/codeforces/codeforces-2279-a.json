@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2279-a",
+  "title": "Reverse and Double",
+  "slug": "2279-a-reverse-and-double",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2279/problem/A",
+  "source_topic": "Codeforces / Contest 2279",
+  "source_tags": [
+    "binary search",
+    "brute force",
+    "data structures",
+    "implementation"
+  ],
+  "statement": "The task is to apply at most one operation that reverses a subarray and doubles every value in it, minimizing the maximum absolute difference between adjacent elements, for n up to 3·10^5. Interior gaps double and outside gaps stay, so beating the original maximum requires every largest gap to be a boundary edge of the segment, pinning one endpoint while the other is enumerated with prefix and suffix maxima.",
+  "tags": [
+    "array",
+    "brute-force",
+    "implementation"
+  ],
+  "patterns": [
+    "brute-force"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "brute-force": 0.6
+    }
+  }
+}

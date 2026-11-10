@@ -1,0 +1,35 @@
+{
+  "id": "codeforces-2284-a2",
+  "title": "15K4JR3B (Hard Version)",
+  "slug": "2284-a2-15k4jr3b-hard-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/A2",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "greedy",
+    "math",
+    "number theory"
+  ],
+  "statement": "The task is to make n moves, the i-th shifting one of three points starting at the origin by 2^{a_i} along an axis, to maximize the triangle's doubled area, with n up to 100 and a_i up to 24. Bounding the doubled area by the x-move total times the y-move total reduces it to a balanced partition (subset sum nearest half) of the powers of two, solved greedily largest-first.",
+  "tags": [
+    "math",
+    "geometry",
+    "greedy",
+    "array"
+  ],
+  "patterns": [
+    "greedy",
+    "geometry",
+    "subset-sum"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "greedy": 0.9,
+      "geometry": 0.8,
+      "subset-sum": 0.5
+    }
+  }
+}

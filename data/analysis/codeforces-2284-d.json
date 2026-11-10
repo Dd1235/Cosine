@@ -1,0 +1,48 @@
+{
+  "id": "codeforces-2284-d",
+  "title": "The Theorem of Two Cans",
+  "source_url": "https://codeforces.com/contest/2284/problem/D",
+  "solution": "Key invariant: the operation never changes which vertex pairs are joined by odd versus even walks. If the new edge v1-v2k is added, it parallels the path v1..v2k of odd length 2k-1, so adding it creates no new parity; the removed edge (vi,vi+1) is then still bridged by the odd-length route vi..v1-v2k..vi+1 (length 2k-1), so removing it destroys no parity either (and connectivity is kept). If v1-v2k already existed, the same odd route exists before the removal. Hence a connected graph stays bipartite or non-bipartite forever, and if bipartite its 2-coloring (unique up to swap for a connected graph) is invariant. Counting: there are 2^(n-1)-1 bipartitions of {1..n} with both sides non-empty, plus one 'non-bipartite' state, exactly 2^(n-1) = number of strings. Encoder: if s is all zeros, output the triangle 1-2-3 plus edges 1-j for j>=4 (non-bipartite); otherwise put vertex i+1 on side s_i with vertex 1 on side 0, and output the spanning tree joining vertex 1 to every side-1 vertex and one fixed side-1 vertex b to every other side-0 vertex. Decoder: BFS 2-coloring from vertex 1; on a conflict output all zeros, else output color(2..n). O(n + m) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python encoder/decoder (sol.py). First-run sample (4 101, 3 11) encoded, then my encoded graphs fed to the second run with test order swapped and endpoints/edges reordered -> 11, 101 (correct). The official second-run sample cannot be reproduced since it decodes the setter's illustrative first-run graphs (both non-bipartite; my decoder reads them as 000/00); I replayed the statement's two PUB operations on its graph and confirmed they yield the given second-run graph and keep it non-bipartite. Exhaustive adversary: for every string at n=3..7 (124 strings) computed the full closure of my encoded graph under all legal operations (all simple paths with 4,6,.. vertices, every removable edge) - 66,137 reachable graphs, all connected and all decoding to the original s. Invariant check on 300 random connected graphs (n=4..6, not only my encodings): decode() constant over the whole closure. Random stress: 400 cases n=4..40 (incl. all-0 and all-1 strings) with up to 200 random operations each plus shuffled edge/endpoint order: all decoded correctly."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bipartite-graph",
+      "constructive-algorithm",
+      "parity-argument",
+      "interactive"
+    ],
+    "tags": [
+      "graph",
+      "constructive-algorithm",
+      "interactive",
+      "bfs",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bipartite-graph",
+      "constructive-algorithm",
+      "parity-argument",
+      "interactive"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "bfs",
+        "reason": "The 2-colouring traversal can be BFS or DFS. Codeforces tags this problem 'dfs and similar' (fetched contest.standings?contestId=2284: communication, constructive algorithms, dfs and similar, graphs, interactive, math, trees). The corpus maps that tag to 'dfs' (scripts/label_agreement.py EQUIVALENTS; 'dfs' is on 88 CF records against 11 for 'bfs'). So it becomes 'dfs' and still counts toward judge-tag agreement. It stays a tag, not a pattern, because the traversal is routine."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "bipartite-graph: the whole solution is that the bipartition / 2-coloring is the invariant, decoded by a bipartiteness check. constructive-algorithm: the encoder must build a graph realising a given bipartition (spanning tree) or a non-bipartite fallback; the 2^(n-1)-1 + 1 count is the construction's crux. parity-argument: the invariant is purely about walk-length parity (removed edge replaced by an odd path, added edge parallels an odd path). interactive: this is a run-twice/communication (encode-decode) problem; corpus convention (codeforces-2261-h, codeforces-2255-c) labels these interactive. Rejected: bfs/dfs as patterns (only the routine 2-coloring traversal inside the bipartite check; kept bfs as a broad tag only), bit-manipulation (XOR appears only in the flavour text / colour XOR, no bit tricks), counting/combinatorics (the 2^(n-1) count is a one-line sanity argument, not a counting technique), graph-modeling, connected-components, cycle-detection (odd cycle presence is detected by the 2-coloring, not a cycle algorithm). Note the setter's sample output encodes both strings as non-bipartite graphs, so their exact mapping differs, but any injective encoding over the invariant classes is accepted.",
+    "skeptic": "SOLUTION: correct, and the same as my own. The proposal's proof is right and covers both directions. Every walk-parity relation survives. The added edge v1-v2k parallels a path with 2k-1 edges, which is odd. The deleted edge (vi,vi+1) is still bridged by vi..v1, v1-v2k, v2k..vi+1, of length (i-1)+1+(2k-1-i) = 2k-1, which is also odd. So a bipartite graph stays bipartite with the same colouring, and a non-bipartite graph stays non-bipartite. The bipartition of a connected graph is unique up to swap, and pinning vertex 1 to side 0 makes the decoder well defined. Injectivity: 2^(n-1)-1 bipartitions with both sides non-empty, plus the non-bipartite state, give 2^(n-1) classes. The sink-SCC count (8/16/32 for n=4/5/6) shows this is the complete invariant and the capacity is exactly tight. A finer invariant cannot exist, and none is needed. PATTERNS. bipartite-graph KEEP 0.95: the invariant IS the bipartition, and the decoder is a bipartiteness check plus 2-colouring (taxonomy aliases two-coloring and bipartite-check point here). It is not bipartite-matching, the near-miss name: nothing is matched. constructive-algorithm KEEP 0.9: the encoder must realise a chosen bipartition as a connected graph and give all-zero a non-bipartite stand-in. The judge tags it 'constructive algorithms'. parity-argument KEEP 0.7. The brief asks whether this is the bipartite invariant named twice. The two labels overlap but name different steps. bipartite-graph names the object and the decoder. parity-argument names the discovery: a path with 2k vertices has an ODD number of edges, so its endpoints sit on opposite sides and the removed edge is replaced by an odd route. That parity observation is the whole reason the invariant holds, and nothing in the statement says 'parity' (it says '2k vertices'), so it is not a statement echo. The vocabulary has no invariant or monovariant label, and the taxonomy aliases parity, parity-check and parity-analysis all map here. So parity-argument is the only canonical home for 'find the invariant the operation preserves' when that invariant is a parity, which matches precedent (codeforces-2268-f, 2273-b, 2261-h at 0.5). Without it, bipartite-graph alone would file this with plain 'is the graph 2-colourable' exercises and hide the operation-invariant puzzle. The confidence is above 2261-h's 0.5 because here parity is the entire invariant. interactive KEEP 0.7: this is a run-twice communication problem. The judge tags it both 'communication' and 'interactive', and 'interactive' is the only canonical term. Corpus precedent is codeforces-2255-c and 2261-h. MISSING LABELS considered and not added. dfs/bfs as a pattern: routine traversal inside the bipartite check, so scaffolding; kept as a tag. cycle-detection: the odd cycle falls out of the 2-colouring, with no cycle algorithm. connected-components, graph-modeling: the graph is given and always connected. counting/combinatorics: the 2^(n-1) count is a one-line capacity check. minimum-spanning-tree: the encoder outputs any spanning tree, with no weights. bit-manipulation: XOR appears only in the flavour text. Judge tag 'trees' was not added as a tag: the tree is only a convenient encoder output, and the problem is about general graphs, so tree-topic searchers would be misled. TAGS: bfs -> dfs to match the judge's 'dfs and similar' through the corpus mapping. That is the only change, and it is why the status is 'changed'. graph, constructive-algorithm, interactive and math are all judge-backed. SUMMARY: kept verbatim. It is 69 words (inside 40-70), third person and accurate. It carries the constraint that decides the technique (the path has an even number of vertices, so the deleted edge is re-bridged by an ODD path) and surfaces the non-obvious reduction (invariant = bipartition; non-bipartite = the all-zero string). The length n-1 makes the 2^(n-1) count tight. TRAPS: binary-search-answer does not apply and was not proposed. Nothing is optimised and there is no monotone feasibility test; the answer is a direct O(n+m) encode/decode. bitmask-dp vs interval DP does not apply either, since there is no DP at all. The constraint n<=1000 (sum n<=1000) does not select a DP family. The relevant near-miss pair here is bipartite-graph vs bipartite-matching, and the correct one, bipartite-graph, is used."
+  }
+}

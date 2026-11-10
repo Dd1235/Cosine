@@ -1,0 +1,54 @@
+{
+  "id": "codeforces-2284-f",
+  "title": "Fun Times",
+  "source_url": "https://codeforces.com/contest/2284/problem/F",
+  "solution": "Track, for every position of the current set, the class of original elements that map onto it. Writing the classes as a sequence q_0..q_{L-1} from position 0, one step (modulus L-1) turns it into [q_{L-2}, q_{L-1} ∪ q_0, q_1, ..., q_{L-3}]: the cyclic order is preserved, the last class merges into the first, and the second-to-last moves to the front. So the whole process is a deque: pop front c, pop back b, pop back a, push front (b∪c), push front a (when L=2 everything collapses into one class). Position p of A_i is present iff its class meets A. Write mex(A_i) = sum over k ≥ 1 of [first k classes all hit] (contribution technique). Over all supersets of S, each class C is hit independently in a fraction r(C) = 1 − [C∩S=∅]·2^{-free(C)} of them, so the answer is 2^{#free} · Σ_i G_i, where G_i = Σ_k Π_{j<k} r(q_j) is the sum of prefix products of the deque after step i. G and the total product P are maintained under deque operations in O(1): push front x gives G ← r(x)(1+G), P ← r(x)P; pop front c gives G ← G/r(c) − 1; pop back b gives G ← G − P, P ← P/r(b). Each class keeps (contains-S-element, free-count). r(C) is never 0 mod p since 2^f ≢ 1 for f ≤ 5·10^5. Total O(n) deque steps (O(n log MOD) with modular inverses, or O(n) with precomputed ones), fitting sum n ≤ 5·10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python sol.py (deque + maintained prefix-product sum) gives 30, 14, 306, 78 on all 4 samples, matching expected output. brute.py enumerates every superset and simulates the n-1 steps with real mex. stress.py: 1500 random cases with n in 1..13 and random 0/1 density, plus every binary string for n = 1..9 (1022 strings): 2522 cases, 0 mismatches. Timing: n = 5·10^5 random string 0.7s and all-zero string 1.4s in Python."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "deque",
+      "simulation",
+      "contribution-technique",
+      "mex",
+      "combinatorics"
+    ],
+    "tags": [
+      "math",
+      "combinatorics",
+      "counting",
+      "simulation",
+      "data-structures"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "deque",
+      "contribution-technique",
+      "mex",
+      "combinatorics"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "simulation",
+        "reason": "This echoes the statement's wording ('the set undergoes n−1 steps'). Simulating the process as written means enumerating up to 2^(5·10^5) supersets, which is exactly what the problem rules out. What the solution iterates is a derived object: the cyclic partition of original positions into preimage groups. The label that names that reduction is deque, and once it is in place, looping over the n−1 steps is scaffolding. In this corpus simulation marks 'implement the described process carefully' problems (Valeriy and Deque, Asteroid Collision, Table Tennis). A searcher wanting that would be badly served by a Div2 F sum-over-supersets counting problem mod 1e9+7. It is the weakest of the five labels, and the solver gave it the lowest confidence after combinatorics."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "simulation",
+        "reason": "Same reason as the pattern: it is the statement's wording, and a direct simulation of the stated process is exponential. Dropped so tags and patterns stay consistent."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "deque: the key reduction is that the classes of preimages behave exactly as a deque (pop front, pop two from back, push two at front), and the solution simulates it while maintaining a sum of prefix products. simulation: the n-1 steps are simulated one at a time in O(1). contribution-technique: mex is split into indicators [first k positions present], each counted over all supersets as a product of per-class hit counts. mex: the decomposition 'mex = number of leading present positions' is the mex trick the solution relies on. combinatorics: summing over supersets via 2^free and per-class (2^f − 1) counts. Rejected: modular-inverse (only used to undo a push in the maintained sum, scaffolding around mod p); union-find (classes merge, but the deque holds them directly, no DSU needed); probability-dp / expected-value-dp (I phrase it as independent hit probabilities, but there is no DP; it is an exact count scaled by 2^free); prefix-sum (the prefix-product sum is maintained incrementally, not a prefix-sum array); queue tag omitted because the structure is double-ended. I did not check the official editorial, so whether the setters view it as a deque is unconfirmed, but the deque reduction is exact and verified.",
+    "skeptic": "SOLUTION. Track the preimage group (arc of original positions) behind each cell of the current set. A step with modulus m−1 sends cell m−2 to 0, sends both cell m−1 and cell 0 to 1, and shifts every other cell up by one. So the cyclic order is preserved, two cyclically adjacent groups merge, and the origin rotates. That is a deque: pop back b, pop back a, pop front c, push front b∪c, push front a. Printing the groups (shape.py, n=13) shows rounds of adjacent-pair merges, with the length halving each round. A cell is present iff its group meets the chosen superset. mex(A_i) = Σ_{k≥1} [first k groups all hit]. Groups are disjoint, so over all supersets of S group j is hit in a fraction r_j of them, independently. Hence answer = 2^free · Σ_i (sum of prefix products of r over the deque after step i). The proposal's algorithm and its O(1) update formulas (push front G←r(1+G); pop front G←G/r−1; pop back G←G−P, P←P/r) are correct, and it is verified three ways (see skeptic_check). The claim that r is never 0 mod p is also right: 1e9+7 ≡ 7 mod 8, so 2 is a QR, and ord(2) divides 500000003 (prime), so ord(2) = 500000003, far above 5·10^5. PATTERNS. deque KEPT (0.9): this is the key reduction and every solution I can see uses it, including the division-free round-based one, which is still a deque split into front/merged/old segments. contribution-technique KEPT (0.8). The prompt asked whether it is honest or just a maintained sum. It is honest. The step that makes the problem tractable is swapping the order of summation: Σ_{S'} mex = Σ_k #{S' : first k groups all hit}, a sum of per-position indicators counted over all supersets. That is the classic 'mex = number of k with mex ≥ k' contribution, the same convention as Ultra-Meow (1992G: contribution-technique + mex) and the sum-over-subsequences records 2264-E2 and 2264-C. The maintained prefix-product sum is just how those contributions are added up per step. mex KEPT (0.8): the decomposition into leading-hit prefixes is mex-specific, and a mex searcher should find this. combinatorics KEPT (0.6, lower). The counting is product-rule only: a group is hit by 2^f − 1 of its 2^f free-bit choices, or by all of them if it holds an S element. No binomials. But it is a sum over all supersets mod 1e9+7, and that genre carries combinatorics in this corpus (2264-E1/E2), so the label is defensible. counting would be the narrower alternative, and it is already a tag, so I did not add it as a redundant pattern. simulation REJECTED (see reason): it echoes the statement, and the deque already names what is iterated. MISSING LABELS CONSIDERED. modular-inverse: not added. The proposal uses inverses to undo pops from the maintained G and P, but nodiv.py shows they are an implementation choice, not intrinsic. Only the front element is popped from the front, and it was pushed one step earlier. The back is a fixed array per round, so prefix sums of prefix products need no division. The only inverse left is the constant 1/2, which is scaffolding. union-find: no. Groups merge, but always cyclically adjacent ones, and mex needs their order, which a DSU discards. The deque holds both. prefix-sum: only in the division-free variant, as plumbing, so not added. probability-dp / expected-value-dp: no DP. The hit fractions are an exact count scaled by 2^free. linked-list, queue: no, the structure is double-ended. sos-dp / subset-dp / bitmask-dp: no. Supersets are never enumerated, and n ≤ 5·10^5 rules out any subset-indexed state. TRAP 1, binary-search-answer: not applicable and not proposed. Nothing is optimized and no feasibility test exists. The answer is a direct O(n) (or O(n log MOD)) sum. TRAP 2, bitmask-dp vs interval DP: not applicable. There is no DP of either kind. The near-miss here is different: 'sum over all supersets' invites sos-dp/subset-dp/bitmask-dp labels, but the constraint (n up to 5·10^5, sum n ≤ 5·10^5) decides it. The supersets factor into independent per-group choices, counted by the product rule. A second near-miss is union-find vs deque: merging classes suggests DSU, but adjacency plus order makes it a deque. SUMMARY. The proposal's 63-word summary was accurate but slightly loose ('merges the last class into the first' omits the rotation). It also hid why the superset sum is computable: independent group hits turn each step into a sum of prefix products. Rewrote it as a 70-word third-person paragraph that keeps the n ≤ 5·10^5 constraint and states both reductions."
+  }
+}

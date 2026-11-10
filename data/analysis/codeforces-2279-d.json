@@ -1,0 +1,55 @@
+{
+  "id": "codeforces-2279-d",
+  "title": "Meta Graph",
+  "source_url": "https://codeforces.com/contest/2279/problem/D",
+  "solution": "A vertex a_b of f(G) is a pair (p,q): q may step along any edge of G (cost 1), and the pair may swap to (q,p) when p~q in G (cost 1). Read it as two tokens: the first coordinate only changes at a swap, so the sequence of first coordinates is a walk w=f0,f1,...,fk=y in G, and between swaps i and i+1 the moving coordinate must travel from f_{i-1} to f_{i+1}, both neighbours of f_i, so that leg costs 0 (backtrack), 1 (triangle) or 2. Total = k + dist(x,f1) + sum d(f_{i-1},f_{i+1}) + dist(f_{k-1},z). Backtracks just return to an earlier configuration, and a triangle turn a,b,c (a~c) can always be shortcut to a,c without increasing the cost (saves 1 swap and the turn's 1, and each neighbouring turn or end term grows by at most 1). So some optimum has every interior leg cost exactly 2, and the cost of any walk is upper-bounded by 3k-2+dist(x,f1)+dist(f_{k-1},z), with equality at the optimum. Hence the answer is the minimum of: dist(x,z) if w=y; 1+dist(x,y)+dist(w,z) if w~y; and 4 + min over a in N(w), b in N(y) of dist(x,a)+3*dist(a,b)+dist(b,z). The last term is a three-layer shortest path (layer weights 1,3,1, layer switches at N(w) and N(y)): BFS from x and from z, then a multi-source Dijkstra seeded at a in N(w) with dist(x,a) using weight-3 edges, read off at b in N(y). O((n+m) log n) per test.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (sol.py) run on all 3 samples (6, 2, 0 match). Brute force builds the literal meta-graph with n^2 vertices and BFSes it; stress-tested 5000 random connected graphs with n in [2,9] (edge densities 0 to 0.8, random w,x,y,z) plus 2000 more with n in [2,13], all matching. Max-size input (n=m=2e5) runs in 0.25s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "bfs",
+      "shortest-path",
+      "graph-modeling",
+      "layered-graph",
+      "dijkstra"
+    ],
+    "tags": [
+      "graph",
+      "shortest-path",
+      "bfs",
+      "math"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "bfs",
+      "shortest-path",
+      "graph-modeling",
+      "layered-graph",
+      "dijkstra",
+      "multi-source-bfs"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "multi-source-bfs",
+        "reason": "The middle quantity min_u d(x,u)+3d(u,v) is a distance from the vertex set N(w). The proposal rejected this label because the seeds start at different distances, but that reason does not hold. Every seed offset d(x,u) for u in N(w) lies in {d(x,w)-1, d(x,w), d(x,w)+1}, so the offsets differ by at most 2, which is less than the per-hop cost of 3. One fewer hop therefore always wins, and a plain multi-source BFS from all of N(w) that keeps the smallest offset among ties computes the same values. I implemented this and it matched the brute force on 60k cases. Most people will still write Dijkstra, so confidence is moderate."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "math",
+        "reason": "There is no arithmetic, counting or number theory. The answer is a minimum over graph distances, and the clever part is a proof about walks that removes backtracks and triangle turns. A 'math' tag would put this problem in an already overloaded bucket (about 1,000 records) where it does not fit."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "bfs: the distances dist(x,.), dist(z,.), dist(w,.) in the unweighted G are the core of the answer. shortest-path: the problem is literally a shortest path, reduced from n^2 pair-vertices to G. graph-modeling: the key step is remodelling meta-graph moves as a walk of the first coordinate plus a travelling second coordinate, and proving that triangle turns can be shortcut so every leg costs 3. layered-graph: the final minimisation is a shortest path through three copies of G (weights 1, 3, 1, switching at N(w) then N(y)). dijkstra: the middle layer is a multi-source run with unequal seed distances and weight-3 edges (an alternative correct solution is Dijkstra over directed-edge states with triangle enumeration, also dijkstra + graph-modeling). Rejected: multi-source-bfs (seeds have unequal starting distances, so it is multi-source Dijkstra, not BFS); exchange-argument/greedy (the shortcut lemma is a proof step, not the algorithm); zero-one-bfs (weights are 1 and 3, not 0/1); triangle enumeration has no canonical label and the intended solution avoids it.",
+    "skeptic": "Solution: a state (p,q) is two tokens. The parked token p moves only at a swap, so the sequence of parked positions is a walk w=p0..pk=y in G. Total cost = k + d(x,p1) + sum_{i=1}^{k-1} d(p_{i-1},p_{i+1}) + d(p_{k-1},z), and each inner distance is at most 2. A backtrack (p_{i+1}=p_{i-1}) can be removed at no extra cost by the triangle inequality. A triangle turn can be shortcut: that saves 1 swap and the turn's 1, and each neighbouring term grows by at most 1, because its old value was at least 1 (no backtracks) and its new value is at most 2 (both ends are adjacent to the same vertex). I checked the cases i=1, i=k-1 and k=2 separately. So some optimal walk has every inner step costing exactly 2, which gives the three-case formula. The proposal's derivation matches mine, and its sol.py passed 40k extra checks, including complete and complete-bipartite graphs where triangle turns and parity are most likely to break the formula.\n\nPattern decisions. bfs: keep. d(x,.) and d(z,.) in the unweighted G are core to the answer. shortest-path: keep. The problem is literally a shortest path, and the solution replaces n^2 pair-vertices with distances in G. graph-modeling: keep (0.7). Re-reading the given graph as two leapfrogging tokens and proving that every leg costs 3 is the main insight; the label is not an echo of the word 'graph' in the statement. layered-graph: keep. The proposal's claim is fair: the answer is a shortest path through three copies of G (in-layer costs 1, 3, 1; switch from layer 1 to 2 at N(w) and from layer 2 to 3 at N(y), plus a constant 4). Computing it one layer at a time is the same thing as running Dijkstra once over the 3n-node graph. This also matches how the corpus uses the label on other state-expanded shortest-path records. dijkstra: keep (0.65). The middle layer has seeds at unequal distances and edges of weight 3, so Dijkstra is what most solvers write, and the proposal and I both reached for it first. It is not strictly needed, though (see multi-source-bfs), so confidence is moderate. multi-source-bfs: added (0.45). The proposal's reason for rejecting it is wrong, as shown in added_patterns. zero-one-bfs: still rejected. Inside the layers the weights are 1 and 3. The 0-weight switches plus subdividing weight-3 edges would turn it into 0-1 BFS, but that is contrived and nobody would write it. exchange-argument and greedy: still rejected. The shortcut lemma is a step in the proof, not the algorithm. No missing specific technique name: there is no 'product graph' label, and state-compression means bitmask states.\n\nTrap 1, binary-search-answer: not proposed and does not apply. Nothing is checked by a feasibility test, and the answer is a direct minimum over distances. Trap 2, near-miss labels (bitmask-dp vs interval DP): there is no DP here. The equivalent near-miss is dijkstra vs zero-one-bfs vs multi-source-bfs, and the weights decide it: they are 1 and 3 with unequal seeds, so it is not 0-1 BFS. Dijkstra is the natural tool, and multi-source BFS works only because the seed offsets differ by at most 2, which is less than 3.\n\nSummary: the proposal's version is accurate and 66 words. I added 'n²-vertex' so it states the size that rules out BFS on the meta-graph (67 words)."
+  }
+}

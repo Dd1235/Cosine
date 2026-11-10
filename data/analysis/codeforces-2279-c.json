@@ -1,0 +1,81 @@
+{
+  "id": "codeforces-2279-c",
+  "title": "Anti-Productive",
+  "source_url": "https://codeforces.com/contest/2279/problem/C",
+  "solution": "Let L = l-1; the goal is final values b_i <= a_i with b_i*b_j <= L for every pair. Going negative never helps (raising a negative value to 0 is cheaper and gives product 0 <= L), so all b_i >= 0, and then the condition is just that the largest final value times the second-largest is <= L. Fix Y = the second-largest final value. Then Y*Y <= L, so Y <= floor(sqrt(L)) (about 31623). For a fixed Y the cheapest choice is to clip every element to Y except one, which is clipped to floor(L/Y) (unbounded when Y = 0). By an exchange argument that one should be the original maximum. This gives cost(Y) = sum over the other elements of max(0, a_i - Y) + max(0, a_max - floor(L/Y)). Sort the array and sweep Y = 0..floor(sqrt(L)) with a pointer over the sorted values, keeping the running sum and count of elements above Y. Each cost(Y) is then O(1), and the answer is the minimum. cost(Y) is not unimodal: the clipping part is convex, the cap term is roughly concave, and it has a kink where floor(L/Y) crosses a_max. So the full enumeration is needed, and the sqrt bound makes it cheap. Complexity O(n log n + sqrt(l)) per test, at most about 3.2e7 steps over t <= 1000 tests. Answers reach about 2e9·n, so they need 64-bit integers.",
+  "solution_check": {
+    "verified": true,
+    "how": "C++ solution (sort + sweep Y in [0, floor(sqrt(l-1))] with a pointer and running sum) prints 8, 2, 0, 1, 3999999997 on all 5 samples. Exhaustive brute force (Python, every final array with b_i in [-2, a_i], so negative values are allowed too, checking all pairs) agrees on the 4 small samples. Stress tests: 400 seeds x 30 cases (n 2-4, a_i <= 9, l <= 80) and 150 seeds x 4 cases (n 2-5, a_i <= 12, l <= 150) against that brute force, with no differences. 300 seeds x 5 cases (n 2-12, a_i <= 200, l <= 40000) against a medium brute that tries every top index and every Y up to max(a) with no sqrt bound, with no differences. Worst case t=1000, n=500, l=1e9 runs in 0.06 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "brute-force",
+      "greedy"
+    ],
+    "tags": [
+      "math",
+      "greedy",
+      "brute-force",
+      "sorting",
+      "prefix-sum",
+      "array"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "brute-force",
+      "greedy"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "sqrt-decomposition",
+        "reason": "No blocks and no heavy/light threshold split, only a sqrt bound on the enumerated value Y (from Y*Y <= l-1). Every one of the 26 corpus records carrying this label is block decomposition or a heavy/light split (range-update/segment-tree problems, 1468-M). The precedent leetcode-count-frequency-staircase-subarrays-ii rejected it for exactly this kind of sqrt-bounded enumeration. A searcher typing 'sqrt decomposition' should not land here. The sqrt idea is carried lexically by 'sqrt(ℓ)' in the summary instead."
+      },
+      {
+        "pattern": "binary-search-answer",
+        "reason": "Trap checked. Nothing is searched over a monotone feasibility predicate. Asking whether K operations suffice needs the same min-cost computation, so it adds nothing, and nobody would write it. The cost over Y is not monotone either."
+      },
+      {
+        "pattern": "binary-search",
+        "reason": "upper_bound on the sorted array is only one way to evaluate the clip cost per Y. A monotone sweep with a running count does the same in O(1). Scaffolding."
+      },
+      {
+        "pattern": "prefix-sum",
+        "reason": "Fast per-Y evaluation is needed (O(n) per Y would be 1.6e10), but the sum of max(0, a_i - Y) over a sorted array is routine bookkeeping. It can be a running sum with no prefix array at all. Scaffolding, kept as a tag."
+      },
+      {
+        "pattern": "sorting",
+        "reason": "Only supports the per-Y evaluation and finds the max. It is an official CF tag ('sortings') but scaffolding as a technique, kept as a tag."
+      },
+      {
+        "pattern": "two-pointers",
+        "reason": "A single pointer advancing over sorted values as Y grows is a sweep, not a two-pointer technique."
+      },
+      {
+        "pattern": "ternary-search",
+        "reason": "Fails empirically: wrong in 1758 of 20000 random cases (counterexample in skeptic_check). The floor((l-1)/Y) cap and the kink at a_max break unimodality."
+      },
+      {
+        "pattern": "exchange-argument",
+        "reason": "It only justifies giving the large cap to the original max, a one-line step that greedy already covers."
+      },
+      {
+        "pattern": "number-theory",
+        "reason": "floor((l-1)/Y) is plain arithmetic. No divisibility, primes or floor-block grouping is used."
+      },
+      {
+        "pattern": "divisor-enumeration",
+        "reason": "Y ranges over all integers up to sqrt(l), not divisors of anything."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "brute-force: the core of the solution is enumerating the second-largest final value Y over [0, sqrt(l)]. The sqrt bound comes from Y*Y <= l-1, and the cost is not unimodal, so a full enumeration is required. greedy: for a fixed Y the optimal final array clips everything to Y and gives the original maximum the large cap floor((l-1)/Y). Rejected labels: exchange-argument (it only proves which element gets the large cap, a one-line step); sorting, prefix-sum and two-pointers (scaffolding to evaluate the clip cost per Y; sorting and prefix-sum are kept as tags only); binary-search and binary-search-answer (no monotone feasibility check, and searchsorted on the cost would only be scaffolding); ternary-search (cost(Y) has a kink and floor noise, so it is not unimodal); sqrt-decomposition (wrong meaning: this is a sqrt bound on an enumerated value, not block decomposition); number-theory (floor division is only arithmetic).",
+    "skeptic": "Solution: correct. My independent derivation is identical. The final b has all values >= 0, so the condition is max1*max2 <= l-1. The second-largest Y satisfies Y^2 <= l-1. For fixed Y, the clip-to-Y-except-the-max structure is optimal by an exchange argument. The full Y enumeration is genuinely required because cost(Y) is not unimodal (verified, see the ternary counterexample). Patterns: brute-force (keep, 0.85) is the defining move, enumerating the second-largest final value over [0, sqrt(l)]. It matches the official 'brute force' tag. The vocabulary's only sqrt slug is sqrt-decomposition, and in this corpus it consistently means blocks or a heavy/light threshold, never a sqrt-bounded enumeration. So brute-force is the best available name, with 'sqrt' carried by the summary. greedy (keep, 0.7) is the per-Y structure: clip everything to Y and give the original max the generous cap floor((l-1)/Y). It matches the official 'greedy' tag. On the brief's question: evaluating each Y in O(log n) through sorted prefix sums is scaffolding. It is needed for speed but is routine, and an O(1) running-count sweep replaces it, so sorting and prefix-sum stay tags only. Trap 1, binary-search-answer: rejected. There is no monotone feasibility test, and the answer comes from a direct enumeration and min. Trap 2, near-miss labels: sqrt-decomposition vs brute-force is this problem's near-miss pair, and the constraint (l <= 1e9 bounding Y by about 31623, with no array blocks) decides brute-force. Ternary search is a second near-miss and is empirically wrong. Summary change: the proposal's summary was accurate and 68 words, but it wrote the bound as '√ℓ'. server/search/tokenize.js strips every non-[a-z0-9] character, so '√ℓ' disappears from the lexical index, and a query like 'enumerate up to sqrt' could not hit the problem's defining idea. The corpus overwhelmingly writes 'sqrt' (29 files vs 2 with '√'). I rewrote it to say 'sqrt(ℓ)' twice ('at most sqrt(ℓ)' and 'brute-forces that cap up to sqrt(ℓ)'), now 69 words. The rest is unchanged."
+  }
+}

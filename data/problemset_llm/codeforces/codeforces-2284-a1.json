@@ -1,0 +1,31 @@
+{
+  "id": "codeforces-2284-a1",
+  "title": "15K4JR3B (Easy Version)",
+  "slug": "2284-a1-15k4jr3b-easy-version",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/A1",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "greedy",
+    "math",
+    "number theory"
+  ],
+  "statement": "The task is to maximize the doubled area of a triangle whose three vertices start at the origin and must be moved with exactly n unit axis-parallel steps, with n up to 1000. Each vertex costs its Manhattan distance from the origin and the bounding box's width plus height is at most n, so the answer is floor(n/2)·ceil(n/2): two vertices on the x-axis, one on the y-axis.",
+  "tags": [
+    "math",
+    "geometry"
+  ],
+  "patterns": [
+    "geometry",
+    "manhattan-distance"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "geometry": 0.85,
+      "manhattan-distance": 0.5
+    }
+  }
+}

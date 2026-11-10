@@ -1,0 +1,49 @@
+{
+  "id": "leetcode-count-valid-substrings-ii",
+  "title": "Count Valid Substrings II",
+  "source_url": "https://leetcode.com/problems/count-valid-substrings-ii/",
+  "solution": "Validity is monotone under extension: if s[l..r] contains \"abc\" as a subsequence then so does every substring that contains it. So for each right end r the valid left ends form a suffix [L_r, r], and L_r never decreases as r grows. Find L_r directly with a linear DP over the prefixes of the pattern. la is the latest index of an 'a'. lab is the latest start of an \"ab\" subsequence ending by r: on a 'b', lab = max(lab, la). labc is the latest start of an \"abc\" subsequence ending by r: on a 'c', labc = max(labc, lab). Taking the latest start at each stage is optimal because a later 'a' can replace any earlier one in the match. A left end l is invalid exactly when l <= labc, so r contributes r - labc valid substrings (labc starts at -1), and the answer is the sum over r. Equivalently, use two pointers: keep counts of the subsequences a, b, c, ab, bc and abc in the window, update them in O(1) when a character is added on the right, undo them in O(1) when the leftmost character is removed (removing an 'a' subtracts bc from abc and b from ab, removing a 'b' subtracts c from bc), and shrink while abc > 0. Both run in O(n) time and O(1) memory for n up to 1e5.",
+  "solution_check": {
+    "verified": true,
+    "how": "sol.py (in the scratchpad at work/leetcode-count-valid-substrings-ii/) implements the latest-start DP and the sliding window with subsequence counts. Both pass all 3 statement examples (abac->9, abc->5, ac->3). Both match an O(n^3) brute force (enumerate every substring, greedy subsequence check for \"abc\") on 20,000 random strings with n in 1..14 over the alphabets abc/ab/ac/bc/abcc/aabc, plus 200 random strings with n in 30..80. The two methods agree on a random n=1e5 string, and both together run in about 0.01 s."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "dynamic-programming",
+      "subsequence-dp"
+    ],
+    "tags": [
+      "string",
+      "sliding-window",
+      "two-pointers",
+      "dynamic-programming",
+      "counting"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "sliding-window",
+      "two-pointers",
+      "dynamic-programming",
+      "subsequence-dp",
+      "counting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [
+      {
+        "pattern": "counting",
+        "reason": "orchestrator: kept consistent with sibling I (same per-right-end substring count) and the corpus convention (21 LeetCode count-substring/subarray records carry counting + sliding-window)"
+      }
+    ],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "This differs from sibling I, which forbids \"abc\" as a contiguous substring (there you only track the last occurrence of the 3-character window). Here the forbidden pattern is a subsequence, so you need a match state over the pattern's prefixes. dynamic-programming: the canonical O(n) answer is the la/lab/labc latest-start recurrence over the prefixes \"a\", \"ab\", \"abc\". It is a generic linear DP with no more specific canonical shape. subsequence-dp: the DP state is how far the pattern \"abc\" has been matched as a subsequence (the window variant keeps the classic counts of the a/ab/abc subsequences), which is what someone searching for subsequence DP means. I gave it moderate confidence because there is no pairwise DP over two sequences. sliding-window / two-pointers: invalidity is monotone under extension, so the valid left ends for each right end are a suffix whose boundary only moves right. The two-pointer window with O(1) subsequence-count add/remove is a full, natural solution, not just a remark. Rejected: binary-search / binary-search-answer (you could binary search L_r with prefix data, but nobody would, since the linear scan is direct). greedy (taking the latest 'a' is the exchange argument that justifies the max in the DP, not a separate technique). prefix-sum (not used). counting / contribution-technique as patterns (summing r - L_r per right end is ordinary substring counting, so counting goes in tags only). string-matching / kmp (the pattern is a subsequence, not a substring; that's sibling I).",
+    "skeptic": "SOLUTION. If s[l..r] contains abc as a subsequence, so does every substring that contains it. So for each r the valid l form a suffix (L_r..r], and L_r never decreases. L_r is the largest start of an embedding of abc ending by r, which is the latest 'a' before the latest 'b' before the latest 'c'. The proposal's la/lab/labc recurrence computes exactly this, and its window variant with O(1) add/remove of the counts a,b,c,ab,bc,abc is also correct. Both are verified (see skeptic_check). Counts fit in 64 bits.\n\nIS THE 'LATEST-START DP' A REAL DP OR A RUNNING POINTER? Formally it is the Minimum Window Subsequence recurrence dp[j](i) = dp[j-1](i-1) if s[i]==t[j], else dp[j](i-1), with t='abc'. In practice the max() calls never matter. la never decreases and the old lab was an earlier value of la, so on a 'b' lab simply becomes la, and on a 'c' labc becomes lab. The 'DP' is really three chained last-occurrence variables. That weakens dynamic-programming and subsequence-dp, so I lowered their confidence. I still keep both: the state is how much of the pattern has been matched as a subsequence, and that is the idea that separates II from sibling I. The window variant is literally the classic a/ab/abc subsequence-count DP (the Distinct Subsequences / count-abc-subsequences recurrence) with an undo step.\n\nSUBSEQUENCE-DP ON A SUBSTRING-COUNTING PROBLEM: here it is honest. The statement really does forbid 'abc' as a SUBSEQUENCE (not a substring; that is sibling I), and every linear solution tracks progress through the pattern as a subsequence. Kept at 0.5. dynamic-programming is implied by subsequence-dp through the taxonomy family regex anyway.\n\nSLIDING-WINDOW vs TWO-POINTERS: they are largely the same idea under two names. sliding-window is kept at 0.8. [labc+1, r] is the maximal valid window ending at r, its left edge only moves right, and the answer is the sum of window lengths. This matches sibling I's review. I keep two-pointers at reduced confidence (0.6), even though sibling I's skeptic dropped it, because the reason given there does not hold here. In I the left edge is a single last-occurrence variable that jumps, and no shrink loop exists. In II two natural solutions really do move a left pointer one step at a time under a condition: the shrink-while-abc>0 window, and the next-occurrence scan where R(l) is non-decreasing in l. This also matches the corpus convention on shrink-loop counting windows (Count Subarrays With K Distinct Integers, Count of Substrings Containing Every Vowel and K Consonants I/II, Count Complete Substrings all carry both). If the orchestrator wants a strict one-name-per-idea rule, two-pointers is the one to drop.\n\nTRAP 1, binary-search-answer: does not apply, and correctly absent. Validity is monotone, so one could binary search L_r per r over the positions of each letter, but the direct linear scan is what anyone writes, and the feasibility check is trivial. binary-search is also rightly absent.\n\nTRAP 2, bitmask-dp vs interval-dp (constraint-decided near-misses): neither applies. The near-miss that matters is the sibling pair. Sibling I (abc as a contiguous substring) needs only the last occurrence of a literal 3-gram, with no DP. Sibling II (abc as a subsequence) needs the pattern-prefix match state. Different labels on the two are correct. Two-sequence subsequence DPs (longest-common-subsequence, edit-distance) do not apply, since the pattern is a fixed 3-character string. n <= 1e5 rules out O(n^2) substring enumeration and forces the linear scan.\n\nMISSING LABELS considered and rejected. greedy: greedy subsequence matching (latest or earliest occurrence) is the justification for the recurrence, not a separate technique. string-matching/kmp/rolling-hash: these are for substring patterns, which is sibling I's problem. prefix-sum, hash-map, contribution-technique: no natural solution uses them. counting: kept in tags only, as proposed. Summing r - L_r is plain substring counting and partly echoes 'return the number of'. FLAG FOR CONSISTENCY: sibling I's review KEPT counting as a pattern. Corpus usage is mixed: frequency-count windows such as K-distinct and every-vowel carry it, but Count Subarrays With Score Less Than K, Fixed Bounds, Loose Bounds and Cost <= K do not. The orchestrator should either drop it from I or add it here. I lean to drop it from I.\n\nSUMMARY: 67 words, third person, accurate. It gives n <= 1e5 (which forces linear time), names the subsequence (not substring) condition, and states the key reduction that valid left ends form a suffix, plus the latest-start a/ab/abc tracking. Kept verbatim."
+  }
+}

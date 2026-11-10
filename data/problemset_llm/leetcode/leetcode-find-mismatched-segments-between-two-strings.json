@@ -1,0 +1,28 @@
+{
+  "id": "leetcode-find-mismatched-segments-between-two-strings",
+  "title": "Find Mismatched Segments Between Two Strings",
+  "slug": "find-mismatched-segments-between-two-strings",
+  "platform": "leetcode",
+  "source_url": "https://leetcode.com/problems/find-mismatched-segments-between-two-strings/",
+  "source_topic": "LeetCode / Weekly Contest 527",
+  "difficulty": "Medium",
+  "acceptance_rate": 78.7,
+  "source_tags": [],
+  "statement": "The task is to compare two equal-length lowercase strings (length up to 100) and return, in order of starting index, every maximal contiguous segment where the characters differ at every position, as pairs of the corresponding substrings from each string. This reduces to splitting the positions where s1[i] and s2[i] differ into maximal runs of consecutive indices, as in run-length grouping, with one linear two-pointer scan.",
+  "tags": [
+    "string",
+    "implementation",
+    "two-pointers"
+  ],
+  "patterns": [
+    "two-pointers"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295747,
+    "pattern_confidence": {
+      "two-pointers": 0.5
+    }
+  }
+}

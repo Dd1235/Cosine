@@ -1,0 +1,41 @@
+{
+  "id": "codeforces-2284-e",
+  "title": "My Mind Is Going",
+  "slug": "2284-e-my-mind-is-going",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2284/problem/E",
+  "source_topic": "Codeforces / Contest 2284",
+  "source_tags": [
+    "binary search",
+    "dfs and similar",
+    "graphs",
+    "interactive"
+  ],
+  "statement": "A bipartite graph (n up to 2000) hides two absent edges, each harmless alone but together closing an odd cycle; an interactive solver must find one in 33 queries (induced subgraph bipartite? edge present?). Both edges join the same two components. With each component in BFS order every prefix stays connected, so the shortest non-bipartite prefix ends at an endpoint; three binary searches plus one edge query suffice.",
+  "tags": [
+    "graph",
+    "interactive",
+    "binary-search",
+    "bfs",
+    "dfs"
+  ],
+  "patterns": [
+    "interactive",
+    "binary-search",
+    "bipartite-graph",
+    "connected-components",
+    "bfs"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295754,
+    "pattern_confidence": {
+      "interactive": 1.0,
+      "binary-search": 0.95,
+      "bipartite-graph": 0.9,
+      "connected-components": 0.8,
+      "bfs": 0.6
+    }
+  }
+}

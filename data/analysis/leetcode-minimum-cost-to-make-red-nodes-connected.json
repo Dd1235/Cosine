@@ -1,0 +1,36 @@
+{
+  "id": "leetcode-minimum-cost-to-make-red-nodes-connected",
+  "title": "Minimum Cost to Make Red Nodes Connected",
+  "source_url": "https://leetcode.com/problems/minimum-cost-to-make-red-nodes-connected/",
+  "solution": "Compute subtree sizes sz[u] with one traversal from root 0. The final red set S must be empty or connected, and the cost is the sum of sz[u] over nodes whose final color differs from the initial one. Take as baseline the empty configuration, which costs base = sum of sz[u] over initially red u. Putting a node u into S changes that cost by w(u) = +sz[u] if u is blue (now flipped) or -sz[u] if u is red (no longer flipped), so the answer is base + min(0, minimum total w over a connected vertex set). That is the classic minimum-weight connected subtree on a tree: with dp[u] = w(u) + sum over children c of min(0, dp[c]) (the best connected set whose topmost node is u), every connected set has a unique topmost node, and the answer is base + min(0, min_u dp[u]). No greedy shortcut works: a blue node can be worth including because the red sizes below it can exceed its own size (blue root with two red chains of length 4: flipping the root costs 9, while dropping one chain costs 4+3+2+1=10). O(n) time and memory, done iteratively in BFS order to avoid recursion depth on a 10^5-node path.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python O(n) tree DP in scratchpad/work/leetcode-minimum-cost-to-make-red-nodes-connected/sol.py. All 4 statement examples pass (1, 0, 2, 0). Brute force enumerates all 2^n final colorings, keeps those whose red set is empty or connected, and charges the subtree size of every changed node. Stress: 2 seeds x 3000 random trees with n in 1..12 (paths, stars, random parents; random relabelling of non-root ids, shuffled and flipped edge order, varied red density). All 6000 matched. Timing at n=10^5 (path, star, random): under 0.05 s each."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "tree-dp"
+    ],
+    "tags": [
+      "tree",
+      "dynamic-programming",
+      "dfs",
+      "graph"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "patterns": [
+      "tree-dp"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "tree-dp: the solution is the minimum-weight connected subtree DP (dp[u] = w(u) + sum of negative child dp values, answer taken at the topmost node of the component), the textbook tree DP. subtree-dp not added: corpus convention treats it as a synonym of tree-dp. dfs kept as a tag only: the traversal just computes subtree sizes and the bottom-up order, which is scaffolding. Considered and rejected: greedy (whether to include a blue node depends on aggregated values below it, so it is the DP and not a local rule), rerooting-dp (no answer per root is needed; each connected set is evaluated at its topmost node in one bottom-up pass), contribution-technique (the per-node +/-size weight is a one-line reformulation into the DP, not counting by contribution), connected-components (nothing is counted or merged; the connectivity constraint is enforced by the DP's shape), kadane (structurally the tree analogue of maximum subarray, but the canonical label is array-specific and would mislead a searcher), binary-search-answer (not applicable).",
+    "skeptic": "Solution: correct, and identical to what I derived on my own. The cost is the sum of sz over nodes whose colour changes, so with base = sum of sz over initial reds, adding u to the final red set changes the cost by +sz[u] (blue) or -sz[u] (red). The problem is then a min-weight connected subtree (equivalently, the max-gain connected subtree), solved by one bottom-up pass that evaluates each connected set at its topmost node. n <= 10^5 needs O(n), which this is.\n\nA simpler characterisation? No. I tested this directly. Steiner-tree-on-a-tree / virtual-tree (connect ALL reds through the blues between them) is wrong because the reds to keep are a choice, not fixed terminals; it already fails sample 1. Pruning to the best existing red component (never flip a blue) fails because subtree sizes along a red chain below a blue node can sum to more than that blue node's size: path R-B-R-R-R gives sz 5,4,3,2,1, and flipping the blue (4) beats dropping the chain (3+2+1=6). Even the min of both heuristics fails (36/20000 cases). There is also no per-edge greedy: whether a blue node is worth including depends on the aggregated best value of each child subtree, and that is exactly the DP.\n\nPatterns:\n- tree-dp: KEEP. It is the whole algorithm: the classic max/min-weight connected subtree DP, the tree analogue of maximum subarray.\n- subtree-dp: not added. experiments/14-taxonomy-audit.md records the tree-dp/subtree-dp split as arbitrary (65 vs 4 uses), and tree-dp is the canonical label a searcher uses.\n- rerooting-dp: not added. Analogues in the corpus that carry it (CF 1324F Maximum White Subtree, LC Maximum Subgraph Score in a Tree) need an answer for every vertex. Here only the global optimum is needed, so one rooted pass suffices.\n- steiner-tree / virtual-tree: rejected. Steiner-tree in this vocabulary is the terminal-subset DP, and the red set is not a fixed terminal set (the stress test above shows that model is wrong). Virtual tree compresses over query subsets, and there are no queries here.\n- kadane: rejected. It is structurally analogous, but the label is array-specific and would mislead.\n- greedy: rejected. It is refuted by the counterexamples above.\n- dfs: scaffolding only (subtree sizes plus bottom-up order), so it stays a tag and not a pattern. That matches the proposal.\n- contribution-technique, connected-components: rejected for the reasons the proposal gives. The +/-sz weight is a one-line reformulation, and nothing is counted or merged.\n\nTrap 1, binary-search-answer: does not apply. Nothing is searched over the answer and there is no feasibility test. The answer is a direct O(n) DP value, so the label would be wrong even though one could contrive a monotone predicate.\n\nTrap 2, bitmask-dp vs interval DP (constraint-decided near-misses): n <= 10^5 rules out any subset/bitmask DP (including Steiner-tree-style DP over terminal subsets). The structure is a rooted tree, not an interval, so neither bitmask-dp nor interval-dp applies. The relevant near-miss in this problem is tree-dp vs rerooting-dp, and it is decided by needing only one global optimum instead of one per root. So it is tree-dp.\n\nTags (tree, dynamic-programming, dfs, graph): fine and consistent with the analogous corpus entries. None rejected.\n\nSummary: 69 words (inside 40-70), one paragraph, third person, accurate. It includes n <= 10^5 and the subtree-size cost, and it surfaces the non-obvious reduction (baseline of flipping every red, +size/-size weights, min-weight connected subtree). Kept verbatim."
+  }
+}

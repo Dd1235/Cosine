@@ -1,0 +1,66 @@
+{
+  "id": "codeforces-2283-f",
+  "title": "Minimize the Graph",
+  "source_url": "https://codeforces.com/contest/2283/problem/F",
+  "solution": "The graph is a DAG (all edges go from smaller to larger index), and for a DAG the minimum graph with the same reachability is its unique transitive reduction: any equivalent graph must contain every pair (u,v) with u reaching v and no intermediate w, and those edges suffice. So we count edges j->i (j in [l_i, r_i]) that are not implied by a longer path. A longer path j -> ... -> k -> i has k in [l_i, r_i] with j < k, so j->i is redundant iff j reaches some vertex in (j, r_i]. Every path out of j starts at a direct successor and indices only increase, so the smallest vertex j reaches is nxt(j) = min{i : l_i <= j <= r_i}; hence j->i is kept iff nxt(j) > r_i. Compute nxt for all j by processing i in increasing order and painting the still-unassigned positions of [l_i, r_i] with a DSU 'next unpainted' pointer (each position painted once). Then answer = sum over i of #{j in [l_i, r_i] : nxt(j) > r_i}. Count offline by sweeping r from 1 to n with a Fenwick tree over j: j is active while j <= r < nxt(j) (add at r=j, remove at r=nxt(j)), and each query (l_i, r_i) reads the number of active positions in [l_i, r_i] at r = r_i. Total O(n log n) (near-linear DSU plus BIT), well within n, sum n <= 3*10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution (DSU painting for nxt + offline Fenwick sweep) matches all 5 samples (4 8 4 9 6). Stress test: 1500 random cases n in [2,5] against a truly exhaustive brute (enumerate every subset of transitive-closure pairs, smallest whose reachability equals the original), and 3000 random cases n in [2,40] against a transitive-reduction brute (count reachable pairs u->v with no intermediate w); all agree. Max case n=3*10^5 random runs in 0.5s in CPython."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "reachability",
+      "union-find",
+      "fenwick-tree",
+      "offline-queries"
+    ],
+    "tags": [
+      "graph",
+      "data-structures",
+      "fenwick-tree",
+      "union-find",
+      "interval"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "reachability",
+      "fenwick-tree",
+      "line-sweep",
+      "interval-union"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "offline-queries",
+        "reason": "The input has no queries. The n intervals are the graph itself, and sweeping r is an event sweep, not reordering a given query list. Corpus precedent: the v80 audit refuted offline-queries on codeforces-961-e for exactly this ('every one of the 59 offline-queries problems has an actual query list'), and codeforces-2277-f dropped it for 'no queries'. Replaced by line-sweep."
+      },
+      {
+        "pattern": "union-find",
+        "reason": "DSU painting only computes nxt(j), the first vertex whose interval covers j. That is a sub-step with interchangeable tools: a min-heap sweep over j, a segment-tree chmin, or a std::set range-erase inside the same r-sweep. I implemented and stress-verified the std::set version (alt.cpp, no DSU). The insight is the reduction to nxt(j) > r_i, not the painting idiom. Codeforces did not tag the problem dsu (tags: brute force, data structures, graphs, greedy), which suggests the intended solution doesn't rely on it either. The tool-agnostic name for this step is interval-union, added below."
+      }
+    ],
+    "added_patterns": [
+      {
+        "pattern": "line-sweep",
+        "reason": "The counting step is a textbook event sweep over r: activate j at r=j, deactivate it at r=nxt(j), and answer vertex i at r=r_i. That is 2D dominance counting by sweep plus BIT. Corpus precedent: CSES 2169 Nested Ranges Count carries line-sweep + fenwick-tree for the same shape. The proposal rejected it as 'covered by offline-queries', but that label does not apply."
+      },
+      {
+        "pattern": "interval-union",
+        "reason": "nxt(j) > r_i is the same as j lying outside the union of [l_v,r_v] for v <= r_i. Every reasonable solution maintains that union incrementally (DSU skip pointers, std::set erase, or heap). Each vertex then needs the uncovered count inside its own interval, like leetcode-count-integers-in-intervals and range-module. This label is tool-agnostic, unlike union-find. Lower confidence, because the union is not the main thing a solver thinks about."
+      }
+    ],
+    "rejected_tags": [
+      {
+        "tag": "union-find",
+        "reason": "Same as the pattern: DSU is one of several interchangeable tools for the nxt/painting sub-step and is absent from the judge tags."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "reachability: the core insight is the transitive reduction of a DAG, i.e. an edge is needed iff no other path exists, reduced to 'smallest vertex reachable from j' (no canonical transitive-reduction label, so reachability is the closest search term; the summary also says 'transitive reduction'). union-find: computing nxt(j) = first interval covering j is classic DSU interval painting (alternatives: segment-tree range chmin or a heap sweep; DSU is the natural one, confidence 0.6). fenwick-tree + offline-queries: counting j in [l, r] with nxt(j) > r is a 2D dominance count done offline by sweeping r with a BIT. Rejected: line-sweep (the r-sweep is just how the offline BIT runs, covered by offline-queries), merge-sort-tree / persistent-segment-tree (would answer the count online but nobody needs them here), topological-sort (indices are already a topological order), dp-on-dag / graph-modeling / greedy (nothing in the solution uses them), counting (too generic).",
+    "skeptic": "SOLUTION: correct, identical to my independent derivation (see skeptic_check). TRAP binary-search-answer: not applicable and not proposed. The answer is a direct count with no feasibility predicate, and nothing is searched. TRAP bitmask-dp vs interval-dp: not applicable. There is no DP of any kind. The 'interval' in the statement is each vertex's in-edge source range, not a DP over subarrays, and n = 3·10^5 rules out any O(n^2) interval DP or exponential mask DP anyway. PATTERN AUDIT. reachability KEEP (0.65): the problem asks for a reachability-preserving minimum graph (transitive reduction), and the solution's key lemma is about reachability: the smallest reachable vertex is the smallest out-neighbour. The vocabulary has no transitive-reduction slug, so this is the closest search term, and the corpus uses it sparingly for real graph-reachability problems (cses-2138 Reachable Nodes). It is not quite statement echo, since the statement never says 'reachability'. fenwick-tree KEEP (0.8): counting j in [l_i,r_i] with nxt(j) > r_i is 2D dominance counting and needs a log-time range-count structure (judge tag 'data structures'). BIT is the default. Segment tree, a pb_ds order-statistics set, or an online merge-sort tree / persistent segment tree would also work, but each is heavier and nobody needs them, so they are not added. offline-queries REJECT and union-find REJECT (reasons in rejected_patterns). ADDED line-sweep (0.7) and interval-union (0.5) (reasons in added_patterns). Considered and not added: greedy and brute-force (judge tags; the transitive reduction of a DAG is unique, so there is no greedy choice, and 'brute force' probably refers to amortized range-erase, not exhaustive search); segment-tree and ordered-set (interchangeable with the BIT or the DSU); topological-sort and dp-on-dag (indices are already a topological order and nothing propagates along the DAG); graph-modeling (the graph is given); coordinate-compression (positions are already 1..n); prefix-sum/difference-array (the count depends on the threshold r_i, so static prefix sums don't work); counting/contribution-technique (too generic). SUMMARY: the proposal's summary was accurate but named DSU interval painting, which would text-match the rejected union-find label. Rewritten (69 words) to keep the reduction, state it in the tool-agnostic union form ('no interval of a vertex up to r_i covers j'), and add the deciding constraint that the graph has Θ(n²) edges with sum n ≤ 3·10^5, so kept edges must be counted rather than enumerated."
+  }
+}

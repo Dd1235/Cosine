@@ -1,0 +1,27 @@
+{
+  "id": "codeforces-2280-b",
+  "title": "Secret String Patterns",
+  "slug": "2280-b-secret-string-patterns",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2280/problem/B",
+  "source_topic": "Codeforces / Contest 2280",
+  "source_tags": [
+    "interactive"
+  ],
+  "statement": "The task is to decide, using at most 5 interactive queries that each return the number of ones in a range [l, r] of a hidden binary string of length n up to 2·10^4, whether the string contains a 0 immediately followed by a 1. The key observation is that no \"01\" exists exactly when the string is all ones followed by all zeros, which two prefix-count queries can verify.",
+  "tags": [
+    "interactive",
+    "string"
+  ],
+  "patterns": [
+    "interactive"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "interactive": 1.0
+    }
+  }
+}

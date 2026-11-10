@@ -1,0 +1,30 @@
+{
+  "id": "codeforces-2280-a",
+  "title": "Are They the Same?",
+  "slug": "2280-a-are-they-the-same",
+  "platform": "codeforces",
+  "source_url": "https://codeforces.com/contest/2280/problem/A",
+  "source_topic": "Codeforces / Contest 2280",
+  "source_tags": [
+    "brute force",
+    "implementation"
+  ],
+  "statement": "It asks whether array a (n up to 100) can become a permutation of b using a_i := 2a_i + k and a_i +-2 (values unrestricted). Since +-2 reaches every value of the same parity and 2a_i + k always has k's parity, only parities matter: elements of k's parity are locked, the rest can switch, so the answer is YES iff a has no more k-parity elements than b.",
+  "tags": [
+    "math",
+    "counting",
+    "implementation",
+    "array"
+  ],
+  "patterns": [
+    "parity-argument"
+  ],
+  "annotation": {
+    "version": "problem-patterns-v1",
+    "model": "claude-opus-5-5 (solve + skeptic)",
+    "generated_at_unix": 1794295745,
+    "pattern_confidence": {
+      "parity-argument": 0.97
+    }
+  }
+}

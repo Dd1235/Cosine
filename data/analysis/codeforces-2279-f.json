@@ -1,0 +1,55 @@
+{
+  "id": "codeforces-2279-f",
+  "title": "The Stones of Nim",
+  "source_url": "https://codeforces.com/contest/2279/problem/F",
+  "solution": "By the Nim theorem Alice (moving first) wins iff the XOR of the kept piles is nonzero, so every color class must have no nonempty subset with XOR 0, i.e. be linearly independent over GF(2) (an XOR basis). The task is therefore matroid partition of the linear matroid over GF(2)^m (m = bit length of 2n <= 14): the minimum is max over subspaces V of ceil(|S cap V| / dim V) (Edmonds), but it is computed constructively. Because the input is XOR-encoded with each prefix's answer, elements are inserted online: keep a partition into k independent classes, each stored as an echelon basis with combination masks so the coordinates of any vector in that class's basis come out in O(m). To insert x, BFS the exchange graph (x -> y if y lies in x's unique circuit in y's class; sink if x is independent of some class). Key speed-up: once all reached elements lie in the span of every class, the elements of class c reachable so far are exactly the support of span(reached) in c's coordinates, so only the elements that enlarge W = span(reached) (at most m per BFS) need testing against all k classes, and each layer must enlarge W (else the search dies), giving at most m+1 layers whose parent pointers are true BFS distances. A sink yields a shortest augmenting path, which is valid to apply (swap along the path, rebuild the touched bases); no path means S+x has a tight flat and k grows by one with x alone in a new class. Per insertion O(k m^2), total O(n k m^2) with k <= ~540, about 0.7 s for n = 7000.",
+  "solution_check": {
+    "verified": true,
+    "how": "C++ solution (incremental matroid partition with layered shortest augmenting paths) run on the 3 samples: prefix answers 1 1 2 / 1 1 2 2 2 2 / 1 1 1 2 2 2 2 2 3, decoded piles and k (2,2,3) match, and the printed colorings pass a checker (each class XOR-independent, exact partition). Stress vs exact brute force (set-partition enumeration into independent blocks) on 3000+1500 random cases n<=9, values in [1,2n], comparing every prefix answer and validating the coloring; stress vs Edmonds' formula max over all subspaces V of ceil(|S cap V|/dim V) on 2300 random cases n<=31 (values <=62, k up to 6), every prefix compared. Brute and formula agreed on 400 cases. Timing on eight n=7000 tests (random, dense 1..7000 inc/dec/random, popcount-sorted, evens-then-odds): <=0.72 s, all outputs valid and k equal to the whole-set lower bound ceil(n/rank). Augmenting paths of length 2-3 occur in these runs."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "xor-basis",
+      "matroid-intersection",
+      "gaussian-elimination"
+    ],
+    "tags": [
+      "math",
+      "bit-manipulation",
+      "game-theory",
+      "matroid",
+      "graph",
+      "constructive-algorithm"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "xor-basis",
+      "matroid-intersection"
+    ],
+    "rejected_patterns": [
+      {
+        "pattern": "gaussian-elimination",
+        "reason": "This is the same technique as xor-basis under a second name. data/pattern_taxonomy.json aliases both gaussian-elimination-over-f2 and xor-gaussian-elimination to xor-basis, so the corpus treats GF(2) elimination as xor-basis. The canonical gaussian-elimination label is for solving linear systems over the reals or mod p. No system is solved here. The work is linear-basis insertion plus reading a vector's coordinates, using basis vectors that carry 14-bit masks of which class members they combine. That is the standard 'linear basis with coefficient tracking', which belongs under xor-basis."
+      }
+    ],
+    "added_patterns": [],
+    "rejected_tags": [
+      {
+        "tag": "graph",
+        "reason": "The problem has no graph. The only graph is the matroid exchange graph inside the augmenting-path search, and the proposal rejected bfs as scaffolding for exactly this reason. Someone browsing graph problems would not want this one."
+      },
+      {
+        "tag": "constructive-algorithm",
+        "reason": "The coloring is just the final state of the matroid-partition algorithm. There is no separate construction idea, and the proposal itself turned down this label as a pattern for that reason. Keeping it as a tag would only add noise to a large, generic bucket."
+      }
+    ]
+  },
+  "notes": {
+    "solver": "xor-basis: each color class must be XOR-independent and every step is computing a vector's coordinates in a class's linear basis over GF(2). matroid-intersection: the core is matroid partition / matroid union (no canonical label for it); its exchange-graph shortest-augmenting-path algorithm is the matroid-intersection algorithm specialised (partition = intersecting k copies of the linear matroid with a partition matroid), and 'matroid' searches should land here. gaussian-elimination: the class bases are kept in echelon form with combination masks to read circuits, i.e. GF(2) elimination; lower confidence because xor-basis already covers it. game-theory kept as a tag only: the Nim theorem (win iff XOR != 0) is a one-line reduction, not the technique. Rejected: bfs (the BFS is the matroid augmenting-path search, scaffolding; a 'bfs' searcher would want graph/grid BFS), bit-manipulation as a pattern (XOR is the medium, covered by xor-basis; kept as tag), greedy/constructive-algorithm as patterns (the coloring comes from augmentation, not a greedy rule), binary-search-answer (k is computed incrementally, never searched), bitmask-dp/brute-force (2^14 vectors but no DP over subsets), offline-queries (input is forced online). Deciding constraints: values <= 2n give rank m <= 14, so classes have <= 14 elements, k ~ n/14, and only <= 14 elements per BFS need testing against all classes.",
+    "skeptic": "SOLUTION: correct, and it matches the algorithm I derived on my own, span pruning included. The proposal's claimed checks are consistent with what I reproduced. PATTERNS. xor-basis: keep (0.95). Every operation is a GF(2) linear-basis test or a coordinate read-out within one class's basis. matroid-intersection: keep, lowered to 0.65. What actually runs is Edmonds' matroid partition (matroid union) algorithm: shortest augmenting paths in the exchange graph of k copies of the binary matroid. That is the matroid-intersection algorithm applied to (direct sum of k copies of the matroid on E x [k]) intersected with (the partition matroid where each pile gets one color), with nodes taken per pile instead of per (pile, color) pair. So the label names the right technique family, but not the exact procedure. A generic intersection template would not pass, because the ground set E x [k] has about 3.8M elements, and the span-pruned partition BFS is required. The vocabulary has no matroid-union or matroid-partition label, so this is the honest nearest label and the one a 'matroid' searcher should hit. Suggestion for the taxonomy owner: alias matroid-union and matroid-partition to matroid-intersection. gaussian-elimination: drop. It duplicates xor-basis, as the taxonomy aliases show (see the rejection reason). game-theory / grundy-numbers: neither belongs in patterns. Bouton's Nim theorem (first player wins iff XOR != 0) is a one-line reduction after which no game reasoning remains. No Grundy values are computed, so grundy-numbers is wrong outright. A 'nim' or 'game theory' searcher who wants game analysis would be poorly served if this ranked as a game-theory problem. Lexical recall is still covered: game-theory stays as a tag and the summary says 'Nim theorem'. Online queries: the vocabulary has no online-queries label. offline-queries is correctly rejected, because the XOR encoding makes it impossible to process queries offline, and that is what forces incremental augmentation instead of a batch partition or Edmonds' formula. The summary now says 'XOR-encoded input forces the answer for each prefix online' so that 'online' and 'prefix' searches can match. bfs: rejected, agreed, because it is the matroid augmenting-path search. greedy: rejected, because first-fit is suboptimal in 17% of random cases. TRAP binary-search-answer: does not apply. k is never searched. It is maintained incrementally and grows by at most 1 per inserted pile, and the online encoding requires every prefix answer anyway. TRAP bitmask-dp vs interval DP (constraint decides): values <= 2n <= 14000 < 2^14 might suggest a bitmask DP or SOS over 2^14. The exact formula maximizes over subspaces of GF(2)^14, which are astronomically many, so no DP over masks is possible or used. The 14-bit masks are bookkeeping for coordinates, not DP states. The deciding constraint is value <= 2n: rank <= 14, so each class holds at most 14 piles, k is about n/14 (at most about 540), and a BFS tests at most 14 span-growing elements against all k classes, O(n k m^2) overall. The summary now states 'at most 14 values'. TAGS: dropped graph and constructive-algorithm. Added linear-algebra, which the corpus already uses on GF(2) records such as codeforces-1672-g and 1698-g and which brings in 'linear algebra' searches now that gaussian-elimination is gone. SUMMARY: the proposal's 67-word version was acceptable. I rewrote it to name the Nim theorem as the reduction, to state the rank <= 14 consequence of sizes <= 2n, and to remove the repeated 'no subset XORs to zero' / 'linearly independent' wording."
+  }
+}

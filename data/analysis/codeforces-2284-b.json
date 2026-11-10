@@ -1,0 +1,39 @@
+{
+  "id": "codeforces-2284-b",
+  "title": "Introduction to the Niche Internet",
+  "source_url": "https://codeforces.com/contest/2284/problem/B",
+  "solution": "A donation is very pleasant exactly when the prefix average does not decrease at that step ((m-1)·a_m >= T_{m-1} is equivalent to T_m/m >= T_{m-1}/(m-1)). Every copy of the maximum value M is always very pleasant, since M is at least any average. So at least c = count(M) pleasant donations are forced, and k < c gives NO. That covers the all-equal case: c = n, so only k = n works. For c <= k <= n, sort ascending as b_1..b_n and let d = n-k. Output b_{d+1},...,b_n in ascending order, then b_d,...,b_1 in descending order. In the ascending block each element is >= every earlier one, so the average never drops and all n-d are pleasant. In the descending tail each b_j (j <= d) is <= every earlier element. The prefix also contains b_n = M > b_j, because d <= n-c means the d smallest values exclude every maximum. So b_j is strictly below the average and all d tail elements are unpleasant. Exactly k are pleasant. Runtime is O(n log n) for the sort, with sum of n up to 2·10^5.",
+  "solution_check": {
+    "verified": true,
+    "how": "Python solution run on the 4 samples. The YES/NO verdicts match and every output order was re-counted to have exactly k pleasant donations; for tests 3 and 4 the orders differ from the sample's but any valid order is accepted. Brute force tried every permutation for n<=7 with values from ranges ±1, ±2, ±3, ±5, ±10 and ±1e9 (to force ties). Stress test: 4000 random arrays x every k = 15,872 (n,k,a) cases, checking that the YES/NO verdict matches the brute force and that each YES order is a permutation of a with exactly k pleasant. All passed. A max-size test (n=2·10^5, k=12345) runs in 0.06s and its output was verified to have exactly 12345 pleasant donations."
+  },
+  "skeptic_solution_correct": true,
+  "skeptic_solution_fix": "",
+  "proposed": {
+    "patterns": [
+      "constructive-algorithm",
+      "sorting"
+    ],
+    "tags": [
+      "constructive-algorithm",
+      "sorting",
+      "math",
+      "array",
+      "greedy"
+    ]
+  },
+  "review": {
+    "status": "changed",
+    "patterns": [
+      "constructive-algorithm",
+      "sorting"
+    ],
+    "rejected_patterns": [],
+    "added_patterns": [],
+    "rejected_tags": []
+  },
+  "notes": {
+    "solver": "constructive-algorithm: the whole problem is building an order that hits exactly k, plus a lower bound (the maximum's copies) that proves when the answer is NO. sorting: it is the construction itself, not preprocessing. The answer is the sorted array split at n-k into an ascending block and a reversed tail. greedy is only a tag, matching CF's likely tagging, and not a pattern: no exchange argument or local greedy choice is involved, just a fixed sorted layout. Rejected prefix-sum, which only checks the answer and is not part of the solution, and binary-search-answer and dynamic-programming, which do not apply since the construction is direct. math is a tag for the prefix-average inequality.",
+    "skeptic": "SOLUTION: correct. Three facts drive it. A copy of the maximum M is always pleasant, since M is at least any average. An element that is >= every earlier element is pleasant. An element that is <= every earlier element, with M among them and the element < M, is strictly below the average, so it is not pleasant. Sorted ascending gives n, sorted descending gives count(M), and the split construction (top k ascending, rest descending) gives exactly any k in between. Exhaustive brute force confirms that the reachable set is exactly [count(M), n], so the NO condition k < count(M) is tight. The prefix-average equivalence (m-1)a_m >= T_{m-1} <=> T_m/m >= T_{m-1}/(m-1) also checks out. Products reach about 2e14, so the check itself needs 64-bit, although the construction never multiplies. PATTERNS: constructive-algorithm is kept. The problem asks for an order that hits exactly k, plus a lower-bound proof for NO. sorting is kept, and it is the technique here, not preprocessing. The output is literally two sorted runs of the array. Correctness rests entirely on sortedness: an ascending block means each element is >= its prefix average, and a descending tail below M means each element is below it. No other algorithm consumes the sorted array afterwards. CF also tags it sortings. REJECTED / NOT ADDED: greedy as a pattern stays out. The layout is fixed and there is no local choice or exchange argument. Calling it greedy would only describe the extremal reasoning (descending minimises the count, ascending maximises it). It stays as a tag because CF's real tags are constructive algorithms, greedy and sortings; the proposal's 'likely tagging' guess is now confirmed. counting is rejected: counting copies of the max is a one-line scaffold. prefix-sum is rejected: only a checker needs running sums, the construction does not. exchange-argument, two-pointers and parity-argument do not apply. TRAP binary-search-answer: it does not apply. One could imagine binary searching the size of the ascending prefix, since the count is monotone in it, but the count equals that size exactly, so k is placed directly in O(1) after the sort. There is no feasibility test, and a direct solution is what anyone would write. TRAP bitmask-dp vs interval DP: no DP of any kind. n <= 2e5 rules out any permutation or subset DP (Held-Karp-style bitmask over orders), and there is no interval structure. Brute-force permutations were used only for testing at n <= 7. SUMMARY: the proposal's 64-word summary was accurate and kept the deciding fact (k >= count of max). But 'an ascending-then-descending sorted arrangement' did not say where the split falls. It was rewritten to name the k largest ascending, then the rest descending, at 69 words, and to state the NO condition explicitly. DATA NOTE: data/cache/codeforces_statements.json has tags: [] for this id because it came from Tavily. The CF API gives ['constructive algorithms', 'greedy', 'sortings'], which could be used to fill source_tags."
+  }
+}
